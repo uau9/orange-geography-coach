@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.8.0",
+  "schema_version": "0.9.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -24,6 +24,18 @@
       "status_kind": "solar_season",
       "accent": "gold",
       "order": 15
+    },
+    {
+      "id": "annual-sun-lab",
+      "eyebrow": "周年回归专项",
+      "title": "太阳直射点周年回归",
+      "summary": "把二分二至之间的日期连成曲线，判断直射纬度、移动方向、北半球昼长和正午太阳高度趋势。",
+      "action": "start-annual-sun",
+      "route": null,
+      "cta": "进入周年回归实验室",
+      "status_kind": "annual_sun",
+      "accent": "violet",
+      "order": 16
     },
     {
       "id": "solar-path-lab",

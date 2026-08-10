@@ -3,6 +3,7 @@ import { calculateTimeLabAnswers, normalizeTimeAnswer } from "../assets/time-uti
 await import("../assets/config.js");
 await import("../assets/features/solar-season.js");
 await import("../assets/features/solar-path.js");
+await import("../assets/features/annual-sun.js");
 await import("../assets/features/learning-export.js");
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
@@ -14,6 +15,7 @@ const earthMotionLab = JSON.parse(await readFile(new URL("../data/earth_motion_l
 const learningProjects = JSON.parse(await readFile(new URL("../data/learning_projects.json", import.meta.url), "utf8"));
 const solarSeasonLab = JSON.parse(await readFile(new URL("../data/solar_season_lab.json", import.meta.url), "utf8"));
 const solarPathLab = JSON.parse(await readFile(new URL("../data/solar_path_lab.json", import.meta.url), "utf8"));
+const annualSunLab = JSON.parse(await readFile(new URL("../data/annual_sun_lab.json", import.meta.url), "utf8"));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
 
@@ -24,14 +26,15 @@ if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json �
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
-if (learningProjects?.schema_version !== "0.8.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.8.0版非空项目清单");
+if (learningProjects?.schema_version !== "0.9.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.9.0版非空项目清单");
 if (solarSeasonLab?.schema_version !== "0.7.0" || !Array.isArray(solarSeasonLab.dates) || solarSeasonLab.dates.length !== 4) errors.push("solar_season_lab.json 必须包含4个二分二至日情境");
 if (solarPathLab?.schema_version !== "0.8.0" || !Array.isArray(solarPathLab.dates) || solarPathLab.dates.length !== 4) errors.push("solar_path_lab.json 必须包含4个二分二至日情境");
+if (annualSunLab?.schema_version !== "0.9.0" || !Array.isArray(annualSunLab.checkpoints) || annualSunLab.checkpoints.length !== 8) errors.push("annual_sun_lab.json 必须包含8个周年观察位置");
 
 const projectIds = new Set();
 const projectOrders = new Set();
-const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-solar-path", "start-time-lab", "start-next", "goto"]);
-const allowedStatusKinds = new Set(["earth_motion", "solar_season", "solar_path", "time_lab", "diagnostic", "retest"]);
+const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-annual-sun", "start-solar-path", "start-time-lab", "start-next", "goto"]);
+const allowedStatusKinds = new Set(["earth_motion", "solar_season", "annual_sun", "solar_path", "time_lab", "diagnostic", "retest"]);
 for (const project of learningProjects?.projects || []) {
   if (projectIds.has(project.id)) errors.push(`学习项目编号重复：${project.id}`);
   projectIds.add(project.id);
@@ -42,7 +45,7 @@ for (const project of learningProjects?.projects || []) {
   if (!allowedStatusKinds.has(project.status_kind)) errors.push(`${project.id} 使用了不支持的 status_kind`);
   if (project.action === "goto" && !project.route) errors.push(`${project.id} 的 goto action 必须指定 route`);
 }
-for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
+for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "annual-sun-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
   if (!projectIds.has(requiredProjectId)) errors.push(`学习项目清单缺少：${requiredProjectId}`);
 }
 
@@ -265,6 +268,47 @@ for (const tag of ["P-DATE-RISESET", "P-NOON-LATITUDE", "P-SHADOW-OPPOSITE", "P-
   if (!solarPathLab?.error_tags?.[tag]) errors.push(`solar_path_lab.json 缺少错误标签：${tag}`);
 }
 
+if (annualSunLab && !topicIds.has(annualSunLab.topic_id)) errors.push("annual_sun_lab.json 引用了不存在的主题");
+if (!Number.isInteger(annualSunLab?.review_after_hours) || annualSunLab.review_after_hours < 24) errors.push("annual_sun_lab.json review_after_hours 至少为24小时");
+const annualPhases = new Set();
+for (const checkpoint of annualSunLab?.checkpoints || []) {
+  if (annualPhases.has(checkpoint.phase)) errors.push(`周年观察位置重复：${checkpoint.phase}`);
+  annualPhases.add(checkpoint.phase);
+  if (!Number.isFinite(checkpoint.phase) || checkpoint.phase < 0 || checkpoint.phase >= 1) errors.push(`${checkpoint.id} phase 必须在0到1之间`);
+}
+for (const place of annualSunLab?.places || []) {
+  if (!Number.isFinite(place.latitude) || Math.abs(place.latitude) <= 23.5 || Math.abs(place.latitude) >= 66.5) errors.push(`${place.id} 应位于回归线与极圈之间，以保证趋势规则稳定`);
+}
+const annualFeature = globalThis.OrangeCoach?.features?.annualSun;
+if (!annualFeature) {
+  errors.push("周年回归实验功能未成功注册");
+} else {
+  const annualCheckpoints = new Map((annualSunLab.checkpoints || []).map((item) => [item.id, item]));
+  const annualPlaces = new Map((annualSunLab.places || []).map((item) => [item.id, item]));
+  const annualChecks = [
+    ["march-equinox", "beijing", 0, "向北移动", "正在变长", "正在升高", 50],
+    ["early-may", "beijing", 16.6, "向北移动", "正在变长", "正在升高", 66.6],
+    ["june-solstice", "beijing", 23.5, "北界折返向南", "达到最长后转短", "达到最高后降低", 73.5],
+    ["early-august", "beijing", 16.6, "向南移动", "正在变短", "正在降低", 66.6],
+    ["september-equinox", "sydney", 0, "向南移动", "正在变短", "正在升高", 56],
+    ["early-november", "sydney", -16.6, "向南移动", "正在变短", "正在升高", 72.6],
+    ["december-solstice", "sydney", -23.5, "南界折返向北", "达到最短后转长", "达到最高后降低", 79.5],
+    ["early-february", "sydney", -16.6, "向北移动", "正在变长", "正在降低", 72.6]
+  ];
+  for (const [checkpointId, placeId, latitude, migration, dayTrend, altitudeTrend, altitude] of annualChecks) {
+    const checkpoint = annualCheckpoints.get(checkpointId);
+    const place = annualPlaces.get(placeId);
+    if (!checkpoint || !place) { errors.push(`缺少周年回归校验情境：${checkpointId}-${placeId}`); continue; }
+    const result = annualFeature.calculate(checkpoint, place);
+    if (result.direct_latitude !== latitude || result.migration !== migration || result.north_day_trend !== dayTrend || result.altitude_trend !== altitudeTrend || result.noon_altitude !== altitude) {
+      errors.push(`${checkpointId}-${placeId} 的直射纬度、移动方向或趋势错误`);
+    }
+  }
+}
+for (const tag of ["A-DATE-LATITUDE", "A-MIGRATION-DIRECTION", "A-SOLSTICE-TURN", "A-DAY-TREND", "A-ALTITUDE-TREND"]) {
+  if (!annualSunLab?.error_tags?.[tag]) errors.push(`annual_sun_lab.json 缺少错误标签：${tag}`);
+}
+
 const learningExport = globalThis.OrangeCoach?.features?.learningExport;
 if (!learningExport) {
   errors.push("可批注学习档案功能未成功注册");
@@ -278,6 +322,7 @@ if (!learningExport) {
     earthMotionAttempts: [],
     solarSeasonAttempts: [],
     solarPathAttempts: [{ id: "PATH-TEST", date_id: "march-equinox", place_id: "equator", score: 4, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
+    annualSunAttempts: [{ id: "ANNUAL-TEST", checkpoint_id: "early-may", place_id: "beijing", score: 4, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     coachAnnotations: [{ id: "COACH-TEST", status: "候选" }]
   };
   const packet = learningExport.buildPacket({
@@ -287,9 +332,9 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.8.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
-  if (packet.summary.total_learning_records !== 2 || packet.summary.pending_parent_reviews !== 2) errors.push("学习档案摘要计数错误");
-  if (packet.summary.by_project.length !== 6 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts)) errors.push("学习档案缺少项目进度、太阳实验记录或学习时间范围");
+  if (packet.export_schema_version !== "0.9.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.summary.total_learning_records !== 3 || packet.summary.pending_parent_reviews !== 3) errors.push("学习档案摘要计数错误");
+  if (packet.summary.by_project.length !== 7 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts)) errors.push("学习档案缺少项目进度、太阳实验记录或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");
   if (packet.coach_annotations[0]?.id !== "COACH-TEST" || !packet.annotation_guide?.expected_annotation_shape) errors.push("学习档案没有保留批注或批注规范");
   if (!/^orange-geography-records-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}[+-]\d{2}-\d{2}\.json$/.test(filename)) errors.push("学习档案文件名必须包含本地日期、时分秒和时区偏移");
@@ -299,6 +344,8 @@ if (!learningExport) {
   if (tampered.ok) errors.push("学习档案导入没有阻止原始证据被改写");
   const tamperedPath = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, solarPathAttempts: [{ ...fixtureState.solarPathAttempts[0], score: 3 }] });
   if (tamperedPath.ok) errors.push("学习档案导入没有保护太阳视运动原始证据");
+  const tamperedAnnual = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, annualSunAttempts: [{ ...fixtureState.annualSunAttempts[0], score: 3 }] });
+  if (tamperedAnnual.ok) errors.push("学习档案导入没有保护周年回归原始证据");
 }
 
 if (errors.length) {
@@ -306,4 +353,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);

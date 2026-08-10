@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.9.0",
+  "topic_id": "physical.earth.motion",
+  "title": "太阳直射点周年回归实验室",
+  "description": "在二分二至之间继续移动日期，判断太阳直射纬度、移动方向、北半球昼长趋势和目标地正午太阳高度趋势。",
+  "model_note": "采用高中地理理想模型：以春分为周年起点，把一年等分为8个观察位置，太阳直射纬度在南北回归线之间连续往返。中间日期与纬度均取近似值。",
+  "review_after_hours": 48,
+  "checkpoints": [
+    { "id": "march-equinox", "name": "春分日", "date_hint": "3月20日前后", "phase": 0 },
+    { "id": "early-may", "name": "5月上旬", "date_hint": "春分→夏至", "phase": 0.125 },
+    { "id": "june-solstice", "name": "夏至日", "date_hint": "6月21日前后", "phase": 0.25 },
+    { "id": "early-august", "name": "8月上旬", "date_hint": "夏至→秋分", "phase": 0.375 },
+    { "id": "september-equinox", "name": "秋分日", "date_hint": "9月22日前后", "phase": 0.5 },
+    { "id": "early-november", "name": "11月上旬", "date_hint": "秋分→冬至", "phase": 0.625 },
+    { "id": "december-solstice", "name": "冬至日", "date_hint": "12月21日前后", "phase": 0.75 },
+    { "id": "early-february", "name": "2月上旬", "date_hint": "冬至→春分", "phase": 0.875 }
+  ],
+  "places": [
+    { "id": "beijing", "name": "北京", "latitude": 40, "location_note": "约40°N" },
+    { "id": "sydney", "name": "悉尼", "latitude": -34, "location_note": "约34°S" }
+  ],
+  "choices": {
+    "migration": ["向北移动", "北界折返向南", "向南移动", "南界折返向北"],
+    "north_day_trend": ["正在变长", "达到最长后转短", "正在变短", "达到最短后转长"],
+    "altitude_trend": ["正在升高", "达到最高后降低", "正在降低", "达到最低后升高"]
+  },
+  "error_tags": {
+    "A-DATE-LATITUDE": "不能由日期估计太阳直射纬度",
+    "A-MIGRATION-DIRECTION": "直射点位置与移动方向混淆",
+    "A-SOLSTICE-TURN": "没有把二至日识别为移动方向转折点",
+    "A-DAY-TREND": "直射点移动与北半球昼长趋势对应错误",
+    "A-ALTITUDE-TREND": "直射点移动与目标地正午太阳高度趋势对应错误"
+  }
+}
