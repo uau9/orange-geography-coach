@@ -1,0 +1,131 @@
+{
+  "schema_version": "0.18.0",
+  "id": "moon-phase-lab",
+  "topic_id": "physical.earth.universe",
+  "title": "月相位置与可见时段实验室",
+  "review_after_hours": 48,
+  "model_note": "采用高中理想模型：从地球北极上空俯视，太阳位于右侧，月球逆时针公转；月升、中天和月落时刻取整点近似。真实月球轨道相对黄道倾斜约5°、轨道为椭圆，实际观测时刻随日期与地点变化。南北半球看到的是同一月相，但亮面朝向会呈旋转差异。",
+  "phases": [
+    { "id": "new", "name": "新月（朔）", "angle_deg": 0, "lunar_date": "农历初一前后", "illumination": "近0%，朝地一面基本黑暗", "illumination_percent": 0, "trend": "由亏转盈的交界", "rise": "约6时", "transit": "约12时", "set": "约18时", "observation": "与太阳大致同升同落，通常难以直接看见", "category": "transition" },
+    { "id": "waxing-crescent", "name": "蛾眉月（渐盈）", "angle_deg": 45, "lunar_date": "农历初三至初五前后", "illumination": "约15%，可见细月牙", "illumination_percent": 15, "trend": "渐盈（亮面增大）", "rise": "约9时", "transit": "约15时", "set": "约21时", "observation": "日落后可在西方低空观察", "category": "waxing" },
+    { "id": "first-quarter", "name": "上弦月", "angle_deg": 90, "lunar_date": "农历初七、初八前后", "illumination": "约50%，可见半圆", "illumination_percent": 50, "trend": "渐盈（亮面增大）", "rise": "约12时", "transit": "约18时", "set": "约0时", "observation": "傍晚过中天，前半夜便于观察", "category": "waxing" },
+    { "id": "waxing-gibbous", "name": "盈凸月", "angle_deg": 135, "lunar_date": "农历十一至十三前后", "illumination": "约85%，可见大半亮面", "illumination_percent": 85, "trend": "渐盈（亮面增大）", "rise": "约15时", "transit": "约21时", "set": "约3时", "observation": "下午升起，傍晚至后半夜可见", "category": "waxing" },
+    { "id": "full", "name": "满月（望）", "angle_deg": 180, "lunar_date": "农历十五、十六前后", "illumination": "近100%，朝地一面几乎全亮", "illumination_percent": 100, "trend": "由盈转亏的交界", "rise": "约18时", "transit": "约0时", "set": "约6时", "observation": "日落附近升起，整夜可见", "category": "transition" },
+    { "id": "waning-gibbous", "name": "亏凸月", "angle_deg": 225, "lunar_date": "农历十八至二十前后", "illumination": "约85%，可见大半亮面", "illumination_percent": 85, "trend": "渐亏（亮面减小）", "rise": "约21时", "transit": "约3时", "set": "约9时", "observation": "夜间升起，后半夜至上午可见", "category": "waning" },
+    { "id": "last-quarter", "name": "下弦月", "angle_deg": 270, "lunar_date": "农历廿二、廿三前后", "illumination": "约50%，可见半圆", "illumination_percent": 50, "trend": "渐亏（亮面减小）", "rise": "约0时", "transit": "约6时", "set": "约12时", "observation": "日出附近过中天，后半夜至上午可见", "category": "waning" },
+    { "id": "waning-crescent", "name": "残月（渐亏）", "angle_deg": 315, "lunar_date": "农历廿六至廿九前后", "illumination": "约15%，可见细月牙", "illumination_percent": 15, "trend": "渐亏（亮面减小）", "rise": "约3时", "transit": "约9时", "set": "约15时", "observation": "日出前可在东方低空观察", "category": "waning" }
+  ],
+  "scenarios": [
+    {
+      "id": "MP-01", "phase_id": "new", "challenge": "月球位于日地之间，是否就一定发生日食？",
+      "observations": ["月球与太阳大致位于地球同一侧", "朝向地球的一面基本处在月夜", "月球轨道平面与黄道面并不完全重合"],
+      "choices": {
+        "phase": ["新月（朔）", "上弦月", "满月（望）", "下弦月"],
+        "illumination": ["近0%，朝地一面基本黑暗", "约50%，可见半圆", "近100%，朝地一面几乎全亮", "月球完全没有受到太阳照射"],
+        "trend": ["由亏转盈的交界", "渐盈（亮面增大）", "由盈转亏的交界", "渐亏（亮面减小）"],
+        "transit": ["约12时", "约18时", "约0时", "约6时"],
+        "conclusion": ["新月通常只是月球从太阳附近经过，只有接近轨道交点且精确成线才可能日食", "每次新月都会发生日食", "新月是地球影子每天遮住月球", "新月时月球完全不受太阳照射"]
+      },
+      "answers": { "phase": "新月（朔）", "illumination": "近0%，朝地一面基本黑暗", "trend": "由亏转盈的交界", "transit": "约12时", "conclusion": "新月通常只是月球从太阳附近经过，只有接近轨道交点且精确成线才可能日食" }
+    },
+    {
+      "id": "MP-02", "phase_id": "waxing-crescent", "challenge": "日落后西方低空的一弯月亮，下一晚通常怎样变化？",
+      "observations": ["月球已从太阳东侧拉开约45°", "日落后不久在西方低空可见", "受光部分只占朝地视盘的一小部分"],
+      "choices": {
+        "phase": ["蛾眉月（渐盈）", "残月（渐亏）", "上弦月", "亏凸月"],
+        "illumination": ["约15%，可见细月牙", "约50%，可见半圆", "约85%，可见大半亮面", "近100%，朝地一面几乎全亮"],
+        "trend": ["渐盈（亮面增大）", "渐亏（亮面减小）", "由亏转盈的交界", "保持不变"],
+        "transit": ["约15时", "约9时", "约21时", "约3时"],
+        "conclusion": ["渐盈蛾眉月会逐日稍晚升落，亮面通常继续增大", "月牙只可能在午夜出现", "亮面朝向能在全球直接定义同一左右方向", "月牙说明月球大部分没有受到太阳照射"]
+      },
+      "answers": { "phase": "蛾眉月（渐盈）", "illumination": "约15%，可见细月牙", "trend": "渐盈（亮面增大）", "transit": "约15时", "conclusion": "渐盈蛾眉月会逐日稍晚升落，亮面通常继续增大" }
+    },
+    {
+      "id": "MP-03", "phase_id": "first-quarter", "challenge": "为什么上弦月最适合在傍晚到前半夜观察？",
+      "observations": ["月球与太阳的地心方向约成90°", "从地球看见约一半月面受光", "日落时月球位于天空较高位置"],
+      "choices": {
+        "phase": ["上弦月", "下弦月", "新月（朔）", "满月（望）"],
+        "illumination": ["约50%，可见半圆", "约15%，可见细月牙", "约85%，可见大半亮面", "近0%，朝地一面基本黑暗"],
+        "trend": ["渐盈（亮面增大）", "渐亏（亮面减小）", "由盈转亏的交界", "无法判断"],
+        "transit": ["约18时", "约6时", "约12时", "约0时"],
+        "conclusion": ["上弦月约18时过中天，前半夜可见，不必等到午夜", "上弦月午夜才从东方升起", "看见半月说明太阳只照亮了四分之一月球", "上弦月是一次不完整的月食"]
+      },
+      "answers": { "phase": "上弦月", "illumination": "约50%，可见半圆", "trend": "渐盈（亮面增大）", "transit": "约18时", "conclusion": "上弦月约18时过中天，前半夜可见，不必等到午夜" }
+    },
+    {
+      "id": "MP-04", "phase_id": "waxing-gibbous", "challenge": "亮面已经超过一半，怎样区分盈凸月与亏凸月？",
+      "observations": ["月球位于上弦与满月之间", "下午已升起，日落后明显可见", "连续几晚观察到亮面仍在扩大"],
+      "choices": {
+        "phase": ["盈凸月", "亏凸月", "蛾眉月（渐盈）", "下弦月"],
+        "illumination": ["约85%，可见大半亮面", "约50%，可见半圆", "约15%，可见细月牙", "近0%，朝地一面基本黑暗"],
+        "trend": ["渐盈（亮面增大）", "渐亏（亮面减小）", "由盈转亏的交界", "保持不变"],
+        "transit": ["约21时", "约3时", "约15时", "约9时"],
+        "conclusion": ["只看亮面比例不能区分盈亏，还要结合连续变化或可见时段", "凸月一定都是渐盈", "亮面超过一半就一定整夜可见", "月相名称只由月球离地球远近决定"]
+      },
+      "answers": { "phase": "盈凸月", "illumination": "约85%，可见大半亮面", "trend": "渐盈（亮面增大）", "transit": "约21时", "conclusion": "只看亮面比例不能区分盈亏，还要结合连续变化或可见时段" }
+    },
+    {
+      "id": "MP-05", "phase_id": "full", "challenge": "满月时日地月大致成线，为什么通常不发生月食？",
+      "observations": ["月球位于与太阳相对的天空方向", "朝地一面几乎全部受光", "日落附近升起、日出附近落下"],
+      "choices": {
+        "phase": ["满月（望）", "新月（朔）", "上弦月", "下弦月"],
+        "illumination": ["近100%，朝地一面几乎全亮", "约85%，可见大半亮面", "约50%，可见半圆", "近0%，朝地一面基本黑暗"],
+        "trend": ["由盈转亏的交界", "渐盈（亮面增大）", "由亏转盈的交界", "保持满月一个月"],
+        "transit": ["约0时", "约12时", "约18时", "约6时"],
+        "conclusion": ["满月通常从地影上方或下方经过，接近轨道交点且精确成线才可能月食", "每次满月都会发生月食", "满月是月球自己发光最强", "满月时太阳只照亮朝地一面而不照远地面"]
+      },
+      "answers": { "phase": "满月（望）", "illumination": "近100%，朝地一面几乎全亮", "trend": "由盈转亏的交界", "transit": "约0时", "conclusion": "满月通常从地影上方或下方经过，接近轨道交点且精确成线才可能月食" }
+    },
+    {
+      "id": "MP-06", "phase_id": "waning-gibbous", "challenge": "清晨西方天空的大半亮月，为什么不是盈凸月？",
+      "observations": ["月球位于满月与下弦之间", "午夜后过中天，上午仍可能可见", "连续几晚亮面逐渐缩小"],
+      "choices": {
+        "phase": ["亏凸月", "盈凸月", "上弦月", "残月（渐亏）"],
+        "illumination": ["约85%，可见大半亮面", "约50%，可见半圆", "约15%，可见细月牙", "近100%，朝地一面几乎全亮"],
+        "trend": ["渐亏（亮面减小）", "渐盈（亮面增大）", "由盈转亏的交界", "无法由连续观测判断"],
+        "transit": ["约3时", "约21时", "约15时", "约9时"],
+        "conclusion": ["清晨仍可见且亮面减小支持亏凸月，月亮并非只在夜间出现", "凸月只会在日落后前半夜出现", "白天看到月亮说明太阳已经落下", "亏凸月表示月球进入地球影子"]
+      },
+      "answers": { "phase": "亏凸月", "illumination": "约85%，可见大半亮面", "trend": "渐亏（亮面减小）", "transit": "约3时", "conclusion": "清晨仍可见且亮面减小支持亏凸月，月亮并非只在夜间出现" }
+    },
+    {
+      "id": "MP-07", "phase_id": "last-quarter", "challenge": "下弦月为什么常在清晨天空出现？",
+      "observations": ["月球与太阳的地心方向约成90°", "从地球看见约一半月面受光", "日出时月球接近天空较高位置"],
+      "choices": {
+        "phase": ["下弦月", "上弦月", "满月（望）", "蛾眉月（渐盈）"],
+        "illumination": ["约50%，可见半圆", "约15%，可见细月牙", "约85%，可见大半亮面", "近100%，朝地一面几乎全亮"],
+        "trend": ["渐亏（亮面减小）", "渐盈（亮面增大）", "由亏转盈的交界", "保持不变"],
+        "transit": ["约6时", "约18时", "约0时", "约12时"],
+        "conclusion": ["下弦月约6时过中天，主要在后半夜和上午可见", "下弦月傍晚过中天并在前半夜落下", "半月说明太阳只照亮月球四分之一表面", "下弦月与上弦月的可见时段相同"]
+      },
+      "answers": { "phase": "下弦月", "illumination": "约50%，可见半圆", "trend": "渐亏（亮面减小）", "transit": "约6时", "conclusion": "下弦月约6时过中天，主要在后半夜和上午可见" }
+    },
+    {
+      "id": "MP-08", "phase_id": "waning-crescent", "challenge": "日出前东方低空的细月牙，与傍晚西方月牙有何关键差别？",
+      "observations": ["月球正从太阳西侧接近太阳方向", "日出前在东方低空短暂可见", "连续几晚亮面继续缩小"],
+      "choices": {
+        "phase": ["残月（渐亏）", "蛾眉月（渐盈）", "盈凸月", "上弦月"],
+        "illumination": ["约15%，可见细月牙", "约50%，可见半圆", "约85%，可见大半亮面", "近100%，朝地一面几乎全亮"],
+        "trend": ["渐亏（亮面减小）", "渐盈（亮面增大）", "由盈转亏的交界", "无法判断"],
+        "transit": ["约9时", "约15时", "约21时", "约3时"],
+        "conclusion": ["日出前东方月牙通常为残月，傍晚西方月牙通常为渐盈蛾眉月", "所有月牙都是同一月相，只是天气不同", "东方月牙一定正在增亮", "月牙朝向在南北半球完全相同且可单独定盈亏"]
+      },
+      "answers": { "phase": "残月（渐亏）", "illumination": "约15%，可见细月牙", "trend": "渐亏（亮面减小）", "transit": "约9时", "conclusion": "日出前东方月牙通常为残月，傍晚西方月牙通常为渐盈蛾眉月" }
+    }
+  ],
+  "error_tags": {
+    "MP-POSITION-PHASE": "没有把日地月相对位置转换成正确月相",
+    "MP-ILLUMINATION": "把地球看到的亮面比例与月球实际受光的一半混为一谈",
+    "MP-WAX-WANE": "没有结合月球位置、连续变化或可见时段区分渐盈与渐亏",
+    "MP-VISIBLE-TIME": "月相与月升、中天、月落及可见时段对应错误",
+    "MP-EVIDENCE-BOUNDARY": "把普通月相写成地影作用、必然日月食或固定左右朝向"
+  },
+  "sources": [
+    { "title": "NASA Science: Moon Phases", "url": "https://science.nasa.gov/moon/moon-phases/", "supports": "八种月相顺序、29.5天周期、受光原理与各月相近似升落时段" },
+    { "title": "NASA Science: Skywatching FAQ", "url": "https://science.nasa.gov/skywatching/faq/", "supports": "月球始终半面受光、视角变化形成月相、平均每天约晚升50分钟" },
+    { "title": "NASA Science: Top Moon Questions", "url": "https://science.nasa.gov/moon/top-moon-questions/", "supports": "月相不是地影、南北半球同一月相但朝向不同、27.3天与29.5天区别" },
+    { "title": "NASA SVS: Moon Phase and Libration 2026", "url": "https://svs.gsfc.nasa.gov/5587/", "supports": "月相、月球轨道和日地月视角联动；示意图尺度夸大边界" },
+    { "title": "NASA SVS: Lunar Eclipses and the Moon's Orbit", "url": "https://svs.gsfc.nasa.gov/4158/", "supports": "轨道约5°倾角使新月与满月通常不发生日食或月食" },
+    { "title": "NASA SVS: Lunar Near and Far Side Phases", "url": "https://svs.gsfc.nasa.gov/14992/", "supports": "近地面与远地面呈相反受光状态，始终只有半个月球受太阳照亮" }
+  ]
+}

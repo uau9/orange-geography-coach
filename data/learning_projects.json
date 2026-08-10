@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.17.0",
+  "schema_version": "0.18.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -134,6 +134,18 @@
       "order": 24
     },
     {
+      "id": "moon-phase-lab",
+      "eyebrow": "月相专项",
+      "title": "月相位置与可见时段",
+      "summary": "从日地月相对位置判断八种月相、可见亮面、盈亏变化和月升中天月落时段，并区分普通月相与日月食。",
+      "action": "start-moon-phase",
+      "route": null,
+      "cta": "进入月相实验室",
+      "status_kind": "moon_phase",
+      "accent": "violet",
+      "order": 25
+    },
+    {
       "id": "solar-path-lab",
       "eyebrow": "太阳视运动专项",
       "title": "日出日落与太阳视运动",
@@ -143,7 +155,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 25
+      "order": 26
     },
     {
       "id": "time-zone-lab",
@@ -155,7 +167,7 @@
       "cta": "进入时区实验室",
       "status_kind": "time_lab",
       "accent": "teal",
-      "order": 26
+      "order": 27
     },
     {
       "id": "diagnostic-questions",

@@ -659,6 +659,49 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .activity-progress-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 12px 3px 0; color: var(--muted); font-size: 9px; }
 .activity-progress-caption strong { color: #8a541d; font-size: 12px; }
 .solar-activity-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #c17828; touch-action: pan-x; }
+.moon-phase-scene-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.moon-phase-scene-bar > div { min-width: 0; border: 1px solid #d9cce4; border-radius: 12px; padding: 10px 12px; background: #f8f3fb; }
+.moon-phase-scene-bar span, .moon-phase-scene-bar strong { display: block; }
+.moon-phase-scene-bar span { color: var(--muted); font-size: 9px; }
+.moon-phase-scene-bar strong { margin-top: 4px; color: #614577; font-size: 12px; line-height: 1.4; }
+.moon-phase-card { overflow: hidden; }
+.moon-phase-layout, .moon-phase-result-layout { display: grid; gap: 18px; }
+.moon-phase-model { display: block; width: 100%; height: auto; border: 1px solid #cbd3e5; border-radius: 16px; background: #111a33; }
+.moon-space-bg { fill: #111a33; }
+.moon-sun-rays path { fill: none; stroke: rgba(255,218,126,.62); stroke-width: 2; stroke-dasharray: 7 6; }
+.moon-sun { fill: #f4bd58; stroke: #ffe6a7; stroke-width: 4; }
+.moon-orbit { fill: none; stroke: rgba(210,220,239,.43); stroke-width: 2; stroke-dasharray: 5 5; }
+.moon-orbit-arrow { fill: none; stroke: #a89cc8; stroke-width: 3; stroke-linecap: round; }
+.moon-orbit-head { fill: #a89cc8; }
+.moon-earth { fill: #4d9fbd; stroke: white; stroke-width: 3; }
+.moon-earth-land { fill: #b8d38a; }
+.moon-position-line { stroke: rgba(255,255,255,.18); stroke-width: 1; }
+.moon-position { fill: #495268; stroke: #e6ebf5; stroke-width: 2; }
+.moon-position.unlocked { fill: #303748; }
+.moon-position-lit, .moon-face-lit { fill: #f3e7bd; }
+.moon-model-label, .moon-position-name { fill: #e7edf7; font-size: 10px; font-weight: 800; }
+.moon-position-name { font-size: 9px; paint-order: stroke; stroke: #111a33; stroke-width: 3px; }
+.moon-face-dark { fill: #252b3a; }
+.moon-face-outline { fill: none; stroke: #f2f0e6; stroke-width: 2; }
+.phase-answer-label rect, .moon-phase-lock rect { fill: rgba(31,40,69,.96); stroke: rgba(255,255,255,.25); }
+.phase-answer-label text, .moon-phase-lock text { fill: #edf1f8; font-size: 9px; font-weight: 750; }
+.moon-phase-prediction-panel { min-width: 0; }
+.moon-phase-prediction-panel fieldset { min-width: 0; margin: 0; padding: 12px 0; border: 0; border-bottom: 1px solid var(--line); }
+.moon-phase-prediction-panel legend { padding: 0; font-size: 13px; font-weight: 800; line-height: 1.45; }
+.moon-phase-choice-grid { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 9px; }
+.moon-phase-choice-grid label { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 8px; background: #fdfbff; color: var(--ink); font-size: 10px; line-height: 1.35; text-align: center; overflow-wrap: anywhere; }
+.moon-phase-choice-grid label:has(input:checked) { border-color: #75558f; background: #f5eef9; }
+.moon-phase-choice-grid input { width: 1px; height: 1px; margin: 0; opacity: 0; }
+.moon-phase-readout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-top: 9px; }
+.moon-phase-readout > div { min-width: 0; border: 1px solid #d9cce4; border-radius: 11px; padding: 9px 10px; background: #faf6fc; }
+.moon-phase-readout span, .moon-phase-readout strong, .moon-phase-readout small { display: block; }
+.moon-phase-readout span { color: var(--muted); font-size: 8px; }
+.moon-phase-readout strong { margin: 3px 0; color: #5d4470; font-size: 11px; line-height: 1.35; }
+.moon-phase-readout small { color: #657381; font-size: 8px; line-height: 1.4; }
+.moon-phase-progress-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 12px 3px 0; color: var(--muted); font-size: 9px; }
+.moon-phase-progress-caption strong { color: #684f7d; font-size: 12px; }
+.moon-phase-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #75558f; touch-action: pan-x; }
+.moon-boundary-note { margin-top: 10px; border-color: #d9cce4; background: #f7f1fa; }
 @media (max-width: 520px) {
   .today-heading, .projects-heading { align-items: flex-start; }
   .today-heading .page-title, .projects-heading .page-title { font-size: 22px; }
@@ -688,6 +731,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .celestial-scene-bar, .celestial-readout { grid-template-columns: 1fr; }
   .habitability-scene-bar { grid-template-columns: 1fr; }
   .solar-activity-scene-bar { grid-template-columns: 1fr; }
+  .moon-phase-scene-bar, .moon-phase-readout { grid-template-columns: 1fr; }
   .habitability-evidence-row { grid-template-columns: minmax(78px, .72fr) repeat(2, minmax(0, 1fr)); padding-inline: 5px; }
   .celestial-progress-caption span { max-width: 27%; }
 }
@@ -719,6 +763,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .habitability-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .solar-activity-layout { grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr); align-items: start; }
   .solar-activity-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
+  .moon-phase-layout { grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr); align-items: start; }
+  .moon-phase-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .motion-lab-layout { grid-template-columns: minmax(0, 1.22fr) minmax(290px, .78fr); align-items: start; }
   .motion-result-layout { grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); align-items: start; }
   .motion-prediction-panel { padding-left: 4px; }
@@ -734,4 +780,5 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .celestial-layout, .celestial-result-layout { grid-template-columns: 1fr; }
   .habitability-layout, .habitability-result-layout { grid-template-columns: 1fr; }
   .solar-activity-layout, .solar-activity-result-layout { grid-template-columns: 1fr; }
+  .moon-phase-layout, .moon-phase-result-layout { grid-template-columns: 1fr; }
 }

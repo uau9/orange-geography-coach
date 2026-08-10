@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://uau9.github.io/orange-geography-coach/schemas/moon-phase-attempt.v0.18.schema.json", "title": "月相位置与可见时段实验记录 v0.18", "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "id", "scenario_id", "phase_id", "category", "answers", "correct_answers", "checks", "score", "error_tags", "reasoning", "submitted_at", "parent_review_status", "parent_note"],
+  "properties": {
+    "schema_version": { "const": "0.18.0" }, "id": { "type": "string" }, "scenario_id": { "type": "string", "pattern": "^MP-[0-9]{2}$" }, "phase_id": { "type": "string" }, "category": { "enum": ["waxing", "waning", "transition"] },
+    "answers": { "$ref": "#/$defs/answers" }, "correct_answers": { "$ref": "#/$defs/answers" },
+    "checks": { "type": "object", "additionalProperties": false, "required": ["phase", "illumination", "trend", "transit", "conclusion"], "properties": { "phase": { "type": "boolean" }, "illumination": { "type": "boolean" }, "trend": { "type": "boolean" }, "transit": { "type": "boolean" }, "conclusion": { "type": "boolean" } } },
+    "score": { "type": "integer", "minimum": 0, "maximum": 5 }, "error_tags": { "type": "array", "items": { "type": "string" } }, "reasoning": { "type": "string", "minLength": 1 }, "submitted_at": { "type": "string", "format": "date-time" }, "parent_review_status": { "enum": ["待家长确认", "已确认", "需再练", "需教师复核"] }, "parent_note": { "type": "string" }
+  },
+  "$defs": { "answers": { "type": "object", "additionalProperties": false, "required": ["phase", "illumination", "trend", "transit", "conclusion"], "properties": { "phase": { "type": "string" }, "illumination": { "type": "string" }, "trend": { "type": "string" }, "transit": { "type": "string" }, "conclusion": { "type": "string" } } } }
+}
