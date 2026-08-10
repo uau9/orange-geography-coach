@@ -29,6 +29,7 @@
     (state.timeLabAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     (state.earthMotionAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     (state.solarSeasonAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
+    (state.solarPathAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     return [...counts.entries()]
       .map(([error_tag, count]) => ({ error_tag, count }))
       .sort((a, b) => b.count - a.count || a.error_tag.localeCompare(b.error_tag));
@@ -58,7 +59,8 @@
       ...(state.retestAttempts || []),
       ...(state.timeLabAttempts || []),
       ...(state.earthMotionAttempts || []),
-      ...(state.solarSeasonAttempts || [])
+      ...(state.solarSeasonAttempts || []),
+      ...(state.solarPathAttempts || [])
     ];
     return all.filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
   }
@@ -73,9 +75,11 @@
     const timeLab = state.timeLabAttempts || [];
     const earthMotion = state.earthMotionAttempts || [];
     const solarSeason = state.solarSeasonAttempts || [];
+    const solarPath = state.solarPathAttempts || [];
     const latestTime = latestByTime(timeLab);
     const latestMotion = latestByTime(earthMotion);
     const latestSolar = latestByTime(solarSeason);
+    const latestPath = latestByTime(solarPath);
     return [
       {
         project_id: "diagnostic-questions",
@@ -102,6 +106,12 @@
         confirmed: solarSeason.filter((attempt) => attempt.parent_review_status === "已确认").length
       },
       {
+        project_id: "solar-path-lab",
+        records: solarPath.length,
+        latest_score: latestPath?.score ?? null,
+        confirmed: solarPath.filter((attempt) => attempt.parent_review_status === "已确认").length
+      },
+      {
         project_id: "delayed-retests",
         records: retests.length,
         mastered: retests.filter((attempt) => attempt.parent_review_status === "已掌握").length
@@ -115,7 +125,8 @@
       ...(state.retestAttempts || []),
       ...(state.timeLabAttempts || []),
       ...(state.earthMotionAttempts || []),
-      ...(state.solarSeasonAttempts || [])
+      ...(state.solarSeasonAttempts || []),
+      ...(state.solarPathAttempts || [])
     ].map((attempt) => attempt.submitted_at).filter(Boolean).sort();
     return { first_recorded_at: timestamps[0] || null, last_recorded_at: timestamps[timestamps.length - 1] || null };
   }
@@ -129,7 +140,7 @@
   }
 
   function mergeAnnotatedArchive(currentState, importedState) {
-    const groups = ["attempts", "retestAttempts", "timeLabAttempts", "earthMotionAttempts", "solarSeasonAttempts"];
+    const groups = ["attempts", "retestAttempts", "timeLabAttempts", "earthMotionAttempts", "solarSeasonAttempts", "solarPathAttempts"];
     for (const group of groups) {
       const currentById = new Map((currentState[group] || []).map((record) => [record.id, record]));
       for (const importedRecord of importedState[group] || []) {
@@ -150,17 +161,18 @@
     const timeLabAttempts = state.timeLabAttempts || [];
     const earthMotionAttempts = state.earthMotionAttempts || [];
     const solarSeasonAttempts = state.solarSeasonAttempts || [];
-    const allCount = attempts.length + retestAttempts.length + timeLabAttempts.length + earthMotionAttempts.length + solarSeasonAttempts.length;
+    const solarPathAttempts = state.solarPathAttempts || [];
+    const allCount = attempts.length + retestAttempts.length + timeLabAttempts.length + earthMotionAttempts.length + solarSeasonAttempts.length + solarPathAttempts.length;
     const exportedAt = now.toISOString();
     const compactId = exportedAt.replace(/[-:.Z]/g, "");
     return {
       version: state.version,
-      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.7.0",
+      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.8.0",
       export_id: `EXPORT-${compactId}`,
       exported_at: exportedAt,
       exported_at_local: localTimestamp(now),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
-      app_version: config.APP_VERSION || "0.7.0",
+      app_version: config.APP_VERSION || "0.8.0",
       student_alias: config.STUDENT_ALIAS || "橙子",
       privacy_note: "档案默认不含姓名、学校、班级和联系方式；交给AI或教师前仍请人工检查自由文本。",
       summary: {
@@ -171,6 +183,7 @@
         time_lab_attempts: timeLabAttempts.length,
         earth_motion_attempts: earthMotionAttempts.length,
         solar_season_attempts: solarSeasonAttempts.length,
+        solar_path_attempts: solarPathAttempts.length,
         pending_parent_reviews: countPendingReview(state),
         activity_window: activityWindow(state),
         by_project: buildProjectSummary(state),
@@ -182,6 +195,7 @@
       time_lab_attempts: timeLabAttempts,
       earth_motion_attempts: earthMotionAttempts,
       solar_season_attempts: solarSeasonAttempts,
+      solar_path_attempts: solarPathAttempts,
       coach_annotations: state.coachAnnotations || [],
       annotation_guide: {
         purpose: "请基于学习证据批注进展，并把批注追加到 coach_annotations；不要修改原始作答记录。",

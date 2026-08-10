@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.7.0",
+  "schema_version": "0.8.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -24,6 +24,18 @@
       "status_kind": "solar_season",
       "accent": "gold",
       "order": 15
+    },
+    {
+      "id": "solar-path-lab",
+      "eyebrow": "太阳视运动专项",
+      "title": "日出日落与太阳视运动",
+      "summary": "在天空罗盘上预测日出、正午、日落和影子方向，再拖动时间轴观察太阳一天的运动轨迹。",
+      "action": "start-solar-path",
+      "route": null,
+      "cta": "进入太阳视运动实验室",
+      "status_kind": "solar_path",
+      "accent": "sky",
+      "order": 18
     },
     {
       "id": "time-zone-lab",

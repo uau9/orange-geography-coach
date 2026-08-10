@@ -10,7 +10,7 @@
 
 - `learning_projects.json` 是所有学习项目的导航清单；
 - `questions.json`、`retests.json` 是诊断与复测内容；
-- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json` 是专题实验模型；
+- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json` 是专题实验模型；
 - 内容文件不直接包含HTML，也不保存浏览器作答状态。
 
 ### 2. 格式约束：`schemas/`
@@ -23,6 +23,7 @@
 
 - `home.js`：今日建议与项目目录的纯渲染；
 - `solar-season.js`：太阳直射点、昼长和正午太阳高度计算及渲染；
+- `solar-path.js`：日出日落、正午太阳、影子方向和天空时间轴计算及渲染；
 - `learning-export.js`：学习档案摘要、时间戳和文件名；
 - 后续专题可继续拆分自己的渲染和计算模块。
 
@@ -43,9 +44,9 @@
 
 ## 版本规则
 
-- 应用资源版本当前为 `0.7.0`，集中定义在 `assets/config.js`；
+- 应用资源版本当前为 `0.8.0`，集中定义在 `assets/config.js`；
 - LocalStorage 学习记录仍使用兼容版本 `0.3.0`，避免破坏已有浏览器数据；
-- 导出档案独立使用 `export_schema_version: 0.7.0`；
+- 导出档案独立使用 `export_schema_version: 0.8.0`；
 - 修改数据结构时分别判断“应用版本、记录版本、导出版本”是否需要升级。
 
 ## 完成检查

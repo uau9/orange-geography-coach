@@ -29,9 +29,9 @@
   },
   {
     "id": "physical.earth.motion",
-    "name": "地球运动与晨昏线",
+    "name": "地球运动与太阳视运动",
     "category": "自然地理",
-    "description": "观察视角、自转方向、昼夜半球、晨线与昏线",
+    "description": "观察视角、自转方向、晨昏线、太阳直射点、昼长、太阳视运动与影子",
     "order": 5
   }
 ]

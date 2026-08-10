@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.8.0",
+  "topic_id": "physical.earth.motion",
+  "title": "日出日落与太阳视运动实验室",
+  "description": "把太阳直射点转化为地平圈上的日出、正午、日落和影子方向，并沿一天时间轴观察太阳视运动。",
+  "model_note": "采用高中地理理想模型：忽略大气折射、地形遮挡和太阳视半径；所选地点均无极昼极夜。天空图为抬头观察的罗盘投影，N在上、E在右。",
+  "review_after_hours": 48,
+  "dates": [
+    {
+      "id": "march-equinox",
+      "name": "春分日",
+      "date_hint": "3月20日前后",
+      "solar_declination": 0,
+      "explanation": "春分日太阳直射赤道，各地太阳从正东升起、正西落下；正午方位仍要比较当地纬度与0°。"
+    },
+    {
+      "id": "june-solstice",
+      "name": "夏至日",
+      "date_hint": "6月21日前后",
+      "solar_declination": 23.5,
+      "explanation": "夏至日太阳直射北回归线，有日出日落的地点均从东北升起、西北落下；正午太阳在哪一侧仍取决于直射纬度与当地纬度的比较。"
+    },
+    {
+      "id": "september-equinox",
+      "name": "秋分日",
+      "date_hint": "9月22日前后",
+      "solar_declination": 0,
+      "explanation": "秋分日太阳再次直射赤道，各地太阳从正东升起、正西落下；正午影子与太阳所在方位相反。"
+    },
+    {
+      "id": "december-solstice",
+      "name": "冬至日",
+      "date_hint": "12月21日前后",
+      "solar_declination": -23.5,
+      "explanation": "冬至日太阳直射南回归线，有日出日落的地点均从东南升起、西南落下；正午太阳在哪一侧仍要比较两条纬线。"
+    }
+  ],
+  "places": [
+    { "id": "equator", "name": "赤道", "latitude": 0, "location_note": "0°" },
+    { "id": "guangzhou", "name": "广州", "latitude": 23, "location_note": "约23°N" },
+    { "id": "beijing", "name": "北京", "latitude": 40, "location_note": "约40°N" },
+    { "id": "mohe", "name": "漠河", "latitude": 53, "location_note": "约53°N" },
+    { "id": "sydney", "name": "悉尼", "latitude": -34, "location_note": "约34°S" },
+    { "id": "ushuaia", "name": "乌斯怀亚", "latitude": -55, "location_note": "约55°S" }
+  ],
+  "choices": {
+    "sunrise": ["东北", "正东", "东南"],
+    "noon_sun": ["正北", "头顶", "正南"],
+    "sunset": ["西北", "正西", "西南"],
+    "noon_shadow": ["正北", "几乎没有", "正南"]
+  },
+  "error_tags": {
+    "P-DATE-RISESET": "日期与日出日落方位对应错误",
+    "P-NOON-LATITUDE": "没有比较当地纬度与太阳直射纬度",
+    "P-SHADOW-OPPOSITE": "影子方向没有与太阳方位相反",
+    "P-OVERHEAD-SHADOW": "太阳直射时的正午影子判断错误"
+  }
+}

@@ -235,6 +235,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .project-card { --accent: var(--teal); display: flex; flex-direction: column; min-height: 248px; margin: 0; border-top: 5px solid var(--accent); }
 .project-card[data-accent="navy"] { --accent: var(--navy); }
 .project-card[data-accent="gold"] { --accent: #c58a27; }
+.project-card[data-accent="sky"] { --accent: #3c91b7; }
 .project-card[data-accent="orange"] { --accent: var(--orange); }
 .project-card[data-accent="slate"] { --accent: #71828f; }
 .project-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
@@ -293,6 +294,28 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .solar-parent-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin: 12px 0; }
 .solar-parent-summary span { border: 1px solid var(--line); border-radius: 10px; padding: 9px 7px; color: var(--muted); font-size: 10px; text-align: center; }
 .solar-parent-summary strong { display: block; margin-top: 3px; color: var(--navy); font-size: 13px; }
+.solar-path-card { overflow: hidden; }
+.solar-path-layout, .solar-path-result-layout { display: grid; gap: 18px; }
+.solar-path-svg { display: block; width: 100%; height: auto; border-radius: 18px; touch-action: manipulation; }
+.solar-path-bg { fill: #eef7fa; }
+.sky-dome { fill: url(#sky-dome-gradient); stroke: white; stroke-width: 5; filter: drop-shadow(0 8px 9px rgba(20,59,93,.16)); }
+.sky-grid { fill: none; stroke: rgba(255,255,255,.7); stroke-width: 1.5; stroke-dasharray: 5 5; }
+.sky-compass text { fill: var(--navy); font-size: 13px; font-weight: 900; }
+.sky-observer circle { fill: var(--navy); stroke: white; stroke-width: 3; }
+.sky-observer text { fill: #4e6a7d; font-size: 10px; font-weight: 800; }
+.sky-sun-path { fill: none; stroke: #e47b2b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 5 5; }
+.sky-key-point circle { fill: white; stroke: #d06d24; stroke-width: 3; }
+.sky-key-point text { fill: #8e4d1d; font-size: 11px; font-weight: 900; paint-order: stroke; stroke: #eef7fa; stroke-width: 3px; }
+.sky-moving-sun circle { fill: #f4c75e; stroke: white; stroke-width: 3; }
+.sky-moving-sun path { fill: none; stroke: #e79a27; stroke-width: 3; stroke-linecap: round; }
+.sky-shadow { stroke: #304b5f; stroke-width: 7; stroke-linecap: round; opacity: .68; }
+.sky-answer-band rect { fill: rgba(20,59,93,.9); }
+.sky-answer-band text { fill: white; font-size: 11px; font-weight: 800; }
+.sky-lock rect { fill: rgba(20,59,93,.9); }
+.sky-lock text { fill: white; font-size: 12px; font-weight: 800; }
+.solar-path-slider-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 12px 4px 0; color: var(--muted); font-size: 10px; }
+.solar-path-slider-label strong { color: var(--navy); font-size: 12px; }
+.solar-path-slider { width: 100%; height: 42px; margin: 0; accent-color: var(--orange); cursor: ew-resize; touch-action: pan-x; }
 @media (max-width: 520px) {
   .today-heading, .projects-heading { align-items: flex-start; }
   .today-heading .page-title, .projects-heading .page-title { font-size: 22px; }
@@ -320,7 +343,12 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
   .solar-season-layout { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: start; }
   .solar-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
+  .solar-path-layout { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: start; }
+  .solar-path-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .motion-lab-layout { grid-template-columns: minmax(0, 1.22fr) minmax(290px, .78fr); align-items: start; }
   .motion-result-layout { grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); align-items: start; }
   .motion-prediction-panel { padding-left: 4px; }
+}
+@media (min-width: 700px) and (max-width: 819px) {
+  .solar-path-layout, .solar-path-result-layout { grid-template-columns: 1fr; }
 }
