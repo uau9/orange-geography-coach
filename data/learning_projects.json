@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.16.0",
+  "schema_version": "0.17.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -122,6 +122,18 @@
       "order": 23
     },
     {
+      "id": "solar-activity-lab",
+      "eyebrow": "太阳活动专项",
+      "title": "太阳活动与空间天气影响",
+      "summary": "从黑子、耀斑、高能粒子和CME证据出发，按传播载体与到达时标判断无线电、卫星、导航、极光和电网影响。",
+      "action": "start-solar-activity",
+      "route": null,
+      "cta": "进入太阳活动实验室",
+      "status_kind": "solar_activity",
+      "accent": "amber",
+      "order": 24
+    },
+    {
       "id": "solar-path-lab",
       "eyebrow": "太阳视运动专项",
       "title": "日出日落与太阳视运动",
@@ -131,7 +143,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 24
+      "order": 25
     },
     {
       "id": "time-zone-lab",
@@ -143,7 +155,7 @@
       "cta": "进入时区实验室",
       "status_kind": "time_lab",
       "accent": "teal",
-      "order": 25
+      "order": 26
     },
     {
       "id": "diagnostic-questions",

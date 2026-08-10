@@ -1,0 +1,127 @@
+{
+  "schema_version": "0.17.0",
+  "id": "solar-activity-lab",
+  "topic_id": "physical.earth.universe",
+  "title": "太阳活动证据判读实验室",
+  "review_after_hours": 48,
+  "model_note": "按高中理想模型可记为黑子主要观测于光球层、耀斑常在色球层活跃区表现显著、日冕物质抛射来自日冕；真实太阳爆发结构可跨越多个大气层。本实验用传播载体和时间顺序判读空间天气，不把伴随发生的现象混成同一种事件。",
+  "paths": [
+    { "id": "radiation", "name": "电磁辐射", "time": "约8分钟", "color": "#f4c15d", "note": "X射线和极紫外随光传播，可迅速改变向日侧电离层。" },
+    { "id": "particles", "name": "高能带电粒子", "time": "分钟至小时", "color": "#ec7a63", "note": "高能质子等可形成太阳辐射风暴，重点影响航天器、宇航员和高纬航空。" },
+    { "id": "plasma", "name": "磁化等离子体", "time": "最快约14—17小时，慢者数日", "color": "#6a9fbe", "note": "指向地球的CME到达磁层后，强度还受其磁场方向等条件影响。" }
+  ],
+  "scenarios": [
+    {
+      "id": "SA-01", "category": "indicator", "headline": "太阳黑子数连续数月维持高位", "challenge": "黑子多，是否就能断言明天地球发生强地磁暴？",
+      "observations": ["可见光图像中黑子群明显增多", "约11年太阳活动周期处于高活动阶段", "尚未观测到一次明确指向地球的爆发"],
+      "choices": {
+        "phenomenon": ["太阳黑子增多（活动周期指标）", "一次太阳耀斑", "一次日冕物质抛射", "一次地磁暴"],
+        "transport": ["不是一次从太阳传播到地球的事件", "电磁辐射", "高能带电粒子", "磁化等离子体"],
+        "arrival": ["不适用：这是长期统计状态", "约8分钟", "分钟至小时", "最快约14—17小时，慢者数日"],
+        "impact": ["太阳爆发事件的发生概率总体上升", "明天必有强地磁暴", "地球四季立即改变", "全球无线电必然全部中断"],
+        "conclusion": ["黑子多说明整体更活跃，但不能断言某次事件一定影响地球", "黑子数量可以精确预报每次地磁暴", "黑子本身会直接撞击地球", "太阳极大期等于地球夏季"]
+      },
+      "answers": { "phenomenon": "太阳黑子增多（活动周期指标）", "transport": "不是一次从太阳传播到地球的事件", "arrival": "不适用：这是长期统计状态", "impact": "太阳爆发事件的发生概率总体上升", "conclusion": "黑子多说明整体更活跃，但不能断言某次事件一定影响地球" }
+    },
+    {
+      "id": "SA-02", "category": "radiation", "headline": "向日侧在X射线爆发后很快出现高频无线电衰减", "challenge": "最先到达地球并造成响应的是什么？",
+      "observations": ["太阳活跃区出现持续数分钟的强X射线爆发", "地球向日侧高频无线电几乎同时出现衰减", "尚未确认伴随CME是否指向地球"],
+      "choices": {
+        "phenomenon": ["太阳耀斑", "太阳黑子", "日冕物质抛射", "极光"],
+        "transport": ["电磁辐射", "高能带电粒子", "磁化等离子体", "黑子物质"],
+        "arrival": ["约8分钟", "分钟至小时", "最快约14—17小时，慢者数日", "约11年"],
+        "impact": ["向日侧高频无线电可能衰减或中断", "电网一定立即崩溃", "两极必然同时出现极光", "地球自转速度明显改变"],
+        "conclusion": ["耀斑的无线电影响可先出现，是否还有CME影响需另行判读", "出现耀斑就等于CME必定撞击地球", "无线电衰减证明太阳黑子已到达地面", "所有空间天气影响都在约8分钟同时发生"]
+      },
+      "answers": { "phenomenon": "太阳耀斑", "transport": "电磁辐射", "arrival": "约8分钟", "impact": "向日侧高频无线电可能衰减或中断", "conclusion": "耀斑的无线电影响可先出现，是否还有CME影响需另行判读" }
+    },
+    {
+      "id": "SA-03", "category": "plasma", "headline": "日冕仪看到大型物质云，但主要朝远离地球方向传播", "challenge": "爆发很强，为什么仍不能直接判定地球将有强地磁暴？",
+      "observations": ["日冕外层出现快速膨胀的明亮物质云", "模型显示主要传播方向偏离日地连线", "同一区域曾伴随一次耀斑"],
+      "choices": {
+        "phenomenon": ["日冕物质抛射（CME）", "太阳黑子", "太阳耀斑的光", "地球磁暴"],
+        "transport": ["磁化等离子体", "电磁辐射", "高能带电粒子", "声波"],
+        "arrival": ["若指向地球，最快约14—17小时，慢者数日", "约8分钟必到", "约11年", "不经过行星际空间"],
+        "impact": ["本次不预期造成显著地磁暴", "全球电网必然中断", "向日侧立刻发生无线电黑障", "地球四季改变"],
+        "conclusion": ["CME是否影响地球首先取决于传播方向，伴随耀斑不等于必然对地", "爆发越亮就一定正对地球", "只要有耀斑就一定有强地磁暴", "CME与耀斑是同一种传播载体"]
+      },
+      "answers": { "phenomenon": "日冕物质抛射（CME）", "transport": "磁化等离子体", "arrival": "若指向地球，最快约14—17小时，慢者数日", "impact": "本次不预期造成显著地磁暴", "conclusion": "CME是否影响地球首先取决于传播方向，伴随耀斑不等于必然对地" }
+    },
+    {
+      "id": "SA-04", "category": "plasma", "headline": "快速CME正对地球，到达时磁场方向有利于强耦合", "challenge": "哪一组影响更符合这条证据链？",
+      "observations": ["日冕仪确认磁化等离子体云具有地球指向分量", "速度模型给出约一天左右的到达预报", "到达前哨卫星测得的磁场方向更利于扰动地磁场"],
+      "choices": {
+        "phenomenon": ["日冕物质抛射（CME）", "太阳黑子", "一次普通可见光变化", "地球公转"],
+        "transport": ["磁化等离子体", "电磁辐射", "高能带电粒子", "声波"],
+        "arrival": ["最快约14—17小时，慢者数日", "约8分钟", "分钟至小时", "约11年"],
+        "impact": ["地磁暴、极光增强，并可能影响卫星、导航与电网", "仅向日侧出现几分钟无线电黑障", "地球获得的总太阳辐射翻倍", "黑子直接落到地面"],
+        "conclusion": ["是否正对地球及CME磁场方向会影响地磁暴强弱", "只看CME速度就能精确确定所有损失", "所有CME都会产生同等级地磁暴", "出现极光说明电网一定损坏"]
+      },
+      "answers": { "phenomenon": "日冕物质抛射（CME）", "transport": "磁化等离子体", "arrival": "最快约14—17小时，慢者数日", "impact": "地磁暴、极光增强，并可能影响卫星、导航与电网", "conclusion": "是否正对地球及CME磁场方向会影响地磁暴强弱" }
+    },
+    {
+      "id": "SA-05", "category": "particles", "headline": "太阳爆发后，高能质子通量在数十分钟内快速上升", "challenge": "这类事件优先威胁哪些对象？",
+      "observations": ["探测器记录到高能质子与重离子明显增强", "响应时标为爆发后的分钟至小时", "高纬航线和在轨航天任务收到辐射告警"],
+      "choices": {
+        "phenomenon": ["太阳辐射风暴（高能粒子事件）", "太阳黑子", "日冕物质抛射本体", "地球磁暴"],
+        "transport": ["高能带电粒子", "电磁辐射", "磁化等离子体", "可见光黑子"],
+        "arrival": ["分钟至小时", "约8分钟", "最快约14—17小时，慢者数日", "约11年"],
+        "impact": ["宇航员、航天器电子设备及高纬航空通信与辐射风险", "全球地面温度立即上升", "地球昼夜长短改变", "只有低纬地面电网受影响"],
+        "conclusion": ["高能粒子事件与地磁暴不是同一个指标，需按对象和时标分别预警", "粒子到达就证明CME主体已经到达", "所有太阳耀斑都会造成同等级辐射风暴", "辐射风暴只会形成极光而无技术风险"]
+      },
+      "answers": { "phenomenon": "太阳辐射风暴（高能粒子事件）", "transport": "高能带电粒子", "arrival": "分钟至小时", "impact": "宇航员、航天器电子设备及高纬航空通信与辐射风险", "conclusion": "高能粒子事件与地磁暴不是同一个指标，需按对象和时标分别预警" }
+    },
+    {
+      "id": "SA-06", "category": "plasma", "headline": "日冕洞长时间朝向地球，高速太阳风流随后到达", "challenge": "没有大型耀斑，也可能出现地磁活动吗？",
+      "observations": ["极紫外图像显示低密度日冕洞", "开放磁力线让高速太阳风持续流出", "数日后高纬地区地磁活动和极光增强"],
+      "choices": {
+        "phenomenon": ["日冕洞高速太阳风", "太阳黑子直接喷出", "太阳耀斑的可见光", "月食"],
+        "transport": ["持续流出的等离子体太阳风", "电磁辐射", "声波", "黑子"],
+        "arrival": ["约数日", "约8分钟", "约11年", "不需要传播"],
+        "impact": ["可扰动磁层并增强高纬极光与地磁活动", "必然造成最强等级电网事故", "地球四季改变", "全球气压立即下降"],
+        "conclusion": ["空间天气来源不只大型耀斑，开放磁力线的高速太阳风也可造成扰动", "没有耀斑就绝不可能有地磁活动", "日冕洞就是太阳表面的真实洞穴", "所有地磁活动都由黑子数量直接决定"]
+      },
+      "answers": { "phenomenon": "日冕洞高速太阳风", "transport": "持续流出的等离子体太阳风", "arrival": "约数日", "impact": "可扰动磁层并增强高纬极光与地磁活动", "conclusion": "空间天气来源不只大型耀斑，开放磁力线的高速太阳风也可造成扰动" }
+    },
+    {
+      "id": "SA-07", "category": "indicator", "headline": "约11年周期内，年平均太阳总辐照度变化约0.1%", "challenge": "能否据此把地球四季归因于太阳活动周期？",
+      "observations": ["太阳黑子数随约11年周期升降", "年平均太阳总辐照度变化量级约0.1%", "地球南北半球每年同一时刻季节相反"],
+      "choices": {
+        "phenomenon": ["太阳活动周期中的辐照度小幅变化", "一次太阳耀斑", "一次日冕物质抛射", "地球磁暴"],
+        "transport": ["这是长期辐照度统计，不是单次等离子体事件", "磁化等离子体", "高能粒子", "声波"],
+        "arrival": ["按年和约11年尺度统计", "约8分钟后完成整个周期", "分钟至小时", "一天"],
+        "impact": ["可作为气候能量输入的一个小幅外部变量", "直接决定地球每年的四季", "让南北半球同时进入夏季", "使地轴倾角每11年归零"],
+        "conclusion": ["太阳活动可小幅改变能量输入，但四季主因仍是地轴倾斜和公转", "辐照度有变化就能推翻四季成因", "黑子越多地球所有地点都立刻升温", "约11年周期等于地球公转周期"]
+      },
+      "answers": { "phenomenon": "太阳活动周期中的辐照度小幅变化", "transport": "这是长期辐照度统计，不是单次等离子体事件", "arrival": "按年和约11年尺度统计", "impact": "可作为气候能量输入的一个小幅外部变量", "conclusion": "太阳活动可小幅改变能量输入，但四季主因仍是地轴倾斜和公转" }
+    },
+    {
+      "id": "SA-08", "category": "combined", "headline": "同一活跃区先出现X级耀斑，约两天后又发生地磁暴", "challenge": "为什么同一次太阳爆发会有两段不同时间的地球响应？",
+      "observations": ["第一阶段：X射线爆发后向日侧无线电很快受扰", "日冕仪随后确认一团CME朝向地球", "第二阶段：约两天后地磁场显著扰动并出现低纬极光"],
+      "choices": {
+        "phenomenon": ["耀斑与CME伴随发生的复合事件", "只有太阳黑子", "只有一次可见光变化", "地球自转加速"],
+        "transport": ["先电磁辐射，后磁化等离子体", "只有电磁辐射", "只有高能粒子", "所有载体速度完全相同"],
+        "arrival": ["约8分钟与约数十小时至数日，两阶段", "全部约8分钟", "全部约11年", "全部在同一秒到达"],
+        "impact": ["先无线电黑障，后地磁暴、极光及导航等风险", "只影响地球气温", "只改变昼夜长短", "只形成太阳黑子"],
+        "conclusion": ["应按载体和时标分段，不能把所有影响归为同一波到达", "耀斑、粒子和CME是同一种物质", "先出现的影响一定更严重", "有低纬极光就能精确反推所有太阳参数"]
+      },
+      "answers": { "phenomenon": "耀斑与CME伴随发生的复合事件", "transport": "先电磁辐射，后磁化等离子体", "arrival": "约8分钟与约数十小时至数日，两阶段", "impact": "先无线电黑障，后地磁暴、极光及导航等风险", "conclusion": "应按载体和时标分段，不能把所有影响归为同一波到达" }
+    }
+  ],
+  "error_tags": {
+    "SA-PHENOMENON": "把黑子、耀斑、粒子事件、CME或地磁响应混为同一现象",
+    "SA-TRANSPORT": "没有区分电磁辐射、高能粒子与磁化等离子体的传播载体",
+    "SA-TIMESCALE": "把约8分钟、分钟至小时、数十小时至数日和约11年混成同一时间尺度",
+    "SA-EARTH-IMPACT": "太阳源现象与无线电、辐射、地磁、导航或电网影响对应错误",
+    "SA-EVIDENCE-BOUNDARY": "把活动概率、伴随关系或可能影响写成必然因果"
+  },
+  "sources": [
+    { "title": "NASA: Sun Facts", "url": "https://science.nasa.gov/sun/facts/", "supports": "太阳分层、黑子、耀斑、日冕物质抛射与空间天气影响" },
+    { "title": "NASA: Solar Storms and Flares", "url": "https://science.nasa.gov/sun/solar-storms-and-flares/", "supports": "耀斑、高能粒子风暴和CME可伴随但属于不同现象" },
+    { "title": "NASA and NOAA: Sun Reaches Maximum Phase", "url": "https://science.nasa.gov/science-research/heliophysics/nasa-noaa-sun-reaches-maximum-phase-in-11-year-solar-cycle/", "supports": "约11年太阳活动周期、黑子与活动概率" },
+    { "title": "NOAA SWPC: Coronal Mass Ejections", "url": "https://www.swpc.noaa.gov/news/coronal-mass-ejections-cme-space-weather-phenomena", "supports": "CME传播速度、最快到达时间、方向与磁场对地磁暴的影响" },
+    { "title": "NOAA SWPC: Space Weather 101", "url": "https://www.swpc.noaa.gov/sites/default/files/images/Space%20Weather%20101%20Factsheet%20Final.pdf", "supports": "电磁辐射、高能粒子和CME的不同到达时标与技术影响" },
+    { "title": "NASA: Measuring Solar Energy Input to Earth", "url": "https://science.nasa.gov/science-research/earth-science/climate-science/four-decades-and-counting-new-nasa-instrument-continues-measuring-solar-energy-input-to-earth/", "supports": "太阳总辐照度在约11年周期内平均变化约0.1%" },
+    { "title": "NOAA SWPC: Space Weather Phenomena", "url": "https://www.swpc.noaa.gov/phenomena/prominences-and-filaments", "supports": "日冕洞、太阳风、磁层、电离层和空间天气影响路径" }
+  ]
+}

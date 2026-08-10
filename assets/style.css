@@ -245,6 +245,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .project-card[data-accent="rose"] { --accent: #b55f73; }
 .project-card[data-accent="cosmic"] { --accent: #6657a7; }
 .project-card[data-accent="olive"] { --accent: #70833d; }
+.project-card[data-accent="amber"] { --accent: #c17828; }
 .project-card[data-accent="orange"] { --accent: var(--orange); }
 .project-card[data-accent="slate"] { --accent: #71828f; }
 .project-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
@@ -614,6 +615,50 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .habitability-progress-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 12px 3px 0; color: var(--muted); font-size: 9px; }
 .habitability-progress-caption strong { color: #56672c; font-size: 12px; text-align: center; }
 .habitability-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #70833d; touch-action: pan-x; }
+.solar-activity-scene-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.solar-activity-scene-bar > div { min-width: 0; border: 1px solid #ead2ad; border-radius: 12px; padding: 10px 12px; background: #fff7e9; }
+.solar-activity-scene-bar span, .solar-activity-scene-bar strong { display: block; }
+.solar-activity-scene-bar span { color: var(--muted); font-size: 9px; }
+.solar-activity-scene-bar strong { margin-top: 4px; color: #8a541d; font-size: 12px; line-height: 1.4; }
+.solar-activity-card { overflow: hidden; }
+.solar-activity-layout, .solar-activity-result-layout { display: grid; gap: 18px; }
+.solar-activity-model { display: block; width: 100%; height: auto; border: 1px solid #c8d6df; border-radius: 16px; background: #0b2237; }
+.solar-activity-bg { fill: #0b2237; }
+.activity-sun { fill: url(#activity-sun); stroke: #ffe8ad; stroke-width: 5; filter: url(#activity-glow); }
+.activity-earth { fill: #4da8c1; stroke: white; stroke-width: 3; }
+.activity-land { fill: #b9d38b; }
+.activity-label, .activity-model-note { fill: #deebf2; font-size: 10px; font-weight: 800; }
+.activity-model-note { font-size: 9px; }
+.activity-path line { stroke-width: 4; stroke-linecap: round; }
+.activity-path.unlocked line { stroke: var(--path-color); }
+.activity-path.locked line { stroke: rgba(255,255,255,.24); stroke-dasharray: 6 6; }
+.activity-path.locked path { fill: rgba(255,255,255,.24) !important; }
+.activity-path text { fill: white; font-size: 10px; font-weight: 900; paint-order: stroke; stroke: rgba(11,34,55,.84); stroke-width: 3px; }
+.activity-path .activity-time { fill: #d8e4eb; font-size: 8px; }
+.activity-path.locked rect { fill: rgba(17,48,73,.95); stroke: rgba(255,255,255,.28); }
+.activity-observation-list { display: grid; gap: 7px; margin-top: 10px; }
+.activity-observation-list > div { border-left: 3px solid #c17828; border-radius: 8px; padding: 8px 10px; background: #fff8ec; }
+.activity-observation-list span { display: block; color: var(--muted); font-size: 8px; }
+.activity-observation-list strong { display: block; margin-top: 3px; color: #4b3b27; font-size: 10px; line-height: 1.45; }
+.solar-activity-prediction-panel { min-width: 0; }
+.solar-activity-prediction-panel fieldset { min-width: 0; margin: 0; padding: 12px 0; border: 0; border-bottom: 1px solid var(--line); }
+.solar-activity-prediction-panel legend { padding: 0; font-size: 13px; font-weight: 800; line-height: 1.45; }
+.solar-activity-choice-grid { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 9px; }
+.solar-activity-choice-grid label { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 8px; background: #fffdf9; color: var(--ink); font-size: 10px; line-height: 1.35; text-align: center; overflow-wrap: anywhere; }
+.solar-activity-choice-grid label:has(input:checked) { border-color: #c17828; background: #fff5e3; }
+.solar-activity-choice-grid input { width: 1px; height: 1px; margin: 0; opacity: 0; }
+.solar-activity-evidence { margin-top: 10px; }
+.activity-evidence-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #8a541d; font-size: 10px; }
+.activity-evidence-head span { color: var(--muted); }
+.activity-fact { margin-top: 7px; border: 1px solid #ead2ad; border-radius: 11px; padding: 11px; background: #fff8ec; }
+.activity-fact span, .activity-fact strong, .activity-fact small { display: block; }
+.activity-fact span { color: var(--muted); font-size: 9px; }
+.activity-fact strong { margin: 4px 0; color: #744516; font-size: 12px; line-height: 1.45; }
+.activity-fact small { color: #536876; font-size: 9px; line-height: 1.5; }
+.activity-fact.boundary { border-color: #c17828; background: #fff2d9; }
+.activity-progress-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 12px 3px 0; color: var(--muted); font-size: 9px; }
+.activity-progress-caption strong { color: #8a541d; font-size: 12px; }
+.solar-activity-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #c17828; touch-action: pan-x; }
 @media (max-width: 520px) {
   .today-heading, .projects-heading { align-items: flex-start; }
   .today-heading .page-title, .projects-heading .page-title { font-size: 22px; }
@@ -642,6 +687,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .axial-scene-bar, .axial-readout, .axial-fact-strip { grid-template-columns: 1fr; }
   .celestial-scene-bar, .celestial-readout { grid-template-columns: 1fr; }
   .habitability-scene-bar { grid-template-columns: 1fr; }
+  .solar-activity-scene-bar { grid-template-columns: 1fr; }
   .habitability-evidence-row { grid-template-columns: minmax(78px, .72fr) repeat(2, minmax(0, 1fr)); padding-inline: 5px; }
   .celestial-progress-caption span { max-width: 27%; }
 }
@@ -671,6 +717,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .celestial-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .habitability-layout { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: start; }
   .habitability-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
+  .solar-activity-layout { grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr); align-items: start; }
+  .solar-activity-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .motion-lab-layout { grid-template-columns: minmax(0, 1.22fr) minmax(290px, .78fr); align-items: start; }
   .motion-result-layout { grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); align-items: start; }
   .motion-prediction-panel { padding-left: 4px; }
@@ -685,4 +733,5 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .axial-tilt-layout, .axial-result-layout { grid-template-columns: 1fr; }
   .celestial-layout, .celestial-result-layout { grid-template-columns: 1fr; }
   .habitability-layout, .habitability-result-layout { grid-template-columns: 1fr; }
+  .solar-activity-layout, .solar-activity-result-layout { grid-template-columns: 1fr; }
 }

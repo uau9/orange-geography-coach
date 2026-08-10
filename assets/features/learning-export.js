@@ -38,6 +38,7 @@
     (state.axialTiltAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     (state.celestialScaleAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     (state.habitabilityAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
+    (state.solarActivityAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     return [...counts.entries()]
       .map(([error_tag, count]) => ({ error_tag, count }))
       .sort((a, b) => b.count - a.count || a.error_tag.localeCompare(b.error_tag));
@@ -76,7 +77,8 @@
       ...(state.dateRangeAttempts || []),
       ...(state.axialTiltAttempts || []),
       ...(state.celestialScaleAttempts || []),
-      ...(state.habitabilityAttempts || [])
+      ...(state.habitabilityAttempts || []),
+      ...(state.solarActivityAttempts || [])
     ];
     return all.filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
   }
@@ -100,6 +102,7 @@
     const axialTilt = state.axialTiltAttempts || [];
     const celestialScale = state.celestialScaleAttempts || [];
     const habitability = state.habitabilityAttempts || [];
+    const solarActivity = state.solarActivityAttempts || [];
     const latestTime = latestByTime(timeLab);
     const latestMotion = latestByTime(earthMotion);
     const latestSolar = latestByTime(solarSeason);
@@ -112,6 +115,7 @@
     const latestAxialTilt = latestByTime(axialTilt);
     const latestCelestialScale = latestByTime(celestialScale);
     const latestHabitability = latestByTime(habitability);
+    const latestSolarActivity = latestByTime(solarActivity);
     return [
       {
         project_id: "diagnostic-questions",
@@ -192,6 +196,12 @@
         confirmed: habitability.filter((attempt) => attempt.parent_review_status === "已确认").length
       },
       {
+        project_id: "solar-activity-lab",
+        records: solarActivity.length,
+        latest_score: latestSolarActivity?.score ?? null,
+        confirmed: solarActivity.filter((attempt) => attempt.parent_review_status === "已确认").length
+      },
+      {
         project_id: "delayed-retests",
         records: retests.length,
         mastered: retests.filter((attempt) => attempt.parent_review_status === "已掌握").length
@@ -214,7 +224,8 @@
       ...(state.dateRangeAttempts || []),
       ...(state.axialTiltAttempts || []),
       ...(state.celestialScaleAttempts || []),
-      ...(state.habitabilityAttempts || [])
+      ...(state.habitabilityAttempts || []),
+      ...(state.solarActivityAttempts || [])
     ].map((attempt) => attempt.submitted_at).filter(Boolean).sort();
     return { first_recorded_at: timestamps[0] || null, last_recorded_at: timestamps[timestamps.length - 1] || null };
   }
@@ -228,7 +239,7 @@
   }
 
   function mergeAnnotatedArchive(currentState, importedState) {
-    const groups = ["attempts", "retestAttempts", "timeLabAttempts", "earthMotionAttempts", "solarSeasonAttempts", "solarPathAttempts", "annualSunAttempts", "orbitSpeedAttempts", "terminatorLinkAttempts", "rotationSpeedAttempts", "dateRangeAttempts", "axialTiltAttempts", "celestialScaleAttempts", "habitabilityAttempts"];
+    const groups = ["attempts", "retestAttempts", "timeLabAttempts", "earthMotionAttempts", "solarSeasonAttempts", "solarPathAttempts", "annualSunAttempts", "orbitSpeedAttempts", "terminatorLinkAttempts", "rotationSpeedAttempts", "dateRangeAttempts", "axialTiltAttempts", "celestialScaleAttempts", "habitabilityAttempts", "solarActivityAttempts"];
     for (const group of groups) {
       const currentById = new Map((currentState[group] || []).map((record) => [record.id, record]));
       for (const importedRecord of importedState[group] || []) {
@@ -258,17 +269,18 @@
     const axialTiltAttempts = state.axialTiltAttempts || [];
     const celestialScaleAttempts = state.celestialScaleAttempts || [];
     const habitabilityAttempts = state.habitabilityAttempts || [];
-    const allCount = attempts.length + retestAttempts.length + timeLabAttempts.length + earthMotionAttempts.length + solarPathAttempts.length + solarSeasonAttempts.length + annualSunAttempts.length + orbitSpeedAttempts.length + terminatorLinkAttempts.length + rotationSpeedAttempts.length + dateRangeAttempts.length + axialTiltAttempts.length + celestialScaleAttempts.length + habitabilityAttempts.length;
+    const solarActivityAttempts = state.solarActivityAttempts || [];
+    const allCount = attempts.length + retestAttempts.length + timeLabAttempts.length + earthMotionAttempts.length + solarPathAttempts.length + solarSeasonAttempts.length + annualSunAttempts.length + orbitSpeedAttempts.length + terminatorLinkAttempts.length + rotationSpeedAttempts.length + dateRangeAttempts.length + axialTiltAttempts.length + celestialScaleAttempts.length + habitabilityAttempts.length + solarActivityAttempts.length;
     const exportedAt = now.toISOString();
     const compactId = exportedAt.replace(/[-:.Z]/g, "");
     return {
       version: state.version,
-      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.16.0",
+      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.17.0",
       export_id: `EXPORT-${compactId}`,
       exported_at: exportedAt,
       exported_at_local: localTimestamp(now),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
-      app_version: config.APP_VERSION || "0.16.0",
+      app_version: config.APP_VERSION || "0.17.0",
       student_alias: config.STUDENT_ALIAS || "橙子",
       privacy_note: "档案默认不含姓名、学校、班级和联系方式；交给AI或教师前仍请人工检查自由文本。",
       summary: {
@@ -288,6 +300,7 @@
         axial_tilt_attempts: axialTiltAttempts.length,
         celestial_scale_attempts: celestialScaleAttempts.length,
         habitability_attempts: habitabilityAttempts.length,
+        solar_activity_attempts: solarActivityAttempts.length,
         pending_parent_reviews: countPendingReview(state),
         activity_window: activityWindow(state),
         by_project: buildProjectSummary(state),
@@ -308,6 +321,7 @@
       axial_tilt_attempts: axialTiltAttempts,
       celestial_scale_attempts: celestialScaleAttempts,
       habitability_attempts: habitabilityAttempts,
+      solar_activity_attempts: solarActivityAttempts,
       coach_annotations: state.coachAnnotations || [],
       annotation_guide: {
         purpose: "请基于学习证据批注进展，并把批注追加到 coach_annotations；不要修改原始作答记录。",
