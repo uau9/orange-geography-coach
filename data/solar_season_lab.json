@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.7.0",
+  "topic_id": "physical.earth.motion",
+  "title": "太阳直射点与昼夜长短实验室",
+  "description": "从日期确定太阳直射点，再判断目标地点的昼夜长短、全球空间规律和正午太阳高度。",
+  "model_note": "采用高中地理理想模型：地轴倾角与回归线纬度取23.5°，忽略大气折射、太阳视半径和地方地形。",
+  "review_after_hours": 48,
+  "dates": [
+    {
+      "id": "march-equinox",
+      "name": "春分日",
+      "date_hint": "3月20日前后",
+      "solar_declination": 0,
+      "direct_answer": "赤道",
+      "north_pattern_answer": "各纬度近似等长",
+      "explanation": "春分日太阳直射赤道，晨昏圈通过两极，全球各纬度昼夜近似等长。"
+    },
+    {
+      "id": "june-solstice",
+      "name": "夏至日",
+      "date_hint": "6月21日前后",
+      "solar_declination": 23.5,
+      "direct_answer": "北回归线",
+      "north_pattern_answer": "由南向北递增",
+      "explanation": "夏至日太阳直射北回归线，全球昼长总体由南向北递增，北极圈及其以北出现极昼。"
+    },
+    {
+      "id": "september-equinox",
+      "name": "秋分日",
+      "date_hint": "9月22日前后",
+      "solar_declination": 0,
+      "direct_answer": "赤道",
+      "north_pattern_answer": "各纬度近似等长",
+      "explanation": "秋分日太阳再次直射赤道，晨昏圈通过两极，全球各纬度昼夜近似等长。"
+    },
+    {
+      "id": "december-solstice",
+      "name": "冬至日",
+      "date_hint": "12月21日前后",
+      "solar_declination": -23.5,
+      "direct_answer": "南回归线",
+      "north_pattern_answer": "由南向北递减",
+      "explanation": "冬至日太阳直射南回归线，全球昼长总体由南向北递减，北极圈及其以北出现极夜。"
+    }
+  ],
+  "places": [
+    { "id": "equator", "name": "赤道", "latitude": 0, "location_note": "0°" },
+    { "id": "guangzhou", "name": "广州", "latitude": 23, "location_note": "约23°N" },
+    { "id": "beijing", "name": "北京", "latitude": 40, "location_note": "约40°N" },
+    { "id": "arctic-circle", "name": "北极圈", "latitude": 66.5, "location_note": "66.5°N" },
+    { "id": "sydney", "name": "悉尼", "latitude": -34, "location_note": "约34°S" },
+    { "id": "ushuaia", "name": "乌斯怀亚", "latitude": -55, "location_note": "约55°S" },
+    { "id": "antarctic-circle", "name": "南极圈", "latitude": -66.5, "location_note": "66.5°S" }
+  ],
+  "choices": {
+    "direct": ["北回归线", "赤道", "南回归线"],
+    "day_relation": ["极昼", "昼长夜短", "昼夜等长", "昼短夜长", "极夜"],
+    "north_pattern": ["由南向北递增", "各纬度近似等长", "由南向北递减"]
+  },
+  "error_tags": {
+    "S-DATE-DIRECT": "日期与太阳直射纬线对应错误",
+    "S-HEMISPHERE-DAY": "没有根据直射半球判断昼夜长短",
+    "S-POLAR-RULE": "极昼极夜范围判断错误",
+    "S-LATITUDE-PATTERN": "全球昼长的纬度变化方向错误",
+    "S-NOON-ALTITUDE": "正午太阳高度计算错误"
+  }
+}

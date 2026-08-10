@@ -1,6 +1,6 @@
 {
   "name": "orange-geography-coach",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "description": "橙子的 AI + 家长高中地理诊断学习工具",

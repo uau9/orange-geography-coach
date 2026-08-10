@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/solar-season-attempt.v0.7",
+  "title": "太阳直射点与昼夜长短实验记录 v0.7",
+  "type": "object",
+  "required": ["schema_version", "id", "date_id", "place_id", "answers", "correct_answers", "checks", "score", "error_tags", "reasoning", "submitted_at", "parent_review_status"],
+  "properties": {
+    "schema_version": { "const": "0.7.0" },
+    "id": { "type": "string", "pattern": "^ATT-" },
+    "date_id": { "enum": ["march-equinox", "june-solstice", "september-equinox", "december-solstice"] },
+    "place_id": { "type": "string", "minLength": 1 },
+    "answers": { "type": "object" },
+    "correct_answers": { "type": "object" },
+    "checks": { "type": "object" },
+    "score": { "type": "integer", "minimum": 0, "maximum": 4 },
+    "error_tags": { "type": "array", "items": { "enum": ["S-DATE-DIRECT", "S-HEMISPHERE-DAY", "S-POLAR-RULE", "S-LATITUDE-PATTERN", "S-NOON-ALTITUDE"] } },
+    "reasoning": { "type": "string", "minLength": 1 },
+    "submitted_at": { "type": "string" },
+    "parent_review_status": { "enum": ["待家长确认", "已确认", "需再练", "需教师复核"] },
+    "parent_note": { "type": "string" }
+  },
+  "additionalProperties": false
+}

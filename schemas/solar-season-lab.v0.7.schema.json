@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/solar-season-lab.v0.7",
+  "title": "太阳直射点与昼夜长短实验室内容 v0.7",
+  "type": "object",
+  "required": ["schema_version", "topic_id", "title", "description", "model_note", "review_after_hours", "dates", "places", "choices", "error_tags"],
+  "properties": {
+    "schema_version": { "const": "0.7.0" },
+    "topic_id": { "const": "physical.earth.motion" },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "model_note": { "type": "string", "minLength": 1 },
+    "review_after_hours": { "type": "integer", "minimum": 24 },
+    "dates": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "date_hint", "solar_declination", "direct_answer", "north_pattern_answer", "explanation"]
+      }
+    },
+    "places": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "latitude", "location_note"],
+        "properties": { "latitude": { "type": "number", "minimum": -66.5, "maximum": 66.5 } }
+      }
+    },
+    "choices": { "type": "object" },
+    "error_tags": { "type": "object", "minProperties": 5 }
+  },
+  "additionalProperties": false
+}

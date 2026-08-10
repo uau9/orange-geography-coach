@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.6.0", ASSET_VERSION: "0.6.0", EXPORT_SCHEMA_VERSION: "0.6.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.7.0", ASSET_VERSION: "0.7.0", EXPORT_SCHEMA_VERSION: "0.7.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null };
 
 function defaultState() {
   return {
@@ -72,10 +72,14 @@ function defaultState() {
     activeEarthMotionAttemptId: null,
     earthMotionViewId: "north",
     earthMotionPointId: "upper",
+    activeSolarSeasonAttemptId: null,
+    solarSeasonDateId: "june-solstice",
+    solarSeasonPlaceId: "beijing",
     attempts: [],
     retestAttempts: [],
     timeLabAttempts: [],
     earthMotionAttempts: [],
+    solarSeasonAttempts: [],
     coachAnnotations: [],
     lastAction: ""
   };
@@ -98,6 +102,11 @@ function normalizeState(parsed) {
     ? parsed.earthMotionAttempts
     : Array.isArray(parsed?.earth_motion_attempts)
       ? parsed.earth_motion_attempts
+      : [];
+  normalized.solarSeasonAttempts = Array.isArray(parsed?.solarSeasonAttempts)
+    ? parsed.solarSeasonAttempts
+    : Array.isArray(parsed?.solar_season_attempts)
+      ? parsed.solar_season_attempts
       : [];
   normalized.coachAnnotations = Array.isArray(parsed?.coachAnnotations)
     ? parsed.coachAnnotations
@@ -129,6 +138,7 @@ function getQuestion(id) { return catalog.questions.find((question) => question.
 function getRetest(id) { return catalog.retests.find((retest) => retest.id === id); }
 function getTimeLabAttempt(id) { return state.timeLabAttempts.find((attempt) => attempt.id === id); }
 function getEarthMotionAttempt(id) { return state.earthMotionAttempts.find((attempt) => attempt.id === id); }
+function getSolarSeasonAttempt(id) { return state.solarSeasonAttempts.find((attempt) => attempt.id === id); }
 function getActiveQuestion() { return getQuestion(state.currentQuestionId) || chooseNextQuestion(); }
 function chooseNextQuestion() {
   const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
@@ -157,9 +167,10 @@ function latestAttempts() { return [...state.attempts].sort((a, b) => new Date(b
 function latestRetestAttempts() { return [...state.retestAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestTimeLabAttempts() { return [...state.timeLabAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestEarthMotionAttempts() { return [...state.earthMotionAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestSolarSeasonAttempts() { return [...state.solarSeasonAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function completedToday() {
   const today = new Date().toDateString();
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts]
     .filter((attempt) => attempt.submitted_at && new Date(attempt.submitted_at).toDateString() === today).length;
 }
 function topicStats(topic) {
@@ -382,12 +393,69 @@ function renderEarthMotionResult(attempt) {
   `;
 }
 
+function getSolarSeasonDate(dateId = state.solarSeasonDateId) {
+  return (catalog.solarSeasonLab?.dates || []).find((item) => item.id === dateId) || catalog.solarSeasonLab?.dates?.[0] || null;
+}
+
+function getSolarSeasonPlace(placeId = state.solarSeasonPlaceId) {
+  return (catalog.solarSeasonLab?.places || []).find((item) => item.id === placeId) || catalog.solarSeasonLab?.places?.[0] || null;
+}
+
+function setSolarSeasonScenario(dateId, placeId) {
+  const date = getSolarSeasonDate(dateId);
+  const place = getSolarSeasonPlace(placeId);
+  if (!date || !place) return;
+  state.solarSeasonDateId = date.id;
+  state.solarSeasonPlaceId = place.id;
+  state.activeSolarSeasonAttemptId = null;
+  saveState(); render();
+}
+
+function chooseSolarSeasonScenario(offset = 0) {
+  const dates = catalog.solarSeasonLab?.dates || [];
+  const places = catalog.solarSeasonLab?.places || [];
+  const scenarios = dates.flatMap((date, dateIndex) => {
+    const place = places[(dateIndex * 2 + 2) % Math.max(places.length, 1)];
+    return place ? [{ date, place }] : [];
+  });
+  if (!scenarios.length) return null;
+  const currentIndex = scenarios.findIndex(({ date, place }) => date.id === state.solarSeasonDateId && place.id === state.solarSeasonPlaceId);
+  return scenarios[((currentIndex < 0 ? 0 : currentIndex) + offset + scenarios.length) % scenarios.length];
+}
+
+function solarSeasonMasteryStatus() {
+  const reviewHours = catalog.solarSeasonLab?.review_after_hours || 48;
+  const confirmedFull = [...state.solarSeasonAttempts]
+    .filter((attempt) => attempt.score === 4 && attempt.parent_review_status === "已确认")
+    .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+  if (confirmedFull.length < 2) return { label: "待验证", detail: "需要两次不同日期情境满分并由家长确认。", mastered: false };
+  const latest = confirmedFull[confirmedFull.length - 1];
+  const earlier = [...confirmedFull].reverse().find((attempt) => attempt.date_id !== latest.date_id && new Date(latest.submitted_at) - new Date(attempt.submitted_at) >= reviewHours * 60 * 60 * 1000);
+  return earlier
+    ? { label: "延迟复测通过", detail: `不同日期的两次确认已间隔至少${reviewHours}小时。`, mastered: true }
+    : { label: "等待换日期复测", detail: `需换二分二至日情境，并间隔至少${reviewHours}小时。`, mastered: false };
+}
+
+function renderSolarSeasonLab() {
+  const feature = window.OrangeCoach?.features?.solarSeason;
+  const date = getSolarSeasonDate();
+  const place = getSolarSeasonPlace();
+  if (!feature || !date || !place) { app.innerHTML = `<section class="card empty">太阳季节实验数据尚未加载。</section>`; return; }
+  state.solarSeasonDateId = date.id;
+  state.solarSeasonPlaceId = place.id;
+  const attempt = getSolarSeasonAttempt(state.activeSolarSeasonAttemptId);
+  app.innerHTML = attempt
+    ? feature.renderResult({ lab: catalog.solarSeasonLab, date: getSolarSeasonDate(attempt.date_id), place: getSolarSeasonPlace(attempt.place_id), attempt })
+    : feature.renderLab({ lab: catalog.solarSeasonLab, date, place });
+}
+
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => button.classList.toggle("active", button.dataset.route === state.route));
   if (state.route === "retest") return renderRetest();
   if (state.route === "time-lab") return renderTimeLab();
   if (state.route === "earth-motion-lab") return renderEarthMotionLab();
+  if (state.route === "solar-season-lab") return renderSolarSeasonLab();
   if (state.route === "train") return renderTrain();
   if (state.route === "projects") return renderProjects();
   if (state.route === "mastery") return renderMastery();
@@ -402,7 +470,7 @@ function renderToday() {
     recommendation: getTodayRecommendation(),
     stats: [
       { value: completedToday(), label: "今日完成" },
-      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length, label: "学习证据" },
+      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length, label: "学习证据" },
       { value: countPendingParentReviews(), label: "待家长确认" }
     ],
     recent: getRecentEvidence().slice(0, 3)
@@ -410,7 +478,7 @@ function renderToday() {
 }
 
 function countPendingParentReviews() {
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts]
     .filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
 }
 
@@ -426,6 +494,12 @@ function projectStatus(project) {
     return latest
       ? { status_label: `${latest.score}/4`, status_tone: latest.score === 4 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.timeLabAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
       : { status_label: "待开始", status_tone: "", status_detail: "尚未留下地方时、区时与日期判断证据" };
+  }
+  if (project.status_kind === "solar_season") {
+    const latest = latestSolarSeasonAttempts()[0];
+    return latest
+      ? { status_label: `${latest.score}/4`, status_tone: latest.score === 4 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.solarSeasonAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下直射点、昼长与正午太阳高度判断证据" };
   }
   if (project.status_kind === "diagnostic") {
     const latest = latestAttempts()[0];
@@ -449,24 +523,31 @@ function getTodayRecommendation() {
   const projects = projectModels();
   const byId = (id) => projects.find((project) => project.id === id);
   const latestMotion = latestEarthMotionAttempts()[0];
+  const latestSolar = latestSolarSeasonAttempts()[0];
   const latestTime = latestTimeLabAttempts()[0];
   let project;
   let reason;
   if (!latestMotion) {
     project = byId("earth-motion-lab");
     reason = "先建立观察视角与自转方向的基础判断链，提交前不会显示运动箭头。";
+  } else if (!latestSolar) {
+    project = byId("solar-season-lab");
+    reason = "已有晨昏线基础，继续把日期、太阳直射点和昼夜长短连成一条判断链。";
   } else if (!latestTime) {
     project = byId("time-zone-lab");
     reason = "已有地球运动记录，今天换到世界地图，用具体地点理解地方时与区时。";
   } else if (latestMotion.score < 4 || latestMotion.parent_review_status === "需再练") {
     project = byId("earth-motion-lab");
     reason = "最近一次晨昏线记录仍有步骤需要复盘，换视角再验证比继续看解析更有效。";
+  } else if (latestSolar.score < 4 || latestSolar.parent_review_status === "需再练") {
+    project = byId("solar-season-lab");
+    reason = "最近一次太阳季节实验仍有候选错因，换日期和半球再次验证。";
   } else if (latestTime.score < 4 || latestTime.parent_review_status === "需再练") {
     project = byId("time-zone-lab");
     reason = "最近一次时区实验仍有候选错因，换经度和时刻检查能否迁移。";
   } else {
     project = byId("diagnostic-questions");
-    reason = "两个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
+    reason = "三个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
   }
   return project ? { ...project, reason, status: project.status_detail } : null;
 }
@@ -499,6 +580,13 @@ function getRecentEvidence() {
     status: attempt.parent_review_status,
     tone: evidenceTone(attempt.parent_review_status)
   }));
+  const solar = state.solarSeasonAttempts.map((attempt) => ({
+    submitted_at: attempt.submitted_at,
+    title: `${getSolarSeasonDate(attempt.date_id)?.name || attempt.date_id} · ${getSolarSeasonPlace(attempt.place_id)?.name || attempt.place_id}`,
+    meta: `太阳季节实验 · ${attempt.score}/4 · ${formatDate(attempt.submitted_at)}`,
+    status: attempt.parent_review_status,
+    tone: evidenceTone(attempt.parent_review_status)
+  }));
   const retests = state.retestAttempts.map((attempt) => ({
     submitted_at: attempt.submitted_at,
     title: getRetest(attempt.retest_id)?.title || attempt.retest_id,
@@ -506,7 +594,7 @@ function getRecentEvidence() {
     status: attempt.parent_review_status,
     tone: evidenceTone(attempt.parent_review_status)
   }));
-  return [...diagnostic, ...timeLab, ...motion, ...retests]
+  return [...diagnostic, ...timeLab, ...motion, ...solar, ...retests]
     .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at));
 }
 
@@ -680,7 +768,9 @@ function renderRetest() {
 function renderMastery() {
   const latestLab = latestTimeLabAttempts()[0];
   const latestMotion = latestEarthMotionAttempts()[0];
+  const latestSolar = latestSolarSeasonAttempts()[0];
   const motionMastery = earthMotionMasteryStatus();
+  const solarMastery = solarSeasonMasteryStatus();
   app.innerHTML = `
     <h2 class="page-title">掌握与复测</h2>
     <p class="page-subtitle">百分比只是提示，不代表真正掌握。真正的证据来自延迟复测和能否讲清推理链。</p>
@@ -689,6 +779,7 @@ function renderMastery() {
       return `<div class="topic-item"><div class="topic-head"><div><strong>${escapeHtml(topic.name)}</strong><div class="topic-meta">${escapeHtml(topic.category)} · ${stats.attempts.length ? `${stats.attempts.length} 次作答` : "尚未开始"}</div></div><span class="pill ${stats.ratio >= 70 ? "green" : stats.attempts.length ? "orange" : ""}">${stats.attempts.length ? `${stats.ratio}%` : "待建立"}</span></div><div class="progress"><span style="width:${stats.ratio}%"></span></div><div class="topic-meta">${escapeHtml(topic.description)}</div></div>`;
     }).join("")}</div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">地球运动专项</span><h3>视角—方向—晨昏线</h3></div><span class="pill ${motionMastery.mastered ? "green" : "orange"}">${escapeHtml(motionMastery.label)}</span></div><p class="small">${latestMotion ? `最近实验：${escapeHtml(getEarthMotionView(latestMotion.view_id)?.name || latestMotion.view_id)} · ${latestMotion.score}/4 · ${escapeHtml(latestMotion.parent_review_status)} · ${formatDate(latestMotion.submitted_at)}` : "先完成一次晨昏线实验，留下观察视角和判断链。"}</p><p class="small">${escapeHtml(motionMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-earth-motion">进入晨昏线实验室</button></div></section>
+    <section class="card"><div class="attempt-head"><div><span class="pill orange">地球公转专项</span><h3>日期—直射点—昼长—太阳高度</h3></div><span class="pill ${solarMastery.mastered ? "green" : "orange"}">${escapeHtml(solarMastery.label)}</span></div><p class="small">${latestSolar ? `最近实验：${escapeHtml(getSolarSeasonDate(latestSolar.date_id)?.name || latestSolar.date_id)} · ${escapeHtml(getSolarSeasonPlace(latestSolar.place_id)?.name || latestSolar.place_id)} · ${latestSolar.score}/4 · ${escapeHtml(latestSolar.parent_review_status)} · ${formatDate(latestSolar.submitted_at)}` : "先完成一次太阳季节实验，留下直射点、昼长和正午太阳高度判断链。"}</p><p class="small">${escapeHtml(solarMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-solar-season">进入太阳季节实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">时区专项</span><h3>预测—观察—解释</h3></div>${latestLab ? `<span class="pill ${latestLab.score >= 3 ? "green" : "orange"}">${latestLab.score}/4</span>` : `<span class="pill">待开始</span>`}</div><p class="small">${latestLab ? `最近实验：${longitudeLabel(latestLab.longitude)} · ${escapeHtml(latestLab.parent_review_status)} · ${formatDate(latestLab.submitted_at)}` : "先完成一次时区实验，再进入延迟复测。"}</p><div class="btn-row"><button class="btn orange" data-action="start-time-lab">进入时区实验室</button><button class="btn secondary" data-action="start-time-diagnostic">做8题诊断</button></div></section>
     <section class="card"><h3>需要复盘的题</h3>${latestAttempts().filter((attempt) => !attempt.is_correct || attempt.parent_review_status !== "已确认").slice(0, 8).map(renderAttemptSummary).join("") || `<div class="empty">目前没有待复盘记录。</div>`}</section>
     ${catalog.retests.map((retest) => {
@@ -705,12 +796,14 @@ function renderParent() {
   const retestAttempts = latestRetestAttempts();
   const timeLabAttempts = latestTimeLabAttempts();
   const earthMotionAttempts = latestEarthMotionAttempts();
+  const solarSeasonAttempts = latestSolarSeasonAttempts();
   app.innerHTML = `
     <h2 class="page-title">家长审核页</h2>
     <p class="page-subtitle">只核验三件事：理由是否真实、诊断是否有证据、下一步是否可执行。</p>
     <div class="notice">家长不是每道题的讲解员，而是学习过程的质量审核员。连续 2–3 次同类错误，再考虑请老师校准。</div>
     <section class="card"><h3>真实试卷复盘</h3>${catalog.paperReviews.map(renderPaperReview).join("") || `<div class="empty">尚未录入试卷复盘。</div>`}</section>
     <section class="card"><h3>晨昏线实验审核</h3>${earthMotionAttempts.length ? `<div class="attempt-list">${earthMotionAttempts.map(renderParentEarthMotionAttempt).join("")}</div>` : `<div class="empty">橙子提交观察视角预测后，这里会出现判断链和候选错因。</div>`}</section>
+    <section class="card"><h3>太阳季节实验审核</h3>${solarSeasonAttempts.length ? `<div class="attempt-list">${solarSeasonAttempts.map(renderParentSolarSeasonAttempt).join("")}</div>` : `<div class="empty">橙子提交直射点与昼长预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>时区实验审核</h3>${timeLabAttempts.length ? `<div class="attempt-list">${timeLabAttempts.map(renderParentTimeLabAttempt).join("")}</div>` : `<div class="empty">橙子提交时区预测后，这里会出现步骤证据。</div>`}</section>
     <section class="card"><h3>专项复测审核</h3>${retestAttempts.length ? `<div class="attempt-list">${retestAttempts.map(renderParentRetestAttempt).join("")}</div>` : `<div class="empty">橙子提交专项复测后，这里会出现评分点。</div>`}</section>
     <section class="card"><h3>其他待审核记录</h3>${attempts.length ? `<div class="attempt-list">${attempts.map(renderParentAttempt).join("")}</div>` : `<div class="empty">橙子完成第一道题后，这里会出现审核记录。</div>`}</section>
@@ -725,7 +818,7 @@ function renderCoachAnnotation(annotation) {
 }
 
 function makeArchiveAnnotationPrompt() {
-  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
+  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
 }
 
 const ERROR_TAG_LABELS = {
@@ -751,7 +844,12 @@ const ERROR_TAG_LABELS = {
   "E-SUN-SIDE": "受光半球判断错误",
   "E-VIEW-ROTATION": "观察视角与自转方向对应错误",
   "E-TERM-TRANSITION": "没有沿自转方向判断昼夜变化",
-  "E-TERM-NAME": "晨线、昏线命名对应错误"
+  "E-TERM-NAME": "晨线、昏线命名对应错误",
+  "S-DATE-DIRECT": "日期与太阳直射纬线对应错误",
+  "S-HEMISPHERE-DAY": "直射半球与昼夜长短对应错误",
+  "S-POLAR-RULE": "极昼极夜范围判断错误",
+  "S-LATITUDE-PATTERN": "全球昼长的纬度变化方向错误",
+  "S-NOON-ALTITUDE": "正午太阳高度计算错误"
 };
 
 function errorTagLabel(tag) { return ERROR_TAG_LABELS[tag] || tag; }
@@ -770,6 +868,13 @@ function renderParentEarthMotionAttempt(attempt) {
   const view = getEarthMotionView(attempt.view_id);
   const point = getEarthMotionPoint(view, attempt.point_id);
   return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(view?.name || attempt.view_id)} · ${escapeHtml(point?.name || attempt.point_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 晨昏线实验</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="motion-parent-summary"><span>自转 <strong>${escapeHtml(attempt.correct_answers.rotation)}</strong></span><span>变化 <strong>${escapeHtml(attempt.correct_answers.transition)}</strong></span><span>界线 <strong>${escapeHtml(attempt.correct_answers.boundary)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：换到另一个极点上空，自转方向为什么会改变？</div>`}<label class="field-label" for="motion-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="motion-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="motion-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="motion-note-${escapeHtml(attempt.id)}" placeholder="例如：知道晨线定义，但切换南极视角后顺逆时针仍混淆">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-motion-review" data-attempt-id="${escapeHtml(attempt.id)}">保存实验审核</button></div></article>`;
+}
+
+function renderParentSolarSeasonAttempt(attempt) {
+  const date = getSolarSeasonDate(attempt.date_id);
+  const place = getSolarSeasonPlace(attempt.place_id);
+  const correct = attempt.correct_answers;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(date?.name || attempt.date_id)} · ${escapeHtml(place?.name || attempt.place_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 太阳直射点与昼夜长短</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>直射 <strong>${escapeHtml(correct.direct)}</strong></span><span>昼夜 <strong>${escapeHtml(correct.day_relation)}</strong></span><span>正午高度 <strong>${correct.noon_altitude}°</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：如果换到另一半球同纬度地点，哪些结论会改变？</div>`}<label class="field-label" for="solar-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="solar-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="solar-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="solar-note-${escapeHtml(attempt.id)}" placeholder="例如：能判断直射点，但不会把直射半球转化为全球昼长分布">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-solar-review" data-attempt-id="${escapeHtml(attempt.id)}">保存太阳季节审核</button></div></article>`;
 }
 
 function renderParentRetestAttempt(attempt) {
@@ -818,6 +923,14 @@ document.addEventListener("click", async (event) => {
     setEarthMotionScenario(state.earthMotionViewId, actionTarget.dataset.pointId);
     return;
   }
+  if (action === "set-solar-date") {
+    setSolarSeasonScenario(actionTarget.dataset.dateId, state.solarSeasonPlaceId);
+    return;
+  }
+  if (action === "set-solar-place") {
+    setSolarSeasonScenario(state.solarSeasonDateId, actionTarget.dataset.placeId);
+    return;
+  }
   if (action === "goto") {
     state.route = actionTarget.dataset.route;
     saveState(); render();
@@ -850,6 +963,18 @@ document.addEventListener("click", async (event) => {
     state.route = "earth-motion-lab";
     saveState(); render();
   }
+  if (action === "start-solar-season") {
+    const dates = catalog.solarSeasonLab?.dates || [];
+    const places = catalog.solarSeasonLab?.places || [];
+    if (!dates.length || !places.length) return;
+    const date = dates[state.solarSeasonAttempts.length % dates.length];
+    const place = places[(state.solarSeasonAttempts.length * 2 + 2) % places.length];
+    state.solarSeasonDateId = date.id;
+    state.solarSeasonPlaceId = place.id;
+    state.activeSolarSeasonAttemptId = null;
+    state.route = "solar-season-lab";
+    saveState(); render();
+  }
   if (action === "next-time-lab") {
     state.timeLabScenarioIndex = (state.timeLabScenarioIndex + 1) % Math.max(catalog.timeLab?.scenarios?.length || 1, 1);
     state.activeTimeLabAttemptId = null;
@@ -863,6 +988,15 @@ document.addEventListener("click", async (event) => {
     state.earthMotionPointId = next.point.id;
     state.activeEarthMotionAttemptId = null;
     state.route = "earth-motion-lab";
+    saveState(); render();
+  }
+  if (action === "next-solar-season") {
+    const next = chooseSolarSeasonScenario(1);
+    if (!next) return;
+    state.solarSeasonDateId = next.date.id;
+    state.solarSeasonPlaceId = next.place.id;
+    state.activeSolarSeasonAttemptId = null;
+    state.route = "solar-season-lab";
     saveState(); render();
   }
   if (action === "start-retest") {
@@ -887,11 +1021,53 @@ document.addEventListener("click", async (event) => {
   if (action === "save-review") saveReview(actionTarget.dataset.attemptId);
   if (action === "save-lab-review") saveLabReview(actionTarget.dataset.attemptId);
   if (action === "save-motion-review") saveEarthMotionReview(actionTarget.dataset.attemptId);
+  if (action === "save-solar-review") saveSolarSeasonReview(actionTarget.dataset.attemptId);
   if (action === "save-retest-review") saveRetestReview(actionTarget.dataset.attemptId);
   if (action === "export-data") exportData();
 });
 
 document.addEventListener("submit", (event) => {
+  if (event.target.id === "solar-season-form") {
+    event.preventDefault();
+    const feature = window.OrangeCoach?.features?.solarSeason;
+    const date = getSolarSeasonDate();
+    const place = getSolarSeasonPlace();
+    if (!feature || !date || !place) return;
+    const form = new FormData(event.target);
+    const altitudeRaw = String(form.get("solar-noon-altitude") || "").trim();
+    const answers = {
+      direct: form.get("solar-direct") || "",
+      day_relation: form.get("solar-day-relation") || "",
+      north_pattern: form.get("solar-north-pattern") || "",
+      noon_altitude: altitudeRaw === "" ? null : Number(altitudeRaw)
+    };
+    const reasoning = String(form.get("solar-reasoning") || "").trim();
+    if (!answers.direct || !answers.day_relation || !answers.north_pattern || answers.noon_altitude == null || !Number.isFinite(answers.noon_altitude) || !reasoning) {
+      return alert("请完成四项预测并写出判断链，再解锁光照结果。");
+    }
+    const correctAnswers = feature.calculate(date, place);
+    const checks = {
+      direct: answers.direct === correctAnswers.direct,
+      day_relation: answers.day_relation === correctAnswers.day_relation,
+      north_pattern: answers.north_pattern === correctAnswers.north_pattern,
+      noon_altitude: answers.noon_altitude === correctAnswers.noon_altitude
+    };
+    const errorTags = [];
+    if (!checks.direct) errorTags.push("S-DATE-DIRECT");
+    if (!checks.day_relation) errorTags.push(["极昼", "极夜"].includes(correctAnswers.day_relation) || ["极昼", "极夜"].includes(answers.day_relation) ? "S-POLAR-RULE" : "S-HEMISPHERE-DAY");
+    if (!checks.north_pattern) errorTags.push("S-LATITUDE-PATTERN");
+    if (!checks.noon_altitude) errorTags.push("S-NOON-ALTITUDE");
+    const attempt = {
+      schema_version: "0.7.0", id: newId(), date_id: date.id, place_id: place.id,
+      answers, correct_answers: correctAnswers, checks,
+      score: Object.values(checks).filter(Boolean).length, error_tags: errorTags, reasoning,
+      submitted_at: new Date().toISOString(), parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.solarSeasonAttempts.push(attempt);
+    state.activeSolarSeasonAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
   if (event.target.id === "earth-motion-form") {
     event.preventDefault();
     const view = getEarthMotionView();
@@ -1021,8 +1197,8 @@ document.addEventListener("change", async (event) => {
     const imported = JSON.parse(await file.text());
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
-    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length;
-    const isAnnotatedArchive = imported.export_schema_version === COACH_CONFIG.EXPORT_SCHEMA_VERSION && Array.isArray(imported.coach_annotations);
+    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length;
+    const isAnnotatedArchive = ["0.6.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
     if (isAnnotatedArchive && localRecordCount > 0) {
       const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
       if (!mergeResult?.ok) throw new Error(mergeResult?.reason || "批注档案与当前记录不一致");
@@ -1034,6 +1210,7 @@ document.addEventListener("change", async (event) => {
       state.retestAttempts = normalized.retestAttempts;
       state.timeLabAttempts = normalized.timeLabAttempts;
       state.earthMotionAttempts = normalized.earthMotionAttempts;
+      state.solarSeasonAttempts = normalized.solarSeasonAttempts;
       state.coachAnnotations = normalized.coachAnnotations;
       state.lastAction = `已导入学习档案：${state.coachAnnotations.length} 条教练批注`;
     }
@@ -1082,6 +1259,14 @@ function saveEarthMotionReview(id) {
   saveState(); render();
 }
 
+function saveSolarSeasonReview(id) {
+  const attempt = state.solarSeasonAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#solar-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#solar-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
 function addDaysIso(days) {
   const date = new Date();
   date.setDate(date.getDate() + days);
@@ -1121,16 +1306,17 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/retests.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/learning_projects.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
-      fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
+      fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/solar_season_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

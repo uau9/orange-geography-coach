@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { calculateTimeLabAnswers, normalizeTimeAnswer } from "../assets/time-utils.js";
 await import("../assets/config.js");
+await import("../assets/features/solar-season.js");
 await import("../assets/features/learning-export.js");
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
@@ -10,6 +11,7 @@ const retests = JSON.parse(await readFile(new URL("../data/retests.json", import
 const timeLab = JSON.parse(await readFile(new URL("../data/time_lab.json", import.meta.url), "utf8"));
 const earthMotionLab = JSON.parse(await readFile(new URL("../data/earth_motion_lab.json", import.meta.url), "utf8"));
 const learningProjects = JSON.parse(await readFile(new URL("../data/learning_projects.json", import.meta.url), "utf8"));
+const solarSeasonLab = JSON.parse(await readFile(new URL("../data/solar_season_lab.json", import.meta.url), "utf8"));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
 
@@ -20,12 +22,13 @@ if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json �
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
-if (learningProjects?.schema_version !== "0.6.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.6.0版非空项目清单");
+if (learningProjects?.schema_version !== "0.7.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.7.0版非空项目清单");
+if (solarSeasonLab?.schema_version !== "0.7.0" || !Array.isArray(solarSeasonLab.dates) || solarSeasonLab.dates.length !== 4) errors.push("solar_season_lab.json 必须包含4个二分二至日情境");
 
 const projectIds = new Set();
 const projectOrders = new Set();
-const allowedProjectActions = new Set(["start-earth-motion", "start-time-lab", "start-next", "goto"]);
-const allowedStatusKinds = new Set(["earth_motion", "time_lab", "diagnostic", "retest"]);
+const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-time-lab", "start-next", "goto"]);
+const allowedStatusKinds = new Set(["earth_motion", "solar_season", "time_lab", "diagnostic", "retest"]);
 for (const project of learningProjects?.projects || []) {
   if (projectIds.has(project.id)) errors.push(`学习项目编号重复：${project.id}`);
   projectIds.add(project.id);
@@ -36,7 +39,7 @@ for (const project of learningProjects?.projects || []) {
   if (!allowedStatusKinds.has(project.status_kind)) errors.push(`${project.id} 使用了不支持的 status_kind`);
   if (project.action === "goto" && !project.route) errors.push(`${project.id} 的 goto action 必须指定 route`);
 }
-for (const requiredProjectId of ["earth-motion-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
+for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
   if (!projectIds.has(requiredProjectId)) errors.push(`学习项目清单缺少：${requiredProjectId}`);
 }
 
@@ -190,6 +193,35 @@ for (const tag of ["E-SUN-SIDE", "E-VIEW-ROTATION", "E-TERM-TRANSITION", "E-TERM
   if (!earthMotionLab?.error_tags?.[tag]) errors.push(`earth_motion_lab.json 缺少错误标签：${tag}`);
 }
 
+if (solarSeasonLab && !topicIds.has(solarSeasonLab.topic_id)) errors.push("solar_season_lab.json 引用了不存在的主题");
+if (!Number.isInteger(solarSeasonLab?.review_after_hours) || solarSeasonLab.review_after_hours < 24) errors.push("solar_season_lab.json review_after_hours 至少为24小时");
+const solarFeature = globalThis.OrangeCoach?.features?.solarSeason;
+if (!solarFeature) {
+  errors.push("太阳季节实验功能未成功注册");
+} else {
+  const solarDates = new Map((solarSeasonLab.dates || []).map((item) => [item.id, item]));
+  const solarPlaces = new Map((solarSeasonLab.places || []).map((item) => [item.id, item]));
+  const solarChecks = [
+    ["march-equinox", "beijing", "赤道", "昼夜等长", "各纬度近似等长", 50],
+    ["june-solstice", "beijing", "北回归线", "昼长夜短", "由南向北递增", 73.5],
+    ["june-solstice", "antarctic-circle", "北回归线", "极夜", "由南向北递增", 0],
+    ["december-solstice", "arctic-circle", "南回归线", "极夜", "由南向北递减", 0],
+    ["december-solstice", "antarctic-circle", "南回归线", "极昼", "由南向北递减", 47]
+  ];
+  for (const [dateId, placeId, direct, dayRelation, pattern, altitude] of solarChecks) {
+    const date = solarDates.get(dateId);
+    const place = solarPlaces.get(placeId);
+    if (!date || !place) { errors.push(`缺少太阳季节校验情境：${dateId}-${placeId}`); continue; }
+    const result = solarFeature.calculate(date, place);
+    if (result.direct !== direct || result.day_relation !== dayRelation || result.north_pattern !== pattern || result.noon_altitude !== altitude) {
+      errors.push(`${dateId}-${placeId} 的直射点、昼长或太阳高度计算错误`);
+    }
+  }
+}
+for (const tag of ["S-DATE-DIRECT", "S-HEMISPHERE-DAY", "S-POLAR-RULE", "S-LATITUDE-PATTERN", "S-NOON-ALTITUDE"]) {
+  if (!solarSeasonLab?.error_tags?.[tag]) errors.push(`solar_season_lab.json 缺少错误标签：${tag}`);
+}
+
 const learningExport = globalThis.OrangeCoach?.features?.learningExport;
 if (!learningExport) {
   errors.push("可批注学习档案功能未成功注册");
@@ -201,6 +233,7 @@ if (!learningExport) {
     retestAttempts: [],
     timeLabAttempts: [],
     earthMotionAttempts: [],
+    solarSeasonAttempts: [],
     coachAnnotations: [{ id: "COACH-TEST", status: "候选" }]
   };
   const packet = learningExport.buildPacket({
@@ -210,9 +243,9 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.6.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.export_schema_version !== "0.7.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
   if (packet.summary.total_learning_records !== 1 || packet.summary.pending_parent_reviews !== 1) errors.push("学习档案摘要计数错误");
-  if (packet.summary.by_project.length !== 4 || packet.summary.activity_window.first_recorded_at == null) errors.push("学习档案缺少项目进度或学习时间范围");
+  if (packet.summary.by_project.length !== 5 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts)) errors.push("学习档案缺少项目进度、太阳季节记录或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");
   if (packet.coach_annotations[0]?.id !== "COACH-TEST" || !packet.annotation_guide?.expected_annotation_shape) errors.push("学习档案没有保留批注或批注规范");
   if (!/^orange-geography-records-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}[+-]\d{2}-\d{2}\.json$/.test(filename)) errors.push("学习档案文件名必须包含本地日期、时分秒和时区偏移");
@@ -227,4 +260,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案时间戳与摘要通过校验`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);

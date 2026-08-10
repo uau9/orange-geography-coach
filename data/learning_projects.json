@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.6.0",
+  "schema_version": "0.7.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -12,6 +12,18 @@
       "status_kind": "earth_motion",
       "accent": "navy",
       "order": 10
+    },
+    {
+      "id": "solar-season-lab",
+      "eyebrow": "地球公转专项",
+      "title": "太阳直射点与昼夜长短",
+      "summary": "从二分二至日定位太阳直射点，再判断目标地点昼夜长短、全球纬度规律和正午太阳高度。",
+      "action": "start-solar-season",
+      "route": null,
+      "cta": "进入太阳季节实验室",
+      "status_kind": "solar_season",
+      "accent": "gold",
+      "order": 15
     },
     {
       "id": "time-zone-lab",
