@@ -1,0 +1,131 @@
+{
+  "schema_version": "0.19.0",
+  "id": "eclipse-lab",
+  "topic_id": "physical.earth.universe",
+  "title": "日月食几何与可见范围实验室",
+  "review_after_hours": 48,
+  "model_note": "采用高中理想剖面模型：日、地、月大小与距离不按真实比例，月球轨道相对黄道倾斜约5°。日食发生在新月且接近交点，月食发生在满月且接近交点；食的类型还取决于影锥、月球距离、月球穿影位置和观察者所在地。",
+  "cases": [
+    { "id": "total-solar", "name": "日全食", "family": "solar", "phase": "新月", "alignment": "日—月—地近似成线，且接近交点", "shadow": "月球本影到达地表", "phenomenon": "日全食", "visibility": "本影扫过的狭窄全食带可见；周围半影区见日偏食", "category": "solar-central", "diagram_mode": "solar", "offset": 0, "moon_scale": 1.08 },
+    { "id": "annular-solar", "name": "日环食", "family": "solar", "phase": "新月", "alignment": "日—月—地近似成线，且接近交点", "shadow": "月球本影尖端未到地表，伪本影到达地表", "phenomenon": "日环食", "visibility": "狭窄环食带可见；周围半影区见日偏食", "category": "solar-central", "diagram_mode": "solar", "offset": 0, "moon_scale": 0.82 },
+    { "id": "partial-solar", "name": "日偏食", "family": "solar", "phase": "新月", "alignment": "日—月—地没有精确成一直线", "shadow": "只有月球半影覆盖观察地，本影或伪本影未覆盖该地", "phenomenon": "日偏食", "visibility": "半影覆盖的部分白昼地区可见，覆盖范围外不可见", "category": "solar-partial", "diagram_mode": "solar", "offset": -50, "moon_scale": 1 },
+    { "id": "no-solar", "name": "新月但无日食", "family": "solar", "phase": "新月", "alignment": "新月远离交点，月球从日地连线上方或下方通过", "shadow": "月球本影与半影均未扫过地球", "phenomenon": "不发生日食", "visibility": "地球任何地点都看不到日食", "category": "no-eclipse", "diagram_mode": "solar", "offset": -90, "moon_scale": 1 },
+    { "id": "total-lunar", "name": "月全食", "family": "lunar", "phase": "满月", "alignment": "日—地—月近似成线，且接近交点", "shadow": "整个月面进入地球本影", "phenomenon": "月全食", "visibility": "月球在地平线以上的广大夜半球地区都可见", "category": "lunar-umbral", "diagram_mode": "lunar", "offset": 0, "moon_scale": 1 },
+    { "id": "partial-lunar", "name": "月偏食", "family": "lunar", "phase": "满月", "alignment": "日—地—月接近成线，但月球偏离地影中心", "shadow": "部分月面进入地球本影", "phenomenon": "月偏食", "visibility": "月球在地平线以上的广大夜半球地区都可见", "category": "lunar-umbral", "diagram_mode": "lunar", "offset": -28, "moon_scale": 1 },
+    { "id": "penumbral-lunar", "name": "半影月食", "family": "lunar", "phase": "满月", "alignment": "日—地—月较弱对齐，月球只掠过地影外侧", "shadow": "月球只进入地球半影，没有进入本影", "phenomenon": "半影月食", "visibility": "夜半球可见，但月面只轻微变暗，常不易察觉", "category": "lunar-penumbral", "diagram_mode": "lunar", "offset": -52, "moon_scale": 1 },
+    { "id": "no-lunar", "name": "满月但无月食", "family": "lunar", "phase": "满月", "alignment": "满月远离交点，月球从地影上方或下方通过", "shadow": "月球没有进入地球本影或半影", "phenomenon": "不发生月食", "visibility": "夜半球只能看到普通满月", "category": "no-eclipse", "diagram_mode": "lunar", "offset": -90, "moon_scale": 1 }
+  ],
+  "scenarios": [
+    {
+      "id": "EC-01", "case_id": "total-solar", "challenge": "同一场日食，为什么甲地全食、附近乙地却只有偏食？",
+      "observations": ["新月接近轨道交点", "月球视直径略大于太阳", "甲在月球本影内，乙只在半影内"],
+      "choices": {
+        "alignment": ["日—月—地近似成线，且接近交点", "日—地—月近似成线，且接近交点", "新月远离交点", "只要是白天就一定成线"],
+        "shadow": ["月球本影到达地表", "月球伪本影到达地表", "地球本影覆盖月球", "地球半影覆盖月球"],
+        "phenomenon": ["日全食", "日环食", "日偏食", "月全食"],
+        "visibility": ["本影扫过的狭窄全食带可见；周围半影区见日偏食", "整个白昼半球都见日全食", "整个月球可见的夜半球都见日全食", "全球任何地点同时见同一食相"],
+        "conclusion": ["同一时刻不同地点所处影区不同，所以看到的日食类型可不同", "日食类型只由当地天气决定", "离月球越远越容易进入本影", "看到偏食说明没有发生日食"]
+      },
+      "answers": { "alignment": "日—月—地近似成线，且接近交点", "shadow": "月球本影到达地表", "phenomenon": "日全食", "visibility": "本影扫过的狭窄全食带可见；周围半影区见日偏食", "conclusion": "同一时刻不同地点所处影区不同，所以看到的日食类型可不同" }
+    },
+    {
+      "id": "EC-02", "case_id": "annular-solar", "challenge": "已经精确成线，为什么太阳中央被挡住后仍留下光环？",
+      "observations": ["新月接近轨道交点", "月球接近远地点，视直径小于太阳", "月球本影尖端在到达地表前结束"],
+      "choices": {
+        "alignment": ["日—月—地近似成线，且接近交点", "日—地—月近似成线，且接近交点", "满月远离交点", "日月地完全不在同一方向"],
+        "shadow": ["月球本影尖端未到地表，伪本影到达地表", "月球本影完整覆盖整个地球", "地球本影覆盖太阳", "只有地球半影到达月球"],
+        "phenomenon": ["日环食", "日全食", "月环食", "半影月食"],
+        "visibility": ["狭窄环食带可见；周围半影区见日偏食", "整个白昼半球都见日环食", "整个夜半球都见日环食", "只有月球背面可见"],
+        "conclusion": ["成线是必要条件，月球视直径较小使其不能完全遮住太阳", "日环食说明月球没有影子", "日环食只因太阳突然变大", "只要在新月就一定出现光环"]
+      },
+      "answers": { "alignment": "日—月—地近似成线，且接近交点", "shadow": "月球本影尖端未到地表，伪本影到达地表", "phenomenon": "日环食", "visibility": "狭窄环食带可见；周围半影区见日偏食", "conclusion": "成线是必要条件，月球视直径较小使其不能完全遮住太阳" }
+    },
+    {
+      "id": "EC-03", "case_id": "partial-solar", "challenge": "某地只看到太阳缺一角，能否据此说全球都在发生同样食相？",
+      "observations": ["新月位于太阳附近但中心未完全重合", "观察地进入月球半影", "月球本影轴没有通过观察地"],
+      "choices": {
+        "alignment": ["日—月—地没有精确成一直线", "日—地—月精确成线", "满月位于地球本影中心", "太阳位于地月之间"],
+        "shadow": ["只有月球半影覆盖观察地，本影或伪本影未覆盖该地", "月球本影覆盖整个白昼半球", "地球本影覆盖观察地", "观察地没有进入任何月影"],
+        "phenomenon": ["日偏食", "日全食", "月偏食", "普通新月且全球无食"],
+        "visibility": ["半影覆盖的部分白昼地区可见，覆盖范围外不可见", "整个地球都看见太阳缺角", "所有夜间地区可见", "只有赤道地区可见"],
+        "conclusion": ["日偏食是观察地处在月球半影中的局地观测结果", "日偏食表示月球进入地球本影", "缺角大小在全球处处相同", "日偏食发生时月球一定在满月位置"]
+      },
+      "answers": { "alignment": "日—月—地没有精确成一直线", "shadow": "只有月球半影覆盖观察地，本影或伪本影未覆盖该地", "phenomenon": "日偏食", "visibility": "半影覆盖的部分白昼地区可见，覆盖范围外不可见", "conclusion": "日偏食是观察地处在月球半影中的局地观测结果" }
+    },
+    {
+      "id": "EC-04", "case_id": "no-solar", "challenge": "今天是新月，为什么世界各地都没有日食？",
+      "observations": ["月球位于太阳同一侧", "月球离轨道交点较远", "月影从地球上方掠过"],
+      "choices": {
+        "alignment": ["新月远离交点，月球从日地连线上方或下方通过", "日—月—地精确成线且接近交点", "日—地—月精确成线", "太阳从月球影子中穿过"],
+        "shadow": ["月球本影与半影均未扫过地球", "月球本影覆盖地球中心", "地球本影覆盖月球", "月球伪本影覆盖全球"],
+        "phenomenon": ["不发生日食", "日全食", "日环食", "月偏食"],
+        "visibility": ["地球任何地点都看不到日食", "全世界都看到日偏食", "整个夜半球看到日食", "只有两极看到日食"],
+        "conclusion": ["新月只是日食的必要条件，还必须接近交点并让月影扫到地球", "每次新月一定有日食，只是没人发现", "没有日食说明月球不绕地球公转", "是否日食只由云量决定"]
+      },
+      "answers": { "alignment": "新月远离交点，月球从日地连线上方或下方通过", "shadow": "月球本影与半影均未扫过地球", "phenomenon": "不发生日食", "visibility": "地球任何地点都看不到日食", "conclusion": "新月只是日食的必要条件，还必须接近交点并让月影扫到地球" }
+    },
+    {
+      "id": "EC-05", "case_id": "total-lunar", "challenge": "月全食为何比日全食能被更大范围的人同时看到？",
+      "observations": ["满月接近轨道交点", "整个月面进入地球本影", "月球位于广大夜半球观察者的地平线以上"],
+      "choices": {
+        "alignment": ["日—地—月近似成线，且接近交点", "日—月—地近似成线，且接近交点", "新月远离交点", "月球位于太阳和地球之间"],
+        "shadow": ["整个月面进入地球本影", "整个月面进入月球本影", "地球进入月球半影", "太阳进入地球本影"],
+        "phenomenon": ["月全食", "日全食", "月偏食", "半影月食"],
+        "visibility": ["月球在地平线以上的广大夜半球地区都可见", "只有地球表面一条狭窄带可见", "整个白昼半球可见", "全球所有地点无论昼夜都可见"],
+        "conclusion": ["月食看的是远处月球进入地影，夜半球许多地点可同时朝向月球", "月全食范围大是因为月球本影覆盖全球", "日全食与月全食可见范围完全相同", "月全食只在赤道可见"]
+      },
+      "answers": { "alignment": "日—地—月近似成线，且接近交点", "shadow": "整个月面进入地球本影", "phenomenon": "月全食", "visibility": "月球在地平线以上的广大夜半球地区都可见", "conclusion": "月食看的是远处月球进入地影，夜半球许多地点可同时朝向月球" }
+    },
+    {
+      "id": "EC-06", "case_id": "partial-lunar", "challenge": "满月边缘出现逐渐扩大的暗缺口，这与半影月食有何不同？",
+      "observations": ["满月接近交点但偏离地影中心", "一部分月面进入地球本影", "暗缺口边界明显并随后退出"],
+      "choices": {
+        "alignment": ["日—地—月接近成线，但月球偏离地影中心", "日—月—地精确成线", "新月远离交点", "太阳在地球与月球之间"],
+        "shadow": ["部分月面进入地球本影", "月球只进入地球半影", "整个月面进入地球本影", "月球本影落到地球"],
+        "phenomenon": ["月偏食", "半影月食", "月全食", "日偏食"],
+        "visibility": ["月球在地平线以上的广大夜半球地区都可见", "仅一条狭窄月食带可见", "整个白昼半球可见", "只有处在地球本影里的观察者可见"],
+        "conclusion": ["明显暗缺口说明部分月面进入本影，而不只是整体轻微变暗", "月偏食是月球挡住太阳的一角", "月偏食只在发生地正午可见", "暗缺口说明月球自己停止发光"]
+      },
+      "answers": { "alignment": "日—地—月接近成线，但月球偏离地影中心", "shadow": "部分月面进入地球本影", "phenomenon": "月偏食", "visibility": "月球在地平线以上的广大夜半球地区都可见", "conclusion": "明显暗缺口说明部分月面进入本影，而不只是整体轻微变暗" }
+    },
+    {
+      "id": "EC-07", "case_id": "penumbral-lunar", "challenge": "满月只略微变暗、没有明显缺口，应怎样判定？",
+      "observations": ["满月只掠过地影外侧", "月面没有进入地球本影", "整体亮度变化微弱"],
+      "choices": {
+        "alignment": ["日—地—月较弱对齐，月球只掠过地影外侧", "日—月—地精确成线", "月球位于太阳内部", "新月通过地球本影"],
+        "shadow": ["月球只进入地球半影，没有进入本影", "整个月面进入地球本影", "月球本影覆盖地球", "月球没有进入任何影区"],
+        "phenomenon": ["半影月食", "月偏食", "月全食", "日环食"],
+        "visibility": ["夜半球可见，但月面只轻微变暗，常不易察觉", "仅狭窄全食带可见", "整个白昼半球可见", "一定无法用任何仪器记录"],
+        "conclusion": ["半影中地球只遮住部分太阳光，因此月面通常只是轻微变暗", "半影比本影更暗，所以月面全黑", "半影月食就是没有发生月食", "轻微变暗一定由云层造成"]
+      },
+      "answers": { "alignment": "日—地—月较弱对齐，月球只掠过地影外侧", "shadow": "月球只进入地球半影，没有进入本影", "phenomenon": "半影月食", "visibility": "夜半球可见，但月面只轻微变暗，常不易察觉", "conclusion": "半影中地球只遮住部分太阳光，因此月面通常只是轻微变暗" }
+    },
+    {
+      "id": "EC-08", "case_id": "no-lunar", "challenge": "今天是满月，为什么月面整夜保持普通明亮？",
+      "observations": ["月球与太阳分居地球两侧", "月球离轨道交点较远", "月球从地球影锥上方通过"],
+      "choices": {
+        "alignment": ["满月远离交点，月球从地影上方或下方通过", "日—地—月精确成线且接近交点", "日—月—地精确成线", "月球位于地球本影中心"],
+        "shadow": ["月球没有进入地球本影或半影", "整个月面进入地球本影", "月球本影落到地球", "月球只进入伪本影"],
+        "phenomenon": ["不发生月食", "月全食", "月偏食", "日环食"],
+        "visibility": ["夜半球只能看到普通满月", "全球都看到月全食", "白昼半球看到月食", "狭窄全食带看到普通满月"],
+        "conclusion": ["满月只是月食的必要条件，还必须接近交点并进入地影", "每次满月都必有月食", "没有月食说明地球没有影子", "月食只由月球远近决定"]
+      },
+      "answers": { "alignment": "满月远离交点，月球从地影上方或下方通过", "shadow": "月球没有进入地球本影或半影", "phenomenon": "不发生月食", "visibility": "夜半球只能看到普通满月", "conclusion": "满月只是月食的必要条件，还必须接近交点并进入地影" }
+    }
+  ],
+  "error_tags": {
+    "EC-ALIGNMENT-PHASE": "没有把新月/满月、日地月次序与轨道交点条件连起来",
+    "EC-SHADOW-TYPE": "把本影、半影、伪本影及其投射对象混淆",
+    "EC-ECLIPSE-TYPE": "日全食、日环食、日偏食或三类月食判断错误",
+    "EC-VISIBILITY": "没有区分日食的局地影带与月食的广大夜半球可见范围",
+    "EC-EVIDENCE-BOUNDARY": "把新月/满月写成食的充分条件，或把局地食相推广到全球"
+  },
+  "sources": [
+    { "title": "NASA Science: Why Do Eclipses Happen?", "url": "https://science.nasa.gov/eclipses/geometry/", "supports": "日食本影、半影、伪本影，日全食、日环食、日偏食及可见路径" },
+    { "title": "NASA Science: Eclipses", "url": "https://science.nasa.gov/eclipses/", "supports": "四类日食、三类月食与安全观察边界" },
+    { "title": "NASA Science: Eclipses and the Moon", "url": "https://science.nasa.gov/moon/eclipses/", "supports": "日食窄影带与月食夜半球可见范围的差异" },
+    { "title": "NASA Science: The Moon's Moment in the Sun", "url": "https://science.nasa.gov/solar-system/skywatching/eclipses/solar-eclipses/2024-solar-eclipse/total-solar-eclipse-2024-the-moons-moment-in-the-sun/", "supports": "约5°轨道倾角、交点条件与日食影区" },
+    { "title": "NASA GSFC: Visual Appearance of Lunar Eclipses", "url": "https://eclipse.gsfc.nasa.gov/LEcat5/appearance.html", "supports": "半影、偏食和全食月食的外观与地球大气折射边界" },
+    { "title": "NASA GSFC: Explanation of Eclipse Maps", "url": "https://eclipse.gsfc.nasa.gov/SEmono/reference/map.html", "supports": "日食半影范围、全食或环食中心路径及地图判读" }
+  ]
+}

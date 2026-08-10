@@ -10,7 +10,7 @@
 
 - `learning_projects.json` 是所有学习项目的导航清单；
 - `questions.json`、`retests.json` 是诊断与复测内容；
-- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json`、`solar_activity_lab.json`、`moon_phase_lab.json` 是专题实验模型；
+- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json`、`solar_activity_lab.json`、`moon_phase_lab.json`、`eclipse_lab.json` 是专题实验模型；
 - 内容文件不直接包含HTML，也不保存浏览器作答状态。
 
 ### 2. 格式约束：`schemas/`
@@ -34,6 +34,7 @@
 - `habitability.js`：金星、地球、火星和月球的轨道、大气、温度、液态水与生命证据边界对照；
 - `solar-activity.js`：黑子、耀斑、高能粒子、CME与高速太阳风的传播载体、时标、地球影响和证据边界；
 - `moon-phase.js`：八相日地月位置、月面受光、盈亏、可见时段与普通月相/日月食边界；
+- `eclipse.js`：新月/满月与交点、本影/半影/伪本影、日月食类型和地表可见范围；
 - `learning-export.js`：学习档案摘要、时间戳和文件名；
 - 后续专题可继续拆分自己的渲染和计算模块。
 
@@ -54,9 +55,9 @@
 
 ## 版本规则
 
-- 应用资源版本当前为 `0.18.0`，集中定义在 `assets/config.js`；
+- 应用资源版本当前为 `0.19.0`，集中定义在 `assets/config.js`；
 - LocalStorage 学习记录仍使用兼容版本 `0.3.0`，避免破坏已有浏览器数据；
-- 导出档案独立使用 `export_schema_version: 0.18.0`；
+- 导出档案独立使用 `export_schema_version: 0.19.0`；
 - 修改数据结构时分别判断“应用版本、记录版本、导出版本”是否需要升级。
 
 ## 完成检查

@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.18.0",
+  "schema_version": "0.19.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -146,6 +146,18 @@
       "order": 25
     },
     {
+      "id": "eclipse-lab",
+      "eyebrow": "日月食专项",
+      "title": "日月食几何与可见范围",
+      "summary": "从新月或满月、轨道交点和本影半影出发，判断日全食、日环食、日偏食及三类月食，并比较地表可见范围。",
+      "action": "start-eclipse",
+      "route": null,
+      "cta": "进入日月食实验室",
+      "status_kind": "eclipse",
+      "accent": "navy",
+      "order": 26
+    },
+    {
       "id": "solar-path-lab",
       "eyebrow": "太阳视运动专项",
       "title": "日出日落与太阳视运动",
@@ -155,7 +167,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 26
+      "order": 27
     },
     {
       "id": "time-zone-lab",
@@ -167,7 +179,7 @@
       "cta": "进入时区实验室",
       "status_kind": "time_lab",
       "accent": "teal",
-      "order": 27
+      "order": 28
     },
     {
       "id": "diagnostic-questions",

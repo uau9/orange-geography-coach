@@ -702,6 +702,45 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .moon-phase-progress-caption strong { color: #684f7d; font-size: 12px; }
 .moon-phase-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #75558f; touch-action: pan-x; }
 .moon-boundary-note { margin-top: 10px; border-color: #d9cce4; background: #f7f1fa; }
+.eclipse-scene-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.eclipse-scene-bar > div { min-width: 0; border: 1px solid #c9d9e8; border-radius: 12px; padding: 10px 12px; background: #f1f7fb; }
+.eclipse-scene-bar span, .eclipse-scene-bar strong { display: block; }
+.eclipse-scene-bar span { color: var(--muted); font-size: 9px; }
+.eclipse-scene-bar strong { margin-top: 4px; color: #315f79; font-size: 12px; line-height: 1.4; }
+.eclipse-card { overflow: hidden; }
+.eclipse-layout, .eclipse-result-layout { display: grid; gap: 18px; }
+.eclipse-model { display: block; width: 100%; height: auto; border: 1px solid #becfe0; border-radius: 16px; background: #0e1a2b; }
+.eclipse-space { fill: #0e1a2b; }
+.eclipse-sun { fill: #f1b94f; stroke: #ffe5a3; stroke-width: 4; }
+.eclipse-earth { fill: #3e8da8; stroke: #edf7fb; stroke-width: 3; }
+.eclipse-earth-day { fill: #9bc56e; opacity: .9; }
+.eclipse-moon { fill: #9ba5b3; stroke: #f4f6f8; stroke-width: 2; }
+.eclipse-orbit-plane { stroke: rgba(255,255,255,.22); stroke-width: 1; stroke-dasharray: 5 5; }
+.eclipse-penumbra { fill: rgba(102,134,162,.24); stroke: rgba(171,199,221,.5); stroke-width: 1; }
+.eclipse-umbra { fill: rgba(12,16,26,.82); stroke: rgba(232,239,245,.42); stroke-width: 1; }
+.eclipse-antumbra { fill: rgba(103,74,135,.34); stroke: rgba(214,190,233,.58); stroke-width: 1; }
+.eclipse-label, .eclipse-shadow-label { fill: #eaf1f6; font-size: 10px; font-weight: 800; paint-order: stroke; stroke: #0e1a2b; stroke-width: 3px; }
+.eclipse-shadow-label { fill: #cbddeb; font-size: 9px; }
+.eclipse-observer { fill: #ff9546; stroke: white; stroke-width: 2; }
+.eclipse-answer-panel rect, .eclipse-lock rect { fill: rgba(25,43,61,.96); stroke: rgba(255,255,255,.24); }
+.eclipse-answer-panel text, .eclipse-lock text { fill: #edf5f8; font-size: 8.5px; font-weight: 750; }
+.eclipse-prediction-panel { min-width: 0; }
+.eclipse-prediction-panel fieldset { min-width: 0; margin: 0; padding: 12px 0; border: 0; border-bottom: 1px solid var(--line); }
+.eclipse-prediction-panel legend { padding: 0; font-size: 13px; font-weight: 800; line-height: 1.45; }
+.eclipse-choice-grid { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 9px; }
+.eclipse-choice-grid label { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 8px; background: #f8fbfd; color: var(--ink); font-size: 10px; line-height: 1.35; text-align: center; overflow-wrap: anywhere; }
+.eclipse-choice-grid label:has(input:checked) { border-color: #3d7898; background: #eaf4f9; }
+.eclipse-choice-grid input { width: 1px; height: 1px; margin: 0; opacity: 0; }
+.eclipse-readout { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 9px; }
+.eclipse-readout > div { min-width: 0; border: 1px solid #c9d9e8; border-radius: 11px; padding: 9px 10px; background: #f2f8fb; }
+.eclipse-readout span, .eclipse-readout strong, .eclipse-readout small { display: block; }
+.eclipse-readout span { color: var(--muted); font-size: 8px; }
+.eclipse-readout strong { margin: 3px 0; color: #315f79; font-size: 11px; line-height: 1.35; }
+.eclipse-readout small { color: #657681; font-size: 8px; line-height: 1.4; }
+.eclipse-progress-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 12px 3px 0; color: var(--muted); font-size: 9px; }
+.eclipse-progress-caption strong { color: #315f79; font-size: 12px; }
+.eclipse-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #3d7898; touch-action: pan-x; }
+.eclipse-boundary-note { margin-top: 10px; border-color: #c9d9e8; background: #eff7fb; }
 @media (max-width: 520px) {
   .today-heading, .projects-heading { align-items: flex-start; }
   .today-heading .page-title, .projects-heading .page-title { font-size: 22px; }
@@ -732,6 +771,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .habitability-scene-bar { grid-template-columns: 1fr; }
   .solar-activity-scene-bar { grid-template-columns: 1fr; }
   .moon-phase-scene-bar, .moon-phase-readout { grid-template-columns: 1fr; }
+  .eclipse-scene-bar { grid-template-columns: 1fr; }
+  .eclipse-card h3 { font-size: 18px; }
   .habitability-evidence-row { grid-template-columns: minmax(78px, .72fr) repeat(2, minmax(0, 1fr)); padding-inline: 5px; }
   .celestial-progress-caption span { max-width: 27%; }
 }
@@ -765,6 +806,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .solar-activity-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .moon-phase-layout { grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr); align-items: start; }
   .moon-phase-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
+  .eclipse-layout { grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr); align-items: start; }
+  .eclipse-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .motion-lab-layout { grid-template-columns: minmax(0, 1.22fr) minmax(290px, .78fr); align-items: start; }
   .motion-result-layout { grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); align-items: start; }
   .motion-prediction-panel { padding-left: 4px; }
@@ -781,4 +824,5 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .habitability-layout, .habitability-result-layout { grid-template-columns: 1fr; }
   .solar-activity-layout, .solar-activity-result-layout { grid-template-columns: 1fr; }
   .moon-phase-layout, .moon-phase-result-layout { grid-template-columns: 1fr; }
+  .eclipse-layout, .eclipse-result-layout { grid-template-columns: 1fr; }
 }
