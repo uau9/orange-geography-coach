@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.12.0", ASSET_VERSION: "0.12.0", EXPORT_SCHEMA_VERSION: "0.12.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.13.0", ASSET_VERSION: "0.13.0", EXPORT_SCHEMA_VERSION: "0.13.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null };
 
 function defaultState() {
   return {
@@ -88,6 +88,8 @@ function defaultState() {
     terminatorLinkScenarioIndex: 0,
     activeRotationSpeedAttemptId: null,
     rotationSpeedScenarioIndex: 0,
+    activeDateRangeAttemptId: null,
+    dateRangeScenarioIndex: 0,
     attempts: [],
     retestAttempts: [],
     timeLabAttempts: [],
@@ -98,6 +100,7 @@ function defaultState() {
     orbitSpeedAttempts: [],
     terminatorLinkAttempts: [],
     rotationSpeedAttempts: [],
+    dateRangeAttempts: [],
     coachAnnotations: [],
     lastAction: ""
   };
@@ -151,6 +154,7 @@ function normalizeState(parsed) {
     : Array.isArray(parsed?.rotation_speed_attempts)
       ? parsed.rotation_speed_attempts
       : [];
+  normalized.dateRangeAttempts = Array.isArray(parsed?.dateRangeAttempts) ? parsed.dateRangeAttempts : Array.isArray(parsed?.date_range_attempts) ? parsed.date_range_attempts : [];
   normalized.coachAnnotations = Array.isArray(parsed?.coachAnnotations)
     ? parsed.coachAnnotations
     : Array.isArray(parsed?.coach_annotations)
@@ -187,6 +191,7 @@ function getAnnualSunAttempt(id) { return state.annualSunAttempts.find((attempt)
 function getOrbitSpeedAttempt(id) { return state.orbitSpeedAttempts.find((attempt) => attempt.id === id); }
 function getTerminatorLinkAttempt(id) { return state.terminatorLinkAttempts.find((attempt) => attempt.id === id); }
 function getRotationSpeedAttempt(id) { return state.rotationSpeedAttempts.find((attempt) => attempt.id === id); }
+function getDateRangeAttempt(id) { return state.dateRangeAttempts.find((attempt) => attempt.id === id); }
 function getActiveQuestion() { return getQuestion(state.currentQuestionId) || chooseNextQuestion(); }
 function chooseNextQuestion() {
   const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
@@ -221,9 +226,10 @@ function latestAnnualSunAttempts() { return [...state.annualSunAttempts].sort((a
 function latestOrbitSpeedAttempts() { return [...state.orbitSpeedAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestTerminatorLinkAttempts() { return [...state.terminatorLinkAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestRotationSpeedAttempts() { return [...state.rotationSpeedAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestDateRangeAttempts() { return [...state.dateRangeAttempts].sort((a,b)=>new Date(b.submitted_at)-new Date(a.submitted_at)); }
 function completedToday() {
   const today = new Date().toDateString();
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts]
     .filter((attempt) => attempt.submitted_at && new Date(attempt.submitted_at).toDateString() === today).length;
 }
 function topicStats(topic) {
@@ -774,6 +780,9 @@ function renderRotationSpeedLab() {
   }
   app.innerHTML = feature.renderLab({ lab: catalog.rotationSpeedLab, place, scenario, scenarioIndex: state.rotationSpeedScenarioIndex % catalog.rotationSpeedLab.scenarios.length });
 }
+function getDateRangeScenario(id=null){const a=catalog.dateRangeLab?.scenarios||[];if(!a.length)return null;return id?a.find(x=>x.id===id)||a[0]:a[state.dateRangeScenarioIndex%a.length];}
+function dateRangeMasteryStatus(){const h=catalog.dateRangeLab?.review_after_hours||48,a=[...state.dateRangeAttempts].filter(x=>x.score===5&&x.parent_review_status==="已确认").sort((x,y)=>new Date(x.submitted_at)-new Date(y.submitted_at));if(a.length<2)return{label:"待验证",detail:`需要一个日期与两个日期情境各满分一次，间隔至少${h}小时并由家长确认。`,mastered:false};const l=a.at(-1),e=[...a].reverse().find(x=>x.correct_answers?.date_count!==l.correct_answers?.date_count&&new Date(l.submitted_at)-new Date(x.submitted_at)>=h*3600000);return e?{label:"延迟复测通过",detail:`一个日期与两个日期情境均通过，且间隔至少${h}小时。`,mastered:true}:{label:"等待换日期数量复测",detail:`还需更换全球日期数量并间隔至少${h}小时。`,mastered:false};}
+function renderDateRangeLab(){const f=window.OrangeCoach?.features?.dateRange,s=getDateRangeScenario();if(!f||!s){app.innerHTML=`<section class="card empty">全球日期实验数据尚未加载。</section>`;return}const a=getDateRangeAttempt(state.activeDateRangeAttemptId);if(a){const x=getDateRangeScenario(a.scenario_id);app.innerHTML=f.renderResult({lab:catalog.dateRangeLab,scenario:x,attempt:a});return}app.innerHTML=f.renderLab({lab:catalog.dateRangeLab,scenario:s,scenarioIndex:state.dateRangeScenarioIndex%catalog.dateRangeLab.scenarios.length});}
 
 function render() {
   window.scrollTo(0, 0);
@@ -787,6 +796,7 @@ function render() {
   if (state.route === "orbit-speed-lab") return renderOrbitSpeedLab();
   if (state.route === "terminator-link-lab") return renderTerminatorLinkLab();
   if (state.route === "rotation-speed-lab") return renderRotationSpeedLab();
+  if (state.route === "date-range-lab") return renderDateRangeLab();
   if (state.route === "train") return renderTrain();
   if (state.route === "projects") return renderProjects();
   if (state.route === "mastery") return renderMastery();
@@ -801,7 +811,7 @@ function renderToday() {
     recommendation: getTodayRecommendation(),
     stats: [
       { value: completedToday(), label: "今日完成" },
-      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length, label: "学习证据" },
+      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length, label: "学习证据" },
       { value: countPendingParentReviews(), label: "待家长确认" }
     ],
     recent: getRecentEvidence().slice(0, 3)
@@ -809,7 +819,7 @@ function renderToday() {
 }
 
 function countPendingParentReviews() {
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts]
     .filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
 }
 
@@ -862,6 +872,7 @@ function projectStatus(project) {
       ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.rotationSpeedAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
       : { status_label: "待开始", status_tone: "", status_detail: "尚未留下角速度、线速度与纬线弧长判断证据" };
   }
+  if(project.status_kind==="date_range"){const l=latestDateRangeAttempts()[0];return l?{status_label:`${l.score}/5`,status_tone:l.score===5&&l.parent_review_status==="已确认"?"green":"orange",status_detail:`${state.dateRangeAttempts.length} 次实验 · 最近 ${formatDate(l.submitted_at)} · ${l.parent_review_status}`}:{status_label:"待开始",status_tone:"",status_detail:"尚未留下0时经线、日期占比与日界线判断证据"};}
   if (project.status_kind === "diagnostic") {
     const latest = latestAttempts()[0];
     return latest
@@ -889,6 +900,7 @@ function getTodayRecommendation() {
   const latestOrbit = latestOrbitSpeedAttempts()[0];
   const latestLink = latestTerminatorLinkAttempts()[0];
   const latestRotation = latestRotationSpeedAttempts()[0];
+  const latestDateRange = latestDateRangeAttempts()[0];
   const latestPath = latestSolarPathAttempts()[0];
   const latestTime = latestTimeLabAttempts()[0];
   let project;
@@ -911,6 +923,7 @@ function getTodayRecommendation() {
   } else if (!latestRotation) {
     project = byId("rotation-speed-lab");
     reason = "已有自转方向与地方时基础，继续比较不同纬度的角速度、线速度和运动距离。";
+  } else if(!latestDateRange){project=byId("date-range-lab");reason="已有地方时基础，继续用0时经线和180°经线划分全球日期范围。";
   } else if (!latestPath) {
     project = byId("solar-path-lab");
     reason = "已有太阳直射点基础，继续把它转化成日出、正午、日落和影子的具体天空轨迹。";
@@ -935,6 +948,7 @@ function getTodayRecommendation() {
   } else if (latestRotation.score < 5 || latestRotation.parent_review_status === "需再练") {
     project = byId("rotation-speed-lab");
     reason = "最近一次自转速度记录仍有候选错因，换到另一纬度带和观察时长再次验证。";
+  } else if(latestDateRange.score<5||latestDateRange.parent_review_status==="需再练"){project=byId("date-range-lab");reason="最近一次全球日期记录仍有候选错因，换UTC时刻和跨线方向再次验证。";
   } else if (latestPath.score < 4 || latestPath.parent_review_status === "需再练") {
     project = byId("solar-path-lab");
     reason = "最近一次太阳视运动记录仍有候选错因，换日期和地点再走一遍天空轨迹。";
@@ -943,7 +957,7 @@ function getTodayRecommendation() {
     reason = "最近一次时区实验仍有候选错因，换经度和时刻检查能否迁移。";
   } else {
     project = byId("diagnostic-questions");
-    reason = "八个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
+    reason = "九个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
   }
   return project ? { ...project, reason, status: project.status_detail } : null;
 }
@@ -1025,6 +1039,7 @@ function getRecentEvidence() {
       tone: evidenceTone(attempt.parent_review_status)
     };
   });
+  const dateRange=state.dateRangeAttempts.map(a=>({submitted_at:a.submitted_at,title:`${a.scenario_id} · 全球日期范围`,meta:`全球日期实验 · ${a.score}/5 · ${formatDate(a.submitted_at)}`,status:a.parent_review_status,tone:evidenceTone(a.parent_review_status)}));
   const retests = state.retestAttempts.map((attempt) => ({
     submitted_at: attempt.submitted_at,
     title: getRetest(attempt.retest_id)?.title || attempt.retest_id,
@@ -1032,7 +1047,7 @@ function getRecentEvidence() {
     status: attempt.parent_review_status,
     tone: evidenceTone(attempt.parent_review_status)
   }));
-  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...retests]
+  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...dateRange, ...retests]
     .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at));
 }
 
@@ -1212,6 +1227,7 @@ function renderMastery() {
   const latestOrbit = latestOrbitSpeedAttempts()[0];
   const latestLink = latestTerminatorLinkAttempts()[0];
   const latestRotation = latestRotationSpeedAttempts()[0];
+  const latestDateRange = latestDateRangeAttempts()[0];
   const motionMastery = earthMotionMasteryStatus();
   const solarMastery = solarSeasonMasteryStatus();
   const pathMastery = solarPathMasteryStatus();
@@ -1219,6 +1235,7 @@ function renderMastery() {
   const orbitMastery = orbitSpeedMasteryStatus();
   const linkMastery = terminatorLinkMasteryStatus();
   const rotationMastery = rotationSpeedMasteryStatus();
+  const dateRangeMastery = dateRangeMasteryStatus();
   app.innerHTML = `
     <h2 class="page-title">掌握与复测</h2>
     <p class="page-subtitle">百分比只是提示，不代表真正掌握。真正的证据来自延迟复测和能否讲清推理链。</p>
@@ -1232,6 +1249,7 @@ function renderMastery() {
     <section class="card"><div class="attempt-head"><div><span class="pill orange">公转速度专项</span><h3>轨道位置—日地距离—公转速度—四季成因</h3></div><span class="pill ${orbitMastery.mastered ? "green" : "orange"}">${escapeHtml(orbitMastery.label)}</span></div><p class="small">${latestOrbit ? `最近实验：${escapeHtml(getOrbitSpeedCheckpoint(latestOrbit.checkpoint_id)?.name || latestOrbit.checkpoint_id)} · ${escapeHtml(getOrbitSpeedHemisphere(latestOrbit.hemisphere_id)?.name || latestOrbit.hemisphere_id)} · ${latestOrbit.score}/4 · ${escapeHtml(latestOrbit.parent_review_status)} · ${formatDate(latestOrbit.submitted_at)}` : "先完成一次公转轨道实验，留下远近、快慢和季节成因判断链。"}</p><p class="small">${escapeHtml(orbitMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-orbit-speed">进入公转轨道实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">晨昏线综合专项</span><h3>直射经线—地方时—昼长—晨昏状态—极昼极夜</h3></div><span class="pill ${linkMastery.mastered ? "green" : "orange"}">${escapeHtml(linkMastery.label)}</span></div><p class="small">${latestLink ? `最近实验：${escapeHtml(getTerminatorLinkScenario(latestLink.scenario_id)?.id || latestLink.scenario_id)} · ${latestLink.score}/5 · ${escapeHtml(latestLink.parent_review_status)} · ${formatDate(latestLink.submitted_at)}` : "先完成一次全球晨昏线联动实验，留下五步综合判断链。"}</p><p class="small">${escapeHtml(linkMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-terminator-link">进入晨昏线综合实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">自转速度专项</span><h3>自转周期—角速度—纬线圈—线速度—运动距离</h3></div><span class="pill ${rotationMastery.mastered ? "green" : "orange"}">${escapeHtml(rotationMastery.label)}</span></div><p class="small">${latestRotation ? `最近实验：${escapeHtml(getRotationSpeedPlace(getRotationSpeedScenario(latestRotation.scenario_id)?.place_id)?.name || latestRotation.scenario_id)} · ${latestRotation.score}/5 · ${escapeHtml(latestRotation.parent_review_status)} · ${formatDate(latestRotation.submitted_at)}` : "先完成一次自转速度实验，留下角速度、线速度与弧长判断链。"}</p><p class="small">${escapeHtml(rotationMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-rotation-speed">进入自转速度实验室</button></div></section>
+    <section class="card"><div class="attempt-head"><div><span class="pill orange">全球日期专项</span><h3>UTC—0时经线—日期带占比—日界线</h3></div><span class="pill ${dateRangeMastery.mastered ? "green" : "orange"}">${escapeHtml(dateRangeMastery.label)}</span></div><p class="small">${latestDateRange ? `最近实验：${escapeHtml(latestDateRange.scenario_id)} · ${latestDateRange.score}/5 · ${escapeHtml(latestDateRange.parent_review_status)} · ${formatDate(latestDateRange.submitted_at)}` : "先完成一次全球日期范围实验，留下0时经线、日期占比和跨线判断链。"}</p><p class="small">${escapeHtml(dateRangeMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-date-range">进入全球日期实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">太阳视运动专项</span><h3>直射点—日出日落—正午方位—影子</h3></div><span class="pill ${pathMastery.mastered ? "green" : "orange"}">${escapeHtml(pathMastery.label)}</span></div><p class="small">${latestPath ? `最近实验：${escapeHtml(getSolarPathDate(latestPath.date_id)?.name || latestPath.date_id)} · ${escapeHtml(getSolarPathPlace(latestPath.place_id)?.name || latestPath.place_id)} · ${latestPath.score}/4 · ${escapeHtml(latestPath.parent_review_status)} · ${formatDate(latestPath.submitted_at)}` : "先完成一次太阳视运动实验，留下日出、正午、日落和影子方向判断链。"}</p><p class="small">${escapeHtml(pathMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-solar-path">进入太阳视运动实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">时区专项</span><h3>预测—观察—解释</h3></div>${latestLab ? `<span class="pill ${latestLab.score >= 3 ? "green" : "orange"}">${latestLab.score}/4</span>` : `<span class="pill">待开始</span>`}</div><p class="small">${latestLab ? `最近实验：${longitudeLabel(latestLab.longitude)} · ${escapeHtml(latestLab.parent_review_status)} · ${formatDate(latestLab.submitted_at)}` : "先完成一次时区实验，再进入延迟复测。"}</p><div class="btn-row"><button class="btn orange" data-action="start-time-lab">进入时区实验室</button><button class="btn secondary" data-action="start-time-diagnostic">做8题诊断</button></div></section>
     <section class="card"><h3>需要复盘的题</h3>${latestAttempts().filter((attempt) => !attempt.is_correct || attempt.parent_review_status !== "已确认").slice(0, 8).map(renderAttemptSummary).join("") || `<div class="empty">目前没有待复盘记录。</div>`}</section>
@@ -1255,6 +1273,7 @@ function renderParent() {
   const orbitSpeedAttempts = latestOrbitSpeedAttempts();
   const terminatorLinkAttempts = latestTerminatorLinkAttempts();
   const rotationSpeedAttempts = latestRotationSpeedAttempts();
+  const dateRangeAttempts = latestDateRangeAttempts();
   app.innerHTML = `
     <h2 class="page-title">家长审核页</h2>
     <p class="page-subtitle">只核验三件事：理由是否真实、诊断是否有证据、下一步是否可执行。</p>
@@ -1266,6 +1285,7 @@ function renderParent() {
     <section class="card"><h3>公转轨道与速度实验审核</h3>${orbitSpeedAttempts.length ? `<div class="attempt-list">${orbitSpeedAttempts.map(renderParentOrbitSpeedAttempt).join("")}</div>` : `<div class="empty">橙子提交轨道远近、速度、半球季节与成因预测后，这里会出现判断证据。</div>`}</section>
     <section class="card"><h3>晨昏线综合联动实验审核</h3>${terminatorLinkAttempts.length ? `<div class="attempt-list">${terminatorLinkAttempts.map(renderParentTerminatorLinkAttempt).join("")}</div>` : `<div class="empty">橙子提交直射经线、地方时、昼长、晨昏状态与极昼极夜预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>地球自转速度实验审核</h3>${rotationSpeedAttempts.length ? `<div class="attempt-list">${rotationSpeedAttempts.map(renderParentRotationSpeedAttempt).join("")}</div>` : `<div class="empty">橙子提交角速度、线速度、转角与纬线弧长预测后，这里会出现五步判断证据。</div>`}</section>
+    <section class="card"><h3>全球日期范围实验审核</h3>${dateRangeAttempts.length ? `<div class="attempt-list">${dateRangeAttempts.map(renderParentDateRangeAttempt).join("")}</div>` : `<div class="empty">橙子提交0时经线、日期占比、日期数量与跨日界线预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>太阳视运动实验审核</h3>${solarPathAttempts.length ? `<div class="attempt-list">${solarPathAttempts.map(renderParentSolarPathAttempt).join("")}</div>` : `<div class="empty">橙子提交日出日落与影子预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>时区实验审核</h3>${timeLabAttempts.length ? `<div class="attempt-list">${timeLabAttempts.map(renderParentTimeLabAttempt).join("")}</div>` : `<div class="empty">橙子提交时区预测后，这里会出现步骤证据。</div>`}</section>
     <section class="card"><h3>专项复测审核</h3>${retestAttempts.length ? `<div class="attempt-list">${retestAttempts.map(renderParentRetestAttempt).join("")}</div>` : `<div class="empty">橙子提交专项复测后，这里会出现评分点。</div>`}</section>
@@ -1281,7 +1301,7 @@ function renderCoachAnnotation(annotation) {
 }
 
 function makeArchiveAnnotationPrompt() {
-  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
+  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
 }
 
 const ERROR_TAG_LABELS = {
@@ -1336,7 +1356,12 @@ const ERROR_TAG_LABELS = {
   "R-LATITUDE-CIRCLE": "没有把纬度升高与纬线圈缩短联系起来",
   "R-LINE-SPEED": "线速度数值没有按赤道速度乘cos纬度估算",
   "R-ANGLE-TIME": "转过角度与经过时间的15°/小时关系错误",
-  "R-DISTANCE-SPEED": "没有用线速度乘时间求纬线弧长"
+  "R-DISTANCE-SPEED": "没有用线速度乘时间求纬线弧长",
+  "D-MIDNIGHT-MERIDIAN": "没有把UTC时刻换算为地方时0时经线",
+  "D-NEW-DATE-RANGE": "较新日期范围方向或占比错误",
+  "D-OLD-DATE-RANGE": "较旧日期占比没有与较新日期互补",
+  "D-DATE-COUNT": "全球日期数量判断错误：仅0时经线与180°经线重合时为一个日期",
+  "D-IDL-DIRECTION": "跨越180°经线时日期加减方向错误"
 };
 
 function errorTagLabel(tag) { return ERROR_TAG_LABELS[tag] || tag; }
@@ -1391,6 +1416,11 @@ function renderParentRotationSpeedAttempt(attempt) {
   const place = getRotationSpeedPlace(scenario?.place_id);
   const correct = attempt.correct_answers || {};
   return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(place?.name || scenario?.place_id || attempt.scenario_id)} · ${Math.abs(place?.latitude || 0)}°${(place?.latitude || 0) < 0 ? "S" : "N"}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地球自转速度</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>角速度 <strong>${escapeHtml(correct.angular_speed)}</strong></span><span>线速度 <strong>${correct.line_speed_exact} km/h</strong></span><span>${scenario?.duration_hours || correct.duration_hours}小时弧长 <strong>${correct.distance_exact} km</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请追问：南半球同纬度地点的角速度、线速度大小会改变吗？</div>`}<label class="field-label" for="rotation-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="rotation-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="rotation-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="rotation-note-${escapeHtml(attempt.id)}" placeholder="例如：知道高纬线速度小，但把角速度也写小了">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-rotation-speed-review" data-attempt-id="${escapeHtml(attempt.id)}">保存自转速度审核</button></div></article>`;
+}
+
+function renderParentDateRangeAttempt(attempt) {
+  const correct = attempt.correct_answers || {};
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>UTC ${escapeHtml(correct.utc_time || "--:--")} · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 全球日期范围</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>0时经线 <strong>${escapeHtml(correct.zero_label)}</strong></span><span>较新/较旧 <strong>${correct.new_date_percent}% / ${correct.old_date_percent}%</strong></span><span>日期数量 <strong>${escapeHtml(correct.date_count)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请拖到UTC 12:00追问：为什么此时全球同属一个日期？</div>`}<label class="field-label" for="date-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="date-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="date-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="date-note-${escapeHtml(attempt.id)}" placeholder="例如：会找0时经线，但较新日期范围方向仍会反">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-date-range-review" data-attempt-id="${escapeHtml(attempt.id)}">保存全球日期审核</button></div></article>`;
 }
 
 function renderParentSolarPathAttempt(attempt) {
@@ -1572,6 +1602,14 @@ document.addEventListener("click", async (event) => {
     state.route = "rotation-speed-lab";
     saveState(); render();
   }
+  if (action === "start-date-range") {
+    const count = catalog.dateRangeLab?.scenarios?.length || 0;
+    if (!count) return;
+    state.dateRangeScenarioIndex = state.dateRangeAttempts.length % count;
+    state.activeDateRangeAttemptId = null;
+    state.route = "date-range-lab";
+    saveState(); render();
+  }
   if (action === "next-time-lab") {
     state.timeLabScenarioIndex = (state.timeLabScenarioIndex + 1) % Math.max(catalog.timeLab?.scenarios?.length || 1, 1);
     state.activeTimeLabAttemptId = null;
@@ -1635,6 +1673,12 @@ document.addEventListener("click", async (event) => {
     state.route = "rotation-speed-lab";
     saveState(); render();
   }
+  if (action === "next-date-range") {
+    state.dateRangeScenarioIndex = (state.dateRangeScenarioIndex + 1) % Math.max(catalog.dateRangeLab?.scenarios?.length || 1, 1);
+    state.activeDateRangeAttemptId = null;
+    state.route = "date-range-lab";
+    saveState(); render();
+  }
   if (action === "start-retest") {
     const retestId = actionTarget.dataset.retestId;
     if (!getRetest(retestId)) return;
@@ -1663,11 +1707,55 @@ document.addEventListener("click", async (event) => {
   if (action === "save-orbit-review") saveOrbitSpeedReview(actionTarget.dataset.attemptId);
   if (action === "save-terminator-link-review") saveTerminatorLinkReview(actionTarget.dataset.attemptId);
   if (action === "save-rotation-speed-review") saveRotationSpeedReview(actionTarget.dataset.attemptId);
+  if (action === "save-date-range-review") saveDateRangeReview(actionTarget.dataset.attemptId);
   if (action === "save-retest-review") saveRetestReview(actionTarget.dataset.attemptId);
   if (action === "export-data") exportData();
 });
 
 document.addEventListener("submit", (event) => {
+  if (event.target.id === "date-range-form") {
+    event.preventDefault();
+    const feature = window.OrangeCoach?.features?.dateRange;
+    const scenario = getDateRangeScenario();
+    if (!feature || !scenario) return;
+    const form = new FormData(event.target);
+    const answers = {
+      zero_meridian: Number(form.get("date-zero")),
+      new_date_percent: Number(form.get("date-new")),
+      old_date_percent: Number(form.get("date-old")),
+      date_count: form.get("date-count") || "",
+      crossing_result: form.get("date-crossing") || ""
+    };
+    const reasoning = String(form.get("date-reasoning") || "").trim();
+    if (!Number.isFinite(answers.zero_meridian) || !Number.isFinite(answers.new_date_percent) || !Number.isFinite(answers.old_date_percent) || !answers.date_count || !answers.crossing_result || !reasoning) {
+      return alert("请完成五项预测并写出判断链，再解锁全球日期带。");
+    }
+    const correctAnswers = feature.calculate(scenario);
+    const longitudeDifference = Math.abs(answers.zero_meridian - correctAnswers.zero_meridian);
+    const checks = {
+      zero_meridian: Math.min(longitudeDifference, 360 - longitudeDifference) <= 1,
+      new_date_percent: Math.abs(answers.new_date_percent - correctAnswers.new_date_percent) <= 0.1,
+      old_date_percent: Math.abs(answers.old_date_percent - correctAnswers.old_date_percent) <= 0.1,
+      date_count: answers.date_count === correctAnswers.date_count,
+      crossing_result: answers.crossing_result === correctAnswers.crossing_result
+    };
+    const errorTags = [];
+    if (!checks.zero_meridian) errorTags.push("D-MIDNIGHT-MERIDIAN");
+    if (!checks.new_date_percent) errorTags.push("D-NEW-DATE-RANGE");
+    if (!checks.old_date_percent) errorTags.push("D-OLD-DATE-RANGE");
+    if (!checks.date_count) errorTags.push("D-DATE-COUNT");
+    if (!checks.crossing_result) errorTags.push("D-IDL-DIRECTION");
+    const attempt = {
+      schema_version: "0.13.0", id: newId(), scenario_id: scenario.id,
+      answers, correct_answers: correctAnswers, checks,
+      score: Object.values(checks).filter(Boolean).length, error_tags: errorTags, reasoning,
+      submitted_at: new Date().toISOString(), parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.dateRangeAttempts.push(attempt);
+    state.activeDateRangeAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
   if (event.target.id === "rotation-speed-form") {
     event.preventDefault();
     const feature = window.OrangeCoach?.features?.rotationSpeed;
@@ -2029,6 +2117,24 @@ document.addEventListener("submit", (event) => {
 });
 
 document.addEventListener("input", (event) => {
+  if (event.target.id === "date-zero-prediction") {
+    window.OrangeCoach?.features?.dateRange?.updateZero(event.target.value);
+    return;
+  }
+  if (event.target.id === "date-new-prediction") {
+    window.OrangeCoach?.features?.dateRange?.updateNew(event.target.value);
+    return;
+  }
+  if (event.target.id === "date-old-prediction") {
+    window.OrangeCoach?.features?.dateRange?.updateOld(event.target.value);
+    return;
+  }
+  if (event.target.id === "date-progress") {
+    const attempt = getDateRangeAttempt(state.activeDateRangeAttemptId);
+    const scenario = getDateRangeScenario(attempt?.scenario_id);
+    window.OrangeCoach?.features?.dateRange?.updateProgress(event.target.value, scenario);
+    return;
+  }
   if (event.target.id === "rotation-line-prediction") {
     window.OrangeCoach?.features?.rotationSpeed?.updateLinePrediction(event.target.value);
     return;
@@ -2093,8 +2199,8 @@ document.addEventListener("change", async (event) => {
     const imported = JSON.parse(await file.text());
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
-    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length;
-    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
+    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length;
+    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
     if (isAnnotatedArchive && localRecordCount > 0) {
       const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
       if (!mergeResult?.ok) throw new Error(mergeResult?.reason || "批注档案与当前记录不一致");
@@ -2112,6 +2218,7 @@ document.addEventListener("change", async (event) => {
       state.orbitSpeedAttempts = normalized.orbitSpeedAttempts;
       state.terminatorLinkAttempts = normalized.terminatorLinkAttempts;
       state.rotationSpeedAttempts = normalized.rotationSpeedAttempts;
+      state.dateRangeAttempts = normalized.dateRangeAttempts;
       state.coachAnnotations = normalized.coachAnnotations;
       state.lastAction = `已导入学习档案：${state.coachAnnotations.length} 条教练批注`;
     }
@@ -2208,6 +2315,14 @@ function saveRotationSpeedReview(id) {
   saveState(); render();
 }
 
+function saveDateRangeReview(id) {
+  const attempt = state.dateRangeAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#date-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#date-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
 function addDaysIso(days) {
   const date = new Date();
   date.setDate(date.getDate() + days);
@@ -2247,7 +2362,7 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -2260,9 +2375,10 @@ async function init() {
       fetch(`./data/annual_sun_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/orbit_speed_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/terminator_link_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
-      fetch(`./data/rotation_speed_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
+      fetch(`./data/rotation_speed_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/date_range_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

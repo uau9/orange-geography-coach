@@ -7,6 +7,7 @@ await import("../assets/features/annual-sun.js");
 await import("../assets/features/orbit-speed.js");
 await import("../assets/features/terminator-link.js");
 await import("../assets/features/rotation-speed.js");
+await import("../assets/features/date-range.js");
 await import("../assets/features/learning-export.js");
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
@@ -22,6 +23,7 @@ const annualSunLab = JSON.parse(await readFile(new URL("../data/annual_sun_lab.j
 const orbitSpeedLab = JSON.parse(await readFile(new URL("../data/orbit_speed_lab.json", import.meta.url), "utf8"));
 const terminatorLinkLab = JSON.parse(await readFile(new URL("../data/terminator_link_lab.json", import.meta.url), "utf8"));
 const rotationSpeedLab = JSON.parse(await readFile(new URL("../data/rotation_speed_lab.json", import.meta.url), "utf8"));
+const dateRangeLab = JSON.parse(await readFile(new URL("../data/date_range_lab.json", import.meta.url), "utf8"));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
 
@@ -32,18 +34,19 @@ if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json �
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
-if (learningProjects?.schema_version !== "0.12.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.12.0版非空项目清单");
+if (learningProjects?.schema_version !== "0.13.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.13.0版非空项目清单");
 if (solarSeasonLab?.schema_version !== "0.7.0" || !Array.isArray(solarSeasonLab.dates) || solarSeasonLab.dates.length !== 4) errors.push("solar_season_lab.json 必须包含4个二分二至日情境");
 if (solarPathLab?.schema_version !== "0.8.0" || !Array.isArray(solarPathLab.dates) || solarPathLab.dates.length !== 4) errors.push("solar_path_lab.json 必须包含4个二分二至日情境");
 if (annualSunLab?.schema_version !== "0.9.0" || !Array.isArray(annualSunLab.checkpoints) || annualSunLab.checkpoints.length !== 8) errors.push("annual_sun_lab.json 必须包含8个周年观察位置");
 if (orbitSpeedLab?.schema_version !== "0.10.0" || !Array.isArray(orbitSpeedLab.checkpoints) || orbitSpeedLab.checkpoints.length !== 4) errors.push("orbit_speed_lab.json 必须包含4个公转轨道位置");
 if (terminatorLinkLab?.schema_version !== "0.11.0" || !Array.isArray(terminatorLinkLab.scenarios) || terminatorLinkLab.scenarios.length !== 8) errors.push("terminator_link_lab.json 必须包含8个晨昏线综合情境");
 if (rotationSpeedLab?.schema_version !== "0.12.0" || !Array.isArray(rotationSpeedLab.scenarios) || rotationSpeedLab.scenarios.length !== 8) errors.push("rotation_speed_lab.json 必须包含8个自转速度情境");
+if (dateRangeLab?.schema_version !== "0.13.0" || !Array.isArray(dateRangeLab.scenarios) || dateRangeLab.scenarios.length !== 8) errors.push("date_range_lab.json 必须包含8个全球日期情境");
 
 const projectIds = new Set();
 const projectOrders = new Set();
-const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-annual-sun", "start-orbit-speed", "start-terminator-link", "start-rotation-speed", "start-solar-path", "start-time-lab", "start-next", "goto"]);
-const allowedStatusKinds = new Set(["earth_motion", "solar_season", "annual_sun", "orbit_speed", "terminator_link", "rotation_speed", "solar_path", "time_lab", "diagnostic", "retest"]);
+const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-annual-sun", "start-orbit-speed", "start-terminator-link", "start-rotation-speed", "start-date-range", "start-solar-path", "start-time-lab", "start-next", "goto"]);
+const allowedStatusKinds = new Set(["earth_motion", "solar_season", "annual_sun", "orbit_speed", "terminator_link", "rotation_speed", "date_range", "solar_path", "time_lab", "diagnostic", "retest"]);
 for (const project of learningProjects?.projects || []) {
   if (projectIds.has(project.id)) errors.push(`学习项目编号重复：${project.id}`);
   projectIds.add(project.id);
@@ -54,7 +57,7 @@ for (const project of learningProjects?.projects || []) {
   if (!allowedStatusKinds.has(project.status_kind)) errors.push(`${project.id} 使用了不支持的 status_kind`);
   if (project.action === "goto" && !project.route) errors.push(`${project.id} 的 goto action 必须指定 route`);
 }
-for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "annual-sun-lab", "orbit-speed-lab", "terminator-link-lab", "rotation-speed-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
+for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "annual-sun-lab", "orbit-speed-lab", "terminator-link-lab", "rotation-speed-lab", "date-range-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
   if (!projectIds.has(requiredProjectId)) errors.push(`学习项目清单缺少：${requiredProjectId}`);
 }
 
@@ -448,6 +451,41 @@ if (!rotationFeature) {
 }
 for (const tag of ["R-ANGULAR-SAME", "R-LATITUDE-CIRCLE", "R-LINE-SPEED", "R-ANGLE-TIME", "R-DISTANCE-SPEED"]) if (!rotationSpeedLab?.error_tags?.[tag]) errors.push(`rotation_speed_lab.json 缺少错误标签：${tag}`);
 
+if (dateRangeLab && !topicIds.has(dateRangeLab.topic_id)) errors.push("date_range_lab.json 引用了不存在的主题");
+if (!Number.isInteger(dateRangeLab?.review_after_hours) || dateRangeLab.review_after_hours < 24) errors.push("date_range_lab.json review_after_hours 至少为24小时");
+const dateRangeFeature = globalThis.OrangeCoach?.features?.dateRange;
+const dateRangeScenarioIds = new Set();
+const dateRangeExpected = [
+  ["DR-01", 0, 50, 50, "全球同时存在两个日期", "日期减一天"],
+  ["DR-02", -45, 62.5, 37.5, "全球同时存在两个日期", "日期加一天"],
+  ["DR-03", -90, 75, 25, "全球同时存在两个日期", "日期减一天"],
+  ["DR-04", -135, 87.5, 12.5, "全球同时存在两个日期", "日期加一天"],
+  ["DR-05", -180, 100, 0, "全球同属一个日期", "日期减一天"],
+  ["DR-06", 135, 12.5, 87.5, "全球同时存在两个日期", "日期加一天"],
+  ["DR-07", 90, 25, 75, "全球同时存在两个日期", "日期减一天"],
+  ["DR-08", 45, 37.5, 62.5, "全球同时存在两个日期", "日期加一天"]
+];
+for (const scenario of dateRangeLab?.scenarios || []) {
+  if (dateRangeScenarioIds.has(scenario.id)) errors.push(`全球日期场景编号重复：${scenario.id}`);
+  dateRangeScenarioIds.add(scenario.id);
+}
+if (!dateRangeFeature) {
+  errors.push("全球日期范围实验功能未成功注册");
+} else {
+  const scenarios = new Map(dateRangeLab.scenarios.map((item) => [item.id, item]));
+  for (const [scenarioId, zero, newer, older, count, crossing] of dateRangeExpected) {
+    const scenario = scenarios.get(scenarioId);
+    if (!scenario) { errors.push(`缺少全球日期校验情境：${scenarioId}`); continue; }
+    const result = dateRangeFeature.calculate(scenario);
+    if (result.zero_meridian !== zero || result.new_date_percent !== newer || result.old_date_percent !== older || result.date_count !== count || result.crossing_result !== crossing) {
+      errors.push(`${scenarioId} 的0时经线、日期占比、日期数量或跨线方向错误`);
+    }
+  }
+}
+for (const tag of ["D-MIDNIGHT-MERIDIAN", "D-NEW-DATE-RANGE", "D-OLD-DATE-RANGE", "D-DATE-COUNT", "D-IDL-DIRECTION"]) {
+  if (!dateRangeLab?.error_tags?.[tag]) errors.push(`date_range_lab.json 缺少错误标签：${tag}`);
+}
+
 const learningExport = globalThis.OrangeCoach?.features?.learningExport;
 if (!learningExport) {
   errors.push("可批注学习档案功能未成功注册");
@@ -465,6 +503,7 @@ if (!learningExport) {
     orbitSpeedAttempts: [{ id: "ORBIT-TEST", checkpoint_id: "early-january", hemisphere_id: "north", score: 4, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     terminatorLinkAttempts: [{ id: "LINK-TEST", scenario_id: "TL-01", score: 5, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     rotationSpeedAttempts: [{ id: "ROTATION-TEST", scenario_id: "RS-01", score: 5, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
+    dateRangeAttempts: [{ id: "DATE-TEST", scenario_id: "DR-01", score: 5, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     coachAnnotations: [{ id: "COACH-TEST", status: "候选" }]
   };
   const packet = learningExport.buildPacket({
@@ -474,9 +513,9 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.12.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
-  if (packet.summary.total_learning_records !== 6 || packet.summary.pending_parent_reviews !== 6) errors.push("学习档案摘要计数错误");
-  if (packet.summary.by_project.length !== 10 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts)) errors.push("学习档案缺少项目进度、自转速度记录或学习时间范围");
+  if (packet.export_schema_version !== "0.13.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.summary.total_learning_records !== 7 || packet.summary.pending_parent_reviews !== 7) errors.push("学习档案摘要计数错误");
+  if (packet.summary.by_project.length !== 11 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts)) errors.push("学习档案缺少项目进度、全球日期记录或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");
   if (packet.coach_annotations[0]?.id !== "COACH-TEST" || !packet.annotation_guide?.expected_annotation_shape) errors.push("学习档案没有保留批注或批注规范");
   if (!/^orange-geography-records-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}[+-]\d{2}-\d{2}\.json$/.test(filename)) errors.push("学习档案文件名必须包含本地日期、时分秒和时区偏移");
@@ -494,6 +533,8 @@ if (!learningExport) {
   if (tamperedLink.ok) errors.push("学习档案导入没有保护晨昏线综合原始证据");
   const tamperedRotation = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, rotationSpeedAttempts: [{ ...fixtureState.rotationSpeedAttempts[0], score: 4 }] });
   if (tamperedRotation.ok) errors.push("学习档案导入没有保护自转速度原始证据");
+  const tamperedDate = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, dateRangeAttempts: [{ ...fixtureState.dateRangeAttempts[0], score: 4 }] });
+  if (tamperedDate.ok) errors.push("学习档案导入没有保护全球日期原始证据");
 }
 
 if (errors.length) {
@@ -501,4 +542,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${orbitScenarioIds.size} 个公转轨道组合，${linkScenarioIds.size} 个晨昏线综合情境，${rotationScenarioIds.size} 个自转速度情境，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${orbitScenarioIds.size} 个公转轨道组合，${linkScenarioIds.size} 个晨昏线综合情境，${rotationScenarioIds.size} 个自转速度情境，${dateRangeScenarioIds.size} 个全球日期情境，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);

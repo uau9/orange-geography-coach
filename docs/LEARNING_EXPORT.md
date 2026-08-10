@@ -36,6 +36,7 @@ orange-geography-records-2026-08-10T21-30-45+08-00.json
 - `orbit_speed_attempts`。
 - `terminator_link_attempts`。
 - `rotation_speed_attempts`。
+- `date_range_attempts`。
 
 当前浏览器已有学习记录时，导入器只合并新增批注，不用档案覆盖本地原始记录；如果档案中的原始记录与本地证据不一致，导入会停止并提示重新核对。空浏览器仍可通过完整档案迁移学习记录。
 
@@ -49,7 +50,7 @@ orange-geography-records-2026-08-10T21-30-45+08-00.json
 - 基于证据的观察；
 - 可执行的下一步。
 
-档案内的 `annotation_guide` 已包含机器可读的字段模板和批注原则。格式约束见 `schemas/learning-export.v0.12.schema.json`。
+档案内的 `annotation_guide` 已包含机器可读的字段模板和批注原则。格式约束见 `schemas/learning-export.v0.13.schema.json`。
 
 ## 隐私检查
 

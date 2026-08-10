@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.12.0",
+  "schema_version": "0.13.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -74,6 +74,18 @@
       "order": 19
     },
     {
+      "id": "date-range-lab",
+      "eyebrow": "全球日期专项",
+      "title": "0时经线与全球日期范围",
+      "summary": "拖动UTC时刻，观察0时经线、新旧日期带和跨180°经线后的日期变化。",
+      "action": "start-date-range",
+      "route": null,
+      "cta": "进入全球日期实验室",
+      "status_kind": "date_range",
+      "accent": "indigo",
+      "order": 20
+    },
+    {
       "id": "solar-path-lab",
       "eyebrow": "太阳视运动专项",
       "title": "日出日落与太阳视运动",
@@ -83,7 +95,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 20
+      "order": 21
     },
     {
       "id": "time-zone-lab",
@@ -95,7 +107,7 @@
       "cta": "进入时区实验室",
       "status_kind": "time_lab",
       "accent": "teal",
-      "order": 21
+      "order": 22
     },
     {
       "id": "diagnostic-questions",

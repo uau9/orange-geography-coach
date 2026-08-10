@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.13.0",
+  "topic_id": "physical.earth.time",
+  "title": "全球日期范围实验室",
+  "description": "用0时经线和180°经线划分较新、较旧日期，计算两种日期占比并判断跨日界线后的日期变化。",
+  "model_note": "采用高中地理理想模型：180°经线视为国际日界线，不考虑其为避开陆地而产生的实际弯折；0时经线向东至180°为较新日期范围。",
+  "review_after_hours": 48,
+  "scenarios": [
+    { "id": "DR-01", "utc_minutes": 0, "crossing_direction": "向东越过180°经线" },
+    { "id": "DR-02", "utc_minutes": 180, "crossing_direction": "向西越过180°经线" },
+    { "id": "DR-03", "utc_minutes": 360, "crossing_direction": "向东越过180°经线" },
+    { "id": "DR-04", "utc_minutes": 540, "crossing_direction": "向西越过180°经线" },
+    { "id": "DR-05", "utc_minutes": 720, "crossing_direction": "向东越过180°经线" },
+    { "id": "DR-06", "utc_minutes": 900, "crossing_direction": "向西越过180°经线" },
+    { "id": "DR-07", "utc_minutes": 1080, "crossing_direction": "向东越过180°经线" },
+    { "id": "DR-08", "utc_minutes": 1260, "crossing_direction": "向西越过180°经线" }
+  ],
+  "choices": {
+    "date_count": ["全球同属一个日期", "全球同时存在两个日期", "全球同时存在三个日期"],
+    "crossing_result": ["日期减一天", "日期加一天", "日期不变"]
+  },
+  "error_tags": {
+    "D-MIDNIGHT-MERIDIAN": "没有把UTC时刻换算为地方时0时经线",
+    "D-NEW-DATE-RANGE": "较新日期范围方向或占比错误",
+    "D-OLD-DATE-RANGE": "较旧日期占比没有与较新日期互补",
+    "D-DATE-COUNT": "全球日期数量判断错误：仅0时经线与180°经线重合时为一个日期",
+    "D-IDL-DIRECTION": "跨越180°经线时日期加减方向错误"
+  }
+}
