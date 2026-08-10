@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.14.0",
+  "schema_version": "0.15.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -98,6 +98,18 @@
       "order": 21
     },
     {
+      "id": "celestial-scale-lab",
+      "eyebrow": "宇宙位置专项",
+      "title": "天体系统尺度与地球宇宙位置",
+      "summary": "从地月系逐级缩放到可观测宇宙，建立包含关系、尺度单位和太阳系在银河系中的位置。",
+      "action": "start-celestial-scale",
+      "route": null,
+      "cta": "进入宇宙尺度实验室",
+      "status_kind": "celestial_scale",
+      "accent": "cosmic",
+      "order": 22
+    },
+    {
       "id": "solar-path-lab",
       "eyebrow": "太阳视运动专项",
       "title": "日出日落与太阳视运动",
@@ -107,7 +119,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 22
+      "order": 23
     },
     {
       "id": "time-zone-lab",
@@ -119,7 +131,7 @@
       "cta": "进入时区实验室",
       "status_kind": "time_lab",
       "accent": "teal",
-      "order": 23
+      "order": 24
     },
     {
       "id": "diagnostic-questions",

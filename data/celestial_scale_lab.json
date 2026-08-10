@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.15.0",
+  "id": "celestial-scale-lab",
+  "topic_id": "physical.earth.universe",
+  "title": "天体系统尺度与地球宇宙位置实验室",
+  "review_after_hours": 48,
+  "model_note": "四级图是经过强烈压缩的层级示意，不按真实比例绘制，也不能按图量距离。教材常用“总星系”表示当前可观测宇宙层级；现代科学表达更强调“可观测宇宙”不等于全部宇宙。",
+  "levels": [
+    {
+      "id": "earth-moon",
+      "order": 0,
+      "name": "地月系",
+      "short_name": "地月系",
+      "location": "地球与其天然卫星月球组成的最小一级天体系统",
+      "scale_anchor": "地月平均距离约 384,400 km",
+      "unit": "千米 km",
+      "object_note": "月球绕地球运动；地月系整体又属于太阳系。"
+    },
+    {
+      "id": "solar-system",
+      "order": 1,
+      "name": "太阳系",
+      "short_name": "太阳系",
+      "location": "太阳及受其引力影响、围绕太阳运动的行星等天体组成的系统",
+      "scale_anchor": "日地平均距离约 1 AU（约 1.5 亿 km）",
+      "unit": "天文单位 AU",
+      "object_note": "太阳系远大于八大行星轨道范围，边界会因采用日球层或引力影响范围而有不同定义。"
+    },
+    {
+      "id": "milky-way",
+      "order": 2,
+      "name": "银河系",
+      "short_name": "银河系",
+      "location": "太阳系位于银河系猎户臂（猎户座旋臂/支臂），大致在银心到边缘的中途",
+      "scale_anchor": "银河系恒星盘直径超过 100,000 光年",
+      "unit": "光年 ly",
+      "object_note": "太阳只是银河系众多恒星中的一颗，太阳系不在银河系中心。"
+    },
+    {
+      "id": "observable-universe",
+      "order": 3,
+      "name": "可观测宇宙",
+      "short_name": "可观测宇宙",
+      "location": "包含银河系在内、目前原则上能够观测到的全部宇宙范围",
+      "scale_anchor": "包含数量极其庞大的星系；银河系只是其中之一",
+      "unit": "超大尺度常用光年",
+      "object_note": "“可观测”受光速和宇宙年龄限制，不能直接等同于全部宇宙。"
+    }
+  ],
+  "choices": {
+    "system_order": [
+      "地月系 → 太阳系 → 银河系 → 可观测宇宙（教材常称总星系层级）",
+      "地月系 → 银河系 → 太阳系 → 可观测宇宙",
+      "太阳系 → 地月系 → 银河系 → 可观测宇宙",
+      "地月系 → 太阳系 → 可观测宇宙 → 银河系"
+    ],
+    "moon_distance": ["约 38.4 万千米", "约 1.5 亿千米", "约 1 光年", "超过 10 万光年"],
+    "earth_sun_unit": ["约 1 AU", "约 1 km", "约 1 光年", "约 10 万 AU"],
+    "galactic_location": [
+      "银河系猎户臂，大致在银心到边缘的中途",
+      "银河系正中心",
+      "银河系外部，与银河系没有从属关系",
+      "银河系最外缘之外"
+    ],
+    "diagram_rule": [
+      "层级和尺度经过压缩，不能按图量距离",
+      "所有圆的半径都按真实距离比例绘制",
+      "相邻两级真实尺度只相差十倍",
+      "图中天体越大，真实体积一定越大"
+    ]
+  },
+  "scenarios": [
+    { "id": "CS-01", "target_level_id": "earth-moon", "challenge": "从地球和月球出发，建立最内层系统" },
+    { "id": "CS-02", "target_level_id": "solar-system", "challenge": "把地月系放回以太阳为中心的系统" },
+    { "id": "CS-03", "target_level_id": "milky-way", "challenge": "在银河系中找到太阳系，而不是把太阳放在银心" },
+    { "id": "CS-04", "target_level_id": "observable-universe", "challenge": "区分银河系、可观测宇宙与全部宇宙" },
+    { "id": "CS-05", "target_level_id": "earth-moon", "challenge": "用千米判断地月距离数量级" },
+    { "id": "CS-06", "target_level_id": "solar-system", "challenge": "用 AU 表示日地尺度，并识别太阳系边界问题" },
+    { "id": "CS-07", "target_level_id": "milky-way", "challenge": "用光年表达星系尺度，判断猎户臂位置" },
+    { "id": "CS-08", "target_level_id": "observable-universe", "challenge": "识别层级图的压缩规则与教材称谓" }
+  ],
+  "answers": {
+    "system_order": "地月系 → 太阳系 → 银河系 → 可观测宇宙（教材常称总星系层级）",
+    "moon_distance": "约 38.4 万千米",
+    "earth_sun_unit": "约 1 AU",
+    "galactic_location": "银河系猎户臂，大致在银心到边缘的中途",
+    "diagram_rule": "层级和尺度经过压缩，不能按图量距离"
+  },
+  "error_tags": {
+    "C-SYSTEM-ORDER": "天体系统包含关系和由小到大顺序混淆",
+    "C-MOON-SCALE": "地月距离的数量级或单位判断错误",
+    "C-AU-SCALE": "没有把 1 AU 与日地平均距离对应",
+    "C-GALACTIC-LOCATION": "把太阳系误放在银心、银河系外或最外缘",
+    "C-DIAGRAM-SCALE": "把强烈压缩的层级示意图当成真实比例图"
+  },
+  "sources": [
+    {
+      "title": "NASA: Solar System, Galaxy, Universe: What's the Difference?",
+      "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/solar-system-galaxy-universe-whats-the-difference/",
+      "supports": "太阳系、银河系、宇宙的包含关系"
+    },
+    {
+      "title": "NASA: Solar System Facts",
+      "url": "https://science.nasa.gov/solar-system/solar-system-facts/",
+      "supports": "1 AU、太阳系范围与太阳在银河系猎户臂的位置"
+    },
+    {
+      "title": "NASA: Galaxies",
+      "url": "https://science.nasa.gov/universe/galaxies/",
+      "supports": "银河系超过 10 万光年和地球位于旋臂中途附近"
+    },
+    {
+      "title": "NASA: Moon Facts",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "supports": "地月平均距离约 384,400 千米"
+    }
+  ]
+}

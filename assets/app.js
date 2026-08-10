@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.14.0", ASSET_VERSION: "0.14.0", EXPORT_SCHEMA_VERSION: "0.14.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.15.0", ASSET_VERSION: "0.15.0", EXPORT_SCHEMA_VERSION: "0.15.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null };
 
 function defaultState() {
   return {
@@ -92,6 +92,8 @@ function defaultState() {
     dateRangeScenarioIndex: 0,
     activeAxialTiltAttemptId: null,
     axialTiltScenarioIndex: 0,
+    activeCelestialScaleAttemptId: null,
+    celestialScaleScenarioIndex: 0,
     attempts: [],
     retestAttempts: [],
     timeLabAttempts: [],
@@ -104,6 +106,7 @@ function defaultState() {
     rotationSpeedAttempts: [],
     dateRangeAttempts: [],
     axialTiltAttempts: [],
+    celestialScaleAttempts: [],
     coachAnnotations: [],
     lastAction: ""
   };
@@ -159,6 +162,7 @@ function normalizeState(parsed) {
       : [];
   normalized.dateRangeAttempts = Array.isArray(parsed?.dateRangeAttempts) ? parsed.dateRangeAttempts : Array.isArray(parsed?.date_range_attempts) ? parsed.date_range_attempts : [];
   normalized.axialTiltAttempts = Array.isArray(parsed?.axialTiltAttempts) ? parsed.axialTiltAttempts : Array.isArray(parsed?.axial_tilt_attempts) ? parsed.axial_tilt_attempts : [];
+  normalized.celestialScaleAttempts = Array.isArray(parsed?.celestialScaleAttempts) ? parsed.celestialScaleAttempts : Array.isArray(parsed?.celestial_scale_attempts) ? parsed.celestial_scale_attempts : [];
   normalized.coachAnnotations = Array.isArray(parsed?.coachAnnotations)
     ? parsed.coachAnnotations
     : Array.isArray(parsed?.coach_annotations)
@@ -197,6 +201,7 @@ function getTerminatorLinkAttempt(id) { return state.terminatorLinkAttempts.find
 function getRotationSpeedAttempt(id) { return state.rotationSpeedAttempts.find((attempt) => attempt.id === id); }
 function getDateRangeAttempt(id) { return state.dateRangeAttempts.find((attempt) => attempt.id === id); }
 function getAxialTiltAttempt(id) { return state.axialTiltAttempts.find((attempt) => attempt.id === id); }
+function getCelestialScaleAttempt(id) { return state.celestialScaleAttempts.find((attempt) => attempt.id === id); }
 function getActiveQuestion() { return getQuestion(state.currentQuestionId) || chooseNextQuestion(); }
 function chooseNextQuestion() {
   const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
@@ -233,9 +238,10 @@ function latestTerminatorLinkAttempts() { return [...state.terminatorLinkAttempt
 function latestRotationSpeedAttempts() { return [...state.rotationSpeedAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestDateRangeAttempts() { return [...state.dateRangeAttempts].sort((a,b)=>new Date(b.submitted_at)-new Date(a.submitted_at)); }
 function latestAxialTiltAttempts() { return [...state.axialTiltAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestCelestialScaleAttempts() { return [...state.celestialScaleAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function completedToday() {
   const today = new Date().toDateString();
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts]
     .filter((attempt) => attempt.submitted_at && new Date(attempt.submitted_at).toDateString() === today).length;
 }
 function topicStats(topic) {
@@ -823,6 +829,39 @@ function renderAxialTiltLab() {
   app.innerHTML = feature.renderLab({ lab: catalog.axialTiltLab, scenario, scenarioIndex: state.axialTiltScenarioIndex % catalog.axialTiltLab.scenarios.length });
 }
 
+function getCelestialScaleScenario(id = null) {
+  const scenarios = catalog.celestialScaleLab?.scenarios || [];
+  if (!scenarios.length) return null;
+  return id ? scenarios.find((scenario) => scenario.id === id) || scenarios[0] : scenarios[state.celestialScaleScenarioIndex % scenarios.length];
+}
+
+function celestialScaleMasteryStatus() {
+  const reviewHours = catalog.celestialScaleLab?.review_after_hours || 48;
+  const inner = new Set(["earth-moon", "solar-system"]);
+  const confirmed = [...state.celestialScaleAttempts]
+    .filter((attempt) => attempt.score === 5 && attempt.parent_review_status === "已确认")
+    .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+  if (confirmed.length < 2) return { label: "待验证", detail: `需要内层与外层尺度情境各满分一次，间隔至少${reviewHours}小时并由家长确认。`, mastered: false };
+  const latest = confirmed.at(-1);
+  const latestIsInner = inner.has(latest.target_level_id);
+  const earlier = [...confirmed].reverse().find((attempt) => inner.has(attempt.target_level_id) !== latestIsInner && new Date(latest.submitted_at) - new Date(attempt.submitted_at) >= reviewHours * 3600000);
+  return earlier
+    ? { label: "延迟复测通过", detail: `地月/太阳系与银河系/宇宙两类尺度均通过，且间隔至少${reviewHours}小时。`, mastered: true }
+    : { label: "等待跨尺度复测", detail: `还需切换到${latestIsInner ? "银河系或可观测宇宙" : "地月系或太阳系"}情境，并间隔至少${reviewHours}小时。`, mastered: false };
+}
+
+function renderCelestialScaleLab() {
+  const feature = window.OrangeCoach?.features?.celestialScale;
+  const scenario = getCelestialScaleScenario();
+  if (!feature || !scenario) { app.innerHTML = `<section class="card empty">天体系统尺度实验数据尚未加载。</section>`; return; }
+  const attempt = getCelestialScaleAttempt(state.activeCelestialScaleAttemptId);
+  if (attempt) {
+    app.innerHTML = feature.renderResult({ lab: catalog.celestialScaleLab, scenario: getCelestialScaleScenario(attempt.scenario_id), attempt });
+    return;
+  }
+  app.innerHTML = feature.renderLab({ lab: catalog.celestialScaleLab, scenario, scenarioIndex: state.celestialScaleScenarioIndex % catalog.celestialScaleLab.scenarios.length });
+}
+
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => button.classList.toggle("active", button.dataset.route === state.route));
@@ -837,6 +876,7 @@ function render() {
   if (state.route === "rotation-speed-lab") return renderRotationSpeedLab();
   if (state.route === "date-range-lab") return renderDateRangeLab();
   if (state.route === "axial-tilt-lab") return renderAxialTiltLab();
+  if (state.route === "celestial-scale-lab") return renderCelestialScaleLab();
   if (state.route === "train") return renderTrain();
   if (state.route === "projects") return renderProjects();
   if (state.route === "mastery") return renderMastery();
@@ -851,7 +891,7 @@ function renderToday() {
     recommendation: getTodayRecommendation(),
     stats: [
       { value: completedToday(), label: "今日完成" },
-      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length, label: "学习证据" },
+      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length, label: "学习证据" },
       { value: countPendingParentReviews(), label: "待家长确认" }
     ],
     recent: getRecentEvidence().slice(0, 3)
@@ -859,7 +899,7 @@ function renderToday() {
 }
 
 function countPendingParentReviews() {
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts]
     .filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
 }
 
@@ -919,6 +959,12 @@ function projectStatus(project) {
       ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.axialTiltAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
       : { status_label: "待开始", status_tone: "", status_detail: "尚未留下回归线、极圈与五带变化判断证据" };
   }
+  if (project.status_kind === "celestial_scale") {
+    const latest = latestCelestialScaleAttempts()[0];
+    return latest
+      ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.celestialScaleAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下系统层级、尺度单位与银河系位置判断证据" };
+  }
   if (project.status_kind === "diagnostic") {
     const latest = latestAttempts()[0];
     return latest
@@ -947,6 +993,7 @@ function getTodayRecommendation() {
   const latestLink = latestTerminatorLinkAttempts()[0];
   const latestRotation = latestRotationSpeedAttempts()[0];
   const latestAxialTilt = latestAxialTiltAttempts()[0];
+  const latestCelestialScale = latestCelestialScaleAttempts()[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const latestPath = latestSolarPathAttempts()[0];
   const latestTime = latestTimeLabAttempts()[0];
@@ -973,6 +1020,9 @@ function getTodayRecommendation() {
   } else if (!latestAxialTilt) {
     project = byId("axial-tilt-lab");
     reason = "已有直射点与极昼极夜基础，继续用黄赤交角同时推导回归线、极圈和五带宽度。";
+  } else if (!latestCelestialScale) {
+    project = byId("celestial-scale-lab");
+    reason = "已有地球运动局部模型，继续把地球放回地月系、太阳系、银河系和可观测宇宙的层级坐标。";
   } else if(!latestDateRange){project=byId("date-range-lab");reason="已有地方时基础，继续用0时经线和180°经线划分全球日期范围。";
   } else if (!latestPath) {
     project = byId("solar-path-lab");
@@ -1001,6 +1051,9 @@ function getTodayRecommendation() {
   } else if (latestAxialTilt.score < 5 || latestAxialTilt.parent_review_status === "需再练") {
     project = byId("axial-tilt-lab");
     reason = "最近一次黄赤交角记录仍有候选错因，换到交角增大或减小的反向情境再次验证。";
+  } else if (latestCelestialScale.score < 5 || latestCelestialScale.parent_review_status === "需再练") {
+    project = byId("celestial-scale-lab");
+    reason = "最近一次宇宙尺度记录仍有候选错因，换到内层或外层系统重新建立包含关系。";
   } else if(latestDateRange.score<5||latestDateRange.parent_review_status==="需再练"){project=byId("date-range-lab");reason="最近一次全球日期记录仍有候选错因，换UTC时刻和跨线方向再次验证。";
   } else if (latestPath.score < 4 || latestPath.parent_review_status === "需再练") {
     project = byId("solar-path-lab");
@@ -1010,7 +1063,7 @@ function getTodayRecommendation() {
     reason = "最近一次时区实验仍有候选错因，换经度和时刻检查能否迁移。";
   } else {
     project = byId("diagnostic-questions");
-    reason = "十个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
+    reason = "十一个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
   }
   return project ? { ...project, reason, status: project.status_detail } : null;
 }
@@ -1094,6 +1147,7 @@ function getRecentEvidence() {
   });
   const dateRange=state.dateRangeAttempts.map(a=>({submitted_at:a.submitted_at,title:`${a.scenario_id} · 全球日期范围`,meta:`全球日期实验 · ${a.score}/5 · ${formatDate(a.submitted_at)}`,status:a.parent_review_status,tone:evidenceTone(a.parent_review_status)}));
   const axialTilt = state.axialTiltAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${attempt.correct_answers?.tilt_deg ?? "?"}° · 黄赤交角变化`, meta: `黄赤交角实验 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
+  const celestialScale = state.celestialScaleAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${window.OrangeCoach?.features?.celestialScale?.getLevel(catalog.celestialScaleLab, attempt.target_level_id)?.name || attempt.target_level_id} · 宇宙位置`, meta: `天体系统尺度实验 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const retests = state.retestAttempts.map((attempt) => ({
     submitted_at: attempt.submitted_at,
     title: getRetest(attempt.retest_id)?.title || attempt.retest_id,
@@ -1101,7 +1155,7 @@ function getRecentEvidence() {
     status: attempt.parent_review_status,
     tone: evidenceTone(attempt.parent_review_status)
   }));
-  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...axialTilt, ...dateRange, ...retests]
+  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...axialTilt, ...celestialScale, ...dateRange, ...retests]
     .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at));
 }
 
@@ -1282,6 +1336,7 @@ function renderMastery() {
   const latestLink = latestTerminatorLinkAttempts()[0];
   const latestRotation = latestRotationSpeedAttempts()[0];
   const latestAxialTilt = latestAxialTiltAttempts()[0];
+  const latestCelestialScale = latestCelestialScaleAttempts()[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const motionMastery = earthMotionMasteryStatus();
   const solarMastery = solarSeasonMasteryStatus();
@@ -1291,6 +1346,7 @@ function renderMastery() {
   const linkMastery = terminatorLinkMasteryStatus();
   const rotationMastery = rotationSpeedMasteryStatus();
   const axialMastery = axialTiltMasteryStatus();
+  const celestialMastery = celestialScaleMasteryStatus();
   const dateRangeMastery = dateRangeMasteryStatus();
   app.innerHTML = `
     <h2 class="page-title">掌握与复测</h2>
@@ -1306,6 +1362,7 @@ function renderMastery() {
     <section class="card"><div class="attempt-head"><div><span class="pill orange">晨昏线综合专项</span><h3>直射经线—地方时—昼长—晨昏状态—极昼极夜</h3></div><span class="pill ${linkMastery.mastered ? "green" : "orange"}">${escapeHtml(linkMastery.label)}</span></div><p class="small">${latestLink ? `最近实验：${escapeHtml(getTerminatorLinkScenario(latestLink.scenario_id)?.id || latestLink.scenario_id)} · ${latestLink.score}/5 · ${escapeHtml(latestLink.parent_review_status)} · ${formatDate(latestLink.submitted_at)}` : "先完成一次全球晨昏线联动实验，留下五步综合判断链。"}</p><p class="small">${escapeHtml(linkMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-terminator-link">进入晨昏线综合实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">自转速度专项</span><h3>自转周期—角速度—纬线圈—线速度—运动距离</h3></div><span class="pill ${rotationMastery.mastered ? "green" : "orange"}">${escapeHtml(rotationMastery.label)}</span></div><p class="small">${latestRotation ? `最近实验：${escapeHtml(getRotationSpeedPlace(getRotationSpeedScenario(latestRotation.scenario_id)?.place_id)?.name || latestRotation.scenario_id)} · ${latestRotation.score}/5 · ${escapeHtml(latestRotation.parent_review_status)} · ${formatDate(latestRotation.submitted_at)}` : "先完成一次自转速度实验，留下角速度、线速度与弧长判断链。"}</p><p class="small">${escapeHtml(rotationMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-rotation-speed">进入自转速度实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">黄赤交角专项</span><h3>交角—回归线—极圈—五带宽度</h3></div><span class="pill ${axialMastery.mastered ? "green" : "orange"}">${escapeHtml(axialMastery.label)}</span></div><p class="small">${latestAxialTilt ? `最近实验：ε=${latestAxialTilt.correct_answers?.tilt_deg}° · ${latestAxialTilt.score}/5 · ${escapeHtml(latestAxialTilt.parent_review_status)} · ${formatDate(latestAxialTilt.submitted_at)}` : "先完成一次黄赤交角实验，留下回归线、极圈和五带宽度判断链。"}</p><p class="small">${escapeHtml(axialMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-axial-tilt">进入黄赤交角实验室</button></div></section>
+    <section class="card"><div class="attempt-head"><div><span class="pill orange">宇宙位置专项</span><h3>系统层级—尺度单位—银河系位置</h3></div><span class="pill ${celestialMastery.mastered ? "green" : "orange"}">${escapeHtml(celestialMastery.label)}</span></div><p class="small">${latestCelestialScale ? `最近实验：${escapeHtml(latestCelestialScale.target_level_id)} · ${latestCelestialScale.score}/5 · ${escapeHtml(latestCelestialScale.parent_review_status)} · ${formatDate(latestCelestialScale.submitted_at)}` : "先完成一次天体系统尺度实验，留下包含关系、尺度单位和宇宙位置判断链。"}</p><p class="small">${escapeHtml(celestialMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-celestial-scale">进入宇宙尺度实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">全球日期专项</span><h3>UTC—0时经线—日期带占比—日界线</h3></div><span class="pill ${dateRangeMastery.mastered ? "green" : "orange"}">${escapeHtml(dateRangeMastery.label)}</span></div><p class="small">${latestDateRange ? `最近实验：${escapeHtml(latestDateRange.scenario_id)} · ${latestDateRange.score}/5 · ${escapeHtml(latestDateRange.parent_review_status)} · ${formatDate(latestDateRange.submitted_at)}` : "先完成一次全球日期范围实验，留下0时经线、日期占比和跨线判断链。"}</p><p class="small">${escapeHtml(dateRangeMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-date-range">进入全球日期实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">太阳视运动专项</span><h3>直射点—日出日落—正午方位—影子</h3></div><span class="pill ${pathMastery.mastered ? "green" : "orange"}">${escapeHtml(pathMastery.label)}</span></div><p class="small">${latestPath ? `最近实验：${escapeHtml(getSolarPathDate(latestPath.date_id)?.name || latestPath.date_id)} · ${escapeHtml(getSolarPathPlace(latestPath.place_id)?.name || latestPath.place_id)} · ${latestPath.score}/4 · ${escapeHtml(latestPath.parent_review_status)} · ${formatDate(latestPath.submitted_at)}` : "先完成一次太阳视运动实验，留下日出、正午、日落和影子方向判断链。"}</p><p class="small">${escapeHtml(pathMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-solar-path">进入太阳视运动实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">时区专项</span><h3>预测—观察—解释</h3></div>${latestLab ? `<span class="pill ${latestLab.score >= 3 ? "green" : "orange"}">${latestLab.score}/4</span>` : `<span class="pill">待开始</span>`}</div><p class="small">${latestLab ? `最近实验：${longitudeLabel(latestLab.longitude)} · ${escapeHtml(latestLab.parent_review_status)} · ${formatDate(latestLab.submitted_at)}` : "先完成一次时区实验，再进入延迟复测。"}</p><div class="btn-row"><button class="btn orange" data-action="start-time-lab">进入时区实验室</button><button class="btn secondary" data-action="start-time-diagnostic">做8题诊断</button></div></section>
@@ -1332,6 +1389,7 @@ function renderParent() {
   const rotationSpeedAttempts = latestRotationSpeedAttempts();
   const dateRangeAttempts = latestDateRangeAttempts();
   const axialTiltAttempts = latestAxialTiltAttempts();
+  const celestialScaleAttempts = latestCelestialScaleAttempts();
   app.innerHTML = `
     <h2 class="page-title">家长审核页</h2>
     <p class="page-subtitle">只核验三件事：理由是否真实、诊断是否有证据、下一步是否可执行。</p>
@@ -1344,6 +1402,7 @@ function renderParent() {
     <section class="card"><h3>晨昏线综合联动实验审核</h3>${terminatorLinkAttempts.length ? `<div class="attempt-list">${terminatorLinkAttempts.map(renderParentTerminatorLinkAttempt).join("")}</div>` : `<div class="empty">橙子提交直射经线、地方时、昼长、晨昏状态与极昼极夜预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>地球自转速度实验审核</h3>${rotationSpeedAttempts.length ? `<div class="attempt-list">${rotationSpeedAttempts.map(renderParentRotationSpeedAttempt).join("")}</div>` : `<div class="empty">橙子提交角速度、线速度、转角与纬线弧长预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>黄赤交角与五带实验审核</h3>${axialTiltAttempts.length ? `<div class="attempt-list">${axialTiltAttempts.map(renderParentAxialTiltAttempt).join("")}</div>` : `<div class="empty">橙子提交回归线、极圈、热带和温带宽度预测后，这里会出现五步判断证据。</div>`}</section>
+    <section class="card"><h3>天体系统尺度与宇宙位置审核</h3>${celestialScaleAttempts.length ? `<div class="attempt-list">${celestialScaleAttempts.map(renderParentCelestialScaleAttempt).join("")}</div>` : `<div class="empty">橙子提交系统顺序、尺度单位、银河系位置与读图规则后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>全球日期范围实验审核</h3>${dateRangeAttempts.length ? `<div class="attempt-list">${dateRangeAttempts.map(renderParentDateRangeAttempt).join("")}</div>` : `<div class="empty">橙子提交0时经线、日期占比、日期数量与跨日界线预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>太阳视运动实验审核</h3>${solarPathAttempts.length ? `<div class="attempt-list">${solarPathAttempts.map(renderParentSolarPathAttempt).join("")}</div>` : `<div class="empty">橙子提交日出日落与影子预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>时区实验审核</h3>${timeLabAttempts.length ? `<div class="attempt-list">${timeLabAttempts.map(renderParentTimeLabAttempt).join("")}</div>` : `<div class="empty">橙子提交时区预测后，这里会出现步骤证据。</div>`}</section>
@@ -1360,7 +1419,7 @@ function renderCoachAnnotation(annotation) {
 }
 
 function makeArchiveAnnotationPrompt() {
-  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts、axial_tilt_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
+  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts、axial_tilt_attempts、celestial_scale_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
 }
 
 const ERROR_TAG_LABELS = {
@@ -1425,7 +1484,12 @@ const ERROR_TAG_LABELS = {
   "X-POLAR-CIRCLE": "没有用90°减黄赤交角求极圈纬度",
   "X-TROPICAL-WIDTH": "把回归线纬度误当成南北回归线之间的总宽度",
   "X-TEMPERATE-WIDTH": "没有用极圈纬度减回归线纬度求每个温带的宽度",
-  "X-ZONE-CHANGE": "黄赤交角变化与热带、温带、寒带宽窄变化对应错误"
+  "X-ZONE-CHANGE": "黄赤交角变化与热带、温带、寒带宽窄变化对应错误",
+  "C-SYSTEM-ORDER": "天体系统包含关系和由小到大顺序混淆",
+  "C-MOON-SCALE": "地月距离的数量级或单位判断错误",
+  "C-AU-SCALE": "没有把 1 AU 与日地平均距离对应",
+  "C-GALACTIC-LOCATION": "把太阳系误放在银心、银河系外或最外缘",
+  "C-DIAGRAM-SCALE": "把强烈压缩的层级示意图当成真实比例图"
 };
 
 function errorTagLabel(tag) { return ERROR_TAG_LABELS[tag] || tag; }
@@ -1490,6 +1554,12 @@ function renderParentDateRangeAttempt(attempt) {
 function renderParentAxialTiltAttempt(attempt) {
   const correct = attempt.correct_answers || {};
   return `<article class="attempt-item"><div class="attempt-head"><div><strong>ε=${correct.tilt_deg}° · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 黄赤交角与五带变化</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>回归线/极圈 <strong>${correct.tropic_latitude}° / ${correct.polar_circle_latitude}°</strong></span><span>热带/每个温带 <strong>${correct.tropical_width}° / ${correct.temperate_width_each}°</strong></span><span>每个寒带 <strong>${correct.polar_width_each}°</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把交角拖到0°，追问为什么极昼极夜与由地轴倾斜造成的季节差异会消失。</div>`}<label class="field-label" for="axial-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="axial-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="axial-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="axial-note-${escapeHtml(attempt.id)}" placeholder="例如：会求极圈，但把回归线纬度当成热带总宽">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-axial-tilt-review" data-attempt-id="${escapeHtml(attempt.id)}">保存黄赤交角审核</button></div></article>`;
+}
+
+function renderParentCelestialScaleAttempt(attempt) {
+  const correct = attempt.correct_answers || {};
+  const level = window.OrangeCoach?.features?.celestialScale?.getLevel(catalog.celestialScaleLab, attempt.target_level_id);
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(level?.name || attempt.target_level_id)} · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 天体系统尺度与宇宙位置</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>地月尺度 <strong>${escapeHtml(correct.moon_distance)}</strong></span><span>日地尺度 <strong>${escapeHtml(correct.earth_sun_unit)}</strong></span><span>太阳系位置 <strong>银河系猎户臂</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把缩放尺拖到银河系，追问太阳系为什么不在银河系中心，以及为什么不能按图量距离。</div>`}<label class="field-label" for="celestial-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="celestial-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="celestial-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="celestial-note-${escapeHtml(attempt.id)}" placeholder="例如：层级顺序正确，但仍把太阳系放在银河系中心">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-celestial-scale-review" data-attempt-id="${escapeHtml(attempt.id)}">保存宇宙尺度审核</button></div></article>`;
 }
 
 function renderParentSolarPathAttempt(attempt) {
@@ -1679,6 +1749,14 @@ document.addEventListener("click", async (event) => {
     state.route = "axial-tilt-lab";
     saveState(); render();
   }
+  if (action === "start-celestial-scale") {
+    const count = catalog.celestialScaleLab?.scenarios?.length || 0;
+    if (!count) return;
+    state.celestialScaleScenarioIndex = state.celestialScaleAttempts.length % count;
+    state.activeCelestialScaleAttemptId = null;
+    state.route = "celestial-scale-lab";
+    saveState(); render();
+  }
   if (action === "start-date-range") {
     const count = catalog.dateRangeLab?.scenarios?.length || 0;
     if (!count) return;
@@ -1756,6 +1834,12 @@ document.addEventListener("click", async (event) => {
     state.route = "axial-tilt-lab";
     saveState(); render();
   }
+  if (action === "next-celestial-scale") {
+    state.celestialScaleScenarioIndex = (state.celestialScaleScenarioIndex + 1) % Math.max(catalog.celestialScaleLab?.scenarios?.length || 1, 1);
+    state.activeCelestialScaleAttemptId = null;
+    state.route = "celestial-scale-lab";
+    saveState(); render();
+  }
   if (action === "next-date-range") {
     state.dateRangeScenarioIndex = (state.dateRangeScenarioIndex + 1) % Math.max(catalog.dateRangeLab?.scenarios?.length || 1, 1);
     state.activeDateRangeAttemptId = null;
@@ -1792,11 +1876,52 @@ document.addEventListener("click", async (event) => {
   if (action === "save-rotation-speed-review") saveRotationSpeedReview(actionTarget.dataset.attemptId);
   if (action === "save-date-range-review") saveDateRangeReview(actionTarget.dataset.attemptId);
   if (action === "save-axial-tilt-review") saveAxialTiltReview(actionTarget.dataset.attemptId);
+  if (action === "save-celestial-scale-review") saveCelestialScaleReview(actionTarget.dataset.attemptId);
   if (action === "save-retest-review") saveRetestReview(actionTarget.dataset.attemptId);
   if (action === "export-data") exportData();
 });
 
 document.addEventListener("submit", (event) => {
+  if (event.target.id === "celestial-scale-form") {
+    event.preventDefault();
+    const feature = window.OrangeCoach?.features?.celestialScale;
+    const scenario = getCelestialScaleScenario();
+    if (!feature || !scenario) return;
+    const form = new FormData(event.target);
+    const answers = {
+      system_order: form.get("celestial-order") || "",
+      moon_distance: form.get("celestial-moon") || "",
+      earth_sun_unit: form.get("celestial-au") || "",
+      galactic_location: form.get("celestial-location") || "",
+      diagram_rule: form.get("celestial-diagram") || ""
+    };
+    const reasoning = String(form.get("celestial-reasoning") || "").trim();
+    if (Object.values(answers).some((answer) => !answer) || !reasoning) return alert("请完成五项预测并写出判断链，再解锁天体系统层级。");
+    const correctAnswers = feature.calculate(catalog.celestialScaleLab);
+    const checks = {
+      system_order: answers.system_order === correctAnswers.system_order,
+      moon_distance: answers.moon_distance === correctAnswers.moon_distance,
+      earth_sun_unit: answers.earth_sun_unit === correctAnswers.earth_sun_unit,
+      galactic_location: answers.galactic_location === correctAnswers.galactic_location,
+      diagram_rule: answers.diagram_rule === correctAnswers.diagram_rule
+    };
+    const errorTags = [];
+    if (!checks.system_order) errorTags.push("C-SYSTEM-ORDER");
+    if (!checks.moon_distance) errorTags.push("C-MOON-SCALE");
+    if (!checks.earth_sun_unit) errorTags.push("C-AU-SCALE");
+    if (!checks.galactic_location) errorTags.push("C-GALACTIC-LOCATION");
+    if (!checks.diagram_rule) errorTags.push("C-DIAGRAM-SCALE");
+    const attempt = {
+      schema_version: "0.15.0", id: newId(), scenario_id: scenario.id, target_level_id: scenario.target_level_id,
+      answers, correct_answers: correctAnswers, checks,
+      score: Object.values(checks).filter(Boolean).length, error_tags: errorTags, reasoning,
+      submitted_at: new Date().toISOString(), parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.celestialScaleAttempts.push(attempt);
+    state.activeCelestialScaleAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
   if (event.target.id === "axial-tilt-form") {
     event.preventDefault();
     const feature = window.OrangeCoach?.features?.axialTilt;
@@ -2243,6 +2368,10 @@ document.addEventListener("submit", (event) => {
 });
 
 document.addEventListener("input", (event) => {
+  if (event.target.id === "celestial-progress") {
+    window.OrangeCoach?.features?.celestialScale?.updateProgress(event.target.value, catalog.celestialScaleLab);
+    return;
+  }
   if (event.target.id === "axial-tropic-prediction") {
     window.OrangeCoach?.features?.axialTilt?.updateTropic(event.target.value);
     return;
@@ -2347,8 +2476,8 @@ document.addEventListener("change", async (event) => {
     const imported = JSON.parse(await file.text());
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
-    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length;
-    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
+    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length;
+    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
     if (isAnnotatedArchive && localRecordCount > 0) {
       const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
       if (!mergeResult?.ok) throw new Error(mergeResult?.reason || "批注档案与当前记录不一致");
@@ -2368,6 +2497,7 @@ document.addEventListener("change", async (event) => {
       state.rotationSpeedAttempts = normalized.rotationSpeedAttempts;
       state.dateRangeAttempts = normalized.dateRangeAttempts;
       state.axialTiltAttempts = normalized.axialTiltAttempts;
+      state.celestialScaleAttempts = normalized.celestialScaleAttempts;
       state.coachAnnotations = normalized.coachAnnotations;
       state.lastAction = `已导入学习档案：${state.coachAnnotations.length} 条教练批注`;
     }
@@ -2480,6 +2610,14 @@ function saveAxialTiltReview(id) {
   saveState(); render();
 }
 
+function saveCelestialScaleReview(id) {
+  const attempt = state.celestialScaleAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#celestial-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#celestial-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
 function addDaysIso(days) {
   const date = new Date();
   date.setDate(date.getDate() + days);
@@ -2519,7 +2657,7 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -2534,9 +2672,10 @@ async function init() {
       fetch(`./data/terminator_link_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/rotation_speed_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/date_range_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
-      fetch(`./data/axial_tilt_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
+      fetch(`./data/axial_tilt_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/celestial_scale_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

@@ -33,5 +33,12 @@
     "category": "自然地理",
     "description": "观察视角、自转方向、晨昏线、太阳直射点、昼长、太阳视运动与影子",
     "order": 5
+  },
+  {
+    "id": "physical.earth.universe",
+    "name": "宇宙中的地球",
+    "category": "自然地理",
+    "description": "天体系统层级、宇宙尺度、地球位置与地球存在生命的条件",
+    "order": 6
   }
 ]

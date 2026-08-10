@@ -9,6 +9,7 @@ await import("../assets/features/terminator-link.js");
 await import("../assets/features/rotation-speed.js");
 await import("../assets/features/date-range.js");
 await import("../assets/features/axial-tilt.js");
+await import("../assets/features/celestial-scale.js");
 await import("../assets/features/learning-export.js");
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
@@ -26,8 +27,17 @@ const terminatorLinkLab = JSON.parse(await readFile(new URL("../data/terminator_
 const rotationSpeedLab = JSON.parse(await readFile(new URL("../data/rotation_speed_lab.json", import.meta.url), "utf8"));
 const dateRangeLab = JSON.parse(await readFile(new URL("../data/date_range_lab.json", import.meta.url), "utf8"));
 const axialTiltLab = JSON.parse(await readFile(new URL("../data/axial_tilt_lab.json", import.meta.url), "utf8"));
+const celestialScaleLab = JSON.parse(await readFile(new URL("../data/celestial_scale_lab.json", import.meta.url), "utf8"));
+const v015Schemas = await Promise.all([
+  "celestial-scale-lab.v0.15.schema.json",
+  "celestial-scale-attempt.v0.15.schema.json",
+  "learning-projects.v0.15.schema.json",
+  "learning-export.v0.15.schema.json"
+].map(async (name) => JSON.parse(await readFile(new URL(`../schemas/${name}`, import.meta.url), "utf8"))));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
+
+if (v015Schemas.some((schema) => !schema.$id || !schema.$schema)) errors.push("v0.15 schema 必须声明 $id 与 JSON Schema 版本");
 
 if (!Array.isArray(topics) || topics.length === 0) errors.push("topics.json 必须是非空数组");
 if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.json 必须是非空数组");
@@ -36,7 +46,7 @@ if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json �
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
-if (learningProjects?.schema_version !== "0.14.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.14.0版非空项目清单");
+if (learningProjects?.schema_version !== "0.15.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.15.0版非空项目清单");
 if (solarSeasonLab?.schema_version !== "0.7.0" || !Array.isArray(solarSeasonLab.dates) || solarSeasonLab.dates.length !== 4) errors.push("solar_season_lab.json 必须包含4个二分二至日情境");
 if (solarPathLab?.schema_version !== "0.8.0" || !Array.isArray(solarPathLab.dates) || solarPathLab.dates.length !== 4) errors.push("solar_path_lab.json 必须包含4个二分二至日情境");
 if (annualSunLab?.schema_version !== "0.9.0" || !Array.isArray(annualSunLab.checkpoints) || annualSunLab.checkpoints.length !== 8) errors.push("annual_sun_lab.json 必须包含8个周年观察位置");
@@ -45,11 +55,12 @@ if (terminatorLinkLab?.schema_version !== "0.11.0" || !Array.isArray(terminatorL
 if (rotationSpeedLab?.schema_version !== "0.12.0" || !Array.isArray(rotationSpeedLab.scenarios) || rotationSpeedLab.scenarios.length !== 8) errors.push("rotation_speed_lab.json 必须包含8个自转速度情境");
 if (dateRangeLab?.schema_version !== "0.13.0" || !Array.isArray(dateRangeLab.scenarios) || dateRangeLab.scenarios.length !== 8) errors.push("date_range_lab.json 必须包含8个全球日期情境");
 if (axialTiltLab?.schema_version !== "0.14.0" || !Array.isArray(axialTiltLab.scenarios) || axialTiltLab.scenarios.length !== 8) errors.push("axial_tilt_lab.json 必须包含8个黄赤交角情境");
+if (celestialScaleLab?.schema_version !== "0.15.0" || !Array.isArray(celestialScaleLab.scenarios) || celestialScaleLab.scenarios.length !== 8) errors.push("celestial_scale_lab.json 必须包含8个天体系统尺度情境");
 
 const projectIds = new Set();
 const projectOrders = new Set();
-const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-annual-sun", "start-orbit-speed", "start-terminator-link", "start-rotation-speed", "start-date-range", "start-axial-tilt", "start-solar-path", "start-time-lab", "start-next", "goto"]);
-const allowedStatusKinds = new Set(["earth_motion", "solar_season", "annual_sun", "orbit_speed", "terminator_link", "rotation_speed", "date_range", "axial_tilt", "solar_path", "time_lab", "diagnostic", "retest"]);
+const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-annual-sun", "start-orbit-speed", "start-terminator-link", "start-rotation-speed", "start-date-range", "start-axial-tilt", "start-celestial-scale", "start-solar-path", "start-time-lab", "start-next", "goto"]);
+const allowedStatusKinds = new Set(["earth_motion", "solar_season", "annual_sun", "orbit_speed", "terminator_link", "rotation_speed", "date_range", "axial_tilt", "celestial_scale", "solar_path", "time_lab", "diagnostic", "retest"]);
 for (const project of learningProjects?.projects || []) {
   if (projectIds.has(project.id)) errors.push(`学习项目编号重复：${project.id}`);
   projectIds.add(project.id);
@@ -60,7 +71,7 @@ for (const project of learningProjects?.projects || []) {
   if (!allowedStatusKinds.has(project.status_kind)) errors.push(`${project.id} 使用了不支持的 status_kind`);
   if (project.action === "goto" && !project.route) errors.push(`${project.id} 的 goto action 必须指定 route`);
 }
-for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "annual-sun-lab", "orbit-speed-lab", "terminator-link-lab", "rotation-speed-lab", "date-range-lab", "axial-tilt-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
+for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "annual-sun-lab", "orbit-speed-lab", "terminator-link-lab", "rotation-speed-lab", "date-range-lab", "axial-tilt-lab", "celestial-scale-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
   if (!projectIds.has(requiredProjectId)) errors.push(`学习项目清单缺少：${requiredProjectId}`);
 }
 
@@ -527,6 +538,49 @@ for (const tag of ["X-TROPIC-LATITUDE", "X-POLAR-CIRCLE", "X-TROPICAL-WIDTH", "X
   if (!axialTiltLab?.error_tags?.[tag]) errors.push(`axial_tilt_lab.json 缺少错误标签：${tag}`);
 }
 
+if (celestialScaleLab && !topicIds.has(celestialScaleLab.topic_id)) errors.push("celestial_scale_lab.json 引用了不存在的主题");
+if (!Number.isInteger(celestialScaleLab?.review_after_hours) || celestialScaleLab.review_after_hours < 48) errors.push("celestial_scale_lab.json review_after_hours 至少为48小时");
+if (!celestialScaleLab?.model_note?.includes("不按真实比例") || !celestialScaleLab.model_note.includes("总星系") || !celestialScaleLab.model_note.includes("可观测宇宙")) errors.push("天体系统实验必须说明非等比例模型、教材称谓和可观测宇宙边界");
+if (!Array.isArray(celestialScaleLab?.sources) || celestialScaleLab.sources.length < 4 || celestialScaleLab.sources.some((source) => !/^https:\/\/science\.nasa\.gov\//.test(source.url))) errors.push("天体系统实验必须记录至少4条NASA可追溯来源");
+const celestialScaleFeature = globalThis.OrangeCoach?.features?.celestialScale;
+const celestialLevelIds = new Set();
+const celestialOrders = new Set();
+for (const level of celestialScaleLab?.levels || []) {
+  if (celestialLevelIds.has(level.id)) errors.push(`天体系统层级编号重复：${level.id}`);
+  celestialLevelIds.add(level.id);
+  if (celestialOrders.has(level.order)) errors.push(`天体系统层级顺序重复：${level.order}`);
+  celestialOrders.add(level.order);
+  if (!level.location?.trim() || !level.scale_anchor?.trim() || !level.unit?.trim() || !level.object_note?.trim()) errors.push(`${level.id} 缺少位置、尺度、单位或辨析说明`);
+}
+const requiredCelestialLevels = ["earth-moon", "solar-system", "milky-way", "observable-universe"];
+if (requiredCelestialLevels.some((id) => !celestialLevelIds.has(id)) || celestialScaleLab?.levels?.length !== 4) errors.push("天体系统实验必须包含地月系、太阳系、银河系和可观测宇宙四级");
+const celestialScenarioIds = new Set();
+const celestialScenarioCounts = new Map();
+for (const scenario of celestialScaleLab?.scenarios || []) {
+  if (celestialScenarioIds.has(scenario.id)) errors.push(`天体系统尺度场景编号重复：${scenario.id}`);
+  celestialScenarioIds.add(scenario.id);
+  if (!celestialLevelIds.has(scenario.target_level_id)) errors.push(`${scenario.id} 引用了不存在的目标层级`);
+  celestialScenarioCounts.set(scenario.target_level_id, (celestialScenarioCounts.get(scenario.target_level_id) || 0) + 1);
+}
+if (requiredCelestialLevels.some((id) => celestialScenarioCounts.get(id) !== 2)) errors.push("8个天体系统情境必须让四个层级各出现2次");
+const celestialAnswerKeys = ["system_order", "moon_distance", "earth_sun_unit", "galactic_location", "diagram_rule"];
+for (const key of celestialAnswerKeys) {
+  if (!celestialScaleLab?.choices?.[key]?.includes(celestialScaleLab?.answers?.[key])) errors.push(`天体系统实验正确答案未登记到选项：${key}`);
+}
+if (!celestialScaleFeature) {
+  errors.push("天体系统尺度实验功能未成功注册");
+} else {
+  const result = celestialScaleFeature.calculate(celestialScaleLab);
+  if (celestialAnswerKeys.some((key) => result[key] !== celestialScaleLab.answers[key])) errors.push("天体系统尺度答案计算与数据不一致");
+  if (celestialScaleFeature.getLevel(celestialScaleLab, "milky-way")?.unit !== "光年 ly") errors.push("银河系层级必须使用光年尺度锚点");
+  const lockedHtml = celestialScaleFeature.renderLab({ lab: celestialScaleLab, scenario: celestialScaleLab.scenarios[0], scenarioIndex: 0 });
+  const lockedSvg = lockedHtml.match(/<svg[\s\S]*?<\/svg>/)?.[0] || "";
+  if (!lockedSvg.includes("第1级") || requiredCelestialLevels.some((id) => lockedSvg.includes(celestialScaleFeature.getLevel(celestialScaleLab, id)?.name))) errors.push("天体系统锁定图不得在提交前泄露四级名称和顺序");
+}
+for (const tag of ["C-SYSTEM-ORDER", "C-MOON-SCALE", "C-AU-SCALE", "C-GALACTIC-LOCATION", "C-DIAGRAM-SCALE"]) {
+  if (!celestialScaleLab?.error_tags?.[tag]) errors.push(`celestial_scale_lab.json 缺少错误标签：${tag}`);
+}
+
 const learningExport = globalThis.OrangeCoach?.features?.learningExport;
 if (!learningExport) {
   errors.push("可批注学习档案功能未成功注册");
@@ -546,6 +600,7 @@ if (!learningExport) {
     rotationSpeedAttempts: [{ id: "ROTATION-TEST", scenario_id: "RS-01", score: 5, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     dateRangeAttempts: [{ id: "DATE-TEST", scenario_id: "DR-01", score: 5, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     axialTiltAttempts: [{ id: "AXIAL-TEST", scenario_id: "AT-05", score: 5, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
+    celestialScaleAttempts: [{ id: "CELESTIAL-TEST", scenario_id: "CS-01", target_level_id: "earth-moon", score: 5, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     coachAnnotations: [{ id: "COACH-TEST", status: "候选" }]
   };
   const packet = learningExport.buildPacket({
@@ -555,9 +610,9 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.14.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
-  if (packet.summary.total_learning_records !== 8 || packet.summary.pending_parent_reviews !== 8) errors.push("学习档案摘要计数错误");
-  if (packet.summary.by_project.length !== 12 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts) || !Array.isArray(packet.axial_tilt_attempts)) errors.push("学习档案缺少项目进度、黄赤交角记录或学习时间范围");
+  if (packet.export_schema_version !== "0.15.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.summary.total_learning_records !== 9 || packet.summary.pending_parent_reviews !== 9) errors.push("学习档案摘要计数错误");
+  if (packet.summary.by_project.length !== 13 || packet.summary.celestial_scale_attempts !== 1 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts) || !Array.isArray(packet.axial_tilt_attempts) || !Array.isArray(packet.celestial_scale_attempts)) errors.push("学习档案缺少项目进度、宇宙尺度记录或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");
   if (packet.coach_annotations[0]?.id !== "COACH-TEST" || !packet.annotation_guide?.expected_annotation_shape) errors.push("学习档案没有保留批注或批注规范");
   if (!/^orange-geography-records-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}[+-]\d{2}-\d{2}\.json$/.test(filename)) errors.push("学习档案文件名必须包含本地日期、时分秒和时区偏移");
@@ -579,6 +634,8 @@ if (!learningExport) {
   if (tamperedDate.ok) errors.push("学习档案导入没有保护全球日期原始证据");
   const tamperedAxial = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, axialTiltAttempts: [{ ...fixtureState.axialTiltAttempts[0], score: 4 }] });
   if (tamperedAxial.ok) errors.push("学习档案导入没有保护黄赤交角原始证据");
+  const tamperedCelestial = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, celestialScaleAttempts: [{ ...fixtureState.celestialScaleAttempts[0], score: 4 }] });
+  if (tamperedCelestial.ok) errors.push("学习档案导入没有保护天体系统尺度原始证据");
 }
 
 if (errors.length) {
@@ -586,4 +643,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${orbitScenarioIds.size} 个公转轨道组合，${linkScenarioIds.size} 个晨昏线综合情境，${rotationScenarioIds.size} 个自转速度情境，${dateRangeScenarioIds.size} 个全球日期情境，${axialTiltScenarioIds.size} 个黄赤交角情境，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${orbitScenarioIds.size} 个公转轨道组合，${linkScenarioIds.size} 个晨昏线综合情境，${rotationScenarioIds.size} 个自转速度情境，${dateRangeScenarioIds.size} 个全球日期情境，${axialTiltScenarioIds.size} 个黄赤交角情境，${celestialScenarioIds.size} 个天体系统尺度情境，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);
