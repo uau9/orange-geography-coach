@@ -1,0 +1,113 @@
+{
+  "schema_version": "0.10.0",
+  "topic_id": "physical.earth.motion",
+  "title": "地球公转轨道与速度实验室",
+  "description": "从轨道位置判断日地距离、公转速度和南北半球季节，并用证据排除“离太阳近就是夏季”的误解。",
+  "model_note": "采用高中地理理想模型。为了看清近日点、远日点和等时段弧长，轨道椭圆度与速度箭头均被明显夸大；实际地球轨道接近圆形，数值采用当前轨道的近似值。",
+  "review_after_hours": 48,
+  "facts": {
+    "perihelion_distance_million_km": 147.1,
+    "aphelion_distance_million_km": 152.1,
+    "max_speed_km_s": 30.29,
+    "min_speed_km_s": 29.29,
+    "orbit_eccentricity": 0.0167,
+    "north_spring_summer_days": 186,
+    "north_autumn_winter_days": 179,
+    "season_cause": "地轴倾斜且公转时指向近似不变"
+  },
+  "sources": [
+    {
+      "title": "NASA Science：Milankovitch轨道周期",
+      "url": "https://science.nasa.gov/science-research/earth-science/milankovitch-orbital-cycles-and-their-role-in-earths-climate/"
+    },
+    {
+      "title": "NASA Science：地球公转速度与近日点、远日点",
+      "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter2-1/"
+    },
+    {
+      "title": "NOAA NESDIS：地球为什么有四季",
+      "url": "https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/why-does-earth-have-seasons"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "early-january",
+      "name": "1月初",
+      "date_hint": "冬至后约两周",
+      "phase": 0,
+      "orbit_label": "近日点",
+      "distance_state": "近日点（最近）",
+      "distance_million_km": 147.1,
+      "speed_state": "最快，随后减速",
+      "speed_km_s": 30.29,
+      "north_season": "冬季",
+      "south_season": "夏季"
+    },
+    {
+      "id": "early-april",
+      "name": "4月初",
+      "date_hint": "春分后",
+      "phase": 0.25,
+      "orbit_label": "由近向远途中",
+      "distance_state": "由近变远",
+      "distance_million_km": 149.6,
+      "speed_state": "正在减速",
+      "speed_km_s": 29.78,
+      "north_season": "春季",
+      "south_season": "秋季"
+    },
+    {
+      "id": "early-july",
+      "name": "7月初",
+      "date_hint": "夏至后约两周",
+      "phase": 0.5,
+      "orbit_label": "远日点",
+      "distance_state": "远日点（最远）",
+      "distance_million_km": 152.1,
+      "speed_state": "最慢，随后加速",
+      "speed_km_s": 29.29,
+      "north_season": "夏季",
+      "south_season": "冬季"
+    },
+    {
+      "id": "early-october",
+      "name": "10月初",
+      "date_hint": "秋分后",
+      "phase": 0.75,
+      "orbit_label": "由远向近途中",
+      "distance_state": "由远变近",
+      "distance_million_km": 149.6,
+      "speed_state": "正在加速",
+      "speed_km_s": 29.78,
+      "north_season": "秋季",
+      "south_season": "春季"
+    }
+  ],
+  "hemispheres": [
+    { "id": "north", "name": "北半球", "short_label": "北" },
+    { "id": "south", "name": "南半球", "short_label": "南" }
+  ],
+  "scenarios": [
+    { "checkpoint_id": "early-january", "hemisphere_id": "north" },
+    { "checkpoint_id": "early-july", "hemisphere_id": "south" },
+    { "checkpoint_id": "early-april", "hemisphere_id": "north" },
+    { "checkpoint_id": "early-october", "hemisphere_id": "south" },
+    { "checkpoint_id": "early-january", "hemisphere_id": "south" },
+    { "checkpoint_id": "early-july", "hemisphere_id": "north" },
+    { "checkpoint_id": "early-april", "hemisphere_id": "south" },
+    { "checkpoint_id": "early-october", "hemisphere_id": "north" }
+  ],
+  "choices": {
+    "distance_state": ["近日点（最近）", "由近变远", "远日点（最远）", "由远变近"],
+    "speed_state": ["最快，随后减速", "正在减速", "最慢，随后加速", "正在加速"],
+    "season": ["春季", "夏季", "秋季", "冬季"],
+    "season_cause": ["地轴倾斜且公转时指向近似不变", "近日点更热、远日点更冷", "公转速度快慢直接决定冷热", "太阳本身按季节明显变亮变暗"]
+  },
+  "error_tags": {
+    "O-DISTANCE-POSITION": "不能由轨道位置判断日地距离状态",
+    "O-SPEED-DISTANCE": "没有建立近日点快、远日点慢的对应关系",
+    "O-HEMISPHERE-SEASON": "同一日期的南北半球季节对应错误",
+    "O-SEASON-DISTANCE": "把日地距离当成四季的主要成因",
+    "O-SEASON-CAUSE": "四季成因判断缺少地轴倾斜和指向不变"
+  }
+}

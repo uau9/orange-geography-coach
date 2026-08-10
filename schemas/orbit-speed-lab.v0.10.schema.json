@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/orbit-speed-lab.v0.10.schema.json",
+  "title": "地球公转轨道与速度实验内容 v0.10",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "topic_id", "title", "description", "model_note", "review_after_hours", "facts", "sources", "checkpoints", "hemispheres", "scenarios", "choices", "error_tags"],
+  "properties": {
+    "schema_version": { "const": "0.10.0" },
+    "topic_id": { "const": "physical.earth.motion" },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "model_note": { "type": "string", "minLength": 1 },
+    "review_after_hours": { "type": "integer", "minimum": 24 },
+    "facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["perihelion_distance_million_km", "aphelion_distance_million_km", "max_speed_km_s", "min_speed_km_s", "orbit_eccentricity", "north_spring_summer_days", "north_autumn_winter_days", "season_cause"],
+      "properties": {
+        "perihelion_distance_million_km": { "type": "number", "minimum": 140, "maximum": 150 },
+        "aphelion_distance_million_km": { "type": "number", "minimum": 150, "maximum": 160 },
+        "max_speed_km_s": { "type": "number", "minimum": 30, "maximum": 31 },
+        "min_speed_km_s": { "type": "number", "minimum": 29, "maximum": 30 },
+        "orbit_eccentricity": { "type": "number", "minimum": 0, "maximum": 0.1 },
+        "north_spring_summer_days": { "type": "integer", "minimum": 180, "maximum": 190 },
+        "north_autumn_winter_days": { "type": "integer", "minimum": 175, "maximum": 185 },
+        "season_cause": { "type": "string", "minLength": 1 }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "url"],
+        "properties": {
+          "title": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "checkpoints": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "date_hint", "phase", "orbit_label", "distance_state", "distance_million_km", "speed_state", "speed_km_s", "north_season", "south_season"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "date_hint": { "type": "string", "minLength": 1 },
+          "phase": { "type": "number", "minimum": 0, "exclusiveMaximum": 1 },
+          "orbit_label": { "type": "string", "minLength": 1 },
+          "distance_state": { "type": "string", "minLength": 1 },
+          "distance_million_km": { "type": "number" },
+          "speed_state": { "type": "string", "minLength": 1 },
+          "speed_km_s": { "type": "number" },
+          "north_season": { "enum": ["春季", "夏季", "秋季", "冬季"] },
+          "south_season": { "enum": ["春季", "夏季", "秋季", "冬季"] }
+        }
+      }
+    },
+    "hemispheres": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "short_label"],
+        "properties": {
+          "id": { "enum": ["north", "south"] },
+          "name": { "type": "string", "minLength": 1 },
+          "short_label": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["checkpoint_id", "hemisphere_id"],
+        "properties": {
+          "checkpoint_id": { "type": "string", "minLength": 1 },
+          "hemisphere_id": { "enum": ["north", "south"] }
+        }
+      }
+    },
+    "choices": { "type": "object" },
+    "error_tags": { "type": "object" }
+  }
+}

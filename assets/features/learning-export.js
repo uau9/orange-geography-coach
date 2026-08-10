@@ -31,6 +31,7 @@
     (state.solarSeasonAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     (state.solarPathAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     (state.annualSunAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
+    (state.orbitSpeedAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     return [...counts.entries()]
       .map(([error_tag, count]) => ({ error_tag, count }))
       .sort((a, b) => b.count - a.count || a.error_tag.localeCompare(b.error_tag));
@@ -62,7 +63,8 @@
       ...(state.earthMotionAttempts || []),
       ...(state.solarSeasonAttempts || []),
       ...(state.solarPathAttempts || []),
-      ...(state.annualSunAttempts || [])
+      ...(state.annualSunAttempts || []),
+      ...(state.orbitSpeedAttempts || [])
     ];
     return all.filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
   }
@@ -79,11 +81,13 @@
     const solarSeason = state.solarSeasonAttempts || [];
     const solarPath = state.solarPathAttempts || [];
     const annualSun = state.annualSunAttempts || [];
+    const orbitSpeed = state.orbitSpeedAttempts || [];
     const latestTime = latestByTime(timeLab);
     const latestMotion = latestByTime(earthMotion);
     const latestSolar = latestByTime(solarSeason);
     const latestPath = latestByTime(solarPath);
     const latestAnnual = latestByTime(annualSun);
+    const latestOrbit = latestByTime(orbitSpeed);
     return [
       {
         project_id: "diagnostic-questions",
@@ -122,6 +126,12 @@
         confirmed: annualSun.filter((attempt) => attempt.parent_review_status === "已确认").length
       },
       {
+        project_id: "orbit-speed-lab",
+        records: orbitSpeed.length,
+        latest_score: latestOrbit?.score ?? null,
+        confirmed: orbitSpeed.filter((attempt) => attempt.parent_review_status === "已确认").length
+      },
+      {
         project_id: "delayed-retests",
         records: retests.length,
         mastered: retests.filter((attempt) => attempt.parent_review_status === "已掌握").length
@@ -137,7 +147,8 @@
       ...(state.earthMotionAttempts || []),
       ...(state.solarSeasonAttempts || []),
       ...(state.solarPathAttempts || []),
-      ...(state.annualSunAttempts || [])
+      ...(state.annualSunAttempts || []),
+      ...(state.orbitSpeedAttempts || [])
     ].map((attempt) => attempt.submitted_at).filter(Boolean).sort();
     return { first_recorded_at: timestamps[0] || null, last_recorded_at: timestamps[timestamps.length - 1] || null };
   }
@@ -151,7 +162,7 @@
   }
 
   function mergeAnnotatedArchive(currentState, importedState) {
-    const groups = ["attempts", "retestAttempts", "timeLabAttempts", "earthMotionAttempts", "solarSeasonAttempts", "solarPathAttempts", "annualSunAttempts"];
+    const groups = ["attempts", "retestAttempts", "timeLabAttempts", "earthMotionAttempts", "solarSeasonAttempts", "solarPathAttempts", "annualSunAttempts", "orbitSpeedAttempts"];
     for (const group of groups) {
       const currentById = new Map((currentState[group] || []).map((record) => [record.id, record]));
       for (const importedRecord of importedState[group] || []) {
@@ -174,17 +185,18 @@
     const solarSeasonAttempts = state.solarSeasonAttempts || [];
     const solarPathAttempts = state.solarPathAttempts || [];
     const annualSunAttempts = state.annualSunAttempts || [];
-    const allCount = attempts.length + retestAttempts.length + timeLabAttempts.length + earthMotionAttempts.length + solarSeasonAttempts.length + solarPathAttempts.length + annualSunAttempts.length;
+    const orbitSpeedAttempts = state.orbitSpeedAttempts || [];
+    const allCount = attempts.length + retestAttempts.length + timeLabAttempts.length + earthMotionAttempts.length + solarSeasonAttempts.length + solarPathAttempts.length + annualSunAttempts.length + orbitSpeedAttempts.length;
     const exportedAt = now.toISOString();
     const compactId = exportedAt.replace(/[-:.Z]/g, "");
     return {
       version: state.version,
-      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.9.0",
+      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.10.0",
       export_id: `EXPORT-${compactId}`,
       exported_at: exportedAt,
       exported_at_local: localTimestamp(now),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
-      app_version: config.APP_VERSION || "0.9.0",
+      app_version: config.APP_VERSION || "0.10.0",
       student_alias: config.STUDENT_ALIAS || "橙子",
       privacy_note: "档案默认不含姓名、学校、班级和联系方式；交给AI或教师前仍请人工检查自由文本。",
       summary: {
@@ -197,6 +209,7 @@
         solar_season_attempts: solarSeasonAttempts.length,
         solar_path_attempts: solarPathAttempts.length,
         annual_sun_attempts: annualSunAttempts.length,
+        orbit_speed_attempts: orbitSpeedAttempts.length,
         pending_parent_reviews: countPendingReview(state),
         activity_window: activityWindow(state),
         by_project: buildProjectSummary(state),
@@ -210,6 +223,7 @@
       solar_season_attempts: solarSeasonAttempts,
       solar_path_attempts: solarPathAttempts,
       annual_sun_attempts: annualSunAttempts,
+      orbit_speed_attempts: orbitSpeedAttempts,
       coach_annotations: state.coachAnnotations || [],
       annotation_guide: {
         purpose: "请基于学习证据批注进展，并把批注追加到 coach_annotations；不要修改原始作答记录。",

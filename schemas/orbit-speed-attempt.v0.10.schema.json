@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/orbit-speed-attempt.v0.10.schema.json",
+  "title": "地球公转轨道与速度实验记录 v0.10",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "checkpoint_id", "hemisphere_id", "answers", "correct_answers", "checks", "score", "error_tags", "reasoning", "submitted_at", "parent_review_status", "parent_note"],
+  "properties": {
+    "schema_version": { "const": "0.10.0" },
+    "id": { "type": "string", "minLength": 1 },
+    "checkpoint_id": { "type": "string", "minLength": 1 },
+    "hemisphere_id": { "enum": ["north", "south"] },
+    "answers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["distance_state", "speed_state", "season", "season_cause"],
+      "properties": {
+        "distance_state": { "type": "string", "minLength": 1 },
+        "speed_state": { "type": "string", "minLength": 1 },
+        "season": { "type": "string", "minLength": 1 },
+        "season_cause": { "type": "string", "minLength": 1 }
+      }
+    },
+    "correct_answers": { "type": "object" },
+    "checks": { "type": "object" },
+    "score": { "type": "integer", "minimum": 0, "maximum": 4 },
+    "error_tags": { "type": "array", "items": { "type": "string" } },
+    "reasoning": { "type": "string", "minLength": 1 },
+    "submitted_at": { "type": "string", "format": "date-time" },
+    "parent_review_status": { "enum": ["待家长确认", "已确认", "需再练", "需教师复核"] },
+    "parent_note": { "type": "string" }
+  }
+}

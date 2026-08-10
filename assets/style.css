@@ -222,6 +222,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .today-focus-card::before { position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--accent); content: ""; }
 .today-focus-card[data-accent="navy"] { --accent: var(--navy); }
 .today-focus-card[data-accent="orange"] { --accent: var(--orange); }
+.today-focus-card[data-accent="emerald"] { --accent: #1c7a5d; }
 .today-focus-copy h2 { margin-top: 10px; font-size: clamp(22px, 4vw, 30px); }
 .today-focus-copy p { max-width: 660px; margin-bottom: 8px; }
 .evidence-line, .project-evidence { color: var(--muted); font-size: 11px; line-height: 1.55; }
@@ -237,6 +238,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .project-card[data-accent="gold"] { --accent: #c58a27; }
 .project-card[data-accent="sky"] { --accent: #3c91b7; }
 .project-card[data-accent="violet"] { --accent: #75558f; }
+.project-card[data-accent="emerald"] { --accent: #1c7a5d; }
 .project-card[data-accent="orange"] { --accent: var(--orange); }
 .project-card[data-accent="slate"] { --accent: #71828f; }
 .project-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
@@ -349,6 +351,45 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .annual-latitude-slider, .annual-progress-slider { width: 100%; height: 42px; margin: 0; accent-color: #75558f; cursor: ns-resize; touch-action: pan-x; }
 .annual-progress-caption { display: flex; justify-content: space-between; gap: 10px; margin: 12px 4px 0; color: var(--muted); font-size: 10px; }
 .annual-progress-caption strong { color: var(--navy); font-size: 12px; }
+.orbit-date-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.orbit-date-tabs button, .orbit-hemisphere-tabs button { min-width: 0; min-height: 48px; border: 1px solid var(--line); border-radius: 12px; padding: 8px 7px; background: white; color: var(--muted); }
+.orbit-date-tabs button strong, .orbit-date-tabs button small, .orbit-hemisphere-tabs button strong, .orbit-hemisphere-tabs button small { display: block; }
+.orbit-date-tabs button strong, .orbit-hemisphere-tabs button strong { color: var(--ink); font-size: 12px; }
+.orbit-date-tabs button small, .orbit-hemisphere-tabs button small { margin-top: 3px; font-size: 9px; }
+.orbit-date-tabs button.active, .orbit-hemisphere-tabs button.active { border-color: #1c7a5d; background: #edf8f3; box-shadow: inset 0 0 0 1px rgba(28,122,93,.18); }
+.orbit-hemisphere-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
+.orbit-speed-card { overflow: hidden; }
+.orbit-speed-layout, .orbit-result-layout { display: grid; gap: 18px; }
+.orbit-model-panel, .orbit-prediction-panel { min-width: 0; }
+.orbit-speed-svg { display: block; width: 100%; height: auto; border-radius: 18px; touch-action: manipulation; }
+.orbit-bg { fill: #f0f7f4; }
+.orbit-track { fill: none; stroke: rgba(20,59,93,.34); stroke-width: 3; stroke-dasharray: 7 6; }
+.orbit-direction { fill: none; stroke: #ed8a3b; stroke-width: 4; stroke-linecap: round; }
+.orbit-direction-label { fill: #9a581e; font-size: 11px; font-weight: 800; }
+.orbit-date-labels text { fill: #5b7180; font-size: 11px; font-weight: 800; }
+.orbit-sun { fill: url(#orbit-sun-glow); stroke: white; stroke-width: 5; filter: drop-shadow(0 5px 8px rgba(210,126,39,.25)); }
+.orbit-sun-label { fill: #815219; font-size: 13px; font-weight: 900; }
+.orbit-earth { fill: #58aebe; stroke: white; stroke-width: 4; filter: drop-shadow(0 4px 6px rgba(20,59,93,.25)); }
+.orbit-axis { stroke: #143b5d; stroke-width: 4; stroke-linecap: round; }
+.orbit-earth-date { fill: var(--navy); font-size: 11px; font-weight: 900; paint-order: stroke; stroke: #f0f7f4; stroke-width: 4px; }
+.orbit-distance-line { stroke: #4f7287; stroke-width: 2; stroke-dasharray: 5 5; }
+.orbit-time-trail { fill: none; stroke: #e8792f; stroke-width: 9; stroke-linecap: round; filter: drop-shadow(0 2px 3px rgba(176,78,25,.2)); }
+.orbit-speed-vector { stroke: #1c7a5d; stroke-width: 5; stroke-linecap: round; }
+.orbit-lock rect { fill: rgba(20,59,93,.9); }
+.orbit-lock text { fill: white; font-size: 10px; font-weight: 800; }
+.orbit-answer-band rect { fill: rgba(20,59,93,.92); }
+.orbit-answer-band text { fill: white; font-size: 9px; font-weight: 800; }
+.orbit-prediction-panel fieldset { min-width: 0; margin: 0; padding: 13px 0; border: 0; border-bottom: 1px solid var(--line); }
+.orbit-prediction-panel legend { padding: 0; font-size: 13px; font-weight: 800; }
+.orbit-choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-top: 9px; }
+.orbit-choice-grid label { display: flex; align-items: center; justify-content: center; min-height: 43px; padding: 8px 6px; border: 1px solid var(--line); border-radius: 10px; background: #fbfdfd; color: var(--ink); font-size: 10px; text-align: center; }
+.orbit-choice-grid label:has(input:checked) { border-color: #1c7a5d; background: #edf8f3; }
+.orbit-choice-grid input { width: 1px; height: 1px; margin: 0; opacity: 0; }
+.orbit-fact-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin: 12px 0; }
+.orbit-fact-strip div { min-width: 0; border: 1px solid var(--line); border-radius: 11px; padding: 10px 6px; background: #f8fbfa; text-align: center; }
+.orbit-fact-strip span, .orbit-fact-strip small { display: block; color: var(--muted); font-size: 9px; }
+.orbit-fact-strip strong { display: block; overflow-wrap: anywhere; margin: 4px 0 2px; color: #185f49; font-size: 15px; }
+#orbit-progress { accent-color: #1c7a5d; }
 @media (max-width: 520px) {
   .today-heading, .projects-heading { align-items: flex-start; }
   .today-heading .page-title, .projects-heading .page-title { font-size: 22px; }
@@ -357,6 +398,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .project-card { min-height: 0; }
   .season-date-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .annual-date-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .orbit-date-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .season-place-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .solar-choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lab-reference { align-items: flex-start; flex-direction: column; }
@@ -367,6 +409,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .motion-view-tabs { gap: 5px; }
   .motion-view-tabs button { padding-inline: 5px; font-size: 11px; }
   .motion-choice-grid { grid-template-columns: 1fr 1fr; }
+  .orbit-choice-grid { grid-template-columns: 1fr; }
 }
 @media (min-width: 700px) {
   .topbar { padding: 28px max(22px, calc((100vw - 1040px) / 2)); }
@@ -381,6 +424,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .solar-path-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .annual-sun-layout { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: start; }
   .annual-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
+  .orbit-speed-layout { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: start; }
+  .orbit-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .motion-lab-layout { grid-template-columns: minmax(0, 1.22fr) minmax(290px, .78fr); align-items: start; }
   .motion-result-layout { grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); align-items: start; }
   .motion-prediction-panel { padding-left: 4px; }
@@ -388,4 +433,5 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 @media (min-width: 700px) and (max-width: 819px) {
   .solar-path-layout, .solar-path-result-layout { grid-template-columns: 1fr; }
   .annual-sun-layout, .annual-result-layout { grid-template-columns: 1fr; }
+  .orbit-speed-layout, .orbit-result-layout { grid-template-columns: 1fr; }
 }
