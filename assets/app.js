@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const ASSET_VERSION = "0.5.0";
+const ASSET_VERSION = "0.5.1";
 
 function formatClock(totalMinutes) {
   const normalized = ((Math.round(totalMinutes) % 1440) + 1440) % 1440;
@@ -274,9 +274,9 @@ function renderEarthMotionDiagram(view, point, showAnswers = false) {
   const isPolar = view.id !== "equator";
   const pointPosition = point.id === "upper" ? { x: 360, y: 75, label: "A" } : point.id === "lower" ? { x: 360, y: 355, label: "B" } : { x: 360, y: 215, label: "C" };
   const rotationPath = view.id === "north"
-    ? "M455 305 A128 128 0 1 1 455 125"
+    ? "M500 215 A140 140 0 0 0 220 215"
     : view.id === "south"
-      ? "M455 125 A128 128 0 1 0 455 305"
+      ? "M220 215 A140 140 0 0 1 500 215"
       : "M255 255 C310 285 410 285 465 255";
   return `
     <svg class="earth-motion-svg" viewBox="0 0 720 430" role="img" aria-label="${escapeHtml(view.name)}晨昏线观察模型">
