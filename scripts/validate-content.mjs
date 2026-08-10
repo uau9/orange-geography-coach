@@ -1,5 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { calculateTimeLabAnswers, normalizeTimeAnswer } from "../assets/time-utils.js";
+await import("../assets/config.js");
+await import("../assets/features/learning-export.js");
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
 const questions = JSON.parse(await readFile(new URL("../data/questions.json", import.meta.url), "utf8"));
@@ -7,6 +9,7 @@ const paperReviews = JSON.parse(await readFile(new URL("../data/paper_reviews.js
 const retests = JSON.parse(await readFile(new URL("../data/retests.json", import.meta.url), "utf8"));
 const timeLab = JSON.parse(await readFile(new URL("../data/time_lab.json", import.meta.url), "utf8"));
 const earthMotionLab = JSON.parse(await readFile(new URL("../data/earth_motion_lab.json", import.meta.url), "utf8"));
+const learningProjects = JSON.parse(await readFile(new URL("../data/learning_projects.json", import.meta.url), "utf8"));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
 
@@ -17,6 +20,25 @@ if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json �
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
+if (learningProjects?.schema_version !== "0.6.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.6.0版非空项目清单");
+
+const projectIds = new Set();
+const projectOrders = new Set();
+const allowedProjectActions = new Set(["start-earth-motion", "start-time-lab", "start-next", "goto"]);
+const allowedStatusKinds = new Set(["earth_motion", "time_lab", "diagnostic", "retest"]);
+for (const project of learningProjects?.projects || []) {
+  if (projectIds.has(project.id)) errors.push(`学习项目编号重复：${project.id}`);
+  projectIds.add(project.id);
+  if (projectOrders.has(project.order)) errors.push(`学习项目排序重复：${project.order}`);
+  projectOrders.add(project.order);
+  if (!project.title?.trim() || !project.summary?.trim() || !project.cta?.trim()) errors.push(`${project.id || "未知项目"} 缺少标题、说明或按钮文字`);
+  if (!allowedProjectActions.has(project.action)) errors.push(`${project.id} 使用了不支持的 action`);
+  if (!allowedStatusKinds.has(project.status_kind)) errors.push(`${project.id} 使用了不支持的 status_kind`);
+  if (project.action === "goto" && !project.route) errors.push(`${project.id} 的 goto action 必须指定 route`);
+}
+for (const requiredProjectId of ["earth-motion-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
+  if (!projectIds.has(requiredProjectId)) errors.push(`学习项目清单缺少：${requiredProjectId}`);
+}
 
 const ids = new Set();
 for (const question of questions) {
@@ -168,9 +190,41 @@ for (const tag of ["E-SUN-SIDE", "E-VIEW-ROTATION", "E-TERM-TRANSITION", "E-TERM
   if (!earthMotionLab?.error_tags?.[tag]) errors.push(`earth_motion_lab.json 缺少错误标签：${tag}`);
 }
 
+const learningExport = globalThis.OrangeCoach?.features?.learningExport;
+if (!learningExport) {
+  errors.push("可批注学习档案功能未成功注册");
+} else {
+  const testNow = new Date("2026-08-10T13:14:15.123Z");
+  const fixtureState = {
+    version: "0.3.0",
+    attempts: [{ id: "ATT-TEST", question_id: questions[0].id, is_correct: false, error_tag_candidate: "TEST-TAG", parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
+    retestAttempts: [],
+    timeLabAttempts: [],
+    earthMotionAttempts: [],
+    coachAnnotations: [{ id: "COACH-TEST", status: "候选" }]
+  };
+  const packet = learningExport.buildPacket({
+    state: fixtureState,
+    context: { topics, questions },
+    now: testNow,
+    config: globalThis.OrangeCoach.config
+  });
+  const filename = learningExport.exportFilename(testNow);
+  if (packet.export_schema_version !== "0.6.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.summary.total_learning_records !== 1 || packet.summary.pending_parent_reviews !== 1) errors.push("学习档案摘要计数错误");
+  if (packet.summary.by_project.length !== 4 || packet.summary.activity_window.first_recorded_at == null) errors.push("学习档案缺少项目进度或学习时间范围");
+  if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");
+  if (packet.coach_annotations[0]?.id !== "COACH-TEST" || !packet.annotation_guide?.expected_annotation_shape) errors.push("学习档案没有保留批注或批注规范");
+  if (!/^orange-geography-records-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}[+-]\d{2}-\d{2}\.json$/.test(filename)) errors.push("学习档案文件名必须包含本地日期、时分秒和时区偏移");
+  const merged = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, coachAnnotations: [...fixtureState.coachAnnotations, { id: "COACH-NEW" }] });
+  if (!merged.ok || merged.added !== 1 || merged.coachAnnotations.length !== 2) errors.push("学习档案批注追加合并失败");
+  const tampered = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, attempts: [{ ...fixtureState.attempts[0], is_correct: true }] });
+  if (tampered.ok) errors.push("学习档案导入没有阻止原始证据被改写");
+}
+
 if (errors.length) {
   console.error(errors.map((error) => `✗ ${error}`).join("\n"));
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${paperReviews.length} 份试卷复盘，${retests.length} 组复测`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案时间戳与摘要通过校验`);

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.6.0",
+  "projects": [
+    {
+      "id": "earth-motion-lab",
+      "eyebrow": "地球运动专项",
+      "title": "晨昏线与观察视角",
+      "summary": "切换北极、南极和赤道视角，沿“视角—方向—昼夜变化—晨昏线”留下判断证据。",
+      "action": "start-earth-motion",
+      "route": null,
+      "cta": "进入晨昏线实验室",
+      "status_kind": "earth_motion",
+      "accent": "navy",
+      "order": 10
+    },
+    {
+      "id": "time-zone-lab",
+      "eyebrow": "时区专项",
+      "title": "时区与地方时实验室",
+      "summary": "在世界地图上选择地点，先预测地方时、理论区时和日期，再观察同一瞬间的时间联动。",
+      "action": "start-time-lab",
+      "route": null,
+      "cta": "进入时区实验室",
+      "status_kind": "time_lab",
+      "accent": "teal",
+      "order": 20
+    },
+    {
+      "id": "diagnostic-questions",
+      "eyebrow": "日常诊断",
+      "title": "知识点诊断题",
+      "summary": "独立作答并写出理由；系统只形成错因候选，再由AI和家长核验。",
+      "action": "start-next",
+      "route": null,
+      "cta": "开始下一道诊断",
+      "status_kind": "diagnostic",
+      "accent": "orange",
+      "order": 30
+    },
+    {
+      "id": "delayed-retests",
+      "eyebrow": "掌握验证",
+      "title": "延迟复测与掌握",
+      "summary": "在换时间、换数字或换视角后再次解释，验证知识是否真正迁移。",
+      "action": "goto",
+      "route": "mastery",
+      "cta": "查看复测任务",
+      "status_kind": "retest",
+      "accent": "slate",
+      "order": 40
+    }
+  ]
+}

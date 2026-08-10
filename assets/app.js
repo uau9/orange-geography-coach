@@ -1,5 +1,6 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const ASSET_VERSION = "0.5.1";
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.6.0", ASSET_VERSION: "0.6.0", EXPORT_SCHEMA_VERSION: "0.6.0", STUDENT_ALIAS: "橙子" };
+const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
   const normalized = ((Math.round(totalMinutes) % 1440) + 1440) % 1440;
@@ -56,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], timeLab: null, earthMotionLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null };
 
 function defaultState() {
   return {
@@ -75,6 +76,7 @@ function defaultState() {
     retestAttempts: [],
     timeLabAttempts: [],
     earthMotionAttempts: [],
+    coachAnnotations: [],
     lastAction: ""
   };
 }
@@ -96,6 +98,11 @@ function normalizeState(parsed) {
     ? parsed.earthMotionAttempts
     : Array.isArray(parsed?.earth_motion_attempts)
       ? parsed.earth_motion_attempts
+      : [];
+  normalized.coachAnnotations = Array.isArray(parsed?.coachAnnotations)
+    ? parsed.coachAnnotations
+    : Array.isArray(parsed?.coach_annotations)
+      ? parsed.coach_annotations
       : [];
   return normalized;
 }
@@ -151,9 +158,9 @@ function latestRetestAttempts() { return [...state.retestAttempts].sort((a, b) =
 function latestTimeLabAttempts() { return [...state.timeLabAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestEarthMotionAttempts() { return [...state.earthMotionAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function completedToday() {
-  const day = new Date().toISOString().slice(0, 10);
+  const today = new Date().toDateString();
   return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts]
-    .filter((attempt) => attempt.submitted_at?.startsWith(day)).length;
+    .filter((attempt) => attempt.submitted_at && new Date(attempt.submitted_at).toDateString() === today).length;
 }
 function topicStats(topic) {
   const attempts = state.attempts.filter((attempt) => getQuestion(attempt.question_id)?.topic_id === topic.id);
@@ -382,48 +389,131 @@ function render() {
   if (state.route === "time-lab") return renderTimeLab();
   if (state.route === "earth-motion-lab") return renderEarthMotionLab();
   if (state.route === "train") return renderTrain();
+  if (state.route === "projects") return renderProjects();
   if (state.route === "mastery") return renderMastery();
   if (state.route === "parent") return renderParent();
   return renderToday();
 }
 
 function renderToday() {
-  const attempts = latestAttempts();
-  const due = getActiveQuestion();
-  const latestLab = latestTimeLabAttempts()[0];
+  const feature = window.OrangeCoach?.features?.home;
+  if (!feature) { app.innerHTML = `<section class="card empty">首页功能未加载，请刷新页面。</section>`; return; }
+  app.innerHTML = feature.renderToday({
+    recommendation: getTodayRecommendation(),
+    stats: [
+      { value: completedToday(), label: "今日完成" },
+      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length, label: "学习证据" },
+      { value: countPendingParentReviews(), label: "待家长确认" }
+    ],
+    recent: getRecentEvidence().slice(0, 3)
+  });
+}
+
+function countPendingParentReviews() {
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts]
+    .filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
+}
+
+function projectStatus(project) {
+  if (project.status_kind === "earth_motion") {
+    const latest = latestEarthMotionAttempts()[0];
+    return latest
+      ? { status_label: `${latest.score}/4`, status_tone: latest.score === 4 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.earthMotionAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下观察视角与晨昏线判断证据" };
+  }
+  if (project.status_kind === "time_lab") {
+    const latest = latestTimeLabAttempts()[0];
+    return latest
+      ? { status_label: `${latest.score}/4`, status_tone: latest.score === 4 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.timeLabAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下地方时、区时与日期判断证据" };
+  }
+  if (project.status_kind === "diagnostic") {
+    const latest = latestAttempts()[0];
+    return latest
+      ? { status_label: `${state.attempts.length} 条`, status_tone: latest.is_correct ? "green" : "orange", status_detail: `最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: `${catalog.questions.length} 道题已登记，作答前不显示答案` };
+  }
+  const latest = latestRetestAttempts()[0];
+  return latest
+    ? { status_label: `${state.retestAttempts.length} 次`, status_tone: latest.parent_review_status === "已掌握" ? "green" : "orange", status_detail: `最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+    : { status_label: "待建立", status_tone: "", status_detail: `${catalog.retests.length} 组延迟复测等待形成证据` };
+}
+
+function projectModels() {
+  return [...catalog.projects]
+    .sort((a, b) => a.order - b.order)
+    .map((project) => ({ ...project, ...projectStatus(project) }));
+}
+
+function getTodayRecommendation() {
+  const projects = projectModels();
+  const byId = (id) => projects.find((project) => project.id === id);
   const latestMotion = latestEarthMotionAttempts()[0];
-  app.innerHTML = `
-    <h2 class="page-title">今天，先留下一个真实判断</h2>
-    <p class="page-subtitle">不追求题量。先预测、再观察、最后解释；AI负责提出诊断候选，家长负责确认。</p>
-    <section class="card motion-lab-entry">
-      <div class="attempt-head"><div><span class="pill orange">v0.5 地球运动专项</span><h2>晨昏线与观察视角</h2></div><span class="motion-entry-icon" aria-hidden="true"></span></div>
-      <p>切换北极、南极和赤道视角，判断自转方向，以及一个地点正在进入白昼还是黑夜。</p>
-      ${latestMotion ? `<p class="small">最近一次：${latestMotion.score}/4 · ${escapeHtml(latestMotion.parent_review_status)} · ${formatDate(latestMotion.submitted_at)}</p>` : `<p class="small">第一轮从北极上空开始，只关注“视角→方向→昼夜变化”这一条判断链。</p>`}
-      <div class="btn-row"><button class="btn orange" data-action="start-earth-motion">进入晨昏线实验室</button></div>
-    </section>
-    <section class="card time-lab-entry">
-      <div class="attempt-head"><div><span class="pill orange">v0.4 地图时区专项</span><h2>时区实验室</h2></div><span class="lab-orbit" aria-hidden="true"></span></div>
-      <p>在世界地图上选择城市或地点，先预测地方时、理论区时和日期，再解锁同一瞬间的三种时间。</p>
-      ${latestLab ? `<p class="small">最近一次：${latestLab.score}/4 · ${escapeHtml(latestLab.parent_review_status)} · ${formatDate(latestLab.submitted_at)}</p>` : `<p class="small">第一轮建议从120°E开始，重点观察UTC与北京时间的关系。</p>`}
-      <div class="btn-row"><button class="btn orange" data-action="start-time-lab">进入实验室</button><button class="btn secondary" data-action="start-time-diagnostic">做时区诊断题</button></div>
-    </section>
-    <section class="card hero-card">
-      <span class="pill orange">今日任务</span>
-      <h2>${escapeHtml(due?.title || "暂无题目")}</h2>
-      <p>${due ? escapeHtml(due.stem.slice(0, 64)) + "……" : "请先在 data/questions.json 中加入题目。"}</p>
-      <div class="btn-row"><button class="btn" data-action="start-next">开始诊断</button><button class="btn secondary" data-action="goto" data-route="parent">查看家长页</button></div>
-    </section>
-    <section class="stat-grid">
-      <div class="stat"><strong>${completedToday()}</strong><span>今日完成</span></div>
-      <div class="stat"><strong>${state.attempts.length}</strong><span>诊断题记录</span></div>
-      <div class="stat"><strong>${state.timeLabAttempts.length + state.earthMotionAttempts.length}</strong><span>互动实验</span></div>
-    </section>
-    <section class="card">
-      <h3>最近记录</h3>
-      ${attempts.length ? `<div class="attempt-list">${attempts.slice(0, 3).map(renderAttemptSummary).join("")}</div>` : `<div class="empty">还没有记录。第一条记录不需要完美，只需要真实。</div>`}
-    </section>
-    <div class="notice">家长提示：今天只问“你为什么这样选”，先不要把页面变成讲答案的地方。</div>
-  `;
+  const latestTime = latestTimeLabAttempts()[0];
+  let project;
+  let reason;
+  if (!latestMotion) {
+    project = byId("earth-motion-lab");
+    reason = "先建立观察视角与自转方向的基础判断链，提交前不会显示运动箭头。";
+  } else if (!latestTime) {
+    project = byId("time-zone-lab");
+    reason = "已有地球运动记录，今天换到世界地图，用具体地点理解地方时与区时。";
+  } else if (latestMotion.score < 4 || latestMotion.parent_review_status === "需再练") {
+    project = byId("earth-motion-lab");
+    reason = "最近一次晨昏线记录仍有步骤需要复盘，换视角再验证比继续看解析更有效。";
+  } else if (latestTime.score < 4 || latestTime.parent_review_status === "需再练") {
+    project = byId("time-zone-lab");
+    reason = "最近一次时区实验仍有候选错因，换经度和时刻检查能否迁移。";
+  } else {
+    project = byId("diagnostic-questions");
+    reason = "两个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
+  }
+  return project ? { ...project, reason, status: project.status_detail } : null;
+}
+
+function evidenceTone(status) {
+  if (["已确认", "已掌握"].includes(status)) return "green";
+  if (status === "需教师复核") return "red";
+  return "orange";
+}
+
+function getRecentEvidence() {
+  const diagnostic = state.attempts.map((attempt) => ({
+    submitted_at: attempt.submitted_at,
+    title: getQuestion(attempt.question_id)?.title || attempt.question_id,
+    meta: `诊断题 · ${formatDate(attempt.submitted_at)}`,
+    status: attempt.parent_review_status,
+    tone: evidenceTone(attempt.parent_review_status)
+  }));
+  const timeLab = state.timeLabAttempts.map((attempt) => ({
+    submitted_at: attempt.submitted_at,
+    title: `${longitudeLabel(attempt.longitude)} · 时区实验`,
+    meta: `${attempt.score}/4 · ${formatDate(attempt.submitted_at)}`,
+    status: attempt.parent_review_status,
+    tone: evidenceTone(attempt.parent_review_status)
+  }));
+  const motion = state.earthMotionAttempts.map((attempt) => ({
+    submitted_at: attempt.submitted_at,
+    title: `${getEarthMotionView(attempt.view_id)?.name || attempt.view_id} · 晨昏线实验`,
+    meta: `${attempt.score}/4 · ${formatDate(attempt.submitted_at)}`,
+    status: attempt.parent_review_status,
+    tone: evidenceTone(attempt.parent_review_status)
+  }));
+  const retests = state.retestAttempts.map((attempt) => ({
+    submitted_at: attempt.submitted_at,
+    title: getRetest(attempt.retest_id)?.title || attempt.retest_id,
+    meta: `延迟复测 · ${formatDate(attempt.submitted_at)}`,
+    status: attempt.parent_review_status,
+    tone: evidenceTone(attempt.parent_review_status)
+  }));
+  return [...diagnostic, ...timeLab, ...motion, ...retests]
+    .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at));
+}
+
+function renderProjects() {
+  const feature = window.OrangeCoach?.features?.home;
+  if (!feature) { app.innerHTML = `<section class="card empty">项目导航未加载，请刷新页面。</section>`; return; }
+  app.innerHTML = feature.renderProjects({ projects: projectModels() });
 }
 
 function renderAttemptSummary(attempt) {
@@ -624,8 +714,18 @@ function renderParent() {
     <section class="card"><h3>时区实验审核</h3>${timeLabAttempts.length ? `<div class="attempt-list">${timeLabAttempts.map(renderParentTimeLabAttempt).join("")}</div>` : `<div class="empty">橙子提交时区预测后，这里会出现步骤证据。</div>`}</section>
     <section class="card"><h3>专项复测审核</h3>${retestAttempts.length ? `<div class="attempt-list">${retestAttempts.map(renderParentRetestAttempt).join("")}</div>` : `<div class="empty">橙子提交专项复测后，这里会出现评分点。</div>`}</section>
     <section class="card"><h3>其他待审核记录</h3>${attempts.length ? `<div class="attempt-list">${attempts.map(renderParentAttempt).join("")}</div>` : `<div class="empty">橙子完成第一道题后，这里会出现审核记录。</div>`}</section>
-    <section class="card"><h3>数据管理</h3><p class="small">数据只保存在这个浏览器。更换设备前先导出；不要把含个人信息的导出文件随意发送。</p><div class="btn-row"><button class="btn secondary" data-action="export-data">导出学习记录</button><label class="btn secondary" for="import-data">导入学习记录</label><input id="import-data" class="file-input" type="file" accept="application/json" data-action="import-data" /></div></section>
+    <section class="card"><div class="section-head"><div><span class="section-kicker">外部反馈</span><h3>教练批注</h3></div><span class="pill">${state.coachAnnotations.length} 条</span></div>${state.coachAnnotations.length ? `<div class="annotation-list">${[...state.coachAnnotations].reverse().map(renderCoachAnnotation).join("")}</div>` : `<div class="empty">导出学习档案并交给AI或教师批注，再导入后，批注会保存在这里。</div>`}</section>
+    <section class="card data-management-card"><span class="section-kicker">可迁移学习档案</span><h3>导出、批注、再导入</h3><ol class="handoff-steps"><li>导出带精确时间戳的 JSON 学习档案；</li><li>把文件和批注说明一起交给 Codex、ChatGPT 或教师；</li><li>对方只追加 <code>coach_annotations</code>，再把文件导回本浏览器。</li></ol><div class="notice">原始作答不会因批注被覆盖。发送前请检查作答理由、家长备注等自由文本中是否含个人信息。</div>${state.lastAction ? `<p class="import-status">${escapeHtml(state.lastAction)}</p>` : ""}<div class="btn-row"><button class="btn orange" data-action="export-data">导出可批注学习档案</button><button class="btn secondary" data-action="copy-archive-guide">复制批注说明</button><label class="btn secondary" for="import-data">导入批注档案</label><input id="import-data" class="file-input" type="file" accept="application/json" data-action="import-data" /></div></section>
   `;
+}
+
+function renderCoachAnnotation(annotation) {
+  const evidence = Array.isArray(annotation.evidence_refs) ? annotation.evidence_refs : [];
+  return `<article class="annotation-item"><div class="attempt-head"><div><strong>${escapeHtml(annotation.scope || "学习进度批注")}</strong><div class="topic-meta">${escapeHtml(annotation.coach || "外部教练")} · ${formatDate(annotation.created_at)}</div></div><span class="pill ${annotation.status === "已确认" ? "green" : annotation.status === "需教师复核" ? "red" : "orange"}">${escapeHtml(annotation.status || "候选")}</span></div><p>${escapeHtml(annotation.observation || "未填写观察结论")}</p>${evidence.length ? `<div class="annotation-evidence">证据：${evidence.map((id) => `<code>${escapeHtml(id)}</code>`).join(" ")}</div>` : ""}<div class="next-step"><strong>下一步</strong><br/>${escapeHtml(annotation.next_step || "等待补充")}</div>${annotation.follow_up_at ? `<p class="small">建议复核：${formatDate(annotation.follow_up_at)}</p>` : ""}</article>`;
+}
+
+function makeArchiveAnnotationPrompt() {
+  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
 }
 
 const ERROR_TAG_LABELS = {
@@ -778,6 +878,11 @@ document.addEventListener("click", async (event) => {
     actionTarget.textContent = ok ? "已复制" : "复制失败，请长按文本复制";
     setTimeout(() => { actionTarget.textContent = "复制诊断提示词"; }, 1800);
   }
+  if (action === "copy-archive-guide") {
+    const ok = await copyText(makeArchiveAnnotationPrompt());
+    actionTarget.textContent = ok ? "批注说明已复制" : "复制失败，请查看导出档案内说明";
+    setTimeout(() => { actionTarget.textContent = "复制批注说明"; }, 1800);
+  }
   if (action === "save-attempt") saveAttempt();
   if (action === "save-review") saveReview(actionTarget.dataset.attemptId);
   if (action === "save-lab-review") saveLabReview(actionTarget.dataset.attemptId);
@@ -916,12 +1021,22 @@ document.addEventListener("change", async (event) => {
     const imported = JSON.parse(await file.text());
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
-    state.version = normalized.version;
-    state.attempts = normalized.attempts;
-    state.retestAttempts = normalized.retestAttempts;
-    state.timeLabAttempts = normalized.timeLabAttempts;
-    state.earthMotionAttempts = normalized.earthMotionAttempts;
-    state.lastAction = "已导入学习记录";
+    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length;
+    const isAnnotatedArchive = imported.export_schema_version === COACH_CONFIG.EXPORT_SCHEMA_VERSION && Array.isArray(imported.coach_annotations);
+    if (isAnnotatedArchive && localRecordCount > 0) {
+      const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
+      if (!mergeResult?.ok) throw new Error(mergeResult?.reason || "批注档案与当前记录不一致");
+      state.coachAnnotations = mergeResult.coachAnnotations;
+      state.lastAction = `已导入批注：新增 ${mergeResult.added} 条，原始学习记录保持不变`;
+    } else {
+      state.version = normalized.version;
+      state.attempts = normalized.attempts;
+      state.retestAttempts = normalized.retestAttempts;
+      state.timeLabAttempts = normalized.timeLabAttempts;
+      state.earthMotionAttempts = normalized.earthMotionAttempts;
+      state.coachAnnotations = normalized.coachAnnotations;
+      state.lastAction = `已导入学习档案：${state.coachAnnotations.length} 条教练批注`;
+    }
     saveState(); render();
   } catch (error) { alert(`导入失败：${error.message}`); }
 });
@@ -993,22 +1108,29 @@ function saveRetestReview(id) {
 }
 
 function exportData() {
-  const blob = new Blob([JSON.stringify({ version: state.version, exported_at: new Date().toISOString(), attempts: state.attempts, retest_attempts: state.retestAttempts, time_lab_attempts: state.timeLabAttempts, earth_motion_attempts: state.earthMotionAttempts }, null, 2)], { type: "application/json" });
+  const feature = window.OrangeCoach?.features?.learningExport;
+  if (!feature) return alert("学习档案功能未加载，请刷新后重试。");
+  const now = new Date();
+  const packet = feature.buildPacket({ state, context: { topics: catalog.topics, questions: catalog.questions }, now, config: COACH_CONFIG });
+  const blob = new Blob([JSON.stringify(packet, null, 2)], { type: "application/json" });
   const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob); link.download = `orange-geography-records-${new Date().toISOString().slice(0, 10)}.json`; link.click(); URL.revokeObjectURL(link.href);
+  link.href = URL.createObjectURL(blob); link.download = feature.exportFilename(now); document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  state.lastAction = `已导出：${link.download}`;
+  saveState();
 }
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, timeLab, earthMotionLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/retests.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/learning_projects.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, timeLab, earthMotionLab };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

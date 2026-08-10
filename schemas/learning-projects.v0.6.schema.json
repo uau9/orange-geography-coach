@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/learning-projects.v0.6.schema.json",
+  "title": "橙子地理教练学习项目清单 v0.6",
+  "type": "object",
+  "required": ["schema_version", "projects"],
+  "properties": {
+    "schema_version": { "const": "0.6.0" },
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "eyebrow", "title", "summary", "action", "route", "cta", "status_kind", "accent", "order"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "eyebrow": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string", "minLength": 1 },
+          "action": { "enum": ["start-earth-motion", "start-time-lab", "start-next", "goto"] },
+          "route": { "type": ["string", "null"] },
+          "cta": { "type": "string", "minLength": 1 },
+          "status_kind": { "enum": ["earth_motion", "time_lab", "diagnostic", "retest"] },
+          "accent": { "enum": ["navy", "teal", "orange", "slate"] },
+          "order": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}
