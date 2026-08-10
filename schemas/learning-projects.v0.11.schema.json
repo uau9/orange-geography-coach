@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/learning-projects.v0.11.schema.json",
+  "title": "橙子地理教练学习项目清单 v0.11",
+  "type": "object",
+  "required": ["schema_version", "projects"],
+  "properties": {
+    "schema_version": { "const": "0.11.0" },
+    "projects": {
+      "type": "array", "minItems": 9,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "eyebrow", "title", "summary", "action", "route", "cta", "status_kind", "accent", "order"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 }, "eyebrow": { "type": "string", "minLength": 1 }, "title": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string", "minLength": 1 },
+          "action": { "enum": ["start-earth-motion", "start-solar-season", "start-annual-sun", "start-orbit-speed", "start-terminator-link", "start-solar-path", "start-time-lab", "start-next", "goto"] },
+          "route": { "type": ["string", "null"] }, "cta": { "type": "string", "minLength": 1 },
+          "status_kind": { "enum": ["earth_motion", "solar_season", "annual_sun", "orbit_speed", "terminator_link", "solar_path", "time_lab", "diagnostic", "retest"] },
+          "accent": { "enum": ["navy", "gold", "violet", "emerald", "coral", "sky", "teal", "orange", "slate"] },
+          "order": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

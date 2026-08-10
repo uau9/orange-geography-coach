@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.11.0",
+  "topic_id": "physical.earth.motion",
+  "title": "晨昏线综合联动实验室",
+  "description": "在同一时刻联动太阳直射经线、地方时、昼长、昼夜状态与极昼极夜范围，把零散公式合成一条可检验的判断链。",
+  "model_note": "采用高中地理理想模型：地方时按经度每15°相差1小时计算，太阳赤纬取二分日0°、夏至日23.5°N、冬至日23.5°S，不考虑大气折射、太阳视半径与地形。",
+  "review_after_hours": 48,
+  "status_line_tolerance_minutes": 5,
+  "dates": [
+    { "id": "march-equinox", "name": "春分日", "date_hint": "约3月21日", "declination": 0, "season_group": "equinox" },
+    { "id": "june-solstice", "name": "夏至日", "date_hint": "约6月22日", "declination": 23.5, "season_group": "north-direct" },
+    { "id": "september-equinox", "name": "秋分日", "date_hint": "约9月23日", "declination": 0, "season_group": "equinox" },
+    { "id": "december-solstice", "name": "冬至日", "date_hint": "约12月22日", "declination": -23.5, "season_group": "south-direct" }
+  ],
+  "places": [
+    { "id": "beijing", "name": "北京", "latitude": 40, "longitude": 120 },
+    { "id": "sydney", "name": "悉尼", "latitude": -34, "longitude": 150 },
+    { "id": "north-polar", "name": "挪威北部", "latitude": 70, "longitude": 20 },
+    { "id": "south-polar", "name": "南极圈以南", "latitude": -70, "longitude": 0 }
+  ],
+  "scenarios": [
+    { "id": "TL-01", "date_id": "march-equinox", "place_id": "beijing", "utc_minutes": 1320, "focus": "从赤道6时交点迁移到北京所在晨线" },
+    { "id": "TL-02", "date_id": "september-equinox", "place_id": "sydney", "utc_minutes": 480, "focus": "识别地方时18时对应昏线" },
+    { "id": "TL-03", "date_id": "june-solstice", "place_id": "beijing", "utc_minutes": 1234, "focus": "由夏至日昼长反推北京日出时刻" },
+    { "id": "TL-04", "date_id": "june-solstice", "place_id": "sydney", "utc_minutes": 412, "focus": "由南半球短昼反推悉尼日落时刻" },
+    { "id": "TL-05", "date_id": "june-solstice", "place_id": "north-polar", "utc_minutes": 1360, "focus": "辨认北极圈内午夜仍在白昼区" },
+    { "id": "TL-06", "date_id": "december-solstice", "place_id": "beijing", "utc_minutes": 960, "focus": "辨认冬至日北京午夜黑夜区" },
+    { "id": "TL-07", "date_id": "december-solstice", "place_id": "sydney", "utc_minutes": 120, "focus": "联动南半球长昼与正午白昼区" },
+    { "id": "TL-08", "date_id": "december-solstice", "place_id": "south-polar", "utc_minutes": 0, "focus": "辨认南极圈内午夜仍在白昼区" }
+  ],
+  "choices": {
+    "status": ["白昼区", "黑夜区", "晨线", "昏线"],
+    "polar_pattern": [
+      "北极圈及其以北极昼、南极圈及其以南极夜",
+      "北极圈及其以北极夜、南极圈及其以南极昼",
+      "两极圈内均无极昼极夜"
+    ]
+  },
+  "error_tags": {
+    "L-DIRECT-MERIDIAN": "没有把太阳直射经线与地方时12:00对应",
+    "L-LOCAL-TIME": "经度差换算地方时出现方向或进位错误",
+    "L-DAY-LENGTH": "没有由纬度和太阳直射纬度判断昼长",
+    "L-TERMINATOR-STATUS": "没有用日出日落时刻区分白昼、黑夜、晨线和昏线",
+    "L-POLAR-RANGE": "极昼极夜半球和范围对应错误"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.10.0",
+  "schema_version": "0.11.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -50,6 +50,18 @@
       "order": 17
     },
     {
+      "id": "terminator-link-lab",
+      "eyebrow": "晨昏线综合专项",
+      "title": "晨昏线全球联动",
+      "summary": "在全球昼夜图上联动直射经线、地方时、昼长、晨昏状态与极昼极夜范围。",
+      "action": "start-terminator-link",
+      "route": null,
+      "cta": "进入晨昏线综合实验室",
+      "status_kind": "terminator_link",
+      "accent": "coral",
+      "order": 18
+    },
+    {
       "id": "solar-path-lab",
       "eyebrow": "太阳视运动专项",
       "title": "日出日落与太阳视运动",
@@ -59,7 +71,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 18
+      "order": 19
     },
     {
       "id": "time-zone-lab",

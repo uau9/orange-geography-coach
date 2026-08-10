@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/terminator-link-lab.v0.11.schema.json",
+  "title": "晨昏线综合联动实验数据 v0.11",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "topic_id", "title", "description", "model_note", "review_after_hours", "status_line_tolerance_minutes", "dates", "places", "scenarios", "choices", "error_tags"],
+  "properties": {
+    "schema_version": { "const": "0.11.0" },
+    "topic_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "model_note": { "type": "string", "minLength": 1 },
+    "review_after_hours": { "type": "integer", "minimum": 24 },
+    "status_line_tolerance_minutes": { "type": "integer", "minimum": 1, "maximum": 15 },
+    "dates": {
+      "type": "array", "minItems": 4,
+      "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "date_hint", "declination", "season_group"], "properties": {
+        "id": { "type": "string", "minLength": 1 }, "name": { "type": "string", "minLength": 1 }, "date_hint": { "type": "string", "minLength": 1 },
+        "declination": { "type": "number", "minimum": -23.5, "maximum": 23.5 }, "season_group": { "type": "string", "minLength": 1 }
+      } }
+    },
+    "places": {
+      "type": "array", "minItems": 4,
+      "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "latitude", "longitude"], "properties": {
+        "id": { "type": "string", "minLength": 1 }, "name": { "type": "string", "minLength": 1 },
+        "latitude": { "type": "number", "minimum": -90, "maximum": 90 }, "longitude": { "type": "number", "minimum": -180, "maximum": 180 }
+      } }
+    },
+    "scenarios": {
+      "type": "array", "minItems": 8,
+      "items": { "type": "object", "additionalProperties": false, "required": ["id", "date_id", "place_id", "utc_minutes", "focus"], "properties": {
+        "id": { "type": "string", "pattern": "^TL-[0-9]{2}$" }, "date_id": { "type": "string", "minLength": 1 }, "place_id": { "type": "string", "minLength": 1 },
+        "utc_minutes": { "type": "integer", "minimum": 0, "maximum": 1439 }, "focus": { "type": "string", "minLength": 1 }
+      } }
+    },
+    "choices": { "type": "object", "required": ["status", "polar_pattern"], "properties": { "status": { "type": "array", "minItems": 4 }, "polar_pattern": { "type": "array", "minItems": 3 } } },
+    "error_tags": { "type": "object", "minProperties": 5 }
+  }
+}

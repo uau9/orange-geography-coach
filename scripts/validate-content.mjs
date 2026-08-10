@@ -5,6 +5,7 @@ await import("../assets/features/solar-season.js");
 await import("../assets/features/solar-path.js");
 await import("../assets/features/annual-sun.js");
 await import("../assets/features/orbit-speed.js");
+await import("../assets/features/terminator-link.js");
 await import("../assets/features/learning-export.js");
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
@@ -18,6 +19,7 @@ const solarSeasonLab = JSON.parse(await readFile(new URL("../data/solar_season_l
 const solarPathLab = JSON.parse(await readFile(new URL("../data/solar_path_lab.json", import.meta.url), "utf8"));
 const annualSunLab = JSON.parse(await readFile(new URL("../data/annual_sun_lab.json", import.meta.url), "utf8"));
 const orbitSpeedLab = JSON.parse(await readFile(new URL("../data/orbit_speed_lab.json", import.meta.url), "utf8"));
+const terminatorLinkLab = JSON.parse(await readFile(new URL("../data/terminator_link_lab.json", import.meta.url), "utf8"));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
 
@@ -28,16 +30,17 @@ if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json �
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
-if (learningProjects?.schema_version !== "0.10.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.10.0版非空项目清单");
+if (learningProjects?.schema_version !== "0.11.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length === 0) errors.push("learning_projects.json 必须是0.11.0版非空项目清单");
 if (solarSeasonLab?.schema_version !== "0.7.0" || !Array.isArray(solarSeasonLab.dates) || solarSeasonLab.dates.length !== 4) errors.push("solar_season_lab.json 必须包含4个二分二至日情境");
 if (solarPathLab?.schema_version !== "0.8.0" || !Array.isArray(solarPathLab.dates) || solarPathLab.dates.length !== 4) errors.push("solar_path_lab.json 必须包含4个二分二至日情境");
 if (annualSunLab?.schema_version !== "0.9.0" || !Array.isArray(annualSunLab.checkpoints) || annualSunLab.checkpoints.length !== 8) errors.push("annual_sun_lab.json 必须包含8个周年观察位置");
 if (orbitSpeedLab?.schema_version !== "0.10.0" || !Array.isArray(orbitSpeedLab.checkpoints) || orbitSpeedLab.checkpoints.length !== 4) errors.push("orbit_speed_lab.json 必须包含4个公转轨道位置");
+if (terminatorLinkLab?.schema_version !== "0.11.0" || !Array.isArray(terminatorLinkLab.scenarios) || terminatorLinkLab.scenarios.length !== 8) errors.push("terminator_link_lab.json 必须包含8个晨昏线综合情境");
 
 const projectIds = new Set();
 const projectOrders = new Set();
-const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-annual-sun", "start-orbit-speed", "start-solar-path", "start-time-lab", "start-next", "goto"]);
-const allowedStatusKinds = new Set(["earth_motion", "solar_season", "annual_sun", "orbit_speed", "solar_path", "time_lab", "diagnostic", "retest"]);
+const allowedProjectActions = new Set(["start-earth-motion", "start-solar-season", "start-annual-sun", "start-orbit-speed", "start-terminator-link", "start-solar-path", "start-time-lab", "start-next", "goto"]);
+const allowedStatusKinds = new Set(["earth_motion", "solar_season", "annual_sun", "orbit_speed", "terminator_link", "solar_path", "time_lab", "diagnostic", "retest"]);
 for (const project of learningProjects?.projects || []) {
   if (projectIds.has(project.id)) errors.push(`学习项目编号重复：${project.id}`);
   projectIds.add(project.id);
@@ -48,7 +51,7 @@ for (const project of learningProjects?.projects || []) {
   if (!allowedStatusKinds.has(project.status_kind)) errors.push(`${project.id} 使用了不支持的 status_kind`);
   if (project.action === "goto" && !project.route) errors.push(`${project.id} 的 goto action 必须指定 route`);
 }
-for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "annual-sun-lab", "orbit-speed-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
+for (const requiredProjectId of ["earth-motion-lab", "solar-season-lab", "annual-sun-lab", "orbit-speed-lab", "terminator-link-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
   if (!projectIds.has(requiredProjectId)) errors.push(`学习项目清单缺少：${requiredProjectId}`);
 }
 
@@ -367,6 +370,50 @@ for (const tag of ["O-DISTANCE-POSITION", "O-SPEED-DISTANCE", "O-HEMISPHERE-SEAS
   if (!orbitSpeedLab?.error_tags?.[tag]) errors.push(`orbit_speed_lab.json 缺少错误标签：${tag}`);
 }
 
+if (terminatorLinkLab && !topicIds.has(terminatorLinkLab.topic_id)) errors.push("terminator_link_lab.json 引用了不存在的主题");
+if (!Number.isInteger(terminatorLinkLab?.review_after_hours) || terminatorLinkLab.review_after_hours < 24) errors.push("terminator_link_lab.json review_after_hours 至少为24小时");
+if (!Number.isInteger(terminatorLinkLab?.status_line_tolerance_minutes) || terminatorLinkLab.status_line_tolerance_minutes > 15) errors.push("晨昏线状态判定容差必须是不超过15分钟的整数");
+const linkDates = new Map((terminatorLinkLab?.dates || []).map((item) => [item.id, item]));
+const linkPlaces = new Map((terminatorLinkLab?.places || []).map((item) => [item.id, item]));
+const linkScenarioIds = new Set();
+for (const scenario of terminatorLinkLab?.scenarios || []) {
+  if (linkScenarioIds.has(scenario.id)) errors.push(`晨昏线综合场景编号重复：${scenario.id}`);
+  linkScenarioIds.add(scenario.id);
+  if (!linkDates.has(scenario.date_id) || !linkPlaces.has(scenario.place_id)) errors.push(`晨昏线综合场景引用不存在：${scenario.id}`);
+}
+const linkFeature = globalThis.OrangeCoach?.features?.terminatorLink;
+const linkStatuses = new Set();
+const linkPolarPatterns = new Set();
+if (!linkFeature) {
+  errors.push("晨昏线综合联动实验功能未成功注册");
+} else {
+  const expected = [
+    ["TL-01", -150, "06:00", 12, "晨线", "两极圈内均无极昼极夜"],
+    ["TL-02", 60, "18:00", 12, "昏线", "两极圈内均无极昼极夜"],
+    ["TL-03", -128.5, "04:34", 15, "晨线", "北极圈及其以北极昼、南极圈及其以南极夜"],
+    ["TL-04", 77, "16:52", 9.5, "昏线", "北极圈及其以北极昼、南极圈及其以南极夜"],
+    ["TL-05", -160, "00:00", 24, "白昼区", "北极圈及其以北极昼、南极圈及其以南极夜"],
+    ["TL-06", -60, "00:00", 9, "黑夜区", "北极圈及其以北极夜、南极圈及其以南极昼"],
+    ["TL-07", 150, "12:00", 14.5, "白昼区", "北极圈及其以北极夜、南极圈及其以南极昼"],
+    ["TL-08", 180, "00:00", 24, "白昼区", "北极圈及其以北极夜、南极圈及其以南极昼"]
+  ];
+  const scenariosById = new Map(terminatorLinkLab.scenarios.map((item) => [item.id, item]));
+  for (const [scenarioId, longitude, localTime, dayLength, status, polar] of expected) {
+    const scenario = scenariosById.get(scenarioId);
+    if (!scenario) { errors.push(`缺少晨昏线综合校验情境：${scenarioId}`); continue; }
+    const result = linkFeature.calculate(linkDates.get(scenario.date_id), linkPlaces.get(scenario.place_id), scenario.utc_minutes, terminatorLinkLab.status_line_tolerance_minutes);
+    linkStatuses.add(result.status);
+    linkPolarPatterns.add(result.polar_pattern);
+    if (result.direct_longitude !== longitude || result.local_time !== localTime || result.day_length_hours !== dayLength || result.status !== status || result.polar_pattern !== polar) errors.push(`${scenarioId} 的直射经线、地方时、昼长、晨昏状态或极昼极夜错误`);
+  }
+  if (linkFeature.dayLengthHours(0, 23.5) !== 12) errors.push("赤道昼长应全年为12小时");
+}
+for (const status of ["白昼区", "黑夜区", "晨线", "昏线"]) if (!linkStatuses.has(status)) errors.push(`晨昏线综合实验缺少状态：${status}`);
+if (linkPolarPatterns.size !== 3) errors.push("晨昏线综合实验必须覆盖二分日和南北半球两种极昼极夜格局");
+for (const tag of ["L-DIRECT-MERIDIAN", "L-LOCAL-TIME", "L-DAY-LENGTH", "L-TERMINATOR-STATUS", "L-POLAR-RANGE"]) {
+  if (!terminatorLinkLab?.error_tags?.[tag]) errors.push(`terminator_link_lab.json 缺少错误标签：${tag}`);
+}
+
 const learningExport = globalThis.OrangeCoach?.features?.learningExport;
 if (!learningExport) {
   errors.push("可批注学习档案功能未成功注册");
@@ -382,6 +429,7 @@ if (!learningExport) {
     solarPathAttempts: [{ id: "PATH-TEST", date_id: "march-equinox", place_id: "equator", score: 4, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     annualSunAttempts: [{ id: "ANNUAL-TEST", checkpoint_id: "early-may", place_id: "beijing", score: 4, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     orbitSpeedAttempts: [{ id: "ORBIT-TEST", checkpoint_id: "early-january", hemisphere_id: "north", score: 4, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
+    terminatorLinkAttempts: [{ id: "LINK-TEST", scenario_id: "TL-01", score: 5, error_tags: [], parent_review_status: "待家长确认", submitted_at: testNow.toISOString() }],
     coachAnnotations: [{ id: "COACH-TEST", status: "候选" }]
   };
   const packet = learningExport.buildPacket({
@@ -391,9 +439,9 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.10.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
-  if (packet.summary.total_learning_records !== 4 || packet.summary.pending_parent_reviews !== 4) errors.push("学习档案摘要计数错误");
-  if (packet.summary.by_project.length !== 8 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts)) errors.push("学习档案缺少项目进度、太阳实验记录或学习时间范围");
+  if (packet.export_schema_version !== "0.11.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.summary.total_learning_records !== 5 || packet.summary.pending_parent_reviews !== 5) errors.push("学习档案摘要计数错误");
+  if (packet.summary.by_project.length !== 9 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts)) errors.push("学习档案缺少项目进度、晨昏线综合记录或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");
   if (packet.coach_annotations[0]?.id !== "COACH-TEST" || !packet.annotation_guide?.expected_annotation_shape) errors.push("学习档案没有保留批注或批注规范");
   if (!/^orange-geography-records-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}[+-]\d{2}-\d{2}\.json$/.test(filename)) errors.push("学习档案文件名必须包含本地日期、时分秒和时区偏移");
@@ -407,6 +455,8 @@ if (!learningExport) {
   if (tamperedAnnual.ok) errors.push("学习档案导入没有保护周年回归原始证据");
   const tamperedOrbit = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, orbitSpeedAttempts: [{ ...fixtureState.orbitSpeedAttempts[0], score: 3 }] });
   if (tamperedOrbit.ok) errors.push("学习档案导入没有保护公转轨道原始证据");
+  const tamperedLink = learningExport.mergeAnnotatedArchive(fixtureState, { ...fixtureState, terminatorLinkAttempts: [{ ...fixtureState.terminatorLinkAttempts[0], score: 4 }] });
+  if (tamperedLink.ok) errors.push("学习档案导入没有保护晨昏线综合原始证据");
 }
 
 if (errors.length) {
@@ -414,4 +464,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${orbitScenarioIds.size} 个公转轨道组合，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${orbitScenarioIds.size} 个公转轨道组合，${linkScenarioIds.size} 个晨昏线综合情境，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);
