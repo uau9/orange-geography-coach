@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.11.0",
+  "schema_version": "0.12.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -62,6 +62,18 @@
       "order": 18
     },
     {
+      "id": "rotation-speed-lab",
+      "eyebrow": "自转速度专项",
+      "title": "地球自转角速度与线速度",
+      "summary": "在具体纬度上比较角速度、纬线圈、线速度和同一时段运动距离。",
+      "action": "start-rotation-speed",
+      "route": null,
+      "cta": "进入自转速度实验室",
+      "status_kind": "rotation_speed",
+      "accent": "cyan",
+      "order": 19
+    },
+    {
       "id": "solar-path-lab",
       "eyebrow": "太阳视运动专项",
       "title": "日出日落与太阳视运动",
@@ -71,7 +83,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 19
+      "order": 20
     },
     {
       "id": "time-zone-lab",
@@ -83,7 +95,7 @@
       "cta": "进入时区实验室",
       "status_kind": "time_lab",
       "accent": "teal",
-      "order": 20
+      "order": 21
     },
     {
       "id": "diagnostic-questions",

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/rotation-speed-attempt.v0.12.schema.json",
+  "title": "地球自转速度实验记录 v0.12",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "id", "scenario_id", "answers", "correct_answers", "checks", "score", "error_tags", "reasoning", "submitted_at", "parent_review_status", "parent_note"],
+  "properties": {
+    "schema_version": { "const": "0.12.0" }, "id": { "type": "string", "minLength": 1 }, "scenario_id": { "type": "string", "pattern": "^RS-[0-9]{2}$" },
+    "answers": { "type": "object", "additionalProperties": false, "required": ["angular_speed", "line_speed_relation", "line_speed_km_h", "rotated_angle_deg", "distance_km"], "properties": {
+      "angular_speed": { "type": "string" }, "line_speed_relation": { "type": "string" }, "line_speed_km_h": { "type": "number", "minimum": 0, "maximum": 1700 }, "rotated_angle_deg": { "type": "number", "minimum": 0, "maximum": 360 }, "distance_km": { "type": "number", "minimum": 0 }
+    } },
+    "correct_answers": { "type": "object" }, "checks": { "type": "object" }, "score": { "type": "integer", "minimum": 0, "maximum": 5 },
+    "error_tags": { "type": "array", "items": { "type": "string" } }, "reasoning": { "type": "string", "minLength": 1 }, "submitted_at": { "type": "string", "format": "date-time" },
+    "parent_review_status": { "enum": ["待家长确认", "已确认", "需再练", "需教师复核"] }, "parent_note": { "type": "string" }
+  }
+}

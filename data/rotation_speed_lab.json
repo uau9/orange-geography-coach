@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.12.0",
+  "topic_id": "physical.earth.motion",
+  "title": "地球自转速度实验室",
+  "description": "在具体纬度上比较自转角速度、纬线圈大小、线速度和同一时段运动距离。",
+  "model_note": "采用高中地理24小时自转一周的理想模型：非极点角速度约15°/小时；纬线圈周长和线速度按赤道值乘cos纬度估算，不计地球扁率。",
+  "review_after_hours": 48,
+  "facts": {
+    "rotation_hours": 24,
+    "angular_speed_deg_h": 15,
+    "equator_circumference_km": 40075,
+    "equator_speed_km_h": 1670
+  },
+  "places": [
+    { "id": "quito", "name": "基多", "latitude": 0, "longitude": -78, "band": "low" },
+    { "id": "guangzhou", "name": "广州", "latitude": 23.5, "longitude": 113, "band": "low" },
+    { "id": "cape-town", "name": "开普敦", "latitude": -34, "longitude": 18, "band": "mid" },
+    { "id": "beijing", "name": "北京", "latitude": 40, "longitude": 116, "band": "mid" },
+    { "id": "paris", "name": "巴黎", "latitude": 49, "longitude": 2, "band": "mid" },
+    { "id": "ushuaia", "name": "乌斯怀亚", "latitude": -54, "longitude": -68, "band": "mid" },
+    { "id": "reykjavik", "name": "雷克雅未克", "latitude": 64, "longitude": -22, "band": "high" },
+    { "id": "tromso", "name": "特罗姆瑟", "latitude": 70, "longitude": 19, "band": "high" }
+  ],
+  "scenarios": [
+    { "id": "RS-01", "place_id": "quito", "duration_hours": 6 },
+    { "id": "RS-02", "place_id": "guangzhou", "duration_hours": 4 },
+    { "id": "RS-03", "place_id": "cape-town", "duration_hours": 2 },
+    { "id": "RS-04", "place_id": "beijing", "duration_hours": 8 },
+    { "id": "RS-05", "place_id": "paris", "duration_hours": 6 },
+    { "id": "RS-06", "place_id": "ushuaia", "duration_hours": 8 },
+    { "id": "RS-07", "place_id": "reykjavik", "duration_hours": 4 },
+    { "id": "RS-08", "place_id": "tromso", "duration_hours": 6 }
+  ],
+  "choices": {
+    "angular_speed": ["约15°/小时", "纬度越高越小", "南半球为负值", "约360°/小时"],
+    "line_speed_relation": ["与赤道相同", "小于赤道", "大于赤道", "只由经度决定"]
+  },
+  "error_tags": {
+    "R-ANGULAR-SAME": "把自转角速度错误地看成随纬度变化",
+    "R-LATITUDE-CIRCLE": "没有把纬度升高与纬线圈缩短联系起来",
+    "R-LINE-SPEED": "线速度数值没有按赤道速度乘cos纬度估算",
+    "R-ANGLE-TIME": "转过角度与经过时间的15°/小时关系错误",
+    "R-DISTANCE-SPEED": "没有用线速度乘时间求纬线弧长"
+  }
+}

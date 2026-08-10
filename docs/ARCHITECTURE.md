@@ -10,7 +10,7 @@
 
 - `learning_projects.json` 是所有学习项目的导航清单；
 - `questions.json`、`retests.json` 是诊断与复测内容；
-- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json` 是专题实验模型；
+- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json` 是专题实验模型；
 - 内容文件不直接包含HTML，也不保存浏览器作答状态。
 
 ### 2. 格式约束：`schemas/`
@@ -27,6 +27,7 @@
 - `annual-sun.js`：直射点周年回归、移动方向、昼长与太阳高度趋势计算及渲染；
 - `orbit-speed.js`：日地距离、公转速度、半球季节与等时段轨迹计算及渲染；
 - `terminator-link.js`：直射经线、地方时、昼长、晨昏状态、极昼极夜与全球昼夜图联动；
+- `rotation-speed.js`：自转角速度、纬线圈、线速度、转角与运动弧长计算及渲染；
 - `learning-export.js`：学习档案摘要、时间戳和文件名；
 - 后续专题可继续拆分自己的渲染和计算模块。
 
@@ -47,9 +48,9 @@
 
 ## 版本规则
 
-- 应用资源版本当前为 `0.11.0`，集中定义在 `assets/config.js`；
+- 应用资源版本当前为 `0.12.0`，集中定义在 `assets/config.js`；
 - LocalStorage 学习记录仍使用兼容版本 `0.3.0`，避免破坏已有浏览器数据；
-- 导出档案独立使用 `export_schema_version: 0.11.0`；
+- 导出档案独立使用 `export_schema_version: 0.12.0`；
 - 修改数据结构时分别判断“应用版本、记录版本、导出版本”是否需要升级。
 
 ## 完成检查
