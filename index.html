@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#143b5d" />
     <title>橙子地理教练</title>
-    <link rel="stylesheet" href="./assets/style.css?v=0.3.0" />
+    <link rel="stylesheet" href="./assets/style.css?v=0.3.1" />
   </head>
   <body>
     <div class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">ORANGE GEOGRAPHY COACH · v0.3</p>
+          <p class="eyebrow">ORANGE GEOGRAPHY COACH · v0.3.1</p>
           <h1>橙子地理教练</h1>
         </div>
         <div class="topbar-badge">AI + 家长</div>
       </header>
-      <main id="app" aria-live="polite"></main>
+      <main id="app" aria-live="polite">
+        <section class="card">
+          <h2>正在加载训练内容…</h2>
+          <p>若此提示长时间不消失，请刷新一次页面。</p>
+        </section>
+      </main>
       <nav class="bottom-nav" aria-label="主导航">
         <button data-action="goto" data-route="today">今日</button>
         <button data-action="goto" data-route="train">训练</button>
@@ -24,6 +29,6 @@
         <button data-action="goto" data-route="parent">家长</button>
       </nav>
     </div>
-    <script type="module" src="./assets/app.js?v=0.3.0"></script>
+    <script defer src="./assets/app.js?v=0.3.1"></script>
   </body>
 </html>
