@@ -1,6 +1,7 @@
-import { calculateTimeLabAnswers, formatClock, longitudeLabel, normalizeTimeAnswer } from "./time-utils.js";
+import { calculateTimeLabAnswers, formatClock, longitudeLabel, normalizeTimeAnswer } from "./time-utils.js?v=0.3.0";
 
 const STORAGE_KEY = "orange-geography-coach:v0.1";
+const ASSET_VERSION = "0.3.0";
 
 const app = document.querySelector("#app");
 const state = loadState();
@@ -616,11 +617,11 @@ function exportData() {
 async function init() {
   try {
     const [topics, questions, paperReviews, retests, timeLab] = await Promise.all([
-      fetch("./data/topics.json").then((response) => response.json()),
-      fetch("./data/questions.json").then((response) => response.json()),
-      fetch("./data/paper_reviews.json").then((response) => response.json()),
-      fetch("./data/retests.json").then((response) => response.json()),
-      fetch("./data/time_lab.json").then((response) => response.json())
+      fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/retests.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
     catalog = { topics, questions, paperReviews, retests, timeLab };
     render();
