@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.13.0",
+  "schema_version": "0.14.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -74,6 +74,18 @@
       "order": 19
     },
     {
+      "id": "axial-tilt-lab",
+      "eyebrow": "黄赤交角专项",
+      "title": "黄赤交角与五带变化",
+      "summary": "改变黄赤交角，联动回归线、极圈、太阳直射范围、极昼范围和五带宽度。",
+      "action": "start-axial-tilt",
+      "route": null,
+      "cta": "进入黄赤交角实验室",
+      "status_kind": "axial_tilt",
+      "accent": "rose",
+      "order": 20
+    },
+    {
       "id": "date-range-lab",
       "eyebrow": "全球日期专项",
       "title": "0时经线与全球日期范围",
@@ -83,7 +95,7 @@
       "cta": "进入全球日期实验室",
       "status_kind": "date_range",
       "accent": "indigo",
-      "order": 20
+      "order": 21
     },
     {
       "id": "solar-path-lab",
@@ -95,7 +107,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 21
+      "order": 22
     },
     {
       "id": "time-zone-lab",
@@ -107,7 +119,7 @@
       "cta": "进入时区实验室",
       "status_kind": "time_lab",
       "accent": "teal",
-      "order": 22
+      "order": 23
     },
     {
       "id": "diagnostic-questions",

@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.14.0",
+  "topic_id": "physical.earth.motion",
+  "title": "黄赤交角与五带变化实验室",
+  "description": "改变黄赤交角，联动太阳直射范围、极昼极夜范围与五带宽度，区分边界纬度和区域宽度。",
+  "model_note": "采用高中地理理想模型：黄赤交角记为ε；回归线纬度为ε，极圈纬度为90°−ε。0°—45°滑轨用于反事实推演，不代表地球黄赤交角会在这一范围内现实变化。",
+  "review_after_hours": 48,
+  "facts": {
+    "current_tilt_deg": 23.5,
+    "max_model_tilt_deg": 45,
+    "tropic_formula": "ε",
+    "polar_circle_formula": "90°−ε",
+    "tropical_width_formula": "2ε",
+    "temperate_width_formula": "90°−2ε"
+  },
+  "scenarios": [
+    { "id": "AT-01", "target_tilt_deg": 0 },
+    { "id": "AT-02", "target_tilt_deg": 10 },
+    { "id": "AT-03", "target_tilt_deg": 15 },
+    { "id": "AT-04", "target_tilt_deg": 20 },
+    { "id": "AT-05", "target_tilt_deg": 23.5 },
+    { "id": "AT-06", "target_tilt_deg": 30 },
+    { "id": "AT-07", "target_tilt_deg": 35 },
+    { "id": "AT-08", "target_tilt_deg": 45 }
+  ],
+  "choices": {
+    "zone_change": [
+      "热带、寒带变窄，温带变宽",
+      "热带、寒带变宽，温带变窄",
+      "五带范围不变"
+    ]
+  },
+  "error_tags": {
+    "X-TROPIC-LATITUDE": "没有把黄赤交角与回归线纬度对应",
+    "X-POLAR-CIRCLE": "没有用90°减黄赤交角求极圈纬度",
+    "X-TROPICAL-WIDTH": "把回归线纬度误当成南北回归线之间的总宽度",
+    "X-TEMPERATE-WIDTH": "没有用极圈纬度减回归线纬度求每个温带的宽度",
+    "X-ZONE-CHANGE": "黄赤交角变化与热带、温带、寒带宽窄变化对应错误"
+  },
+  "sources": [
+    {
+      "title": "Seeing Equinoxes and Solstices from Space",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/resource/seeing-equinoxes-and-solstices-from-space/",
+      "used_for": "地轴相对黄道面倾斜约23.5°及二分二至光照关系"
+    },
+    {
+      "title": "Milutin Milankovitch — Obliquity",
+      "publisher": "NASA Earth Observatory",
+      "url": "https://science.nasa.gov/earth/earth-observatory/milutin-milankovitch/",
+      "used_for": "现实黄赤交角变化范围与交角增大时季节差异增强"
+    }
+  ]
+}
