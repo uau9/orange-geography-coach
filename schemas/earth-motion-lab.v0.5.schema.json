@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/earth-motion-lab.v0.5",
+  "title": "晨昏线与观察视角实验室内容 v0.5",
+  "type": "object",
+  "required": ["schema_version", "topic_id", "title", "description", "review_after_hours", "views", "error_tags"],
+  "properties": {
+    "schema_version": {"const": "0.5.0"},
+    "topic_id": {"const": "physical.earth.motion"},
+    "title": {"type": "string", "minLength": 1},
+    "description": {"type": "string", "minLength": 1},
+    "review_after_hours": {"type": "integer", "minimum": 24},
+    "views": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "short_name", "rotation_answer", "sun_facing_side", "view_hint", "points"],
+        "properties": {
+          "id": {"enum": ["north", "south", "equator"]},
+          "name": {"type": "string", "minLength": 1},
+          "short_name": {"type": "string", "minLength": 1},
+          "rotation_answer": {"enum": ["顺时针", "逆时针", "自西向东"]},
+          "sun_facing_side": {"const": "右半球"},
+          "view_hint": {"type": "string", "minLength": 1},
+          "points": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "name", "transition_answer", "boundary_answer", "explanation"],
+              "properties": {
+                "id": {"enum": ["upper", "lower", "visible"]},
+                "name": {"type": "string", "minLength": 1},
+                "transition_answer": {"enum": ["进入白昼", "进入黑夜"]},
+                "boundary_answer": {"enum": ["晨线", "昏线"]},
+                "explanation": {"type": "string", "minLength": 1}
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "error_tags": {"type": "object", "minProperties": 4, "additionalProperties": {"type": "string", "minLength": 1}}
+  },
+  "additionalProperties": false
+}

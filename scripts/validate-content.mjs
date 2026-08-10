@@ -6,6 +6,7 @@ const questions = JSON.parse(await readFile(new URL("../data/questions.json", im
 const paperReviews = JSON.parse(await readFile(new URL("../data/paper_reviews.json", import.meta.url), "utf8"));
 const retests = JSON.parse(await readFile(new URL("../data/retests.json", import.meta.url), "utf8"));
 const timeLab = JSON.parse(await readFile(new URL("../data/time_lab.json", import.meta.url), "utf8"));
+const earthMotionLab = JSON.parse(await readFile(new URL("../data/earth_motion_lab.json", import.meta.url), "utf8"));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
 
@@ -15,6 +16,7 @@ if (!Array.isArray(paperReviews) || paperReviews.length === 0) errors.push("pape
 if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json 必须是非空数组");
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
+if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
 
 const ids = new Set();
 for (const question of questions) {
@@ -127,9 +129,48 @@ if (normalizeTimeAnswer("9:00") !== "09:00" || normalizeTimeAnswer("2400") !== "
   errors.push("时区实验时间输入规范化失败");
 }
 
+if (earthMotionLab?.schema_version !== "0.5.0") errors.push("earth_motion_lab.json schema_version 必须为0.5.0");
+if (earthMotionLab && !topicIds.has(earthMotionLab.topic_id)) errors.push("earth_motion_lab.json 引用了不存在的主题");
+if (!Number.isInteger(earthMotionLab?.review_after_hours) || earthMotionLab.review_after_hours < 24) {
+  errors.push("earth_motion_lab.json review_after_hours 至少为24小时");
+}
+const expectedMotionAnswers = new Map([
+  ["north-upper", ["逆时针", "进入黑夜", "昏线"]],
+  ["north-lower", ["逆时针", "进入白昼", "晨线"]],
+  ["south-upper", ["顺时针", "进入白昼", "晨线"]],
+  ["south-lower", ["顺时针", "进入黑夜", "昏线"]],
+  ["equator-visible", ["自西向东", "进入白昼", "晨线"]]
+]);
+const motionScenarioIds = new Set();
+for (const view of earthMotionLab?.views || []) {
+  if (!view.id || !view.name || !view.rotation_answer || view.sun_facing_side !== "右半球") {
+    errors.push(`晨昏线视角数据不完整：${view.id || "未知视角"}`);
+  }
+  for (const point of view.points || []) {
+    const scenarioId = `${view.id}-${point.id}`;
+    if (motionScenarioIds.has(scenarioId)) errors.push(`晨昏线场景编号重复：${scenarioId}`);
+    motionScenarioIds.add(scenarioId);
+    const expected = expectedMotionAnswers.get(scenarioId);
+    if (!expected) {
+      errors.push(`晨昏线场景未登记：${scenarioId}`);
+      continue;
+    }
+    if (view.rotation_answer !== expected[0] || point.transition_answer !== expected[1] || point.boundary_answer !== expected[2]) {
+      errors.push(`${scenarioId} 的自转、昼夜变化或晨昏线答案不符合模型`);
+    }
+    if (!point.explanation?.trim()) errors.push(`${scenarioId} 缺少可追溯解释`);
+  }
+}
+for (const scenarioId of expectedMotionAnswers.keys()) {
+  if (!motionScenarioIds.has(scenarioId)) errors.push(`缺少晨昏线场景：${scenarioId}`);
+}
+for (const tag of ["E-SUN-SIDE", "E-VIEW-ROTATION", "E-TERM-TRANSITION", "E-TERM-NAME"]) {
+  if (!earthMotionLab?.error_tags?.[tag]) errors.push(`earth_motion_lab.json 缺少错误标签：${tag}`);
+}
+
 if (errors.length) {
   console.error(errors.map((error) => `✗ ${error}`).join("\n"));
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${paperReviews.length} 份试卷复盘，${retests.length} 组复测`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${paperReviews.length} 份试卷复盘，${retests.length} 组复测`);

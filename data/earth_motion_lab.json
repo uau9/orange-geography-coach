@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.5.0",
+  "topic_id": "physical.earth.motion",
+  "title": "晨昏线与观察视角实验室",
+  "description": "切换观察视角，依据太阳光线和地球自转方向判断昼夜半球、晨线与昏线。",
+  "review_after_hours": 48,
+  "views": [
+    {
+      "id": "north",
+      "name": "北极上空",
+      "short_name": "北极俯视",
+      "rotation_answer": "逆时针",
+      "sun_facing_side": "右半球",
+      "view_hint": "观察者位于北极上空，太阳位于图的右侧。",
+      "points": [
+        {
+          "id": "upper",
+          "name": "上方交点 A",
+          "transition_answer": "进入黑夜",
+          "boundary_answer": "昏线",
+          "explanation": "北极上空看地球逆时针自转，A点从右侧受光半球转向左侧背光半球，因此进入黑夜，所在界线是昏线。"
+        },
+        {
+          "id": "lower",
+          "name": "下方交点 B",
+          "transition_answer": "进入白昼",
+          "boundary_answer": "晨线",
+          "explanation": "北极上空看地球逆时针自转，B点从左侧背光半球转向右侧受光半球，因此进入白昼，所在界线是晨线。"
+        }
+      ]
+    },
+    {
+      "id": "south",
+      "name": "南极上空",
+      "short_name": "南极俯视",
+      "rotation_answer": "顺时针",
+      "sun_facing_side": "右半球",
+      "view_hint": "观察者位于南极上空，太阳仍位于图的右侧。",
+      "points": [
+        {
+          "id": "upper",
+          "name": "上方交点 A",
+          "transition_answer": "进入白昼",
+          "boundary_answer": "晨线",
+          "explanation": "南极上空看地球顺时针自转，A点从左侧背光半球转向右侧受光半球，因此进入白昼，所在界线是晨线。"
+        },
+        {
+          "id": "lower",
+          "name": "下方交点 B",
+          "transition_answer": "进入黑夜",
+          "boundary_answer": "昏线",
+          "explanation": "南极上空看地球顺时针自转，B点从右侧受光半球转向左侧背光半球，因此进入黑夜，所在界线是昏线。"
+        }
+      ]
+    },
+    {
+      "id": "equator",
+      "name": "赤道侧视",
+      "short_name": "赤道侧视",
+      "rotation_answer": "自西向东",
+      "sun_facing_side": "右半球",
+      "view_hint": "观察者位于赤道外侧，图中箭头表示地表由西向东运动。",
+      "points": [
+        {
+          "id": "visible",
+          "name": "可见交界处 C",
+          "transition_answer": "进入白昼",
+          "boundary_answer": "晨线",
+          "explanation": "侧视图中C点沿自西向东箭头从背光侧进入受光侧，因此进入白昼，所在界线是晨线；另一条晨昏线位于地球背面。"
+        }
+      ]
+    }
+  ],
+  "error_tags": {
+    "E-SUN-SIDE": "没有先根据太阳方向判断受光半球",
+    "E-VIEW-ROTATION": "观察视角与自转方向对应错误",
+    "E-TERM-TRANSITION": "没有沿自转方向判断进入白昼或黑夜",
+    "E-TERM-NAME": "进入白昼与晨线、进入黑夜与昏线对应错误"
+  }
+}

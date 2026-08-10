@@ -26,5 +26,12 @@
     "category": "自然地理",
     "description": "UTC、地方时、区时、日期界线与跨区情境计算",
     "order": 4
+  },
+  {
+    "id": "physical.earth.motion",
+    "name": "地球运动与晨昏线",
+    "category": "自然地理",
+    "description": "观察视角、自转方向、昼夜半球、晨线与昏线",
+    "order": 5
   }
 ]

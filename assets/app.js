@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const ASSET_VERSION = "0.4.0";
+const ASSET_VERSION = "0.5.0";
 
 function formatClock(totalMinutes) {
   const normalized = ((Math.round(totalMinutes) % 1440) + 1440) % 1440;
@@ -56,7 +56,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], timeLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], timeLab: null, earthMotionLab: null };
 
 function defaultState() {
   return {
@@ -68,9 +68,13 @@ function defaultState() {
     activeRetestSession: null,
     activeTimeLabAttemptId: null,
     timeLabScenarioIndex: 0,
+    activeEarthMotionAttemptId: null,
+    earthMotionViewId: "north",
+    earthMotionPointId: "upper",
     attempts: [],
     retestAttempts: [],
     timeLabAttempts: [],
+    earthMotionAttempts: [],
     lastAction: ""
   };
 }
@@ -87,6 +91,11 @@ function normalizeState(parsed) {
     ? parsed.timeLabAttempts
     : Array.isArray(parsed?.time_lab_attempts)
       ? parsed.time_lab_attempts
+      : [];
+  normalized.earthMotionAttempts = Array.isArray(parsed?.earthMotionAttempts)
+    ? parsed.earthMotionAttempts
+    : Array.isArray(parsed?.earth_motion_attempts)
+      ? parsed.earth_motion_attempts
       : [];
   return normalized;
 }
@@ -112,6 +121,7 @@ function getTopic(id) { return catalog.topics.find((topic) => topic.id === id); 
 function getQuestion(id) { return catalog.questions.find((question) => question.id === id); }
 function getRetest(id) { return catalog.retests.find((retest) => retest.id === id); }
 function getTimeLabAttempt(id) { return state.timeLabAttempts.find((attempt) => attempt.id === id); }
+function getEarthMotionAttempt(id) { return state.earthMotionAttempts.find((attempt) => attempt.id === id); }
 function getActiveQuestion() { return getQuestion(state.currentQuestionId) || chooseNextQuestion(); }
 function chooseNextQuestion() {
   const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
@@ -139,9 +149,10 @@ function formatDate(value) {
 function latestAttempts() { return [...state.attempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestRetestAttempts() { return [...state.retestAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestTimeLabAttempts() { return [...state.timeLabAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestEarthMotionAttempts() { return [...state.earthMotionAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function completedToday() {
   const day = new Date().toISOString().slice(0, 10);
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts]
     .filter((attempt) => attempt.submitted_at?.startsWith(day)).length;
 }
 function topicStats(topic) {
@@ -220,11 +231,156 @@ function updateLabLongitudeSelection(rawLongitude) {
     button.classList.toggle("active", Number(button.dataset.longitude) === longitude);
   });
 }
+
+function getEarthMotionView(viewId = state.earthMotionViewId) {
+  return (catalog.earthMotionLab?.views || []).find((view) => view.id === viewId) || catalog.earthMotionLab?.views?.[0] || null;
+}
+
+function getEarthMotionPoint(view = getEarthMotionView(), pointId = state.earthMotionPointId) {
+  return view?.points?.find((point) => point.id === pointId) || view?.points?.[0] || null;
+}
+
+function setEarthMotionScenario(viewId, pointId) {
+  const view = getEarthMotionView(viewId);
+  if (!view) return;
+  state.earthMotionViewId = view.id;
+  state.earthMotionPointId = getEarthMotionPoint(view, pointId)?.id || view.points[0].id;
+  state.activeEarthMotionAttemptId = null;
+  saveState();
+  render();
+}
+
+function chooseEarthMotionScenario(offset = 0) {
+  const scenarios = (catalog.earthMotionLab?.views || []).flatMap((view) => view.points.map((point) => ({ view, point })));
+  if (!scenarios.length) return null;
+  const currentIndex = scenarios.findIndex(({ view, point }) => view.id === state.earthMotionViewId && point.id === state.earthMotionPointId);
+  return scenarios[((currentIndex < 0 ? 0 : currentIndex) + offset + scenarios.length) % scenarios.length];
+}
+
+function earthMotionMasteryStatus() {
+  const reviewHours = catalog.earthMotionLab?.review_after_hours || 48;
+  const confirmedFull = [...state.earthMotionAttempts]
+    .filter((attempt) => attempt.score === 4 && attempt.parent_review_status === "已确认")
+    .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+  if (confirmedFull.length < 2) return { label: "待验证", detail: "需要两次满分并由家长确认。", mastered: false };
+  const latest = confirmedFull[confirmedFull.length - 1];
+  const earlier = [...confirmedFull].reverse().find((attempt) => new Date(latest.submitted_at) - new Date(attempt.submitted_at) >= reviewHours * 60 * 60 * 1000);
+  return earlier
+    ? { label: "延迟复测通过", detail: `两次确认间隔已达到${reviewHours}小时。`, mastered: true }
+    : { label: "等待延迟复测", detail: `满分记录需间隔至少${reviewHours}小时。`, mastered: false };
+}
+
+function renderEarthMotionDiagram(view, point, showAnswers = false) {
+  const isPolar = view.id !== "equator";
+  const pointPosition = point.id === "upper" ? { x: 360, y: 75, label: "A" } : point.id === "lower" ? { x: 360, y: 355, label: "B" } : { x: 360, y: 215, label: "C" };
+  const rotationPath = view.id === "north"
+    ? "M455 305 A128 128 0 1 1 455 125"
+    : view.id === "south"
+      ? "M455 125 A128 128 0 1 0 455 305"
+      : "M255 255 C310 285 410 285 465 255";
+  return `
+    <svg class="earth-motion-svg" viewBox="0 0 720 430" role="img" aria-label="${escapeHtml(view.name)}晨昏线观察模型">
+      <defs>
+        <filter id="earth-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#10283c" flood-opacity=".18" /></filter>
+        <marker id="ray-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4 0 8Z" fill="#e6a33e" /></marker>
+        <marker id="motion-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5 0 9Z" fill="#ed8a3b" /></marker>
+        <clipPath id="earth-clip"><circle cx="360" cy="215" r="140" /></clipPath>
+      </defs>
+      <rect class="space-bg" width="720" height="430" rx="24" />
+      <g class="sun-rays" aria-hidden="true">
+        ${[125, 170, 215, 260, 305].map((y) => `<line x1="585" y1="${y}" x2="505" y2="${y}" marker-end="url(#ray-arrow)" />`).join("")}
+      </g>
+      <g class="sun-symbol" aria-hidden="true"><circle cx="642" cy="215" r="48" /><circle cx="642" cy="215" r="61" /></g>
+      <text class="sun-label" x="642" y="220" text-anchor="middle">太阳</text>
+      <g filter="url(#earth-shadow)">
+        <circle class="earth-day" cx="360" cy="215" r="140" />
+        <path class="earth-night" d="M360 75A140 140 0 0 0 360 355Z" />
+        <line class="terminator-line" x1="360" y1="75" x2="360" y2="355" />
+        ${isPolar ? `<g class="polar-grid"><circle cx="360" cy="215" r="92" /><circle cx="360" cy="215" r="47" /><path d="M220 215H500M360 75V355" /></g><text class="pole-label" x="360" y="223" text-anchor="middle">${view.id === "north" ? "N" : "S"}</text>` : `<g class="side-grid"><ellipse cx="360" cy="215" rx="140" ry="42" /><path d="M360 75V355" /></g><text class="axis-label" x="372" y="94">N</text><text class="axis-label" x="372" y="346">S</text><text class="axis-label" x="438" y="204">赤道</text>`}
+      </g>
+      <g class="target-point" aria-label="${escapeHtml(point.name)}"><circle cx="${pointPosition.x}" cy="${pointPosition.y}" r="15" /><text x="${pointPosition.x}" y="${pointPosition.y + 5}" text-anchor="middle">${pointPosition.label}</text></g>
+      ${showAnswers ? `<path class="motion-path" d="${rotationPath}" marker-end="url(#motion-arrow)" /><text class="motion-label" x="360" y="405" text-anchor="middle">${escapeHtml(view.name)}：${escapeHtml(view.rotation_answer)}</text><text class="hemisphere-label night" x="285" y="220" text-anchor="middle">夜半球</text><text class="hemisphere-label day" x="435" y="220" text-anchor="middle">昼半球</text><g class="boundary-result"><rect x="250" y="22" width="220" height="35" rx="17" /><text x="360" y="45" text-anchor="middle">${escapeHtml(point.name)} · ${escapeHtml(point.boundary_answer)}</text></g>` : `<g class="prediction-lock"><rect x="260" y="381" width="200" height="31" rx="15" /><text x="360" y="402" text-anchor="middle">自转方向与界线名称待预测</text></g>`}
+    </svg>
+  `;
+}
+
+function renderMotionChoice(name, values) {
+  return `<div class="motion-choice-grid">${values.map((value) => `<label><input type="radio" name="${name}" value="${value}" /> <span>${value}</span></label>`).join("")}</div>`;
+}
+
+function renderEarthMotionLab() {
+  const view = getEarthMotionView();
+  const point = getEarthMotionPoint(view);
+  if (!view || !point) { app.innerHTML = `<section class="card empty">晨昏线实验数据尚未加载。</section>`; return; }
+  state.earthMotionViewId = view.id;
+  state.earthMotionPointId = point.id;
+  const activeAttempt = getEarthMotionAttempt(state.activeEarthMotionAttemptId);
+  if (activeAttempt) return renderEarthMotionResult(activeAttempt);
+  app.innerHTML = `
+    <div class="topic-meta">自然地理 · 宇宙中的地球及运动 · ${escapeHtml(view.id)}-${escapeHtml(point.id)}</div>
+    <h2 class="page-title">晨昏线与观察视角实验室</h2>
+    <p class="page-subtitle">先确定“从哪里看”，再沿自转方向判断一个地点将进入白昼还是黑夜。</p>
+    <div class="motion-view-tabs" aria-label="选择观察视角">
+      ${catalog.earthMotionLab.views.map((item) => `<button class="${item.id === view.id ? "active" : ""}" data-action="set-earth-motion-view" data-view-id="${escapeHtml(item.id)}">${escapeHtml(item.short_name)}</button>`).join("")}
+    </div>
+    <section class="card motion-lab-card">
+      <div class="motion-lab-layout">
+        <div class="motion-model-panel">
+          <div class="motion-model-head"><div><span class="pill orange">当前视角</span><h3>${escapeHtml(view.name)}</h3></div><span class="pill">${escapeHtml(point.name)}</span></div>
+          ${renderEarthMotionDiagram(view, point)}
+          <p class="motion-hint">${escapeHtml(view.view_hint)} 图中答案标注将在提交预测后出现。</p>
+          ${view.points.length > 1 ? `<div class="motion-point-tabs" aria-label="选择晨昏线交点">${view.points.map((item) => `<button class="${item.id === point.id ? "active" : ""}" data-action="set-earth-motion-point" data-point-id="${escapeHtml(item.id)}">${escapeHtml(item.name)}</button>`).join("")}</div>` : ""}
+        </div>
+        <form id="earth-motion-form" class="motion-prediction-panel">
+          <div class="notice">先作答并写出判断链，再解锁自转箭头、昼夜标签和界线名称。</div>
+          <fieldset><legend>1. 面向太阳的是哪一半？</legend>${renderMotionChoice("motion-sun-side", ["左半球", "右半球"])}</fieldset>
+          <fieldset><legend>2. 从当前视角看，地球怎样自转？</legend>${renderMotionChoice("motion-rotation", ["顺时针", "逆时针", "自西向东"])}</fieldset>
+          <fieldset><legend>3. ${escapeHtml(point.name)} 正在：</legend>${renderMotionChoice("motion-transition", ["进入白昼", "进入黑夜"])}</fieldset>
+          <fieldset><legend>4. 该交界属于：</legend>${renderMotionChoice("motion-boundary", ["晨线", "昏线"])}</fieldset>
+          <label class="field-label" for="motion-reasoning">写出判断链</label>
+          <textarea id="motion-reasoning" name="motion-reasoning" placeholder="例如：先确定观察视角；再判断自转方向；沿运动方向看该点从哪一侧进入哪一侧；最后命名晨线或昏线。"></textarea>
+          <button class="btn orange motion-submit" type="submit">提交预测，播放判断链</button>
+        </form>
+      </div>
+    </section>
+  `;
+}
+
+function renderEarthMotionResult(attempt) {
+  const view = getEarthMotionView(attempt.view_id);
+  const point = getEarthMotionPoint(view, attempt.point_id);
+  if (!view || !point) return;
+  const checks = attempt.checks || {};
+  app.innerHTML = `
+    <div class="topic-meta">宇宙中的地球及运动 · 已形成候选诊断</div>
+    <h2 class="page-title">把晨昏线还原成运动过程</h2>
+    <p class="page-subtitle">本轮 ${attempt.score}/4。一次满分不是掌握，还需要家长确认和48小时后的换视角复测。</p>
+    <section class="card motion-result-card">
+      <div class="motion-result-layout">
+        <div>${renderEarthMotionDiagram(view, point, true)}</div>
+        <div>
+          <div class="lab-check-grid">
+            ${renderLabAnswerRow("受光半球", attempt.answers.sun_side, view.sun_facing_side, checks.sun_side)}
+            ${renderLabAnswerRow("自转方向", attempt.answers.rotation, view.rotation_answer, checks.rotation)}
+            ${renderLabAnswerRow("昼夜变化", attempt.answers.transition, point.transition_answer, checks.transition)}
+            ${renderLabAnswerRow("界线名称", attempt.answers.boundary, point.boundary_answer, checks.boundary)}
+          </div>
+          <div class="answer-box ${attempt.score === 4 ? "correct" : "wrong"}"><strong>${escapeHtml(point.boundary_answer)}的判断链</strong><br/>${escapeHtml(point.explanation)}</div>
+          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>
+          ${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div></div>` : `<div class="notice">四步均正确。请家长追问：如果换到另一极上空，为什么顺逆时针会改变？</div>`}
+          <div class="btn-row"><button class="btn orange" data-action="next-earth-motion">换视角继续</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => button.classList.toggle("active", button.dataset.route === state.route));
   if (state.route === "retest") return renderRetest();
   if (state.route === "time-lab") return renderTimeLab();
+  if (state.route === "earth-motion-lab") return renderEarthMotionLab();
   if (state.route === "train") return renderTrain();
   if (state.route === "mastery") return renderMastery();
   if (state.route === "parent") return renderParent();
@@ -235,9 +391,16 @@ function renderToday() {
   const attempts = latestAttempts();
   const due = getActiveQuestion();
   const latestLab = latestTimeLabAttempts()[0];
+  const latestMotion = latestEarthMotionAttempts()[0];
   app.innerHTML = `
     <h2 class="page-title">今天，先留下一个真实判断</h2>
     <p class="page-subtitle">不追求题量。先预测、再观察、最后解释；AI负责提出诊断候选，家长负责确认。</p>
+    <section class="card motion-lab-entry">
+      <div class="attempt-head"><div><span class="pill orange">v0.5 地球运动专项</span><h2>晨昏线与观察视角</h2></div><span class="motion-entry-icon" aria-hidden="true"></span></div>
+      <p>切换北极、南极和赤道视角，判断自转方向，以及一个地点正在进入白昼还是黑夜。</p>
+      ${latestMotion ? `<p class="small">最近一次：${latestMotion.score}/4 · ${escapeHtml(latestMotion.parent_review_status)} · ${formatDate(latestMotion.submitted_at)}</p>` : `<p class="small">第一轮从北极上空开始，只关注“视角→方向→昼夜变化”这一条判断链。</p>`}
+      <div class="btn-row"><button class="btn orange" data-action="start-earth-motion">进入晨昏线实验室</button></div>
+    </section>
     <section class="card time-lab-entry">
       <div class="attempt-head"><div><span class="pill orange">v0.4 地图时区专项</span><h2>时区实验室</h2></div><span class="lab-orbit" aria-hidden="true"></span></div>
       <p>在世界地图上选择城市或地点，先预测地方时、理论区时和日期，再解锁同一瞬间的三种时间。</p>
@@ -253,7 +416,7 @@ function renderToday() {
     <section class="stat-grid">
       <div class="stat"><strong>${completedToday()}</strong><span>今日完成</span></div>
       <div class="stat"><strong>${state.attempts.length}</strong><span>诊断题记录</span></div>
-      <div class="stat"><strong>${state.timeLabAttempts.length}</strong><span>时区实验</span></div>
+      <div class="stat"><strong>${state.timeLabAttempts.length + state.earthMotionAttempts.length}</strong><span>互动实验</span></div>
     </section>
     <section class="card">
       <h3>最近记录</h3>
@@ -426,6 +589,8 @@ function renderRetest() {
 
 function renderMastery() {
   const latestLab = latestTimeLabAttempts()[0];
+  const latestMotion = latestEarthMotionAttempts()[0];
+  const motionMastery = earthMotionMasteryStatus();
   app.innerHTML = `
     <h2 class="page-title">掌握与复测</h2>
     <p class="page-subtitle">百分比只是提示，不代表真正掌握。真正的证据来自延迟复测和能否讲清推理链。</p>
@@ -433,6 +598,7 @@ function renderMastery() {
       const stats = topicStats(topic);
       return `<div class="topic-item"><div class="topic-head"><div><strong>${escapeHtml(topic.name)}</strong><div class="topic-meta">${escapeHtml(topic.category)} · ${stats.attempts.length ? `${stats.attempts.length} 次作答` : "尚未开始"}</div></div><span class="pill ${stats.ratio >= 70 ? "green" : stats.attempts.length ? "orange" : ""}">${stats.attempts.length ? `${stats.ratio}%` : "待建立"}</span></div><div class="progress"><span style="width:${stats.ratio}%"></span></div><div class="topic-meta">${escapeHtml(topic.description)}</div></div>`;
     }).join("")}</div></section>
+    <section class="card"><div class="attempt-head"><div><span class="pill orange">地球运动专项</span><h3>视角—方向—晨昏线</h3></div><span class="pill ${motionMastery.mastered ? "green" : "orange"}">${escapeHtml(motionMastery.label)}</span></div><p class="small">${latestMotion ? `最近实验：${escapeHtml(getEarthMotionView(latestMotion.view_id)?.name || latestMotion.view_id)} · ${latestMotion.score}/4 · ${escapeHtml(latestMotion.parent_review_status)} · ${formatDate(latestMotion.submitted_at)}` : "先完成一次晨昏线实验，留下观察视角和判断链。"}</p><p class="small">${escapeHtml(motionMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-earth-motion">进入晨昏线实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">时区专项</span><h3>预测—观察—解释</h3></div>${latestLab ? `<span class="pill ${latestLab.score >= 3 ? "green" : "orange"}">${latestLab.score}/4</span>` : `<span class="pill">待开始</span>`}</div><p class="small">${latestLab ? `最近实验：${longitudeLabel(latestLab.longitude)} · ${escapeHtml(latestLab.parent_review_status)} · ${formatDate(latestLab.submitted_at)}` : "先完成一次时区实验，再进入延迟复测。"}</p><div class="btn-row"><button class="btn orange" data-action="start-time-lab">进入时区实验室</button><button class="btn secondary" data-action="start-time-diagnostic">做8题诊断</button></div></section>
     <section class="card"><h3>需要复盘的题</h3>${latestAttempts().filter((attempt) => !attempt.is_correct || attempt.parent_review_status !== "已确认").slice(0, 8).map(renderAttemptSummary).join("") || `<div class="empty">目前没有待复盘记录。</div>`}</section>
     ${catalog.retests.map((retest) => {
@@ -448,11 +614,13 @@ function renderParent() {
   const attempts = latestAttempts();
   const retestAttempts = latestRetestAttempts();
   const timeLabAttempts = latestTimeLabAttempts();
+  const earthMotionAttempts = latestEarthMotionAttempts();
   app.innerHTML = `
     <h2 class="page-title">家长审核页</h2>
     <p class="page-subtitle">只核验三件事：理由是否真实、诊断是否有证据、下一步是否可执行。</p>
     <div class="notice">家长不是每道题的讲解员，而是学习过程的质量审核员。连续 2–3 次同类错误，再考虑请老师校准。</div>
     <section class="card"><h3>真实试卷复盘</h3>${catalog.paperReviews.map(renderPaperReview).join("") || `<div class="empty">尚未录入试卷复盘。</div>`}</section>
+    <section class="card"><h3>晨昏线实验审核</h3>${earthMotionAttempts.length ? `<div class="attempt-list">${earthMotionAttempts.map(renderParentEarthMotionAttempt).join("")}</div>` : `<div class="empty">橙子提交观察视角预测后，这里会出现判断链和候选错因。</div>`}</section>
     <section class="card"><h3>时区实验审核</h3>${timeLabAttempts.length ? `<div class="attempt-list">${timeLabAttempts.map(renderParentTimeLabAttempt).join("")}</div>` : `<div class="empty">橙子提交时区预测后，这里会出现步骤证据。</div>`}</section>
     <section class="card"><h3>专项复测审核</h3>${retestAttempts.length ? `<div class="attempt-list">${retestAttempts.map(renderParentRetestAttempt).join("")}</div>` : `<div class="empty">橙子提交专项复测后，这里会出现评分点。</div>`}</section>
     <section class="card"><h3>其他待审核记录</h3>${attempts.length ? `<div class="attempt-list">${attempts.map(renderParentAttempt).join("")}</div>` : `<div class="empty">橙子完成第一道题后，这里会出现审核记录。</div>`}</section>
@@ -479,7 +647,11 @@ const ERROR_TAG_LABELS = {
   "T-DATE-CARRY": "日期进退遗漏",
   "T-DATE-IDL": "日界线方向错误",
   "T-DATE-OM": "0时经线条件错误",
-  "T-ORDER": "计算顺序错误"
+  "T-ORDER": "计算顺序错误",
+  "E-SUN-SIDE": "受光半球判断错误",
+  "E-VIEW-ROTATION": "观察视角与自转方向对应错误",
+  "E-TERM-TRANSITION": "没有沿自转方向判断昼夜变化",
+  "E-TERM-NAME": "晨线、昏线命名对应错误"
 };
 
 function errorTagLabel(tag) { return ERROR_TAG_LABELS[tag] || tag; }
@@ -492,6 +664,12 @@ function renderPaperReview(review) {
 function renderParentTimeLabAttempt(attempt) {
   const correct = attempt.correct_answers;
   return `<article class="attempt-item"><div class="attempt-head"><div><strong>${longitudeLabel(attempt.longitude)} · 时区实验</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · ${escapeHtml(attempt.scenario_id)}</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="lab-parent-summary"><span>地方时 <strong>${escapeHtml(correct.local_time)}</strong></span><span>${escapeHtml(correct.zone_name)} <strong>${escapeHtml(correct.zone_time)}</strong></span><span>日期 <strong>${escapeHtml(correct.date_relation)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个计算步骤均正确</strong><br/>请继续追问：为什么地方时和区时可能不同？</div>`}<label class="field-label" for="lab-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="lab-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="lab-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="lab-note-${escapeHtml(attempt.id)}" placeholder="例如：会算地方时，但区时仍按经度分钟计算">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-lab-review" data-attempt-id="${escapeHtml(attempt.id)}">保存实验审核</button></div></article>`;
+}
+
+function renderParentEarthMotionAttempt(attempt) {
+  const view = getEarthMotionView(attempt.view_id);
+  const point = getEarthMotionPoint(view, attempt.point_id);
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(view?.name || attempt.view_id)} · ${escapeHtml(point?.name || attempt.point_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 晨昏线实验</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="motion-parent-summary"><span>自转 <strong>${escapeHtml(attempt.correct_answers.rotation)}</strong></span><span>变化 <strong>${escapeHtml(attempt.correct_answers.transition)}</strong></span><span>界线 <strong>${escapeHtml(attempt.correct_answers.boundary)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：换到另一个极点上空，自转方向为什么会改变？</div>`}<label class="field-label" for="motion-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="motion-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="motion-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="motion-note-${escapeHtml(attempt.id)}" placeholder="例如：知道晨线定义，但切换南极视角后顺逆时针仍混淆">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-motion-review" data-attempt-id="${escapeHtml(attempt.id)}">保存实验审核</button></div></article>`;
 }
 
 function renderParentRetestAttempt(attempt) {
@@ -532,6 +710,14 @@ document.addEventListener("click", async (event) => {
     updateLabLongitudeSelection(actionTarget.dataset.longitude);
     return;
   }
+  if (action === "set-earth-motion-view") {
+    setEarthMotionScenario(actionTarget.dataset.viewId, null);
+    return;
+  }
+  if (action === "set-earth-motion-point") {
+    setEarthMotionScenario(state.earthMotionViewId, actionTarget.dataset.pointId);
+    return;
+  }
   if (action === "goto") {
     state.route = actionTarget.dataset.route;
     saveState(); render();
@@ -554,10 +740,29 @@ document.addEventListener("click", async (event) => {
     state.route = "time-lab";
     saveState(); render();
   }
+  if (action === "start-earth-motion") {
+    const scenarios = (catalog.earthMotionLab?.views || []).flatMap((view) => view.points.map((point) => ({ view, point })));
+    const scenario = scenarios[state.earthMotionAttempts.length % Math.max(scenarios.length, 1)];
+    if (!scenario) return;
+    state.earthMotionViewId = scenario.view.id;
+    state.earthMotionPointId = scenario.point.id;
+    state.activeEarthMotionAttemptId = null;
+    state.route = "earth-motion-lab";
+    saveState(); render();
+  }
   if (action === "next-time-lab") {
     state.timeLabScenarioIndex = (state.timeLabScenarioIndex + 1) % Math.max(catalog.timeLab?.scenarios?.length || 1, 1);
     state.activeTimeLabAttemptId = null;
     state.route = "time-lab";
+    saveState(); render();
+  }
+  if (action === "next-earth-motion") {
+    const next = chooseEarthMotionScenario(1);
+    if (!next) return;
+    state.earthMotionViewId = next.view.id;
+    state.earthMotionPointId = next.point.id;
+    state.activeEarthMotionAttemptId = null;
+    state.route = "earth-motion-lab";
     saveState(); render();
   }
   if (action === "start-retest") {
@@ -576,11 +781,56 @@ document.addEventListener("click", async (event) => {
   if (action === "save-attempt") saveAttempt();
   if (action === "save-review") saveReview(actionTarget.dataset.attemptId);
   if (action === "save-lab-review") saveLabReview(actionTarget.dataset.attemptId);
+  if (action === "save-motion-review") saveEarthMotionReview(actionTarget.dataset.attemptId);
   if (action === "save-retest-review") saveRetestReview(actionTarget.dataset.attemptId);
   if (action === "export-data") exportData();
 });
 
 document.addEventListener("submit", (event) => {
+  if (event.target.id === "earth-motion-form") {
+    event.preventDefault();
+    const view = getEarthMotionView();
+    const point = getEarthMotionPoint(view);
+    if (!view || !point) return;
+    const form = new FormData(event.target);
+    const answers = {
+      sun_side: form.get("motion-sun-side") || "",
+      rotation: form.get("motion-rotation") || "",
+      transition: form.get("motion-transition") || "",
+      boundary: form.get("motion-boundary") || ""
+    };
+    const reasoning = String(form.get("motion-reasoning") || "").trim();
+    if (Object.values(answers).some((answer) => !answer) || !reasoning) {
+      return alert("请完成四项预测并写出判断链，再解锁运动过程。");
+    }
+    const checks = {
+      sun_side: answers.sun_side === view.sun_facing_side,
+      rotation: answers.rotation === view.rotation_answer,
+      transition: answers.transition === point.transition_answer,
+      boundary: answers.boundary === point.boundary_answer
+    };
+    const errorTags = [];
+    if (!checks.sun_side) errorTags.push("E-SUN-SIDE");
+    if (!checks.rotation) errorTags.push("E-VIEW-ROTATION");
+    if (!checks.transition) errorTags.push("E-TERM-TRANSITION");
+    if (!checks.boundary) errorTags.push("E-TERM-NAME");
+    const attempt = {
+      schema_version: "0.5.0", id: newId(), view_id: view.id, point_id: point.id,
+      answers, correct_answers: {
+        sun_side: view.sun_facing_side,
+        rotation: view.rotation_answer,
+        transition: point.transition_answer,
+        boundary: point.boundary_answer
+      },
+      checks, score: Object.values(checks).filter(Boolean).length,
+      error_tags: errorTags, reasoning, submitted_at: new Date().toISOString(),
+      parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.earthMotionAttempts.push(attempt);
+    state.activeEarthMotionAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
   if (event.target.id === "time-lab-form") {
     event.preventDefault();
     const scenario = getTimeLabScenario();
@@ -670,6 +920,7 @@ document.addEventListener("change", async (event) => {
     state.attempts = normalized.attempts;
     state.retestAttempts = normalized.retestAttempts;
     state.timeLabAttempts = normalized.timeLabAttempts;
+    state.earthMotionAttempts = normalized.earthMotionAttempts;
     state.lastAction = "已导入学习记录";
     saveState(); render();
   } catch (error) { alert(`导入失败：${error.message}`); }
@@ -708,6 +959,14 @@ function saveLabReview(id) {
   saveState(); render();
 }
 
+function saveEarthMotionReview(id) {
+  const attempt = state.earthMotionAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#motion-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#motion-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
 function addDaysIso(days) {
   const date = new Date();
   date.setDate(date.getDate() + days);
@@ -734,21 +993,22 @@ function saveRetestReview(id) {
 }
 
 function exportData() {
-  const blob = new Blob([JSON.stringify({ version: state.version, exported_at: new Date().toISOString(), attempts: state.attempts, retest_attempts: state.retestAttempts, time_lab_attempts: state.timeLabAttempts }, null, 2)], { type: "application/json" });
+  const blob = new Blob([JSON.stringify({ version: state.version, exported_at: new Date().toISOString(), attempts: state.attempts, retest_attempts: state.retestAttempts, time_lab_attempts: state.timeLabAttempts, earth_motion_attempts: state.earthMotionAttempts }, null, 2)], { type: "application/json" });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob); link.download = `orange-geography-records-${new Date().toISOString().slice(0, 10)}.json`; link.click(); URL.revokeObjectURL(link.href);
 }
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, timeLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, timeLab, earthMotionLab] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/retests.json?v=${ASSET_VERSION}`).then((response) => response.json()),
-      fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
+      fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, timeLab };
+    catalog = { topics, questions, paperReviews, retests, timeLab, earthMotionLab };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;
