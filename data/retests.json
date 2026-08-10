@@ -52,5 +52,67 @@
       "min_points": 6,
       "required_rubric_ids": ["Q1-R1"]
     }
+  },
+  {
+    "schema_version": "0.3.0",
+    "id": "RETEST-TIME-001",
+    "source_topic_id": "physical.earth.time",
+    "title": "时区专项复测：同一瞬间的三种时间",
+    "purpose": "检测是否能区分UTC、地方时和区时，并正确处理东西方向与日期进退。",
+    "source": "原创诊断题",
+    "review_after_days": [2, 5, 12],
+    "context": "某国际观测记录的基准时刻为6月15日UTC 04:00。所有计算均采用理论时区，不考虑夏令时和法定时区边界。",
+    "dataset": {
+      "title": "同一瞬间的地点信息",
+      "columns": ["地点", "经度", "理论时区"],
+      "rows": [
+        ["甲地", "116°E", "东八区"],
+        ["乙地", "90°W", "西六区"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "Q1",
+        "prompt": "计算甲地的地方时，并写出经度换算过程。",
+        "max_points": 2,
+        "rubric_points": [
+          {"id": "TIME-Q1-R1", "text": "写出116°×4分钟=464分钟=7小时44分钟", "points": 1},
+          {"id": "TIME-Q1-R2", "text": "得出甲地地方时为11:44", "points": 1}
+        ]
+      },
+      {
+        "id": "Q2",
+        "prompt": "写出甲地采用的理论区时，并说明它为什么不同于甲地地方时。",
+        "max_points": 2,
+        "rubric_points": [
+          {"id": "TIME-Q2-R1", "text": "得出东八区区时为12:00", "points": 1},
+          {"id": "TIME-Q2-R2", "text": "说明区时采用120°E中央经线的地方时", "points": 1}
+        ]
+      },
+      {
+        "id": "Q3",
+        "prompt": "若另一记录时刻为6月15日UTC 03:20，计算乙地的理论区时和日期。",
+        "max_points": 3,
+        "rubric_points": [
+          {"id": "TIME-Q3-R1", "text": "判断西六区为UTC-6", "points": 1},
+          {"id": "TIME-Q3-R2", "text": "算出区时为21:20", "points": 1},
+          {"id": "TIME-Q3-R3", "text": "判断日期为6月14日", "points": 1}
+        ]
+      },
+      {
+        "id": "Q4",
+        "prompt": "用自己的话解释：既然有UTC，为什么日常生活还需要区时？",
+        "max_points": 3,
+        "rubric_points": [
+          {"id": "TIME-Q4-R1", "text": "指出UTC用于统一标记同一瞬间", "points": 1},
+          {"id": "TIME-Q4-R2", "text": "指出区时让一定区域统一使用同一钟点", "points": 1},
+          {"id": "TIME-Q4-R3", "text": "说明区时使钟点大致对应当地昼夜和社会作息", "points": 1}
+        ]
+      }
+    ],
+    "pass_rule": {
+      "min_points": 8,
+      "required_rubric_ids": ["TIME-Q3-R3", "TIME-Q4-R1", "TIME-Q4-R2"]
+    }
   }
 ]

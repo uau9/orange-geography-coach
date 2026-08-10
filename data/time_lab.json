@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.3.0",
+  "topic_id": "physical.earth.time",
+  "title": "时区实验室",
+  "description": "先预测目标经度的地方时、理论区时和日期，再解锁三种时间的联动结果。",
+  "scenarios": [
+    {"id": "TIME-LAB-01", "utc_date": "6月15日", "utc_minutes": 240, "starting_longitude": 120},
+    {"id": "TIME-LAB-02", "utc_date": "6月15日", "utc_minutes": 240, "starting_longitude": 116},
+    {"id": "TIME-LAB-03", "utc_date": "6月15日", "utc_minutes": 1110, "starting_longitude": 150},
+    {"id": "TIME-LAB-04", "utc_date": "6月15日", "utc_minutes": 200, "starting_longitude": -90},
+    {"id": "TIME-LAB-05", "utc_date": "6月15日", "utc_minutes": 660, "starting_longitude": 75},
+    {"id": "TIME-LAB-06", "utc_date": "6月15日", "utc_minutes": 1360, "starting_longitude": 45},
+    {"id": "TIME-LAB-07", "utc_date": "6月15日", "utc_minutes": 480, "starting_longitude": -120},
+    {"id": "TIME-LAB-08", "utc_date": "6月15日", "utc_minutes": 20, "starting_longitude": -165}
+  ]
+}

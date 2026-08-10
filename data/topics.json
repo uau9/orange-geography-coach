@@ -19,5 +19,12 @@
     "category": "区域认知",
     "description": "自然条件、开发条件与可持续利用",
     "order": 3
+  },
+  {
+    "id": "physical.earth.time",
+    "name": "时区与地方时",
+    "category": "自然地理",
+    "description": "UTC、地方时、区时、日期界线与跨区情境计算",
+    "order": 4
   }
 ]

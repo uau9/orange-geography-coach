@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/time-lab-attempt.v0.3",
+  "type": "object",
+  "required": ["schema_version", "id", "scenario_id", "longitude", "answers", "correct_answers", "score", "error_tags", "reasoning", "submitted_at", "parent_review_status"],
+  "properties": {
+    "schema_version": {"const": "0.3.0"},
+    "id": {"type": "string", "pattern": "^ATT-"},
+    "scenario_id": {"type": "string", "pattern": "^TIME-LAB-"},
+    "longitude": {"type": "integer", "minimum": -175, "maximum": 175},
+    "answers": {"type": "object"},
+    "correct_answers": {"type": "object"},
+    "score": {"type": "integer", "minimum": 0, "maximum": 4},
+    "error_tags": {"type": "array", "items": {"type": "string"}},
+    "reasoning": {"type": "string", "minLength": 1},
+    "submitted_at": {"type": "string"},
+    "parent_review_status": {"enum": ["待家长确认", "已确认", "需再练", "需教师复核"]},
+    "parent_note": {"type": "string"}
+  }
+}

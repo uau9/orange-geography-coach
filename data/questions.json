@@ -70,5 +70,197 @@
     "explanation": "年太阳辐射总量大直接说明太阳能资源丰富；可利用荒地较多则有利于降低占用优质土地的机会成本。铁路、人才和税收优惠分别属于交通、社会经济和政策条件。",
     "key_points": ["自然资源优势", "工业/能源区位因素分类", "区位条件与项目收益"],
     "review_after_days": [3, 7, 15]
+  },
+  {
+    "id": "GEO-TIME-001",
+    "topic_id": "physical.earth.time",
+    "title": "统一参考时刻与民用钟点",
+    "source": "原创诊断题",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "关于“全球统一时间”和各地民用钟点的关系，下列理解最准确的是：",
+    "options": [
+      {"id": "A", "text": "全球不能建立统一的时间参照，所以只能使用地方时"},
+      {"id": "B", "text": "UTC可统一标记同一瞬间，各地仍可用UTC偏移表示适合当地作息的钟点"},
+      {"id": "C", "text": "地方时只为跨国通信服务，与太阳位置没有关系"},
+      {"id": "D", "text": "区时要求每一条经线都使用不同的钟点"}
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {"tag": "T-CONCEPT-REF", "diagnosis": "你把“统一参考时刻”和“各地钟表显示相同数字”混为一谈。UTC可以统一参照，并不要求取消地方化显示。", "follow_up": "同一瞬间，北京和伦敦为什么可以有不同钟点，却仍然能够准确对表？"},
+      "C": {"tag": "T-CONCEPT-LST-ZONE", "diagnosis": "地方时首先反映经度与太阳位置的关系，并不是只为跨国通信设置。", "follow_up": "地方正午与太阳经过当地经线有什么关系？"},
+      "D": {"tag": "T-CONCEPT-LST-ZONE", "diagnosis": "每条经线钟点不同描述的是地方时；区时恰恰让一个时区统一使用中央经线的地方时。", "follow_up": "区时相对地方时减少了哪一种社会协作成本？"}
+    },
+    "explanation": "UTC是全球统一的参考时间尺度；民用钟点通常以UTC偏移表示，使钟点大致对应当地昼夜和社会作息。",
+    "key_points": ["UTC", "民用时间", "全球参照与地方显示"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-TIME-002",
+    "topic_id": "physical.earth.time",
+    "title": "地方时：东边为什么要加",
+    "source": "原创诊断题",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "75°E的地方时为12:00，同一瞬间90°E的地方时是：",
+    "options": [
+      {"id": "A", "text": "11:00"},
+      {"id": "B", "text": "13:00"},
+      {"id": "C", "text": "12:15"},
+      {"id": "D", "text": "次日13:00"}
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {"tag": "T-LST-DIR", "diagnosis": "90°E位于75°E以东，地方时应更早进入下一钟点，因此要加1小时。", "follow_up": "先不计算：太阳先经过75°E还是90°E？"},
+      "C": {"tag": "T-LST-LON", "diagnosis": "经度差15°对应1小时，不是15分钟。", "follow_up": "把15°分别乘以4分钟，结果是多少？"},
+      "D": {"tag": "T-DATE-CARRY", "diagnosis": "12:00加1小时没有跨过24:00，不需要改变日期。", "follow_up": "钟点达到什么范围才需要进到次日？"}
+    },
+    "explanation": "两地相差15°，地方时差为15×4分钟=60分钟；90°E在东，因此12:00加1小时为13:00。",
+    "key_points": ["经度差", "1°等于4分钟", "东加西减"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-TIME-003",
+    "topic_id": "physical.earth.time",
+    "title": "北京时间不等于北京地方时",
+    "source": "原创诊断题",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "当120°E地方时为12:00时，北京约116°E的地方时最接近：",
+    "options": [
+      {"id": "A", "text": "12:16"},
+      {"id": "B", "text": "12:00"},
+      {"id": "C", "text": "11:44"},
+      {"id": "D", "text": "11:00"}
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {"tag": "T-LST-DIR", "diagnosis": "北京约116°E位于120°E以西，地方时应减16分钟。", "follow_up": "所求地在已知经线的东边还是西边？"},
+      "B": {"tag": "T-CONCEPT-LST-ZONE", "diagnosis": "你可能把北京时间直接当成北京地方时。北京时间采用东八区区时，即120°E地方时。", "follow_up": "北京经度与东八区中央经线相差多少度？"},
+      "D": {"tag": "T-LST-LON", "diagnosis": "4°经度差只对应16分钟，不是1小时。", "follow_up": "4°×4分钟等于多少分钟？"}
+    },
+    "explanation": "北京约116°E在120°E以西4°，地方时晚16分钟，因此约为11:44。",
+    "key_points": ["北京时间", "中央经线", "地方时与区时"],
+    "review_after_days": [2, 6, 14]
+  },
+  {
+    "id": "GEO-TIME-004",
+    "topic_id": "physical.earth.time",
+    "title": "时区：先找中央经线",
+    "source": "原创诊断题",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "西五区的中央经线是：",
+    "options": [
+      {"id": "A", "text": "75°W"},
+      {"id": "B", "text": "75°E"},
+      {"id": "C", "text": "5°W"},
+      {"id": "D", "text": "105°W"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "T-ZONE-DIR", "diagnosis": "时区数算对了，但把西时区写成了东经。", "follow_up": "“西五区”中的“西”应对应东经还是西经？"},
+      "C": {"tag": "T-ZONE-ID", "diagnosis": "时区数不是经度数。中央经线应为时区数乘15°。", "follow_up": "5×15°等于多少度？"},
+      "D": {"tag": "T-ZONE-ID", "diagnosis": "105°W是西七区中央经线，不是西五区。", "follow_up": "用105÷15反查它属于哪个时区。"}
+    },
+    "explanation": "中央经线经度=时区数×15°；西五区为5×15°=75°W。",
+    "key_points": ["时区数", "中央经线", "东西时区"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-TIME-005",
+    "topic_id": "physical.earth.time",
+    "title": "UTC与北京时间换算",
+    "source": "原创诊断题",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "某国际事件记录为UTC 04:00。忽略夏令时，此时北京时间为：",
+    "options": [
+      {"id": "A", "text": "前一日20:00"},
+      {"id": "B", "text": "当日04:00"},
+      {"id": "C", "text": "当日12:00"},
+      {"id": "D", "text": "当日20:00"}
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {"tag": "T-ZONE-DIR", "diagnosis": "东八区位于UTC以东，应在UTC基础上加8小时，而不是减8小时。", "follow_up": "北京时间写成UTC+8，其中加号表示什么？"},
+      "B": {"tag": "T-CONCEPT-REF", "diagnosis": "你把UTC显示值直接当成了北京时间，没有应用UTC+8。", "follow_up": "同一瞬间，UTC与东八区钟点相差几小时？"},
+      "D": {"tag": "T-ZONE-ID", "diagnosis": "04:00到20:00相差16小时，重复或错误使用了时差。", "follow_up": "只写一行算式：04:00加8小时。"}
+    },
+    "explanation": "北京时间为东八区区时，即UTC+8；04:00+8小时=12:00。",
+    "key_points": ["UTC偏移", "东八区", "区时换算"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-TIME-006",
+    "topic_id": "physical.earth.time",
+    "title": "航班题：先推进再换区",
+    "source": "原创诊断题",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "某航班东京时间14:00从东京（东九区）起飞，飞行3小时到上海（东八区）。到达时的北京时间是：",
+    "options": [
+      {"id": "A", "text": "15:00"},
+      {"id": "B", "text": "16:00"},
+      {"id": "C", "text": "17:00"},
+      {"id": "D", "text": "18:00"}
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {"tag": "T-ORDER", "diagnosis": "你可能把飞行时间和时区差一起减了。应先把东京时间推进3小时，再换算上海时间。", "follow_up": "飞机抵达那一瞬间，东京钟表显示几点？"},
+      "C": {"tag": "T-ZONE-STEP", "diagnosis": "17:00是抵达瞬间的东京时间，还没有换算到比东京晚1小时的上海。", "follow_up": "上海在东京以东还是以西几个时区？"},
+      "D": {"tag": "T-ZONE-DIR", "diagnosis": "上海位于东京以西，钟点应比东京少1小时，不能再加。", "follow_up": "东九区与东八区谁的钟点更早进入下一小时？"}
+    },
+    "explanation": "东京14:00加3小时为17:00；上海东八区比东京东九区晚1小时，所以北京时间为16:00。",
+    "key_points": ["飞行时间", "区时换算顺序", "两步计算"],
+    "review_after_days": [2, 6, 14]
+  },
+  {
+    "id": "GEO-TIME-007",
+    "topic_id": "physical.earth.time",
+    "title": "国际日界线：方向决定日期",
+    "source": "原创诊断题",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "一艘船自西向东越过国际日界线，钟点保持连续时，日期应：",
+    "options": [
+      {"id": "A", "text": "加一天"},
+      {"id": "B", "text": "减一天"},
+      {"id": "C", "text": "不变"},
+      {"id": "D", "text": "增加一小时"}
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {"tag": "T-DATE-IDL", "diagnosis": "过国际日界线的日期口诀方向用反了：向东越线减一天，向西越线加一天。", "follow_up": "把行进方向画成箭头，再写“东减西加”。"},
+      "C": {"tag": "T-DATE-IDL", "diagnosis": "国际日界线用于协调全球日期，越线时必须按方向调整一天。", "follow_up": "如果不改日期，绕地球一周后会出现什么矛盾？"},
+      "D": {"tag": "T-DATE-CARRY", "diagnosis": "国际日界线调整的是日期，不是只调整一小时。", "follow_up": "国际日界线两侧通常相差的是钟点还是日期？"}
+    },
+    "explanation": "自西向东越过国际日界线，日期减一天；自东向西越线，日期加一天。",
+    "key_points": ["国际日界线", "东减西加", "日期变化"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-TIME-008",
+    "topic_id": "physical.earth.time",
+    "title": "全球同一日期的特殊条件",
+    "source": "原创诊断题",
+    "type": "single_choice",
+    "difficulty": 3,
+    "stem": "理论上，全球处于同一日期的特殊时刻是：",
+    "options": [
+      {"id": "A", "text": "0°经线地方时为0:00"},
+      {"id": "B", "text": "90°E地方时为12:00"},
+      {"id": "C", "text": "180°经线地方时为0:00"},
+      {"id": "D", "text": "北京时间为0:00"}
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {"tag": "T-DATE-OM", "diagnosis": "0°经线为0时意味着自然日期界线位于0°，与180°国际日界线相隔最远，全球通常分属两个日期。", "follow_up": "全球同一日期要求0时经线与哪一条日期界线重合？"},
+      "B": {"tag": "T-DATE-OM", "diagnosis": "某条经线为正午并不能让两条日期界线重合。", "follow_up": "日期范围题真正需要追踪的是太阳直射点，还是0时经线？"},
+      "D": {"tag": "T-DATE-OM", "diagnosis": "北京时间0:00时，0时经线位于120°E，并未与180°经线重合。", "follow_up": "若120°E为0:00，180°经线地方时是多少？"}
+    },
+    "explanation": "全球同一日期要求自然日期界线（0时经线）与国际日界线（约180°经线）重合，即180°经线地方时为0:00。",
+    "key_points": ["0时经线", "180°经线", "全球日期范围"],
+    "review_after_days": [3, 7, 15]
   }
 ]

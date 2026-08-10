@@ -90,4 +90,62 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .rubric-list label { display: flex; align-items: flex-start; gap: 8px; border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-size: 12px; line-height: 1.5; }
 .rubric-list input { margin-top: 3px; accent-color: var(--teal); }
 .file-input { display: none; }
+.time-lab-entry { position: relative; overflow: hidden; background: linear-gradient(135deg, #143b5d 0%, #18566c 62%, #1d807b 100%); border: 0; color: white; }
+.time-lab-entry .small { color: #c8dfe6; }
+.time-lab-entry h2 { margin-top: 10px; font-size: 24px; }
+.lab-orbit { width: 58px; height: 58px; border: 2px solid rgba(255,255,255,.55); border-radius: 50%; position: relative; flex: 0 0 auto; }
+.lab-orbit::before { content: ""; position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--orange); right: -5px; top: 19px; box-shadow: 0 0 0 5px rgba(237,138,59,.18); }
+.time-lab-card { overflow: hidden; }
+.lab-reference { display: flex; justify-content: space-between; align-items: center; gap: 14px; background: var(--navy); color: white; border-radius: 14px; padding: 14px 16px; }
+.lab-reference span { color: #c5dce7; font-size: 12px; }
+.lab-reference strong { font-size: 19px; text-align: right; }
+.lab-model-note { margin-top: 9px; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.longitude-heading { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; }
+.longitude-heading output { color: var(--orange); font-size: 22px; font-weight: 800; }
+.longitude-scale { display: flex; justify-content: space-between; color: var(--muted); font-size: 10px; margin: 13px 2px 0; }
+.longitude-slider { width: 100%; height: 34px; margin: 0; background: transparent; accent-color: var(--orange); cursor: ew-resize; appearance: none; -webkit-appearance: none; }
+.longitude-slider::-webkit-slider-runnable-track { height: 7px; border-radius: 999px; background: linear-gradient(90deg, #b9d8e7 0 49.7%, #aebcc5 49.7% 50.3%, #f3c18e 50.3% 100%); }
+.longitude-slider::-webkit-slider-thumb { width: 24px; height: 24px; margin-top: -8px; border-radius: 50%; background: var(--orange); border: 4px solid white; box-shadow: 0 2px 7px rgba(24,50,71,.25); appearance: none; -webkit-appearance: none; }
+.longitude-slider::-moz-range-track { height: 7px; border-radius: 999px; background: linear-gradient(90deg, #b9d8e7 0 49.7%, #aebcc5 49.7% 50.3%, #f3c18e 50.3% 100%); }
+.longitude-slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--orange); border: 4px solid white; box-shadow: 0 2px 7px rgba(24,50,71,.25); }
+.clock-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 16px 0; }
+.clock-grid > div { min-width: 0; border: 1px solid var(--line); border-radius: 13px; padding: 12px 8px; background: #f8fbfc; text-align: center; }
+.clock-grid span, .clock-grid small { display: block; color: var(--muted); font-size: 10px; line-height: 1.4; }
+.clock-grid strong { display: block; color: var(--navy); font-size: 20px; margin: 5px 0 3px; }
+.locked-clocks > div:not(:first-child) { background: repeating-linear-gradient(135deg, #f7f9fa 0 8px, #eef3f4 8px 16px); }
+.locked-clocks > div:not(:first-child) strong { color: #9aabb5; }
+.prediction-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.prediction-options label { border: 1px solid var(--line); border-radius: 11px; padding: 10px 8px; font-size: 12px; text-align: center; }
+.prediction-options label:has(input:checked) { border-color: var(--teal); background: #eff8f7; }
+.prediction-options input { accent-color: var(--teal); }
+.lab-answer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+.lab-answer-grid label { display: grid; gap: 7px; color: var(--ink); font-size: 13px; font-weight: 700; }
+.time-input { width: 100%; border: 1px solid var(--line); border-radius: 11px; padding: 11px 12px; background: #fbfdfd; color: var(--ink); }
+.result-clocks > div:nth-child(2) { border-color: #bddbd9; background: #eff8f7; }
+.result-clocks > div:nth-child(3) { border-color: #f1d6b7; background: #fff8ef; }
+.lab-formula-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 18px 0; }
+.lab-formula-grid > div { border-top: 3px solid var(--teal); background: #f5f9fa; border-radius: 0 0 10px 10px; padding: 12px; }
+.lab-formula-grid > div:nth-child(2) { border-color: var(--orange); }
+.lab-formula-grid > div:nth-child(3) { border-color: var(--navy); }
+.lab-formula-grid span, .lab-formula-grid small { display: block; color: var(--muted); font-size: 10px; line-height: 1.45; }
+.lab-formula-grid strong { display: block; margin: 5px 0; font-size: 13px; line-height: 1.45; }
+.lab-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+.lab-check { border: 1px solid var(--line); border-radius: 11px; padding: 10px 11px; }
+.lab-check span, .lab-check small { display: block; font-size: 10px; color: var(--muted); }
+.lab-check strong { display: block; margin: 4px 0; font-size: 15px; }
+.lab-check.passed { border-color: #c8e7d2; background: #f0f8f3; }
+.lab-check.failed { border-color: #f0d1cb; background: #fff4f2; }
+.lab-check.passed strong { color: var(--green); }
+.lab-check.failed strong { color: var(--red); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.lab-parent-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin: 12px 0; }
+.lab-parent-summary span { border: 1px solid var(--line); border-radius: 10px; padding: 9px 7px; color: var(--muted); font-size: 10px; text-align: center; }
+.lab-parent-summary strong { display: block; color: var(--navy); font-size: 14px; margin-top: 3px; }
+@media (max-width: 520px) {
+  .lab-reference { align-items: flex-start; flex-direction: column; }
+  .lab-reference strong { text-align: left; }
+  .lab-answer-grid, .lab-formula-grid { grid-template-columns: 1fr; }
+  .clock-grid strong { font-size: 17px; }
+  .clock-grid > div { padding-inline: 5px; }
+}
 @media (min-width: 640px) { .topbar { padding-top: 28px; padding-bottom: 28px; } .card { padding: 22px; } }

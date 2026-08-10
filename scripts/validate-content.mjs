@@ -1,9 +1,11 @@
 import { readFile } from "node:fs/promises";
+import { calculateTimeLabAnswers, normalizeTimeAnswer } from "../assets/time-utils.js";
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
 const questions = JSON.parse(await readFile(new URL("../data/questions.json", import.meta.url), "utf8"));
 const paperReviews = JSON.parse(await readFile(new URL("../data/paper_reviews.json", import.meta.url), "utf8"));
 const retests = JSON.parse(await readFile(new URL("../data/retests.json", import.meta.url), "utf8"));
+const timeLab = JSON.parse(await readFile(new URL("../data/time_lab.json", import.meta.url), "utf8"));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
 
@@ -11,6 +13,7 @@ if (!Array.isArray(topics) || topics.length === 0) errors.push("topics.json 必�
 if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.json 必须是非空数组");
 if (!Array.isArray(paperReviews) || paperReviews.length === 0) errors.push("paper_reviews.json 必须是非空数组");
 if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json 必须是非空数组");
+if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 
 const ids = new Set();
 for (const question of questions) {
@@ -51,10 +54,11 @@ for (const review of paperReviews) {
 
 const retestIds = new Set();
 for (const retest of retests) {
-  if (retest.schema_version !== "0.2.0") errors.push(`${retest.id || "未知复测"} schema_version 必须为 0.2.0`);
+  if (!["0.2.0", "0.3.0"].includes(retest.schema_version)) errors.push(`${retest.id || "未知复测"} schema_version 不受支持`);
   if (retestIds.has(retest.id)) errors.push(`复测编号重复：${retest.id}`);
   retestIds.add(retest.id);
-  if (!paperIds.has(retest.source_paper_review_id)) errors.push(`${retest.id} 引用了不存在的试卷复盘`);
+  if (retest.schema_version === "0.2.0" && !paperIds.has(retest.source_paper_review_id)) errors.push(`${retest.id} 引用了不存在的试卷复盘`);
+  if (retest.schema_version === "0.3.0" && !topicIds.has(retest.source_topic_id)) errors.push(`${retest.id} 引用了不存在的主题`);
   const rubricIds = new Set();
   let maxPoints = 0;
   for (const question of retest.questions || []) {
@@ -72,9 +76,41 @@ for (const retest of retests) {
   }
 }
 
+if (timeLab?.schema_version !== "0.3.0") errors.push("time_lab.json schema_version 必须为 0.3.0");
+if (timeLab && !topicIds.has(timeLab.topic_id)) errors.push("time_lab.json 引用了不存在的主题");
+const scenarioIds = new Set();
+for (const scenario of timeLab?.scenarios || []) {
+  if (scenarioIds.has(scenario.id)) errors.push(`时区实验场景编号重复：${scenario.id}`);
+  scenarioIds.add(scenario.id);
+  if (!Number.isInteger(scenario.utc_minutes) || scenario.utc_minutes < 0 || scenario.utc_minutes >= 1440) {
+    errors.push(`${scenario.id} utc_minutes 必须是0至1439的整数`);
+  }
+  if (!Number.isInteger(scenario.starting_longitude) || Math.abs(scenario.starting_longitude) > 175) {
+    errors.push(`${scenario.id} starting_longitude 必须是-175至175的整数`);
+  }
+}
+
+const calculationChecks = [
+  {scenario: "TIME-LAB-02", longitude: 116, local: "11:44", zone: "12:00", date: "同一天"},
+  {scenario: "TIME-LAB-03", longitude: 150, local: "04:30", zone: "04:30", date: "后一天"},
+  {scenario: "TIME-LAB-04", longitude: -90, local: "21:20", zone: "21:20", date: "前一天"},
+  {scenario: "TIME-LAB-08", longitude: -165, local: "13:20", zone: "13:20", date: "前一天"}
+];
+for (const check of calculationChecks) {
+  const scenario = timeLab?.scenarios?.find((item) => item.id === check.scenario);
+  if (!scenario) { errors.push(`缺少计算校验场景：${check.scenario}`); continue; }
+  const result = calculateTimeLabAnswers(scenario, check.longitude);
+  if (result.local_time !== check.local || result.zone_time !== check.zone || result.date_relation !== check.date) {
+    errors.push(`${check.scenario} 时间联动计算不符合预期`);
+  }
+}
+if (normalizeTimeAnswer("9:00") !== "09:00" || normalizeTimeAnswer("2400") !== "") {
+  errors.push("时区实验时间输入规范化失败");
+}
+
 if (errors.length) {
   console.error(errors.map((error) => `✗ ${error}`).join("\n"));
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${questions.length} 道选择题，${paperReviews.length} 份试卷复盘，${retests.length} 组复测`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${paperReviews.length} 份试卷复盘，${retests.length} 组复测`);
