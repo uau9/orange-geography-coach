@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const ASSET_VERSION = "0.3.1";
+const ASSET_VERSION = "0.3.2";
 
 function formatClock(totalMinutes) {
   const normalized = ((Math.round(totalMinutes) % 1440) + 1440) % 1440;
@@ -30,6 +30,13 @@ function normalizeTimeAnswer(value = "") {
   const minutes = Number(match[2]);
   if (hours > 23 || minutes > 59) return "";
   return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+}
+
+function readTimeParts(form, prefix) {
+  const hours = String(form.get(`${prefix}-hour`) || "").trim();
+  const minutes = String(form.get(`${prefix}-minute`) || "").trim();
+  if (!hours || !minutes) return "";
+  return normalizeTimeAnswer(`${hours}:${minutes.padStart(2, "0")}`);
 }
 
 function calculateTimeLabAnswers(scenario, longitude) {
@@ -276,8 +283,8 @@ function renderTimeLab() {
           ${["东经", "西经", "本初子午线"].map((value) => `<label><input type="radio" name="lab-relation" value="${value}" /> ${value}</label>`).join("")}
         </div>
         <div class="lab-answer-grid">
-          <label><span>2. 目标经度的地方时</span><input name="lab-local-time" class="time-input" inputmode="numeric" placeholder="如 11:44" autocomplete="off" /></label>
-          <label><span>3. 目标经度采用的理论区时</span><input name="lab-zone-time" class="time-input" inputmode="numeric" placeholder="如 12:00" autocomplete="off" /></label>
+          <label><span>2. 目标经度的地方时（时：分）</span><span class="time-parts"><input name="lab-local-time-hour" class="time-input" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="时" autocomplete="off" aria-label="地方时小时" data-time-part /><span class="time-separator" aria-hidden="true">:</span><input name="lab-local-time-minute" class="time-input" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="分" autocomplete="off" aria-label="地方时分钟" data-time-part /></span></label>
+          <label><span>3. 目标经度采用的理论区时（时：分）</span><span class="time-parts"><input name="lab-zone-time-hour" class="time-input" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="时" autocomplete="off" aria-label="理论区时小时" data-time-part /><span class="time-separator" aria-hidden="true">:</span><input name="lab-zone-time-minute" class="time-input" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="分" autocomplete="off" aria-label="理论区时分钟" data-time-part /></span></label>
         </div>
         <label class="field-label" for="lab-date-relation">4. 理论区时相对UTC所示日期是：</label>
         <select id="lab-date-relation" name="lab-date-relation">
@@ -509,13 +516,13 @@ document.addEventListener("submit", (event) => {
     const longitude = Number(document.querySelector("#lab-longitude")?.value);
     const answers = {
       relation: form.get("lab-relation") || "",
-      local_time: normalizeTimeAnswer(form.get("lab-local-time") || ""),
-      zone_time: normalizeTimeAnswer(form.get("lab-zone-time") || ""),
+      local_time: readTimeParts(form, "lab-local-time"),
+      zone_time: readTimeParts(form, "lab-zone-time"),
       date_relation: form.get("lab-date-relation") || ""
     };
     const reasoning = String(form.get("lab-reasoning") || "").trim();
     if (!answers.relation || !answers.local_time || !answers.zone_time || !answers.date_relation || !reasoning) {
-      return alert("请完成四项预测并写出判断链，再解锁联动结果。时间请写成如11:44的格式。");
+      return alert("请完成四项预测并写出判断链，再解锁联动结果。时间的小时和分钟请分别填写，例如11和44。");
     }
     const correctAnswers = calculateTimeLabAnswers(scenario, longitude);
     const checks = {
@@ -570,6 +577,10 @@ document.addEventListener("submit", (event) => {
 });
 
 document.addEventListener("input", (event) => {
+  if (event.target.matches("[data-time-part]")) {
+    event.target.value = event.target.value.replace(/\D/g, "").slice(0, 2);
+    return;
+  }
   if (event.target.id !== "lab-longitude") return;
   const longitude = Number(event.target.value);
   const label = document.querySelector("#lab-longitude-label");
