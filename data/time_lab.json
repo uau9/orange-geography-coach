@@ -1,8 +1,19 @@
 {
-  "schema_version": "0.3.0",
+  "schema_version": "0.4.0",
   "topic_id": "physical.earth.time",
   "title": "时区实验室",
   "description": "先预测目标经度的地方时、理论区时和日期，再解锁三种时间的联动结果。",
+  "places": [
+    {"id": "nome", "name": "诺姆", "longitude": -165, "latitude": 64, "kind": "city"},
+    {"id": "north-america-west", "name": "北美西部", "longitude": -120, "latitude": 42, "kind": "region"},
+    {"id": "new-orleans", "name": "新奥尔良", "longitude": -90, "latitude": 30, "kind": "city"},
+    {"id": "london", "name": "伦敦", "longitude": 0, "latitude": 51, "kind": "city"},
+    {"id": "east-africa", "name": "东非地区", "longitude": 45, "latitude": 8, "kind": "region"},
+    {"id": "central-india", "name": "印度中部", "longitude": 75, "latitude": 22, "kind": "region"},
+    {"id": "beijing", "name": "北京", "longitude": 116, "latitude": 40, "kind": "city"},
+    {"id": "hangzhou", "name": "杭州", "longitude": 120, "latitude": 30, "kind": "city"},
+    {"id": "australia-east", "name": "澳大利亚东部", "longitude": 150, "latitude": -30, "kind": "region"}
+  ],
   "scenarios": [
     {"id": "TIME-LAB-01", "utc_date": "6月15日", "utc_minutes": 240, "starting_longitude": 120},
     {"id": "TIME-LAB-02", "utc_date": "6月15日", "utc_minutes": 240, "starting_longitude": 116},

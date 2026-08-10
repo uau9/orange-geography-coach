@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/time-lab.v0.4",
+  "title": "时区实验室内容 v0.4",
+  "type": "object",
+  "required": ["schema_version", "topic_id", "title", "description", "places", "scenarios"],
+  "properties": {
+    "schema_version": {"const": "0.4.0"},
+    "topic_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "description": {"type": "string", "minLength": 1},
+    "places": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "longitude", "latitude", "kind"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "longitude": {"type": "integer", "minimum": -175, "maximum": 175},
+          "latitude": {"type": "integer", "minimum": -90, "maximum": 90},
+          "kind": {"enum": ["city", "region"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "utc_date", "utc_minutes", "starting_longitude"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "utc_date": {"type": "string", "minLength": 1},
+          "utc_minutes": {"type": "integer", "minimum": 0, "maximum": 1439},
+          "starting_longitude": {"type": "integer", "minimum": -175, "maximum": 175}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

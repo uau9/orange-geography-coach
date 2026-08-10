@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const ASSET_VERSION = "0.3.2";
+const ASSET_VERSION = "0.4.0";
 
 function formatClock(totalMinutes) {
   const normalized = ((Math.round(totalMinutes) % 1440) + 1440) % 1440;
@@ -155,6 +155,71 @@ function getTimeLabScenario() {
   const scenarios = catalog.timeLab?.scenarios || [];
   return scenarios.length ? scenarios[state.timeLabScenarioIndex % scenarios.length] : null;
 }
+
+function getPlaceAtLongitude(longitude) {
+  return (catalog.timeLab?.places || []).find((place) => place.longitude === longitude) || null;
+}
+
+function renderWorldMap(longitude) {
+  const places = catalog.timeLab?.places || [];
+  const selectedPlace = getPlaceAtLongitude(longitude);
+  const meridianX = longitude + 180;
+  return `
+    <div class="world-map-block">
+      <div class="world-map" aria-label="平面世界地图，经度从西经180度到东经180度">
+        <svg viewBox="0 0 360 180" role="img" aria-label="点击地图选择目标经度" data-action="select-map-longitude">
+          <rect class="map-ocean" width="360" height="180" rx="12" />
+          <g class="map-grid" aria-hidden="true">
+            <path d="M60 0V180M120 0V180M180 0V180M240 0V180M300 0V180" />
+            <path d="M0 30H360M0 60H360M0 90H360M0 120H360M0 150H360" />
+          </g>
+          <g class="map-land" aria-hidden="true">
+            <path d="M18 36L39 20 70 15 103 28 117 44 105 59 90 70 78 76 64 65 59 52 39 50 25 60 10 53Z" />
+            <path d="M86 86L110 91 126 108 123 135 109 165 99 149 94 121Z" />
+            <path d="M135 13L161 7 175 22 162 39 142 33Z" />
+            <path d="M166 43L191 34 209 47 201 60 180 61 165 53Z" />
+            <path d="M177 64L203 58 224 78 216 113 198 145 182 124 171 91Z" />
+            <path d="M200 39L228 23 266 26 305 38 338 56 344 73 318 85 287 76 267 94 244 88 225 69 207 62Z" />
+            <path d="M281 116L316 109 341 129 332 151 300 154 283 136Z" />
+            <path d="M0 168L360 168 341 179 21 179Z" />
+          </g>
+          <line id="lab-selected-meridian" class="map-selected-meridian" x1="${meridianX}" y1="0" x2="${meridianX}" y2="180" aria-hidden="true" />
+        </svg>
+        ${places.map((place) => `<button type="button" class="map-place ${place.longitude === longitude ? "active" : ""}" data-action="select-place" data-longitude="${place.longitude}" style="--map-x:${((place.longitude + 180) / 360) * 100}%;--map-y:${((90 - place.latitude) / 180) * 100}%" aria-label="选择${escapeHtml(place.name)}，${longitudeLabel(place.longitude)}"><span class="map-place-label">${escapeHtml(place.name)}</span></button>`).join("")}
+      </div>
+      <p class="map-hint">点地图可选任意经度；点地点名称可快速定位。</p>
+      <div class="place-shortcuts" aria-label="城市和地点快捷选择">
+        ${places.map((place) => `<button type="button" class="place-chip ${place.longitude === longitude ? "active" : ""}" data-action="select-place" data-longitude="${place.longitude}"><span>${escapeHtml(place.name)}</span><small>${longitudeLabel(place.longitude)}</small></button>`).join("")}
+      </div>
+      <div class="longitude-scale" aria-hidden="true"><span>175°W</span><span>0°</span><span>175°E</span></div>
+      <input id="lab-longitude" class="longitude-slider" name="longitude" type="range" min="-175" max="175" step="1" value="${longitude}" aria-label="目标经度" style="--marker:${((longitude + 175) / 350) * 100}%" />
+    </div>
+    <div class="longitude-selection-note">当前地点：<strong id="lab-place-label">${escapeHtml(selectedPlace?.name || "自选经度")}</strong> · <output id="lab-longitude-label">${longitudeLabel(longitude)}</output></div>
+  `;
+}
+
+function updateLabLongitudeSelection(rawLongitude) {
+  const parsed = Number(rawLongitude);
+  if (!Number.isFinite(parsed)) return;
+  const longitude = Math.max(-175, Math.min(175, Math.round(parsed)));
+  const slider = document.querySelector("#lab-longitude");
+  if (slider) {
+    slider.value = String(longitude);
+    slider.style.setProperty("--marker", `${((longitude + 175) / 350) * 100}%`);
+  }
+  const longitudeOutput = document.querySelector("#lab-longitude-label");
+  if (longitudeOutput) longitudeOutput.textContent = longitudeLabel(longitude);
+  const placeOutput = document.querySelector("#lab-place-label");
+  if (placeOutput) placeOutput.textContent = getPlaceAtLongitude(longitude)?.name || "自选经度";
+  const meridian = document.querySelector("#lab-selected-meridian");
+  if (meridian) {
+    meridian.setAttribute("x1", String(longitude + 180));
+    meridian.setAttribute("x2", String(longitude + 180));
+  }
+  document.querySelectorAll("[data-action='select-place']").forEach((button) => {
+    button.classList.toggle("active", Number(button.dataset.longitude) === longitude);
+  });
+}
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => button.classList.toggle("active", button.dataset.route === state.route));
@@ -174,8 +239,8 @@ function renderToday() {
     <h2 class="page-title">今天，先留下一个真实判断</h2>
     <p class="page-subtitle">不追求题量。先预测、再观察、最后解释；AI负责提出诊断候选，家长负责确认。</p>
     <section class="card time-lab-entry">
-      <div class="attempt-head"><div><span class="pill orange">v0.3 时区专项</span><h2>时区实验室</h2></div><span class="lab-orbit" aria-hidden="true"></span></div>
-      <p>拖动目标经度，先预测地方时、理论区时和日期，再解锁同一瞬间的三种时间。</p>
+      <div class="attempt-head"><div><span class="pill orange">v0.4 地图时区专项</span><h2>时区实验室</h2></div><span class="lab-orbit" aria-hidden="true"></span></div>
+      <p>在世界地图上选择城市或地点，先预测地方时、理论区时和日期，再解锁同一瞬间的三种时间。</p>
       ${latestLab ? `<p class="small">最近一次：${latestLab.score}/4 · ${escapeHtml(latestLab.parent_review_status)} · ${formatDate(latestLab.submitted_at)}</p>` : `<p class="small">第一轮建议从120°E开始，重点观察UTC与北京时间的关系。</p>`}
       <div class="btn-row"><button class="btn orange" data-action="start-time-lab">进入实验室</button><button class="btn secondary" data-action="start-time-diagnostic">做时区诊断题</button></div>
     </section>
@@ -260,17 +325,15 @@ function renderTimeLab() {
   const activeAttempt = getTimeLabAttempt(state.activeTimeLabAttemptId);
   if (activeAttempt) return renderTimeLabResult(scenario, activeAttempt);
   const longitude = scenario.starting_longitude;
-  const markerPosition = ((longitude + 175) / 350) * 100;
   app.innerHTML = `
     <div class="topic-meta">自然地理 · 时区与地方时 · ${escapeHtml(scenario.id)}</div>
     <h2 class="page-title">时区实验室</h2>
-    <p class="page-subtitle">先预测，再解锁。拖动经度不会显示答案，提交后才会看到三种时间如何联动。</p>
+    <p class="page-subtitle">先在地图上找到地点，再预测时间。选择经度不会显示答案，提交后才会看到三种时间如何联动。</p>
     <section class="card time-lab-card">
       <div class="lab-reference"><span>全球参考时刻</span><strong>${escapeHtml(scenario.utc_date)} UTC ${formatClock(scenario.utc_minutes)}</strong></div>
       <div class="lab-model-note">理论模型：地方时按经度每1°差4分钟；区时按最近的15°中央经线计算。不考虑均时差、夏令时和法定边界。</div>
-      <div class="longitude-heading"><strong>选择目标经度</strong><output id="lab-longitude-label">${longitudeLabel(longitude)}</output></div>
-      <div class="longitude-scale" aria-hidden="true"><span>175°W</span><span>0°</span><span>175°E</span></div>
-      <input id="lab-longitude" class="longitude-slider" name="longitude" type="range" min="-175" max="175" step="1" value="${longitude}" aria-label="目标经度" style="--marker:${markerPosition}%" />
+      <div class="longitude-heading"><strong>选择目标地点或经度</strong><span>地图建立空间感，滑杆用于精确选择</span></div>
+      ${renderWorldMap(longitude)}
       <div class="clock-grid locked-clocks" aria-label="提交预测后解锁的时间结果">
         <div><span>UTC</span><strong>${formatClock(scenario.utc_minutes)}</strong><small>${escapeHtml(scenario.utc_date)}</small></div>
         <div><span>地方时</span><strong>--:--</strong><small>提交后解锁</small></div>
@@ -459,6 +522,16 @@ document.addEventListener("click", async (event) => {
   const actionTarget = event.target.closest("[data-action]");
   if (!actionTarget) return;
   const action = actionTarget.dataset.action;
+  if (action === "select-map-longitude") {
+    const rect = actionTarget.getBoundingClientRect();
+    const longitude = ((event.clientX - rect.left) / rect.width) * 360 - 180;
+    updateLabLongitudeSelection(longitude);
+    return;
+  }
+  if (action === "select-place") {
+    updateLabLongitudeSelection(actionTarget.dataset.longitude);
+    return;
+  }
   if (action === "goto") {
     state.route = actionTarget.dataset.route;
     saveState(); render();
@@ -582,10 +655,7 @@ document.addEventListener("input", (event) => {
     return;
   }
   if (event.target.id !== "lab-longitude") return;
-  const longitude = Number(event.target.value);
-  const label = document.querySelector("#lab-longitude-label");
-  if (label) label.textContent = longitudeLabel(longitude);
-  event.target.style.setProperty("--marker", `${((longitude + 175) / 350) * 100}%`);
+  updateLabLongitudeSelection(event.target.value);
 });
 
 document.addEventListener("change", async (event) => {

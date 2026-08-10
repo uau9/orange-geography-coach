@@ -14,6 +14,7 @@ if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.
 if (!Array.isArray(paperReviews) || paperReviews.length === 0) errors.push("paper_reviews.json 必须是非空数组");
 if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json 必须是非空数组");
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
+if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 
 const ids = new Set();
 for (const question of questions) {
@@ -76,8 +77,23 @@ for (const retest of retests) {
   }
 }
 
-if (timeLab?.schema_version !== "0.3.0") errors.push("time_lab.json schema_version 必须为 0.3.0");
+if (timeLab?.schema_version !== "0.4.0") errors.push("time_lab.json schema_version 必须为 0.4.0");
 if (timeLab && !topicIds.has(timeLab.topic_id)) errors.push("time_lab.json 引用了不存在的主题");
+const placeIds = new Set();
+const placeLongitudes = new Set();
+for (const place of timeLab?.places || []) {
+  if (placeIds.has(place.id)) errors.push(`时区实验地点编号重复：${place.id}`);
+  placeIds.add(place.id);
+  if (!place.name?.trim()) errors.push(`${place.id || "未知地点"} 缺少地点名称`);
+  if (!Number.isInteger(place.longitude) || Math.abs(place.longitude) > 175) {
+    errors.push(`${place.id} longitude 必须是-175至175的整数`);
+  }
+  if (!Number.isInteger(place.latitude) || Math.abs(place.latitude) > 90) {
+    errors.push(`${place.id} latitude 必须是-90至90的整数`);
+  }
+  if (placeLongitudes.has(place.longitude)) errors.push(`时区实验地点经度重复：${place.longitude}`);
+  placeLongitudes.add(place.longitude);
+}
 const scenarioIds = new Set();
 for (const scenario of timeLab?.scenarios || []) {
   if (scenarioIds.has(scenario.id)) errors.push(`时区实验场景编号重复：${scenario.id}`);
@@ -87,6 +103,9 @@ for (const scenario of timeLab?.scenarios || []) {
   }
   if (!Number.isInteger(scenario.starting_longitude) || Math.abs(scenario.starting_longitude) > 175) {
     errors.push(`${scenario.id} starting_longitude 必须是-175至175的整数`);
+  }
+  if (!placeLongitudes.has(scenario.starting_longitude)) {
+    errors.push(`${scenario.id} starting_longitude 没有对应的城市或地点`);
   }
 }
 
