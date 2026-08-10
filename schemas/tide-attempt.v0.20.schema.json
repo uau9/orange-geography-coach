@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://uau9.github.io/orange-geography-coach/schemas/tide-attempt.v0.20.schema.json", "title": "潮汐周期与月相实验记录 v0.20", "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "id", "scenario_id", "case_id", "category", "answers", "correct_answers", "checks", "score", "error_tags", "reasoning", "submitted_at", "parent_review_status", "parent_note"],
+  "properties": {
+    "schema_version": { "const": "0.20.0" }, "id": { "type": "string" }, "scenario_id": { "type": "string", "pattern": "^TD-[0-9]{2}$" }, "case_id": { "type": "string" }, "category": { "enum": ["spring", "neap", "transition"] },
+    "answers": { "$ref": "#/$defs/answers" }, "correct_answers": { "$ref": "#/$defs/answers" }, "checks": { "type": "object", "additionalProperties": false, "required": ["geometry", "tide_type", "range", "cycle", "conclusion"], "properties": { "geometry": { "type": "boolean" }, "tide_type": { "type": "boolean" }, "range": { "type": "boolean" }, "cycle": { "type": "boolean" }, "conclusion": { "type": "boolean" } } },
+    "score": { "type": "integer", "minimum": 0, "maximum": 5 }, "error_tags": { "type": "array", "items": { "type": "string" } }, "reasoning": { "type": "string", "minLength": 1 }, "submitted_at": { "type": "string", "format": "date-time" }, "parent_review_status": { "enum": ["待家长确认", "已确认", "需再练", "需教师复核"] }, "parent_note": { "type": "string" }
+  },
+  "$defs": { "answers": { "type": "object", "additionalProperties": false, "required": ["geometry", "tide_type", "range", "cycle", "conclusion"], "properties": { "geometry": { "type": "string" }, "tide_type": { "type": "string" }, "range": { "type": "string" }, "cycle": { "type": "string" }, "conclusion": { "type": "string" } } } }
+}

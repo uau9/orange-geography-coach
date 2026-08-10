@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.19.0",
+  "schema_version": "0.20.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -158,6 +158,18 @@
       "order": 26
     },
     {
+      "id": "tide-lab",
+      "eyebrow": "潮汐周期专项",
+      "title": "潮汐周期与月相",
+      "summary": "沿八个月相比较日月引潮作用，判断大潮、小潮、潮差变化与太阴日，并区分总体规律和当地潮汐预报。",
+      "action": "start-tide",
+      "route": null,
+      "cta": "进入潮汐实验室",
+      "status_kind": "tide",
+      "accent": "teal",
+      "order": 27
+    },
+    {
       "id": "solar-path-lab",
       "eyebrow": "太阳视运动专项",
       "title": "日出日落与太阳视运动",
@@ -167,7 +179,7 @@
       "cta": "进入太阳视运动实验室",
       "status_kind": "solar_path",
       "accent": "sky",
-      "order": 27
+      "order": 28
     },
     {
       "id": "time-zone-lab",
@@ -179,7 +191,7 @@
       "cta": "进入时区实验室",
       "status_kind": "time_lab",
       "accent": "teal",
-      "order": 28
+      "order": 29
     },
     {
       "id": "diagnostic-questions",

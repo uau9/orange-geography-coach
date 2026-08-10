@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.19.0", ASSET_VERSION: "0.19.0", EXPORT_SCHEMA_VERSION: "0.19.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.20.0", ASSET_VERSION: "0.20.0", EXPORT_SCHEMA_VERSION: "0.20.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null };
 
 function defaultState() {
   return {
@@ -102,6 +102,8 @@ function defaultState() {
     moonPhaseScenarioIndex: 0,
     activeEclipseAttemptId: null,
     eclipseScenarioIndex: 0,
+    activeTideAttemptId: null,
+    tideScenarioIndex: 0,
     attempts: [],
     retestAttempts: [],
     timeLabAttempts: [],
@@ -119,6 +121,7 @@ function defaultState() {
     solarActivityAttempts: [],
     moonPhaseAttempts: [],
     eclipseAttempts: [],
+    tideAttempts: [],
     coachAnnotations: [],
     lastAction: ""
   };
@@ -179,6 +182,7 @@ function normalizeState(parsed) {
   normalized.solarActivityAttempts = Array.isArray(parsed?.solarActivityAttempts) ? parsed.solarActivityAttempts : Array.isArray(parsed?.solar_activity_attempts) ? parsed.solar_activity_attempts : [];
   normalized.moonPhaseAttempts = Array.isArray(parsed?.moonPhaseAttempts) ? parsed.moonPhaseAttempts : Array.isArray(parsed?.moon_phase_attempts) ? parsed.moon_phase_attempts : [];
   normalized.eclipseAttempts = Array.isArray(parsed?.eclipseAttempts) ? parsed.eclipseAttempts : Array.isArray(parsed?.eclipse_attempts) ? parsed.eclipse_attempts : [];
+  normalized.tideAttempts = Array.isArray(parsed?.tideAttempts) ? parsed.tideAttempts : Array.isArray(parsed?.tide_attempts) ? parsed.tide_attempts : [];
   normalized.coachAnnotations = Array.isArray(parsed?.coachAnnotations)
     ? parsed.coachAnnotations
     : Array.isArray(parsed?.coach_annotations)
@@ -222,6 +226,7 @@ function getHabitabilityAttempt(id) { return state.habitabilityAttempts.find((at
 function getSolarActivityAttempt(id) { return state.solarActivityAttempts.find((attempt) => attempt.id === id); }
 function getMoonPhaseAttempt(id) { return state.moonPhaseAttempts.find((attempt) => attempt.id === id); }
 function getEclipseAttempt(id) { return state.eclipseAttempts.find((attempt) => attempt.id === id); }
+function getTideAttempt(id) { return state.tideAttempts.find((attempt) => attempt.id === id); }
 function getActiveQuestion() { return getQuestion(state.currentQuestionId) || chooseNextQuestion(); }
 function chooseNextQuestion() {
   const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
@@ -263,9 +268,10 @@ function latestHabitabilityAttempts() { return [...state.habitabilityAttempts].s
 function latestSolarActivityAttempts() { return [...state.solarActivityAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestMoonPhaseAttempts() { return [...state.moonPhaseAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestEclipseAttempts() { return [...state.eclipseAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestTideAttempts() { return [...state.tideAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function completedToday() {
   const today = new Date().toDateString();
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts]
     .filter((attempt) => attempt.submitted_at && new Date(attempt.submitted_at).toDateString() === today).length;
 }
 function topicStats(topic) {
@@ -1023,6 +1029,43 @@ function renderEclipseLab() {
   app.innerHTML = feature.renderLab({ lab: catalog.eclipseLab, scenario, item, scenarioIndex: state.eclipseScenarioIndex % catalog.eclipseLab.scenarios.length });
 }
 
+function getTideScenario(id = null) {
+  const scenarios = catalog.tideLab?.scenarios || [];
+  if (!scenarios.length) return null;
+  return id ? scenarios.find((scenario) => scenario.id === id) || scenarios[0] : scenarios[state.tideScenarioIndex % scenarios.length];
+}
+
+function getTideCase(id) {
+  return window.OrangeCoach?.features?.tide?.getCase(catalog.tideLab, id);
+}
+
+function tideMasteryStatus() {
+  const reviewHours = catalog.tideLab?.review_after_hours || 48;
+  const confirmed = [...state.tideAttempts]
+    .filter((attempt) => attempt.score === 5 && attempt.parent_review_status === "已确认" && ["spring", "neap"].includes(attempt.category))
+    .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+  if (confirmed.length < 2) return { label: "待验证", detail: `需要大潮与小潮情境各满分一次，间隔至少${reviewHours}小时并由家长确认。`, mastered: false };
+  const latest = confirmed.at(-1);
+  const earlier = [...confirmed].reverse().find((attempt) => attempt.category !== latest.category && new Date(latest.submitted_at) - new Date(attempt.submitted_at) >= reviewHours * 3600000);
+  return earlier
+    ? { label: "延迟复测通过", detail: `大潮与小潮情境均通过，且间隔至少${reviewHours}小时。`, mastered: true }
+    : { label: "等待换潮型复测", detail: `还需切换到${latest.category === "spring" ? "小潮" : "大潮"}情境，并间隔至少${reviewHours}小时。`, mastered: false };
+}
+
+function renderTideLab() {
+  const feature = window.OrangeCoach?.features?.tide;
+  const scenario = getTideScenario();
+  const item = getTideCase(scenario?.case_id);
+  if (!feature || !scenario || !item) { app.innerHTML = `<section class="card empty">潮汐实验数据尚未加载。</section>`; return; }
+  const attempt = getTideAttempt(state.activeTideAttemptId);
+  if (attempt) {
+    const attemptScenario = getTideScenario(attempt.scenario_id);
+    app.innerHTML = feature.renderResult({ lab: catalog.tideLab, scenario: attemptScenario, item: getTideCase(attempt.case_id), attempt });
+    return;
+  }
+  app.innerHTML = feature.renderLab({ lab: catalog.tideLab, scenario, item, scenarioIndex: state.tideScenarioIndex % catalog.tideLab.scenarios.length });
+}
+
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => button.classList.toggle("active", button.dataset.route === state.route));
@@ -1042,6 +1085,7 @@ function render() {
   if (state.route === "solar-activity-lab") return renderSolarActivityLab();
   if (state.route === "moon-phase-lab") return renderMoonPhaseLab();
   if (state.route === "eclipse-lab") return renderEclipseLab();
+  if (state.route === "tide-lab") return renderTideLab();
   if (state.route === "train") return renderTrain();
   if (state.route === "projects") return renderProjects();
   if (state.route === "mastery") return renderMastery();
@@ -1056,7 +1100,7 @@ function renderToday() {
     recommendation: getTodayRecommendation(),
     stats: [
       { value: completedToday(), label: "今日完成" },
-      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length, label: "学习证据" },
+      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length, label: "学习证据" },
       { value: countPendingParentReviews(), label: "待家长确认" }
     ],
     recent: getRecentEvidence().slice(0, 3)
@@ -1064,7 +1108,7 @@ function renderToday() {
 }
 
 function countPendingParentReviews() {
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts]
     .filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
 }
 
@@ -1154,6 +1198,12 @@ function projectStatus(project) {
       ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.eclipseAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
       : { status_label: "待开始", status_tone: "", status_detail: "尚未留下月相交点、影区、食象与可见范围判断证据" };
   }
+  if (project.status_kind === "tide") {
+    const latest = latestTideAttempts()[0];
+    return latest
+      ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.tideAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下月相几何、潮型、潮差、周期与局地边界判断证据" };
+  }
   if (project.status_kind === "diagnostic") {
     const latest = latestAttempts()[0];
     return latest
@@ -1187,6 +1237,7 @@ function getTodayRecommendation() {
   const latestSolarActivity = latestSolarActivityAttempts()[0];
   const latestMoonPhase = latestMoonPhaseAttempts()[0];
   const latestEclipse = latestEclipseAttempts()[0];
+  const latestTide = latestTideAttempts()[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const latestPath = latestSolarPathAttempts()[0];
   const latestTime = latestTimeLabAttempts()[0];
@@ -1228,6 +1279,9 @@ function getTodayRecommendation() {
   } else if (!latestEclipse) {
     project = byId("eclipse-lab");
     reason = "已有月相与轨道倾角基础，继续把交点、影锥、食象和地表可见范围连成一条证据链。";
+  } else if (!latestTide) {
+    project = byId("tide-lab");
+    reason = "已有月相位置基础，继续把日月引潮方向、大潮小潮、潮差周期和当地预报边界连成一条链。";
   } else if(!latestDateRange){project=byId("date-range-lab");reason="已有地方时基础，继续用0时经线和180°经线划分全球日期范围。";
   } else if (!latestPath) {
     project = byId("solar-path-lab");
@@ -1271,6 +1325,9 @@ function getTodayRecommendation() {
   } else if (latestEclipse.score < 5 || latestEclipse.parent_review_status === "需再练") {
     project = byId("eclipse-lab");
     reason = "最近一次日月食记录仍有候选错因，换日食或月食情境，重新区分影区与可见范围。";
+  } else if (latestTide.score < 5 || latestTide.parent_review_status === "需再练") {
+    project = byId("tide-lab");
+    reason = "最近一次潮汐记录仍有候选错因，换大潮或小潮情境，重新连接月相、潮差和局地边界。";
   } else if(latestDateRange.score<5||latestDateRange.parent_review_status==="需再练"){project=byId("date-range-lab");reason="最近一次全球日期记录仍有候选错因，换UTC时刻和跨线方向再次验证。";
   } else if (latestPath.score < 4 || latestPath.parent_review_status === "需再练") {
     project = byId("solar-path-lab");
@@ -1280,7 +1337,7 @@ function getTodayRecommendation() {
     reason = "最近一次时区实验仍有候选错因，换经度和时刻检查能否迁移。";
   } else {
     project = byId("diagnostic-questions");
-    reason = "十五个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
+    reason = "十六个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
   }
   return project ? { ...project, reason, status: project.status_detail } : null;
 }
@@ -1374,6 +1431,7 @@ function getRecentEvidence() {
   const solarActivity = state.solarActivityAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getSolarActivityScenario(attempt.scenario_id)?.headline || attempt.scenario_id}`, meta: `太阳活动证据判读 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const moonPhase = state.moonPhaseAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getMoonPhase(attempt.phase_id)?.name || attempt.phase_id}`, meta: `月相位置与可见时段 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const eclipse = state.eclipseAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getEclipseCase(attempt.case_id)?.name || attempt.case_id}`, meta: `日月食几何与可见范围 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
+  const tide = state.tideAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getTideCase(attempt.case_id)?.name || attempt.case_id}`, meta: `潮汐周期与月相 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const retests = state.retestAttempts.map((attempt) => ({
     submitted_at: attempt.submitted_at,
     title: getRetest(attempt.retest_id)?.title || attempt.retest_id,
@@ -1381,7 +1439,7 @@ function getRecentEvidence() {
     status: attempt.parent_review_status,
     tone: evidenceTone(attempt.parent_review_status)
   }));
-  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...axialTilt, ...celestialScale, ...habitability, ...solarActivity, ...moonPhase, ...eclipse, ...dateRange, ...retests]
+  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...axialTilt, ...celestialScale, ...habitability, ...solarActivity, ...moonPhase, ...eclipse, ...tide, ...dateRange, ...retests]
     .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at));
 }
 
@@ -1567,6 +1625,7 @@ function renderMastery() {
   const latestSolarActivity = latestSolarActivityAttempts()[0];
   const latestMoonPhase = latestMoonPhaseAttempts()[0];
   const latestEclipse = latestEclipseAttempts()[0];
+  const latestTide = latestTideAttempts()[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const motionMastery = earthMotionMasteryStatus();
   const solarMastery = solarSeasonMasteryStatus();
@@ -1581,6 +1640,7 @@ function renderMastery() {
   const solarActivityMastery = solarActivityMasteryStatus();
   const moonPhaseMastery = moonPhaseMasteryStatus();
   const eclipseMastery = eclipseMasteryStatus();
+  const tideMastery = tideMasteryStatus();
   const dateRangeMastery = dateRangeMasteryStatus();
   app.innerHTML = `
     <h2 class="page-title">掌握与复测</h2>
@@ -1601,6 +1661,7 @@ function renderMastery() {
     <section class="card"><div class="attempt-head"><div><span class="pill orange">太阳活动专项</span><h3>太阳源—传播载体—到达时标—地球响应</h3></div><span class="pill ${solarActivityMastery.mastered ? "green" : "orange"}">${escapeHtml(solarActivityMastery.label)}</span></div><p class="small">${latestSolarActivity ? `最近实验：${escapeHtml(latestSolarActivity.scenario_id)} · ${latestSolarActivity.score}/5 · ${escapeHtml(latestSolarActivity.parent_review_status)} · ${formatDate(latestSolarActivity.submitted_at)}` : "先完成一次太阳活动实验，留下现象、载体、时标和影响判断链。"}</p><p class="small">${escapeHtml(solarActivityMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-solar-activity">进入太阳活动实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">月相专项</span><h3>日地月位置—亮面—盈亏—可见时段</h3></div><span class="pill ${moonPhaseMastery.mastered ? "green" : "orange"}">${escapeHtml(moonPhaseMastery.label)}</span></div><p class="small">${latestMoonPhase ? `最近实验：${escapeHtml(getMoonPhase(latestMoonPhase.phase_id)?.name || latestMoonPhase.phase_id)} · ${latestMoonPhase.score}/5 · ${escapeHtml(latestMoonPhase.parent_review_status)} · ${formatDate(latestMoonPhase.submitted_at)}` : "先完成一次月相实验，留下相对位置、亮面、盈亏和可见时段判断链。"}</p><p class="small">${escapeHtml(moonPhaseMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-moon-phase">进入月相实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">日月食专项</span><h3>月相交点—影锥—食象—可见范围</h3></div><span class="pill ${eclipseMastery.mastered ? "green" : "orange"}">${escapeHtml(eclipseMastery.label)}</span></div><p class="small">${latestEclipse ? `最近实验：${escapeHtml(getEclipseCase(latestEclipse.case_id)?.name || latestEclipse.case_id)} · ${latestEclipse.score}/5 · ${escapeHtml(latestEclipse.parent_review_status)} · ${formatDate(latestEclipse.submitted_at)}` : "先完成一次日月食实验，留下位置、影区、食象与可见范围判断链。"}</p><p class="small">${escapeHtml(eclipseMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-eclipse">进入日月食实验室</button></div></section>
+    <section class="card"><div class="attempt-head"><div><span class="pill orange">潮汐周期专项</span><h3>月相几何—引潮叠加—潮差—周期—局地边界</h3></div><span class="pill ${tideMastery.mastered ? "green" : "orange"}">${escapeHtml(tideMastery.label)}</span></div><p class="small">${latestTide ? `最近实验：${escapeHtml(getTideCase(latestTide.case_id)?.name || latestTide.case_id)} · ${latestTide.score}/5 · ${escapeHtml(latestTide.parent_review_status)} · ${formatDate(latestTide.submitted_at)}` : "先完成一次潮汐实验，留下月相、潮型、潮差、周期与证据边界判断链。"}</p><p class="small">${escapeHtml(tideMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-tide">进入潮汐实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">全球日期专项</span><h3>UTC—0时经线—日期带占比—日界线</h3></div><span class="pill ${dateRangeMastery.mastered ? "green" : "orange"}">${escapeHtml(dateRangeMastery.label)}</span></div><p class="small">${latestDateRange ? `最近实验：${escapeHtml(latestDateRange.scenario_id)} · ${latestDateRange.score}/5 · ${escapeHtml(latestDateRange.parent_review_status)} · ${formatDate(latestDateRange.submitted_at)}` : "先完成一次全球日期范围实验，留下0时经线、日期占比和跨线判断链。"}</p><p class="small">${escapeHtml(dateRangeMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-date-range">进入全球日期实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">太阳视运动专项</span><h3>直射点—日出日落—正午方位—影子</h3></div><span class="pill ${pathMastery.mastered ? "green" : "orange"}">${escapeHtml(pathMastery.label)}</span></div><p class="small">${latestPath ? `最近实验：${escapeHtml(getSolarPathDate(latestPath.date_id)?.name || latestPath.date_id)} · ${escapeHtml(getSolarPathPlace(latestPath.place_id)?.name || latestPath.place_id)} · ${latestPath.score}/4 · ${escapeHtml(latestPath.parent_review_status)} · ${formatDate(latestPath.submitted_at)}` : "先完成一次太阳视运动实验，留下日出、正午、日落和影子方向判断链。"}</p><p class="small">${escapeHtml(pathMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-solar-path">进入太阳视运动实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">时区专项</span><h3>预测—观察—解释</h3></div>${latestLab ? `<span class="pill ${latestLab.score >= 3 ? "green" : "orange"}">${latestLab.score}/4</span>` : `<span class="pill">待开始</span>`}</div><p class="small">${latestLab ? `最近实验：${longitudeLabel(latestLab.longitude)} · ${escapeHtml(latestLab.parent_review_status)} · ${formatDate(latestLab.submitted_at)}` : "先完成一次时区实验，再进入延迟复测。"}</p><div class="btn-row"><button class="btn orange" data-action="start-time-lab">进入时区实验室</button><button class="btn secondary" data-action="start-time-diagnostic">做8题诊断</button></div></section>
@@ -1632,6 +1693,7 @@ function renderParent() {
   const solarActivityAttempts = latestSolarActivityAttempts();
   const moonPhaseAttempts = latestMoonPhaseAttempts();
   const eclipseAttempts = latestEclipseAttempts();
+  const tideAttempts = latestTideAttempts();
   app.innerHTML = `
     <h2 class="page-title">家长审核页</h2>
     <p class="page-subtitle">只核验三件事：理由是否真实、诊断是否有证据、下一步是否可执行。</p>
@@ -1649,6 +1711,7 @@ function renderParent() {
     <section class="card"><h3>太阳活动证据判读审核</h3>${solarActivityAttempts.length ? `<div class="attempt-list">${solarActivityAttempts.map(renderParentSolarActivityAttempt).join("")}</div>` : `<div class="empty">橙子提交太阳源现象、传播载体、到达时标、地球影响与证据边界预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>月相位置与可见时段审核</h3>${moonPhaseAttempts.length ? `<div class="attempt-list">${moonPhaseAttempts.map(renderParentMoonPhaseAttempt).join("")}</div>` : `<div class="empty">橙子提交月相、可见亮面、盈亏变化、中天时刻与证据边界预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>日月食几何与可见范围审核</h3>${eclipseAttempts.length ? `<div class="attempt-list">${eclipseAttempts.map(renderParentEclipseAttempt).join("")}</div>` : `<div class="empty">橙子提交月相交点、关键影区、食象、可见范围与证据边界预测后，这里会出现五步判断证据。</div>`}</section>
+    <section class="card"><h3>潮汐周期与月相审核</h3>${tideAttempts.length ? `<div class="attempt-list">${tideAttempts.map(renderParentTideAttempt).join("")}</div>` : `<div class="empty">橙子提交月相几何、潮型、潮差、周期与局地边界预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>全球日期范围实验审核</h3>${dateRangeAttempts.length ? `<div class="attempt-list">${dateRangeAttempts.map(renderParentDateRangeAttempt).join("")}</div>` : `<div class="empty">橙子提交0时经线、日期占比、日期数量与跨日界线预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>太阳视运动实验审核</h3>${solarPathAttempts.length ? `<div class="attempt-list">${solarPathAttempts.map(renderParentSolarPathAttempt).join("")}</div>` : `<div class="empty">橙子提交日出日落与影子预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>时区实验审核</h3>${timeLabAttempts.length ? `<div class="attempt-list">${timeLabAttempts.map(renderParentTimeLabAttempt).join("")}</div>` : `<div class="empty">橙子提交时区预测后，这里会出现步骤证据。</div>`}</section>
@@ -1665,7 +1728,7 @@ function renderCoachAnnotation(annotation) {
 }
 
 function makeArchiveAnnotationPrompt() {
-  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts、axial_tilt_attempts、celestial_scale_attempts、habitability_attempts、solar_activity_attempts、moon_phase_attempts、eclipse_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
+  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts、axial_tilt_attempts、celestial_scale_attempts、habitability_attempts、solar_activity_attempts、moon_phase_attempts、eclipse_attempts、tide_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
 }
 
 const ERROR_TAG_LABELS = {
@@ -1755,7 +1818,12 @@ const ERROR_TAG_LABELS = {
   "EC-SHADOW-TYPE": "把本影、半影、伪本影及其投射对象混淆",
   "EC-ECLIPSE-TYPE": "日全食、日环食、日偏食或三类月食判断错误",
   "EC-VISIBILITY": "没有区分日食的局地影带与月食的广大夜半球可见范围",
-  "EC-EVIDENCE-BOUNDARY": "把新月/满月写成食的充分条件，或把局地食相推广到全球"
+  "EC-EVIDENCE-BOUNDARY": "把新月/满月写成食的充分条件，或把局地食相推广到全球",
+  "TD-GEOMETRY-PHASE": "没有把月相转换成太阳—地球—月球方向关系",
+  "TD-SPRING-NEAP": "混淆大潮、小潮与日月引潮作用的叠加方式",
+  "TD-TIDAL-RANGE": "把潮差大小、高潮水位和是否发生潮汐混为一谈",
+  "TD-LUNAR-DAY": "没有建立太阴日、每日常见潮次与朔望月潮序周期",
+  "TD-LOCAL-BOUNDARY": "把理想潮汐规律写成任意港口的精确潮时潮高预报"
 };
 
 function errorTagLabel(tag) { return ERROR_TAG_LABELS[tag] || tag; }
@@ -1853,6 +1921,12 @@ function renderParentEclipseAttempt(attempt) {
   const item = getEclipseCase(attempt.case_id);
   const correct = attempt.correct_answers || {};
   return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(item?.name || attempt.case_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 日月食几何与可见范围</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>影区/食象 <strong>${escapeHtml(correct.shadow)} · ${escapeHtml(correct.phenomenon)}</strong></span><span>可见范围 <strong>${escapeHtml(correct.visibility)}</strong></span><span>证据边界 <strong>${escapeHtml(correct.conclusion)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请切换日全食与月全食，追问为什么可见范围差异很大。</div>`}<label class="field-label" for="eclipse-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="eclipse-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="eclipse-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="eclipse-note-${escapeHtml(attempt.id)}" placeholder="例如：能区分日食和月食，但把本影带误写成整个白昼半球">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-eclipse-review" data-attempt-id="${escapeHtml(attempt.id)}">保存日月食审核</button></div></article>`;
+}
+
+function renderParentTideAttempt(attempt) {
+  const item = getTideCase(attempt.case_id);
+  const correct = attempt.correct_answers || {};
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(item?.name || attempt.case_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 潮汐周期与月相</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>潮型/潮差 <strong>${escapeHtml(correct.tide_type)} · ${escapeHtml(correct.range)}</strong></span><span>周期 <strong>${escapeHtml(correct.cycle)}</strong></span><span>证据边界 <strong>${escapeHtml(correct.conclusion)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请切换新月大潮与上弦月小潮，追问为什么“小潮”不等于没有涨落。</div>`}<label class="field-label" for="tide-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="tide-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="tide-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="tide-note-${escapeHtml(attempt.id)}" placeholder="例如：会认新月大潮，但仍把小潮解释为没有高潮低潮">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-tide-review" data-attempt-id="${escapeHtml(attempt.id)}">保存潮汐审核</button></div></article>`;
 }
 
 function renderParentSolarPathAttempt(attempt) {
@@ -2082,6 +2156,14 @@ document.addEventListener("click", async (event) => {
     state.route = "eclipse-lab";
     saveState(); render();
   }
+  if (action === "start-tide") {
+    const count = catalog.tideLab?.scenarios?.length || 0;
+    if (!count) return;
+    state.tideScenarioIndex = state.tideAttempts.length % count;
+    state.activeTideAttemptId = null;
+    state.route = "tide-lab";
+    saveState(); render();
+  }
   if (action === "start-date-range") {
     const count = catalog.dateRangeLab?.scenarios?.length || 0;
     if (!count) return;
@@ -2189,6 +2271,12 @@ document.addEventListener("click", async (event) => {
     state.route = "eclipse-lab";
     saveState(); render();
   }
+  if (action === "next-tide") {
+    state.tideScenarioIndex = (state.tideScenarioIndex + 1) % Math.max(catalog.tideLab?.scenarios?.length || 1, 1);
+    state.activeTideAttemptId = null;
+    state.route = "tide-lab";
+    saveState(); render();
+  }
   if (action === "next-date-range") {
     state.dateRangeScenarioIndex = (state.dateRangeScenarioIndex + 1) % Math.max(catalog.dateRangeLab?.scenarios?.length || 1, 1);
     state.activeDateRangeAttemptId = null;
@@ -2230,11 +2318,53 @@ document.addEventListener("click", async (event) => {
   if (action === "save-solar-activity-review") saveSolarActivityReview(actionTarget.dataset.attemptId);
   if (action === "save-moon-phase-review") saveMoonPhaseReview(actionTarget.dataset.attemptId);
   if (action === "save-eclipse-review") saveEclipseReview(actionTarget.dataset.attemptId);
+  if (action === "save-tide-review") saveTideReview(actionTarget.dataset.attemptId);
   if (action === "save-retest-review") saveRetestReview(actionTarget.dataset.attemptId);
   if (action === "export-data") exportData();
 });
 
 document.addEventListener("submit", (event) => {
+  if (event.target.id === "tide-form") {
+    event.preventDefault();
+    const feature = window.OrangeCoach?.features?.tide;
+    const scenario = getTideScenario();
+    const item = getTideCase(scenario?.case_id);
+    if (!feature || !scenario || !item) return;
+    const form = new FormData(event.target);
+    const answers = {
+      geometry: form.get("tide-geometry") || "",
+      tide_type: form.get("tide-type") || "",
+      range: form.get("tide-range") || "",
+      cycle: form.get("tide-cycle") || "",
+      conclusion: form.get("tide-conclusion") || ""
+    };
+    const reasoning = String(form.get("tide-reasoning") || "").trim();
+    if (Object.values(answers).some((answer) => !answer) || !reasoning) return alert("请完成五项预测并写出判断链，再解锁潮差模型。");
+    const correctAnswers = feature.calculate(scenario);
+    const checks = {
+      geometry: answers.geometry === correctAnswers.geometry,
+      tide_type: answers.tide_type === correctAnswers.tide_type,
+      range: answers.range === correctAnswers.range,
+      cycle: answers.cycle === correctAnswers.cycle,
+      conclusion: answers.conclusion === correctAnswers.conclusion
+    };
+    const errorTags = [];
+    if (!checks.geometry) errorTags.push("TD-GEOMETRY-PHASE");
+    if (!checks.tide_type) errorTags.push("TD-SPRING-NEAP");
+    if (!checks.range) errorTags.push("TD-TIDAL-RANGE");
+    if (!checks.cycle) errorTags.push("TD-LUNAR-DAY");
+    if (!checks.conclusion) errorTags.push("TD-LOCAL-BOUNDARY");
+    const attempt = {
+      schema_version: "0.20.0", id: newId(), scenario_id: scenario.id, case_id: item.id, category: item.category,
+      answers, correct_answers: correctAnswers, checks,
+      score: Object.values(checks).filter(Boolean).length, error_tags: errorTags, reasoning,
+      submitted_at: new Date().toISOString(), parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.tideAttempts.push(attempt);
+    state.activeTideAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
   if (event.target.id === "eclipse-form") {
     event.preventDefault();
     const feature = window.OrangeCoach?.features?.eclipse;
@@ -2883,6 +3013,10 @@ document.addEventListener("submit", (event) => {
 });
 
 document.addEventListener("input", (event) => {
+  if (event.target.id === "tide-progress") {
+    window.OrangeCoach?.features?.tide?.updateCycle(event.target.value, catalog.tideLab);
+    return;
+  }
   if (event.target.id === "eclipse-progress") {
     window.OrangeCoach?.features?.eclipse?.updateCycle(event.target.value, catalog.eclipseLab);
     return;
@@ -3009,8 +3143,8 @@ document.addEventListener("change", async (event) => {
     const imported = JSON.parse(await file.text());
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
-    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length;
-    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
+    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length;
+    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", "0.18.0", "0.19.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
     if (isAnnotatedArchive && localRecordCount > 0) {
       const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
       if (!mergeResult?.ok) throw new Error(mergeResult?.reason || "批注档案与当前记录不一致");
@@ -3035,6 +3169,7 @@ document.addEventListener("change", async (event) => {
       state.solarActivityAttempts = normalized.solarActivityAttempts;
       state.moonPhaseAttempts = normalized.moonPhaseAttempts;
       state.eclipseAttempts = normalized.eclipseAttempts;
+      state.tideAttempts = normalized.tideAttempts;
       state.coachAnnotations = normalized.coachAnnotations;
       state.lastAction = `已导入学习档案：${state.coachAnnotations.length} 条教练批注`;
     }
@@ -3187,6 +3322,14 @@ function saveEclipseReview(id) {
   saveState(); render();
 }
 
+function saveTideReview(id) {
+  const attempt = state.tideAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#tide-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#tide-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
 function addDaysIso(days) {
   const date = new Date();
   date.setDate(date.getDate() + days);
@@ -3226,7 +3369,7 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -3246,9 +3389,10 @@ async function init() {
       fetch(`./data/habitability_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/solar_activity_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/moon_phase_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
-      fetch(`./data/eclipse_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
+      fetch(`./data/eclipse_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/tide_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;
