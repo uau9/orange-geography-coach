@@ -244,6 +244,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .project-card[data-accent="indigo"] { --accent: #5269a5; }
 .project-card[data-accent="rose"] { --accent: #b55f73; }
 .project-card[data-accent="cosmic"] { --accent: #6657a7; }
+.project-card[data-accent="olive"] { --accent: #70833d; }
 .project-card[data-accent="orange"] { --accent: var(--orange); }
 .project-card[data-accent="slate"] { --accent: #71828f; }
 .project-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
@@ -575,6 +576,44 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .celestial-fact-strip div { min-width: 0; border: 1px solid #d6cfeb; border-radius: 10px; padding: 9px 10px; background: #f6f3fc; }
 .celestial-fact-strip span { display: block; color: var(--muted); font-size: 9px; }
 .celestial-fact-strip strong { display: block; margin-top: 4px; color: #55458e; font-size: 11px; line-height: 1.45; overflow-wrap: anywhere; }
+.habitability-scene-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.habitability-scene-bar > div { min-width: 0; border: 1px solid #d2dab8; border-radius: 12px; padding: 10px 12px; background: #f5f7ec; }
+.habitability-scene-bar span, .habitability-scene-bar strong { display: block; }
+.habitability-scene-bar span { color: var(--muted); font-size: 9px; }
+.habitability-scene-bar strong { margin-top: 4px; color: #56672c; font-size: 12px; line-height: 1.4; }
+.habitability-card { overflow: hidden; }
+.habitability-layout, .habitability-result-layout { display: grid; gap: 18px; }
+.habitability-model-wrap { min-width: 0; border: 1px solid #cbd4ae; border-radius: 16px; padding: 8px; background: #eef2e3; }
+.habitability-model { display: block; width: 100%; height: auto; border-radius: 12px; }
+.habitability-bg { fill: url(#habitability-space); }
+.habitability-sun { fill: #f5bf55; stroke: #fff2c6; stroke-width: 5; filter: drop-shadow(0 0 8px rgba(245,191,85,.58)); }
+.habitability-sun-label, .habitability-formula { fill: #dce8ed; font-size: 9px; font-weight: 800; }
+.habitability-orbits path { stroke: rgba(255,255,255,.2); stroke-width: 1; stroke-dasharray: 5 5; }
+.habitability-body circle { stroke: white; stroke-width: 3; }
+.habitability-body text { fill: white; font-size: 9px; font-weight: 900; paint-order: stroke; stroke: rgba(7,26,49,.74); stroke-width: 3px; }
+.habitability-body .habitability-au { fill: #dce8ed; font-size: 8px; }
+.habitability-lock rect { fill: rgba(13,37,65,.94); stroke: rgba(255,255,255,.24); stroke-width: 2; }
+.habitability-lock text { fill: white; font-size: 12px; font-weight: 900; }
+.habitability-lock text + text { font-size: 9px; font-weight: 700; }
+.habitability-evidence-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 4px 7px; color: #56672c; font-size: 10px; }
+.habitability-evidence-head span { color: var(--muted); }
+.habitability-evidence-table { overflow: hidden; border: 1px solid #d5ddbc; border-radius: 11px; background: white; }
+.habitability-evidence-row { display: grid; grid-template-columns: minmax(96px, .8fr) repeat(2, minmax(0, 1fr)); align-items: center; gap: 5px; min-width: 0; padding: 8px; border-bottom: 1px solid #e9ecdf; font-size: 9px; }
+.habitability-evidence-row:last-child { border-bottom: 0; }
+.habitability-evidence-row.head { background: #f4f7ea; color: #56672c; font-weight: 900; }
+.habitability-evidence-row span { color: var(--muted); }
+.habitability-evidence-row strong { min-width: 0; color: #2d4251; font-size: 9px; line-height: 1.35; overflow-wrap: anywhere; }
+.habitability-boundary { margin: 8px; border-left: 3px solid #70833d; padding: 9px 10px; background: #f5f7ec; color: #3a4b22; font-size: 10px; line-height: 1.55; }
+.habitability-prediction-panel { min-width: 0; }
+.habitability-prediction-panel fieldset { min-width: 0; margin: 0; padding: 12px 0; border: 0; border-bottom: 1px solid var(--line); }
+.habitability-prediction-panel legend { padding: 0; font-size: 13px; font-weight: 800; line-height: 1.45; }
+.habitability-choice-grid { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 9px; }
+.habitability-choice-grid label { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 8px; background: #fbfdf9; color: var(--ink); font-size: 10px; line-height: 1.35; text-align: center; overflow-wrap: anywhere; }
+.habitability-choice-grid label:has(input:checked) { border-color: #70833d; background: #f2f6e7; }
+.habitability-choice-grid input { width: 1px; height: 1px; margin: 0; opacity: 0; }
+.habitability-progress-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 12px 3px 0; color: var(--muted); font-size: 9px; }
+.habitability-progress-caption strong { color: #56672c; font-size: 12px; text-align: center; }
+.habitability-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #70833d; touch-action: pan-x; }
 @media (max-width: 520px) {
   .today-heading, .projects-heading { align-items: flex-start; }
   .today-heading .page-title, .projects-heading .page-title { font-size: 22px; }
@@ -602,6 +641,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .date-scene-bar,.date-readout{grid-template-columns:1fr}.date-choice-grid{grid-template-columns:1fr}
   .axial-scene-bar, .axial-readout, .axial-fact-strip { grid-template-columns: 1fr; }
   .celestial-scene-bar, .celestial-readout { grid-template-columns: 1fr; }
+  .habitability-scene-bar { grid-template-columns: 1fr; }
+  .habitability-evidence-row { grid-template-columns: minmax(78px, .72fr) repeat(2, minmax(0, 1fr)); padding-inline: 5px; }
   .celestial-progress-caption span { max-width: 27%; }
 }
 @media (min-width: 700px) {
@@ -628,6 +669,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .axial-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .celestial-layout { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: start; }
   .celestial-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
+  .habitability-layout { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: start; }
+  .habitability-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .motion-lab-layout { grid-template-columns: minmax(0, 1.22fr) minmax(290px, .78fr); align-items: start; }
   .motion-result-layout { grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); align-items: start; }
   .motion-prediction-panel { padding-left: 4px; }
@@ -641,4 +684,5 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .date-range-layout,.date-result-layout{grid-template-columns:1fr}
   .axial-tilt-layout, .axial-result-layout { grid-template-columns: 1fr; }
   .celestial-layout, .celestial-result-layout { grid-template-columns: 1fr; }
+  .habitability-layout, .habitability-result-layout { grid-template-columns: 1fr; }
 }

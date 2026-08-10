@@ -1,0 +1,120 @@
+{
+  "schema_version": "0.16.0",
+  "id": "habitability-lab",
+  "topic_id": "physical.earth.universe",
+  "title": "地球宜居条件对照实验室",
+  "review_after_hours": 48,
+  "model_note": "本实验只比较“地表长期稳定液态水的条件”，不把宜居性等同于已经存在生命。太阳辐射百分比按同一太阳下与日距离平方成反比作近似；真实行星气候还受反照率、云、环流、地质过程等影响。",
+  "bodies": [
+    {
+      "id": "venus",
+      "name": "金星",
+      "color": "#e8a84b",
+      "distance_au": 0.72,
+      "solar_flux_percent": 193,
+      "pressure_label": "约地球的93倍",
+      "pressure_ratio": 93,
+      "atmosphere": "极厚，主要为CO₂",
+      "temperature": "约467°C，极热",
+      "surface_water": "当前地表不能长期存在液态水",
+      "evidence_note": "厚重CO₂大气造成强烈温室效应；金星比水星离太阳更远，却是太阳系表面最热的行星。"
+    },
+    {
+      "id": "earth",
+      "name": "地球",
+      "color": "#48a9bd",
+      "distance_au": 1,
+      "solar_flux_percent": 100,
+      "pressure_label": "约1 bar",
+      "pressure_ratio": 1,
+      "atmosphere": "厚度适中，以N₂、O₂为主并含温室气体",
+      "temperature": "全球平均约15°C",
+      "surface_water": "海洋覆盖约71%，地表有长期稳定液态水",
+      "evidence_note": "适当的太阳辐射、气压和天然温室效应共同维持当前液态水环境。"
+    },
+    {
+      "id": "mars",
+      "name": "火星",
+      "color": "#c96b4b",
+      "distance_au": 1.52,
+      "solar_flux_percent": 43,
+      "pressure_label": "不足地球的1%",
+      "pressure_ratio": 0.006,
+      "atmosphere": "很薄，主要为CO₂",
+      "temperature": "约−153°C至20°C，热量易散失",
+      "surface_water": "有水冰，但当前地表液态水难以长期存在",
+      "evidence_note": "火星处在太阳宜居带外缘附近，但稀薄大气和低压使地表稳定液态水仍很困难。"
+    },
+    {
+      "id": "moon",
+      "name": "月球",
+      "color": "#b8b5af",
+      "distance_au": 1,
+      "solar_flux_percent": 100,
+      "pressure_label": "近似为0",
+      "pressure_ratio": 0,
+      "atmosphere": "只有极稀薄外逸层",
+      "temperature": "日照约127°C，黑夜约−173°C",
+      "surface_water": "极区有水冰，但没有地表长期稳定液态水",
+      "evidence_note": "与地球获得近似太阳辐射，却因几乎没有大气而温差极端；“发现水冰”不等于“发现生命”。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "HB-01", "body_a": "venus", "body_b": "earth", "pair_category": "different_solar", "challenge": "金星与地球：距离更近是否足以解释极端高温？",
+      "inference_choices": ["轨道距离与大气共同作用，不能只用离太阳远近解释温度", "大气越厚就一定越宜居", "只要是岩石行星就会有液态水", "发现CO₂就能证明有生命"],
+      "answers": { "higher_solar": "金星", "higher_pressure": "金星", "temperature_window": "地球", "stable_liquid_water": "地球", "best_inference": "轨道距离与大气共同作用，不能只用离太阳远近解释温度" }
+    },
+    {
+      "id": "HB-02", "body_a": "earth", "body_b": "mars", "pair_category": "different_solar", "challenge": "地球与火星：位于宜居带附近为何仍可能没有稳定液态水？",
+      "inference_choices": ["位于宜居带附近仍需合适的大气温度与压力", "位于宜居带就一定有生命", "火星只因自转方向不同而寒冷", "只要有水冰就等于有海洋"],
+      "answers": { "higher_solar": "地球", "higher_pressure": "地球", "temperature_window": "地球", "stable_liquid_water": "地球", "best_inference": "位于宜居带附近仍需合适的大气温度与压力" }
+    },
+    {
+      "id": "HB-03", "body_a": "earth", "body_b": "moon", "pair_category": "same_solar", "challenge": "地球与月球：近似相同太阳辐射下，为什么表面环境悬殊？",
+      "inference_choices": ["近似相同太阳辐射下，大气差异仍可造成巨大环境差异", "太阳辐射相同就一定有相同温度", "月球有水冰就证明有生命", "月球离太阳更近所以昼夜温差大"],
+      "answers": { "higher_solar": "近似相同", "higher_pressure": "地球", "temperature_window": "地球", "stable_liquid_water": "地球", "best_inference": "近似相同太阳辐射下，大气差异仍可造成巨大环境差异" }
+    },
+    {
+      "id": "HB-04", "body_a": "venus", "body_b": "mars", "pair_category": "different_solar", "challenge": "金星与火星：同以CO₂为主，为何表面温度仍相差巨大？",
+      "inference_choices": ["大气成分名称相似，不代表气压、总量和温室效应相同", "只要含CO₂，两颗行星温度就应相同", "火星有水冰，所以当前一定有海洋", "金星最热仅因为它最接近太阳"],
+      "answers": { "higher_solar": "金星", "higher_pressure": "金星", "temperature_window": "火星", "stable_liquid_water": "两者都缺少地表长期稳定液态水", "best_inference": "大气成分名称相似，不代表气压、总量和温室效应相同" }
+    },
+    {
+      "id": "HB-05", "body_a": "moon", "body_b": "earth", "pair_category": "same_solar", "challenge": "月球与地球：控制太阳辐射近似相同，单独比较大气作用",
+      "inference_choices": ["近似相同太阳辐射下，大气差异仍可造成巨大环境差异", "太阳辐射相同就一定有相同温度", "月球有水冰就证明有生命", "地球有大气只会使昼夜温差更大"],
+      "answers": { "higher_solar": "近似相同", "higher_pressure": "地球", "temperature_window": "地球", "stable_liquid_water": "地球", "best_inference": "近似相同太阳辐射下，大气差异仍可造成巨大环境差异" }
+    },
+    {
+      "id": "HB-06", "body_a": "mars", "body_b": "venus", "pair_category": "different_solar", "challenge": "火星与金星：把CO₂成分和大气厚度分开判断",
+      "inference_choices": ["大气成分名称相似，不代表气压、总量和温室效应相同", "只要含CO₂，两颗行星温度就应相同", "离太阳远近是唯一变量", "两颗行星当前都有稳定液态水"],
+      "answers": { "higher_solar": "金星", "higher_pressure": "金星", "temperature_window": "火星", "stable_liquid_water": "两者都缺少地表长期稳定液态水", "best_inference": "大气成分名称相似，不代表气压、总量和温室效应相同" }
+    },
+    {
+      "id": "HB-07", "body_a": "mars", "body_b": "earth", "pair_category": "different_solar", "challenge": "火星与地球：用压力和水的相态限制宜居结论",
+      "inference_choices": ["位于宜居带附近仍需合适的大气温度与压力", "有水冰就说明地表适合人类直接生活", "火星CO₂比例高所以一定比地球热", "发现古河道就证明今天有生命"],
+      "answers": { "higher_solar": "地球", "higher_pressure": "地球", "temperature_window": "地球", "stable_liquid_water": "地球", "best_inference": "位于宜居带附近仍需合适的大气温度与压力" }
+    },
+    {
+      "id": "HB-08", "body_a": "earth", "body_b": "venus", "pair_category": "different_solar", "challenge": "地球与金星：检验“离太阳近就是唯一原因”",
+      "inference_choices": ["轨道距离与大气共同作用，不能只用离太阳远近解释温度", "大气越厚越能支持生命", "金星和地球大小近似，所以环境应相同", "只有氧气含量决定液态水"],
+      "answers": { "higher_solar": "金星", "higher_pressure": "金星", "temperature_window": "地球", "stable_liquid_water": "地球", "best_inference": "轨道距离与大气共同作用，不能只用离太阳远近解释温度" }
+    }
+  ],
+  "error_tags": {
+    "H-SOLAR-FLUX": "没有用日距平方反比比较接收的太阳辐射",
+    "H-ATMOSPHERE-PRESSURE": "把大气成分比例与大气总量、气压混为一谈",
+    "H-TEMP-WINDOW": "只按日距判断温度，没有结合大气温室效应",
+    "H-LIQUID-WATER": "把水冰或水分子误当成地表长期稳定液态水",
+    "H-EVIDENCE-BOUNDARY": "把宜居条件、液态水证据直接写成存在生命的证明"
+  },
+  "sources": [
+    { "title": "NASA: What determines if a planet can have life?", "url": "https://science.nasa.gov/astrobiology/learning-resources/alp/if-a-planet-can-have-life/", "supports": "宜居带只是初筛，距离、大气、液态水与生命证据边界" },
+    { "title": "NASA: Universe Glossary — habitable zone and pressure", "url": "https://science.nasa.gov/universe/glossary/", "supports": "宜居带约0.9—1.5 AU、行星气压与金星温室效应" },
+    { "title": "NASA: Venus Facts", "url": "https://science.nasa.gov/venus/venus-facts/", "supports": "金星温度、气压和CO₂大气" },
+    { "title": "NASA: Mars Facts", "url": "https://science.nasa.gov/mars/facts/", "supports": "火星稀薄大气、温度范围、水冰与液态水限制" },
+    { "title": "NASA: Facts About Earth", "url": "https://science.nasa.gov/earth/facts/", "supports": "地球海洋覆盖和大气组成" },
+    { "title": "NASA: Moon Facts", "url": "https://science.nasa.gov/moon/facts/", "supports": "月球极稀薄大气、温差、水冰与液态水限制" },
+    { "title": "NASA: Climate and Earth's Energy Budget", "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/", "supports": "地球天然温室效应和平均地表温度约15°C" }
+  ]
+}

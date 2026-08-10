@@ -10,7 +10,7 @@
 
 - `learning_projects.json` 是所有学习项目的导航清单；
 - `questions.json`、`retests.json` 是诊断与复测内容；
-- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json` 是专题实验模型；
+- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json` 是专题实验模型；
 - 内容文件不直接包含HTML，也不保存浏览器作答状态。
 
 ### 2. 格式约束：`schemas/`
@@ -31,6 +31,7 @@
 - `date-range.js`：0时经线、全球日期范围、日期占比和跨日界线计算及渲染；
 - `axial-tilt.js`：黄赤交角、回归线、极圈、五带宽度与反事实滑轨计算及渲染；
 - `celestial-scale.js`：地月系、太阳系、银河系与可观测宇宙的层级缩放、尺度锚点和位置辨析；
+- `habitability.js`：金星、地球、火星和月球的轨道、大气、温度、液态水与生命证据边界对照；
 - `learning-export.js`：学习档案摘要、时间戳和文件名；
 - 后续专题可继续拆分自己的渲染和计算模块。
 
@@ -51,9 +52,9 @@
 
 ## 版本规则
 
-- 应用资源版本当前为 `0.15.0`，集中定义在 `assets/config.js`；
+- 应用资源版本当前为 `0.16.0`，集中定义在 `assets/config.js`；
 - LocalStorage 学习记录仍使用兼容版本 `0.3.0`，避免破坏已有浏览器数据；
-- 导出档案独立使用 `export_schema_version: 0.15.0`；
+- 导出档案独立使用 `export_schema_version: 0.16.0`；
 - 修改数据结构时分别判断“应用版本、记录版本、导出版本”是否需要升级。
 
 ## 完成检查
