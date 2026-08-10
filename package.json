@@ -1,0 +1,10 @@
+{
+  "name": "orange-geography-coach",
+  "version": "0.2.0",
+  "private": true,
+  "description": "橙子的 AI + 家长高中地理诊断学习工具",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "test": "node scripts/validate-content.mjs"
+  }
+}

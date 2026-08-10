@@ -1,0 +1,23 @@
+[
+  {
+    "id": "physical.atmosphere",
+    "name": "大气运动与天气",
+    "category": "自然地理",
+    "description": "热力差异、气压梯度、风向与局地环流",
+    "order": 1
+  },
+  {
+    "id": "human.urban",
+    "name": "城市与区域发展",
+    "category": "人文地理",
+    "description": "城市热岛、空间联系与人地关系",
+    "order": 2
+  },
+  {
+    "id": "regional.resources",
+    "name": "资源利用与区域规划",
+    "category": "区域认知",
+    "description": "自然条件、开发条件与可持续利用",
+    "order": 3
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/retest.v0.2",
+  "type": "object",
+  "required": ["schema_version", "id", "source_paper_review_id", "title", "source", "review_after_days", "dataset", "questions", "pass_rule"],
+  "properties": {
+    "schema_version": {"const": "0.2.0"},
+    "id": {"type": "string", "pattern": "^RETEST-[A-Z0-9-]+$"},
+    "source_paper_review_id": {"type": "string"},
+    "source": {"const": "原创诊断题"},
+    "review_after_days": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "integer", "minimum": 1}
+    },
+    "dataset": {
+      "type": "object",
+      "required": ["title", "columns", "rows"]
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "prompt", "max_points", "rubric_points"]
+      }
+    },
+    "pass_rule": {
+      "type": "object",
+      "required": ["min_points", "required_rubric_ids"]
+    }
+  }
+}

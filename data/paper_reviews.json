@@ -1,0 +1,76 @@
+[
+  {
+    "schema_version": "0.2.0",
+    "id": "PAPER-SZGZ-2026-FINAL",
+    "title": "2025-2026学年第二学期期末考试",
+    "scope": "家庭学习诊断",
+    "source_note": "用户提供的校内答题卡与标准答案，仅用于家庭诊断，不作为公开题库内容。",
+    "scores": {
+      "raw": {
+        "earned": 44,
+        "max": 100,
+        "objective": {"earned": 24, "max": 48},
+        "subjective": {"earned": 20, "max": 52}
+      },
+      "standard": {
+        "earned": 70,
+        "scale_note": "家长提供的标准分；不得与卷面原始分直接比较或混合计算。"
+      }
+    },
+    "reviewed_question": {
+      "id": "Q19",
+      "title": "图表趋势、时间尺度与因果链",
+      "earned_points": 6,
+      "max_points": 20,
+      "diagnosis_status": "候选",
+      "subquestions": [
+        {
+          "id": "Q19-1",
+          "earned_points": 2,
+          "max_points": 6,
+          "answer_evidence": "逐段写出海拔区间和近似数值，但没有概括总体关系、最大值和最小值。",
+          "rubric_points": [
+            "不同海拔的冰川退缩速率存在明显差异",
+            "随海拔升高，冰川退缩速率降低",
+            "低海拔最大，高海拔最小"
+          ],
+          "error_tags": ["trend_generalization_missing", "extreme_value_missing"]
+        },
+        {
+          "id": "Q19-2",
+          "earned_points": 0,
+          "max_points": 4,
+          "answer_evidence": "设问要求判断季节，作答却写成夏季及多年变化趋势。",
+          "rubric_points": [
+            "判断水储量峰值位于春季",
+            "用冬季固态水持续积累、春季达到峰值解释"
+          ],
+          "error_tags": ["time_scale_mismatch", "answer_direction_error"]
+        },
+        {
+          "id": "Q19-3",
+          "earned_points": 2,
+          "max_points": 6,
+          "answer_evidence": "将趋势写成逐年增加，没有识别先增加后减少的转折，原因也没有分阶段。",
+          "rubric_points": [
+            "概括年径流总量先增加后减少",
+            "前期随冰雪融水增加，径流增加",
+            "后期因冰川面积或储量减少，径流减少"
+          ],
+          "error_tags": ["turning_point_missed", "causal_staging_missing"]
+        },
+        {
+          "id": "Q19-4",
+          "earned_points": 2,
+          "max_points": 4,
+          "answer_evidence": "写到冰川退缩和雪线上升，但缺少反射率下降与吸收太阳辐射增加的中间环节。",
+          "rubric_points": [
+            "冰雪面积减少使地表反射率下降",
+            "吸收太阳辐射增加，升温和消融增强，雪线上升加快"
+          ],
+          "error_tags": ["feedback_chain_incomplete"]
+        }
+      ]
+    }
+  }
+]

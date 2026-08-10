@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/question.v0.1",
+  "type": "object",
+  "required": ["id", "topic_id", "stem", "options", "answer", "error_map", "explanation", "review_after_days"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^GEO-[A-Z]+-[0-9]{3}$"},
+    "topic_id": {"type": "string"},
+    "stem": {"type": "string", "minLength": 10},
+    "options": {"type": "array", "minItems": 2, "items": {"type": "object", "required": ["id", "text"]}},
+    "answer": {"type": "string"},
+    "error_map": {"type": "object"},
+    "explanation": {"type": "string", "minLength": 10},
+    "review_after_days": {"type": "array", "items": {"type": "integer", "minimum": 1}}
+  }
+}
