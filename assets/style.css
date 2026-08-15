@@ -863,6 +863,56 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .tide-progress-caption strong { color: #226a65; font-size: 12px; }
 .tide-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #318b83; touch-action: pan-x; }
 .tide-boundary-note { margin-top: 10px; border-color: #bcded8; background: #ecf9f6; }
+.weather-scene-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.weather-scene-bar > div { min-width: 0; border: 1px solid #c9dce5; border-radius: 12px; padding: 10px 12px; background: #f1f8fb; }
+.weather-scene-bar span, .weather-scene-bar strong { display: block; }
+.weather-scene-bar span { color: var(--muted); font-size: 9px; }
+.weather-scene-bar strong { margin-top: 4px; color: var(--navy); font-size: 12px; line-height: 1.45; }
+.weather-system-card { overflow: hidden; }
+.weather-system-layout { display: grid; gap: 18px; }
+.weather-system-model { display: block; width: 100%; height: auto; border: 1px solid #bfd5df; border-radius: 16px; background: #edf7fb; }
+.weather-sky { fill: #edf7fb; }
+.weather-ground { fill: none; stroke: #705a45; stroke-width: 5; stroke-linecap: round; }
+.front-cold-mass { fill: #cfe7f6; stroke: #6aa9cf; stroke-width: 2; }
+.front-warm-mass { fill: #ffe1b3; stroke: #ee9b52; stroke-width: 2; }
+.front-boundary { fill: none; stroke: #6a7580; stroke-width: 3; }
+.front-cold-motion { fill: none; stroke: #4b91b8; stroke-width: 5; stroke-linecap: round; }
+.front-cold-motion marker path { fill: #4b91b8; }
+.front-warm-motion { fill: none; stroke: var(--orange); stroke-width: 5; stroke-linecap: round; }
+.front-warm-motion marker path { fill: var(--orange); }
+.front-rain path:first-child { fill: #98a9b6; stroke: #607787; stroke-width: 1.5; }
+.front-rain path:not(:first-child) { fill: none; stroke: #438fb8; stroke-width: 3; stroke-linecap: round; }
+.front-rain text, .weather-label, .weather-note, .isobar-value { fill: var(--ink); font-size: 11px; font-weight: 700; }
+.weather-note { fill: #526b7b; font-size: 10px; }
+.weather-prediction-panel { min-width: 0; }
+.weather-prediction-panel fieldset { min-width: 0; margin: 0; padding: 12px 0; border: 0; border-bottom: 1px solid var(--line); }
+.weather-prediction-panel legend { padding: 0; font-size: 13px; font-weight: 800; line-height: 1.45; }
+.weather-choice-grid { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 9px; }
+.weather-choice-grid label { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 8px; background: #f8fbfd; color: var(--ink); font-size: 10px; line-height: 1.4; text-align: center; overflow-wrap: anywhere; }
+.weather-choice-grid label:has(input:checked) { border-color: var(--teal); background: #eaf6f5; }
+.weather-choice-grid input { width: 1px; height: 1px; margin: 0; opacity: 0; }
+.cyclone-model marker path { fill: var(--teal); }
+.isobar { fill: none; stroke: #7d9cad; stroke-width: 1.6; }
+.cyclone-rotation { fill: none; stroke: var(--teal); stroke-width: 4; stroke-linecap: round; }
+.cyclone-radial { fill: none; stroke: #718a99; stroke-width: 2; stroke-dasharray: 5 5; }
+.pressure-center { stroke-width: 3; }
+.pressure-center.low { fill: #e8f2fb; stroke: #4c8eb8; }
+.pressure-center.high { fill: #fff0dc; stroke: var(--orange); }
+.pressure-letter { fill: var(--navy); font-size: 25px; font-weight: 800; }
+.isobar-value { fill: #5f7685; font-size: 8px; }
+.vertical-arrow { fill: none; stroke: var(--teal); stroke-width: 4; }
+.weather-symbol { fill: var(--navy); font-size: 18px; font-weight: 800; }
+.atmosphere-model marker path { fill: var(--teal); }
+.circulation-band.high { fill: #dff0df; stroke: #6a9d72; stroke-width: 1.4; }
+.circulation-band.low { fill: #e6dcf3; stroke: #8a70aa; stroke-width: 1.4; }
+.circulation-band + text, .circulation-band ~ text { fill: var(--ink); font-size: 9px; font-weight: 800; }
+.circulation-wind { fill: none; stroke: #d65a87; stroke-width: 3; stroke-linecap: round; }
+.atmosphere-equator { stroke: rgba(36, 89, 112, .38); stroke-width: 1.5; stroke-dasharray: 5 5; }
+.atmosphere-target { stroke: var(--orange); stroke-width: 2.5; stroke-dasharray: 6 5; }
+.atmosphere-target-dot { fill: var(--orange); }
+.monsoon-ocean { fill: #dff2f8; }
+.monsoon-land { fill: #f4dfbd; stroke: #c69860; stroke-width: 2; }
+.monsoon-flow { fill: none; stroke: var(--teal); stroke-width: 6; stroke-linecap: round; }
 @media (max-width: 520px) {
   .question-page-heading, .diagnostic-catalog-heading { align-items: stretch; flex-direction: column; }
   .question-page-heading .btn, .diagnostic-catalog-heading .btn { align-self: flex-start; }
@@ -907,6 +957,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .eclipse-card h3 { font-size: 18px; }
   .tide-scene-bar { grid-template-columns: 1fr; }
   .tide-card h3 { font-size: 18px; }
+  .weather-scene-bar { grid-template-columns: 1fr; }
+  .weather-system-card h3 { font-size: 18px; }
   .habitability-evidence-row { grid-template-columns: minmax(78px, .72fr) repeat(2, minmax(0, 1fr)); padding-inline: 5px; }
   .celestial-progress-caption span { max-width: 27%; }
 }
@@ -944,6 +996,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .eclipse-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
   .tide-layout { grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr); align-items: start; }
   .tide-result-layout { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); align-items: start; }
+  .weather-system-layout { grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr); align-items: start; }
   .motion-lab-layout { grid-template-columns: minmax(0, 1.22fr) minmax(290px, .78fr); align-items: start; }
   .motion-result-layout { grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); align-items: start; }
   .motion-prediction-panel { padding-left: 4px; }
@@ -962,4 +1015,5 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
   .moon-phase-layout, .moon-phase-result-layout { grid-template-columns: 1fr; }
   .eclipse-layout, .eclipse-result-layout { grid-template-columns: 1fr; }
   .tide-layout, .tide-result-layout { grid-template-columns: 1fr; }
+  .weather-system-layout { grid-template-columns: 1fr; }
 }

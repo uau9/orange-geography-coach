@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/front-weather-lab.v0.23.schema.json",
+  "title": "锋面天气实验室 v0.23",
+  "type": "object",
+  "required": ["schema_version", "id", "title", "topic_id", "review_after_hours", "model_note", "choices", "error_tags", "scenarios"],
+  "properties": {
+    "schema_version": {"const": "0.23.0"},
+    "id": {"const": "front-weather-lab"},
+    "review_after_hours": {"type": "integer", "minimum": 48},
+    "scenarios": {
+      "type": "array",
+      "minItems": 4,
+      "items": {"type": "object", "required": ["id", "name", "front_type", "context", "answers"]}
+    }
+  }
+}

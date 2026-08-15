@@ -10,8 +10,9 @@
 
 - `learning_projects.json` 是所有学习项目的导航清单；
 - `curriculum_catalog.json` 是教材册—章—节目录，保存题目和项目的课程位置；`topic_id` 仍独立用于错因统计与掌握分析；
+- `presentation_catalog.json` 是章节 PPT 的机器可读目录，保存稳定的 deck、slide、lab 和 question 映射；
 - `questions.json`、`retests.json` 是诊断与复测内容；
-- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json`、`solar_activity_lab.json`、`moon_phase_lab.json`、`eclipse_lab.json`、`tide_lab.json`、`coriolis_lab.json` 是专题实验模型；
+- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json`、`solar_activity_lab.json`、`moon_phase_lab.json`、`eclipse_lab.json`、`tide_lab.json`、`coriolis_lab.json`、`front_weather_lab.json`、`cyclone_system_lab.json`、`atmosphere_reasoning_labs.json` 是专题实验模型；
 - 内容文件不直接包含HTML，也不保存浏览器作答状态。
 
 ### 2. 格式约束：`schemas/`
@@ -38,6 +39,9 @@
 - `eclipse.js`：新月/满月与交点、本影/半影/伪本影、日月食类型和地表可见范围；
 - `tide.js`：八相日月方向、引潮作用、大潮/小潮、潮差周期与当地预报边界；
 - `coriolis.js`：地转偏向力半球规则、相对偏向与地图方位转换；
+- `front-weather.js`：冷锋、暖锋、准静止锋的剖面模型与过境天气判断；
+- `cyclone-system.js`：高低压、南北半球旋转、垂直运动与阴晴联动；
+- `atmosphere-reasoning.js`：三圈环流、气压带风带季节移动、海陆气压中心与季风的通用五步实验；
 - `learning-export.js`：学习档案摘要、时间戳和文件名；
 - 后续专题可继续拆分自己的渲染和计算模块。
 
@@ -65,11 +69,19 @@
 4. `active` 表示当前学习，`available` 表示已有可用内容，`planned` 表示即将学习，`registered` 表示仅登记目录；
 5. 校验脚本必须阻止不存在的引用、重复归属和未归类内容。
 
+## 新增或更新章节 PPT
+
+1. 在 `data/presentation_catalog.json` 登记稳定的 `deck_id`、`slide_id`、`lab_id` 和 `question_id`；
+2. 保持题目页与答案页分离，并把外部来源写入页眉和演讲者备注；
+3. 只改文字或视觉时不改变稳定编号；调序或增删页面时同步更新目录；
+4. 后续项目接入按 `docs/PRESENTATION_INTEGRATION_PLAN.md` 分阶段进行，不把“打开 PPT”记为掌握；
+5. 更新 schema 和校验脚本，执行 `npm test`。
+
 ## 版本规则
 
-- 应用资源版本当前为 `0.22.0`，集中定义在 `assets/config.js`；
+- 应用资源版本当前为 `0.24.0`，集中定义在 `assets/config.js`；
 - LocalStorage 学习记录仍使用兼容版本 `0.3.0`，避免破坏已有浏览器数据；
-- 导出档案独立使用 `export_schema_version: 0.22.0`；
+- 导出档案独立使用 `export_schema_version: 0.24.0`；
 - 修改数据结构时分别判断“应用版本、记录版本、导出版本”是否需要升级。
 
 ## 完成检查
@@ -79,6 +91,6 @@
 - 作答、选填判断链、审核、复测和批注均能保存或导出；
 - 新项目不会让首页增加新的大型入口卡片；
 - 诊断题在底部导航常驻，且在项目目录中排在实验室之前；
-- 诊断题和学习项目按教材册—章—节导航，第三、四章目录已登记且未伪造学习内容；
+- 诊断题和学习项目按教材册—章—节导航；第三章第一、二节已有专项内容，第四章仍只登记目录；
 - 诊断题目录不提前输出正确答案或解析，状态筛选与指定题目进入不改写原有作答记录；
 - `npm test` 通过，iPad横竖屏与手机触控流程可用。

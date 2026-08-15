@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.23.0",
+  "id": "cyclone-system-lab",
+  "title": "气旋与反气旋实验室",
+  "topic_id": "physical.atmosphere",
+  "review_after_hours": 48,
+  "model_note": "图示为近地面水平气流与中心垂直运动的理想模型。低压或高压描述气压分布，气旋或反气旋描述气流运动。",
+  "choices": {
+    "pressure_center": ["中心低于四周", "中心高于四周"],
+    "surface_flow": ["近地面由四周向中心辐合", "近地面由中心向四周辐散"],
+    "rotation": ["逆时针", "顺时针"],
+    "vertical_motion": ["中心上升", "中心下沉"],
+    "weather": ["多阴雨", "多晴朗"]
+  },
+  "error_tags": {
+    "W-PRESSURE-CENTER": "高低压中心判读错误",
+    "W-FLOW-CONVERGENCE": "辐合与辐散关系混淆",
+    "W-CYCLONE-ROTATION": "南北半球旋转方向混淆",
+    "W-VERTICAL-MOTION": "中心垂直运动方向混淆",
+    "W-VERTICAL-WEATHER": "垂直运动与阴晴天气因果链断裂"
+  },
+  "scenarios": [
+    {
+      "id": "CY-01",
+      "name": "北半球低气压",
+      "hemisphere": "北半球",
+      "system": "低气压（气旋）",
+      "answers": {
+        "pressure_center": "中心低于四周",
+        "surface_flow": "近地面由四周向中心辐合",
+        "rotation": "逆时针",
+        "vertical_motion": "中心上升",
+        "weather": "多阴雨"
+      }
+    },
+    {
+      "id": "CY-02",
+      "name": "南半球低气压",
+      "hemisphere": "南半球",
+      "system": "低气压（气旋）",
+      "answers": {
+        "pressure_center": "中心低于四周",
+        "surface_flow": "近地面由四周向中心辐合",
+        "rotation": "顺时针",
+        "vertical_motion": "中心上升",
+        "weather": "多阴雨"
+      }
+    },
+    {
+      "id": "CY-03",
+      "name": "北半球高气压",
+      "hemisphere": "北半球",
+      "system": "高气压（反气旋）",
+      "answers": {
+        "pressure_center": "中心高于四周",
+        "surface_flow": "近地面由中心向四周辐散",
+        "rotation": "顺时针",
+        "vertical_motion": "中心下沉",
+        "weather": "多晴朗"
+      }
+    },
+    {
+      "id": "CY-04",
+      "name": "南半球高气压",
+      "hemisphere": "南半球",
+      "system": "高气压（反气旋）",
+      "answers": {
+        "pressure_center": "中心高于四周",
+        "surface_flow": "近地面由中心向四周辐散",
+        "rotation": "逆时针",
+        "vertical_motion": "中心下沉",
+        "weather": "多晴朗"
+      }
+    }
+  ]
+}

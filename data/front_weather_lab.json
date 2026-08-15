@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.23.0",
+  "id": "front-weather-lab",
+  "title": "锋面结构与过境天气实验室",
+  "topic_id": "physical.atmosphere",
+  "review_after_hours": 48,
+  "model_note": "图示为典型锋面剖面模型。真实天气会受水汽、地形和锋面强度影响，降水范围并非固定不变。",
+  "choices": {
+    "front_type": ["冷锋", "暖锋", "准静止锋"],
+    "active_process": ["冷气团主动推进", "暖气团主动推进", "冷暖气团势均力敌或受地形阻挡"],
+    "uplift_style": ["暖空气被迫快速抬升", "暖空气沿冷空气缓慢爬升", "暖湿空气在锋面附近持续抬升"],
+    "precipitation_zone": ["锋后、锋线附近为主", "锋前较大范围为主", "锋线附近长期停留"],
+    "station_weather": ["气温下降、气压上升，天气转晴", "气温升高、气压降低，天气转晴", "阴雨持续，气象要素变化较缓慢"]
+  },
+  "error_tags": {
+    "W-FRONT-TYPE": "锋面类型识别错误",
+    "W-FRONT-ACTIVE-AIRMASS": "主动气团或停滞原因混淆",
+    "W-FRONT-UPLIFT": "暖空气抬升方式判断错误",
+    "W-FRONT-PRECIPITATION": "锋面降水位置混淆",
+    "W-FRONT-SEQUENCE": "过境前后天气变化链混淆"
+  },
+  "scenarios": [
+    {
+      "id": "FR-01",
+      "name": "冬半年冷空气快速南下",
+      "front_type": "冷锋",
+      "context": "冷空气从西北方向推进，测站位于锋线东南侧。",
+      "answers": {
+        "front_type": "冷锋",
+        "active_process": "冷气团主动推进",
+        "uplift_style": "暖空气被迫快速抬升",
+        "precipitation_zone": "锋后、锋线附近为主",
+        "station_weather": "气温下降、气压上升，天气转晴"
+      }
+    },
+    {
+      "id": "FR-02",
+      "name": "暖湿空气缓慢北上",
+      "front_type": "暖锋",
+      "context": "暖气团向较冷地区推进，沿冷空气形成的缓坡爬升。",
+      "answers": {
+        "front_type": "暖锋",
+        "active_process": "暖气团主动推进",
+        "uplift_style": "暖空气沿冷空气缓慢爬升",
+        "precipitation_zone": "锋前较大范围为主",
+        "station_weather": "气温升高、气压降低，天气转晴"
+      }
+    },
+    {
+      "id": "FR-03",
+      "name": "江淮梅雨锋停滞",
+      "front_type": "准静止锋",
+      "context": "夏初冷暖气团在长江中下游势力相当，锋线多日徘徊。",
+      "answers": {
+        "front_type": "准静止锋",
+        "active_process": "冷暖气团势均力敌或受地形阻挡",
+        "uplift_style": "暖湿空气在锋面附近持续抬升",
+        "precipitation_zone": "锋线附近长期停留",
+        "station_weather": "阴雨持续，气象要素变化较缓慢"
+      }
+    },
+    {
+      "id": "FR-04",
+      "name": "昆明准静止锋受阻",
+      "front_type": "准静止锋",
+      "context": "冬半年南下冷空气受云贵高原地形阻挡，锋面移动缓慢。",
+      "answers": {
+        "front_type": "准静止锋",
+        "active_process": "冷暖气团势均力敌或受地形阻挡",
+        "uplift_style": "暖湿空气在锋面附近持续抬升",
+        "precipitation_zone": "锋线附近长期停留",
+        "station_weather": "阴雨持续，气象要素变化较缓慢"
+      }
+    }
+  ]
+}

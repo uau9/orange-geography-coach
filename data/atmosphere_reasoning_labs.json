@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.24.0",
+  "topic_id": "physical.atmosphere",
+  "review_after_hours": 48,
+  "labs": [
+    {
+      "id": "global-circulation-lab",
+      "section_id": "pep-selective-1-ch03-s02",
+      "title": "三圈环流与气压带风带实验室",
+      "subtitle": "从受热差异和地转偏向出发，把气压带成因、垂直运动、近地面风和季节移动连起来。",
+      "visual_type": "circulation",
+      "model_note": "图示为不考虑海陆分布和地形影响的理想模式；气压带位置随太阳直射点季节移动，并非固定在某一条纬线上。",
+      "questions": [
+        {"key": "target_belt", "label": "目标纬度附近的气压带", "choices": ["赤道低压带", "副热带高压带", "副极地低压带", "极地高压带"]},
+        {"key": "pressure_origin", "label": "该气压带的主要成因", "choices": ["热力低压", "动力高压", "动力低压", "热力高压"]},
+        {"key": "vertical_motion", "label": "中心垂直运动", "choices": ["上升", "下沉"]},
+        {"key": "surface_relation", "label": "近地面风带关系", "choices": ["南北半球信风辐合", "低纬侧信风、中纬侧西风分别流出", "盛行西风与极地东风辐合", "极地东风从高压带流出"]},
+        {"key": "seasonal_position", "label": "相对二分日的季节位置", "choices": ["接近平均位置", "北半球夏季整体偏北", "北半球冬季整体偏南"]}
+      ],
+      "error_tags": {
+        "A-CIRC-BELT": "气压带定位错误",
+        "A-CIRC-ORIGIN": "热力与动力成因混淆",
+        "A-CIRC-VERTICAL": "垂直运动方向混淆",
+        "A-CIRC-WIND": "风带辐合或辐散关系混淆",
+        "A-CIRC-SEASON": "气压带风带季节移动方向混淆"
+      },
+      "scenarios": [
+        {
+          "id": "AC-01", "name": "二分日赤道附近", "context": "太阳直射点接近赤道，观察赤道附近近地面气流与垂直运动。", "season": "equinox", "target_latitude": 0, "contrast_key": "热力低压",
+          "answers": {"target_belt": "赤道低压带", "pressure_origin": "热力低压", "vertical_motion": "上升", "surface_relation": "南北半球信风辐合", "seasonal_position": "接近平均位置"}
+        },
+        {
+          "id": "AC-02", "name": "北半球夏季副热带", "context": "北半球夏季，观察副热带环流单元的下沉支及其两侧近地面风。", "season": "north-summer", "target_latitude": 30, "contrast_key": "动力高压",
+          "answers": {"target_belt": "副热带高压带", "pressure_origin": "动力高压", "vertical_motion": "下沉", "surface_relation": "低纬侧信风、中纬侧西风分别流出", "seasonal_position": "北半球夏季整体偏北"}
+        },
+        {
+          "id": "AC-03", "name": "二分日北纬60°附近", "context": "观察较暖的盛行西风与寒冷的极地东风在北纬60°附近相遇。", "season": "equinox", "target_latitude": 60, "contrast_key": "动力低压",
+          "answers": {"target_belt": "副极地低压带", "pressure_origin": "动力低压", "vertical_motion": "上升", "surface_relation": "盛行西风与极地东风辐合", "seasonal_position": "接近平均位置"}
+        },
+        {
+          "id": "AC-04", "name": "北半球冬季极地", "context": "北半球冬季，观察高纬寒冷空气收缩下沉及近地面极地东风。", "season": "north-winter", "target_latitude": 90, "contrast_key": "热力高压",
+          "answers": {"target_belt": "极地高压带", "pressure_origin": "热力高压", "vertical_motion": "下沉", "surface_relation": "极地东风从高压带流出", "seasonal_position": "北半球冬季整体偏南"}
+        }
+      ]
+    },
+    {
+      "id": "monsoon-system-lab",
+      "section_id": "pep-selective-1-ch03-s02",
+      "title": "海陆气压中心与季风实验室",
+      "subtitle": "先判海陆冷暖和高低压，再判断东亚、南亚季风的风向、性质与形成链。",
+      "visual_type": "monsoon",
+      "model_note": "图示突出亚洲大陆与太平洋、印度洋之间的气压差异。真实季风还会受高原、地形和海温等因素影响。",
+      "questions": [
+        {"key": "season", "label": "北半球季节", "choices": ["北半球冬季", "北半球夏季"]},
+        {"key": "continent_center", "label": "亚洲大陆主要气压中心", "choices": ["亚洲高压（冷高压）", "亚洲低压（热低压）"]},
+        {"key": "ocean_center", "label": "北太平洋主要气压中心", "choices": ["副极地低压较显著", "副热带高压较强"]},
+        {"key": "regional_wind", "label": "目标区域盛行风及性质", "choices": ["东亚西北季风，寒冷干燥", "东亚东南季风，温暖湿润", "南亚东北季风，干燥为主", "南亚西南季风，温暖湿润"]},
+        {"key": "causal_chain", "label": "主要形成链", "choices": ["海陆热力差异使海陆气压中心随季节更替", "南半球东南信风越过赤道后右偏，并叠加海陆热力差异"]}
+      ],
+      "error_tags": {
+        "A-MONSOON-SEASON": "季节判断错误",
+        "A-MONSOON-PRESSURE": "海陆高低压中心判断错误",
+        "A-MONSOON-OCEAN": "北太平洋气压中心混淆",
+        "A-MONSOON-WIND": "季风风向或性质混淆",
+        "A-MONSOON-CAUSE": "季风形成原因层级混淆"
+      },
+      "scenarios": [
+        {
+          "id": "AM-01", "name": "1月东亚季风", "context": "亚洲大陆降温快，东亚近地面风由大陆吹向太平洋。", "region": "east-asia", "season_key": "winter", "contrast_key": "冬季",
+          "answers": {"season": "北半球冬季", "continent_center": "亚洲高压（冷高压）", "ocean_center": "副极地低压较显著", "regional_wind": "东亚西北季风，寒冷干燥", "causal_chain": "海陆热力差异使海陆气压中心随季节更替"}
+        },
+        {
+          "id": "AM-02", "name": "7月东亚季风", "context": "亚洲大陆升温快，北太平洋副热带高压西侧暖湿气流吹向东亚。", "region": "east-asia", "season_key": "summer", "contrast_key": "夏季",
+          "answers": {"season": "北半球夏季", "continent_center": "亚洲低压（热低压）", "ocean_center": "副热带高压较强", "regional_wind": "东亚东南季风，温暖湿润", "causal_chain": "海陆热力差异使海陆气压中心随季节更替"}
+        },
+        {
+          "id": "AM-03", "name": "1月南亚季风", "context": "南亚位于亚洲高压南侧，近地面气流由大陆吹向印度洋。", "region": "south-asia", "season_key": "winter", "contrast_key": "冬季",
+          "answers": {"season": "北半球冬季", "continent_center": "亚洲高压（冷高压）", "ocean_center": "副极地低压较显著", "regional_wind": "南亚东北季风，干燥为主", "causal_chain": "海陆热力差异使海陆气压中心随季节更替"}
+        },
+        {
+          "id": "AM-04", "name": "7月南亚季风", "context": "南半球东南信风越过赤道后，在北半球向右偏转并吹向印度低压。", "region": "south-asia", "season_key": "summer", "contrast_key": "夏季",
+          "answers": {"season": "北半球夏季", "continent_center": "亚洲低压（热低压）", "ocean_center": "副热带高压较强", "regional_wind": "南亚西南季风，温暖湿润", "causal_chain": "南半球东南信风越过赤道后右偏，并叠加海陆热力差异"}
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/cyclone-system-attempt.v0.23.schema.json",
+  "title": "气旋与反气旋作答记录 v0.23",
+  "type": "object",
+  "required": ["schema_version", "id", "scenario_id", "hemisphere", "system_family", "answers", "correct_answers", "checks", "score", "error_tags", "reasoning", "submitted_at", "parent_review_status", "parent_note"],
+  "properties": {
+    "schema_version": {"const": "0.23.0"},
+    "id": {"type": "string"},
+    "scenario_id": {"type": "string"},
+    "hemisphere": {"enum": ["北半球", "南半球"]},
+    "system_family": {"enum": ["低气压（气旋）", "高气压（反气旋）"]},
+    "answers": {"type": "object"},
+    "correct_answers": {"type": "object"},
+    "checks": {"type": "object"},
+    "score": {"type": "integer", "minimum": 0, "maximum": 5},
+    "error_tags": {"type": "array", "items": {"type": "string"}},
+    "reasoning": {"type": "string"},
+    "submitted_at": {"type": "string", "format": "date-time"},
+    "parent_review_status": {"enum": ["待家长确认", "已确认", "需再练", "需教师复核"]},
+    "parent_note": {"type": "string"}
+  }
+}

@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.22.0", ASSET_VERSION: "0.22.0", EXPORT_SCHEMA_VERSION: "0.22.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.24.0", ASSET_VERSION: "0.24.0", EXPORT_SCHEMA_VERSION: "0.24.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
 
 function defaultState() {
   return {
@@ -107,6 +107,13 @@ function defaultState() {
     tideScenarioIndex: 0,
     activeCoriolisAttemptId: null,
     coriolisScenarioIndex: 0,
+    activeFrontWeatherAttemptId: null,
+    frontWeatherScenarioIndex: 0,
+    activeCycloneSystemAttemptId: null,
+    cycloneSystemScenarioIndex: 0,
+    activeAtmosphereLabId: null,
+    activeAtmosphereAttemptId: null,
+    atmosphereScenarioIndex: 0,
     attempts: [],
     retestAttempts: [],
     timeLabAttempts: [],
@@ -126,6 +133,9 @@ function defaultState() {
     eclipseAttempts: [],
     tideAttempts: [],
     coriolisAttempts: [],
+    frontWeatherAttempts: [],
+    cycloneSystemAttempts: [],
+    atmosphereReasoningAttempts: [],
     coachAnnotations: [],
     lastAction: ""
   };
@@ -189,6 +199,9 @@ function normalizeState(parsed) {
   normalized.eclipseAttempts = Array.isArray(parsed?.eclipseAttempts) ? parsed.eclipseAttempts : Array.isArray(parsed?.eclipse_attempts) ? parsed.eclipse_attempts : [];
   normalized.tideAttempts = Array.isArray(parsed?.tideAttempts) ? parsed.tideAttempts : Array.isArray(parsed?.tide_attempts) ? parsed.tide_attempts : [];
   normalized.coriolisAttempts = Array.isArray(parsed?.coriolisAttempts) ? parsed.coriolisAttempts : Array.isArray(parsed?.coriolis_attempts) ? parsed.coriolis_attempts : [];
+  normalized.frontWeatherAttempts = Array.isArray(parsed?.frontWeatherAttempts) ? parsed.frontWeatherAttempts : Array.isArray(parsed?.front_weather_attempts) ? parsed.front_weather_attempts : [];
+  normalized.cycloneSystemAttempts = Array.isArray(parsed?.cycloneSystemAttempts) ? parsed.cycloneSystemAttempts : Array.isArray(parsed?.cyclone_system_attempts) ? parsed.cyclone_system_attempts : [];
+  normalized.atmosphereReasoningAttempts = Array.isArray(parsed?.atmosphereReasoningAttempts) ? parsed.atmosphereReasoningAttempts : Array.isArray(parsed?.atmosphere_reasoning_attempts) ? parsed.atmosphere_reasoning_attempts : [];
   normalized.coachAnnotations = Array.isArray(parsed?.coachAnnotations)
     ? parsed.coachAnnotations
     : Array.isArray(parsed?.coach_annotations)
@@ -238,9 +251,19 @@ function getMoonPhaseAttempt(id) { return state.moonPhaseAttempts.find((attempt)
 function getEclipseAttempt(id) { return state.eclipseAttempts.find((attempt) => attempt.id === id); }
 function getTideAttempt(id) { return state.tideAttempts.find((attempt) => attempt.id === id); }
 function getCoriolisAttempt(id) { return state.coriolisAttempts.find((attempt) => attempt.id === id); }
+function getFrontWeatherAttempt(id) { return state.frontWeatherAttempts.find((attempt) => attempt.id === id); }
+function getCycloneSystemAttempt(id) { return state.cycloneSystemAttempts.find((attempt) => attempt.id === id); }
+function getAtmosphereAttempt(id) { return state.atmosphereReasoningAttempts.find((attempt) => attempt.id === id); }
 function getActiveQuestion() { return getQuestion(state.currentQuestionId) || chooseNextQuestion(); }
+function activeCurriculumQuestionIds() {
+  return (catalog.curriculum?.books || []).flatMap((book) => (book.chapters || [])
+    .filter((chapter) => chapter.status === "active")
+    .flatMap((chapter) => (chapter.sections || []).flatMap((section) => section.question_ids || [])));
+}
 function chooseNextQuestion() {
   const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
+  const activeUnseen = activeCurriculumQuestionIds().map(getQuestion).find((question) => question && !attempted.has(question.id));
+  if (activeUnseen) return activeUnseen;
   const unseen = catalog.questions.find((question) => !attempted.has(question.id));
   if (unseen) return unseen;
   return [...catalog.questions].sort((a, b) => scoreQuestion(a) - scoreQuestion(b))[0] || catalog.questions[0];
@@ -281,9 +304,12 @@ function latestMoonPhaseAttempts() { return [...state.moonPhaseAttempts].sort((a
 function latestEclipseAttempts() { return [...state.eclipseAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestTideAttempts() { return [...state.tideAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestCoriolisAttempts() { return [...state.coriolisAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestFrontWeatherAttempts() { return [...state.frontWeatherAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestCycloneSystemAttempts() { return [...state.cycloneSystemAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestAtmosphereAttempts(labId = null) { return [...state.atmosphereReasoningAttempts].filter((attempt) => !labId || attempt.lab_id === labId).sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function completedToday() {
   const today = new Date().toDateString();
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts, ...state.coriolisAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts, ...state.coriolisAttempts, ...state.frontWeatherAttempts, ...state.cycloneSystemAttempts, ...state.atmosphereReasoningAttempts]
     .filter((attempt) => attempt.submitted_at && new Date(attempt.submitted_at).toDateString() === today).length;
 }
 function topicStats(topic) {
@@ -1119,6 +1145,104 @@ function renderCoriolisLab() {
   app.innerHTML = feature.renderLab({ lab: catalog.coriolisLab, scenario, scenarioIndex: state.coriolisScenarioIndex % catalog.coriolisLab.scenarios.length });
 }
 
+function getFrontWeatherScenario(id = null) {
+  const scenarios = catalog.frontWeatherLab?.scenarios || [];
+  if (!scenarios.length) return null;
+  return id ? scenarios.find((scenario) => scenario.id === id) || scenarios[0] : scenarios[state.frontWeatherScenarioIndex % scenarios.length];
+}
+
+function frontWeatherMasteryStatus() {
+  const reviewHours = catalog.frontWeatherLab?.review_after_hours || 48;
+  const confirmed = [...state.frontWeatherAttempts]
+    .filter((attempt) => attempt.score === 5 && attempt.parent_review_status === "已确认")
+    .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+  if (confirmed.length < 2) return { label: "待验证", detail: `需要两种不同锋面情境各满分一次，间隔至少${reviewHours}小时并由家长确认。`, mastered: false };
+  const latest = confirmed.at(-1);
+  const earlier = [...confirmed].reverse().find((attempt) => attempt.front_type !== latest.front_type && new Date(latest.submitted_at) - new Date(attempt.submitted_at) >= reviewHours * 3600000);
+  return earlier
+    ? { label: "延迟复测通过", detail: `不同锋型均完成五步判断，且间隔至少${reviewHours}小时。`, mastered: true }
+    : { label: "等待换锋型复测", detail: `还需换一种锋型，并与确认记录间隔至少${reviewHours}小时。`, mastered: false };
+}
+
+function renderFrontWeatherLab() {
+  const feature = window.OrangeCoach?.features?.frontWeather;
+  const scenario = getFrontWeatherScenario();
+  if (!feature || !scenario) { app.innerHTML = `<section class="card empty">锋面天气实验数据尚未加载。</section>`; return; }
+  const attempt = getFrontWeatherAttempt(state.activeFrontWeatherAttemptId);
+  if (attempt) {
+    app.innerHTML = feature.renderResult({ lab: catalog.frontWeatherLab, scenario: getFrontWeatherScenario(attempt.scenario_id), attempt });
+    return;
+  }
+  app.innerHTML = feature.renderLab({ lab: catalog.frontWeatherLab, scenario, scenarioIndex: state.frontWeatherScenarioIndex % catalog.frontWeatherLab.scenarios.length });
+}
+
+function getCycloneSystemScenario(id = null) {
+  const scenarios = catalog.cycloneSystemLab?.scenarios || [];
+  if (!scenarios.length) return null;
+  return id ? scenarios.find((scenario) => scenario.id === id) || scenarios[0] : scenarios[state.cycloneSystemScenarioIndex % scenarios.length];
+}
+
+function cycloneSystemMasteryStatus() {
+  const reviewHours = catalog.cycloneSystemLab?.review_after_hours || 48;
+  const confirmed = [...state.cycloneSystemAttempts]
+    .filter((attempt) => attempt.score === 5 && attempt.parent_review_status === "已确认")
+    .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+  if (confirmed.length < 2) return { label: "待验证", detail: `需要换半球并切换高低压系统满分复测，间隔至少${reviewHours}小时并由家长确认。`, mastered: false };
+  const latest = confirmed.at(-1);
+  const earlier = [...confirmed].reverse().find((attempt) => attempt.system_family !== latest.system_family && attempt.hemisphere !== latest.hemisphere && new Date(latest.submitted_at) - new Date(attempt.submitted_at) >= reviewHours * 3600000);
+  return earlier
+    ? { label: "延迟复测通过", detail: `已跨半球、跨高低压系统完成复测，且间隔至少${reviewHours}小时。`, mastered: true }
+    : { label: "等待换系统复测", detail: `还需同时更换半球和高低压类型，并与确认记录间隔至少${reviewHours}小时。`, mastered: false };
+}
+
+function renderCycloneSystemLab() {
+  const feature = window.OrangeCoach?.features?.cycloneSystem;
+  const scenario = getCycloneSystemScenario();
+  if (!feature || !scenario) { app.innerHTML = `<section class="card empty">气旋反气旋实验数据尚未加载。</section>`; return; }
+  const attempt = getCycloneSystemAttempt(state.activeCycloneSystemAttemptId);
+  if (attempt) {
+    app.innerHTML = feature.renderResult({ lab: catalog.cycloneSystemLab, scenario: getCycloneSystemScenario(attempt.scenario_id), attempt });
+    return;
+  }
+  app.innerHTML = feature.renderLab({ lab: catalog.cycloneSystemLab, scenario, scenarioIndex: state.cycloneSystemScenarioIndex % catalog.cycloneSystemLab.scenarios.length });
+}
+
+function getAtmosphereLab(id = state.activeAtmosphereLabId) {
+  return (catalog.atmosphereLabs?.labs || []).find((lab) => lab.id === id) || null;
+}
+
+function getAtmosphereScenario(lab = getAtmosphereLab(), id = null) {
+  const scenarios = lab?.scenarios || [];
+  if (!scenarios.length) return null;
+  return id ? scenarios.find((scenario) => scenario.id === id) || scenarios[0] : scenarios[state.atmosphereScenarioIndex % scenarios.length];
+}
+
+function atmosphereMasteryStatus(labId) {
+  const reviewHours = catalog.atmosphereLabs?.review_after_hours || 48;
+  const confirmed = latestAtmosphereAttempts(labId)
+    .filter((attempt) => attempt.score === 5 && attempt.parent_review_status === "已确认")
+    .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+  if (confirmed.length < 2) return { label: "待验证", detail: `需要两个对照情境各满分一次，间隔至少${reviewHours}小时并由家长确认。`, mastered: false };
+  const latest = confirmed.at(-1);
+  const earlier = [...confirmed].reverse().find((attempt) => attempt.contrast_key !== latest.contrast_key && new Date(latest.submitted_at) - new Date(attempt.submitted_at) >= reviewHours * 3600000);
+  return earlier
+    ? { label: "延迟复测通过", detail: `已完成不同类型情境的五步判断，且间隔至少${reviewHours}小时。`, mastered: true }
+    : { label: "等待对照复测", detail: `还需更换气压成因、季节或气候类型，并与确认记录间隔至少${reviewHours}小时。`, mastered: false };
+}
+
+function renderAtmosphereLab() {
+  const feature = window.OrangeCoach?.features?.atmosphereReasoning;
+  const lab = getAtmosphereLab();
+  const scenario = getAtmosphereScenario(lab);
+  if (!feature || !lab || !scenario) { app.innerHTML = `<section class="card empty">大气运动实验数据尚未加载。</section>`; return; }
+  const attempt = getAtmosphereAttempt(state.activeAtmosphereAttemptId);
+  if (attempt) {
+    app.innerHTML = feature.renderResult({ lab, scenario: getAtmosphereScenario(lab, attempt.scenario_id), attempt });
+    return;
+  }
+  app.innerHTML = feature.renderLab({ lab, scenario, scenarioIndex: state.atmosphereScenarioIndex % lab.scenarios.length });
+}
+
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => {
@@ -1143,6 +1267,9 @@ function render() {
   if (state.route === "eclipse-lab") return renderEclipseLab();
   if (state.route === "tide-lab") return renderTideLab();
   if (state.route === "coriolis-lab") return renderCoriolisLab();
+  if (state.route === "front-weather-lab") return renderFrontWeatherLab();
+  if (state.route === "cyclone-system-lab") return renderCycloneSystemLab();
+  if (state.route === "atmosphere-lab") return renderAtmosphereLab();
   if (state.route === "diagnostic-catalog") return renderDiagnosticCatalog();
   if (state.route === "train") return renderTrain();
   if (state.route === "projects") return renderProjects();
@@ -1158,7 +1285,7 @@ function renderToday() {
     recommendation: getTodayRecommendation(),
     stats: [
       { value: completedToday(), label: "今日完成" },
-      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length + state.coriolisAttempts.length, label: "学习证据" },
+      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length + state.coriolisAttempts.length + state.frontWeatherAttempts.length + state.cycloneSystemAttempts.length + state.atmosphereReasoningAttempts.length, label: "学习证据" },
       { value: countPendingParentReviews(), label: "待家长确认" }
     ],
     recent: getRecentEvidence().slice(0, 3)
@@ -1166,11 +1293,18 @@ function renderToday() {
 }
 
 function countPendingParentReviews() {
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts, ...state.coriolisAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts, ...state.coriolisAttempts, ...state.frontWeatherAttempts, ...state.cycloneSystemAttempts, ...state.atmosphereReasoningAttempts]
     .filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
 }
 
 function projectStatus(project) {
+  if (project.status_kind === "atmosphere_reasoning") {
+    const attempts = latestAtmosphereAttempts(project.id);
+    const latest = attempts[0];
+    return latest
+      ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${attempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下气压带、风带、季节移动或季风形成的五步判断证据" };
+  }
   if (project.status_kind === "earth_motion") {
     const latest = latestEarthMotionAttempts()[0];
     return latest
@@ -1268,6 +1402,18 @@ function projectStatus(project) {
       ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.coriolisAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
       : { status_label: "待开始", status_tone: "", status_detail: "尚未留下半球规则、相对偏向与地图方位判断证据" };
   }
+  if (project.status_kind === "front_weather") {
+    const latest = latestFrontWeatherAttempts()[0];
+    return latest
+      ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.frontWeatherAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下锋型、主动气团、降水位置与过境天气判断证据" };
+  }
+  if (project.status_kind === "cyclone_system") {
+    const latest = latestCycloneSystemAttempts()[0];
+    return latest
+      ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.cycloneSystemAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下高低压、旋转方向、垂直运动与阴晴判断证据" };
+  }
   if (project.status_kind === "diagnostic") {
     const latest = latestAttempts()[0];
     return latest
@@ -1339,12 +1485,33 @@ function getTodayRecommendation() {
   const latestEclipse = latestEclipseAttempts()[0];
   const latestTide = latestTideAttempts()[0];
   const latestCoriolis = latestCoriolisAttempts()[0];
+  const latestFrontWeather = latestFrontWeatherAttempts()[0];
+  const latestCycloneSystem = latestCycloneSystemAttempts()[0];
+  const latestGlobalCirculation = latestAtmosphereAttempts("global-circulation-lab")[0];
+  const latestMonsoonSystem = latestAtmosphereAttempts("monsoon-system-lab")[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const latestPath = latestSolarPathAttempts()[0];
   const latestTime = latestTimeLabAttempts()[0];
   let project;
   let reason;
-  if (!latestMotion) {
+  const attemptedQuestionIds = new Set(state.attempts.map((attempt) => attempt.question_id));
+  const hasActiveUnseen = activeCurriculumQuestionIds().some((id) => !attemptedQuestionIds.has(id));
+  if (hasActiveUnseen) {
+    project = byId("diagnostic-questions");
+    reason = "第三章正在学习：先用一道常见天气系统诊断题定位薄弱环节，再进入对应实验室。";
+  } else if (!latestFrontWeather) {
+    project = byId("front-weather-lab");
+    reason = "第三章第一节：把主动气团、暖空气抬升、降水位置和过境变化连成一条链。";
+  } else if (!latestCycloneSystem) {
+    project = byId("cyclone-system-lab");
+    reason = "第三章第一节：继续把高低压、辐合辐散、半球旋转和阴晴天气连起来。";
+  } else if (!latestGlobalCirculation) {
+    project = byId("global-circulation-lab");
+    reason = "第三章第二节：从受热差异开始，连续推导气压带、风带和季节移动。";
+  } else if (!latestMonsoonSystem) {
+    project = byId("monsoon-system-lab");
+    reason = "第三章第二节：把海陆冷暖、气压中心和东亚南亚季风连成一条因果链。";
+  } else if (!latestMotion) {
     project = byId("earth-motion-lab");
     reason = "先用默认可见的运动箭头建立观察视角与自转方向，再完成四项预测。";
   } else if (!latestSolar) {
@@ -1441,7 +1608,7 @@ function getTodayRecommendation() {
     reason = "最近一次时区实验仍有候选错因，换经度和时刻检查能否迁移。";
   } else {
     project = byId("diagnostic-questions");
-    reason = "十六个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
+    reason = "十八个互动实验都已有记录，继续用一道新题检查知识能否独立应用。";
   }
   return project ? { ...project, reason, status: project.status_detail } : null;
 }
@@ -1537,6 +1704,13 @@ function getRecentEvidence() {
   const eclipse = state.eclipseAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getEclipseCase(attempt.case_id)?.name || attempt.case_id}`, meta: `日月食几何与可见范围 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const tide = state.tideAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getTideCase(attempt.case_id)?.name || attempt.case_id}`, meta: `潮汐周期与月相 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const coriolis = state.coriolisAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getCoriolisScenario(attempt.scenario_id)?.name || attempt.scenario_id}`, meta: `地转偏向力 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
+  const frontWeather = state.frontWeatherAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getFrontWeatherScenario(attempt.scenario_id)?.name || attempt.scenario_id}`, meta: `锋面天气 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
+  const cycloneSystem = state.cycloneSystemAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getCycloneSystemScenario(attempt.scenario_id)?.name || attempt.scenario_id}`, meta: `气旋与反气旋 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
+  const atmosphereReasoning = state.atmosphereReasoningAttempts.map((attempt) => {
+    const lab = getAtmosphereLab(attempt.lab_id);
+    const scenario = getAtmosphereScenario(lab, attempt.scenario_id);
+    return { submitted_at: attempt.submitted_at, title: scenario?.name || attempt.scenario_id, meta: `${lab?.title || "大气运动实验"} · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) };
+  });
   const retests = state.retestAttempts.map((attempt) => ({
     submitted_at: attempt.submitted_at,
     title: getRetest(attempt.retest_id)?.title || attempt.retest_id,
@@ -1544,7 +1718,7 @@ function getRecentEvidence() {
     status: attempt.parent_review_status,
     tone: evidenceTone(attempt.parent_review_status)
   }));
-  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...axialTilt, ...celestialScale, ...habitability, ...solarActivity, ...moonPhase, ...eclipse, ...tide, ...coriolis, ...dateRange, ...retests]
+  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...axialTilt, ...celestialScale, ...habitability, ...solarActivity, ...moonPhase, ...eclipse, ...tide, ...coriolis, ...frontWeather, ...cycloneSystem, ...atmosphereReasoning, ...dateRange, ...retests]
     .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at));
 }
 
@@ -1835,6 +2009,8 @@ function renderMastery() {
   const latestEclipse = latestEclipseAttempts()[0];
   const latestTide = latestTideAttempts()[0];
   const latestCoriolis = latestCoriolisAttempts()[0];
+  const latestFrontWeather = latestFrontWeatherAttempts()[0];
+  const latestCycloneSystem = latestCycloneSystemAttempts()[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const motionMastery = earthMotionMasteryStatus();
   const solarMastery = solarSeasonMasteryStatus();
@@ -1851,7 +2027,16 @@ function renderMastery() {
   const eclipseMastery = eclipseMasteryStatus();
   const tideMastery = tideMasteryStatus();
   const coriolisMastery = coriolisMasteryStatus();
+  const frontWeatherMastery = frontWeatherMasteryStatus();
+  const cycloneSystemMastery = cycloneSystemMasteryStatus();
   const dateRangeMastery = dateRangeMasteryStatus();
+  const atmosphereMasteryCards = (catalog.atmosphereLabs?.labs || []).map((lab) => {
+    const latest = latestAtmosphereAttempts(lab.id)[0];
+    const mastery = atmosphereMasteryStatus(lab.id);
+    const sectionLabel = lab.section_id?.endsWith("s03") ? "第三章第三节" : "第三章第二节";
+    const latestScenario = latest ? getAtmosphereScenario(lab, latest.scenario_id) : null;
+    return `<section class="card"><div class="attempt-head"><div><span class="pill orange">${sectionLabel}</span><h3>${escapeHtml(lab.title)}</h3></div><span class="pill ${mastery.mastered ? "green" : "orange"}">${escapeHtml(mastery.label)}</span></div><p class="small">${latest ? `最近实验：${escapeHtml(latestScenario?.name || latest.scenario_id)} · ${latest.score}/5 · ${escapeHtml(latest.parent_review_status)} · ${formatDate(latest.submitted_at)}` : `先完成一次${escapeHtml(lab.title)}，留下五步判断证据。`}</p><p class="small">${escapeHtml(mastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-atmosphere-lab" data-route="${escapeHtml(lab.id)}">进入实验室</button></div></section>`;
+  }).join("");
   app.innerHTML = `
     <h2 class="page-title">掌握与复测</h2>
     <p class="page-subtitle">百分比只是提示，不代表真正掌握。真正的证据来自延迟复测和能否讲清推理链。</p>
@@ -1859,6 +2044,9 @@ function renderMastery() {
       const stats = topicStats(topic);
       return `<div class="topic-item"><div class="topic-head"><div><strong>${escapeHtml(topic.name)}</strong><div class="topic-meta">${escapeHtml(topic.category)} · ${stats.attempts.length ? `${stats.attempts.length} 次作答` : "尚未开始"}</div></div><span class="pill ${stats.ratio >= 70 ? "green" : stats.attempts.length ? "orange" : ""}">${stats.attempts.length ? `${stats.ratio}%` : "待建立"}</span></div><div class="progress"><span style="width:${stats.ratio}%"></span></div><div class="topic-meta">${escapeHtml(topic.description)}</div></div>`;
     }).join("")}</div></section>
+    <section class="card"><div class="attempt-head"><div><span class="pill orange">第三章第一节</span><h3>锋型—抬升—降水—过境天气</h3></div><span class="pill ${frontWeatherMastery.mastered ? "green" : "orange"}">${escapeHtml(frontWeatherMastery.label)}</span></div><p class="small">${latestFrontWeather ? `最近实验：${escapeHtml(getFrontWeatherScenario(latestFrontWeather.scenario_id)?.name || latestFrontWeather.scenario_id)} · ${latestFrontWeather.score}/5 · ${escapeHtml(latestFrontWeather.parent_review_status)} · ${formatDate(latestFrontWeather.submitted_at)}` : "先完成一次锋面天气实验，留下五步结构判断证据。"}</p><p class="small">${escapeHtml(frontWeatherMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-front-weather">进入锋面天气实验室</button></div></section>
+    <section class="card"><div class="attempt-head"><div><span class="pill orange">第三章第一节</span><h3>高低压—旋转—垂直运动—阴晴</h3></div><span class="pill ${cycloneSystemMastery.mastered ? "green" : "orange"}">${escapeHtml(cycloneSystemMastery.label)}</span></div><p class="small">${latestCycloneSystem ? `最近实验：${escapeHtml(getCycloneSystemScenario(latestCycloneSystem.scenario_id)?.name || latestCycloneSystem.scenario_id)} · ${latestCycloneSystem.score}/5 · ${escapeHtml(latestCycloneSystem.parent_review_status)} · ${formatDate(latestCycloneSystem.submitted_at)}` : "先完成一次气旋反气旋实验，留下五步环流判断证据。"}</p><p class="small">${escapeHtml(cycloneSystemMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-cyclone-system">进入气旋反气旋实验室</button></div></section>
+    ${atmosphereMasteryCards}
     <section class="card"><div class="attempt-head"><div><span class="pill orange">地球运动专项</span><h3>视角—方向—晨昏线</h3></div><span class="pill ${motionMastery.mastered ? "green" : "orange"}">${escapeHtml(motionMastery.label)}</span></div><p class="small">${latestMotion ? `最近实验：${escapeHtml(getEarthMotionView(latestMotion.view_id)?.name || latestMotion.view_id)} · ${latestMotion.score}/4 · ${escapeHtml(latestMotion.parent_review_status)} · ${formatDate(latestMotion.submitted_at)}` : "先完成一次晨昏线实验，留下观察视角和判断链。"}</p><p class="small">${escapeHtml(motionMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-earth-motion">进入晨昏线实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">地转偏向力专项</span><h3>半球—相对左右—地图方位</h3></div><span class="pill ${coriolisMastery.mastered ? "green" : "orange"}">${escapeHtml(coriolisMastery.label)}</span></div><p class="small">${latestCoriolis ? `最近实验：${escapeHtml(getCoriolisScenario(latestCoriolis.scenario_id)?.name || latestCoriolis.scenario_id)} · ${latestCoriolis.score}/5 · ${escapeHtml(latestCoriolis.parent_review_status)} · ${formatDate(latestCoriolis.submitted_at)}` : "先完成一次地转偏向力实验，建立北右南左与方位转换。"}</p><p class="small">${escapeHtml(coriolisMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-coriolis">进入地转偏向力实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">地球公转专项</span><h3>日期—直射点—昼长—太阳高度</h3></div><span class="pill ${solarMastery.mastered ? "green" : "orange"}">${escapeHtml(solarMastery.label)}</span></div><p class="small">${latestSolar ? `最近实验：${escapeHtml(getSolarSeasonDate(latestSolar.date_id)?.name || latestSolar.date_id)} · ${escapeHtml(getSolarSeasonPlace(latestSolar.place_id)?.name || latestSolar.place_id)} · ${latestSolar.score}/4 · ${escapeHtml(latestSolar.parent_review_status)} · ${formatDate(latestSolar.submitted_at)}` : "先完成一次太阳季节实验，留下直射点、昼长和正午太阳高度判断链。"}</p><p class="small">${escapeHtml(solarMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-solar-season">进入太阳季节实验室</button></div></section>
@@ -1906,6 +2094,9 @@ function renderParent() {
   const eclipseAttempts = latestEclipseAttempts();
   const tideAttempts = latestTideAttempts();
   const coriolisAttempts = latestCoriolisAttempts();
+  const frontWeatherAttempts = latestFrontWeatherAttempts();
+  const cycloneSystemAttempts = latestCycloneSystemAttempts();
+  const atmosphereReasoningAttempts = latestAtmosphereAttempts();
   app.innerHTML = `
     <h2 class="page-title">家长审核页</h2>
     <p class="page-subtitle">只核验三件事：理由是否真实、诊断是否有证据、下一步是否可执行。</p>
@@ -1913,6 +2104,9 @@ function renderParent() {
     <section class="card"><h3>真实试卷复盘</h3>${catalog.paperReviews.map(renderPaperReview).join("") || `<div class="empty">尚未录入试卷复盘。</div>`}</section>
     <section class="card"><h3>晨昏线实验审核</h3>${earthMotionAttempts.length ? `<div class="attempt-list">${earthMotionAttempts.map(renderParentEarthMotionAttempt).join("")}</div>` : `<div class="empty">橙子提交观察视角预测后，这里会出现判断链和候选错因。</div>`}</section>
     <section class="card"><h3>地转偏向力实验审核</h3>${coriolisAttempts.length ? `<div class="attempt-list">${coriolisAttempts.map(renderParentCoriolisAttempt).join("")}</div>` : `<div class="empty">橙子提交半球、相对偏向与地图方位预测后，这里会出现五步判断证据。</div>`}</section>
+    <section class="card"><h3>锋面天气实验审核</h3>${frontWeatherAttempts.length ? `<div class="attempt-list">${frontWeatherAttempts.map(renderParentFrontWeatherAttempt).join("")}</div>` : `<div class="empty">橙子提交锋型、主动气团、抬升、降水位置与天气变化后，这里会出现五步判断证据。</div>`}</section>
+    <section class="card"><h3>气旋与反气旋实验审核</h3>${cycloneSystemAttempts.length ? `<div class="attempt-list">${cycloneSystemAttempts.map(renderParentCycloneSystemAttempt).join("")}</div>` : `<div class="empty">橙子提交气压中心、水平气流、旋转、垂直运动与阴晴后，这里会出现五步判断证据。</div>`}</section>
+    <section class="card"><h3>气压带、风带与季风实验审核</h3>${atmosphereReasoningAttempts.length ? `<div class="attempt-list">${atmosphereReasoningAttempts.map(renderParentAtmosphereAttempt).join("")}</div>` : `<div class="empty">橙子提交三圈环流、季节移动或季风五步判断后，这里会出现审核证据。</div>`}</section>
     <section class="card"><h3>太阳季节实验审核</h3>${solarSeasonAttempts.length ? `<div class="attempt-list">${solarSeasonAttempts.map(renderParentSolarSeasonAttempt).join("")}</div>` : `<div class="empty">橙子提交直射点与昼长预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>周年回归实验审核</h3>${annualSunAttempts.length ? `<div class="attempt-list">${annualSunAttempts.map(renderParentAnnualSunAttempt).join("")}</div>` : `<div class="empty">橙子提交直射点移动与趋势预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>公转轨道与速度实验审核</h3>${orbitSpeedAttempts.length ? `<div class="attempt-list">${orbitSpeedAttempts.map(renderParentOrbitSpeedAttempt).join("")}</div>` : `<div class="empty">橙子提交轨道远近、速度、半球季节与成因预测后，这里会出现判断证据。</div>`}</section>
@@ -1941,7 +2135,7 @@ function renderCoachAnnotation(annotation) {
 }
 
 function makeArchiveAnnotationPrompt() {
-  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts、axial_tilt_attempts、celestial_scale_attempts、habitability_attempts、solar_activity_attempts、moon_phase_attempts、eclipse_attempts、tide_attempts、coriolis_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
+  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts、axial_tilt_attempts、celestial_scale_attempts、habitability_attempts、solar_activity_attempts、moon_phase_attempts、eclipse_attempts、tide_attempts、coriolis_attempts、front_weather_attempts、cyclone_system_attempts、atmosphere_reasoning_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
 }
 
 const ERROR_TAG_LABELS = {
@@ -2044,7 +2238,13 @@ const ERROR_TAG_LABELS = {
   "CF-SCALE-APPLICATION": "忽略大尺度运动和赤道边界"
 };
 
-function errorTagLabel(tag) { return ERROR_TAG_LABELS[tag] || tag; }
+function errorTagLabel(tag) {
+  return ERROR_TAG_LABELS[tag]
+    || catalog.frontWeatherLab?.error_tags?.[tag]
+    || catalog.cycloneSystemLab?.error_tags?.[tag]
+    || (catalog.atmosphereLabs?.labs || []).find((lab) => lab.error_tags?.[tag])?.error_tags?.[tag]
+    || tag;
+}
 
 function renderPaperReview(review) {
   const question = review.reviewed_question;
@@ -2151,6 +2351,26 @@ function renderParentCoriolisAttempt(attempt) {
   const scenario = getCoriolisScenario(attempt.scenario_id);
   const correct = attempt.correct_answers || {};
   return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(scenario?.name || attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地转偏向力</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>相对偏向 <strong>${escapeHtml(correct.relative_side)}</strong></span><span>地图方位 <strong>${escapeHtml(correct.final_direction)}</strong></span><span>边界 <strong>赤道上不偏</strong></span></div><p><strong>橙子的判断链（选填）</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请换初始方向追问：“右偏”为什么不总等于“向东偏”。</div>`}<label class="field-label" for="coriolis-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="coriolis-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="coriolis-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="coriolis-note-${escapeHtml(attempt.id)}" placeholder="例如：能背北右南左，但向东运动时仍不会转换方位">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-coriolis-review" data-attempt-id="${escapeHtml(attempt.id)}">保存地转偏向力审核</button></div></article>`;
+}
+
+function renderParentFrontWeatherAttempt(attempt) {
+  const scenario = getFrontWeatherScenario(attempt.scenario_id);
+  const correct = attempt.correct_answers || {};
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(scenario?.name || attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 锋面天气</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>锋型 <strong>${escapeHtml(correct.front_type)}</strong></span><span>降水 <strong>${escapeHtml(correct.precipitation_zone)}</strong></span><span>天气 <strong>${escapeHtml(correct.station_weather)}</strong></span></div><p><strong>橙子的判断链（选填）</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请遮住锋型标题，让橙子只看主动气团和雨区反推锋型。</div>`}<label class="field-label" for="front-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="front-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="front-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="front-note-${escapeHtml(attempt.id)}" placeholder="例如：能判断冷锋，但仍把降水区放到锋前">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-front-weather-review" data-attempt-id="${escapeHtml(attempt.id)}">保存锋面天气审核</button></div></article>`;
+}
+
+function renderParentCycloneSystemAttempt(attempt) {
+  const scenario = getCycloneSystemScenario(attempt.scenario_id);
+  const correct = attempt.correct_answers || {};
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(scenario?.name || attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 气旋与反气旋</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>水平气流 <strong>${escapeHtml(correct.surface_flow)}</strong></span><span>垂直运动 <strong>${escapeHtml(correct.vertical_motion)}</strong></span><span>天气 <strong>${escapeHtml(correct.weather)}</strong></span></div><p><strong>橙子的判断链（选填）</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请换半球追问：哪些关系不变，只有旋转方向改变？</div>`}<label class="field-label" for="cyclone-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="cyclone-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="cyclone-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="cyclone-note-${escapeHtml(attempt.id)}" placeholder="例如：会背北逆南顺，但把高压也判断成辐合上升">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-cyclone-system-review" data-attempt-id="${escapeHtml(attempt.id)}">保存气旋反气旋审核</button></div></article>`;
+}
+
+function renderParentAtmosphereAttempt(attempt) {
+  const lab = getAtmosphereLab(attempt.lab_id);
+  const scenario = getAtmosphereScenario(lab, attempt.scenario_id);
+  const correct = attempt.correct_answers || {};
+  const summary = (lab?.questions || []).slice(0, 3).map((question) => `<span>${escapeHtml(question.label)} <strong>${escapeHtml(correct[question.key])}</strong></span>`).join("");
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(scenario?.name || attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · ${escapeHtml(lab?.title || attempt.lab_id)}</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary">${summary}</div><p><strong>橙子的判断链（选填）</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请换季节、纬度或区域，要求橙子从气压成因重新推导。</div>`}<label class="field-label" for="atmosphere-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="atmosphere-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="atmosphere-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="atmosphere-note-${escapeHtml(attempt.id)}" placeholder="例如：会背风向，但还不能从高低压和半球规则推出">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-atmosphere-review" data-attempt-id="${escapeHtml(attempt.id)}">保存大气运动审核</button></div></article>`;
 }
 
 function renderParentSolarPathAttempt(attempt) {
@@ -2418,6 +2638,32 @@ document.addEventListener("click", async (event) => {
     state.route = "coriolis-lab";
     saveState(); render();
   }
+  if (action === "start-front-weather") {
+    const count = catalog.frontWeatherLab?.scenarios?.length || 0;
+    if (!count) return;
+    state.frontWeatherScenarioIndex = state.frontWeatherAttempts.length % count;
+    state.activeFrontWeatherAttemptId = null;
+    state.route = "front-weather-lab";
+    saveState(); render();
+  }
+  if (action === "start-cyclone-system") {
+    const count = catalog.cycloneSystemLab?.scenarios?.length || 0;
+    if (!count) return;
+    state.cycloneSystemScenarioIndex = state.cycloneSystemAttempts.length % count;
+    state.activeCycloneSystemAttemptId = null;
+    state.route = "cyclone-system-lab";
+    saveState(); render();
+  }
+  if (action === "start-atmosphere-lab") {
+    const lab = getAtmosphereLab(actionTarget.dataset.route);
+    const count = lab?.scenarios?.length || 0;
+    if (!count) return;
+    state.activeAtmosphereLabId = lab.id;
+    state.atmosphereScenarioIndex = latestAtmosphereAttempts(lab.id).length % count;
+    state.activeAtmosphereAttemptId = null;
+    state.route = "atmosphere-lab";
+    saveState(); render();
+  }
   if (action === "start-date-range") {
     const count = catalog.dateRangeLab?.scenarios?.length || 0;
     if (!count) return;
@@ -2537,6 +2783,25 @@ document.addEventListener("click", async (event) => {
     state.route = "coriolis-lab";
     saveState(); render();
   }
+  if (action === "next-front-weather") {
+    state.frontWeatherScenarioIndex = (state.frontWeatherScenarioIndex + 1) % Math.max(catalog.frontWeatherLab?.scenarios?.length || 1, 1);
+    state.activeFrontWeatherAttemptId = null;
+    state.route = "front-weather-lab";
+    saveState(); render();
+  }
+  if (action === "next-cyclone-system") {
+    state.cycloneSystemScenarioIndex = (state.cycloneSystemScenarioIndex + 1) % Math.max(catalog.cycloneSystemLab?.scenarios?.length || 1, 1);
+    state.activeCycloneSystemAttemptId = null;
+    state.route = "cyclone-system-lab";
+    saveState(); render();
+  }
+  if (action === "next-atmosphere-scenario") {
+    const lab = getAtmosphereLab();
+    state.atmosphereScenarioIndex = (state.atmosphereScenarioIndex + 1) % Math.max(lab?.scenarios?.length || 1, 1);
+    state.activeAtmosphereAttemptId = null;
+    state.route = "atmosphere-lab";
+    saveState(); render();
+  }
   if (action === "next-date-range") {
     state.dateRangeScenarioIndex = (state.dateRangeScenarioIndex + 1) % Math.max(catalog.dateRangeLab?.scenarios?.length || 1, 1);
     state.activeDateRangeAttemptId = null;
@@ -2580,11 +2845,109 @@ document.addEventListener("click", async (event) => {
   if (action === "save-eclipse-review") saveEclipseReview(actionTarget.dataset.attemptId);
   if (action === "save-tide-review") saveTideReview(actionTarget.dataset.attemptId);
   if (action === "save-coriolis-review") saveCoriolisReview(actionTarget.dataset.attemptId);
+  if (action === "save-front-weather-review") saveFrontWeatherReview(actionTarget.dataset.attemptId);
+  if (action === "save-cyclone-system-review") saveCycloneSystemReview(actionTarget.dataset.attemptId);
+  if (action === "save-atmosphere-review") saveAtmosphereReview(actionTarget.dataset.attemptId);
   if (action === "save-retest-review") saveRetestReview(actionTarget.dataset.attemptId);
   if (action === "export-data") exportData();
 });
 
 document.addEventListener("submit", (event) => {
+  if (event.target.id === "atmosphere-reasoning-form") {
+    event.preventDefault();
+    const feature = window.OrangeCoach?.features?.atmosphereReasoning;
+    const lab = getAtmosphereLab();
+    const scenario = getAtmosphereScenario(lab);
+    if (!feature || !lab || !scenario) return;
+    const form = new FormData(event.target);
+    const answers = Object.fromEntries(lab.questions.map((question) => [question.key, form.get(`atmosphere-${question.key}`) || ""]));
+    const reasoning = String(form.get("atmosphere-reasoning") || "").trim();
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项判断后再提交。判断链可以留空。");
+    const correctAnswers = feature.calculate(scenario);
+    const checks = Object.fromEntries(lab.questions.map((question) => [question.key, answers[question.key] === correctAnswers[question.key]]));
+    const tags = Object.keys(lab.error_tags || {});
+    const errorTags = lab.questions.flatMap((question, index) => checks[question.key] ? [] : [tags[index] || `${lab.id}-${question.key}`]);
+    const attempt = {
+      schema_version: catalog.atmosphereLabs.schema_version, id: newId(), lab_id: lab.id, scenario_id: scenario.id,
+      section_id: lab.section_id, contrast_key: scenario.contrast_key,
+      answers, correct_answers: correctAnswers, checks,
+      score: Object.values(checks).filter(Boolean).length, error_tags: errorTags, reasoning,
+      submitted_at: new Date().toISOString(), parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.atmosphereReasoningAttempts.push(attempt);
+    state.activeAtmosphereAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
+  if (event.target.id === "front-weather-form") {
+    event.preventDefault();
+    const feature = window.OrangeCoach?.features?.frontWeather;
+    const scenario = getFrontWeatherScenario();
+    if (!feature || !scenario) return;
+    const form = new FormData(event.target);
+    const answers = {
+      front_type: form.get("front-type") || "",
+      active_process: form.get("front-active") || "",
+      uplift_style: form.get("front-uplift") || "",
+      precipitation_zone: form.get("front-precipitation") || "",
+      station_weather: form.get("front-weather") || ""
+    };
+    const reasoning = String(form.get("front-reasoning") || "").trim();
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项判断后再提交。判断链可以留空。");
+    const correctAnswers = feature.calculate(scenario);
+    const checks = Object.fromEntries(Object.keys(answers).map((key) => [key, answers[key] === correctAnswers[key]]));
+    const errorTags = [];
+    if (!checks.front_type) errorTags.push("W-FRONT-TYPE");
+    if (!checks.active_process) errorTags.push("W-FRONT-ACTIVE-AIRMASS");
+    if (!checks.uplift_style) errorTags.push("W-FRONT-UPLIFT");
+    if (!checks.precipitation_zone) errorTags.push("W-FRONT-PRECIPITATION");
+    if (!checks.station_weather) errorTags.push("W-FRONT-SEQUENCE");
+    const attempt = {
+      schema_version: "0.23.0", id: newId(), scenario_id: scenario.id, front_type: scenario.front_type,
+      answers, correct_answers: correctAnswers, checks,
+      score: Object.values(checks).filter(Boolean).length, error_tags: errorTags, reasoning,
+      submitted_at: new Date().toISOString(), parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.frontWeatherAttempts.push(attempt);
+    state.activeFrontWeatherAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
+  if (event.target.id === "cyclone-system-form") {
+    event.preventDefault();
+    const feature = window.OrangeCoach?.features?.cycloneSystem;
+    const scenario = getCycloneSystemScenario();
+    if (!feature || !scenario) return;
+    const form = new FormData(event.target);
+    const answers = {
+      pressure_center: form.get("cyclone-pressure") || "",
+      surface_flow: form.get("cyclone-flow") || "",
+      rotation: form.get("cyclone-rotation") || "",
+      vertical_motion: form.get("cyclone-vertical") || "",
+      weather: form.get("cyclone-weather") || ""
+    };
+    const reasoning = String(form.get("cyclone-reasoning") || "").trim();
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项判断后再提交。判断链可以留空。");
+    const correctAnswers = feature.calculate(scenario);
+    const checks = Object.fromEntries(Object.keys(answers).map((key) => [key, answers[key] === correctAnswers[key]]));
+    const errorTags = [];
+    if (!checks.pressure_center) errorTags.push("W-PRESSURE-CENTER");
+    if (!checks.surface_flow) errorTags.push("W-FLOW-CONVERGENCE");
+    if (!checks.rotation) errorTags.push("W-CYCLONE-ROTATION");
+    if (!checks.vertical_motion) errorTags.push("W-VERTICAL-MOTION");
+    if (!checks.weather) errorTags.push("W-VERTICAL-WEATHER");
+    const attempt = {
+      schema_version: "0.23.0", id: newId(), scenario_id: scenario.id, hemisphere: scenario.hemisphere,
+      system_family: scenario.system.startsWith("低") ? "低气压（气旋）" : "高气压（反气旋）",
+      answers, correct_answers: correctAnswers, checks,
+      score: Object.values(checks).filter(Boolean).length, error_tags: errorTags, reasoning,
+      submitted_at: new Date().toISOString(), parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.cycloneSystemAttempts.push(attempt);
+    state.activeCycloneSystemAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
   if (event.target.id === "coriolis-form") {
     event.preventDefault();
     const feature = window.OrangeCoach?.features?.coriolis;
@@ -3434,7 +3797,7 @@ document.addEventListener("change", async (event) => {
     const imported = JSON.parse(await file.text());
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
-    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length + state.coriolisAttempts.length;
+    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length + state.coriolisAttempts.length + state.frontWeatherAttempts.length + state.cycloneSystemAttempts.length + state.atmosphereReasoningAttempts.length;
     const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", "0.18.0", "0.19.0", "0.20.0", "0.21.0", "0.21.1", "0.21.2", "0.21.3", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
     if (isAnnotatedArchive && localRecordCount > 0) {
       const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
@@ -3462,6 +3825,9 @@ document.addEventListener("change", async (event) => {
       state.eclipseAttempts = normalized.eclipseAttempts;
       state.tideAttempts = normalized.tideAttempts;
       state.coriolisAttempts = normalized.coriolisAttempts;
+      state.frontWeatherAttempts = normalized.frontWeatherAttempts;
+      state.cycloneSystemAttempts = normalized.cycloneSystemAttempts;
+      state.atmosphereReasoningAttempts = normalized.atmosphereReasoningAttempts;
       state.coachAnnotations = normalized.coachAnnotations;
       state.lastAction = `已导入学习档案：${state.coachAnnotations.length} 条教练批注`;
     }
@@ -3630,6 +3996,30 @@ function saveCoriolisReview(id) {
   saveState(); render();
 }
 
+function saveFrontWeatherReview(id) {
+  const attempt = state.frontWeatherAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#front-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#front-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
+function saveCycloneSystemReview(id) {
+  const attempt = state.cycloneSystemAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#cyclone-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#cyclone-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
+function saveAtmosphereReview(id) {
+  const attempt = state.atmosphereReasoningAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#atmosphere-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#atmosphere-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
 function addDaysIso(days) {
   const date = new Date();
   date.setDate(date.getDate() + days);
@@ -3669,7 +4059,7 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -3692,9 +4082,12 @@ async function init() {
       fetch(`./data/moon_phase_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/eclipse_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/tide_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
-      fetch(`./data/coriolis_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
+      fetch(`./data/coriolis_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/front_weather_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/cyclone_system_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/atmosphere_reasoning_labs.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

@@ -1,6 +1,54 @@
 {
-  "schema_version": "0.21.0",
+  "schema_version": "0.24.0",
   "projects": [
+    {
+      "id": "front-weather-lab",
+      "eyebrow": "第三章·常见天气系统",
+      "title": "锋面结构与过境天气",
+      "summary": "从主动气团、锋面坡度和抬升位置，判断冷锋、暖锋、准静止锋的降水区与过境前后变化。",
+      "action": "start-front-weather",
+      "route": null,
+      "cta": "进入锋面天气实验室",
+      "status_kind": "front_weather",
+      "accent": "sky",
+      "order": 6
+    },
+    {
+      "id": "cyclone-system-lab",
+      "eyebrow": "第三章·常见天气系统",
+      "title": "气旋与反气旋",
+      "summary": "从气压中心出发，联动南北半球旋转方向、辐合辐散、中心垂直运动与阴晴天气。",
+      "action": "start-cyclone-system",
+      "route": null,
+      "cta": "进入气旋反气旋实验室",
+      "status_kind": "cyclone_system",
+      "accent": "teal",
+      "order": 7
+    },
+    {
+      "id": "global-circulation-lab",
+      "eyebrow": "第三章·气压带和风带",
+      "title": "三圈环流与气压带风带",
+      "summary": "从受热不均和地转偏向出发，联动七个气压带、六个风带、垂直运动及季节移动。",
+      "action": "start-atmosphere-lab",
+      "route": "global-circulation-lab",
+      "cta": "进入三圈环流实验室",
+      "status_kind": "atmosphere_reasoning",
+      "accent": "indigo",
+      "order": 8
+    },
+    {
+      "id": "monsoon-system-lab",
+      "eyebrow": "第三章·气压带和风带",
+      "title": "海陆气压中心与季风",
+      "summary": "从海陆冷暖与高低压中心判断东亚、南亚冬夏季风的风向、性质和形成链。",
+      "action": "start-atmosphere-lab",
+      "route": "monsoon-system-lab",
+      "cta": "进入季风实验室",
+      "status_kind": "atmosphere_reasoning",
+      "accent": "sky",
+      "order": 9
+    },
     {
       "id": "earth-motion-lab",
       "eyebrow": "地球运动专项",

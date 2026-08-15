@@ -1,0 +1,144 @@
+{
+  "schema_version": "0.1.0",
+  "updated_at": "2026-08-11T09:45:13+08:00",
+  "chapter_id": "earth-universe-motion",
+  "chapter_title": "宇宙中的地球及运动",
+  "decks": [
+    {
+      "id": "ppt-earth-universe-01",
+      "version": "1.0.0",
+      "title": "宇宙环境与地球宜居",
+      "path": "deliverables/chapter-earth-universe/橙子地理_宇宙环境与地球宜居_讲练测.pptx",
+      "slide_count": 15,
+      "lab_ids": [
+        "celestial-scale-lab",
+        "habitability-lab",
+        "solar-activity-lab"
+      ],
+      "question_ids": [
+        "PPT-EU01-2020-JS-Q01",
+        "PPT-EU01-2009-SH-Q03"
+      ],
+      "slides": [
+        { "id": "ppt-eu01-s01", "kind": "cover" },
+        { "id": "ppt-eu01-s02", "kind": "exam-map" },
+        { "id": "ppt-eu01-s03", "kind": "reasoning-chain" },
+        { "id": "ppt-eu01-s04", "kind": "lab-roadmap" },
+        { "id": "ppt-eu01-s05", "kind": "lab", "lab_ids": ["celestial-scale-lab"] },
+        { "id": "ppt-eu01-s06", "kind": "lab", "lab_ids": ["habitability-lab"] },
+        { "id": "ppt-eu01-s07", "kind": "lab", "lab_ids": ["solar-activity-lab"] },
+        { "id": "ppt-eu01-s08", "kind": "lab-link", "lab_ids": ["celestial-scale-lab", "habitability-lab", "solar-activity-lab"] },
+        { "id": "ppt-eu01-s09", "kind": "diagnostic" },
+        { "id": "ppt-eu01-s10", "kind": "exam-question", "question_id": "PPT-EU01-2020-JS-Q01" },
+        { "id": "ppt-eu01-s11", "kind": "exam-answer", "question_id": "PPT-EU01-2020-JS-Q01" },
+        { "id": "ppt-eu01-s12", "kind": "exam-question", "question_id": "PPT-EU01-2009-SH-Q03" },
+        { "id": "ppt-eu01-s13", "kind": "exam-answer", "question_id": "PPT-EU01-2009-SH-Q03" },
+        { "id": "ppt-eu01-s14", "kind": "challenge" },
+        { "id": "ppt-eu01-s15", "kind": "mastery" }
+      ]
+    },
+    {
+      "id": "ppt-earth-universe-02",
+      "version": "1.0.0",
+      "title": "地球自转、时间与日期",
+      "path": "deliverables/chapter-earth-universe/橙子地理_地球自转时间日期_讲练测.pptx",
+      "slide_count": 15,
+      "lab_ids": [
+        "earth-motion-lab",
+        "rotation-speed-lab",
+        "terminator-link-lab",
+        "date-range-lab",
+        "time-zone-lab"
+      ],
+      "question_ids": [
+        "PPT-EU02-2018-N2-Q06",
+        "PPT-EU02-2024-CQ-Q15"
+      ],
+      "slides": [
+        { "id": "ppt-eu02-s01", "kind": "cover" },
+        { "id": "ppt-eu02-s02", "kind": "exam-map" },
+        { "id": "ppt-eu02-s03", "kind": "reasoning-chain" },
+        { "id": "ppt-eu02-s04", "kind": "lab-roadmap" },
+        { "id": "ppt-eu02-s05", "kind": "lab", "lab_ids": ["earth-motion-lab"] },
+        { "id": "ppt-eu02-s06", "kind": "lab", "lab_ids": ["rotation-speed-lab"] },
+        { "id": "ppt-eu02-s07", "kind": "lab", "lab_ids": ["terminator-link-lab"] },
+        { "id": "ppt-eu02-s08", "kind": "lab-link", "lab_ids": ["date-range-lab", "time-zone-lab"] },
+        { "id": "ppt-eu02-s09", "kind": "diagnostic" },
+        { "id": "ppt-eu02-s10", "kind": "exam-question", "question_id": "PPT-EU02-2018-N2-Q06" },
+        { "id": "ppt-eu02-s11", "kind": "exam-answer", "question_id": "PPT-EU02-2018-N2-Q06" },
+        { "id": "ppt-eu02-s12", "kind": "exam-question", "question_id": "PPT-EU02-2024-CQ-Q15" },
+        { "id": "ppt-eu02-s13", "kind": "exam-answer", "question_id": "PPT-EU02-2024-CQ-Q15" },
+        { "id": "ppt-eu02-s14", "kind": "challenge" },
+        { "id": "ppt-eu02-s15", "kind": "mastery" }
+      ]
+    },
+    {
+      "id": "ppt-earth-universe-03",
+      "version": "1.0.0",
+      "title": "地球公转与太阳运动",
+      "path": "deliverables/chapter-earth-universe/橙子地理_地球公转太阳运动_讲练测.pptx",
+      "slide_count": 15,
+      "lab_ids": [
+        "orbit-speed-lab",
+        "solar-season-lab",
+        "annual-sun-lab",
+        "solar-path-lab",
+        "axial-tilt-lab"
+      ],
+      "question_ids": [
+        "PPT-EU03-2024-SD-Q06",
+        "PPT-EU03-2023-BJ-Q01"
+      ],
+      "slides": [
+        { "id": "ppt-eu03-s01", "kind": "cover" },
+        { "id": "ppt-eu03-s02", "kind": "exam-map" },
+        { "id": "ppt-eu03-s03", "kind": "reasoning-chain" },
+        { "id": "ppt-eu03-s04", "kind": "lab-roadmap" },
+        { "id": "ppt-eu03-s05", "kind": "lab", "lab_ids": ["orbit-speed-lab"] },
+        { "id": "ppt-eu03-s06", "kind": "lab", "lab_ids": ["solar-season-lab"] },
+        { "id": "ppt-eu03-s07", "kind": "lab", "lab_ids": ["annual-sun-lab"] },
+        { "id": "ppt-eu03-s08", "kind": "lab-link", "lab_ids": ["solar-path-lab", "axial-tilt-lab"] },
+        { "id": "ppt-eu03-s09", "kind": "diagnostic" },
+        { "id": "ppt-eu03-s10", "kind": "exam-question", "question_id": "PPT-EU03-2024-SD-Q06" },
+        { "id": "ppt-eu03-s11", "kind": "exam-answer", "question_id": "PPT-EU03-2024-SD-Q06" },
+        { "id": "ppt-eu03-s12", "kind": "exam-question", "question_id": "PPT-EU03-2023-BJ-Q01" },
+        { "id": "ppt-eu03-s13", "kind": "exam-answer", "question_id": "PPT-EU03-2023-BJ-Q01" },
+        { "id": "ppt-eu03-s14", "kind": "challenge" },
+        { "id": "ppt-eu03-s15", "kind": "mastery" }
+      ]
+    },
+    {
+      "id": "ppt-earth-universe-04",
+      "version": "1.0.0",
+      "title": "月相、日月食与潮汐",
+      "path": "deliverables/chapter-earth-universe/橙子地理_月相日月食潮汐_讲练测.pptx",
+      "slide_count": 15,
+      "lab_ids": [
+        "moon-phase-lab",
+        "eclipse-lab",
+        "tide-lab"
+      ],
+      "question_ids": [
+        "PPT-EU04-2023-ZJ-Q20",
+        "PPT-EU04-2020-SH-Q02"
+      ],
+      "slides": [
+        { "id": "ppt-eu04-s01", "kind": "cover" },
+        { "id": "ppt-eu04-s02", "kind": "exam-map" },
+        { "id": "ppt-eu04-s03", "kind": "reasoning-chain" },
+        { "id": "ppt-eu04-s04", "kind": "lab-roadmap" },
+        { "id": "ppt-eu04-s05", "kind": "lab", "lab_ids": ["moon-phase-lab"] },
+        { "id": "ppt-eu04-s06", "kind": "lab", "lab_ids": ["eclipse-lab"] },
+        { "id": "ppt-eu04-s07", "kind": "lab", "lab_ids": ["tide-lab"] },
+        { "id": "ppt-eu04-s08", "kind": "lab-link", "lab_ids": ["moon-phase-lab", "eclipse-lab", "tide-lab"] },
+        { "id": "ppt-eu04-s09", "kind": "diagnostic" },
+        { "id": "ppt-eu04-s10", "kind": "exam-question", "question_id": "PPT-EU04-2023-ZJ-Q20" },
+        { "id": "ppt-eu04-s11", "kind": "exam-answer", "question_id": "PPT-EU04-2023-ZJ-Q20" },
+        { "id": "ppt-eu04-s12", "kind": "exam-question", "question_id": "PPT-EU04-2020-SH-Q02" },
+        { "id": "ppt-eu04-s13", "kind": "exam-answer", "question_id": "PPT-EU04-2020-SH-Q02" },
+        { "id": "ppt-eu04-s14", "kind": "challenge" },
+        { "id": "ppt-eu04-s15", "kind": "mastery" }
+      ]
+    }
+  ]
+}

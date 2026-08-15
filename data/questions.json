@@ -302,5 +302,197 @@
     "id":"GEO-EARTH-008","topic_id":"physical.earth.motion","title":"二十四节气的轨道含义","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
     "stem":"二十四节气在一个回归年中的设置，最接近：","options":[{"id":"A","text":"地球自转每15°设置一个"},{"id":"B","text":"太阳直射纬度每隔15°设置一个"},{"id":"C","text":"月球绕地每15°设置一个"},{"id":"D","text":"太阳在黄道上的视位置每运行约15°设置一个"}],"answer":"D",
     "error_map":{"A":{"tag":"E-SOLAR-TERMS-ORBIT","diagnosis":"把年尺度的节气误放到日尺度自转上。","follow_up":"24个节气循环一周需要一天还是一年？"},"B":{"tag":"E-SOLAR-TERMS-LATITUDE","diagnosis":"太阳直射纬度只在南北回归线间往返，不按15°连续绕一周。","follow_up":"节气等分的是直射纬度还是黄道位置？"},"C":{"tag":"E-SOLAR-TERMS-ORBIT","diagnosis":"二十四节气描述地球绕日运动，不是月球绕地运动。","follow_up":"节气与季节循环对应哪个天体运动？"}},"explanation":"一个圆周360°分为24份，每份15°；二十四节气对应太阳在黄道上的视位置变化。","key_points":["二十四节气","黄道位置","回归年"],"review_after_days":[3,7,15]
+  },
+  {
+    "id": "GEO-WEA-001",
+    "topic_id": "physical.atmosphere",
+    "title": "冷锋过境：谁主动、雨落哪里",
+    "source": "原创诊断题（教材第三章第一节）",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "北半球某地受冷锋自西向东影响。只考虑典型冷锋结构，降水最可能集中在：",
+    "options": [
+      {"id": "A", "text": "锋后、锋线附近，因为冷空气主动楔入并迫使暖空气快速抬升"},
+      {"id": "B", "text": "暖气团前方很远处，因为暖空气主动沿冷空气缓慢爬升"},
+      {"id": "C", "text": "高压中心，因为空气辐合上升"},
+      {"id": "D", "text": "锋面两侧均无降水，因为冷暖气团不会产生垂直运动"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "W-FRONT-ACTIVE-AIRMASS", "diagnosis": "把暖锋的主动气团和缓坡降水结构套到了冷锋。", "follow_up": "冷锋名称中的“冷”表示哪一侧气团主动推进？"},
+      "C": {"tag": "W-FRONT-CYCLONE-MIX", "diagnosis": "把锋面抬升与低压中心辐合混为一谈。", "follow_up": "题干要求判断锋面哪一侧，而不是气压中心。"},
+      "D": {"tag": "W-FRONT-UPLIFT", "diagnosis": "忽略了密度较大的冷空气楔入暖空气下方会迫使暖空气上升。", "follow_up": "暖湿空气上升冷却后，水汽会发生什么变化？"}
+    },
+    "explanation": "典型冷锋中冷气团主动推进，插入暖气团下方，使暖空气快速抬升；降水多出现在冷气团一侧、锋线附近及锋后。",
+    "key_points": ["冷锋", "主动气团", "锋后降水", "暖空气抬升"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-WEA-002",
+    "topic_id": "physical.atmosphere",
+    "title": "暖锋过境后的气温与气压",
+    "source": "原创诊断题（教材第三章第一节）",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "一次典型暖锋过境后，测站由暖气团控制。与过境前相比，该地通常：",
+    "options": [
+      {"id": "A", "text": "气温下降、气压上升、天气转晴"},
+      {"id": "B", "text": "气温升高、气压降低、天气转晴"},
+      {"id": "C", "text": "气温和气压都不变，连续性降水增强"},
+      {"id": "D", "text": "气温下降、气压降低，出现强对流暴雨"}
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {"tag": "W-FRONT-AFTER-SEQUENCE", "diagnosis": "把冷锋过境后的要素变化套到了暖锋。", "follow_up": "暖锋过境后，占据测站的是冷气团还是暖气团？"},
+      "C": {"tag": "W-FRONT-STAGE", "diagnosis": "把过境时的连续性降水延续到了过境后。", "follow_up": "锋面离开后，持续抬升条件是否仍然存在？"},
+      "D": {"tag": "W-FRONT-WEATHER-TYPE", "diagnosis": "既把气温方向判断反了，也把暖锋常见的连续性降水误作强对流。", "follow_up": "暖空气沿缓坡徐徐爬升通常形成哪类降水？"}
+    },
+    "explanation": "暖锋过境后暖气团取代冷气团，气温升高、气压降低；锋面离开后天气通常转晴。",
+    "key_points": ["暖锋", "过境后", "气温变化", "气压变化"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-WEA-003",
+    "topic_id": "physical.atmosphere",
+    "title": "准静止锋为什么阴雨连绵",
+    "source": "原创诊断题（教材第三章第一节）",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "某地连续多日处在冷暖气团交界附近，锋线位置变化很小，阴雨持续。最合理的解释是：",
+    "options": [
+      {"id": "A", "text": "冷气团快速推进，锋面很快离开"},
+      {"id": "B", "text": "暖气团快速推进，锋面很快离开"},
+      {"id": "C", "text": "冷暖气团势均力敌或受地形阻挡，锋面移动缓慢"},
+      {"id": "D", "text": "高压中心长期控制，空气持续下沉"}
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {"tag": "W-STATIONARY-MOVEMENT", "diagnosis": "快速推进会使锋面较快过境，难以解释同一地点长期阴雨。", "follow_up": "若锋面每天移动很远，降水区能否长期停留？"},
+      "B": {"tag": "W-STATIONARY-MOVEMENT", "diagnosis": "主动快速推进描述暖锋移动，不符合锋线位置变化很小。", "follow_up": "题干中哪句话直接说明锋面近似停滞？"},
+      "D": {"tag": "W-VERTICAL-WEATHER", "diagnosis": "高压中心的下沉气流通常不利于成云降水。", "follow_up": "阴雨需要上升还是下沉运动？"}
+    },
+    "explanation": "冷暖气团势均力敌或锋面受地形阻挡时，锋面移动缓慢或很少移动，暖湿空气持续抬升，容易形成阴雨连绵天气。",
+    "key_points": ["准静止锋", "锋面移动", "持续性降水", "地形阻挡"],
+    "review_after_days": [3, 7, 15]
+  },
+  {
+    "id": "GEO-WEA-004",
+    "topic_id": "physical.atmosphere",
+    "title": "北半球低压的风与天气",
+    "source": "原创诊断题（教材第三章第一节）",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "北半球某闭合等压线系统中心气压低于四周。该系统近地面水平气流和中心天气最可能是：",
+    "options": [
+      {"id": "A", "text": "顺时针辐散，中心下沉，多晴朗"},
+      {"id": "B", "text": "逆时针辐合，中心上升，多阴雨"},
+      {"id": "C", "text": "顺时针辐合，中心下沉，多阴雨"},
+      {"id": "D", "text": "逆时针辐散，中心上升，多晴朗"}
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {"tag": "W-CYCLONE-ANTICYCLONE", "diagnosis": "把北半球反气旋的水平与垂直运动套到了低压。", "follow_up": "低压近地面空气先由四周流向中心，还是由中心流出？"},
+      "C": {"tag": "W-CYCLONE-ROTATION", "diagnosis": "判断了辐合，却把北半球低压的旋转方向写反。", "follow_up": "流向低压的空气在北半球向运动方向哪侧偏？"},
+      "D": {"tag": "W-VERTICAL-WEATHER", "diagnosis": "低压近地面是辐合而非辐散；上升冷却通常利于成云降水。", "follow_up": "中心上升所需空气从哪里补充？"}
+    },
+    "explanation": "北半球低压近地面气流逆时针辐合，中心形成上升气流；空气上升冷却，水汽易凝结，因此多阴雨。",
+    "key_points": ["低气压", "气旋", "北半球", "辐合上升", "阴雨"],
+    "review_after_days": [2, 6, 14]
+  },
+  {
+    "id": "GEO-AIR-002",
+    "topic_id": "physical.atmosphere",
+    "title": "副热带高压为何是动力高压",
+    "source": "原创诊断题（教材第三章第二节）",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "在不考虑海陆分布和地形影响的三圈环流模型中，北纬30°附近形成副热带高压带。其主要形成过程是：",
+    "options": [
+      {"id": "A", "text": "地面强烈受热，空气膨胀上升"},
+      {"id": "B", "text": "赤道上空流来的空气在此堆积下沉"},
+      {"id": "C", "text": "极地冷空气在此辐合抬升"},
+      {"id": "D", "text": "海洋降温慢，近地面空气持续上升"}
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {"tag": "A-CIRC-ORIGIN", "diagnosis": "把赤道低压带的热力上升过程套到了副热带高压带。", "follow_up": "北纬30°附近空气主要从高空下沉，还是从地面受热上升？"},
+      "C": {"tag": "A-CIRC-LATITUDE", "diagnosis": "西风与极地东风辐合抬升主要发生在约60°附近。", "follow_up": "副极地低压带大致位于30°还是60°附近？"},
+      "D": {"tag": "A-CIRC-IDEAL-REAL", "diagnosis": "题目限定理想三圈环流，不能直接用局地海陆热力差异解释。", "follow_up": "先忽略海陆后，30°附近高压来自哪一支高空气流？"}
+    },
+    "explanation": "赤道上升气流在高空向高纬流动，受地转偏向影响在副热带上空堆积并下沉，形成动力高压。",
+    "key_points": ["三圈环流", "副热带高压带", "动力高压", "下沉气流"],
+    "review_after_days": [2, 6, 14]
+  },
+  {
+    "id": "GEO-AIR-003",
+    "topic_id": "physical.atmosphere",
+    "title": "气压带风带的季节移动",
+    "source": "原创诊断题（教材第三章第二节）",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "与春分、秋分前后相比，北半球夏季全球气压带和风带的位置大致：",
+    "options": [
+      {"id": "A", "text": "整体向北移动"},
+      {"id": "B", "text": "整体向南移动"},
+      {"id": "C", "text": "只有北半球移动，南半球不动"},
+      {"id": "D", "text": "与太阳直射点无关，全年固定"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "A-CIRC-SEASON", "diagnosis": "把北半球冬季的偏南位置用于夏季。", "follow_up": "北半球夏季太阳直射点位于赤道以北还是以南？"},
+      "C": {"tag": "A-CIRC-GLOBAL", "diagnosis": "气压带风带是全球连续系统，会随直射点整体季节移动。", "follow_up": "赤道低压带跨越赤道移动时，南半球相邻风带会不会响应？"},
+      "D": {"tag": "A-CIRC-SEASON", "diagnosis": "忽略了太阳直射点南北移动造成的热力赤道移动。", "follow_up": "教材图3.11中三个日期的气压带位置是否重合？"}
+    },
+    "explanation": "气压带和风带随太阳直射点南北移动。北半球夏季相对二分日整体偏北，冬季整体偏南。",
+    "key_points": ["太阳直射点", "气压带风带", "季节移动"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-AIR-004",
+    "topic_id": "physical.atmosphere",
+    "title": "1月亚洲高压与东亚季风",
+    "source": "原创诊断题（教材第三章第二节）",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "1月亚洲大陆形成势力强大的亚洲高压。此时我国东部近地面盛行风及其性质最可能是：",
+    "options": [
+      {"id": "A", "text": "东南风，温暖湿润"},
+      {"id": "B", "text": "西北风，寒冷干燥"},
+      {"id": "C", "text": "西南风，温暖湿润"},
+      {"id": "D", "text": "东北风，全年性质不变"}
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {"tag": "A-MONSOON-WIND", "diagnosis": "把东亚夏季风套到了冬季。", "follow_up": "1月近地面空气从亚洲高压吹向海洋，来向偏西北还是东南？"},
+      "C": {"tag": "A-MONSOON-REGION", "diagnosis": "西南季风主要用于描述南亚和我国西南地区的夏季风。", "follow_up": "题干目标是我国东部还是印度半岛？"},
+      "D": {"tag": "A-MONSOON-SEASON", "diagnosis": "季风的核心特征就是盛行风随季节有规律更替。", "follow_up": "若亚洲大陆夏季转为热低压，风向是否仍会保持不变？"}
+    },
+    "explanation": "冬季亚洲大陆降温快，形成亚洲高压；空气由大陆吹向海洋，我国东部盛行寒冷干燥的西北季风。",
+    "key_points": ["亚洲高压", "东亚冬季风", "西北风", "海陆热力差异"],
+    "review_after_days": [2, 6, 14]
+  },
+  {
+    "id": "GEO-AIR-005",
+    "topic_id": "physical.atmosphere",
+    "title": "南亚夏季西南季风的来路",
+    "source": "原创诊断题（教材第三章第二节）",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "南亚夏季西南季风的一支重要气流来自南半球东南信风。该气流越过赤道后转为西南风，关键是：",
+    "options": [
+      {"id": "A", "text": "进入北半球后向运动方向右侧偏转"},
+      {"id": "B", "text": "进入北半球后向运动方向左侧偏转"},
+      {"id": "C", "text": "越过赤道后不再受水平气压梯度力"},
+      {"id": "D", "text": "印度洋夏季形成强冷高压"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "A-MONSOON-DEFLECTION", "diagnosis": "把南半球向左偏的规则延续到了北半球。", "follow_up": "气流越过赤道后所在半球是否已经改变？"},
+      "C": {"tag": "A-MONSOON-FORCE", "diagnosis": "气流仍受气压差驱动，越过赤道并不会使水平气压梯度力消失。", "follow_up": "夏季印度低压能否继续吸引海洋气流？"},
+      "D": {"tag": "A-MONSOON-PRESSURE", "diagnosis": "夏季印度洋并非形成驱动西南季风的强冷高压，亚洲大陆反而形成热低压。", "follow_up": "夏季陆地和海洋谁升温更快？"}
+    },
+    "explanation": "南半球东南信风越过赤道进入北半球后，受地转偏向力影响向运动方向右侧偏转，形成西南风，并吹向亚洲大陆热低压。",
+    "key_points": ["南亚夏季风", "跨赤道气流", "北半球右偏", "印度低压"],
+    "review_after_days": [3, 7, 15]
   }
 ]

@@ -43,6 +43,9 @@
     (state.eclipseAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     (state.tideAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     (state.coriolisAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
+    (state.frontWeatherAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
+    (state.cycloneSystemAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
+    (state.atmosphereReasoningAttempts || []).forEach((attempt) => (attempt.error_tags || []).forEach(add));
     return [...counts.entries()]
       .map(([error_tag, count]) => ({ error_tag, count }))
       .sort((a, b) => b.count - a.count || a.error_tag.localeCompare(b.error_tag));
@@ -86,7 +89,10 @@
       ...(state.moonPhaseAttempts || []),
       ...(state.eclipseAttempts || []),
       ...(state.tideAttempts || []),
-      ...(state.coriolisAttempts || [])
+      ...(state.coriolisAttempts || []),
+      ...(state.frontWeatherAttempts || []),
+      ...(state.cycloneSystemAttempts || []),
+      ...(state.atmosphereReasoningAttempts || [])
     ];
     return all.filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
   }
@@ -115,6 +121,9 @@
     const eclipse = state.eclipseAttempts || [];
     const tide = state.tideAttempts || [];
     const coriolis = state.coriolisAttempts || [];
+    const frontWeather = state.frontWeatherAttempts || [];
+    const cycloneSystem = state.cycloneSystemAttempts || [];
+    const atmosphereReasoning = state.atmosphereReasoningAttempts || [];
     const latestTime = latestByTime(timeLab);
     const latestMotion = latestByTime(earthMotion);
     const latestSolar = latestByTime(solarSeason);
@@ -132,6 +141,8 @@
     const latestEclipse = latestByTime(eclipse);
     const latestTide = latestByTime(tide);
     const latestCoriolis = latestByTime(coriolis);
+    const latestFrontWeather = latestByTime(frontWeather);
+    const latestCycloneSystem = latestByTime(cycloneSystem);
     return [
       {
         project_id: "diagnostic-questions",
@@ -242,6 +253,23 @@
         confirmed: coriolis.filter((attempt) => attempt.parent_review_status === "已确认").length
       },
       {
+        project_id: "front-weather-lab",
+        records: frontWeather.length,
+        latest_score: latestFrontWeather?.score ?? null,
+        confirmed: frontWeather.filter((attempt) => attempt.parent_review_status === "已确认").length
+      },
+      {
+        project_id: "cyclone-system-lab",
+        records: cycloneSystem.length,
+        latest_score: latestCycloneSystem?.score ?? null,
+        confirmed: cycloneSystem.filter((attempt) => attempt.parent_review_status === "已确认").length
+      },
+      ...["global-circulation-lab", "monsoon-system-lab"].map((projectId) => {
+        const records = atmosphereReasoning.filter((attempt) => attempt.lab_id === projectId);
+        const latest = latestByTime(records);
+        return { project_id: projectId, records: records.length, latest_score: latest?.score ?? null, confirmed: records.filter((attempt) => attempt.parent_review_status === "已确认").length };
+      }),
+      {
         project_id: "delayed-retests",
         records: retests.length,
         mastered: retests.filter((attempt) => attempt.parent_review_status === "已掌握").length
@@ -269,7 +297,10 @@
       ...(state.moonPhaseAttempts || []),
       ...(state.eclipseAttempts || []),
       ...(state.tideAttempts || []),
-      ...(state.coriolisAttempts || [])
+      ...(state.coriolisAttempts || []),
+      ...(state.frontWeatherAttempts || []),
+      ...(state.cycloneSystemAttempts || []),
+      ...(state.atmosphereReasoningAttempts || [])
     ].map((attempt) => attempt.submitted_at).filter(Boolean).sort();
     return { first_recorded_at: timestamps[0] || null, last_recorded_at: timestamps[timestamps.length - 1] || null };
   }
@@ -283,7 +314,7 @@
   }
 
   function mergeAnnotatedArchive(currentState, importedState) {
-    const groups = ["attempts", "retestAttempts", "timeLabAttempts", "earthMotionAttempts", "solarSeasonAttempts", "solarPathAttempts", "annualSunAttempts", "orbitSpeedAttempts", "terminatorLinkAttempts", "rotationSpeedAttempts", "dateRangeAttempts", "axialTiltAttempts", "celestialScaleAttempts", "habitabilityAttempts", "solarActivityAttempts", "moonPhaseAttempts", "eclipseAttempts", "tideAttempts", "coriolisAttempts"];
+    const groups = ["attempts", "retestAttempts", "timeLabAttempts", "earthMotionAttempts", "solarSeasonAttempts", "solarPathAttempts", "annualSunAttempts", "orbitSpeedAttempts", "terminatorLinkAttempts", "rotationSpeedAttempts", "dateRangeAttempts", "axialTiltAttempts", "celestialScaleAttempts", "habitabilityAttempts", "solarActivityAttempts", "moonPhaseAttempts", "eclipseAttempts", "tideAttempts", "coriolisAttempts", "frontWeatherAttempts", "cycloneSystemAttempts", "atmosphereReasoningAttempts"];
     for (const group of groups) {
       const currentById = new Map((currentState[group] || []).map((record) => [record.id, record]));
       for (const importedRecord of importedState[group] || []) {
@@ -318,17 +349,20 @@
     const eclipseAttempts = state.eclipseAttempts || [];
     const tideAttempts = state.tideAttempts || [];
     const coriolisAttempts = state.coriolisAttempts || [];
-    const allCount = attempts.length + retestAttempts.length + timeLabAttempts.length + earthMotionAttempts.length + solarPathAttempts.length + solarSeasonAttempts.length + annualSunAttempts.length + orbitSpeedAttempts.length + terminatorLinkAttempts.length + rotationSpeedAttempts.length + dateRangeAttempts.length + axialTiltAttempts.length + celestialScaleAttempts.length + habitabilityAttempts.length + solarActivityAttempts.length + moonPhaseAttempts.length + eclipseAttempts.length + tideAttempts.length + coriolisAttempts.length;
+    const frontWeatherAttempts = state.frontWeatherAttempts || [];
+    const cycloneSystemAttempts = state.cycloneSystemAttempts || [];
+    const atmosphereReasoningAttempts = state.atmosphereReasoningAttempts || [];
+    const allCount = attempts.length + retestAttempts.length + timeLabAttempts.length + earthMotionAttempts.length + solarPathAttempts.length + solarSeasonAttempts.length + annualSunAttempts.length + orbitSpeedAttempts.length + terminatorLinkAttempts.length + rotationSpeedAttempts.length + dateRangeAttempts.length + axialTiltAttempts.length + celestialScaleAttempts.length + habitabilityAttempts.length + solarActivityAttempts.length + moonPhaseAttempts.length + eclipseAttempts.length + tideAttempts.length + coriolisAttempts.length + frontWeatherAttempts.length + cycloneSystemAttempts.length + atmosphereReasoningAttempts.length;
     const exportedAt = now.toISOString();
     const compactId = exportedAt.replace(/[-:.Z]/g, "");
     return {
       version: state.version,
-      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.22.0",
+      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.24.0",
       export_id: `EXPORT-${compactId}`,
       exported_at: exportedAt,
       exported_at_local: localTimestamp(now),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
-      app_version: config.APP_VERSION || "0.22.0",
+      app_version: config.APP_VERSION || "0.24.0",
       student_alias: config.STUDENT_ALIAS || "橙子",
       privacy_note: "档案默认不含姓名、学校、班级和联系方式；交给AI或教师前仍请人工检查自由文本。",
       summary: {
@@ -353,6 +387,9 @@
         eclipse_attempts: eclipseAttempts.length,
         tide_attempts: tideAttempts.length,
         coriolis_attempts: coriolisAttempts.length,
+        front_weather_attempts: frontWeatherAttempts.length,
+        cyclone_system_attempts: cycloneSystemAttempts.length,
+        atmosphere_reasoning_attempts: atmosphereReasoningAttempts.length,
         pending_parent_reviews: countPendingReview(state),
         activity_window: activityWindow(state),
         by_project: buildProjectSummary(state),
@@ -378,6 +415,9 @@
       eclipse_attempts: eclipseAttempts,
       tide_attempts: tideAttempts,
       coriolis_attempts: coriolisAttempts,
+      front_weather_attempts: frontWeatherAttempts,
+      cyclone_system_attempts: cycloneSystemAttempts,
+      atmosphere_reasoning_attempts: atmosphereReasoningAttempts,
       coach_annotations: state.coachAnnotations || [],
       annotation_guide: {
         purpose: "请基于学习证据批注进展，并把批注追加到 coach_annotations；不要修改原始作答记录。",

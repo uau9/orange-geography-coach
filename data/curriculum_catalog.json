@@ -53,8 +53,8 @@
           "status": "active",
           "order": 3,
           "sections": [
-            { "id": "pep-selective-1-ch03-s01", "number": 1, "title": "常见天气系统", "order": 1, "question_ids": [], "project_ids": [] },
-            { "id": "pep-selective-1-ch03-s02", "number": 2, "title": "气压带和风带", "order": 2, "question_ids": ["GEO-AIR-001"], "project_ids": [] },
+            { "id": "pep-selective-1-ch03-s01", "number": 1, "title": "常见天气系统", "order": 1, "question_ids": ["GEO-WEA-001", "GEO-WEA-002", "GEO-WEA-003", "GEO-WEA-004"], "project_ids": ["front-weather-lab", "cyclone-system-lab"] },
+            { "id": "pep-selective-1-ch03-s02", "number": 2, "title": "气压带和风带", "order": 2, "question_ids": ["GEO-AIR-001", "GEO-AIR-002", "GEO-AIR-003", "GEO-AIR-004", "GEO-AIR-005"], "project_ids": ["global-circulation-lab", "monsoon-system-lab"] },
             { "id": "pep-selective-1-ch03-s03", "number": 3, "title": "气压带和风带对气候的影响", "order": 3, "question_ids": [], "project_ids": [] }
           ],
           "research_task": "阿联酋“造山引雨”是否可行"
