@@ -209,7 +209,7 @@
       "id": "diagnostic-questions",
       "eyebrow": "日常诊断",
       "title": "知识点诊断题",
-      "summary": "独立选择答案，理由可选填；系统只形成错因候选，再由AI和家长核验。",
+      "summary": "一键进入推荐题，或按知识点目录选题；目录不提前展示答案与解析。",
       "action": "start-next",
       "route": null,
       "cta": "开始下一道诊断",

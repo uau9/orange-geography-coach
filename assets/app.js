@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.21.2", ASSET_VERSION: "0.21.2", EXPORT_SCHEMA_VERSION: "0.21.2", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.21.3", ASSET_VERSION: "0.21.3", EXPORT_SCHEMA_VERSION: "0.21.3", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -64,6 +64,7 @@ function defaultState() {
     version: "0.3.0",
     route: "today",
     currentQuestionId: null,
+    diagnosticFilter: "all",
     currentRetestId: null,
     activeSession: null,
     activeRetestSession: null,
@@ -132,6 +133,7 @@ function defaultState() {
 
 function normalizeState(parsed) {
   const normalized = { ...defaultState(), ...parsed, version: "0.3.0" };
+  normalized.diagnosticFilter = ["all", "unseen", "review", "answered"].includes(parsed?.diagnosticFilter) ? parsed.diagnosticFilter : "all";
   normalized.attempts = Array.isArray(parsed?.attempts) ? parsed.attempts : [];
   normalized.retestAttempts = Array.isArray(parsed?.retestAttempts)
     ? parsed.retestAttempts
@@ -1119,7 +1121,10 @@ function renderCoriolisLab() {
 
 function render() {
   window.scrollTo(0, 0);
-  document.querySelectorAll(".bottom-nav button").forEach((button) => button.classList.toggle("active", button.dataset.route === state.route));
+  document.querySelectorAll(".bottom-nav button").forEach((button) => {
+    const isDiagnosticRoute = ["train", "diagnostic-catalog"].includes(state.route);
+    button.classList.toggle("active", button.dataset.route === state.route || (button.dataset.route === "train" && isDiagnosticRoute));
+  });
   if (state.route === "retest") return renderRetest();
   if (state.route === "time-lab") return renderTimeLab();
   if (state.route === "earth-motion-lab") return renderEarthMotionLab();
@@ -1138,6 +1143,7 @@ function render() {
   if (state.route === "eclipse-lab") return renderEclipseLab();
   if (state.route === "tide-lab") return renderTideLab();
   if (state.route === "coriolis-lab") return renderCoriolisLab();
+  if (state.route === "diagnostic-catalog") return renderDiagnosticCatalog();
   if (state.route === "train") return renderTrain();
   if (state.route === "projects") return renderProjects();
   if (state.route === "mastery") return renderMastery();
@@ -1518,6 +1524,83 @@ function renderAttemptSummary(attempt) {
   return `<div class="attempt-item"><div class="attempt-head"><strong>${escapeHtml(question?.title || attempt.question_id)}</strong><span class="pill ${attempt.is_correct ? "green" : "red"}">${attempt.is_correct ? "正确" : "待复盘"}</span></div><div class="topic-meta">${escapeHtml(topic?.name || "")} · ${formatDate(attempt.submitted_at)} · 家长：${escapeHtml(attempt.parent_review_status)}</div></div>`;
 }
 
+function diagnosticQuestionModels() {
+  const latestByQuestion = new Map();
+  for (const attempt of latestAttempts()) {
+    if (!latestByQuestion.has(attempt.question_id)) latestByQuestion.set(attempt.question_id, attempt);
+  }
+  return catalog.questions.map((question, index) => {
+    const latest = latestByQuestion.get(question.id) || null;
+    let status = { kind: "unseen", label: "未作答", tone: "" };
+    if (latest && !latest.is_correct) status = { kind: "review", label: "待复盘", tone: "red" };
+    if (latest?.is_correct && latest.parent_review_status === "已确认") status = { kind: "confirmed", label: "已确认", tone: "green" };
+    if (latest?.is_correct && latest.parent_review_status !== "已确认") status = { kind: "answered", label: "答对·待确认", tone: "orange" };
+    return { question, index, latest, ...status };
+  });
+}
+
+function renderDiagnosticCatalog() {
+  const models = diagnosticQuestionModels();
+  const filter = ["all", "unseen", "review", "answered"].includes(state.diagnosticFilter) ? state.diagnosticFilter : "all";
+  const filters = [
+    { id: "all", label: "全部" },
+    { id: "unseen", label: "未作答" },
+    { id: "review", label: "待复盘" },
+    { id: "answered", label: "已作答" }
+  ];
+  const matchesFilter = (model) => filter === "all"
+    || (filter === "unseen" && !model.latest)
+    || (filter === "review" && model.kind === "review")
+    || (filter === "answered" && Boolean(model.latest));
+  const visibleModels = models.filter(matchesFilter);
+  const answeredCount = models.filter((model) => model.latest).length;
+  const reviewCount = models.filter((model) => model.kind === "review").length;
+  const unseenCount = models.length - answeredCount;
+  const hasUnseen = unseenCount > 0;
+  const next = chooseNextQuestion();
+  const groups = catalog.topics.map((topic) => {
+    const allInTopic = models.filter((model) => model.question.topic_id === topic.id);
+    const visibleInTopic = visibleModels.filter((model) => model.question.topic_id === topic.id);
+    if (!allInTopic.length || !visibleInTopic.length) return "";
+    return `
+      <section class="card diagnostic-topic-card">
+        <div class="diagnostic-topic-heading">
+          <div><span class="section-kicker">${escapeHtml(topic.category)}</span><h3>${escapeHtml(topic.name)}</h3></div>
+          <span class="pill">${visibleInTopic.length}/${allInTopic.length} 道</span>
+        </div>
+        <div class="diagnostic-question-list">
+          ${visibleInTopic.map((model) => `
+            <button class="diagnostic-question-row" data-action="start-question" data-question-id="${escapeHtml(model.question.id)}" aria-label="打开第 ${model.index + 1} 题：${escapeHtml(model.question.title)}">
+              <span class="diagnostic-question-copy"><span class="diagnostic-question-code">第 ${model.index + 1} 题 · ${escapeHtml(model.question.id)}</span><strong>${escapeHtml(model.question.title)}</strong></span>
+              <span class="pill ${escapeHtml(model.tone)}">${escapeHtml(model.label)}</span>
+            </button>`).join("")}
+        </div>
+      </section>`;
+  }).join("");
+
+  app.innerHTML = `
+    <div class="diagnostic-catalog-heading">
+      <div><span class="section-kicker">知识点诊断</span><h2 class="page-title">题目目录</h2></div>
+      <button class="btn orange" data-action="start-next">继续推荐题</button>
+    </div>
+    <p class="page-subtitle">按知识点查看题目和作答状态。目录不展示正确答案或解析；“已作答”只表示留下记录，不等于已掌握。</p>
+    <section class="stat-grid diagnostic-stat-grid" aria-label="诊断题进度">
+      <div class="stat"><strong>${models.length}</strong><span>总题量</span></div>
+      <div class="stat"><strong>${answeredCount}</strong><span>已作答</span></div>
+      <div class="stat"><strong>${reviewCount}</strong><span>待复盘</span></div>
+      <div class="stat"><strong>${unseenCount}</strong><span>未作答</span></div>
+    </section>
+    <section class="card compact-card diagnostic-recommendation">
+      <div><span class="section-kicker">自动推荐</span><h3>${escapeHtml(next?.title || "暂无题目")}</h3></div>
+      <p class="small">依据：${hasUnseen ? "未作答题优先" : "全部已作答，优先安排当前表现较弱的题目"}。</p>
+    </section>
+    <div class="diagnostic-filter-bar" role="group" aria-label="筛选诊断题">
+      ${filters.map((item) => `<button class="${item.id === filter ? "active" : ""}" data-action="set-diagnostic-filter" data-filter="${item.id}" aria-pressed="${item.id === filter}">${item.label}</button>`).join("")}
+    </div>
+    ${groups || `<section class="card empty">当前筛选条件下没有题目。</section>`}
+  `;
+}
+
 function renderTrain() {
   const question = getActiveQuestion();
   if (!question) { app.innerHTML = `<section class="card empty">暂无题目。</section>`; return; }
@@ -1525,8 +1608,10 @@ function renderTrain() {
   const session = state.activeSession;
   if (session && session.questionId === question.id) return renderResult(question, session);
   app.innerHTML = `
-    <div class="topic-meta">${escapeHtml(getTopic(question.topic_id)?.category || "")} · ${escapeHtml(getTopic(question.topic_id)?.name || "")} · ${escapeHtml(question.id)}</div>
-    <h2 class="page-title">${escapeHtml(question.title)}</h2>
+    <div class="question-page-heading">
+      <div><div class="topic-meta">${escapeHtml(getTopic(question.topic_id)?.category || "")} · ${escapeHtml(getTopic(question.topic_id)?.name || "")} · ${escapeHtml(question.id)}</div><h2 class="page-title">${escapeHtml(question.title)}</h2></div>
+      <button class="btn secondary" data-action="open-diagnostic-catalog">题目目录</button>
+    </div>
     <p class="page-subtitle">请先独立选择答案。理由可选填，留空也可以提交。</p>
     <section class="card">
       <div class="question-stem">${escapeHtml(question.stem)}</div>
@@ -1548,8 +1633,10 @@ function renderResult(question, session) {
   const candidate = correct ? null : question.error_map[session.selectedOption];
   const prompt = makeAiPrompt(question, session, candidate);
   app.innerHTML = `
-    <div class="topic-meta">${escapeHtml(question.id)} · ${escapeHtml(getTopic(question.topic_id)?.name || "")}</div>
-    <h2 class="page-title">${correct ? "答对了，继续核对关键点" : "这道题值得复盘"}</h2>
+    <div class="question-page-heading">
+      <div><div class="topic-meta">${escapeHtml(question.id)} · ${escapeHtml(getTopic(question.topic_id)?.name || "")}</div><h2 class="page-title">${correct ? "答对了，继续核对关键点" : "这道题值得复盘"}</h2></div>
+      <button class="btn secondary" data-action="open-diagnostic-catalog">题目目录</button>
+    </div>
     <section class="card">
       <p><strong>你的选择：</strong>${escapeHtml(session.selectedOption)}. ${escapeHtml(selected?.text || "")}</p>
       <p><strong>你的理由（选填）：</strong></p><div class="quote">${optionalReasoning(session.reasoning)}</div>
@@ -2098,6 +2185,27 @@ document.addEventListener("click", async (event) => {
   if (action === "goto") {
     state.route = actionTarget.dataset.route;
     saveState(); render();
+  }
+  if (action === "open-diagnostic-catalog") {
+    state.route = "diagnostic-catalog";
+    saveState(); render();
+    return;
+  }
+  if (action === "set-diagnostic-filter") {
+    const filter = actionTarget.dataset.filter;
+    state.diagnosticFilter = ["all", "unseen", "review", "answered"].includes(filter) ? filter : "all";
+    state.route = "diagnostic-catalog";
+    saveState(); render();
+    return;
+  }
+  if (action === "start-question") {
+    const question = getQuestion(actionTarget.dataset.questionId);
+    if (!question) return;
+    state.currentQuestionId = question.id;
+    state.activeSession = null;
+    state.route = "train";
+    saveState(); render();
+    return;
   }
   if (action === "start-next") {
     state.currentQuestionId = chooseNextQuestion()?.id || null;
@@ -3270,7 +3378,7 @@ document.addEventListener("change", async (event) => {
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
     const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length + state.coriolisAttempts.length;
-    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", "0.18.0", "0.19.0", "0.20.0", "0.21.0", "0.21.1", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
+    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", "0.18.0", "0.19.0", "0.20.0", "0.21.0", "0.21.1", "0.21.2", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
     if (isAnnotatedArchive && localRecordCount > 0) {
       const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
       if (!mergeResult?.ok) throw new Error(mergeResult?.reason || "批注档案与当前记录不一致");

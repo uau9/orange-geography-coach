@@ -57,7 +57,10 @@
             <div class="project-card-head"><div><span class="project-type">${escapeHtml(project.eyebrow)}</span><h3>${escapeHtml(project.title)}</h3></div><span class="pill ${escapeHtml(project.status_tone || "")}">${escapeHtml(project.status_label)}</span></div>
             <p>${escapeHtml(project.summary)}</p>
             <div class="project-evidence">${escapeHtml(project.status_detail)}</div>
-            <button class="btn ${project.accent === "orange" ? "orange" : "secondary"}" ${actionAttributes(project)}>${escapeHtml(project.cta)}</button>
+            <div class="project-card-actions">
+              <button class="btn ${project.accent === "orange" ? "orange" : "secondary"}" ${actionAttributes(project)}>${escapeHtml(project.cta)}</button>
+              ${project.status_kind === "diagnostic" ? `<button class="btn secondary" data-action="open-diagnostic-catalog">查看题目目录</button>` : ""}
+            </div>
           </article>`).join("")}
       </section>
       <section class="card project-principle-card">

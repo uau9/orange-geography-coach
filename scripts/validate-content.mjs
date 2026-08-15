@@ -21,6 +21,7 @@ await import("../assets/features/learning-export.js");
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
 const questions = JSON.parse(await readFile(new URL("../data/questions.json", import.meta.url), "utf8"));
 const appSource = await readFile(new URL("../assets/app.js", import.meta.url), "utf8");
+const homeSource = await readFile(new URL("../assets/features/home.js", import.meta.url), "utf8");
 const indexSource = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const paperReviews = JSON.parse(await readFile(new URL("../data/paper_reviews.json", import.meta.url), "utf8"));
 const retests = JSON.parse(await readFile(new URL("../data/retests.json", import.meta.url), "utf8"));
@@ -48,7 +49,8 @@ const v021Schemas = await Promise.all([
   "learning-projects.v0.21.schema.json",
   "learning-export.v0.21.schema.json",
   "learning-export.v0.21.1.schema.json",
-  "learning-export.v0.21.2.schema.json"
+  "learning-export.v0.21.2.schema.json",
+  "learning-export.v0.21.3.schema.json"
 ].map(async (name) => JSON.parse(await readFile(new URL(`../schemas/${name}`, import.meta.url), "utf8"))));
 const v020Schemas = await Promise.all([
   "tide-lab.v0.20.schema.json",
@@ -58,6 +60,9 @@ const v020Schemas = await Promise.all([
 ].map(async (name) => JSON.parse(await readFile(new URL(`../schemas/${name}`, import.meta.url), "utf8"))));
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
+const diagnosticCatalogStart = appSource.indexOf("function renderDiagnosticCatalog()");
+const diagnosticCatalogEnd = appSource.indexOf("function renderTrain()", diagnosticCatalogStart);
+const diagnosticCatalogSource = diagnosticCatalogStart >= 0 && diagnosticCatalogEnd > diagnosticCatalogStart ? appSource.slice(diagnosticCatalogStart, diagnosticCatalogEnd) : "";
 
 if (v020Schemas.some((schema) => !schema.$id || !schema.$schema)) errors.push("v0.20 schema 必须声明 $id 与 JSON Schema 版本");
 if (v021Schemas.some((schema) => !schema.$id || !schema.$schema)) errors.push("v0.21 schema 必须声明 $id 与 JSON Schema 版本");
@@ -65,8 +70,11 @@ if (v021Schemas.some((schema) => !schema.$id || !schema.$schema)) errors.push("v
 if (!Array.isArray(topics) || topics.length === 0) errors.push("topics.json 必须是非空数组");
 if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.json 必须是非空数组");
 if (!appSource.includes("选择理由（选填）") || !appSource.includes('if (!selectedOption) return alert("请先选择答案。");') || appSource.includes("!selectedOption || !reasoning")) errors.push("普通诊断题必须允许理由留空提交");
-if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.21.2") || !indexSource.includes("app.js?v=0.21.2")) errors.push("网页展示版本或静态资源版本不是v0.21.2");
+if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.21.3") || !indexSource.includes("app.js?v=0.21.3")) errors.push("网页展示版本或静态资源版本不是v0.21.3");
 if (!indexSource.includes('data-action="start-next" data-route="train">诊断</button>')) errors.push("底部导航必须保留可直接进入诊断题的常驻入口");
+if (!diagnosticCatalogSource.includes("题目目录") || !diagnosticCatalogSource.includes('data-action="start-question"') || !diagnosticCatalogSource.includes('data-action="set-diagnostic-filter"')) errors.push("诊断题目录必须支持分组、筛选和指定题目进入");
+if (diagnosticCatalogSource.includes("question.answer") || diagnosticCatalogSource.includes("question.explanation") || diagnosticCatalogSource.includes("question.error_map")) errors.push("诊断题目录不得提前展示答案、解析或错因映射");
+if (!homeSource.includes('data-action="open-diagnostic-catalog"')) errors.push("项目页的诊断卡片必须提供题目目录入口");
 if (!Array.isArray(paperReviews) || paperReviews.length === 0) errors.push("paper_reviews.json 必须是非空数组");
 if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json 必须是非空数组");
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
@@ -920,7 +928,7 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.21.2" || packet.app_version !== "0.21.2" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.export_schema_version !== "0.21.3" || packet.app_version !== "0.21.3" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
   if (packet.summary.total_learning_records !== 15 || packet.summary.pending_parent_reviews !== 15) errors.push("学习档案摘要计数错误");
   if (packet.summary.by_project.length !== 19 || packet.summary.habitability_attempts !== 1 || packet.summary.solar_activity_attempts !== 1 || packet.summary.moon_phase_attempts !== 1 || packet.summary.eclipse_attempts !== 1 || packet.summary.tide_attempts !== 1 || packet.summary.coriolis_attempts !== 1 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts) || !Array.isArray(packet.axial_tilt_attempts) || !Array.isArray(packet.celestial_scale_attempts) || !Array.isArray(packet.habitability_attempts) || !Array.isArray(packet.solar_activity_attempts) || !Array.isArray(packet.moon_phase_attempts) || !Array.isArray(packet.eclipse_attempts) || !Array.isArray(packet.tide_attempts) || !Array.isArray(packet.coriolis_attempts)) errors.push("学习档案缺少项目进度、地转偏向力记录或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");

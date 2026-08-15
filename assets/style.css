@@ -61,6 +61,21 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .confidence { display: flex; gap: 7px; flex-wrap: wrap; }
 .confidence label { border: 1px solid var(--line); border-radius: 10px; padding: 8px 11px; font-size: 12px; }
 .confidence input { accent-color: var(--orange); }
+.question-page-heading, .diagnostic-catalog-heading, .diagnostic-topic-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.question-page-heading .btn, .diagnostic-catalog-heading .btn { flex: 0 0 auto; }
+.diagnostic-stat-grid { grid-template-columns: repeat(4, 1fr); }
+.diagnostic-recommendation h3 { margin-top: 4px; }
+.diagnostic-filter-bar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0; }
+.diagnostic-filter-bar button { border: 1px solid var(--line); border-radius: 999px; padding: 9px 8px; background: white; color: var(--muted); font-size: 12px; }
+.diagnostic-filter-bar button.active { border-color: var(--teal); background: #e8f3f1; color: var(--navy); font-weight: 700; }
+.diagnostic-topic-card { padding: 16px; }
+.diagnostic-topic-heading h3 { margin: 3px 0 0; }
+.diagnostic-question-list { display: grid; gap: 8px; margin-top: 13px; }
+.diagnostic-question-row { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid var(--line); border-radius: 13px; padding: 12px; background: #fff; color: var(--ink); text-align: left; }
+.diagnostic-question-row:hover, .diagnostic-question-row:focus-visible { border-color: var(--teal); background: #f4faf9; outline: none; }
+.diagnostic-question-copy { min-width: 0; display: grid; gap: 3px; }
+.diagnostic-question-copy strong { font-size: 14px; line-height: 1.45; }
+.diagnostic-question-code { color: var(--muted); font-size: 10px; }
 .answer-box { border-radius: 14px; padding: 14px; margin: 14px 0; line-height: 1.65; }
 .answer-box.correct { background: #eaf6ee; border: 1px solid #c8e7d2; }
 .answer-box.wrong { background: #fff0ed; border: 1px solid #f0d1cb; }
@@ -284,7 +299,8 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .project-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .project-card h3 { font-size: 19px; }
 .project-card p { flex: 1; margin-bottom: 12px; color: #385366; font-size: 13px; }
-.project-card .btn { align-self: flex-start; min-height: 44px; margin-top: 16px; }
+.project-card .btn { align-self: flex-start; min-height: 44px; }
+.project-card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .project-principle-card { background: #f0f6f6; box-shadow: none; }
 .annotation-list { display: grid; gap: 10px; }
 .annotation-item { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: #fbfdfd; }
@@ -819,6 +835,11 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .tide-progress-slider { width: 100%; height: 44px; margin: 0; accent-color: #318b83; touch-action: pan-x; }
 .tide-boundary-note { margin-top: 10px; border-color: #bcded8; background: #ecf9f6; }
 @media (max-width: 520px) {
+  .question-page-heading, .diagnostic-catalog-heading { align-items: stretch; flex-direction: column; }
+  .question-page-heading .btn, .diagnostic-catalog-heading .btn { align-self: flex-start; }
+  .diagnostic-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .diagnostic-filter-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .diagnostic-question-row { align-items: flex-start; }
   .today-heading, .projects-heading { align-items: flex-start; }
   .today-heading .page-title, .projects-heading .page-title { font-size: 22px; }
   .home-stat-grid .stat { padding-inline: 5px; }
