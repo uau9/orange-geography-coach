@@ -494,5 +494,125 @@
     "explanation": "南半球东南信风越过赤道进入北半球后，受地转偏向力影响向运动方向右侧偏转，形成西南风，并吹向亚洲大陆热低压。",
     "key_points": ["南亚夏季风", "跨赤道气流", "北半球右偏", "印度低压"],
     "review_after_days": [3, 7, 15]
+  },
+  {
+    "id": "GEO-CLI-001",
+    "topic_id": "physical.atmosphere",
+    "title": "上升与下沉气流怎样影响降水",
+    "source": "原创诊断题（教材第三章第三节）",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "只考虑气压带中心的垂直运动，赤道低压带控制区通常比副热带高压带控制区降水丰富，主要因为：",
+    "options": [
+      {"id": "A", "text": "赤道低压带盛行上升气流，水汽较易冷却凝结"},
+      {"id": "B", "text": "赤道低压带盛行下沉气流，空气不断增温"},
+      {"id": "C", "text": "副热带高压带盛行上升气流，水汽不易凝结"},
+      {"id": "D", "text": "高压区和低压区的垂直运动相同，差异只由纬度造成"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "A-CLIMATE-PROCESS", "diagnosis": "把低压中心的上升运动判断成下沉。", "follow_up": "近地面辐合后，空气更可能上升还是下沉？"},
+      "C": {"tag": "A-CLIMATE-PROCESS", "diagnosis": "把副热带高压的下沉运动判断成上升。", "follow_up": "副热带高压带为什么常与荒漠分布相联系？"},
+      "D": {"tag": "A-CLIMATE-CONTROL", "diagnosis": "忽略了高低压中心相反的垂直运动及其对凝结的直接影响。", "follow_up": "空气上升冷却与下沉增温，哪一种更利于达到饱和？"}
+    },
+    "explanation": "低压控制区气流辐合上升，温度降低，水汽易凝结形成降水；高压控制区气流下沉增温，水汽不易凝结。",
+    "key_points": ["气压带", "垂直运动", "绝热变化", "降水"],
+    "review_after_days": [2, 5, 12]
+  },
+  {
+    "id": "GEO-CLI-002",
+    "topic_id": "physical.atmosphere",
+    "title": "温带海洋性气候的水汽来路",
+    "source": "原创诊断题（教材第三章第三节）",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "欧洲西部中纬沿海地区全年较湿润、气温年变化较小。最能直接解释这一特征的大气环流条件是：",
+    "options": [
+      {"id": "A", "text": "全年受从大西洋吹来的盛行西风影响"},
+      {"id": "B", "text": "全年受副热带高压带下沉气流控制"},
+      {"id": "C", "text": "全年受亚洲高压吹出的冬季风影响"},
+      {"id": "D", "text": "全年受赤道低压带上升气流控制"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "A-CLIMATE-CONTROL", "diagnosis": "副热带高压的下沉气流更常造成少雨，不能解释全年湿润。", "follow_up": "欧洲西部主要位于30°还是40°—60°纬度带？"},
+      "C": {"tag": "A-CLIMATE-SOURCE", "diagnosis": "把东亚大陆冬季风用于欧洲西部。", "follow_up": "欧洲西部的上风向是大西洋还是亚洲大陆内部？"},
+      "D": {"tag": "A-CLIMATE-LATITUDE", "diagnosis": "赤道低压带主要影响低纬赤道附近，不是欧洲西部中纬地区的全年控制系统。", "follow_up": "40°—60°中纬近地面盛行哪一风带？"}
+    },
+    "explanation": "欧洲西部中纬沿海全年处在盛行西风带，西风从大西洋带来暖湿空气；海洋还减小气温年较差。",
+    "key_points": ["盛行西风", "海陆位置", "温带海洋性气候", "水汽来源"],
+    "review_after_days": [2, 6, 14]
+  },
+  {
+    "id": "GEO-CLI-003",
+    "topic_id": "physical.atmosphere",
+    "title": "地中海气候为什么夏干冬雨",
+    "source": "原创诊断题（教材第三章第三节）",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "北半球地中海沿岸夏季炎热少雨、冬季温和多雨，关键在于：",
+    "options": [
+      {"id": "A", "text": "夏季受副热带高压带控制，冬季受西风带影响"},
+      {"id": "B", "text": "夏季受西风带控制，冬季受副热带高压带控制"},
+      {"id": "C", "text": "全年受赤道低压带控制，只是冬季蒸发较弱"},
+      {"id": "D", "text": "全年受季风控制，夏季风来自大陆内部"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "A-CLIMATE-SEASON", "diagnosis": "把两种控制系统的季节位置颠倒了。", "follow_up": "北半球夏季气压带风带整体偏北时，副热带高压能否影响30°—40°大陆西岸？"},
+      "C": {"tag": "A-CLIMATE-CONTROL", "diagnosis": "地中海沿岸并非全年受赤道低压带控制。", "follow_up": "地中海沿岸纬度与赤道相距多远？"},
+      "D": {"tag": "A-CLIMATE-REGION", "diagnosis": "把大陆东岸季风气候的机制套到了大陆西岸。", "follow_up": "地中海沿岸位于大陆东岸还是西岸？"}
+    },
+    "explanation": "夏季气压带风带北移，副热带高压控制，气流下沉而少雨；冬季西风带南移，海洋气流带来降水。",
+    "key_points": ["交替控制", "副热带高压", "盛行西风", "地中海气候"],
+    "review_after_days": [3, 7, 15]
+  },
+  {
+    "id": "GEO-CLI-004",
+    "topic_id": "physical.atmosphere",
+    "title": "气候图先判断什么",
+    "source": "原创诊断题（教材第三章第三节）",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "某气候图中7月气温最高，12月至次年2月降水多，6—8月降水很少。仅依据这些特征，最合理的判断是：",
+    "options": [
+      {"id": "A", "text": "北半球地中海气候，夏干冬雨"},
+      {"id": "B", "text": "南半球地中海气候，夏干冬雨"},
+      {"id": "C", "text": "北半球温带季风气候，夏雨冬干"},
+      {"id": "D", "text": "热带雨林气候，全年高温多雨"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "A-GRAPH-HEMISPHERE", "diagnosis": "7月最热说明高温期在北半球夏季。", "follow_up": "南半球陆地通常在1月还是7月接近最热？"},
+      "C": {"tag": "A-GRAPH-PRECIP", "diagnosis": "题干显示夏季少雨、冬季多雨，与温带季风气候相反。", "follow_up": "先暂不命名气候，只写出6—8月和12—2月的干湿对比。"},
+      "D": {"tag": "A-GRAPH-TYPE", "diagnosis": "热带雨林气候应全年高温多雨，不应有明显夏季少雨。", "follow_up": "图中是否存在连续数月的显著少雨期？"}
+    },
+    "explanation": "7月最热指向北半球；高温期少雨、低温期多雨，符合北半球地中海气候的夏干冬雨特征。",
+    "key_points": ["气候图", "半球判断", "降水季节分配", "地中海气候"],
+    "review_after_days": [2, 6, 14]
+  },
+  {
+    "id": "GEO-CLI-005",
+    "topic_id": "physical.atmosphere",
+    "title": "造山引雨不能漏掉的前提",
+    "source": "原创诊断题（教材第三章问题研究）",
+    "type": "single_choice",
+    "difficulty": 3,
+    "stem": "评估阿联酋附近“造山引雨”设想时，即使拟建山体足够高，最先还应核对哪项自然条件？",
+    "options": [
+      {"id": "A", "text": "是否有较稳定且含水汽较多的气流吹向山体"},
+      {"id": "B", "text": "山体名称是否容易用于旅游宣传"},
+      {"id": "C", "text": "背风坡是否一定比迎风坡降水更多"},
+      {"id": "D", "text": "只要抬升空气，任何干燥气流都会形成大量降水"}
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {"tag": "A-ORO-EVIDENCE", "diagnosis": "旅游宣传不是形成地形雨的自然前提。", "follow_up": "地形雨需要哪三项连续条件：水汽、抬升、什么过程？"},
+      "C": {"tag": "A-ORO-LEE", "diagnosis": "一般情况下迎风坡抬升降水较多，背风坡反而可能形成雨影。", "follow_up": "气流越过山顶后下沉增温，湿度会怎样变化？"},
+      "D": {"tag": "A-ORO-MOISTURE", "diagnosis": "把抬升当成必然大量降水，忽略了可凝结水汽来源。", "follow_up": "若空气本来很干，即使降温，能凝结出的水量是否一定大？"}
+    },
+    "explanation": "山体只能迫使来流抬升，不能凭空制造水汽。稳定的湿润来流是形成明显地形雨的前提，之后还要评估山体尺度、成本、生态影响和替代措施。",
+    "key_points": ["地形雨", "水汽来源", "迎风坡", "工程可行性"],
+    "review_after_days": [3, 8, 16]
   }
 ]

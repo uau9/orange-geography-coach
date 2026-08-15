@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/atmosphere-reasoning-labs.v0.25.schema.json",
+  "title": "大气运动连续推理实验室 v0.25",
+  "type": "object",
+  "required": ["schema_version", "topic_id", "review_after_hours", "labs"],
+  "properties": {
+    "schema_version": {"const": "0.25.0"},
+    "topic_id": {"const": "physical.atmosphere"},
+    "review_after_hours": {"type": "integer", "minimum": 48},
+    "labs": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "section_id", "title", "subtitle", "visual_type", "model_note", "questions", "error_tags", "scenarios"],
+        "properties": {
+          "id": {"type": "string"},
+          "visual_type": {"enum": ["circulation", "monsoon", "climate-control", "climate-graph", "orographic-rain"]},
+          "questions": {"type": "array", "minItems": 5, "maxItems": 5},
+          "scenarios": {"type": "array", "minItems": 4}
+        }
+      }
+    }
+  }
+}

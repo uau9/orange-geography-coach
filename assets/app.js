@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.24.0", ASSET_VERSION: "0.24.0", EXPORT_SCHEMA_VERSION: "0.24.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.25.0", ASSET_VERSION: "0.25.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -1303,7 +1303,7 @@ function projectStatus(project) {
     const latest = attempts[0];
     return latest
       ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${attempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
-      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下气压带、风带、季节移动或季风形成的五步判断证据" };
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下该实验的五步判断证据" };
   }
   if (project.status_kind === "earth_motion") {
     const latest = latestEarthMotionAttempts()[0];
@@ -1489,6 +1489,9 @@ function getTodayRecommendation() {
   const latestCycloneSystem = latestCycloneSystemAttempts()[0];
   const latestGlobalCirculation = latestAtmosphereAttempts("global-circulation-lab")[0];
   const latestMonsoonSystem = latestAtmosphereAttempts("monsoon-system-lab")[0];
+  const latestClimateControl = latestAtmosphereAttempts("climate-control-lab")[0];
+  const latestClimateGraph = latestAtmosphereAttempts("climate-graph-lab")[0];
+  const latestOrographicRain = latestAtmosphereAttempts("orographic-rain-lab")[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const latestPath = latestSolarPathAttempts()[0];
   const latestTime = latestTimeLabAttempts()[0];
@@ -1511,6 +1514,15 @@ function getTodayRecommendation() {
   } else if (!latestMonsoonSystem) {
     project = byId("monsoon-system-lab");
     reason = "第三章第二节：把海陆冷暖、气压中心和东亚南亚季风连成一条因果链。";
+  } else if (!latestClimateControl) {
+    project = byId("climate-control-lab");
+    reason = "第三章第三节：从气压带风带控制推导降水季节、气候类型和自然景观。";
+  } else if (!latestClimateGraph) {
+    project = byId("climate-graph-lab");
+    reason = "第三章第三节：先描述气温和降水图形证据，再判断气候类型与成因。";
+  } else if (!latestOrographicRain) {
+    project = byId("orographic-rain-lab");
+    reason = "第三章问题研究：核对水汽来源、迎风坡抬升、雨影和工程可行性边界。";
   } else if (!latestMotion) {
     project = byId("earth-motion-lab");
     reason = "先用默认可见的运动箭头建立观察视角与自转方向，再完成四项预测。";
@@ -2106,7 +2118,7 @@ function renderParent() {
     <section class="card"><h3>地转偏向力实验审核</h3>${coriolisAttempts.length ? `<div class="attempt-list">${coriolisAttempts.map(renderParentCoriolisAttempt).join("")}</div>` : `<div class="empty">橙子提交半球、相对偏向与地图方位预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>锋面天气实验审核</h3>${frontWeatherAttempts.length ? `<div class="attempt-list">${frontWeatherAttempts.map(renderParentFrontWeatherAttempt).join("")}</div>` : `<div class="empty">橙子提交锋型、主动气团、抬升、降水位置与天气变化后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>气旋与反气旋实验审核</h3>${cycloneSystemAttempts.length ? `<div class="attempt-list">${cycloneSystemAttempts.map(renderParentCycloneSystemAttempt).join("")}</div>` : `<div class="empty">橙子提交气压中心、水平气流、旋转、垂直运动与阴晴后，这里会出现五步判断证据。</div>`}</section>
-    <section class="card"><h3>气压带、风带与季风实验审核</h3>${atmosphereReasoningAttempts.length ? `<div class="attempt-list">${atmosphereReasoningAttempts.map(renderParentAtmosphereAttempt).join("")}</div>` : `<div class="empty">橙子提交三圈环流、季节移动或季风五步判断后，这里会出现审核证据。</div>`}</section>
+    <section class="card"><h3>大气环流、气候与地形雨实验审核</h3>${atmosphereReasoningAttempts.length ? `<div class="attempt-list">${atmosphereReasoningAttempts.map(renderParentAtmosphereAttempt).join("")}</div>` : `<div class="empty">橙子提交三圈环流、季风、气候成因、气候图或地形雨五步判断后，这里会出现审核证据。</div>`}</section>
     <section class="card"><h3>太阳季节实验审核</h3>${solarSeasonAttempts.length ? `<div class="attempt-list">${solarSeasonAttempts.map(renderParentSolarSeasonAttempt).join("")}</div>` : `<div class="empty">橙子提交直射点与昼长预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>周年回归实验审核</h3>${annualSunAttempts.length ? `<div class="attempt-list">${annualSunAttempts.map(renderParentAnnualSunAttempt).join("")}</div>` : `<div class="empty">橙子提交直射点移动与趋势预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>公转轨道与速度实验审核</h3>${orbitSpeedAttempts.length ? `<div class="attempt-list">${orbitSpeedAttempts.map(renderParentOrbitSpeedAttempt).join("")}</div>` : `<div class="empty">橙子提交轨道远近、速度、半球季节与成因预测后，这里会出现判断证据。</div>`}</section>

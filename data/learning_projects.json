@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.24.0",
+  "schema_version": "0.25.0",
   "projects": [
     {
       "id": "front-weather-lab",
@@ -48,6 +48,42 @@
       "status_kind": "atmosphere_reasoning",
       "accent": "sky",
       "order": 9
+    },
+    {
+      "id": "climate-control-lab",
+      "eyebrow": "第三章·气候影响",
+      "title": "气压带风带与气候成因",
+      "summary": "从控制系统、气流升降与水汽来向判断降水季节、典型气候和自然景观。",
+      "action": "start-atmosphere-lab",
+      "route": "climate-control-lab",
+      "cta": "进入气候成因实验室",
+      "status_kind": "atmosphere_reasoning",
+      "accent": "teal",
+      "order": 30
+    },
+    {
+      "id": "climate-graph-lab",
+      "eyebrow": "第三章·气候影响",
+      "title": "气温曲线与降水柱状图",
+      "summary": "先用最热月、年温差和降水集中期描述图形，再匹配气候类型与大气环流成因。",
+      "action": "start-atmosphere-lab",
+      "route": "climate-graph-lab",
+      "cta": "进入气候图判读实验室",
+      "status_kind": "atmosphere_reasoning",
+      "accent": "sky",
+      "order": 31
+    },
+    {
+      "id": "orographic-rain-lab",
+      "eyebrow": "第三章·问题研究",
+      "title": "地形雨与“造山引雨”",
+      "summary": "核对水汽来源、迎风坡抬升、背风坡雨影、长期来流证据和工程可行性边界。",
+      "action": "start-atmosphere-lab",
+      "route": "orographic-rain-lab",
+      "cta": "进入地形雨问题研究",
+      "status_kind": "atmosphere_reasoning",
+      "accent": "amber",
+      "order": 32
     },
     {
       "id": "earth-motion-lab",

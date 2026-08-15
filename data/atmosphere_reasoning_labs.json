@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.24.0",
+  "schema_version": "0.25.0",
   "topic_id": "physical.atmosphere",
   "review_after_hours": 48,
   "labs": [
@@ -80,6 +80,138 @@
         {
           "id": "AM-04", "name": "7月南亚季风", "context": "南半球东南信风越过赤道后，在北半球向右偏转并吹向印度低压。", "region": "south-asia", "season_key": "summer", "contrast_key": "夏季",
           "answers": {"season": "北半球夏季", "continent_center": "亚洲低压（热低压）", "ocean_center": "副热带高压较强", "regional_wind": "南亚西南季风，温暖湿润", "causal_chain": "南半球东南信风越过赤道后右偏，并叠加海陆热力差异"}
+        }
+      ]
+    },
+    {
+      "id": "climate-control-lab",
+      "section_id": "pep-selective-1-ch03-s03",
+      "title": "气压带风带与气候成因实验室",
+      "subtitle": "从控制系统、垂直运动或水汽来向出发，连续判断降水季节、气候类型与自然景观。",
+      "visual_type": "climate-control",
+      "model_note": "图示突出教材中的一般规律；真实气候还会受海陆位置、地形、洋流和尺度差异共同影响。",
+      "questions": [
+        {"key": "controller", "label": "主导控制系统", "choices": ["赤道低压带全年控制", "副热带高压带全年控制", "盛行西风全年控制", "副热带高压带与西风带交替控制", "季风环流季节转换", "赤道低压带季节移动控制"]},
+        {"key": "air_process", "label": "关键气流或水汽过程", "choices": ["上升气流易凝结", "下沉气流不易凝结", "海洋暖湿西风输入", "夏季下沉、冬季海洋西风", "海陆风向和水汽输入季节反转", "雨带随季节南北移动"]},
+        {"key": "precipitation", "label": "降水季节特征", "choices": ["全年多雨", "全年少雨", "全年湿润且较均匀", "夏季少雨、冬季多雨", "夏季多雨、冬季少雨", "干湿季分明"]},
+        {"key": "climate_type", "label": "典型气候类型", "choices": ["热带雨林气候", "热带沙漠气候", "温带海洋性气候", "地中海气候", "亚热带季风气候", "热带草原气候"]},
+        {"key": "landscape", "label": "典型景观或生态响应", "choices": ["常绿热带雨林", "荒漠", "温带落叶阔叶林或草地", "常绿硬叶林", "亚热带常绿阔叶林", "湿季草长、干季草枯并伴动物迁徙"]}
+      ],
+      "error_tags": {
+        "A-CLIMATE-CONTROL": "主导气压带或风带判断错误",
+        "A-CLIMATE-PROCESS": "垂直运动或水汽来向判断错误",
+        "A-CLIMATE-PRECIP": "降水季节分配判断错误",
+        "A-CLIMATE-TYPE": "气候类型与成因链不匹配",
+        "A-CLIMATE-LANDSCAPE": "气候与自然景观联系错误"
+      },
+      "scenarios": [
+        {
+          "id": "CL-01", "name": "亚马孙平原赤道附近", "context": "全年受赤道低压带影响，空气辐合上升。", "latitude_label": "赤道附近", "mode": "rising", "season_key": "all-year-wet", "contrast_key": "单一低压控制",
+          "answers": {"controller": "赤道低压带全年控制", "air_process": "上升气流易凝结", "precipitation": "全年多雨", "climate_type": "热带雨林气候", "landscape": "常绿热带雨林"}
+        },
+        {
+          "id": "CL-02", "name": "撒哈拉沙漠腹地", "context": "全年主要受副热带高压带控制，盛行下沉气流。", "latitude_label": "约20°—30°N", "mode": "sinking", "season_key": "all-year-dry", "contrast_key": "单一高压控制",
+          "answers": {"controller": "副热带高压带全年控制", "air_process": "下沉气流不易凝结", "precipitation": "全年少雨", "climate_type": "热带沙漠气候", "landscape": "荒漠"}
+        },
+        {
+          "id": "CL-03", "name": "欧洲西部沿海", "context": "中纬大陆西岸全年盛行从海洋吹来的西风。", "latitude_label": "约40°—60°N西岸", "mode": "ocean-wind", "season_key": "even-wet", "contrast_key": "全年西风控制",
+          "answers": {"controller": "盛行西风全年控制", "air_process": "海洋暖湿西风输入", "precipitation": "全年湿润且较均匀", "climate_type": "温带海洋性气候", "landscape": "温带落叶阔叶林或草地"}
+        },
+        {
+          "id": "CL-04", "name": "地中海沿岸", "context": "约30°—40°大陆西岸夏季受副热带高压带、冬季受西风带控制。", "latitude_label": "约30°—40°N西岸", "mode": "alternating", "season_key": "winter-wet", "contrast_key": "交替控制",
+          "answers": {"controller": "副热带高压带与西风带交替控制", "air_process": "夏季下沉、冬季海洋西风", "precipitation": "夏季少雨、冬季多雨", "climate_type": "地中海气候", "landscape": "常绿硬叶林"}
+        },
+        {
+          "id": "CL-05", "name": "我国南方季风区", "context": "大陆东岸海陆热力差异使冬夏季盛行风和水汽输入显著转换。", "latitude_label": "约25°—35°N东岸", "mode": "monsoon", "season_key": "summer-wet", "contrast_key": "季风控制",
+          "answers": {"controller": "季风环流季节转换", "air_process": "海陆风向和水汽输入季节反转", "precipitation": "夏季多雨、冬季少雨", "climate_type": "亚热带季风气候", "landscape": "亚热带常绿阔叶林"}
+        },
+        {
+          "id": "CL-06", "name": "塞伦盖蒂草原", "context": "赤道低压带随太阳直射点移动，雨带在一年中南北往返。", "latitude_label": "赤道附近热带草原", "mode": "migrating", "season_key": "wet-dry", "contrast_key": "雨带移动",
+          "answers": {"controller": "赤道低压带季节移动控制", "air_process": "雨带随季节南北移动", "precipitation": "干湿季分明", "climate_type": "热带草原气候", "landscape": "湿季草长、干季草枯并伴动物迁徙"}
+        }
+      ]
+    },
+    {
+      "id": "climate-graph-lab",
+      "section_id": "pep-selective-1-ch03-s03",
+      "title": "气温曲线与降水柱状图判读实验室",
+      "subtitle": "先看最热月判半球，再看年温差与降水季节分配，最后用大气环流解释气候类型。",
+      "visual_type": "climate-graph",
+      "model_note": "图中数据为便于训练而整理的代表性月值，不代替气象站正式多年平均资料。先描述图形证据，再命名气候。",
+      "questions": [
+        {"key": "hemisphere", "label": "半球位置", "choices": ["赤道附近，半球特征不明显", "北半球", "南半球"]},
+        {"key": "temperature", "label": "气温特征", "choices": ["全年高温", "夏热冬温", "夏热冬冷", "全年温和，年温差较小"]},
+        {"key": "precipitation", "label": "降水分配", "choices": ["全年多雨", "全年少雨", "全年湿润且较均匀", "夏季少雨、冬季多雨", "夏季多雨、冬季少雨"]},
+        {"key": "climate_type", "label": "气候类型", "choices": ["热带雨林气候", "热带沙漠气候", "温带海洋性气候", "地中海气候", "温带季风气候"]},
+        {"key": "main_cause", "label": "主要大气环流成因", "choices": ["赤道低压带控制", "副热带高压带控制", "全年受海洋西风影响", "副热带高压带与西风带交替", "冬夏季风交替"]}
+      ],
+      "error_tags": {
+        "A-GRAPH-HEMISPHERE": "未用最热月判断半球",
+        "A-GRAPH-TEMPERATURE": "气温水平或年温差概括错误",
+        "A-GRAPH-PRECIP": "降水季节分配概括错误",
+        "A-GRAPH-TYPE": "气候图与气候类型匹配错误",
+        "A-GRAPH-CAUSE": "气候图与环流成因脱节"
+      },
+      "scenarios": [
+        {
+          "id": "CG-01", "name": "新加坡代表性气候图", "context": "接近赤道，观察全年气温与降水的共同特征。", "city": "新加坡", "contrast_key": "全年高温多雨", "monthly_temperature": [26, 27, 27, 28, 28, 28, 28, 28, 28, 27, 27, 26], "monthly_precipitation": [240, 170, 190, 170, 170, 160, 150, 170, 190, 210, 260, 280],
+          "answers": {"hemisphere": "赤道附近，半球特征不明显", "temperature": "全年高温", "precipitation": "全年多雨", "climate_type": "热带雨林气候", "main_cause": "赤道低压带控制"}
+        },
+        {
+          "id": "CG-02", "name": "开罗代表性气候图", "context": "北非副热带地区，观察高温期与极少降水。", "city": "开罗", "contrast_key": "全年少雨", "monthly_temperature": [14, 15, 18, 22, 26, 29, 31, 31, 28, 25, 20, 16], "monthly_precipitation": [5, 4, 3, 1, 1, 0, 0, 0, 0, 1, 3, 5],
+          "answers": {"hemisphere": "北半球", "temperature": "夏热冬温", "precipitation": "全年少雨", "climate_type": "热带沙漠气候", "main_cause": "副热带高压带控制"}
+        },
+        {
+          "id": "CG-03", "name": "伦敦代表性气候图", "context": "欧洲西部中纬沿海，观察温差与全年降水。", "city": "伦敦", "contrast_key": "全年均匀湿润", "monthly_temperature": [5, 6, 8, 11, 14, 17, 19, 19, 16, 12, 8, 6], "monthly_precipitation": [55, 40, 45, 45, 50, 45, 45, 50, 50, 65, 60, 55],
+          "answers": {"hemisphere": "北半球", "temperature": "全年温和，年温差较小", "precipitation": "全年湿润且较均匀", "climate_type": "温带海洋性气候", "main_cause": "全年受海洋西风影响"}
+        },
+        {
+          "id": "CG-04", "name": "罗马代表性气候图", "context": "地中海沿岸，观察高温期与少雨期是否重合。", "city": "罗马", "contrast_key": "夏干冬雨", "monthly_temperature": [8, 9, 11, 14, 18, 22, 25, 25, 21, 17, 12, 9], "monthly_precipitation": [80, 70, 65, 55, 35, 20, 12, 18, 65, 95, 110, 90],
+          "answers": {"hemisphere": "北半球", "temperature": "夏热冬温", "precipitation": "夏季少雨、冬季多雨", "climate_type": "地中海气候", "main_cause": "副热带高压带与西风带交替"}
+        },
+        {
+          "id": "CG-05", "name": "北京代表性气候图", "context": "温带大陆东岸，观察气温年较差和降水集中月份。", "city": "北京", "contrast_key": "夏雨冬干", "monthly_temperature": [-4, -1, 6, 14, 20, 25, 27, 26, 20, 13, 5, -2], "monthly_precipitation": [3, 5, 8, 20, 35, 75, 185, 160, 50, 20, 8, 3],
+          "answers": {"hemisphere": "北半球", "temperature": "夏热冬冷", "precipitation": "夏季多雨、冬季少雨", "climate_type": "温带季风气候", "main_cause": "冬夏季风交替"}
+        }
+      ]
+    },
+    {
+      "id": "orographic-rain-lab",
+      "section_id": "pep-selective-1-ch03-s03",
+      "title": "地形雨与“造山引雨”问题研究",
+      "subtitle": "把水汽来源、迎风坡抬升、背风坡雨影和工程代价放进同一条可检验的可行性链。",
+      "visual_type": "orographic-rain",
+      "model_note": "示意只表达水汽—抬升—凝结—雨影关系；工程可行性还取决于来流稳定性、山体尺度、成本、生态影响和替代方案。",
+      "questions": [
+        {"key": "moisture_source", "label": "来流含水汽条件", "choices": ["海洋暖湿气流，水汽较充足", "大陆干燥气流，水汽较少", "水汽来源不稳定"]},
+        {"key": "windward_side", "label": "主要迎风坡", "choices": ["山体东坡", "山体西坡", "迎风坡随来流变化"]},
+        {"key": "uplift_result", "label": "抬升与凝结结果", "choices": ["明显抬升冷却，较易凝结", "水汽不足，抬升后增雨仍有限", "来流不稳定，凝结位置和强度不确定"]},
+        {"key": "lee_effect", "label": "背风侧效应", "choices": ["下沉增温，形成雨影", "背风效应较弱", "无法只凭示意确定"]},
+        {"key": "feasibility", "label": "可行性结论", "choices": ["条件较有利，但仍需成本与生态评估", "增雨潜力有限，不能只依赖造山", "结论不稳定，应先补充长期来流证据", "应与节水、海水淡化等措施组合"]}
+      ],
+      "error_tags": {
+        "A-ORO-MOISTURE": "忽略水汽来源",
+        "A-ORO-WINDWARD": "迎风坡方向判断错误",
+        "A-ORO-UPLIFT": "把抬升等同于必然大量降水",
+        "A-ORO-LEE": "忽略背风坡雨影效应",
+        "A-ORO-FEASIBILITY": "工程可行性结论过度确定"
+      },
+      "scenarios": [
+        {
+          "id": "OR-01", "name": "湿润东风遇山", "context": "假设来自阿拉伯海一侧的湿润东风稳定吹向山体，目标区位于东坡。", "flow": "east-to-west", "moisture": "high", "target": "east", "contrast_key": "湿润迎风坡",
+          "answers": {"moisture_source": "海洋暖湿气流，水汽较充足", "windward_side": "山体东坡", "uplift_result": "明显抬升冷却，较易凝结", "lee_effect": "下沉增温，形成雨影", "feasibility": "条件较有利，但仍需成本与生态评估"}
+        },
+        {
+          "id": "OR-02", "name": "湿润西风遇山", "context": "湿润西风稳定吹向山体，目标区改在西坡，比较迎风坡位置变化。", "flow": "west-to-east", "moisture": "high", "target": "west", "contrast_key": "换风向",
+          "answers": {"moisture_source": "海洋暖湿气流，水汽较充足", "windward_side": "山体西坡", "uplift_result": "明显抬升冷却，较易凝结", "lee_effect": "下沉增温，形成雨影", "feasibility": "条件较有利，但仍需成本与生态评估"}
+        },
+        {
+          "id": "OR-03", "name": "干燥大陆风遇山", "context": "来流主要来自干燥大陆，即使被山体强迫抬升，可凝结水汽仍少。", "flow": "west-to-east", "moisture": "low", "target": "west", "contrast_key": "水汽不足",
+          "answers": {"moisture_source": "大陆干燥气流，水汽较少", "windward_side": "山体西坡", "uplift_result": "水汽不足，抬升后增雨仍有限", "lee_effect": "背风效应较弱", "feasibility": "增雨潜力有限，不能只依赖造山"}
+        },
+        {
+          "id": "OR-04", "name": "季节来流不稳定", "context": "湿润来流只在少数月份出现，年际变化也较大，单幅风向图不能代表长期条件。", "flow": "variable", "moisture": "variable", "target": "variable", "contrast_key": "长期证据",
+          "answers": {"moisture_source": "水汽来源不稳定", "windward_side": "迎风坡随来流变化", "uplift_result": "来流不稳定，凝结位置和强度不确定", "lee_effect": "无法只凭示意确定", "feasibility": "结论不稳定，应先补充长期来流证据"}
         }
       ]
     }

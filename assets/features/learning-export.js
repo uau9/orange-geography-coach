@@ -264,7 +264,7 @@
         latest_score: latestCycloneSystem?.score ?? null,
         confirmed: cycloneSystem.filter((attempt) => attempt.parent_review_status === "已确认").length
       },
-      ...["global-circulation-lab", "monsoon-system-lab"].map((projectId) => {
+      ...["global-circulation-lab", "monsoon-system-lab", "climate-control-lab", "climate-graph-lab", "orographic-rain-lab"].map((projectId) => {
         const records = atmosphereReasoning.filter((attempt) => attempt.lab_id === projectId);
         const latest = latestByTime(records);
         return { project_id: projectId, records: records.length, latest_score: latest?.score ?? null, confirmed: records.filter((attempt) => attempt.parent_review_status === "已确认").length };
@@ -357,12 +357,12 @@
     const compactId = exportedAt.replace(/[-:.Z]/g, "");
     return {
       version: state.version,
-      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.24.0",
+      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.25.0",
       export_id: `EXPORT-${compactId}`,
       exported_at: exportedAt,
       exported_at_local: localTimestamp(now),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
-      app_version: config.APP_VERSION || "0.24.0",
+      app_version: config.APP_VERSION || "0.25.0",
       student_alias: config.STUDENT_ALIAS || "橙子",
       privacy_note: "档案默认不含姓名、学校、班级和联系方式；交给AI或教师前仍请人工检查自由文本。",
       summary: {
