@@ -262,5 +262,45 @@
     "explanation": "全球同一日期要求自然日期界线（0时经线）与国际日界线（约180°经线）重合，即180°经线地方时为0:00。",
     "key_points": ["0时经线", "180°经线", "全球日期范围"],
     "review_after_days": [3, 7, 15]
+  },
+  {
+    "id":"GEO-EARTH-001","topic_id":"physical.earth.motion","title":"太阳日与恒星日","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
+    "stem":"同一地点连续两次看到太阳位于正南方向，所经历的时间最接近：","options":[{"id":"A","text":"23时56分4秒"},{"id":"B","text":"24小时"},{"id":"C","text":"365日6时9分10秒"},{"id":"D","text":"365日5时48分46秒"}],"answer":"B",
+    "error_map":{"A":{"tag":"E-SOLAR-SIDEREAL-DAY","diagnosis":"把相对恒星的自转周期当成了相对太阳的昼夜周期。","follow_up":"题干的参照物是太阳还是遥远恒星？"},"C":{"tag":"E-PERIOD-SCALE","diagnosis":"把日周期和年周期混淆。","follow_up":"相邻两次太阳正南是一天还是一年？"},"D":{"tag":"E-PERIOD-SCALE","diagnosis":"把回归年长度当成太阳日。","follow_up":"24小时对应哪一种日？"}},"explanation":"以太阳为参照的昼夜更替周期为一个太阳日，约24小时；恒星日约23时56分4秒。","key_points":["太阳日","恒星日","参照物"],"review_after_days":[2,6,14]
+  },
+  {
+    "id":"GEO-EARTH-002","topic_id":"physical.earth.motion","title":"回归年与恒星年","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
+    "stem":"若研究太阳直射点完成一次南北往返，应采用的周期是：","options":[{"id":"A","text":"恒星日"},{"id":"B","text":"太阳日"},{"id":"C","text":"回归年"},{"id":"D","text":"恒星年"}],"answer":"C",
+    "error_map":{"A":{"tag":"E-PERIOD-SCALE","diagnosis":"把日周期与年周期混淆。","follow_up":"直射点南北往返发生在一天还是一年尺度？"},"B":{"tag":"E-PERIOD-SCALE","diagnosis":"太阳日描述昼夜更替，不描述季节循环。","follow_up":"季节循环以哪两个相邻节气位置为参照？"},"D":{"tag":"E-TROPICAL-SIDEREAL-YEAR","diagnosis":"恒星年以遥远恒星为参照；直射点和季节循环对应回归年。","follow_up":"题干强调恒星背景还是太阳直射点？"}},"explanation":"太阳直射点和季节完成一次循环对应回归年，约365日5时48分46秒。","key_points":["回归年","恒星年","季节周期"],"review_after_days":[2,6,14]
+  },
+  {
+    "id":"GEO-EARTH-003","topic_id":"physical.earth.motion","title":"北极星高度与纬度","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
+    "stem":"在北半球某地测得北极星高度约为40°，该地纬度最接近：","options":[{"id":"A","text":"40°S"},{"id":"B","text":"50°N"},{"id":"C","text":"40°N"},{"id":"D","text":"无法判断"}],"answer":"C",
+    "error_map":{"A":{"tag":"E-POLARIS-HEMISPHERE","diagnosis":"北极星用于北半球定向，纬度应为北纬。","follow_up":"南半球能否看到北极星高悬在北天？"},"B":{"tag":"E-POLARIS-LATITUDE","diagnosis":"误用了90°减高度。","follow_up":"北极点与赤道看到北极星的高度分别约是多少？"},"D":{"tag":"E-POLARIS-LATITUDE","diagnosis":"忽略了北极星高度近似等于当地纬度。","follow_up":"从赤道向北极移动，北极星高度怎样变化？"}},"explanation":"北半球北极星高度近似等于当地地理纬度，因此约为40°N。","key_points":["北极星高度","地理纬度","星轨"],"review_after_days":[3,7,15]
+  },
+  {
+    "id":"GEO-EARTH-004","topic_id":"physical.earth.motion","title":"黄道面与赤道面","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":1,
+    "stem":"黄赤交角是指：","options":[{"id":"A","text":"地轴与黄道面的夹角"},{"id":"B","text":"黄道面与赤道面的夹角"},{"id":"C","text":"地轴与赤道面的夹角"},{"id":"D","text":"太阳光线与地轴的夹角"}],"answer":"B",
+    "error_map":{"A":{"tag":"X-PLANE-AXIS","diagnosis":"把平面夹角与地轴对黄道面的倾角混为一谈。","follow_up":"黄赤交角名称中的“黄”和“赤”分别代表什么平面？"},"C":{"tag":"X-PLANE-AXIS","diagnosis":"地轴与赤道面恒为垂直关系，不是黄赤交角。","follow_up":"赤道面与地轴是什么几何关系？"},"D":{"tag":"X-PLANE-AXIS","diagnosis":"黄赤交角由两个平面定义，不由某一时刻太阳光线定义。","follow_up":"找出题干中需要比较的两个平面。"}},"explanation":"黄赤交角是地球公转轨道面（黄道面）与赤道面的夹角，目前约23.5°。","key_points":["黄道面","赤道面","黄赤交角"],"review_after_days":[2,5,12]
+  },
+  {
+    "id":"GEO-EARTH-005","topic_id":"physical.earth.motion","title":"自转与公转方向","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":1,
+    "stem":"从北极上空俯视，地球自转与绕日公转的方向分别是：","options":[{"id":"A","text":"都为逆时针"},{"id":"B","text":"都为顺时针"},{"id":"C","text":"自转逆时针、公转顺时针"},{"id":"D","text":"自转顺时针、公转逆时针"}],"answer":"A",
+    "error_map":{"B":{"tag":"E-VIEW-ROTATION","diagnosis":"把南极上空的顺时针视角用于北极上空。","follow_up":"从北极上空看自西向东运动是顺时针还是逆时针？"},"C":{"tag":"E-ORBIT-DIRECTION","diagnosis":"误认为自转与公转方向相反。","follow_up":"教材示意图中两种运动是否都为自西向东？"},"D":{"tag":"E-VIEW-ROTATION","diagnosis":"自转和公转的俯视方向都判断反了。","follow_up":"先只判断北极上空的自转方向。"}},"explanation":"地球自转和公转总体均为自西向东，从北极上空俯视均呈逆时针。","key_points":["自转方向","公转方向","观察视角"],"review_after_days":[2,5,12]
+  },
+  {
+    "id":"GEO-EARTH-006","topic_id":"physical.earth.motion","title":"国际日界线弯折","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
+    "stem":"国际日界线在部分海域偏离180°经线，主要是为了：","options":[{"id":"A","text":"与本初子午线保持平行"},{"id":"B","text":"尽量避免同一国家或岛群使用两个日期"},{"id":"C","text":"使全球始终只有一个日期"},{"id":"D","text":"绕开所有海洋"}],"answer":"B",
+    "error_map":{"A":{"tag":"T-IDL-REAL-WORLD","diagnosis":"经线本就会在两极会合，日界线弯折不是为了平行。","follow_up":"弯折处通常靠近国家和岛群还是空旷海域？"},"C":{"tag":"T-IDL-REAL-WORLD","diagnosis":"全球多数时刻同时存在两个日期。","follow_up":"0时经线与国际日界线分别起什么作用？"},"D":{"tag":"T-IDL-REAL-WORLD","diagnosis":"日界线大部分位于海洋，并非绕开海洋。","follow_up":"它真正要尽量绕开的行政对象是什么？"}},"explanation":"国际日界线大致沿180°经线，但为减少行政与生活不便，会绕开部分国家和岛群。","key_points":["国际日界线","180°经线","实际弯折"],"review_after_days":[3,7,15]
+  },
+  {
+    "id":"GEO-EARTH-007","topic_id":"physical.earth.motion","title":"天文四季与气象四季","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
+    "stem":"关于天文四季与气象四季，下列说法正确的是：","options":[{"id":"A","text":"两者起止日期在全球完全相同"},{"id":"B","text":"气象四季以二分二至日划分"},{"id":"C","text":"天文四季常以二分二至为界，气象四季可按月份划分"},{"id":"D","text":"两者都只由近日点和远日点决定"}],"answer":"C",
+    "error_map":{"A":{"tag":"E-SEASON-DEFINITION","diagnosis":"把不同用途的季节划分方法当成完全一致。","follow_up":"天文学与气象统计分别更关注太阳位置还是整月资料？"},"B":{"tag":"E-SEASON-DEFINITION","diagnosis":"二分二至更常用于天文四季。","follow_up":"北半球气象学通常把哪三个月列为春季？"},"D":{"tag":"O-SEASON-DISTANCE","diagnosis":"四季并非由日地距离远近决定。","follow_up":"南北半球季节相反能否用同一日地距离解释？"}},"explanation":"天文四季常以二分二至为界；北半球气象学常按3—5月、6—8月、9—11月、12—2月划分。","key_points":["天文四季","气象四季","二分二至"],"review_after_days":[3,7,15]
+  },
+  {
+    "id":"GEO-EARTH-008","topic_id":"physical.earth.motion","title":"二十四节气的轨道含义","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
+    "stem":"二十四节气在一个回归年中的设置，最接近：","options":[{"id":"A","text":"地球自转每15°设置一个"},{"id":"B","text":"太阳直射纬度每隔15°设置一个"},{"id":"C","text":"月球绕地每15°设置一个"},{"id":"D","text":"太阳在黄道上的视位置每运行约15°设置一个"}],"answer":"D",
+    "error_map":{"A":{"tag":"E-SOLAR-TERMS-ORBIT","diagnosis":"把年尺度的节气误放到日尺度自转上。","follow_up":"24个节气循环一周需要一天还是一年？"},"B":{"tag":"E-SOLAR-TERMS-LATITUDE","diagnosis":"太阳直射纬度只在南北回归线间往返，不按15°连续绕一周。","follow_up":"节气等分的是直射纬度还是黄道位置？"},"C":{"tag":"E-SOLAR-TERMS-ORBIT","diagnosis":"二十四节气描述地球绕日运动，不是月球绕地运动。","follow_up":"节气与季节循环对应哪个天体运动？"}},"explanation":"一个圆周360°分为24份，每份15°；二十四节气对应太阳在黄道上的视位置变化。","key_points":["二十四节气","黄道位置","回归年"],"review_after_days":[3,7,15]
   }
 ]

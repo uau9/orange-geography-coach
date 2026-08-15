@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/coriolis-lab.v0.21.schema.json",
+  "type": "object",
+  "required": ["schema_version", "id", "title", "topic_id", "review_after_hours", "model_note", "choices", "error_tags", "scenarios"],
+  "properties": {
+    "schema_version": {"const": "0.21.0"},
+    "id": {"const": "coriolis-lab"},
+    "review_after_hours": {"type": "integer", "minimum": 48},
+    "scenarios": {"type": "array", "minItems": 8, "items": {"type": "object", "required": ["id", "name", "hemisphere", "direction", "context", "answers"]}}
+  }
+}

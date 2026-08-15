@@ -121,8 +121,8 @@
       <section class="card orbit-speed-card"><div class="orbit-speed-layout">
         <div class="orbit-model-panel">
           <div class="solar-model-head"><div><span class="pill orange">当前情境</span><h3>${escapeHtml(checkpoint.name)} · ${escapeHtml(hemisphere.name)}</h3></div><span class="pill">轨道俯视示意</span></div>
-          ${renderModel(checkpoint)}
-          <p class="motion-hint">${escapeHtml(lab.model_note)} 地轴小线在各位置保持平行；答案数据将在提交后解锁。</p>
+          ${renderModel(checkpoint, calculate(checkpoint, hemisphere, lab.facts))}
+          <p class="motion-hint">${escapeHtml(lab.model_note)} 地轴小线在各位置保持平行；答案数据默认可见。</p>
           <div class="orbit-hemisphere-tabs" aria-label="选择季节判断半球">${lab.hemispheres.map((item) => `<button class="${item.id === hemisphere.id ? "active" : ""}" data-action="set-orbit-hemisphere" data-hemisphere-id="${escapeHtml(item.id)}"><strong>${escapeHtml(item.name)}</strong><small>判断该半球季节</small></button>`).join("")}</div>
         </div>
         <form id="orbit-speed-form" class="orbit-prediction-panel">
@@ -131,8 +131,8 @@
           <fieldset><legend>2. 此时地球公转速度：</legend>${renderChoice("orbit-speed-state", lab.choices.speed_state)}</fieldset>
           <fieldset><legend>3. ${escapeHtml(hemisphere.name)}此时大致为：</legend>${renderChoice("orbit-season", lab.choices.season)}</fieldset>
           <fieldset><legend>4. 地球形成四季的主要原因是：</legend>${renderChoice("orbit-season-cause", lab.choices.season_cause)}</fieldset>
-          <label class="field-label" for="orbit-reasoning">写出判断链</label><textarea id="orbit-reasoning" name="orbit-reasoning" placeholder="例如：先根据太阳位于椭圆焦点判断远近；越近公转越快；再按地轴倾斜判断所选半球季节；用南北半球季节相反排除距离成因。"></textarea>
-          <button class="btn orange motion-submit" type="submit">提交预测，解锁轨道证据</button>
+          <label class="field-label" for="orbit-reasoning">判断链（选填）</label><textarea id="orbit-reasoning" name="orbit-reasoning" placeholder="例如：先根据太阳位于椭圆焦点判断远近；越近公转越快；再按地轴倾斜判断所选半球季节；用南北半球季节相反排除距离成因。"></textarea>
+          <button class="btn orange motion-submit" type="submit">提交预测</button>
         </form>
       </div></section>`;
   }
@@ -156,7 +156,7 @@
           <div class="orbit-fact-strip"><div><span>日地距离</span><strong>${correct.distance_million_km}</strong><small>百万千米</small></div><div><span>公转速度</span><strong>${correct.speed_km_s}</strong><small>km/s</small></div><div><span>轨道位置</span><strong>${escapeHtml(correct.orbit_label)}</strong><small>${escapeHtml(checkpoint.name)}</small></div></div>
           <div class="answer-box ${attempt.score === 4 ? "correct" : "wrong"}"><strong>${escapeHtml(checkpoint.name)} · ${escapeHtml(hemisphere.name)}</strong><br/>${escapeHtml(hemisphere.name)}是${escapeHtml(correct.season)}，同一时刻${escapeHtml(opposite?.name || "另一半球")}是${escapeHtml(oppositeSeason)}。两半球距离太阳相同却季节相反，说明日地距离不是四季的主要成因。</div>
           <div class="notice">速度留下的另一条证据：北半球春夏半年约${lab.facts.north_spring_summer_days}天，秋冬半年约${lab.facts.north_autumn_winter_days}天；春夏经过远日点附近较慢，因此略长。</div>
-          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">四步均正确。请家长追问：1月地球更靠近太阳，为什么北半球仍是冬季、南半球却是夏季？</div>`}
+          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning || "未填写")}</div>${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">四步均正确。请家长追问：1月地球更靠近太阳，为什么北半球仍是冬季、南半球却是夏季？</div>`}
           <div class="btn-row"><button class="btn orange" data-action="next-orbit-speed">换轨道位置继续</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
         </div>
       </div></section>`;

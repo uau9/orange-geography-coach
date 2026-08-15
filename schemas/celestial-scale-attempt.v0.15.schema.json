@@ -9,7 +9,7 @@
     "schema_version": { "const": "0.15.0" }, "id": { "type": "string", "minLength": 1 }, "scenario_id": { "type": "string", "pattern": "^CS-[0-9]{2}$" }, "target_level_id": { "enum": ["earth-moon", "solar-system", "milky-way", "observable-universe"] },
     "answers": { "$ref": "#/$defs/answers" }, "correct_answers": { "$ref": "#/$defs/answers" },
     "checks": { "type": "object", "additionalProperties": false, "required": ["system_order", "moon_distance", "earth_sun_unit", "galactic_location", "diagram_rule"], "properties": { "system_order": { "type": "boolean" }, "moon_distance": { "type": "boolean" }, "earth_sun_unit": { "type": "boolean" }, "galactic_location": { "type": "boolean" }, "diagram_rule": { "type": "boolean" } } },
-    "score": { "type": "integer", "minimum": 0, "maximum": 5 }, "error_tags": { "type": "array", "items": { "type": "string" } }, "reasoning": { "type": "string", "minLength": 1 }, "submitted_at": { "type": "string", "format": "date-time" },
+    "score": { "type": "integer", "minimum": 0, "maximum": 5 }, "error_tags": { "type": "array", "items": { "type": "string" } }, "reasoning": { "type": "string" }, "submitted_at": { "type": "string", "format": "date-time" },
     "parent_review_status": { "enum": ["待家长确认", "已确认", "需再练", "需教师复核"] }, "parent_note": { "type": "string" }
   },
   "$defs": { "answers": { "type": "object", "additionalProperties": false, "required": ["system_order", "moon_distance", "earth_sun_unit", "galactic_location", "diagram_rule"], "properties": { "system_order": { "type": "string" }, "moon_distance": { "type": "string" }, "earth_sun_unit": { "type": "string" }, "galactic_location": { "type": "string" }, "diagram_rule": { "type": "string" } } } }

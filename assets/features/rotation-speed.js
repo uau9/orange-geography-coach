@@ -104,7 +104,7 @@
       <p class="page-subtitle">同一时刻，所有非极点转过的角度相同，但不同纬度沿纬线圈走过的距离不同。先预测，再用具体数值检验。</p>
       <section class="rotation-scene-bar"><div><span>情境 ${scenarioIndex + 1}/${lab.scenarios.length}</span><strong>${escapeHtml(place.name)} · ${latitudeLabel(place.latitude)}</strong></div><div><span>观察时段</span><strong>${scenario.duration_hours}小时</strong></div></section>
       <section class="card rotation-speed-card"><div class="rotation-speed-layout">
-        <div class="rotation-model-panel"><div class="solar-model-head"><div><span class="pill orange">纬度剖面</span><h3>${escapeHtml(place.name)}所在纬线圈</h3></div><span class="pill">24小时理想模型</span></div>${renderModel(place)}<p class="motion-hint">${escapeHtml(lab.model_note)} 纬线圈的横向大小按cos纬度绘制；答案数值提交前隐藏。</p></div>
+        <div class="rotation-model-panel"><div class="solar-model-head"><div><span class="pill orange">纬度剖面</span><h3>${escapeHtml(place.name)}所在纬线圈</h3></div><span class="pill">24小时理想模型</span></div>${renderModel(place, calculate(place, scenario.duration_hours, lab.facts), scenario.duration_hours, lab.facts)}<p class="motion-hint">${escapeHtml(lab.model_note)} 纬线圈的横向大小按cos纬度绘制；答案数值默认可见。</p></div>
         <form id="rotation-speed-form" class="rotation-prediction-panel">
           <div class="notice">判断链：自转周期 → 角速度；纬度 → 纬线圈大小 → 线速度；最后用“速度×时间”得到运动距离。</div>
           <fieldset><legend>1. ${escapeHtml(place.name)}的自转角速度：</legend>${renderChoice("rotation-angular-speed", lab.choices.angular_speed)}</fieldset>
@@ -112,8 +112,8 @@
           <fieldset><legend>3. 该地线速度约为：</legend><output id="rotation-line-output" class="rotation-range-output">1000 km/h</output><input id="rotation-line-prediction" name="rotation-line-speed" type="range" min="0" max="1700" step="10" value="1000" aria-label="预测自转线速度"/></fieldset>
           <fieldset><legend>4. ${scenario.duration_hours}小时转过的角度：</legend><output id="rotation-angle-output" class="rotation-range-output">90°</output><input id="rotation-angle-prediction" name="rotation-angle" type="range" min="0" max="180" step="15" value="90" aria-label="预测转过角度"/></fieldset>
           <fieldset><legend>5. ${scenario.duration_hours}小时沿纬线走过约：</legend><output id="rotation-distance-output" class="rotation-range-output">6000 km</output><input id="rotation-distance-prediction" name="rotation-distance" type="range" min="0" max="14000" step="50" value="6000" aria-label="预测纬线运动距离"/></fieldset>
-          <label class="field-label" for="rotation-reasoning">写出判断链</label><textarea id="rotation-reasoning" name="rotation-reasoning" placeholder="例如：24小时转360°，所以角速度15°/h；该纬度的纬线圈比赤道短，线速度按1670×cos纬度估算；再乘观察时长得到弧长。"></textarea>
-          <button class="btn orange motion-submit" type="submit">提交五步预测，解锁速度模型</button>
+          <label class="field-label" for="rotation-reasoning">判断链（选填）</label><textarea id="rotation-reasoning" name="rotation-reasoning" placeholder="例如：24小时转360°，所以角速度15°/h；该纬度的纬线圈比赤道短，线速度按1670×cos纬度估算；再乘观察时长得到弧长。"></textarea>
+          <button class="btn orange motion-submit" type="submit">提交五步预测</button>
         </form>
       </div></section>`;
   }
@@ -133,7 +133,7 @@
         <div><div class="lab-check-grid">${answerRow("角速度", attempt.answers.angular_speed, correct.angular_speed, checks.angular_speed)}${answerRow("与赤道比较", attempt.answers.line_speed_relation, correct.line_speed_relation, checks.line_speed_relation)}${answerRow("线速度", `${attempt.answers.line_speed_km_h} km/h`, `${correct.line_speed_km_h} km/h`, checks.line_speed_km_h)}${answerRow(`${scenario.duration_hours}小时角度`, `${attempt.answers.rotated_angle_deg}°`, `${correct.rotated_angle_deg}°`, checks.rotated_angle_deg)}${answerRow(`${scenario.duration_hours}小时距离`, `${attempt.answers.distance_km} km`, `${correct.distance_km} km`, checks.distance_km)}</div>
           <div class="rotation-fact-strip"><div><span>纬线圈周长</span><strong>约${correct.latitude_circle_km}</strong><small>km</small></div><div><span>精算线速度</span><strong>${correct.line_speed_exact}</strong><small>km/h</small></div><div><span>观察时段弧长</span><strong>${correct.distance_exact}</strong><small>km</small></div></div>
           <div class="answer-box ${attempt.score === 5 ? "correct" : "wrong"}"><strong>${escapeHtml(place.name)} · ${latitudeLabel(place.latitude)}</strong><br/>24小时同样转360°，因此角速度约15°/小时；但纬线圈周长约为赤道的cos${Math.abs(place.latitude)}°倍，所以线速度约${correct.line_speed_exact} km/h。</div>
-          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">五步均正确。请家长追问：把地点换到南半球同纬度，角速度和线速度大小是否改变？为什么？</div>`}
+          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning || "未填写")}</div>${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">五步均正确。请家长追问：把地点换到南半球同纬度，角速度和线速度大小是否改变？为什么？</div>`}
           <div class="btn-row"><button class="btn orange" data-action="next-rotation-speed">换纬度继续</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
         </div>
       </div></section>`;

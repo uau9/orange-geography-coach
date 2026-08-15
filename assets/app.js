@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.20.0", ASSET_VERSION: "0.20.0", EXPORT_SCHEMA_VERSION: "0.20.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.21.1", ASSET_VERSION: "0.21.1", EXPORT_SCHEMA_VERSION: "0.21.1", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null };
 
 function defaultState() {
   return {
@@ -104,6 +104,8 @@ function defaultState() {
     eclipseScenarioIndex: 0,
     activeTideAttemptId: null,
     tideScenarioIndex: 0,
+    activeCoriolisAttemptId: null,
+    coriolisScenarioIndex: 0,
     attempts: [],
     retestAttempts: [],
     timeLabAttempts: [],
@@ -122,6 +124,7 @@ function defaultState() {
     moonPhaseAttempts: [],
     eclipseAttempts: [],
     tideAttempts: [],
+    coriolisAttempts: [],
     coachAnnotations: [],
     lastAction: ""
   };
@@ -183,6 +186,7 @@ function normalizeState(parsed) {
   normalized.moonPhaseAttempts = Array.isArray(parsed?.moonPhaseAttempts) ? parsed.moonPhaseAttempts : Array.isArray(parsed?.moon_phase_attempts) ? parsed.moon_phase_attempts : [];
   normalized.eclipseAttempts = Array.isArray(parsed?.eclipseAttempts) ? parsed.eclipseAttempts : Array.isArray(parsed?.eclipse_attempts) ? parsed.eclipse_attempts : [];
   normalized.tideAttempts = Array.isArray(parsed?.tideAttempts) ? parsed.tideAttempts : Array.isArray(parsed?.tide_attempts) ? parsed.tide_attempts : [];
+  normalized.coriolisAttempts = Array.isArray(parsed?.coriolisAttempts) ? parsed.coriolisAttempts : Array.isArray(parsed?.coriolis_attempts) ? parsed.coriolis_attempts : [];
   normalized.coachAnnotations = Array.isArray(parsed?.coachAnnotations)
     ? parsed.coachAnnotations
     : Array.isArray(parsed?.coach_annotations)
@@ -208,6 +212,10 @@ function escapeHtml(value = "") {
   return String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
 }
 
+function optionalReasoning(value) {
+  return escapeHtml(String(value || "").trim() || "未填写（选填）");
+}
+
 function getTopic(id) { return catalog.topics.find((topic) => topic.id === id); }
 function getQuestion(id) { return catalog.questions.find((question) => question.id === id); }
 function getRetest(id) { return catalog.retests.find((retest) => retest.id === id); }
@@ -227,6 +235,7 @@ function getSolarActivityAttempt(id) { return state.solarActivityAttempts.find((
 function getMoonPhaseAttempt(id) { return state.moonPhaseAttempts.find((attempt) => attempt.id === id); }
 function getEclipseAttempt(id) { return state.eclipseAttempts.find((attempt) => attempt.id === id); }
 function getTideAttempt(id) { return state.tideAttempts.find((attempt) => attempt.id === id); }
+function getCoriolisAttempt(id) { return state.coriolisAttempts.find((attempt) => attempt.id === id); }
 function getActiveQuestion() { return getQuestion(state.currentQuestionId) || chooseNextQuestion(); }
 function chooseNextQuestion() {
   const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
@@ -269,9 +278,10 @@ function latestSolarActivityAttempts() { return [...state.solarActivityAttempts]
 function latestMoonPhaseAttempts() { return [...state.moonPhaseAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestEclipseAttempts() { return [...state.eclipseAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function latestTideAttempts() { return [...state.tideAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
+function latestCoriolisAttempts() { return [...state.coriolisAttempts].sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); }
 function completedToday() {
   const today = new Date().toDateString();
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts, ...state.coriolisAttempts]
     .filter((attempt) => attempt.submitted_at && new Date(attempt.submitted_at).toDateString() === today).length;
 }
 function topicStats(topic) {
@@ -349,6 +359,16 @@ function updateLabLongitudeSelection(rawLongitude) {
   document.querySelectorAll("[data-action='select-place']").forEach((button) => {
     button.classList.toggle("active", Number(button.dataset.longitude) === longitude);
   });
+  const scenario = getTimeLabScenario();
+  if (scenario) {
+    const preview = calculateTimeLabAnswers(scenario, longitude);
+    const localClock = document.querySelector("#lab-preview-local");
+    const zoneClock = document.querySelector("#lab-preview-zone");
+    const zoneName = document.querySelector("#lab-preview-zone-name");
+    if (localClock) localClock.textContent = preview.local_time;
+    if (zoneClock) zoneClock.textContent = preview.zone_time;
+    if (zoneName) zoneName.textContent = preview.zone_name;
+  }
 }
 
 function getEarthMotionView(viewId = state.earthMotionViewId) {
@@ -446,19 +466,19 @@ function renderEarthMotionLab() {
       <div class="motion-lab-layout">
         <div class="motion-model-panel">
           <div class="motion-model-head"><div><span class="pill orange">当前视角</span><h3>${escapeHtml(view.name)}</h3></div><span class="pill">${escapeHtml(point.name)}</span></div>
-          ${renderEarthMotionDiagram(view, point)}
-          <p class="motion-hint">${escapeHtml(view.view_hint)} 图中答案标注将在提交预测后出现。</p>
+          ${renderEarthMotionDiagram(view, point, true)}
+          <p class="motion-hint">${escapeHtml(view.view_hint)} 运动箭头、昼夜标签和界线名称默认可见。</p>
           ${view.points.length > 1 ? `<div class="motion-point-tabs" aria-label="选择晨昏线交点">${view.points.map((item) => `<button class="${item.id === point.id ? "active" : ""}" data-action="set-earth-motion-point" data-point-id="${escapeHtml(item.id)}">${escapeHtml(item.name)}</button>`).join("")}</div>` : ""}
         </div>
         <form id="earth-motion-form" class="motion-prediction-panel">
-          <div class="notice">先作答并写出判断链，再解锁自转箭头、昼夜标签和界线名称。</div>
+          <div class="notice">四项预测需完成；图示始终可见，判断链可选填。</div>
           <fieldset><legend>1. 面向太阳的是哪一半？</legend>${renderMotionChoice("motion-sun-side", ["左半球", "右半球"])}</fieldset>
           <fieldset><legend>2. 从当前视角看，地球怎样自转？</legend>${renderMotionChoice("motion-rotation", ["顺时针", "逆时针", "自西向东"])}</fieldset>
           <fieldset><legend>3. ${escapeHtml(point.name)} 正在：</legend>${renderMotionChoice("motion-transition", ["进入白昼", "进入黑夜"])}</fieldset>
           <fieldset><legend>4. 该交界属于：</legend>${renderMotionChoice("motion-boundary", ["晨线", "昏线"])}</fieldset>
-          <label class="field-label" for="motion-reasoning">写出判断链</label>
+          <label class="field-label" for="motion-reasoning">判断链（选填）</label>
           <textarea id="motion-reasoning" name="motion-reasoning" placeholder="例如：先确定观察视角；再判断自转方向；沿运动方向看该点从哪一侧进入哪一侧；最后命名晨线或昏线。"></textarea>
-          <button class="btn orange motion-submit" type="submit">提交预测，播放判断链</button>
+          <button class="btn orange motion-submit" type="submit">提交预测</button>
         </form>
       </div>
     </section>
@@ -485,7 +505,7 @@ function renderEarthMotionResult(attempt) {
             ${renderLabAnswerRow("界线名称", attempt.answers.boundary, point.boundary_answer, checks.boundary)}
           </div>
           <div class="answer-box ${attempt.score === 4 ? "correct" : "wrong"}"><strong>${escapeHtml(point.boundary_answer)}的判断链</strong><br/>${escapeHtml(point.explanation)}</div>
-          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>
+          <p><strong>橙子的判断链（选填）</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>
           ${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div></div>` : `<div class="notice">四步均正确。请家长追问：如果换到另一极上空，为什么顺逆时针会改变？</div>`}
           <div class="btn-row"><button class="btn orange" data-action="next-earth-motion">换视角继续</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
         </div>
@@ -1066,6 +1086,37 @@ function renderTideLab() {
   app.innerHTML = feature.renderLab({ lab: catalog.tideLab, scenario, item, scenarioIndex: state.tideScenarioIndex % catalog.tideLab.scenarios.length });
 }
 
+function getCoriolisScenario(id = null) {
+  const scenarios = catalog.coriolisLab?.scenarios || [];
+  if (!scenarios.length) return null;
+  return id ? scenarios.find((scenario) => scenario.id === id) || scenarios[0] : scenarios[state.coriolisScenarioIndex % scenarios.length];
+}
+
+function coriolisMasteryStatus() {
+  const reviewHours = catalog.coriolisLab?.review_after_hours || 48;
+  const confirmed = [...state.coriolisAttempts]
+    .filter((attempt) => attempt.score === 5 && attempt.parent_review_status === "已确认" && ["北半球", "南半球"].includes(attempt.hemisphere))
+    .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+  if (confirmed.length < 2) return { label: "待验证", detail: `需要南北半球不同运动方向各满分一次，间隔至少${reviewHours}小时并由家长确认。`, mastered: false };
+  const latest = confirmed.at(-1);
+  const earlier = [...confirmed].reverse().find((attempt) => attempt.hemisphere !== latest.hemisphere && new Date(latest.submitted_at) - new Date(attempt.submitted_at) >= reviewHours * 3600000);
+  return earlier
+    ? { label: "延迟复测通过", detail: `南北半球换方向情境均通过，且间隔至少${reviewHours}小时。`, mastered: true }
+    : { label: "等待换半球复测", detail: `还需换到另一半球，并间隔至少${reviewHours}小时。`, mastered: false };
+}
+
+function renderCoriolisLab() {
+  const feature = window.OrangeCoach?.features?.coriolis;
+  const scenario = getCoriolisScenario();
+  if (!feature || !scenario) { app.innerHTML = `<section class="card empty">地转偏向力实验数据尚未加载。</section>`; return; }
+  const attempt = getCoriolisAttempt(state.activeCoriolisAttemptId);
+  if (attempt) {
+    app.innerHTML = feature.renderResult({ lab: catalog.coriolisLab, scenario: getCoriolisScenario(attempt.scenario_id), attempt });
+    return;
+  }
+  app.innerHTML = feature.renderLab({ lab: catalog.coriolisLab, scenario, scenarioIndex: state.coriolisScenarioIndex % catalog.coriolisLab.scenarios.length });
+}
+
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => button.classList.toggle("active", button.dataset.route === state.route));
@@ -1086,6 +1137,7 @@ function render() {
   if (state.route === "moon-phase-lab") return renderMoonPhaseLab();
   if (state.route === "eclipse-lab") return renderEclipseLab();
   if (state.route === "tide-lab") return renderTideLab();
+  if (state.route === "coriolis-lab") return renderCoriolisLab();
   if (state.route === "train") return renderTrain();
   if (state.route === "projects") return renderProjects();
   if (state.route === "mastery") return renderMastery();
@@ -1100,7 +1152,7 @@ function renderToday() {
     recommendation: getTodayRecommendation(),
     stats: [
       { value: completedToday(), label: "今日完成" },
-      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length, label: "学习证据" },
+      { value: state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length + state.coriolisAttempts.length, label: "学习证据" },
       { value: countPendingParentReviews(), label: "待家长确认" }
     ],
     recent: getRecentEvidence().slice(0, 3)
@@ -1108,7 +1160,7 @@ function renderToday() {
 }
 
 function countPendingParentReviews() {
-  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts]
+  return [...state.attempts, ...state.retestAttempts, ...state.timeLabAttempts, ...state.earthMotionAttempts, ...state.solarSeasonAttempts, ...state.solarPathAttempts, ...state.annualSunAttempts, ...state.orbitSpeedAttempts, ...state.terminatorLinkAttempts, ...state.rotationSpeedAttempts, ...state.dateRangeAttempts, ...state.axialTiltAttempts, ...state.celestialScaleAttempts, ...state.habitabilityAttempts, ...state.solarActivityAttempts, ...state.moonPhaseAttempts, ...state.eclipseAttempts, ...state.tideAttempts, ...state.coriolisAttempts]
     .filter((attempt) => String(attempt.parent_review_status || "").startsWith("待")).length;
 }
 
@@ -1204,6 +1256,12 @@ function projectStatus(project) {
       ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.tideAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
       : { status_label: "待开始", status_tone: "", status_detail: "尚未留下月相几何、潮型、潮差、周期与局地边界判断证据" };
   }
+  if (project.status_kind === "coriolis") {
+    const latest = latestCoriolisAttempts()[0];
+    return latest
+      ? { status_label: `${latest.score}/5`, status_tone: latest.score === 5 && latest.parent_review_status === "已确认" ? "green" : "orange", status_detail: `${state.coriolisAttempts.length} 次实验 · 最近 ${formatDate(latest.submitted_at)} · ${latest.parent_review_status}` }
+      : { status_label: "待开始", status_tone: "", status_detail: "尚未留下半球规则、相对偏向与地图方位判断证据" };
+  }
   if (project.status_kind === "diagnostic") {
     const latest = latestAttempts()[0];
     return latest
@@ -1238,6 +1296,7 @@ function getTodayRecommendation() {
   const latestMoonPhase = latestMoonPhaseAttempts()[0];
   const latestEclipse = latestEclipseAttempts()[0];
   const latestTide = latestTideAttempts()[0];
+  const latestCoriolis = latestCoriolisAttempts()[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const latestPath = latestSolarPathAttempts()[0];
   const latestTime = latestTimeLabAttempts()[0];
@@ -1245,10 +1304,13 @@ function getTodayRecommendation() {
   let reason;
   if (!latestMotion) {
     project = byId("earth-motion-lab");
-    reason = "先建立观察视角与自转方向的基础判断链，提交前不会显示运动箭头。";
+    reason = "先用默认可见的运动箭头建立观察视角与自转方向，再完成四项预测。";
   } else if (!latestSolar) {
     project = byId("solar-season-lab");
     reason = "已有晨昏线基础，继续把日期、太阳直射点和昼夜长短连成一条判断链。";
+  } else if (!latestCoriolis) {
+    project = byId("coriolis-lab");
+    reason = "教材第一章补漏：用图示把北右南左、相对左右和地图方位连起来。";
   } else if (!latestAnnual) {
     project = byId("annual-sun-lab");
     reason = "四个节气已经会判断，继续补齐节气之间直射点的移动方向和趋势。";
@@ -1432,6 +1494,7 @@ function getRecentEvidence() {
   const moonPhase = state.moonPhaseAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getMoonPhase(attempt.phase_id)?.name || attempt.phase_id}`, meta: `月相位置与可见时段 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const eclipse = state.eclipseAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getEclipseCase(attempt.case_id)?.name || attempt.case_id}`, meta: `日月食几何与可见范围 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const tide = state.tideAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getTideCase(attempt.case_id)?.name || attempt.case_id}`, meta: `潮汐周期与月相 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
+  const coriolis = state.coriolisAttempts.map((attempt) => ({ submitted_at: attempt.submitted_at, title: `${getCoriolisScenario(attempt.scenario_id)?.name || attempt.scenario_id}`, meta: `地转偏向力 · ${attempt.score}/5 · ${formatDate(attempt.submitted_at)}`, status: attempt.parent_review_status, tone: evidenceTone(attempt.parent_review_status) }));
   const retests = state.retestAttempts.map((attempt) => ({
     submitted_at: attempt.submitted_at,
     title: getRetest(attempt.retest_id)?.title || attempt.retest_id,
@@ -1439,7 +1502,7 @@ function getRecentEvidence() {
     status: attempt.parent_review_status,
     tone: evidenceTone(attempt.parent_review_status)
   }));
-  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...axialTilt, ...celestialScale, ...habitability, ...solarActivity, ...moonPhase, ...eclipse, ...tide, ...dateRange, ...retests]
+  return [...diagnostic, ...timeLab, ...motion, ...solar, ...solarPath, ...annualSun, ...orbitSpeed, ...terminatorLink, ...rotationSpeed, ...axialTilt, ...celestialScale, ...habitability, ...solarActivity, ...moonPhase, ...eclipse, ...tide, ...coriolis, ...dateRange, ...retests]
     .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at));
 }
 
@@ -1464,13 +1527,13 @@ function renderTrain() {
   app.innerHTML = `
     <div class="topic-meta">${escapeHtml(getTopic(question.topic_id)?.category || "")} · ${escapeHtml(getTopic(question.topic_id)?.name || "")} · ${escapeHtml(question.id)}</div>
     <h2 class="page-title">${escapeHtml(question.title)}</h2>
-    <p class="page-subtitle">请先独立完成。没有写出理由，就暂时不算完成。</p>
+    <p class="page-subtitle">请先独立选择答案。理由可选填，留空也可以提交。</p>
     <section class="card">
       <div class="question-stem">${escapeHtml(question.stem)}</div>
       <form id="answer-form">
         <div class="option-list">${question.options.map((option) => `<label class="option"><input type="radio" name="answer" value="${escapeHtml(option.id)}" /> <span><strong>${escapeHtml(option.id)}.</strong> ${escapeHtml(option.text)}</span></label>`).join("")}</div>
-        <label class="field-label" for="reasoning">你为什么这样选？</label>
-        <textarea id="reasoning" placeholder="写出你的判断链，例如：先判断……再根据……所以……"></textarea>
+        <label class="field-label" for="reasoning">选择理由（选填）</label>
+        <textarea id="reasoning" placeholder="可选：简单记录判断依据，留空不影响提交。"></textarea>
         <label class="field-label">你对答案的把握有多大？</label>
         <div class="confidence">${[1, 2, 3, 4, 5].map((value) => `<label><input type="radio" name="confidence" value="${value}" ${value === 3 ? "checked" : ""}/> ${value}</label>`).join("")}</div>
         <div class="btn-row"><button class="btn" type="submit">提交并查看诊断</button><button class="btn secondary" type="button" data-action="goto" data-route="today">暂不作答</button></div>
@@ -1486,10 +1549,10 @@ function renderResult(question, session) {
   const prompt = makeAiPrompt(question, session, candidate);
   app.innerHTML = `
     <div class="topic-meta">${escapeHtml(question.id)} · ${escapeHtml(getTopic(question.topic_id)?.name || "")}</div>
-    <h2 class="page-title">${correct ? "答对了，但还要看理由" : "这道题值得复盘"}</h2>
+    <h2 class="page-title">${correct ? "答对了，继续核对关键点" : "这道题值得复盘"}</h2>
     <section class="card">
       <p><strong>你的选择：</strong>${escapeHtml(session.selectedOption)}. ${escapeHtml(selected?.text || "")}</p>
-      <p><strong>你的理由：</strong></p><div class="quote">${escapeHtml(session.reasoning)}</div>
+      <p><strong>你的理由（选填）：</strong></p><div class="quote">${optionalReasoning(session.reasoning)}</div>
       <div class="answer-box ${correct ? "correct" : "wrong"}"><strong>${correct ? "结果：正确" : `结果：不正确，正确答案是 ${escapeHtml(question.answer)}`}</strong><br/>${escapeHtml(question.explanation)}</div>
       ${candidate ? `<div class="diagnosis"><strong>AI/题目给出的错因候选：${escapeHtml(candidate.tag)}</strong><br/>${escapeHtml(candidate.diagnosis)}<br/><br/><strong>追问：</strong>${escapeHtml(candidate.follow_up)}</div>` : `<div class="diagnosis"><strong>下一步：</strong>请用自己的话解释为什么不是另外三个选项，防止“碰巧答对”。</div>`}
     </section>
@@ -1511,19 +1574,20 @@ function renderTimeLab() {
   const activeAttempt = getTimeLabAttempt(state.activeTimeLabAttemptId);
   if (activeAttempt) return renderTimeLabResult(scenario, activeAttempt);
   const longitude = scenario.starting_longitude;
+  const preview = calculateTimeLabAnswers(scenario, longitude);
   app.innerHTML = `
     <div class="topic-meta">自然地理 · 时区与地方时 · ${escapeHtml(scenario.id)}</div>
     <h2 class="page-title">时区实验室</h2>
-    <p class="page-subtitle">先在地图上找到地点，再预测时间。选择经度不会显示答案，提交后才会看到三种时间如何联动。</p>
+    <p class="page-subtitle">在地图上选择经度，三种时间会立即联动；可一边观察模型一边完成预测。</p>
     <section class="card time-lab-card">
       <div class="lab-reference"><span>全球参考时刻</span><strong>${escapeHtml(scenario.utc_date)} UTC ${formatClock(scenario.utc_minutes)}</strong></div>
       <div class="lab-model-note">理论模型：地方时按经度每1°差4分钟；区时按最近的15°中央经线计算。不考虑均时差、夏令时和法定边界。</div>
       <div class="longitude-heading"><strong>选择目标地点或经度</strong><span>地图建立空间感，滑杆用于精确选择</span></div>
       ${renderWorldMap(longitude)}
-      <div class="clock-grid locked-clocks" aria-label="提交预测后解锁的时间结果">
+      <div class="clock-grid result-clocks" aria-label="随经度实时联动的时间结果">
         <div><span>UTC</span><strong>${formatClock(scenario.utc_minutes)}</strong><small>${escapeHtml(scenario.utc_date)}</small></div>
-        <div><span>地方时</span><strong>--:--</strong><small>提交后解锁</small></div>
-        <div><span>理论区时</span><strong>--:--</strong><small>提交后解锁</small></div>
+        <div><span>地方时</span><strong id="lab-preview-local">${escapeHtml(preview.local_time)}</strong><small>随经度更新</small></div>
+        <div><span>理论区时</span><strong id="lab-preview-zone">${escapeHtml(preview.zone_time)}</strong><small id="lab-preview-zone-name">${escapeHtml(preview.zone_name)}</small></div>
       </div>
       <form id="time-lab-form">
         <input type="hidden" name="scenario-id" value="${escapeHtml(scenario.id)}" />
@@ -1539,9 +1603,9 @@ function renderTimeLab() {
         <select id="lab-date-relation" name="lab-date-relation">
           <option value="">请选择</option><option>前一天</option><option>同一天</option><option>后一天</option>
         </select>
-        <label class="field-label" for="lab-reasoning">写出你的判断链</label>
+        <label class="field-label" for="lab-reasoning">判断链（选填）</label>
         <textarea id="lab-reasoning" name="lab-reasoning" placeholder="例如：目标地在东；经度差×4分钟得到地方时；经度÷15°确定理论时区；最后检查是否跨0时。"></textarea>
-        <div class="btn-row"><button class="btn orange" type="submit">提交预测，解锁联动</button><button class="btn secondary" type="button" data-action="goto" data-route="today">暂不作答</button></div>
+        <div class="btn-row"><button class="btn orange" type="submit">提交预测</button><button class="btn secondary" type="button" data-action="goto" data-route="today">暂不作答</button></div>
       </form>
     </section>
   `;
@@ -1576,7 +1640,7 @@ function renderTimeLabResult(scenario, attempt) {
         ${renderLabAnswerRow("理论区时", attempt.answers.zone_time, correct.zone_time, checks.zone_time)}
         ${renderLabAnswerRow("区时日期", attempt.answers.date_relation, correct.date_relation, checks.date_relation)}
       </div>
-      <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>
+      <p><strong>橙子的判断链（选填）</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>
       ${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div></div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>仍需用自己的话解释地方时与区时为什么可能不同，并在延迟复测中再次验证。</div>`}
       <div class="btn-row"><button class="btn orange" data-action="next-time-lab">换一组继续预测</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
     </section>
@@ -1626,6 +1690,7 @@ function renderMastery() {
   const latestMoonPhase = latestMoonPhaseAttempts()[0];
   const latestEclipse = latestEclipseAttempts()[0];
   const latestTide = latestTideAttempts()[0];
+  const latestCoriolis = latestCoriolisAttempts()[0];
   const latestDateRange = latestDateRangeAttempts()[0];
   const motionMastery = earthMotionMasteryStatus();
   const solarMastery = solarSeasonMasteryStatus();
@@ -1641,6 +1706,7 @@ function renderMastery() {
   const moonPhaseMastery = moonPhaseMasteryStatus();
   const eclipseMastery = eclipseMasteryStatus();
   const tideMastery = tideMasteryStatus();
+  const coriolisMastery = coriolisMasteryStatus();
   const dateRangeMastery = dateRangeMasteryStatus();
   app.innerHTML = `
     <h2 class="page-title">掌握与复测</h2>
@@ -1650,6 +1716,7 @@ function renderMastery() {
       return `<div class="topic-item"><div class="topic-head"><div><strong>${escapeHtml(topic.name)}</strong><div class="topic-meta">${escapeHtml(topic.category)} · ${stats.attempts.length ? `${stats.attempts.length} 次作答` : "尚未开始"}</div></div><span class="pill ${stats.ratio >= 70 ? "green" : stats.attempts.length ? "orange" : ""}">${stats.attempts.length ? `${stats.ratio}%` : "待建立"}</span></div><div class="progress"><span style="width:${stats.ratio}%"></span></div><div class="topic-meta">${escapeHtml(topic.description)}</div></div>`;
     }).join("")}</div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">地球运动专项</span><h3>视角—方向—晨昏线</h3></div><span class="pill ${motionMastery.mastered ? "green" : "orange"}">${escapeHtml(motionMastery.label)}</span></div><p class="small">${latestMotion ? `最近实验：${escapeHtml(getEarthMotionView(latestMotion.view_id)?.name || latestMotion.view_id)} · ${latestMotion.score}/4 · ${escapeHtml(latestMotion.parent_review_status)} · ${formatDate(latestMotion.submitted_at)}` : "先完成一次晨昏线实验，留下观察视角和判断链。"}</p><p class="small">${escapeHtml(motionMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-earth-motion">进入晨昏线实验室</button></div></section>
+    <section class="card"><div class="attempt-head"><div><span class="pill orange">地转偏向力专项</span><h3>半球—相对左右—地图方位</h3></div><span class="pill ${coriolisMastery.mastered ? "green" : "orange"}">${escapeHtml(coriolisMastery.label)}</span></div><p class="small">${latestCoriolis ? `最近实验：${escapeHtml(getCoriolisScenario(latestCoriolis.scenario_id)?.name || latestCoriolis.scenario_id)} · ${latestCoriolis.score}/5 · ${escapeHtml(latestCoriolis.parent_review_status)} · ${formatDate(latestCoriolis.submitted_at)}` : "先完成一次地转偏向力实验，建立北右南左与方位转换。"}</p><p class="small">${escapeHtml(coriolisMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-coriolis">进入地转偏向力实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">地球公转专项</span><h3>日期—直射点—昼长—太阳高度</h3></div><span class="pill ${solarMastery.mastered ? "green" : "orange"}">${escapeHtml(solarMastery.label)}</span></div><p class="small">${latestSolar ? `最近实验：${escapeHtml(getSolarSeasonDate(latestSolar.date_id)?.name || latestSolar.date_id)} · ${escapeHtml(getSolarSeasonPlace(latestSolar.place_id)?.name || latestSolar.place_id)} · ${latestSolar.score}/4 · ${escapeHtml(latestSolar.parent_review_status)} · ${formatDate(latestSolar.submitted_at)}` : "先完成一次太阳季节实验，留下直射点、昼长和正午太阳高度判断链。"}</p><p class="small">${escapeHtml(solarMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-solar-season">进入太阳季节实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">周年回归专项</span><h3>日期位置—直射纬度—移动方向—变化趋势</h3></div><span class="pill ${annualMastery.mastered ? "green" : "orange"}">${escapeHtml(annualMastery.label)}</span></div><p class="small">${latestAnnual ? `最近实验：${escapeHtml(getAnnualSunCheckpoint(latestAnnual.checkpoint_id)?.name || latestAnnual.checkpoint_id)} · ${escapeHtml(getAnnualSunPlace(latestAnnual.place_id)?.name || latestAnnual.place_id)} · ${latestAnnual.score}/4 · ${escapeHtml(latestAnnual.parent_review_status)} · ${formatDate(latestAnnual.submitted_at)}` : "先完成一次周年回归实验，留下直射纬度、移动方向和趋势判断链。"}</p><p class="small">${escapeHtml(annualMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-annual-sun">进入周年回归实验室</button></div></section>
     <section class="card"><div class="attempt-head"><div><span class="pill orange">公转速度专项</span><h3>轨道位置—日地距离—公转速度—四季成因</h3></div><span class="pill ${orbitMastery.mastered ? "green" : "orange"}">${escapeHtml(orbitMastery.label)}</span></div><p class="small">${latestOrbit ? `最近实验：${escapeHtml(getOrbitSpeedCheckpoint(latestOrbit.checkpoint_id)?.name || latestOrbit.checkpoint_id)} · ${escapeHtml(getOrbitSpeedHemisphere(latestOrbit.hemisphere_id)?.name || latestOrbit.hemisphere_id)} · ${latestOrbit.score}/4 · ${escapeHtml(latestOrbit.parent_review_status)} · ${formatDate(latestOrbit.submitted_at)}` : "先完成一次公转轨道实验，留下远近、快慢和季节成因判断链。"}</p><p class="small">${escapeHtml(orbitMastery.detail)}</p><div class="btn-row"><button class="btn orange" data-action="start-orbit-speed">进入公转轨道实验室</button></div></section>
@@ -1694,12 +1761,14 @@ function renderParent() {
   const moonPhaseAttempts = latestMoonPhaseAttempts();
   const eclipseAttempts = latestEclipseAttempts();
   const tideAttempts = latestTideAttempts();
+  const coriolisAttempts = latestCoriolisAttempts();
   app.innerHTML = `
     <h2 class="page-title">家长审核页</h2>
     <p class="page-subtitle">只核验三件事：理由是否真实、诊断是否有证据、下一步是否可执行。</p>
     <div class="notice">家长不是每道题的讲解员，而是学习过程的质量审核员。连续 2–3 次同类错误，再考虑请老师校准。</div>
     <section class="card"><h3>真实试卷复盘</h3>${catalog.paperReviews.map(renderPaperReview).join("") || `<div class="empty">尚未录入试卷复盘。</div>`}</section>
     <section class="card"><h3>晨昏线实验审核</h3>${earthMotionAttempts.length ? `<div class="attempt-list">${earthMotionAttempts.map(renderParentEarthMotionAttempt).join("")}</div>` : `<div class="empty">橙子提交观察视角预测后，这里会出现判断链和候选错因。</div>`}</section>
+    <section class="card"><h3>地转偏向力实验审核</h3>${coriolisAttempts.length ? `<div class="attempt-list">${coriolisAttempts.map(renderParentCoriolisAttempt).join("")}</div>` : `<div class="empty">橙子提交半球、相对偏向与地图方位预测后，这里会出现五步判断证据。</div>`}</section>
     <section class="card"><h3>太阳季节实验审核</h3>${solarSeasonAttempts.length ? `<div class="attempt-list">${solarSeasonAttempts.map(renderParentSolarSeasonAttempt).join("")}</div>` : `<div class="empty">橙子提交直射点与昼长预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>周年回归实验审核</h3>${annualSunAttempts.length ? `<div class="attempt-list">${annualSunAttempts.map(renderParentAnnualSunAttempt).join("")}</div>` : `<div class="empty">橙子提交直射点移动与趋势预测后，这里会出现四步判断证据。</div>`}</section>
     <section class="card"><h3>公转轨道与速度实验审核</h3>${orbitSpeedAttempts.length ? `<div class="attempt-list">${orbitSpeedAttempts.map(renderParentOrbitSpeedAttempt).join("")}</div>` : `<div class="empty">橙子提交轨道远近、速度、半球季节与成因预测后，这里会出现判断证据。</div>`}</section>
@@ -1728,7 +1797,7 @@ function renderCoachAnnotation(annotation) {
 }
 
 function makeArchiveAnnotationPrompt() {
-  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts、axial_tilt_attempts、celestial_scale_attempts、habitability_attempts、solar_activity_attempts、moon_phase_attempts、eclipse_attempts、tide_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
+  return `请批注我附上的“橙子地理教练”JSON学习档案。\n\n要求：\n1. 只根据档案中的作答、理由、家长审核和延迟复测证据判断；证据不足时明确写“证据不足”。\n2. 不修改 attempts、retest_attempts、time_lab_attempts、earth_motion_attempts、solar_season_attempts、solar_path_attempts、annual_sun_attempts、orbit_speed_attempts、terminator_link_attempts、rotation_speed_attempts、date_range_attempts、axial_tilt_attempts、celestial_scale_attempts、habitability_attempts、solar_activity_attempts、moon_phase_attempts、eclipse_attempts、tide_attempts、coriolis_attempts 等原始记录。\n3. 按 annotation_guide.expected_annotation_shape，把本次批注追加到 coach_annotations 数组。\n4. 区分“候选”“已确认”“需教师复核”，不把一次答对或一次满分当成掌握。\n5. next_step 给出一个可执行的微任务或延迟复测建议，并引用 evidence_refs。\n\n完成后请返回完整、可导入的 JSON 文件。`;
 }
 
 const ERROR_TAG_LABELS = {
@@ -1823,7 +1892,12 @@ const ERROR_TAG_LABELS = {
   "TD-SPRING-NEAP": "混淆大潮、小潮与日月引潮作用的叠加方式",
   "TD-TIDAL-RANGE": "把潮差大小、高潮水位和是否发生潮汐混为一谈",
   "TD-LUNAR-DAY": "没有建立太阴日、每日常见潮次与朔望月潮序周期",
-  "TD-LOCAL-BOUNDARY": "把理想潮汐规律写成任意港口的精确潮时潮高预报"
+  "TD-LOCAL-BOUNDARY": "把理想潮汐规律写成任意港口的精确潮时潮高预报",
+  "CF-HEMISPHERE-RULE": "南北半球偏转规律混淆",
+  "CF-RELATIVE-SIDE": "没有相对运动方向判断左右",
+  "CF-MAP-DIRECTION": "相对左右没有转换为地图方位",
+  "CF-SPEED-EFFECT": "把地转偏向力误当作改变速度大小",
+  "CF-SCALE-APPLICATION": "忽略大尺度运动和赤道边界"
 };
 
 function errorTagLabel(tag) { return ERROR_TAG_LABELS[tag] || tag; }
@@ -1835,34 +1909,34 @@ function renderPaperReview(review) {
 
 function renderParentTimeLabAttempt(attempt) {
   const correct = attempt.correct_answers;
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${longitudeLabel(attempt.longitude)} · 时区实验</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · ${escapeHtml(attempt.scenario_id)}</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="lab-parent-summary"><span>地方时 <strong>${escapeHtml(correct.local_time)}</strong></span><span>${escapeHtml(correct.zone_name)} <strong>${escapeHtml(correct.zone_time)}</strong></span><span>日期 <strong>${escapeHtml(correct.date_relation)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个计算步骤均正确</strong><br/>请继续追问：为什么地方时和区时可能不同？</div>`}<label class="field-label" for="lab-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="lab-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="lab-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="lab-note-${escapeHtml(attempt.id)}" placeholder="例如：会算地方时，但区时仍按经度分钟计算">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-lab-review" data-attempt-id="${escapeHtml(attempt.id)}">保存实验审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${longitudeLabel(attempt.longitude)} · 时区实验</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · ${escapeHtml(attempt.scenario_id)}</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="lab-parent-summary"><span>地方时 <strong>${escapeHtml(correct.local_time)}</strong></span><span>${escapeHtml(correct.zone_name)} <strong>${escapeHtml(correct.zone_time)}</strong></span><span>日期 <strong>${escapeHtml(correct.date_relation)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个计算步骤均正确</strong><br/>请继续追问：为什么地方时和区时可能不同？</div>`}<label class="field-label" for="lab-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="lab-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="lab-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="lab-note-${escapeHtml(attempt.id)}" placeholder="例如：会算地方时，但区时仍按经度分钟计算">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-lab-review" data-attempt-id="${escapeHtml(attempt.id)}">保存实验审核</button></div></article>`;
 }
 
 function renderParentEarthMotionAttempt(attempt) {
   const view = getEarthMotionView(attempt.view_id);
   const point = getEarthMotionPoint(view, attempt.point_id);
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(view?.name || attempt.view_id)} · ${escapeHtml(point?.name || attempt.point_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 晨昏线实验</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="motion-parent-summary"><span>自转 <strong>${escapeHtml(attempt.correct_answers.rotation)}</strong></span><span>变化 <strong>${escapeHtml(attempt.correct_answers.transition)}</strong></span><span>界线 <strong>${escapeHtml(attempt.correct_answers.boundary)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：换到另一个极点上空，自转方向为什么会改变？</div>`}<label class="field-label" for="motion-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="motion-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="motion-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="motion-note-${escapeHtml(attempt.id)}" placeholder="例如：知道晨线定义，但切换南极视角后顺逆时针仍混淆">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-motion-review" data-attempt-id="${escapeHtml(attempt.id)}">保存实验审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(view?.name || attempt.view_id)} · ${escapeHtml(point?.name || attempt.point_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 晨昏线实验</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="motion-parent-summary"><span>自转 <strong>${escapeHtml(attempt.correct_answers.rotation)}</strong></span><span>变化 <strong>${escapeHtml(attempt.correct_answers.transition)}</strong></span><span>界线 <strong>${escapeHtml(attempt.correct_answers.boundary)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：换到另一个极点上空，自转方向为什么会改变？</div>`}<label class="field-label" for="motion-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="motion-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="motion-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="motion-note-${escapeHtml(attempt.id)}" placeholder="例如：知道晨线定义，但切换南极视角后顺逆时针仍混淆">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-motion-review" data-attempt-id="${escapeHtml(attempt.id)}">保存实验审核</button></div></article>`;
 }
 
 function renderParentSolarSeasonAttempt(attempt) {
   const date = getSolarSeasonDate(attempt.date_id);
   const place = getSolarSeasonPlace(attempt.place_id);
   const correct = attempt.correct_answers;
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(date?.name || attempt.date_id)} · ${escapeHtml(place?.name || attempt.place_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 太阳直射点与昼夜长短</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>直射 <strong>${escapeHtml(correct.direct)}</strong></span><span>昼夜 <strong>${escapeHtml(correct.day_relation)}</strong></span><span>正午高度 <strong>${correct.noon_altitude}°</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：如果换到另一半球同纬度地点，哪些结论会改变？</div>`}<label class="field-label" for="solar-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="solar-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="solar-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="solar-note-${escapeHtml(attempt.id)}" placeholder="例如：能判断直射点，但不会把直射半球转化为全球昼长分布">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-solar-review" data-attempt-id="${escapeHtml(attempt.id)}">保存太阳季节审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(date?.name || attempt.date_id)} · ${escapeHtml(place?.name || attempt.place_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 太阳直射点与昼夜长短</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>直射 <strong>${escapeHtml(correct.direct)}</strong></span><span>昼夜 <strong>${escapeHtml(correct.day_relation)}</strong></span><span>正午高度 <strong>${correct.noon_altitude}°</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：如果换到另一半球同纬度地点，哪些结论会改变？</div>`}<label class="field-label" for="solar-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="solar-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="solar-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="solar-note-${escapeHtml(attempt.id)}" placeholder="例如：能判断直射点，但不会把直射半球转化为全球昼长分布">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-solar-review" data-attempt-id="${escapeHtml(attempt.id)}">保存太阳季节审核</button></div></article>`;
 }
 
 function renderParentAnnualSunAttempt(attempt) {
   const checkpoint = getAnnualSunCheckpoint(attempt.checkpoint_id);
   const place = getAnnualSunPlace(attempt.place_id);
   const correct = attempt.correct_answers;
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(checkpoint?.name || attempt.checkpoint_id)} · ${escapeHtml(place?.name || attempt.place_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 太阳直射点周年回归</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>直射 <strong>${escapeHtml(correct.direct_label)}</strong></span><span>移动 <strong>${escapeHtml(correct.migration)}</strong></span><span>昼长 <strong>${escapeHtml(correct.north_day_trend)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：相同直射纬度为什么可能对应两个日期和相反移动方向？</div>`}<label class="field-label" for="annual-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="annual-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="annual-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="annual-note-${escapeHtml(attempt.id)}" placeholder="例如：能估直射纬度，但把5月和8月的移动方向看成相同">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-annual-review" data-attempt-id="${escapeHtml(attempt.id)}">保存周年回归审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(checkpoint?.name || attempt.checkpoint_id)} · ${escapeHtml(place?.name || attempt.place_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 太阳直射点周年回归</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>直射 <strong>${escapeHtml(correct.direct_label)}</strong></span><span>移动 <strong>${escapeHtml(correct.migration)}</strong></span><span>昼长 <strong>${escapeHtml(correct.north_day_trend)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：相同直射纬度为什么可能对应两个日期和相反移动方向？</div>`}<label class="field-label" for="annual-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="annual-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="annual-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="annual-note-${escapeHtml(attempt.id)}" placeholder="例如：能估直射纬度，但把5月和8月的移动方向看成相同">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-annual-review" data-attempt-id="${escapeHtml(attempt.id)}">保存周年回归审核</button></div></article>`;
 }
 
 function renderParentOrbitSpeedAttempt(attempt) {
   const checkpoint = getOrbitSpeedCheckpoint(attempt.checkpoint_id);
   const hemisphere = getOrbitSpeedHemisphere(attempt.hemisphere_id);
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(checkpoint?.name || attempt.checkpoint_id)} · ${escapeHtml(hemisphere?.name || attempt.hemisphere_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地球公转轨道与速度</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>距离 <strong>${escapeHtml(correct.distance_state)}</strong></span><span>速度 <strong>${escapeHtml(correct.speed_state)}</strong></span><span>季节 <strong>${escapeHtml(correct.season)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：为什么1月更靠近太阳，北半球和南半球却不是同一季节？</div>`}<label class="field-label" for="orbit-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="orbit-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="orbit-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="orbit-note-${escapeHtml(attempt.id)}" placeholder="例如：知道近日点快，但仍用日地距离解释四季">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-orbit-review" data-attempt-id="${escapeHtml(attempt.id)}">保存公转轨道审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(checkpoint?.name || attempt.checkpoint_id)} · ${escapeHtml(hemisphere?.name || attempt.hemisphere_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地球公转轨道与速度</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>距离 <strong>${escapeHtml(correct.distance_state)}</strong></span><span>速度 <strong>${escapeHtml(correct.speed_state)}</strong></span><span>季节 <strong>${escapeHtml(correct.season)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：为什么1月更靠近太阳，北半球和南半球却不是同一季节？</div>`}<label class="field-label" for="orbit-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="orbit-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="orbit-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="orbit-note-${escapeHtml(attempt.id)}" placeholder="例如：知道近日点快，但仍用日地距离解释四季">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-orbit-review" data-attempt-id="${escapeHtml(attempt.id)}">保存公转轨道审核</button></div></article>`;
 }
 
 function renderParentTerminatorLinkAttempt(attempt) {
@@ -1870,30 +1944,30 @@ function renderParentTerminatorLinkAttempt(attempt) {
   const date = getTerminatorLinkDate(scenario?.date_id);
   const place = getTerminatorLinkPlace(scenario?.place_id);
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(date?.name || scenario?.date_id || attempt.scenario_id)} · ${escapeHtml(place?.name || scenario?.place_id || "目标地")}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 晨昏线综合联动</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>直射/地方时 <strong>${escapeHtml(correct.direct_longitude_label)} · ${escapeHtml(correct.local_time)}</strong></span><span>昼长/状态 <strong>${Number(correct.day_length_exact).toFixed(1)}h · ${escapeHtml(correct.status)}</strong></span><span>极地范围 <strong>${escapeHtml(correct.polar_pattern)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请拖动UTC时刻追问：哪些量会随时刻改变，哪些量只由日期和纬度决定？</div>`}<label class="field-label" for="link-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="link-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="link-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="link-note-${escapeHtml(attempt.id)}" placeholder="例如：会算地方时，但仍把所有晨线点记成6时">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-terminator-link-review" data-attempt-id="${escapeHtml(attempt.id)}">保存晨昏线综合审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(date?.name || scenario?.date_id || attempt.scenario_id)} · ${escapeHtml(place?.name || scenario?.place_id || "目标地")}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 晨昏线综合联动</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>直射/地方时 <strong>${escapeHtml(correct.direct_longitude_label)} · ${escapeHtml(correct.local_time)}</strong></span><span>昼长/状态 <strong>${Number(correct.day_length_exact).toFixed(1)}h · ${escapeHtml(correct.status)}</strong></span><span>极地范围 <strong>${escapeHtml(correct.polar_pattern)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请拖动UTC时刻追问：哪些量会随时刻改变，哪些量只由日期和纬度决定？</div>`}<label class="field-label" for="link-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="link-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="link-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="link-note-${escapeHtml(attempt.id)}" placeholder="例如：会算地方时，但仍把所有晨线点记成6时">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-terminator-link-review" data-attempt-id="${escapeHtml(attempt.id)}">保存晨昏线综合审核</button></div></article>`;
 }
 
 function renderParentRotationSpeedAttempt(attempt) {
   const scenario = getRotationSpeedScenario(attempt.scenario_id);
   const place = getRotationSpeedPlace(scenario?.place_id);
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(place?.name || scenario?.place_id || attempt.scenario_id)} · ${Math.abs(place?.latitude || 0)}°${(place?.latitude || 0) < 0 ? "S" : "N"}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地球自转速度</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>角速度 <strong>${escapeHtml(correct.angular_speed)}</strong></span><span>线速度 <strong>${correct.line_speed_exact} km/h</strong></span><span>${scenario?.duration_hours || correct.duration_hours}小时弧长 <strong>${correct.distance_exact} km</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请追问：南半球同纬度地点的角速度、线速度大小会改变吗？</div>`}<label class="field-label" for="rotation-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="rotation-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="rotation-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="rotation-note-${escapeHtml(attempt.id)}" placeholder="例如：知道高纬线速度小，但把角速度也写小了">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-rotation-speed-review" data-attempt-id="${escapeHtml(attempt.id)}">保存自转速度审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(place?.name || scenario?.place_id || attempt.scenario_id)} · ${Math.abs(place?.latitude || 0)}°${(place?.latitude || 0) < 0 ? "S" : "N"}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地球自转速度</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>角速度 <strong>${escapeHtml(correct.angular_speed)}</strong></span><span>线速度 <strong>${correct.line_speed_exact} km/h</strong></span><span>${scenario?.duration_hours || correct.duration_hours}小时弧长 <strong>${correct.distance_exact} km</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请追问：南半球同纬度地点的角速度、线速度大小会改变吗？</div>`}<label class="field-label" for="rotation-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="rotation-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="rotation-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="rotation-note-${escapeHtml(attempt.id)}" placeholder="例如：知道高纬线速度小，但把角速度也写小了">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-rotation-speed-review" data-attempt-id="${escapeHtml(attempt.id)}">保存自转速度审核</button></div></article>`;
 }
 
 function renderParentDateRangeAttempt(attempt) {
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>UTC ${escapeHtml(correct.utc_time || "--:--")} · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 全球日期范围</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>0时经线 <strong>${escapeHtml(correct.zero_label)}</strong></span><span>较新/较旧 <strong>${correct.new_date_percent}% / ${correct.old_date_percent}%</strong></span><span>日期数量 <strong>${escapeHtml(correct.date_count)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请拖到UTC 12:00追问：为什么此时全球同属一个日期？</div>`}<label class="field-label" for="date-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="date-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="date-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="date-note-${escapeHtml(attempt.id)}" placeholder="例如：会找0时经线，但较新日期范围方向仍会反">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-date-range-review" data-attempt-id="${escapeHtml(attempt.id)}">保存全球日期审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>UTC ${escapeHtml(correct.utc_time || "--:--")} · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 全球日期范围</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>0时经线 <strong>${escapeHtml(correct.zero_label)}</strong></span><span>较新/较旧 <strong>${correct.new_date_percent}% / ${correct.old_date_percent}%</strong></span><span>日期数量 <strong>${escapeHtml(correct.date_count)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请拖到UTC 12:00追问：为什么此时全球同属一个日期？</div>`}<label class="field-label" for="date-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="date-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="date-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="date-note-${escapeHtml(attempt.id)}" placeholder="例如：会找0时经线，但较新日期范围方向仍会反">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-date-range-review" data-attempt-id="${escapeHtml(attempt.id)}">保存全球日期审核</button></div></article>`;
 }
 
 function renderParentAxialTiltAttempt(attempt) {
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>ε=${correct.tilt_deg}° · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 黄赤交角与五带变化</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>回归线/极圈 <strong>${correct.tropic_latitude}° / ${correct.polar_circle_latitude}°</strong></span><span>热带/每个温带 <strong>${correct.tropical_width}° / ${correct.temperate_width_each}°</strong></span><span>每个寒带 <strong>${correct.polar_width_each}°</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把交角拖到0°，追问为什么极昼极夜与由地轴倾斜造成的季节差异会消失。</div>`}<label class="field-label" for="axial-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="axial-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="axial-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="axial-note-${escapeHtml(attempt.id)}" placeholder="例如：会求极圈，但把回归线纬度当成热带总宽">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-axial-tilt-review" data-attempt-id="${escapeHtml(attempt.id)}">保存黄赤交角审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>ε=${correct.tilt_deg}° · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 黄赤交角与五带变化</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>回归线/极圈 <strong>${correct.tropic_latitude}° / ${correct.polar_circle_latitude}°</strong></span><span>热带/每个温带 <strong>${correct.tropical_width}° / ${correct.temperate_width_each}°</strong></span><span>每个寒带 <strong>${correct.polar_width_each}°</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把交角拖到0°，追问为什么极昼极夜与由地轴倾斜造成的季节差异会消失。</div>`}<label class="field-label" for="axial-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="axial-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="axial-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="axial-note-${escapeHtml(attempt.id)}" placeholder="例如：会求极圈，但把回归线纬度当成热带总宽">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-axial-tilt-review" data-attempt-id="${escapeHtml(attempt.id)}">保存黄赤交角审核</button></div></article>`;
 }
 
 function renderParentCelestialScaleAttempt(attempt) {
   const correct = attempt.correct_answers || {};
   const level = window.OrangeCoach?.features?.celestialScale?.getLevel(catalog.celestialScaleLab, attempt.target_level_id);
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(level?.name || attempt.target_level_id)} · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 天体系统尺度与宇宙位置</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>地月尺度 <strong>${escapeHtml(correct.moon_distance)}</strong></span><span>日地尺度 <strong>${escapeHtml(correct.earth_sun_unit)}</strong></span><span>太阳系位置 <strong>银河系猎户臂</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把缩放尺拖到银河系，追问太阳系为什么不在银河系中心，以及为什么不能按图量距离。</div>`}<label class="field-label" for="celestial-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="celestial-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="celestial-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="celestial-note-${escapeHtml(attempt.id)}" placeholder="例如：层级顺序正确，但仍把太阳系放在银河系中心">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-celestial-scale-review" data-attempt-id="${escapeHtml(attempt.id)}">保存宇宙尺度审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(level?.name || attempt.target_level_id)} · ${escapeHtml(attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 天体系统尺度与宇宙位置</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>地月尺度 <strong>${escapeHtml(correct.moon_distance)}</strong></span><span>日地尺度 <strong>${escapeHtml(correct.earth_sun_unit)}</strong></span><span>太阳系位置 <strong>银河系猎户臂</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把缩放尺拖到银河系，追问太阳系为什么不在银河系中心，以及为什么不能按图量距离。</div>`}<label class="field-label" for="celestial-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="celestial-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="celestial-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="celestial-note-${escapeHtml(attempt.id)}" placeholder="例如：层级顺序正确，但仍把太阳系放在银河系中心">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-celestial-scale-review" data-attempt-id="${escapeHtml(attempt.id)}">保存宇宙尺度审核</button></div></article>`;
 }
 
 function renderParentHabitabilityAttempt(attempt) {
@@ -1902,38 +1976,44 @@ function renderParentHabitabilityAttempt(attempt) {
   const bodyA = feature?.getBody(catalog.habitabilityLab, scenario?.body_a);
   const bodyB = feature?.getBody(catalog.habitabilityLab, scenario?.body_b);
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(bodyA?.name || scenario?.body_a)} vs ${escapeHtml(bodyB?.name || scenario?.body_b)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地球宜居条件对照</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>太阳辐射 <strong>${escapeHtml(correct.higher_solar)}</strong></span><span>地表气压 <strong>${escapeHtml(correct.higher_pressure)}</strong></span><span>稳定液态水 <strong>${escapeHtml(correct.stable_liquid_water)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把证据尺退回“轨道”，追问为什么只看宜居带仍不能证明存在生命。</div>`}<label class="field-label" for="habitability-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="habitability-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="habitability-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="habitability-note-${escapeHtml(attempt.id)}" placeholder="例如：会比较日距，但仍把发现水冰等同于发现生命">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-habitability-review" data-attempt-id="${escapeHtml(attempt.id)}">保存宜居条件审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(bodyA?.name || scenario?.body_a)} vs ${escapeHtml(bodyB?.name || scenario?.body_b)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地球宜居条件对照</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>太阳辐射 <strong>${escapeHtml(correct.higher_solar)}</strong></span><span>地表气压 <strong>${escapeHtml(correct.higher_pressure)}</strong></span><span>稳定液态水 <strong>${escapeHtml(correct.stable_liquid_water)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把证据尺退回“轨道”，追问为什么只看宜居带仍不能证明存在生命。</div>`}<label class="field-label" for="habitability-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="habitability-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="habitability-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="habitability-note-${escapeHtml(attempt.id)}" placeholder="例如：会比较日距，但仍把发现水冰等同于发现生命">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-habitability-review" data-attempt-id="${escapeHtml(attempt.id)}">保存宜居条件审核</button></div></article>`;
 }
 
 function renderParentSolarActivityAttempt(attempt) {
   const scenario = getSolarActivityScenario(attempt.scenario_id);
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(scenario?.headline || attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 太阳活动证据判读</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>太阳源 <strong>${escapeHtml(correct.phenomenon)}</strong></span><span>载体/时标 <strong>${escapeHtml(correct.transport)} · ${escapeHtml(correct.arrival)}</strong></span><span>影响 <strong>${escapeHtml(correct.impact)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请追问：耀斑、粒子事件和CME为什么不能使用同一个到达时间和影响结论？</div>`}<label class="field-label" for="solar-activity-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="solar-activity-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="solar-activity-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="solar-activity-note-${escapeHtml(attempt.id)}" placeholder="例如：能认耀斑，但把CME也写成约8分钟到达">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-solar-activity-review" data-attempt-id="${escapeHtml(attempt.id)}">保存太阳活动审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(scenario?.headline || attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 太阳活动证据判读</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>太阳源 <strong>${escapeHtml(correct.phenomenon)}</strong></span><span>载体/时标 <strong>${escapeHtml(correct.transport)} · ${escapeHtml(correct.arrival)}</strong></span><span>影响 <strong>${escapeHtml(correct.impact)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请追问：耀斑、粒子事件和CME为什么不能使用同一个到达时间和影响结论？</div>`}<label class="field-label" for="solar-activity-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="solar-activity-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="solar-activity-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="solar-activity-note-${escapeHtml(attempt.id)}" placeholder="例如：能认耀斑，但把CME也写成约8分钟到达">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-solar-activity-review" data-attempt-id="${escapeHtml(attempt.id)}">保存太阳活动审核</button></div></article>`;
 }
 
 function renderParentMoonPhaseAttempt(attempt) {
   const phase = getMoonPhase(attempt.phase_id);
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(phase?.name || attempt.phase_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 月相位置与可见时段</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>亮面/盈亏 <strong>${escapeHtml(correct.illumination)} · ${escapeHtml(correct.trend)}</strong></span><span>中天时刻 <strong>${escapeHtml(correct.transit)}</strong></span><span>证据边界 <strong>${escapeHtml(correct.conclusion)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把月轨拖到亮面比例相同的另一侧，追问为什么可见时段和盈亏名称改变。</div>`}<label class="field-label" for="moon-phase-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="moon-phase-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="moon-phase-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="moon-phase-note-${escapeHtml(attempt.id)}" placeholder="例如：会认上弦月，但把半圆误解为太阳只照亮四分之一月球">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-moon-phase-review" data-attempt-id="${escapeHtml(attempt.id)}">保存月相审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(phase?.name || attempt.phase_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 月相位置与可见时段</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>亮面/盈亏 <strong>${escapeHtml(correct.illumination)} · ${escapeHtml(correct.trend)}</strong></span><span>中天时刻 <strong>${escapeHtml(correct.transit)}</strong></span><span>证据边界 <strong>${escapeHtml(correct.conclusion)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请把月轨拖到亮面比例相同的另一侧，追问为什么可见时段和盈亏名称改变。</div>`}<label class="field-label" for="moon-phase-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="moon-phase-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="moon-phase-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="moon-phase-note-${escapeHtml(attempt.id)}" placeholder="例如：会认上弦月，但把半圆误解为太阳只照亮四分之一月球">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-moon-phase-review" data-attempt-id="${escapeHtml(attempt.id)}">保存月相审核</button></div></article>`;
 }
 
 function renderParentEclipseAttempt(attempt) {
   const item = getEclipseCase(attempt.case_id);
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(item?.name || attempt.case_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 日月食几何与可见范围</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>影区/食象 <strong>${escapeHtml(correct.shadow)} · ${escapeHtml(correct.phenomenon)}</strong></span><span>可见范围 <strong>${escapeHtml(correct.visibility)}</strong></span><span>证据边界 <strong>${escapeHtml(correct.conclusion)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请切换日全食与月全食，追问为什么可见范围差异很大。</div>`}<label class="field-label" for="eclipse-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="eclipse-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="eclipse-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="eclipse-note-${escapeHtml(attempt.id)}" placeholder="例如：能区分日食和月食，但把本影带误写成整个白昼半球">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-eclipse-review" data-attempt-id="${escapeHtml(attempt.id)}">保存日月食审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(item?.name || attempt.case_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 日月食几何与可见范围</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>影区/食象 <strong>${escapeHtml(correct.shadow)} · ${escapeHtml(correct.phenomenon)}</strong></span><span>可见范围 <strong>${escapeHtml(correct.visibility)}</strong></span><span>证据边界 <strong>${escapeHtml(correct.conclusion)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请切换日全食与月全食，追问为什么可见范围差异很大。</div>`}<label class="field-label" for="eclipse-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="eclipse-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="eclipse-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="eclipse-note-${escapeHtml(attempt.id)}" placeholder="例如：能区分日食和月食，但把本影带误写成整个白昼半球">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-eclipse-review" data-attempt-id="${escapeHtml(attempt.id)}">保存日月食审核</button></div></article>`;
 }
 
 function renderParentTideAttempt(attempt) {
   const item = getTideCase(attempt.case_id);
   const correct = attempt.correct_answers || {};
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(item?.name || attempt.case_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 潮汐周期与月相</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>潮型/潮差 <strong>${escapeHtml(correct.tide_type)} · ${escapeHtml(correct.range)}</strong></span><span>周期 <strong>${escapeHtml(correct.cycle)}</strong></span><span>证据边界 <strong>${escapeHtml(correct.conclusion)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请切换新月大潮与上弦月小潮，追问为什么“小潮”不等于没有涨落。</div>`}<label class="field-label" for="tide-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="tide-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="tide-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="tide-note-${escapeHtml(attempt.id)}" placeholder="例如：会认新月大潮，但仍把小潮解释为没有高潮低潮">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-tide-review" data-attempt-id="${escapeHtml(attempt.id)}">保存潮汐审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(item?.name || attempt.case_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 潮汐周期与月相</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>潮型/潮差 <strong>${escapeHtml(correct.tide_type)} · ${escapeHtml(correct.range)}</strong></span><span>周期 <strong>${escapeHtml(correct.cycle)}</strong></span><span>证据边界 <strong>${escapeHtml(correct.conclusion)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请切换新月大潮与上弦月小潮，追问为什么“小潮”不等于没有涨落。</div>`}<label class="field-label" for="tide-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="tide-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="tide-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="tide-note-${escapeHtml(attempt.id)}" placeholder="例如：会认新月大潮，但仍把小潮解释为没有高潮低潮">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-tide-review" data-attempt-id="${escapeHtml(attempt.id)}">保存潮汐审核</button></div></article>`;
+}
+
+function renderParentCoriolisAttempt(attempt) {
+  const scenario = getCoriolisScenario(attempt.scenario_id);
+  const correct = attempt.correct_answers || {};
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(scenario?.name || attempt.scenario_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 地转偏向力</div></div><span class="pill ${attempt.score >= 4 ? "green" : "orange"}">${attempt.score}/5</span></div><div class="solar-parent-summary"><span>相对偏向 <strong>${escapeHtml(correct.relative_side)}</strong></span><span>地图方位 <strong>${escapeHtml(correct.final_direction)}</strong></span><span>边界 <strong>赤道上不偏</strong></span></div><p><strong>橙子的判断链（选填）</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>五个步骤均正确</strong><br/>请换初始方向追问：“右偏”为什么不总等于“向东偏”。</div>`}<label class="field-label" for="coriolis-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="coriolis-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="coriolis-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="coriolis-note-${escapeHtml(attempt.id)}" placeholder="例如：能背北右南左，但向东运动时仍不会转换方位">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-coriolis-review" data-attempt-id="${escapeHtml(attempt.id)}">保存地转偏向力审核</button></div></article>`;
 }
 
 function renderParentSolarPathAttempt(attempt) {
   const date = getSolarPathDate(attempt.date_id);
   const place = getSolarPathPlace(attempt.place_id);
   const correct = attempt.correct_answers;
-  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(date?.name || attempt.date_id)} · ${escapeHtml(place?.name || attempt.place_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 日出日落与太阳视运动</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>日出/日落 <strong>${escapeHtml(correct.sunrise)}/${escapeHtml(correct.sunset)}</strong></span><span>正午太阳 <strong>${escapeHtml(correct.noon_sun)}</strong></span><span>正午影子 <strong>${escapeHtml(correct.noon_shadow)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：日出方向与正午太阳方位分别依据什么判断？</div>`}<label class="field-label" for="path-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="path-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="path-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="path-note-${escapeHtml(attempt.id)}" placeholder="例如：会背东北升西北落，但没有比较当地纬度与直射纬度">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-path-review" data-attempt-id="${escapeHtml(attempt.id)}">保存太阳视运动审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><div><strong>${escapeHtml(date?.name || attempt.date_id)} · ${escapeHtml(place?.name || attempt.place_id)}</strong><div class="topic-meta">${formatDate(attempt.submitted_at)} · 日出日落与太阳视运动</div></div><span class="pill ${attempt.score >= 3 ? "green" : "orange"}">${attempt.score}/4</span></div><div class="solar-parent-summary"><span>日出/日落 <strong>${escapeHtml(correct.sunrise)}/${escapeHtml(correct.sunset)}</strong></span><span>正午太阳 <strong>${escapeHtml(correct.noon_sun)}</strong></span><span>正午影子 <strong>${escapeHtml(correct.noon_shadow)}</strong></span></div><p><strong>橙子的判断链</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${attempt.error_tags.length ? `<p><strong>候选错因</strong></p><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(errorTagLabel(tag))}</span>`).join("")}</div>` : `<div class="answer-box correct"><strong>四个步骤均正确</strong><br/>请追问：日出方向与正午太阳方位分别依据什么判断？</div>`}<label class="field-label" for="path-verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="path-verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再练" ? "selected" : ""}>需再练</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="path-note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="path-note-${escapeHtml(attempt.id)}" placeholder="例如：会背东北升西北落，但没有比较当地纬度与直射纬度">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-path-review" data-attempt-id="${escapeHtml(attempt.id)}">保存太阳视运动审核</button></div></article>`;
 }
 
 function renderParentRetestAttempt(attempt) {
@@ -1947,11 +2027,12 @@ function renderParentRetestAttempt(attempt) {
 function renderParentAttempt(attempt) {
   const question = getQuestion(attempt.question_id);
   const candidate = question?.error_map?.[attempt.selected_option];
-  return `<article class="attempt-item"><div class="attempt-head"><strong>${escapeHtml(question?.title || attempt.question_id)}</strong><span class="pill ${attempt.is_correct ? "green" : "red"}">${attempt.is_correct ? "正确" : "错误"}</span></div><p class="small">${formatDate(attempt.submitted_at)} · 选择 ${escapeHtml(attempt.selected_option)} · 信心 ${attempt.confidence}/5</p><p><strong>橙子的理由</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${candidate ? `<p><strong>候选错因：</strong>${escapeHtml(candidate.tag)}<br/><span class="small">${escapeHtml(candidate.diagnosis)}</span></p>` : ""}${attempt.ai_response ? `<p><strong>AI 返回</strong></p><div class="quote">${escapeHtml(attempt.ai_response)}</div>` : ""}<label class="field-label" for="verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再看" ? "selected" : ""}>需再看</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="note-${escapeHtml(attempt.id)}" placeholder="例如：能说出结论，但没有解释气压变化">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-review" data-attempt-id="${escapeHtml(attempt.id)}">保存审核</button></div></article>`;
+  return `<article class="attempt-item"><div class="attempt-head"><strong>${escapeHtml(question?.title || attempt.question_id)}</strong><span class="pill ${attempt.is_correct ? "green" : "red"}">${attempt.is_correct ? "正确" : "错误"}</span></div><p class="small">${formatDate(attempt.submitted_at)} · 选择 ${escapeHtml(attempt.selected_option)} · 信心 ${attempt.confidence}/5</p><p><strong>橙子的理由</strong></p><div class="quote">${optionalReasoning(attempt.reasoning)}</div>${candidate ? `<p><strong>候选错因：</strong>${escapeHtml(candidate.tag)}<br/><span class="small">${escapeHtml(candidate.diagnosis)}</span></p>` : ""}${attempt.ai_response ? `<p><strong>AI 返回</strong></p><div class="quote">${escapeHtml(attempt.ai_response)}</div>` : ""}<label class="field-label" for="verdict-${escapeHtml(attempt.id)}">家长判断</label><select id="verdict-${escapeHtml(attempt.id)}"><option ${attempt.parent_review_status === "待家长确认" ? "selected" : ""}>待家长确认</option><option ${attempt.parent_review_status === "已确认" ? "selected" : ""}>已确认</option><option ${attempt.parent_review_status === "需再看" ? "selected" : ""}>需再看</option><option ${attempt.parent_review_status === "需教师复核" ? "selected" : ""}>需教师复核</option></select><label class="field-label" for="note-${escapeHtml(attempt.id)}">家长备注</label><textarea id="note-${escapeHtml(attempt.id)}" placeholder="例如：能说出结论，但没有解释气压变化">${escapeHtml(attempt.parent_note || "")}</textarea><div class="btn-row"><button class="btn" data-action="save-review" data-attempt-id="${escapeHtml(attempt.id)}">保存审核</button></div></article>`;
 }
 
 function makeAiPrompt(question, session, candidate) {
-  return `你是高中地理学习诊断助手，请帮助家长判断橙子的真实错因。\n\n【题目】\n${question.stem}\n${question.options.map((option) => `${option.id}. ${option.text}`).join("\n")}\n\n【正确答案】${question.answer}\n【橙子的选择】${session.selectedOption}\n【橙子的理由】${session.reasoning}\n【自评信心】${session.confidence}/5\n【题库提供的候选错因】${candidate?.tag || "答对，检查是否只是猜对"}\n\n请按以下顺序输出：\n1. 仅根据橙子的理由，判断最可能的错误环节；如果证据不足，明确写“证据不足”。\n2. 给出一个不超过两句的纠正解释，不要堆砌术语。\n3. 提出两个追问，先检查推理链，不要直接让她背答案。\n4. 给出一个 5 分钟内可以完成的微任务。\n5. 标注：家长可确认 / 需要更多证据 / 建议教师复核。\n不要把一次答题表现写成稳定能力结论。`;
+  const reasoning = String(session.reasoning || "").trim() || "未填写（选填）";
+  return `你是高中地理学习诊断助手，请帮助家长判断橙子的真实错因。\n\n【题目】\n${question.stem}\n${question.options.map((option) => `${option.id}. ${option.text}`).join("\n")}\n\n【正确答案】${question.answer}\n【橙子的选择】${session.selectedOption}\n【橙子的理由】${reasoning}\n【自评信心】${session.confidence}/5\n【题库提供的候选错因】${candidate?.tag || "答对，检查是否只是猜对"}\n\n请按以下顺序输出：\n1. 如果理由未填写，明确写“理由未填写，证据不足”，不要推测真实错因；否则仅根据理由判断最可能的错误环节。\n2. 给出一个不超过两句的纠正解释，不要堆砌术语。\n3. 提出两个追问，先检查推理链，不要直接让她背答案。\n4. 给出一个 5 分钟内可以完成的微任务。\n5. 标注：家长可确认 / 需要更多证据 / 建议教师复核。\n不要把一次答题表现写成稳定能力结论。`;
 }
 
 function newId() { return `ATT-${Date.now()}-${Math.random().toString(16).slice(2, 7)}`; }
@@ -2164,6 +2245,14 @@ document.addEventListener("click", async (event) => {
     state.route = "tide-lab";
     saveState(); render();
   }
+  if (action === "start-coriolis") {
+    const count = catalog.coriolisLab?.scenarios?.length || 0;
+    if (!count) return;
+    state.coriolisScenarioIndex = state.coriolisAttempts.length % count;
+    state.activeCoriolisAttemptId = null;
+    state.route = "coriolis-lab";
+    saveState(); render();
+  }
   if (action === "start-date-range") {
     const count = catalog.dateRangeLab?.scenarios?.length || 0;
     if (!count) return;
@@ -2277,6 +2366,12 @@ document.addEventListener("click", async (event) => {
     state.route = "tide-lab";
     saveState(); render();
   }
+  if (action === "next-coriolis") {
+    state.coriolisScenarioIndex = (state.coriolisScenarioIndex + 1) % Math.max(catalog.coriolisLab?.scenarios?.length || 1, 1);
+    state.activeCoriolisAttemptId = null;
+    state.route = "coriolis-lab";
+    saveState(); render();
+  }
   if (action === "next-date-range") {
     state.dateRangeScenarioIndex = (state.dateRangeScenarioIndex + 1) % Math.max(catalog.dateRangeLab?.scenarios?.length || 1, 1);
     state.activeDateRangeAttemptId = null;
@@ -2319,11 +2414,42 @@ document.addEventListener("click", async (event) => {
   if (action === "save-moon-phase-review") saveMoonPhaseReview(actionTarget.dataset.attemptId);
   if (action === "save-eclipse-review") saveEclipseReview(actionTarget.dataset.attemptId);
   if (action === "save-tide-review") saveTideReview(actionTarget.dataset.attemptId);
+  if (action === "save-coriolis-review") saveCoriolisReview(actionTarget.dataset.attemptId);
   if (action === "save-retest-review") saveRetestReview(actionTarget.dataset.attemptId);
   if (action === "export-data") exportData();
 });
 
 document.addEventListener("submit", (event) => {
+  if (event.target.id === "coriolis-form") {
+    event.preventDefault();
+    const feature = window.OrangeCoach?.features?.coriolis;
+    const scenario = getCoriolisScenario();
+    if (!feature || !scenario) return;
+    const form = new FormData(event.target);
+    const answers = {
+      hemisphere_rule: form.get("coriolis-rule") || "",
+      relative_side: form.get("coriolis-side") || "",
+      final_direction: form.get("coriolis-final") || "",
+      speed_effect: form.get("coriolis-speed") || "",
+      application: form.get("coriolis-application") || ""
+    };
+    const reasoning = String(form.get("coriolis-reasoning") || "").trim();
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项预测后再提交。");
+    const correctAnswers = feature.calculate(scenario);
+    const checks = Object.fromEntries(Object.keys(answers).map((key) => [key, answers[key] === correctAnswers[key]]));
+    const tagByKey = { hemisphere_rule: "CF-HEMISPHERE-RULE", relative_side: "CF-RELATIVE-SIDE", final_direction: "CF-MAP-DIRECTION", speed_effect: "CF-SPEED-EFFECT", application: "CF-SCALE-APPLICATION" };
+    const errorTags = Object.keys(checks).filter((key) => !checks[key]).map((key) => tagByKey[key]);
+    const attempt = {
+      schema_version: "0.21.0", id: newId(), scenario_id: scenario.id, hemisphere: scenario.hemisphere,
+      answers, correct_answers: correctAnswers, checks,
+      score: Object.values(checks).filter(Boolean).length, error_tags: errorTags, reasoning,
+      submitted_at: new Date().toISOString(), parent_review_status: "待家长确认", parent_note: ""
+    };
+    state.coriolisAttempts.push(attempt);
+    state.activeCoriolisAttemptId = attempt.id;
+    saveState(); render();
+    return;
+  }
   if (event.target.id === "tide-form") {
     event.preventDefault();
     const feature = window.OrangeCoach?.features?.tide;
@@ -2339,7 +2465,7 @@ document.addEventListener("submit", (event) => {
       conclusion: form.get("tide-conclusion") || ""
     };
     const reasoning = String(form.get("tide-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) return alert("请完成五项预测并写出判断链，再解锁潮差模型。");
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项预测后再提交。");
     const correctAnswers = feature.calculate(scenario);
     const checks = {
       geometry: answers.geometry === correctAnswers.geometry,
@@ -2380,7 +2506,7 @@ document.addEventListener("submit", (event) => {
       conclusion: form.get("eclipse-conclusion") || ""
     };
     const reasoning = String(form.get("eclipse-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) return alert("请完成五项预测并写出判断链，再解锁影锥模型。");
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项预测后再提交。");
     const correctAnswers = feature.calculate(scenario);
     const checks = {
       alignment: answers.alignment === correctAnswers.alignment,
@@ -2421,7 +2547,7 @@ document.addEventListener("submit", (event) => {
       conclusion: form.get("moon-phase-conclusion") || ""
     };
     const reasoning = String(form.get("moon-phase-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) return alert("请完成五项预测并写出判断链，再解锁八相月轨。");
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项预测后再提交。");
     const correctAnswers = feature.calculate(scenario);
     const checks = {
       phase: answers.phase === correctAnswers.phase,
@@ -2461,7 +2587,7 @@ document.addEventListener("submit", (event) => {
       conclusion: form.get("solar-activity-conclusion") || ""
     };
     const reasoning = String(form.get("solar-activity-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) return alert("请完成五项预测并写出判断链，再解锁太阳活动传播路径。");
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项预测后再提交。");
     const correctAnswers = feature.calculate(scenario);
     const checks = {
       phenomenon: answers.phenomenon === correctAnswers.phenomenon,
@@ -2501,7 +2627,7 @@ document.addEventListener("submit", (event) => {
       best_inference: form.get("habitability-inference") || ""
     };
     const reasoning = String(form.get("habitability-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) return alert("请完成五项预测并写出判断链，再解锁温度、液态水与推理边界。");
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项预测后再提交。");
     const correctAnswers = feature.calculate(scenario);
     const checks = {
       higher_solar: answers.higher_solar === correctAnswers.higher_solar,
@@ -2541,7 +2667,7 @@ document.addEventListener("submit", (event) => {
       diagram_rule: form.get("celestial-diagram") || ""
     };
     const reasoning = String(form.get("celestial-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) return alert("请完成五项预测并写出判断链，再解锁天体系统层级。");
+    if (Object.values(answers).some((answer) => !answer)) return alert("请完成五项预测后再提交。");
     const correctAnswers = feature.calculate(catalog.celestialScaleLab);
     const checks = {
       system_order: answers.system_order === correctAnswers.system_order,
@@ -2581,8 +2707,8 @@ document.addEventListener("submit", (event) => {
       zone_change: form.get("axial-zone-change") || ""
     };
     const reasoning = String(form.get("axial-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => answer === "" || (typeof answer === "number" && !Number.isFinite(answer))) || !reasoning) {
-      return alert("请完成五项预测并写出判断链，再解锁五带模型。");
+    if (Object.values(answers).some((answer) => answer === "" || (typeof answer === "number" && !Number.isFinite(answer)))) {
+      return alert("请完成五项预测后再提交。");
     }
     const correctAnswers = feature.calculate(scenario, scenario.target_tilt_deg, catalog.axialTiltLab.facts);
     const checks = {
@@ -2623,8 +2749,8 @@ document.addEventListener("submit", (event) => {
       crossing_result: form.get("date-crossing") || ""
     };
     const reasoning = String(form.get("date-reasoning") || "").trim();
-    if (!Number.isFinite(answers.zero_meridian) || !Number.isFinite(answers.new_date_percent) || !Number.isFinite(answers.old_date_percent) || !answers.date_count || !answers.crossing_result || !reasoning) {
-      return alert("请完成五项预测并写出判断链，再解锁全球日期带。");
+    if (!Number.isFinite(answers.zero_meridian) || !Number.isFinite(answers.new_date_percent) || !Number.isFinite(answers.old_date_percent) || !answers.date_count || !answers.crossing_result) {
+      return alert("请完成五项预测后再提交。");
     }
     const correctAnswers = feature.calculate(scenario);
     const longitudeDifference = Math.abs(answers.zero_meridian - correctAnswers.zero_meridian);
@@ -2667,8 +2793,8 @@ document.addEventListener("submit", (event) => {
       distance_km: Number(form.get("rotation-distance"))
     };
     const reasoning = String(form.get("rotation-reasoning") || "").trim();
-    if (!answers.angular_speed || !answers.line_speed_relation || !Number.isFinite(answers.line_speed_km_h) || !Number.isFinite(answers.rotated_angle_deg) || !Number.isFinite(answers.distance_km) || !reasoning) {
-      return alert("请完成五项预测并写出判断链，再解锁自转速度模型。");
+    if (!answers.angular_speed || !answers.line_speed_relation || !Number.isFinite(answers.line_speed_km_h) || !Number.isFinite(answers.rotated_angle_deg) || !Number.isFinite(answers.distance_km)) {
+      return alert("请完成五项预测后再提交。");
     }
     const correctAnswers = feature.calculate(place, scenario.duration_hours, catalog.rotationSpeedLab.facts);
     const checks = {
@@ -2711,8 +2837,8 @@ document.addEventListener("submit", (event) => {
       polar_pattern: form.get("terminator-polar") || ""
     };
     const reasoning = String(form.get("terminator-reasoning") || "").trim();
-    if (!Number.isFinite(answers.direct_longitude) || !answers.local_time || !Number.isFinite(answers.day_length_hours) || !answers.status || !answers.polar_pattern || !reasoning) {
-      return alert("请完成五项预测并写出判断链，再解锁全球联动。时间的小时和分钟请分别填写，例如06和00。");
+    if (!Number.isFinite(answers.direct_longitude) || !answers.local_time || !Number.isFinite(answers.day_length_hours) || !answers.status || !answers.polar_pattern) {
+      return alert("请完成五项预测后再提交。时间的小时和分钟请分别填写，例如06和00。");
     }
     const correctAnswers = feature.calculate(date, place, scenario.utc_minutes, catalog.terminatorLinkLab.status_line_tolerance_minutes);
     const longitudeDifference = Math.abs(answers.direct_longitude - correctAnswers.direct_longitude);
@@ -2754,8 +2880,8 @@ document.addEventListener("submit", (event) => {
       season_cause: form.get("orbit-season-cause") || ""
     };
     const reasoning = String(form.get("orbit-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) {
-      return alert("请完成四项预测并写出判断链，再解锁轨道证据。");
+    if (Object.values(answers).some((answer) => !answer)) {
+      return alert("请完成四项预测后再提交。");
     }
     const correctAnswers = feature.calculate(checkpoint, hemisphere, catalog.orbitSpeedLab.facts);
     const checks = {
@@ -2794,8 +2920,8 @@ document.addEventListener("submit", (event) => {
       altitude_trend: form.get("annual-altitude-trend") || ""
     };
     const reasoning = String(form.get("annual-reasoning") || "").trim();
-    if (!Number.isFinite(answers.direct_latitude) || !answers.migration || !answers.north_day_trend || !answers.altitude_trend || !reasoning) {
-      return alert("请完成四项预测并写出判断链，再解锁周年曲线。");
+    if (!Number.isFinite(answers.direct_latitude) || !answers.migration || !answers.north_day_trend || !answers.altitude_trend) {
+      return alert("请完成四项预测后再提交。");
     }
     const correctAnswers = feature.calculate(checkpoint, place);
     const checks = {
@@ -2834,8 +2960,8 @@ document.addEventListener("submit", (event) => {
       noon_shadow: form.get("path-noon-shadow") || ""
     };
     const reasoning = String(form.get("solar-path-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) {
-      return alert("请完成四项预测并写出判断链，再解锁天空轨迹。");
+    if (Object.values(answers).some((answer) => !answer)) {
+      return alert("请完成四项预测后再提交。");
     }
     const correctAnswers = feature.calculate(date, place);
     const checks = {
@@ -2874,8 +3000,8 @@ document.addEventListener("submit", (event) => {
       noon_altitude: altitudeRaw === "" ? null : Number(altitudeRaw)
     };
     const reasoning = String(form.get("solar-reasoning") || "").trim();
-    if (!answers.direct || !answers.day_relation || !answers.north_pattern || answers.noon_altitude == null || !Number.isFinite(answers.noon_altitude) || !reasoning) {
-      return alert("请完成四项预测并写出判断链，再解锁光照结果。");
+    if (!answers.direct || !answers.day_relation || !answers.north_pattern || answers.noon_altitude == null || !Number.isFinite(answers.noon_altitude)) {
+      return alert("请完成四项预测后再提交。");
     }
     const correctAnswers = feature.calculate(date, place);
     const checks = {
@@ -2913,8 +3039,8 @@ document.addEventListener("submit", (event) => {
       boundary: form.get("motion-boundary") || ""
     };
     const reasoning = String(form.get("motion-reasoning") || "").trim();
-    if (Object.values(answers).some((answer) => !answer) || !reasoning) {
-      return alert("请完成四项预测并写出判断链，再解锁运动过程。");
+    if (Object.values(answers).some((answer) => !answer)) {
+      return alert("请完成四项预测后再提交。");
     }
     const checks = {
       sun_side: answers.sun_side === view.sun_facing_side,
@@ -2957,8 +3083,8 @@ document.addEventListener("submit", (event) => {
       date_relation: form.get("lab-date-relation") || ""
     };
     const reasoning = String(form.get("lab-reasoning") || "").trim();
-    if (!answers.relation || !answers.local_time || !answers.zone_time || !answers.date_relation || !reasoning) {
-      return alert("请完成四项预测并写出判断链，再解锁联动结果。时间的小时和分钟请分别填写，例如11和44。");
+    if (!answers.relation || !answers.local_time || !answers.zone_time || !answers.date_relation) {
+      return alert("请完成四项预测后再提交。时间的小时和分钟请分别填写，例如11和44。");
     }
     const correctAnswers = calculateTimeLabAnswers(scenario, longitude);
     const checks = {
@@ -3007,7 +3133,7 @@ document.addEventListener("submit", (event) => {
   const selectedOption = form.get("answer");
   const reasoning = document.querySelector("#reasoning")?.value.trim();
   const confidence = Number(form.get("confidence"));
-  if (!selectedOption || !reasoning) return alert("请先选择答案，并写出你的判断理由。");
+  if (!selectedOption) return alert("请先选择答案。");
   state.activeSession = { questionId: state.currentQuestionId, selectedOption, reasoning, confidence, submittedAt: new Date().toISOString() };
   saveState(); render();
 });
@@ -3143,8 +3269,8 @@ document.addEventListener("change", async (event) => {
     const imported = JSON.parse(await file.text());
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
-    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length;
-    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", "0.18.0", "0.19.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
+    const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length + state.coriolisAttempts.length;
+    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", "0.18.0", "0.19.0", "0.20.0", "0.21.0", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
     if (isAnnotatedArchive && localRecordCount > 0) {
       const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
       if (!mergeResult?.ok) throw new Error(mergeResult?.reason || "批注档案与当前记录不一致");
@@ -3170,6 +3296,7 @@ document.addEventListener("change", async (event) => {
       state.moonPhaseAttempts = normalized.moonPhaseAttempts;
       state.eclipseAttempts = normalized.eclipseAttempts;
       state.tideAttempts = normalized.tideAttempts;
+      state.coriolisAttempts = normalized.coriolisAttempts;
       state.coachAnnotations = normalized.coachAnnotations;
       state.lastAction = `已导入学习档案：${state.coachAnnotations.length} 条教练批注`;
     }
@@ -3330,6 +3457,14 @@ function saveTideReview(id) {
   saveState(); render();
 }
 
+function saveCoriolisReview(id) {
+  const attempt = state.coriolisAttempts.find((item) => item.id === id);
+  if (!attempt) return;
+  attempt.parent_review_status = document.querySelector(`#coriolis-verdict-${CSS.escape(id)}`)?.value || "待家长确认";
+  attempt.parent_note = document.querySelector(`#coriolis-note-${CSS.escape(id)}`)?.value.trim() || "";
+  saveState(); render();
+}
+
 function addDaysIso(days) {
   const date = new Date();
   date.setDate(date.getDate() + days);
@@ -3369,7 +3504,7 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -3390,9 +3525,10 @@ async function init() {
       fetch(`./data/solar_activity_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/moon_phase_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/eclipse_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
-      fetch(`./data/tide_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
+      fetch(`./data/tide_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/coriolis_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

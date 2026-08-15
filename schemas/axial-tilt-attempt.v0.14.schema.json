@@ -11,7 +11,7 @@
       "tropical_width": { "type": "number", "minimum": 0, "maximum": 90 }, "temperate_width_each": { "type": "number", "minimum": 0, "maximum": 90 }, "zone_change": { "type": "string" }
     } },
     "correct_answers": { "type": "object" }, "checks": { "type": "object" }, "score": { "type": "integer", "minimum": 0, "maximum": 5 },
-    "error_tags": { "type": "array", "items": { "type": "string" } }, "reasoning": { "type": "string", "minLength": 1 }, "submitted_at": { "type": "string", "format": "date-time" },
+    "error_tags": { "type": "array", "items": { "type": "string" } }, "reasoning": { "type": "string" }, "submitted_at": { "type": "string", "format": "date-time" },
     "parent_review_status": { "enum": ["待家长确认", "已确认", "需再练", "需教师复核"] }, "parent_note": { "type": "string" }
   }
 }

@@ -103,8 +103,8 @@
       <section class="card annual-sun-card"><div class="annual-sun-layout">
         <div class="solar-model-panel">
           <div class="solar-model-head"><div><span class="pill orange">当前情境</span><h3>${escapeHtml(checkpoint.name)} · ${escapeHtml(place.name)}</h3></div><span class="pill">${escapeHtml(place.location_note)}</span></div>
-          ${renderModel(checkpoint, place)}
-          <p class="motion-hint">${escapeHtml(lab.model_note)} 选中的日期位置可以看见，回归曲线和答案提交后才出现。</p>
+          ${renderModel(checkpoint, place, calculate(checkpoint, place))}
+          <p class="motion-hint">${escapeHtml(lab.model_note)} 选中的日期位置可以看见，回归曲线和答案默认可见。</p>
           <div class="annual-place-tabs" aria-label="选择正午太阳高度观察地">${lab.places.map((item) => `<button class="${item.id === place.id ? "active" : ""}" data-action="set-annual-place" data-place-id="${escapeHtml(item.id)}"><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.location_note)}</small></button>`).join("")}</div>
         </div>
         <form id="annual-sun-form" class="annual-prediction-panel">
@@ -113,8 +113,8 @@
           <fieldset><legend>2. 直射点此时正在：</legend>${renderChoice("annual-migration", lab.choices.migration)}</fieldset>
           <fieldset><legend>3. 北半球昼长：</legend>${renderChoice("annual-day-trend", lab.choices.north_day_trend)}</fieldset>
           <fieldset><legend>4. ${escapeHtml(place.name)}正午太阳高度：</legend>${renderChoice("annual-altitude-trend", lab.choices.altitude_trend)}</fieldset>
-          <label class="field-label" for="annual-reasoning">写出判断链</label><textarea id="annual-reasoning" name="annual-reasoning" placeholder="例如：先把日期放在二分二至之间，估计直射纬度；再判断向北或向南；据此判断北半球昼长；最后结合目标地所在半球判断正午太阳高度趋势。"></textarea>
-          <button class="btn orange motion-submit" type="submit">提交预测，解锁周年曲线</button>
+          <label class="field-label" for="annual-reasoning">判断链（选填）</label><textarea id="annual-reasoning" name="annual-reasoning" placeholder="例如：先把日期放在二分二至之间，估计直射纬度；再判断向北或向南；据此判断北半球昼长；最后结合目标地所在半球判断正午太阳高度趋势。"></textarea>
+          <button class="btn orange motion-submit" type="submit">提交预测</button>
         </form>
       </div></section>`;
   }
@@ -134,7 +134,7 @@
         <div>${renderModel(checkpoint, place, correct)}<label class="annual-progress-caption" for="annual-progress"><span>春分</span><strong>拖动一年</strong><span>次年春分</span></label><input id="annual-progress" class="annual-progress-slider" type="range" min="0" max="100" step="1" value="${checkpoint.phase * 100}" aria-label="太阳直射点周年位置"/><p class="motion-hint">曲线在南北回归线之间往返；二至日到达端点后立即改变移动方向。</p></div>
         <div><div class="lab-check-grid">${answerRow("直射纬度", latitudeLabel(attempt.answers.direct_latitude), correct.direct_label, checks.direct_latitude)}${answerRow("移动方向", attempt.answers.migration, correct.migration, checks.migration)}${answerRow("北半球昼长", attempt.answers.north_day_trend, correct.north_day_trend, checks.north_day_trend)}${answerRow(`${place.name}正午高度`, attempt.answers.altitude_trend, correct.altitude_trend, checks.altitude_trend)}</div>
           <div class="answer-box ${attempt.score === 4 ? "correct" : "wrong"}"><strong>${escapeHtml(checkpoint.name)} · ${escapeHtml(place.name)}</strong><br/>太阳直射${escapeHtml(correct.direct_label)}，直射点${escapeHtml(correct.migration)}；北半球昼长${escapeHtml(correct.north_day_trend)}。${escapeHtml(place.name)}正午太阳高度约${correct.noon_altitude}°，趋势为${escapeHtml(correct.altitude_trend)}。</div>
-          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">四步均正确。请家长追问：同样是太阳直射北半球，5月与8月的移动方向为什么相反？</div>`}
+          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning || "未填写")}</div>${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">四步均正确。请家长追问：同样是太阳直射北半球，5月与8月的移动方向为什么相反？</div>`}
           <div class="btn-row"><button class="btn orange" data-action="next-annual-sun">换周年位置继续</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
         </div>
       </div></section>`;

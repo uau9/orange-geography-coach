@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.20.0",
+  "schema_version": "0.21.0",
   "projects": [
     {
       "id": "earth-motion-lab",
@@ -12,6 +12,18 @@
       "status_kind": "earth_motion",
       "accent": "navy",
       "order": 10
+    },
+    {
+      "id": "coriolis-lab",
+      "eyebrow": "地转偏向力专项",
+      "title": "半球规则与运动偏转",
+      "summary": "把北右南左、赤道不偏的相对规律，转换成不同初始运动方向下的地图方位。",
+      "action": "start-coriolis",
+      "route": null,
+      "cta": "进入地转偏向力实验室",
+      "status_kind": "coriolis",
+      "accent": "coral",
+      "order": 12
     },
     {
       "id": "solar-season-lab",
@@ -197,7 +209,7 @@
       "id": "diagnostic-questions",
       "eyebrow": "日常诊断",
       "title": "知识点诊断题",
-      "summary": "独立作答并写出理由；系统只形成错因候选，再由AI和家长核验。",
+      "summary": "独立选择答案，理由可选填；系统只形成错因候选，再由AI和家长核验。",
       "action": "start-next",
       "route": null,
       "cta": "开始下一道诊断",

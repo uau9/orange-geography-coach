@@ -123,8 +123,8 @@
         <div class="solar-path-layout">
           <div class="solar-model-panel">
             <div class="solar-model-head"><div><span class="pill orange">当前情境</span><h3>${escapeHtml(date.name)} · ${escapeHtml(place.name)}</h3></div><span class="pill">${escapeHtml(place.location_note)}</span></div>
-            ${renderSkyModel()}
-            <p class="motion-hint">${escapeHtml(lab.model_note)} 太阳轨迹、方位答案和影子将在提交后出现。</p>
+            ${renderSkyModel(calculate(date, place))}
+            <p class="motion-hint">${escapeHtml(lab.model_note)} 太阳轨迹、方位答案和影子默认可见。</p>
             <div class="season-place-grid" aria-label="选择地点">${renderScenarioTabs(lab.places, place.id, "set-solar-path-place", "data-place-id")}</div>
           </div>
           <form id="solar-path-form" class="solar-prediction-panel">
@@ -133,9 +133,9 @@
             <fieldset><legend>2. 正午太阳位于观察者：</legend>${renderChoice("path-noon-sun", lab.choices.noon_sun)}</fieldset>
             <fieldset><legend>3. ${escapeHtml(place.name)}日落方位：</legend>${renderChoice("path-sunset", lab.choices.sunset)}</fieldset>
             <fieldset><legend>4. 正午影子指向：</legend>${renderChoice("path-noon-shadow", lab.choices.noon_shadow)}</fieldset>
-            <label class="field-label" for="solar-path-reasoning">写出判断链</label>
+            <label class="field-label" for="solar-path-reasoning">判断链（选填）</label>
             <textarea id="solar-path-reasoning" name="solar-path-reasoning" placeholder="例如：先由日期确定直射纬度；用直射点南北判断日出日落；比较当地纬度和直射纬度判断正午太阳；影子取反方向。"></textarea>
-            <button class="btn orange motion-submit" type="submit">提交预测，解锁天空轨迹</button>
+            <button class="btn orange motion-submit" type="submit">提交预测</button>
           </form>
         </div>
       </section>`;
@@ -168,7 +168,7 @@
               ${answerRow("正午影子", attempt.answers.noon_shadow, correct.noon_shadow, checks.noon_shadow)}
             </div>
             <div class="answer-box ${attempt.score === 4 ? "correct" : "wrong"}"><strong>${escapeHtml(date.name)} · ${escapeHtml(place.name)}</strong><br/>${escapeHtml(date.explanation)} 此地正午太阳在${escapeHtml(correct.noon_sun)}，高度约${correct.noon_altitude}°，影子指向${escapeHtml(correct.noon_shadow)}。</div>
-            <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>
+            <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning || "未填写")}</div>
             ${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">四步均正确。请家长追问：日出在东北，为什么正午太阳不一定在北方？</div>`}
             <div class="btn-row"><button class="btn orange" data-action="next-solar-path">换日期和地点继续</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
           </div>

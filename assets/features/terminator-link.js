@@ -199,13 +199,13 @@
   function renderLab({ lab, date, place, scenario, scenarioIndex = 0 }) {
     return `<div class="topic-meta">自然地理 · 宇宙中的地球及运动 · ${escapeHtml(scenario.id)}</div>
       <h2 class="page-title">晨昏线综合联动实验室</h2>
-      <p class="page-subtitle">先在同一时刻完成五步预测，再解锁全球昼夜图。不要把所有晨线点都机械记成地方时6:00。</p>
+      <p class="page-subtitle">全球昼夜图默认可见；请在同一时刻完成五步预测，不要把所有晨线点都机械记成地方时6:00。</p>
       <section class="terminator-scene-bar"><div><span>情境 ${scenarioIndex + 1}/${lab.scenarios.length}</span><strong>${escapeHtml(date.name)} · UTC ${formatClock(scenario.utc_minutes)}</strong></div><div><span>目标地点</span><strong>${escapeHtml(place.name)} · ${latitudeLabel(place.latitude)}，${longitudeLabel(place.longitude)}</strong></div></section>
       <section class="card terminator-link-card"><div class="terminator-link-layout">
         <div class="terminator-model-panel">
           <div class="solar-model-head"><div><span class="pill orange">待推理情境</span><h3>${escapeHtml(scenario.focus)}</h3></div><span class="pill">${escapeHtml(date.date_hint)}</span></div>
-          ${renderMap(date, place, scenario.utc_minutes, false)}
-          <p class="motion-hint">${escapeHtml(lab.model_note)} 图上的昼夜分布、直射经线和晨昏线在提交前保持隐藏。</p>
+          ${renderMap(date, place, scenario.utc_minutes, true)}
+          <p class="motion-hint">${escapeHtml(lab.model_note)} 昼夜分布、直射经线和晨昏线默认可见。</p>
         </div>
         <form id="terminator-link-form" class="terminator-prediction-panel">
           <div class="notice">判断链：UTC → 直射经线地方时12:00 → 目标地地方时 → 当日昼长与日出日落 → 晨昏状态 → 极昼极夜。</div>
@@ -214,8 +214,8 @@
           <fieldset><legend>3. ${escapeHtml(place.name)}当日昼长约为：</legend><output id="terminator-day-output" class="terminator-range-output">12.0小时</output><input id="terminator-day-prediction" name="terminator-day-length" type="range" min="0" max="24" step="0.5" value="12" aria-label="预测当日昼长"/></fieldset>
           <fieldset><legend>4. 此刻目标地点位于：</legend>${renderChoice("terminator-status", lab.choices.status)}</fieldset>
           <fieldset><legend>5. 此时全球极昼极夜分布：</legend>${renderChoice("terminator-polar", lab.choices.polar_pattern)}</fieldset>
-          <label class="field-label" for="terminator-reasoning">写出判断链</label><textarea id="terminator-reasoning" name="terminator-reasoning" placeholder="例如：先由UTC找到地方时12时所在经线；再按经度差求目标地地方时；由日期和纬度估计昼长，推出日出日落；最后判断目标点和极圈范围。"></textarea>
-          <button class="btn orange motion-submit" type="submit">提交五步预测，解锁全球联动</button>
+          <label class="field-label" for="terminator-reasoning">判断链（选填）</label><textarea id="terminator-reasoning" name="terminator-reasoning" placeholder="例如：先由UTC找到地方时12时所在经线；再按经度差求目标地地方时；由日期和纬度估计昼长，推出日出日落；最后判断目标点和极圈范围。"></textarea>
+          <button class="btn orange motion-submit" type="submit">提交五步预测</button>
         </form>
       </div></section>`;
   }
@@ -235,7 +235,7 @@
         <div><div class="lab-check-grid">${answerRow("直射经线", longitudeLabel(attempt.answers.direct_longitude), correct.direct_longitude_label, checks.direct_longitude)}${answerRow(`${place.name}地方时`, attempt.answers.local_time, correct.local_time, checks.local_time)}${answerRow("当日昼长", `${Number(attempt.answers.day_length_hours).toFixed(1)}小时`, `${correct.day_length_hours.toFixed(1)}小时`, checks.day_length_hours)}${answerRow("此刻位置", attempt.answers.status, correct.status, checks.status)}${answerRow("极昼极夜", attempt.answers.polar_pattern, correct.polar_pattern, checks.polar_pattern)}</div>
           <div class="terminator-fact-strip"><div><span>日出地方时</span><strong>${escapeHtml(correct.sunrise_time)}</strong></div><div><span>日落地方时</span><strong>${escapeHtml(correct.sunset_time)}</strong></div><div><span>理论昼长</span><strong>${correct.day_length_exact.toFixed(1)}h</strong></div></div>
           <div class="answer-box ${attempt.score === 5 ? "correct" : "wrong"}"><strong>${escapeHtml(date.name)} · UTC ${correct.utc_time}</strong><br/>直射经线是${escapeHtml(correct.direct_longitude_label)}，${escapeHtml(place.name)}地方时${correct.local_time}，位于${escapeHtml(correct.status)}。只有赤道与晨昏线的交点稳定对应地方时6:00和18:00；其他纬度须由昼长反推日出日落。</div>
-          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">五步均正确。请家长拖动UTC滑轨到另一个时刻，追问“哪些量改变、哪些量只由日期和纬度决定”，检验是否真正理解联动关系。</div>`}
+          <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning || "未填写")}</div>${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">五步均正确。请家长拖动UTC滑轨到另一个时刻，追问“哪些量改变、哪些量只由日期和纬度决定”，检验是否真正理解联动关系。</div>`}
           <div class="btn-row"><button class="btn orange" data-action="next-terminator-link">换情境继续</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
         </div>
       </div></section>`;

@@ -98,19 +98,19 @@
         <div class="solar-season-layout">
           <div class="solar-model-panel">
             <div class="solar-model-head"><div><span class="pill orange">当前情境</span><h3>${escapeHtml(date.name)} · ${escapeHtml(place.name)}</h3></div><span class="pill">${escapeHtml(place.location_note)}</span></div>
-            ${renderModel(date, place)}
-            <p class="motion-hint">${escapeHtml(lab.model_note)} 图中直射点和昼长答案将在提交后出现。</p>
+            ${renderModel(date, place, calculate(date, place))}
+            <p class="motion-hint">${escapeHtml(lab.model_note)} 图中直射点和昼长答案默认可见。</p>
             <div class="season-place-grid" aria-label="选择地点">${lab.places.map((item) => `<button class="${item.id === place.id ? "active" : ""}" data-action="set-solar-place" data-place-id="${escapeHtml(item.id)}"><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.location_note)}</small></button>`).join("")}</div>
           </div>
           <form id="solar-season-form" class="solar-prediction-panel">
-            <div class="notice">四步都要留下预测；提交前不显示直射纬线、约昼长和正午太阳高度。</div>
+            <div class="notice">四步预测仍需完成；左侧图示始终可见，判断链可选填。</div>
             <fieldset><legend>1. ${escapeHtml(date.name)}太阳直射：</legend>${renderChoice("solar-direct", lab.choices.direct)}</fieldset>
             <fieldset><legend>2. ${escapeHtml(place.name)}的昼夜状况：</legend>${renderChoice("solar-day-relation", lab.choices.day_relation)}</fieldset>
             <fieldset><legend>3. 全球昼长由南向北：</legend>${renderChoice("solar-north-pattern", lab.choices.north_pattern)}</fieldset>
             <fieldset><legend>4. ${escapeHtml(place.name)}正午太阳高度约为：</legend><div class="solar-number-answer"><input name="solar-noon-altitude" type="number" min="0" max="90" step="0.5" inputmode="decimal" placeholder="填写0—90" aria-label="正午太阳高度" /><span>°</span></div></fieldset>
-            <label class="field-label" for="solar-reasoning">写出判断链</label>
+            <label class="field-label" for="solar-reasoning">判断链（选填）</label>
             <textarea id="solar-reasoning" name="solar-reasoning" placeholder="例如：先由日期定直射点；再比较直射点与目标地所在半球；判断昼长空间规律；最后用90°－纬度差计算正午太阳高度。"></textarea>
-            <button class="btn orange motion-submit" type="submit">提交预测，解锁光照结果</button>
+            <button class="btn orange motion-submit" type="submit">提交预测</button>
           </form>
         </div>
       </section>`;
@@ -138,7 +138,7 @@
               ${answerRow("正午太阳高度", `${attempt.answers.noon_altitude}°`, `${correct.noon_altitude}°`, checks.noon_altitude)}
             </div>
             <div class="answer-box ${attempt.score === 4 ? "correct" : "wrong"}"><strong>${escapeHtml(date.name)}的判断链</strong><br/>${escapeHtml(date.explanation)} ${escapeHtml(place.name)}约有${correct.day_length_hours}小时白昼，正午太阳高度约为${correct.noon_altitude}°。</div>
-            <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning)}</div>
+            <p><strong>橙子的判断链</strong></p><div class="quote">${escapeHtml(attempt.reasoning || "未填写")}</div>
             ${attempt.error_tags.length ? `<div class="diagnosis"><strong>候选错因</strong><div class="tag-row">${attempt.error_tags.map((tag) => `<span class="pill orange">${escapeHtml(lab.error_tags[tag] || tag)}</span>`).join("")}</div></div>` : `<div class="notice">四步均正确。请家长追问：换到另一半球同纬度地点，昼长与正午太阳高度分别怎样变化？</div>`}
             <div class="btn-row"><button class="btn orange" data-action="next-solar-season">换日期和地点继续</button><button class="btn secondary" data-action="goto" data-route="parent">交给家长确认</button></div>
           </div>

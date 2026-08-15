@@ -24,7 +24,7 @@
     "checks": { "type": "object" },
     "score": { "type": "integer", "minimum": 0, "maximum": 5 },
     "error_tags": { "type": "array", "items": { "type": "string" } },
-    "reasoning": { "type": "string", "minLength": 1 },
+    "reasoning": { "type": "string" },
     "submitted_at": { "type": "string", "format": "date-time" },
     "parent_review_status": { "enum": ["待家长确认", "已确认", "需再练", "需教师复核"] },
     "parent_note": { "type": "string" }

@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.21.0",
+  "id": "coriolis-lab",
+  "title": "地转偏向力实验室",
+  "topic_id": "physical.earth.motion",
+  "review_after_hours": 48,
+  "model_note": "图示采用地球表面水平运动的高中理想模型；偏转方向相对于物体运动方向判断。",
+  "choices": {
+    "hemisphere_rule": ["北半球向右偏，南半球向左偏，赤道上不偏", "北半球向左偏，南半球向右偏，赤道上不偏", "南北半球都向东偏"],
+    "relative_side": ["运动方向右侧", "运动方向左侧", "不发生偏转"],
+    "final_direction": ["向北偏转", "向东偏转", "向南偏转", "向西偏转", "方向不变"],
+    "speed_effect": ["只改变运动方向，不直接改变速度大小", "只改变速度大小，不改变方向", "方向和速度大小必然同时改变"],
+    "application": ["大尺度气流和水流中最明显", "只有静止物体才会出现", "只在赤道上最明显"]
+  },
+  "error_tags": {
+    "CF-HEMISPHERE-RULE": "南北半球偏转规律混淆",
+    "CF-RELATIVE-SIDE": "没有相对运动方向判断左右",
+    "CF-MAP-DIRECTION": "相对左右没有转换为地图方位",
+    "CF-SPEED-EFFECT": "把地转偏向力误当作改变速度大小",
+    "CF-SCALE-APPLICATION": "忽略尺度与赤道边界"
+  },
+  "scenarios": [
+    {"id":"CF-01","name":"北半球北行气流","hemisphere":"北半球","direction":"向北","context":"大尺度气流","answers":{"hemisphere_rule":"北半球向右偏，南半球向左偏，赤道上不偏","relative_side":"运动方向右侧","final_direction":"向东偏转","speed_effect":"只改变运动方向，不直接改变速度大小","application":"大尺度气流和水流中最明显"}},
+    {"id":"CF-02","name":"北半球东流洋流","hemisphere":"北半球","direction":"向东","context":"表层洋流","answers":{"hemisphere_rule":"北半球向右偏，南半球向左偏，赤道上不偏","relative_side":"运动方向右侧","final_direction":"向南偏转","speed_effect":"只改变运动方向，不直接改变速度大小","application":"大尺度气流和水流中最明显"}},
+    {"id":"CF-03","name":"北半球南行气流","hemisphere":"北半球","direction":"向南","context":"大尺度气流","answers":{"hemisphere_rule":"北半球向右偏，南半球向左偏，赤道上不偏","relative_side":"运动方向右侧","final_direction":"向西偏转","speed_effect":"只改变运动方向，不直接改变速度大小","application":"大尺度气流和水流中最明显"}},
+    {"id":"CF-04","name":"北半球西流洋流","hemisphere":"北半球","direction":"向西","context":"表层洋流","answers":{"hemisphere_rule":"北半球向右偏，南半球向左偏，赤道上不偏","relative_side":"运动方向右侧","final_direction":"向北偏转","speed_effect":"只改变运动方向，不直接改变速度大小","application":"大尺度气流和水流中最明显"}},
+    {"id":"CF-05","name":"南半球北行气流","hemisphere":"南半球","direction":"向北","context":"大尺度气流","answers":{"hemisphere_rule":"北半球向右偏，南半球向左偏，赤道上不偏","relative_side":"运动方向左侧","final_direction":"向西偏转","speed_effect":"只改变运动方向，不直接改变速度大小","application":"大尺度气流和水流中最明显"}},
+    {"id":"CF-06","name":"南半球东流洋流","hemisphere":"南半球","direction":"向东","context":"表层洋流","answers":{"hemisphere_rule":"北半球向右偏，南半球向左偏，赤道上不偏","relative_side":"运动方向左侧","final_direction":"向北偏转","speed_effect":"只改变运动方向，不直接改变速度大小","application":"大尺度气流和水流中最明显"}},
+    {"id":"CF-07","name":"南半球南行气流","hemisphere":"南半球","direction":"向南","context":"大尺度气流","answers":{"hemisphere_rule":"北半球向右偏，南半球向左偏，赤道上不偏","relative_side":"运动方向左侧","final_direction":"向东偏转","speed_effect":"只改变运动方向，不直接改变速度大小","application":"大尺度气流和水流中最明显"}},
+    {"id":"CF-08","name":"赤道西行水流","hemisphere":"赤道","direction":"向西","context":"赤道附近水流","answers":{"hemisphere_rule":"北半球向右偏，南半球向左偏，赤道上不偏","relative_side":"不发生偏转","final_direction":"方向不变","speed_effect":"只改变运动方向，不直接改变速度大小","application":"大尺度气流和水流中最明显"}}
+  ]
+}

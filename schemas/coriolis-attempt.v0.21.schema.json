@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/coriolis-attempt.v0.21.schema.json",
+  "type": "object",
+  "required": ["schema_version", "id", "scenario_id", "answers", "correct_answers", "checks", "score", "error_tags", "reasoning", "submitted_at", "parent_review_status", "parent_note"],
+  "properties": {
+    "schema_version": {"const": "0.21.0"}, "id": {"type": "string"}, "scenario_id": {"type": "string"},
+    "answers": {"type": "object"}, "correct_answers": {"type": "object"}, "checks": {"type": "object"},
+    "score": {"type": "integer", "minimum": 0, "maximum": 5}, "error_tags": {"type": "array", "items": {"type": "string"}},
+    "reasoning": {"type": "string"}, "submitted_at": {"type": "string", "format": "date-time"},
+    "parent_review_status": {"enum": ["待家长确认", "已确认", "需再练", "需教师复核"]}, "parent_note": {"type": "string"}
+  }
+}

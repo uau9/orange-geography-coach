@@ -10,7 +10,7 @@
 
 - `learning_projects.json` 是所有学习项目的导航清单；
 - `questions.json`、`retests.json` 是诊断与复测内容；
-- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json`、`solar_activity_lab.json`、`moon_phase_lab.json`、`eclipse_lab.json`、`tide_lab.json` 是专题实验模型；
+- `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json`、`solar_activity_lab.json`、`moon_phase_lab.json`、`eclipse_lab.json`、`tide_lab.json`、`coriolis_lab.json` 是专题实验模型；
 - 内容文件不直接包含HTML，也不保存浏览器作答状态。
 
 ### 2. 格式约束：`schemas/`
@@ -36,6 +36,7 @@
 - `moon-phase.js`：八相日地月位置、月面受光、盈亏、可见时段与普通月相/日月食边界；
 - `eclipse.js`：新月/满月与交点、本影/半影/伪本影、日月食类型和地表可见范围；
 - `tide.js`：八相日月方向、引潮作用、大潮/小潮、潮差周期与当地预报边界；
+- `coriolis.js`：地转偏向力半球规则、相对偏向与地图方位转换；
 - `learning-export.js`：学习档案摘要、时间戳和文件名；
 - 后续专题可继续拆分自己的渲染和计算模块。
 
@@ -56,15 +57,15 @@
 
 ## 版本规则
 
-- 应用资源版本当前为 `0.20.0`，集中定义在 `assets/config.js`；
+- 应用资源版本当前为 `0.21.1`，集中定义在 `assets/config.js`；
 - LocalStorage 学习记录仍使用兼容版本 `0.3.0`，避免破坏已有浏览器数据；
-- 导出档案独立使用 `export_schema_version: 0.20.0`；
+- 导出档案独立使用 `export_schema_version: 0.21.1`；
 - 修改数据结构时分别判断“应用版本、记录版本、导出版本”是否需要升级。
 
 ## 完成检查
 
-- 学生作答前看不到答案或完整解析；
+- 普通知识点诊断题在作答前看不到答案或完整解析；实验室图示默认可见；
 - AI判断仍为候选，家长能确认或标记教师复核；
-- 作答、理由、审核、复测和批注均能保存或导出；
+- 作答、选填判断链、审核、复测和批注均能保存或导出；
 - 新项目不会让首页增加新的大型入口卡片；
 - `npm test` 通过，iPad横竖屏与手机触控流程可用。
