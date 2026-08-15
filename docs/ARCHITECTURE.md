@@ -9,6 +9,7 @@
 ### 1. 内容数据：`data/`
 
 - `learning_projects.json` 是所有学习项目的导航清单；
+- `curriculum_catalog.json` 是教材册—章—节目录，保存题目和项目的课程位置；`topic_id` 仍独立用于错因统计与掌握分析；
 - `questions.json`、`retests.json` 是诊断与复测内容；
 - `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json`、`solar_activity_lab.json`、`moon_phase_lab.json`、`eclipse_lab.json`、`tide_lab.json`、`coriolis_lab.json` 是专题实验模型；
 - 内容文件不直接包含HTML，也不保存浏览器作答状态。
@@ -49,17 +50,26 @@
 ## 新增一个学习项目
 
 1. 在 `data/learning_projects.json` 登记项目编号、说明、入口 action、状态类型和排序；
-2. 在相应数据文件中加入内容，并创建或升级 schema；
-3. 如需新交互，在 `assets/features/` 新建功能模块；
-4. 在 `app.js` 连接 action、状态摘要和路由；
-5. 在 `scripts/validate-content.mjs` 加入项目、数据关系和关键算法校验；
-6. 更新产品文档，执行 `npm test`，再完成 iPad 横竖屏与手机验收。
+2. 在 `data/curriculum_catalog.json` 将项目登记到对应教材小节；跨章或教材外项目登记到综合专题，诊断和复测类工具登记到快捷入口；
+3. 在相应数据文件中加入内容，并创建或升级 schema；
+4. 如需新交互，在 `assets/features/` 新建功能模块；
+5. 在 `app.js` 连接 action、状态摘要和路由；
+6. 在 `scripts/validate-content.mjs` 加入项目、数据关系和关键算法校验；
+7. 更新产品文档，执行 `npm test`，再完成 iPad 横竖屏与手机验收。
+
+## 新增教材章节内容
+
+1. 先核对教材目录，将章、节和问题研究登记到 `curriculum_catalog.json`；
+2. 题目继续保留 `topic_id`，并把题号登记到唯一一个教材小节或综合专题；
+3. 学习项目同样只登记到一个教材小节、综合专题或快捷入口；
+4. `active` 表示当前学习，`available` 表示已有可用内容，`planned` 表示即将学习，`registered` 表示仅登记目录；
+5. 校验脚本必须阻止不存在的引用、重复归属和未归类内容。
 
 ## 版本规则
 
-- 应用资源版本当前为 `0.21.3`，集中定义在 `assets/config.js`；
+- 应用资源版本当前为 `0.22.0`，集中定义在 `assets/config.js`；
 - LocalStorage 学习记录仍使用兼容版本 `0.3.0`，避免破坏已有浏览器数据；
-- 导出档案独立使用 `export_schema_version: 0.21.3`；
+- 导出档案独立使用 `export_schema_version: 0.22.0`；
 - 修改数据结构时分别判断“应用版本、记录版本、导出版本”是否需要升级。
 
 ## 完成检查
@@ -69,5 +79,6 @@
 - 作答、选填判断链、审核、复测和批注均能保存或导出；
 - 新项目不会让首页增加新的大型入口卡片；
 - 诊断题在底部导航常驻，且在项目目录中排在实验室之前；
-- 诊断题目录不提前输出正确答案或解析，筛选与指定题目进入不改写原有作答记录；
+- 诊断题和学习项目按教材册—章—节导航，第三、四章目录已登记且未伪造学习内容；
+- 诊断题目录不提前输出正确答案或解析，状态筛选与指定题目进入不改写原有作答记录；
 - `npm test` 通过，iPad横竖屏与手机触控流程可用。

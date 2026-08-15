@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.21.3", ASSET_VERSION: "0.21.3", EXPORT_SCHEMA_VERSION: "0.21.3", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.22.0", ASSET_VERSION: "0.22.0", EXPORT_SCHEMA_VERSION: "0.22.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null };
 
 function defaultState() {
   return {
@@ -1286,6 +1286,42 @@ function projectModels() {
     .map((project) => ({ ...project, ...projectStatus(project) }));
 }
 
+function curriculumStatusModel(status) {
+  if (status === "active") return { label: "学习中", tone: "orange" };
+  if (status === "available") return { label: "已配置", tone: "green" };
+  if (status === "planned") return { label: "即将学习", tone: "orange" };
+  return { label: "目录已登记", tone: "" };
+}
+
+function projectNavigationModel() {
+  const projects = projectModels();
+  const byId = new Map(projects.map((project) => [project.id, project]));
+  const assigned = new Set();
+  const pickProjects = (ids = []) => ids.map((id) => byId.get(id)).filter(Boolean).map((project) => {
+    assigned.add(project.id);
+    return project;
+  });
+  const curriculum = catalog.curriculum;
+  if (!curriculum) return { projects, utilities: [], books: [], supplemental: null };
+  const utilities = pickProjects(curriculum.utility_project_ids);
+  const books = [...(curriculum.books || [])].sort((a, b) => a.order - b.order).map((book) => ({
+    ...book,
+    chapters: [...book.chapters].sort((a, b) => a.order - b.order).map((chapter) => ({
+      ...chapter,
+      status_model: curriculumStatusModel(chapter.status),
+      sections: [...chapter.sections].sort((a, b) => a.order - b.order).map((section) => ({ ...section, projects: pickProjects(section.project_ids) }))
+    }))
+  }));
+  const supplementalProjects = pickProjects(curriculum.supplemental?.project_ids);
+  const unassigned = projects.filter((project) => !assigned.has(project.id));
+  return {
+    projects,
+    utilities,
+    books,
+    supplemental: curriculum.supplemental ? { ...curriculum.supplemental, projects: [...supplementalProjects, ...unassigned] } : null
+  };
+}
+
 function getTodayRecommendation() {
   const projects = projectModels();
   const byId = (id) => projects.find((project) => project.id === id);
@@ -1515,7 +1551,7 @@ function getRecentEvidence() {
 function renderProjects() {
   const feature = window.OrangeCoach?.features?.home;
   if (!feature) { app.innerHTML = `<section class="card empty">项目导航未加载，请刷新页面。</section>`; return; }
-  app.innerHTML = feature.renderProjects({ projects: projectModels() });
+  app.innerHTML = feature.renderProjects(projectNavigationModel());
 }
 
 function renderAttemptSummary(attempt) {
@@ -1558,32 +1594,52 @@ function renderDiagnosticCatalog() {
   const unseenCount = models.length - answeredCount;
   const hasUnseen = unseenCount > 0;
   const next = chooseNextQuestion();
-  const groups = catalog.topics.map((topic) => {
-    const allInTopic = models.filter((model) => model.question.topic_id === topic.id);
-    const visibleInTopic = visibleModels.filter((model) => model.question.topic_id === topic.id);
-    if (!allInTopic.length || !visibleInTopic.length) return "";
-    return `
-      <section class="card diagnostic-topic-card">
-        <div class="diagnostic-topic-heading">
-          <div><span class="section-kicker">${escapeHtml(topic.category)}</span><h3>${escapeHtml(topic.name)}</h3></div>
-          <span class="pill">${visibleInTopic.length}/${allInTopic.length} 道</span>
-        </div>
-        <div class="diagnostic-question-list">
-          ${visibleInTopic.map((model) => `
-            <button class="diagnostic-question-row" data-action="start-question" data-question-id="${escapeHtml(model.question.id)}" aria-label="打开第 ${model.index + 1} 题：${escapeHtml(model.question.title)}">
-              <span class="diagnostic-question-copy"><span class="diagnostic-question-code">第 ${model.index + 1} 题 · ${escapeHtml(model.question.id)}</span><strong>${escapeHtml(model.question.title)}</strong></span>
-              <span class="pill ${escapeHtml(model.tone)}">${escapeHtml(model.label)}</span>
-            </button>`).join("")}
-        </div>
-      </section>`;
-  }).join("");
+  const byQuestionId = new Map(models.map((model) => [model.question.id, model]));
+  const visibleIds = new Set(visibleModels.map((model) => model.question.id));
+  const renderQuestionRows = (questionIds = []) => questionIds
+    .map((id) => byQuestionId.get(id))
+    .filter((model) => model && visibleIds.has(model.question.id))
+    .map((model) => `
+      <button class="diagnostic-question-row" data-action="start-question" data-question-id="${escapeHtml(model.question.id)}" aria-label="打开第 ${model.index + 1} 题：${escapeHtml(model.question.title)}">
+        <span class="diagnostic-question-copy"><span class="diagnostic-question-code">第 ${model.index + 1} 题 · ${escapeHtml(model.question.id)}</span><strong>${escapeHtml(model.question.title)}</strong></span>
+        <span class="pill ${escapeHtml(model.tone)}">${escapeHtml(model.label)}</span>
+      </button>`).join("");
+  const curriculumBooks = [...(catalog.curriculum?.books || [])].sort((a, b) => a.order - b.order).map((book) => `
+    <section class="curriculum-book-block">
+      <div class="curriculum-book-heading"><div><span class="section-kicker">教材目录</span><h3>${escapeHtml(book.title)}</h3><p>${escapeHtml(book.publisher)}</p></div></div>
+      <div class="curriculum-chapter-list">
+        ${[...book.chapters].sort((a, b) => a.order - b.order).map((chapter) => {
+          const questionIds = chapter.sections.flatMap((section) => section.question_ids);
+          const visibleCount = questionIds.filter((id) => visibleIds.has(id)).length;
+          const status = curriculumStatusModel(chapter.status);
+          return `
+            <details class="curriculum-chapter" ${chapter.status === "active" ? "open" : ""}>
+              <summary><span><small>第${chapter.number}章</small><strong>${escapeHtml(chapter.title)}</strong></span><span class="curriculum-summary-meta"><span class="pill ${status.tone}">${status.label}</span><span class="pill">${questionIds.length ? `${visibleCount}/${questionIds.length} 道` : "0 道"}</span></span></summary>
+              <div class="curriculum-chapter-body">
+                ${[...chapter.sections].sort((a, b) => a.order - b.order).map((section) => {
+                  const rows = renderQuestionRows(section.question_ids);
+                  return `<div class="curriculum-section"><div class="curriculum-section-heading"><span>第${section.number}节</span><strong>${escapeHtml(section.title)}</strong><small>${section.question_ids.length} 道已登记</small></div>${rows ? `<div class="diagnostic-question-list">${rows}</div>` : `<div class="curriculum-empty">当前${section.question_ids.length ? "筛选下无题目" : "尚未登记题目"}。</div>`}</div>`;
+                }).join("")}
+                <div class="curriculum-research"><span>问题研究</span>${escapeHtml(chapter.research_task)}</div>
+              </div>
+            </details>`;
+        }).join("")}
+      </div>
+    </section>`).join("");
+  const supplemental = catalog.curriculum?.supplemental;
+  const supplementalRows = supplemental ? renderQuestionRows(supplemental.question_ids) : "";
+  const supplementalGroup = supplemental ? `
+    <details class="curriculum-chapter supplemental-chapter" open>
+      <summary><span><small>教材外与跨章</small><strong>${escapeHtml(supplemental.title)}</strong></span><span class="pill">${supplemental.question_ids.filter((id) => visibleIds.has(id)).length}/${supplemental.question_ids.length} 道</span></summary>
+      <div class="curriculum-chapter-body"><p class="small">${escapeHtml(supplemental.description)}</p>${supplementalRows ? `<div class="diagnostic-question-list">${supplementalRows}</div>` : `<div class="curriculum-empty">当前筛选下无题目。</div>`}</div>
+    </details>` : "";
 
   app.innerHTML = `
     <div class="diagnostic-catalog-heading">
       <div><span class="section-kicker">知识点诊断</span><h2 class="page-title">题目目录</h2></div>
       <button class="btn orange" data-action="start-next">继续推荐题</button>
     </div>
-    <p class="page-subtitle">按知识点查看题目和作答状态。目录不展示正确答案或解析；“已作答”只表示留下记录，不等于已掌握。</p>
+    <p class="page-subtitle">按“教材册—章—节”查看题目，再用作答状态筛选。目录不展示正确答案或解析；“已作答”只表示留下记录，不等于已掌握。</p>
     <section class="stat-grid diagnostic-stat-grid" aria-label="诊断题进度">
       <div class="stat"><strong>${models.length}</strong><span>总题量</span></div>
       <div class="stat"><strong>${answeredCount}</strong><span>已作答</span></div>
@@ -1597,7 +1653,8 @@ function renderDiagnosticCatalog() {
     <div class="diagnostic-filter-bar" role="group" aria-label="筛选诊断题">
       ${filters.map((item) => `<button class="${item.id === filter ? "active" : ""}" data-action="set-diagnostic-filter" data-filter="${item.id}" aria-pressed="${item.id === filter}">${item.label}</button>`).join("")}
     </div>
-    ${groups || `<section class="card empty">当前筛选条件下没有题目。</section>`}
+    ${curriculumBooks}
+    ${supplementalGroup}
   `;
 }
 
@@ -3378,7 +3435,7 @@ document.addEventListener("change", async (event) => {
     if (!["0.1.0", "0.2.0", "0.3.0"].includes(imported.version) || !Array.isArray(imported.attempts)) throw new Error("版本不匹配");
     const normalized = normalizeState(imported);
     const localRecordCount = state.attempts.length + state.retestAttempts.length + state.timeLabAttempts.length + state.earthMotionAttempts.length + state.solarSeasonAttempts.length + state.solarPathAttempts.length + state.annualSunAttempts.length + state.orbitSpeedAttempts.length + state.terminatorLinkAttempts.length + state.rotationSpeedAttempts.length + state.dateRangeAttempts.length + state.axialTiltAttempts.length + state.celestialScaleAttempts.length + state.habitabilityAttempts.length + state.solarActivityAttempts.length + state.moonPhaseAttempts.length + state.eclipseAttempts.length + state.tideAttempts.length + state.coriolisAttempts.length;
-    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", "0.18.0", "0.19.0", "0.20.0", "0.21.0", "0.21.1", "0.21.2", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
+    const isAnnotatedArchive = ["0.6.0", "0.7.0", "0.8.0", "0.9.0", "0.10.0", "0.11.0", "0.12.0", "0.13.0", "0.14.0", "0.15.0", "0.16.0", "0.17.0", "0.18.0", "0.19.0", "0.20.0", "0.21.0", "0.21.1", "0.21.2", "0.21.3", COACH_CONFIG.EXPORT_SCHEMA_VERSION].includes(imported.export_schema_version) && Array.isArray(imported.coach_annotations);
     if (isAnnotatedArchive && localRecordCount > 0) {
       const mergeResult = window.OrangeCoach?.features?.learningExport?.mergeAnnotatedArchive(state, normalized);
       if (!mergeResult?.ok) throw new Error(mergeResult?.reason || "批注档案与当前记录不一致");
@@ -3612,12 +3669,13 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/retests.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/learning_projects.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/curriculum_catalog.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/solar_season_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -3636,7 +3694,7 @@ async function init() {
       fetch(`./data/tide_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/coriolis_lab.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

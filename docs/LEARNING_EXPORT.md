@@ -58,7 +58,7 @@ orange-geography-records-2026-08-10T21-30-45+08-00.json
 - 基于证据的观察；
 - 可执行的下一步。
 
-档案内的 `annotation_guide` 已包含机器可读的字段模板和批注原则。格式约束见 `schemas/learning-export.v0.21.3.schema.json`。
+档案内的 `annotation_guide` 已包含机器可读的字段模板和批注原则。格式约束见 `schemas/learning-export.v0.22.0.schema.json`。
 
 ## 隐私检查
 
