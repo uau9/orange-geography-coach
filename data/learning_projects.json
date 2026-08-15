@@ -215,7 +215,7 @@
       "cta": "开始下一道诊断",
       "status_kind": "diagnostic",
       "accent": "orange",
-      "order": 30
+      "order": 5
     },
     {
       "id": "delayed-retests",

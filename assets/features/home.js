@@ -21,7 +21,7 @@
         <div><span class="section-kicker">今日建议</span><h2 class="page-title">先完成一条有价值的学习证据</h2></div>
         <button class="text-button" data-action="goto" data-route="projects">查看全部项目</button>
       </div>
-      <p class="page-subtitle">首页只回答“今天先做什么”。全部专题、诊断题和复测统一放在“项目”页。</p>
+      <p class="page-subtitle">首页只回答“今天先做什么”。诊断题可从底部“诊断”直接进入，全部学习内容仍可在“项目”页查看。</p>
       <section class="card today-focus-card" data-accent="${escapeHtml(recommendation.accent || "teal")}">
         <div class="today-focus-copy">
           <span class="pill orange">${escapeHtml(recommendation.eyebrow || "下一步")}</span>
