@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uau9.github.io/orange-geography-coach/schemas/curriculum-catalog.v0.22.schema.json",
+  "title": "橙子地理教练教材课程目录 v0.22",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "books", "supplemental", "utility_project_ids"],
+  "properties": {
+    "schema_version": { "const": "0.22.0" },
+    "books": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "publisher", "order", "chapters"],
+        "properties": {
+          "id": { "type": "string" }, "title": { "type": "string" }, "publisher": { "type": "string" }, "order": { "type": "integer", "minimum": 0 },
+          "chapters": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["id", "number", "title", "status", "order", "sections", "research_task"],
+              "properties": {
+                "id": { "type": "string" }, "number": { "type": "integer", "minimum": 1 }, "title": { "type": "string" }, "status": { "enum": ["active", "available", "planned", "registered"] }, "order": { "type": "integer", "minimum": 0 }, "research_task": { "type": "string" },
+                "sections": {
+                  "type": "array", "minItems": 1,
+                  "items": {
+                    "type": "object", "additionalProperties": false,
+                    "required": ["id", "number", "title", "order", "question_ids", "project_ids"],
+                    "properties": {
+                      "id": { "type": "string" }, "number": { "type": "integer", "minimum": 1 }, "title": { "type": "string" }, "order": { "type": "integer", "minimum": 0 },
+                      "question_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+                      "project_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "supplemental": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "description", "question_ids", "project_ids"],
+      "properties": {
+        "id": { "const": "supplemental" }, "title": { "type": "string" }, "description": { "type": "string" },
+        "question_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "project_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "utility_project_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  }
+}

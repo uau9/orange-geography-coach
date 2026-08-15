@@ -323,12 +323,12 @@
     const compactId = exportedAt.replace(/[-:.Z]/g, "");
     return {
       version: state.version,
-      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.21.3",
+      export_schema_version: config.EXPORT_SCHEMA_VERSION || "0.22.0",
       export_id: `EXPORT-${compactId}`,
       exported_at: exportedAt,
       exported_at_local: localTimestamp(now),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
-      app_version: config.APP_VERSION || "0.21.3",
+      app_version: config.APP_VERSION || "0.22.0",
       student_alias: config.STUDENT_ALIAS || "橙子",
       privacy_note: "档案默认不含姓名、学校、班级和联系方式；交给AI或教师前仍请人工检查自由文本。",
       summary: {

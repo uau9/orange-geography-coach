@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.22.0",
+  "books": [
+    {
+      "id": "pep-selective-1",
+      "title": "选择性必修1·自然地理基础",
+      "publisher": "人民教育出版社",
+      "order": 1,
+      "chapters": [
+        {
+          "id": "pep-selective-1-ch01",
+          "number": 1,
+          "title": "地球的运动",
+          "status": "available",
+          "order": 1,
+          "sections": [
+            {
+              "id": "pep-selective-1-ch01-s01",
+              "number": 1,
+              "title": "地球的自转和公转",
+              "order": 1,
+              "question_ids": ["GEO-EARTH-001", "GEO-EARTH-002", "GEO-EARTH-003", "GEO-EARTH-004", "GEO-EARTH-005"],
+              "project_ids": ["rotation-speed-lab", "orbit-speed-lab", "axial-tilt-lab"]
+            },
+            {
+              "id": "pep-selective-1-ch01-s02",
+              "number": 2,
+              "title": "地球运动的地理意义",
+              "order": 2,
+              "question_ids": ["GEO-TIME-001", "GEO-TIME-002", "GEO-TIME-003", "GEO-TIME-004", "GEO-TIME-005", "GEO-TIME-006", "GEO-TIME-007", "GEO-TIME-008", "GEO-EARTH-006", "GEO-EARTH-007", "GEO-EARTH-008"],
+              "project_ids": ["earth-motion-lab", "coriolis-lab", "solar-season-lab", "annual-sun-lab", "terminator-link-lab", "date-range-lab", "solar-path-lab", "time-zone-lab"]
+            }
+          ],
+          "research_task": "人类是否需要人造月亮"
+        },
+        {
+          "id": "pep-selective-1-ch02",
+          "number": 2,
+          "title": "地表形态的塑造",
+          "status": "registered",
+          "order": 2,
+          "sections": [
+            { "id": "pep-selective-1-ch02-s01", "number": 1, "title": "塑造地表形态的力量", "order": 1, "question_ids": [], "project_ids": [] },
+            { "id": "pep-selective-1-ch02-s02", "number": 2, "title": "构造地貌的形成", "order": 2, "question_ids": [], "project_ids": [] },
+            { "id": "pep-selective-1-ch02-s03", "number": 3, "title": "河流地貌的发育", "order": 3, "question_ids": [], "project_ids": [] }
+          ],
+          "research_task": "崇明岛的未来是什么样子"
+        },
+        {
+          "id": "pep-selective-1-ch03",
+          "number": 3,
+          "title": "大气的运动",
+          "status": "active",
+          "order": 3,
+          "sections": [
+            { "id": "pep-selective-1-ch03-s01", "number": 1, "title": "常见天气系统", "order": 1, "question_ids": [], "project_ids": [] },
+            { "id": "pep-selective-1-ch03-s02", "number": 2, "title": "气压带和风带", "order": 2, "question_ids": ["GEO-AIR-001"], "project_ids": [] },
+            { "id": "pep-selective-1-ch03-s03", "number": 3, "title": "气压带和风带对气候的影响", "order": 3, "question_ids": [], "project_ids": [] }
+          ],
+          "research_task": "阿联酋“造山引雨”是否可行"
+        },
+        {
+          "id": "pep-selective-1-ch04",
+          "number": 4,
+          "title": "水的运动",
+          "status": "planned",
+          "order": 4,
+          "sections": [
+            { "id": "pep-selective-1-ch04-s01", "number": 1, "title": "陆地水体及其相互关系", "order": 1, "question_ids": [], "project_ids": [] },
+            { "id": "pep-selective-1-ch04-s02", "number": 2, "title": "洋流", "order": 2, "question_ids": [], "project_ids": [] },
+            { "id": "pep-selective-1-ch04-s03", "number": 3, "title": "海—气相互作用", "order": 3, "question_ids": [], "project_ids": [] }
+          ],
+          "research_task": "能否利用南极冰山解决沙特阿拉伯的缺水问题"
+        },
+        {
+          "id": "pep-selective-1-ch05",
+          "number": 5,
+          "title": "自然环境的整体性与差异性",
+          "status": "registered",
+          "order": 5,
+          "sections": [
+            { "id": "pep-selective-1-ch05-s01", "number": 1, "title": "自然环境的整体性", "order": 1, "question_ids": [], "project_ids": [] },
+            { "id": "pep-selective-1-ch05-s02", "number": 2, "title": "自然环境的地域差异性", "order": 2, "question_ids": [], "project_ids": [] }
+          ],
+          "research_task": "如何看待我国西北地区城市引进欧洲冷季型草坪"
+        }
+      ]
+    }
+  ],
+  "supplemental": {
+    "id": "supplemental",
+    "title": "综合诊断与拓展专题",
+    "description": "暂无稳定本册章节归属的前置知识、跨章综合题与拓展实验。",
+    "question_ids": ["GEO-URB-001", "GEO-REG-001"],
+    "project_ids": ["celestial-scale-lab", "habitability-lab", "solar-activity-lab", "moon-phase-lab", "eclipse-lab", "tide-lab"]
+  },
+  "utility_project_ids": ["diagnostic-questions", "delayed-retests"]
+}
