@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import { calculateTimeLabAnswers, normalizeTimeAnswer } from "../assets/time-utils.js";
 await import("../assets/config.js");
 await import("../assets/features/solar-season.js");
@@ -32,6 +32,7 @@ const timeLab = JSON.parse(await readFile(new URL("../data/time_lab.json", impor
 const earthMotionLab = JSON.parse(await readFile(new URL("../data/earth_motion_lab.json", import.meta.url), "utf8"));
 const learningProjects = JSON.parse(await readFile(new URL("../data/learning_projects.json", import.meta.url), "utf8"));
 const curriculumCatalog = JSON.parse(await readFile(new URL("../data/curriculum_catalog.json", import.meta.url), "utf8"));
+const regionReview = JSON.parse(await readFile(new URL("../data/region_review.json", import.meta.url), "utf8"));
 const presentationCatalog = JSON.parse(await readFile(new URL("../data/presentation_catalog.json", import.meta.url), "utf8"));
 const solarSeasonLab = JSON.parse(await readFile(new URL("../data/solar_season_lab.json", import.meta.url), "utf8"));
 const solarPathLab = JSON.parse(await readFile(new URL("../data/solar_path_lab.json", import.meta.url), "utf8"));
@@ -89,6 +90,9 @@ const v020Schemas = await Promise.all([
 ].map(async (name) => JSON.parse(await readFile(new URL(`../schemas/${name}`, import.meta.url), "utf8"))));
 const presentationCatalogSchema = JSON.parse(await readFile(new URL("../schemas/presentation-catalog.v0.1.schema.json", import.meta.url), "utf8"));
 const curriculumCatalogSchema = JSON.parse(await readFile(new URL("../schemas/curriculum-catalog.v0.22.schema.json", import.meta.url), "utf8"));
+const regionReviewSchema = JSON.parse(await readFile(new URL("../schemas/region-review.v0.27.schema.json", import.meta.url), "utf8"));
+const retestV03Schema = JSON.parse(await readFile(new URL("../schemas/retest.v0.3.schema.json", import.meta.url), "utf8"));
+const gitignoreSource = await readFile(new URL("../.gitignore", import.meta.url), "utf8");
 const topicIds = new Set(topics.map((topic) => topic.id));
 const errors = [];
 const diagnosticCatalogStart = appSource.indexOf("function renderDiagnosticCatalog()");
@@ -102,22 +106,31 @@ if (v024Schemas.some((schema) => !schema.$id || !schema.$schema)) errors.push("v
 if (v025Schemas.some((schema) => !schema.$id || !schema.$schema)) errors.push("v0.25 schema 必须声明 $id 与 JSON Schema 版本");
 if (!presentationCatalogSchema.$id || !presentationCatalogSchema.$schema) errors.push("PPT目录 schema 必须声明 $id 与 JSON Schema 版本");
 if (!curriculumCatalogSchema.$id || !curriculumCatalogSchema.$schema) errors.push("教材课程目录 schema 必须声明 $id 与 JSON Schema 版本");
+if (!regionReviewSchema.$id || !regionReviewSchema.$schema) errors.push("区域发展复习 schema 必须声明 $id 与 JSON Schema 版本");
+if (retestV03Schema.properties?.source?.const !== "资料包选题") errors.push("复测 schema 必须只允许资料包选题");
 
 if (!Array.isArray(topics) || topics.length === 0) errors.push("topics.json 必须是非空数组");
 if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.json 必须是非空数组");
 if (!appSource.includes("选择理由（选填）") || !appSource.includes('if (!selectedOption) return alert("请先选择答案。");') || appSource.includes("!selectedOption || !reasoning")) errors.push("普通诊断题必须允许理由留空提交");
-if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.25.0") || !indexSource.includes("app.js?v=0.25.0")) errors.push("网页展示版本或静态资源版本不是v0.25.0");
+if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.27.1") || !indexSource.includes("app.js?v=0.27.1") || !indexSource.includes("region-review.js?v=0.27.1")) errors.push("网页展示版本、静态资源版本或区域发展模块入口不是v0.27.1");
 if (!indexSource.includes('data-action="start-next" data-route="train">诊断</button>')) errors.push("底部导航必须保留可直接进入诊断题的常驻入口");
 if (!diagnosticCatalogSource.includes("题目目录") || !diagnosticCatalogSource.includes("教材册—章—节") || !diagnosticCatalogSource.includes('data-action="start-question"') || !diagnosticCatalogSource.includes('data-action="set-diagnostic-filter"')) errors.push("诊断题目录必须支持教材章节、状态筛选和指定题目进入");
+if (!diagnosticCatalogSource.includes("diagnostic-section") || !diagnosticCatalogSource.includes('data-current-question="true"') || !diagnosticCatalogSource.includes("scrollIntoView")) errors.push("诊断题目录必须在第3级自动折叠题目并定位当前题");
 if (diagnosticCatalogSource.includes("question.answer") || diagnosticCatalogSource.includes("question.explanation") || diagnosticCatalogSource.includes("question.error_map")) errors.push("诊断题目录不得提前展示答案、解析或错因映射");
+if (!appSource.includes('class="result-option-list"') || !appSource.includes('data-action="continue-question"') || !appSource.includes("chooseNextCatalogQuestion(question.id)")) errors.push("诊断讲解页必须保留四个选项，并按题目目录顺序保存后继续");
 if (!homeSource.includes('data-action="open-diagnostic-catalog"') || !homeSource.includes("按册、章、节管理学习项目")) errors.push("项目页必须提供诊断题目录入口与教材章节导航");
 if (!Array.isArray(paperReviews) || paperReviews.length === 0) errors.push("paper_reviews.json 必须是非空数组");
 if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json 必须是非空数组");
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
-if (learningProjects?.schema_version !== "0.25.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length !== 26) errors.push("learning_projects.json 必须是0.25.0版且包含26个项目");
-if (curriculumCatalog?.schema_version !== "0.22.0" || !Array.isArray(curriculumCatalog.books) || curriculumCatalog.books.length !== 1) errors.push("curriculum_catalog.json 必须是0.22.0版且包含1册教材");
+if (learningProjects?.schema_version !== "0.25.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length !== 27) errors.push("learning_projects.json 必须是0.25.0版且包含27个项目");
+if (curriculumCatalog?.schema_version !== "0.22.0" || !Array.isArray(curriculumCatalog.books) || curriculumCatalog.books.length !== 2) errors.push("curriculum_catalog.json 必须是0.22.0版且包含2册教材");
+if (regionReview?.schema_version !== "0.27.0" || regionReview.id !== "region-development-review" || regionReview.local_only !== false || regionReview.days?.length !== 14 || regionReview.reasoning_steps?.length !== 7) errors.push("region_review.json 必须是可发布的0.27.0十四日复习模块，并包含7步区域分析链");
+const ignoredLocalSourceDirs = new Set(gitignoreSource.split(/\r?\n/));
+for (const sourceDir of ["local_learning_sources/", "教材/", "2025高中地理学习资料包 (知识点+教辅+试卷)/"]) {
+  if (!ignoredLocalSourceDirs.has(sourceDir)) errors.push(`本机学习资料目录必须保持 Git 忽略：${sourceDir}`);
+}
 if (presentationCatalog?.schema_version !== "0.1.0" || !Array.isArray(presentationCatalog.decks) || presentationCatalog.decks.length !== 4) errors.push("presentation_catalog.json 必须是0.1.0版且包含4册PPT");
 if (solarSeasonLab?.schema_version !== "0.7.0" || !Array.isArray(solarSeasonLab.dates) || solarSeasonLab.dates.length !== 4) errors.push("solar_season_lab.json 必须包含4个二分二至日情境");
 if (solarPathLab?.schema_version !== "0.8.0" || !Array.isArray(solarPathLab.dates) || solarPathLab.dates.length !== 4) errors.push("solar_path_lab.json 必须包含4个二分二至日情境");
@@ -152,7 +165,7 @@ for (const project of learningProjects?.projects || []) {
   if (!allowedStatusKinds.has(project.status_kind)) errors.push(`${project.id} 使用了不支持的 status_kind`);
   if (project.action === "goto" && !project.route) errors.push(`${project.id} 的 goto action 必须指定 route`);
 }
-for (const requiredProjectId of ["front-weather-lab", "cyclone-system-lab", "global-circulation-lab", "monsoon-system-lab", "climate-control-lab", "climate-graph-lab", "orographic-rain-lab", "earth-motion-lab", "coriolis-lab", "solar-season-lab", "annual-sun-lab", "orbit-speed-lab", "terminator-link-lab", "rotation-speed-lab", "date-range-lab", "axial-tilt-lab", "celestial-scale-lab", "habitability-lab", "solar-activity-lab", "moon-phase-lab", "eclipse-lab", "tide-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests"]) {
+for (const requiredProjectId of ["front-weather-lab", "cyclone-system-lab", "global-circulation-lab", "monsoon-system-lab", "climate-control-lab", "climate-graph-lab", "orographic-rain-lab", "earth-motion-lab", "coriolis-lab", "solar-season-lab", "annual-sun-lab", "orbit-speed-lab", "terminator-link-lab", "rotation-speed-lab", "date-range-lab", "axial-tilt-lab", "celestial-scale-lab", "habitability-lab", "solar-activity-lab", "moon-phase-lab", "eclipse-lab", "tide-lab", "solar-path-lab", "time-zone-lab", "diagnostic-questions", "delayed-retests", "region-development-review"]) {
   if (!projectIds.has(requiredProjectId)) errors.push(`学习项目清单缺少：${requiredProjectId}`);
 }
 const diagnosticProject = learningProjects?.projects?.find((project) => project.id === "diagnostic-questions");
@@ -198,6 +211,11 @@ const atmosphereChapter = curriculumChapters.find((chapter) => chapter.number ==
 const waterChapter = curriculumChapters.find((chapter) => chapter.number === 4);
 if (atmosphereChapter?.title !== "大气的运动" || atmosphereChapter?.status !== "active" || atmosphereChapter?.sections?.map((section) => section.title).join("|") !== "常见天气系统|气压带和风带|气压带和风带对气候的影响" || atmosphereChapter.sections[0].question_ids.length !== 4 || atmosphereChapter.sections[0].project_ids.join("|") !== "front-weather-lab|cyclone-system-lab" || atmosphereChapter.sections[1].question_ids.length !== 5 || atmosphereChapter.sections[1].project_ids.join("|") !== "global-circulation-lab|monsoon-system-lab" || atmosphereChapter.sections[2].question_ids.length !== 5 || atmosphereChapter.sections[2].project_ids.join("|") !== "climate-control-lab|climate-graph-lab|orographic-rain-lab") errors.push("第三章大气的运动目录或三节专项内容不正确");
 if (waterChapter?.title !== "水的运动" || waterChapter?.status !== "planned" || waterChapter?.sections?.map((section) => section.title).join("|") !== "陆地水体及其相互关系|洋流|海—气相互作用") errors.push("第四章水的运动目录或学习状态不正确");
+const regionBook = curriculumCatalog?.books?.find((book) => book.id === "pep-selective-2");
+const regionChapter = regionBook?.chapters?.find((chapter) => chapter.number === 1);
+if (regionBook?.title !== "选择性必修2·区域发展" || regionBook.chapters?.length !== 4 || regionChapter?.status !== "active" || regionChapter?.sections?.map((section) => section.title).join("|") !== "多种多样的区域|区域整体性和关联性") errors.push("选择性必修2目录或第一章两节内容不正确");
+const regionBookQuestionIds = regionBook?.chapters?.flatMap((chapter) => chapter.sections.flatMap((section) => section.question_ids)) || [];
+if (regionBookQuestionIds.length !== 28 || regionChapter?.sections?.flatMap((section) => section.question_ids).length !== 6 || regionChapter?.sections?.[0]?.project_ids?.[0] !== "region-development-review") errors.push("选择性必修2必须登记28道资料包诊断题和十四日复习项目");
 
 const presentationDeckIds = new Set();
 const presentationSlideIds = new Set();
@@ -231,6 +249,8 @@ for (const question of questions) {
   if (ids.has(question.id)) errors.push(`题目编号重复：${question.id}`);
   ids.add(question.id);
   if (!topicIds.has(question.topic_id)) errors.push(`${question.id} 引用了不存在的主题：${question.topic_id}`);
+  if (!question.source?.startsWith("资料包·")) errors.push(`${question.id} 不是资料包选题`);
+  if (!question.knowledge_point_id?.trim()) errors.push(`${question.id} 缺少 knowledge_point_id`);
   const optionIds = question.options?.map((option) => option.id) ?? [];
   if (new Set(optionIds).size !== optionIds.length) errors.push(`${question.id} 选项编号重复`);
   if (!optionIds.includes(question.answer)) errors.push(`${question.id} 正确答案不在选项中`);
@@ -240,6 +260,28 @@ for (const question of questions) {
   if (!Array.isArray(question.review_after_days) || question.review_after_days.length === 0) {
     errors.push(`${question.id} 缺少复测间隔`);
   }
+  if (question.source_image) {
+    if (!question.source_image.startsWith("./assets/questions/") || !question.source_image_alt?.trim()) errors.push(`${question.id} 的发布题图路径或替代文字不合规`);
+    try { await access(new URL(`../${question.source_image.slice(2)}`, import.meta.url)); } catch { errors.push(`${question.id} 缺少发布题图：${question.source_image}`); }
+  }
+}
+
+const knowledgeCounts = new Map();
+for (const question of questions) knowledgeCounts.set(question.knowledge_point_id, (knowledgeCounts.get(question.knowledge_point_id) || 0) + 1);
+for (const [knowledgePointId, count] of knowledgeCounts) if (count < 2 || count > 5) errors.push(`${knowledgePointId} 题量必须为2—5道，当前为${count}道`);
+
+const regionQuestionIds = regionReview.days.flatMap((day) => day.question_ids || []);
+if (regionQuestionIds.length !== 28 || new Set(regionQuestionIds).size !== 28) errors.push("十四日复习必须引用28道不重复诊断题");
+for (const day of regionReview.days) {
+  if (day.question_ids.length < 2 || day.question_ids.length > 5) errors.push(`第${day.day}天必须安排2—5道题`);
+  for (const questionId of day.question_ids) if (questions.find((item) => item.id === questionId)?.knowledge_point_id !== day.knowledge_point_id) errors.push(`${questionId} 的知识点与第${day.day}天不一致`);
+}
+for (const questionId of regionQuestionIds) {
+  const question = questions.find((item) => item.id === questionId);
+  if (!question) continue;
+  if (!question.source?.startsWith("资料包·")) errors.push(`${question.id} 必须来自资料包`);
+  if (!question.source_material_kind) errors.push(`${question.id} 必须声明材料类型`);
+  if (question.dataset && (!question.dataset.title || question.dataset.columns?.length < 2 || question.dataset.rows?.length < 1 || question.dataset.rows.some((row) => row.length !== question.dataset.columns.length))) errors.push(`${question.id} 的源题表格不完整`);
 }
 
 const paperIds = new Set();
@@ -284,6 +326,18 @@ for (const retest of retests) {
   if (retest.pass_rule.min_points > maxPoints) errors.push(`${retest.id} 通过分数超过总分`);
   for (const requiredId of retest.pass_rule.required_rubric_ids) {
     if (!rubricIds.has(requiredId)) errors.push(`${retest.id} 引用了不存在的必须评分点：${requiredId}`);
+  }
+}
+
+const regionRetests = regionReview.delayed_retest_ids.map((id) => retests.find((retest) => retest.id === id)).filter(Boolean);
+if (regionRetests.length !== 2 || retests.length !== 2 || retests.some((retest) => retest.source !== "资料包选题")) errors.push("十四日复习必须只保留2组资料包延迟复测");
+for (const retest of regionRetests) {
+  if (retest.source !== "资料包选题") errors.push(`${retest.id} 必须从资料包选取`);
+  if (retest.source_images?.length < 2) errors.push(`${retest.id} 必须保留至少2张源题图`);
+  if (!retest.dataset?.title || retest.dataset.columns?.length < 2 || retest.dataset.rows?.length < 1 || retest.dataset.rows.some((row) => row.length !== retest.dataset.columns.length)) errors.push(`${retest.id} 的源题表格不完整`);
+  for (const image of retest.source_images || []) {
+    if (!image.src?.startsWith("./assets/questions/region-development/") || !image.alt?.trim()) errors.push(`${retest.id} 的发布题图路径或替代文字不合规`);
+    try { await access(new URL(`../${image.src.slice(2)}`, import.meta.url)); } catch { errors.push(`${retest.id} 缺少发布题图：${image.src}`); }
   }
 }
 
@@ -1109,7 +1163,7 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.25.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.27.1" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
   if (packet.summary.total_learning_records !== 18 || packet.summary.pending_parent_reviews !== 18) errors.push("学习档案摘要计数错误");
   if (packet.summary.by_project.length !== 26 || packet.summary.habitability_attempts !== 1 || packet.summary.solar_activity_attempts !== 1 || packet.summary.moon_phase_attempts !== 1 || packet.summary.eclipse_attempts !== 1 || packet.summary.tide_attempts !== 1 || packet.summary.coriolis_attempts !== 1 || packet.summary.front_weather_attempts !== 1 || packet.summary.cyclone_system_attempts !== 1 || packet.summary.atmosphere_reasoning_attempts !== 1 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts) || !Array.isArray(packet.axial_tilt_attempts) || !Array.isArray(packet.celestial_scale_attempts) || !Array.isArray(packet.habitability_attempts) || !Array.isArray(packet.solar_activity_attempts) || !Array.isArray(packet.moon_phase_attempts) || !Array.isArray(packet.eclipse_attempts) || !Array.isArray(packet.tide_attempts) || !Array.isArray(packet.coriolis_attempts) || !Array.isArray(packet.front_weather_attempts) || !Array.isArray(packet.cyclone_system_attempts) || !Array.isArray(packet.atmosphere_reasoning_attempts)) errors.push("学习档案缺少第三章项目进度或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");

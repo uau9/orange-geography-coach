@@ -1,618 +1,3776 @@
 [
   {
-    "id": "GEO-AIR-001",
-    "topic_id": "physical.atmosphere",
-    "title": "海陆风：先判断热力差异",
-    "source": "原创诊断题",
+    "id": "GEO-EARTH-001",
+    "topic_id": "physical.earth.motion",
+    "knowledge_point_id": "earth.rotation-revolution-features",
+    "title": "地球自转方向图判读",
+    "source": "资料包·步步高课时6课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/earth-motion/rotation-direction-options.png",
+    "source_image_alt": "A至D四幅地球自转方向示意图",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "夏季晴朗白天，某沿海城市附近常出现由海洋吹向陆地的海风。若只考虑海陆热力性质差异，下列解释最合理的是：",
+    "difficulty": 2,
+    "stem": "地球的自转和公转是地球最基本的有规律的运动形式。下面四幅示意图中，能正确表示地球自转方向的是（见完整选项图）：",
     "options": [
-      {"id": "A", "text": "陆地升温快，近地面气压较高，空气由陆地吹向海洋"},
-      {"id": "B", "text": "陆地升温快，近地面气压较低，空气由海洋吹向陆地"},
-      {"id": "C", "text": "海洋升温快，近地面气压较低，空气由海洋吹向陆地"},
-      {"id": "D", "text": "海陆温度相同，海风主要由地球自转直接造成"}
+      {
+        "id": "A",
+        "text": "图A"
+      },
+      {
+        "id": "B",
+        "text": "图B"
+      },
+      {
+        "id": "C",
+        "text": "图C"
+      },
+      {
+        "id": "D",
+        "text": "图D"
+      }
     ],
-    "answer": "B",
+    "answer": "C",
     "error_map": {
-      "A": {"tag": "气温与气压关系混淆", "diagnosis": "你抓到了陆地升温较快，但把近地面温度与气压的关系判断反了。", "follow_up": "同一水平面上，暖空气上升后，近地面气压通常如何变化？"},
-      "C": {"tag": "海陆升温快慢颠倒", "diagnosis": "你把海洋和陆地的升温速度弄反了。海水比热容较大，白天陆地通常升温更快。", "follow_up": "在相同太阳辐射下，为什么海水温度变化通常比陆地慢？"},
-      "D": {"tag": "成因层级混淆", "diagnosis": "你注意到了地球自转这一大尺度因素，但本题限定只考虑海陆热力差异，直接成因应先从温度—气压差异解释。", "follow_up": "如果没有海陆温差，题干中的局地海风还能用本题条件解释吗？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
     },
-    "explanation": "白天陆地升温通常快于海洋，陆地近地面空气受热上升，气压相对较低；海洋近地面气压相对较高，空气由海洋吹向陆地，形成海风。",
-    "key_points": ["海陆热力性质差异", "近地面气温与气压关系", "水平气压梯度力"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "地球自西向东自转；从北极上空看呈逆时针，从南极上空看呈顺时针。图C中90°W向东运动到0°，方向正确。",
+    "key_points": [
+      "地球自转方向",
+      "极点俯视图",
+      "经度方向"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
-    "id": "GEO-URB-001",
-    "topic_id": "human.urban",
-    "title": "城市热岛：夜间风向的推理链",
-    "source": "原创诊断题",
+    "id": "GEO-EARTH-002",
+    "topic_id": "physical.earth.motion",
+    "knowledge_point_id": "earth.rotation-revolution-features",
+    "title": "自转公转与地表温度",
+    "source": "资料包·步步高课时6课时精练第2题",
+    "source_material_kind": "text",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "晴朗微风的夜间，城市中心气温通常高于郊区。若只考虑这种城市热岛效应，近地面空气更可能：",
+    "difficulty": 2,
+    "stem": "地球的自转和公转特点影响着地球上许多地理现象。下列地理现象受地球自转和公转直接影响的是：",
     "options": [
-      {"id": "A", "text": "由城市吹向郊区，因为城市气温较高、气压较高"},
-      {"id": "B", "text": "由郊区吹向城市，因为城市近地面气压相对较低"},
-      {"id": "C", "text": "由郊区吹向城市，因为郊区气温较高、气压较低"},
-      {"id": "D", "text": "没有水平运动，因为城市热岛只影响垂直气流"}
+      {
+        "id": "A",
+        "text": "地球表面大气层厚度适中"
+      },
+      {
+        "id": "B",
+        "text": "地球表面有适宜的温度"
+      },
+      {
+        "id": "C",
+        "text": "地球上存在昼夜现象"
+      },
+      {
+        "id": "D",
+        "text": "北极夜晚出现极光现象"
+      }
     ],
     "answer": "B",
     "error_map": {
-      "A": {"tag": "暖低压关系反向", "diagnosis": "你把城市较暖直接推成近地面高压，忽略了受热空气上升后近地面气压降低的环节。", "follow_up": "把‘城市较暖’和‘城市近地面气压’之间补上一个垂直运动环节。"},
-      "C": {"tag": "温度归属判断错误", "diagnosis": "你选对了风向，但把较高温度归给了郊区，题干已经说明城市中心气温更高。", "follow_up": "先圈出题干中的比较对象，再写出郊区到城市的气压梯度。"},
-      "D": {"tag": "只看垂直运动", "diagnosis": "城市热岛首先造成垂直运动差异，但水平气压差异仍会产生近地面水平气流。", "follow_up": "热力差异如何同时造成垂直运动和水平气流？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
     },
-    "explanation": "夜间城市中心相对较暖，暖空气上升使城市近地面气压相对偏低；郊区近地面空气向城市流动，形成由郊区指向城市的局地环流。",
-    "key_points": ["城市热岛", "热力环流", "气温—气压—风向推理链"],
-    "review_after_days": [2, 6, 14]
+    "explanation": "地球自转周期和公转周期适中，使地表获得的热量有节律变化并保持适宜温度；其余现象分别主要与质量体积、球体不透明和太阳活动有关。",
+    "key_points": [
+      "自转公转周期",
+      "地球宜居条件",
+      "因果归属"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
-    "id": "GEO-REG-001",
-    "topic_id": "regional.resources",
-    "title": "光伏项目：从资源到区位",
-    "source": "原创诊断题",
+    "id": "GEO-EARTH-003",
+    "topic_id": "physical.earth.motion",
+    "knowledge_point_id": "earth.rotation-revolution-features",
+    "title": "恒星日与恒星年",
+    "source": "资料包·步步高课时6课时精练第3题",
+    "source_material_kind": "text",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "某地计划建设大型光伏电站。下列区位条件中，最直接体现其自然资源优势的是：",
+    "difficulty": 2,
+    "stem": "下列关于地球自转和公转的说法，正确的是：",
     "options": [
-      {"id": "A", "text": "靠近铁路货运站，便于设备运输"},
-      {"id": "B", "text": "年太阳辐射总量较大，且可利用荒地较多"},
-      {"id": "C", "text": "邻近大城市，便于吸引技术人才"},
-      {"id": "D", "text": "当地出台税收优惠政策，降低企业成本"}
+      {
+        "id": "A",
+        "text": "地球自转的真正周期为1恒星日"
+      },
+      {
+        "id": "B",
+        "text": "地球自转的真正周期为24小时"
+      },
+      {
+        "id": "C",
+        "text": "地球公转的方向是自东向西"
+      },
+      {
+        "id": "D",
+        "text": "地球公转的周期为365日"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
+    },
+    "explanation": "以遥远恒星为参照，地球自转真正周期为1恒星日，即23时56分4秒；地球公转方向也是自西向东，真正周期为1恒星年。",
+    "key_points": [
+      "恒星日",
+      "恒星年",
+      "运动方向"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-EARTH-004",
+    "topic_id": "physical.earth.motion",
+    "knowledge_point_id": "earth.sidereal-day",
+    "title": "北极星轨迹反映的运动",
+    "source": "资料包·步步高课时6课时精练第4题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/earth-motion/north-star-trails.png",
+    "source_image_alt": "北极星附近星辰长时间曝光形成的同心圆轨迹",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "某中学地理研究性学习小组野外宿营时，把照相机固定并对准北极星附近星空长时间曝光，得到图示星辰运动轨迹。该图像最能反映：",
+    "options": [
+      {
+        "id": "A",
+        "text": "地球自转"
+      },
+      {
+        "id": "B",
+        "text": "太阳系组成"
+      },
+      {
+        "id": "C",
+        "text": "流星运动"
+      },
+      {
+        "id": "D",
+        "text": "恒星运动"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
+    },
+    "explanation": "地轴指向北极星附近，照相机随地球自转，长曝光中其他星辰相对北极星形成圆弧轨迹，最直接反映地球自转。",
+    "key_points": [
+      "北极星",
+      "地球自转证据",
+      "参照物"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-EARTH-005",
+    "topic_id": "physical.earth.motion",
+    "knowledge_point_id": "earth.sidereal-day",
+    "title": "恒星日的每日提前量",
+    "source": "资料包·步步高课时6课时精练第5题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/earth-motion/north-star-trails.png",
+    "source_image_alt": "北极星附近星辰长时间曝光形成的同心圆轨迹",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "某一遥远恒星A在当日23:00位于图示位置。第二天该恒星处于星空同样位置时，最接近的时间是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "23:00"
+      },
+      {
+        "id": "B",
+        "text": "22:56"
+      },
+      {
+        "id": "C",
+        "text": "23:04"
+      },
+      {
+        "id": "D",
+        "text": "21:52"
+      }
     ],
     "answer": "B",
     "error_map": {
-      "A": {"tag": "区位因素分类混淆", "diagnosis": "铁路是交通条件，属于社会经济因素；题目问的是自然资源优势。", "follow_up": "把四个选项分别归入自然、交通、市场/人才、政策，哪一类最符合题干？"},
-      "C": {"tag": "自然与社会经济因素混淆", "diagnosis": "技术人才属于社会经济条件，不是太阳能资源本身。", "follow_up": "如果没有人才优势，但太阳辐射强，仍能否说明资源优势？"},
-      "D": {"tag": "政策与资源概念混淆", "diagnosis": "税收优惠是政策条件，能改善项目收益，但不等于自然资源丰富。", "follow_up": "政策能否改变当地的太阳辐射总量？它影响的是哪一个环节？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
     },
-    "explanation": "年太阳辐射总量大直接说明太阳能资源丰富；可利用荒地较多则有利于降低占用优质土地的机会成本。铁路、人才和税收优惠分别属于交通、社会经济和政策条件。",
-    "key_points": ["自然资源优势", "工业/能源区位因素分类", "区位条件与项目收益"],
-    "review_after_days": [3, 7, 15]
+    "explanation": "以恒星为参照，地球自转一周为23时56分4秒，因此第二天恒星回到同一位置约比前一天提前4分钟，即22:56。",
+    "key_points": [
+      "恒星日",
+      "太阳日",
+      "每日提前4分钟"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-EARTH-006",
+    "topic_id": "physical.earth.motion",
+    "knowledge_point_id": "earth.rotation-geographic-effects",
+    "title": "光照图中的晨昏判断",
+    "source": "资料包·步步高课时8课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/earth-motion/solar-illumination.png",
+    "source_image_alt": "某日太阳光照图，阴影表示夜半球",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "读某日太阳光照图（阴影部分表示夜半球）。下列关于图中信息的说法，正确的是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "B点日出为0时或24时"
+      },
+      {
+        "id": "B",
+        "text": "C点日落是22时"
+      },
+      {
+        "id": "C",
+        "text": "D和E两点的自转角速度和线速度都相同"
+      },
+      {
+        "id": "D",
+        "text": "下一刻D点将进入白昼"
+      }
+    ],
+    "answer": "D",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
+    },
+    "explanation": "地球自西向东自转，沿自转方向判断D点下一刻跨过晨线进入白昼；赤道日落为18时，同纬度角速度相同但线速度随纬度变化。",
+    "key_points": [
+      "晨昏线",
+      "自转方向",
+      "角速度与线速度"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-EARTH-007",
+    "topic_id": "physical.earth.motion",
+    "knowledge_point_id": "earth.rotation-geographic-effects",
+    "title": "光照图中的0时经线",
+    "source": "资料包·步步高课时8课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/earth-motion/solar-illumination.png",
+    "source_image_alt": "某日太阳光照图，阴影表示夜半球",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "读某日太阳光照图（阴影部分表示夜半球）。此时地方时为0:00的经线是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "120°E"
+      },
+      {
+        "id": "B",
+        "text": "60°E"
+      },
+      {
+        "id": "C",
+        "text": "20°W"
+      },
+      {
+        "id": "D",
+        "text": "100°W"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "平分夜半球的经线地方时为0时。结合图中经度分布，A点所在并平分夜半球的经线为60°E。",
+    "key_points": [
+      "0时经线",
+      "夜半球中央经线",
+      "经度判读"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-EARTH-008",
+    "topic_id": "physical.earth.motion",
+    "knowledge_point_id": "earth.rotation-geographic-effects",
+    "title": "地转偏向与矶头护岸",
+    "source": "资料包·步步高课时8课时精练第5题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/earth-motion/yangtze-rock-head.png",
+    "source_image_alt": "长江中下游矶头和鹅头状分汊河段示意图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "矶头是矗立江边、突出江中的基岩山体。河道形态受矶头分布影响，只有一岸出现矶头时常形成图示鹅头状分汊河段。图中矶头的主要作用是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "保护右岸河堤"
+      },
+      {
+        "id": "B",
+        "text": "使河床变窄"
+      },
+      {
+        "id": "C",
+        "text": "加剧左岸堆积"
+      },
+      {
+        "id": "D",
+        "text": "使河道变顺直"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
+    },
+    "explanation": "北半球河水受地转偏向力作用向右偏，右岸侵蚀较强；坚硬基岩矶头不易受侵蚀，可保护右岸河堤。",
+    "key_points": [
+      "地转偏向力",
+      "河岸侵蚀",
+      "矶头"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-TIME-001",
     "topic_id": "physical.earth.time",
-    "title": "统一参考时刻与民用钟点",
-    "source": "原创诊断题",
+    "knowledge_point_id": "earth.time-date-boundaries",
+    "title": "全球日期图的地方时",
+    "source": "资料包·步步高课时9课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/time/global-date-grid.png",
+    "source_image_alt": "全球经纬线展开、晨昏线和两个日期分区示意图",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "关于“全球统一时间”和各地民用钟点的关系，下列理解最准确的是：",
+    "difficulty": 2,
+    "stem": "图中虚线AS代表晨昏线，D点为晨昏线与赤道交点，也是GF中点；阴影与非阴影代表6日和7日。此时甲地地方时为：",
     "options": [
-      {"id": "A", "text": "全球不能建立统一的时间参照，所以只能使用地方时"},
-      {"id": "B", "text": "UTC可统一标记同一瞬间，各地仍可用UTC偏移表示适合当地作息的钟点"},
-      {"id": "C", "text": "地方时只为跨国通信服务，与太阳位置没有关系"},
-      {"id": "D", "text": "区时要求每一条经线都使用不同的钟点"}
+      {
+        "id": "A",
+        "text": "7日21时"
+      },
+      {
+        "id": "B",
+        "text": "6日9时"
+      },
+      {
+        "id": "C",
+        "text": "6日21时"
+      },
+      {
+        "id": "D",
+        "text": "7日9时"
+      }
     ],
-    "answer": "B",
+    "answer": "C",
     "error_map": {
-      "A": {"tag": "T-CONCEPT-REF", "diagnosis": "你把“统一参考时刻”和“各地钟表显示相同数字”混为一谈。UTC可以统一参照，并不要求取消地方化显示。", "follow_up": "同一瞬间，北京和伦敦为什么可以有不同钟点，却仍然能够准确对表？"},
-      "C": {"tag": "T-CONCEPT-LST-ZONE", "diagnosis": "地方时首先反映经度与太阳位置的关系，并不是只为跨国通信设置。", "follow_up": "地方正午与太阳经过当地经线有什么关系？"},
-      "D": {"tag": "T-CONCEPT-LST-ZONE", "diagnosis": "每条经线钟点不同描述的是地方时；区时恰恰让一个时区统一使用中央经线的地方时。", "follow_up": "区时相对地方时减少了哪一种社会协作成本？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
     },
-    "explanation": "UTC是全球统一的参考时间尺度；民用钟点通常以UTC偏移表示，使钟点大致对应当地昼夜和社会作息。",
-    "key_points": ["UTC", "民用时间", "全球参照与地方显示"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "D点为18时；由日期分区可判左侧界线为180°经线、BC为0时经线，甲位于0时经线以西的旧日期，地方时为6日21时。",
+    "key_points": [
+      "晨昏线交赤道",
+      "0时经线",
+      "日期分区"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-TIME-002",
     "topic_id": "physical.earth.time",
-    "title": "地方时：东边为什么要加",
-    "source": "原创诊断题",
+    "knowledge_point_id": "earth.time-date-boundaries",
+    "title": "晨昏线与东西半球昼长",
+    "source": "资料包·步步高课时9课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/time/global-date-grid.png",
+    "source_image_alt": "全球经纬线展开、晨昏线和两个日期分区示意图",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "75°E的地方时为12:00，同一瞬间90°E的地方时是：",
+    "difficulty": 2,
+    "stem": "结合图示晨昏线、0时经线和日期分区，下列说法正确的是：",
     "options": [
-      {"id": "A", "text": "11:00"},
-      {"id": "B", "text": "13:00"},
-      {"id": "C", "text": "12:15"},
-      {"id": "D", "text": "次日13:00"}
+      {
+        "id": "A",
+        "text": "AS线为晨线"
+      },
+      {
+        "id": "B",
+        "text": "BC线为国际日界线"
+      },
+      {
+        "id": "C",
+        "text": "赤道上西半球的白昼长于黑夜"
+      },
+      {
+        "id": "D",
+        "text": "赤道上东、西半球的白昼长度之比为23∶13"
+      }
     ],
-    "answer": "B",
+    "answer": "D",
     "error_map": {
-      "A": {"tag": "T-LST-DIR", "diagnosis": "90°E位于75°E以东，地方时应更早进入下一钟点，因此要加1小时。", "follow_up": "先不计算：太阳先经过75°E还是90°E？"},
-      "C": {"tag": "T-LST-LON", "diagnosis": "经度差15°对应1小时，不是15分钟。", "follow_up": "把15°分别乘以4分钟，结果是多少？"},
-      "D": {"tag": "T-DATE-CARRY", "diagnosis": "12:00加1小时没有跨过24:00，不需要改变日期。", "follow_up": "钟点达到什么范围才需要进到次日？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
     },
-    "explanation": "两地相差15°，地方时差为15×4分钟=60分钟；90°E在东，因此12:00加1小时为13:00。",
-    "key_points": ["经度差", "1°等于4分钟", "东加西减"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "D点为18时，AS为昏线；BC是0时经线。按20°W和160°E划分东西半球，赤道上东、西半球白昼范围分别为115°和65°，比值23∶13。",
+    "key_points": [
+      "晨线昏线",
+      "东西半球",
+      "白昼范围"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-TIME-003",
     "topic_id": "physical.earth.time",
-    "title": "北京时间不等于北京地方时",
-    "source": "原创诊断题",
+    "knowledge_point_id": "earth.time-zone-conversion",
+    "title": "北京时间换算纽约时间",
+    "source": "资料包·步步高课时9课时精练第3题",
+    "source_material_kind": "text",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "当120°E地方时为12:00时，北京约116°E的地方时最接近：",
+    "stem": "北京时间2021年5月21日21时48分，云南大理州漾濞县发生地震。该地震发生时，纽约（西五区）时间为：",
     "options": [
-      {"id": "A", "text": "12:16"},
-      {"id": "B", "text": "12:00"},
-      {"id": "C", "text": "11:44"},
-      {"id": "D", "text": "11:00"}
+      {
+        "id": "A",
+        "text": "22日0时48分"
+      },
+      {
+        "id": "B",
+        "text": "22日10时48分"
+      },
+      {
+        "id": "C",
+        "text": "21日18时48分"
+      },
+      {
+        "id": "D",
+        "text": "21日8时48分"
+      }
     ],
-    "answer": "C",
+    "answer": "D",
     "error_map": {
-      "A": {"tag": "T-LST-DIR", "diagnosis": "北京约116°E位于120°E以西，地方时应减16分钟。", "follow_up": "所求地在已知经线的东边还是西边？"},
-      "B": {"tag": "T-CONCEPT-LST-ZONE", "diagnosis": "你可能把北京时间直接当成北京地方时。北京时间采用东八区区时，即120°E地方时。", "follow_up": "北京经度与东八区中央经线相差多少度？"},
-      "D": {"tag": "T-LST-LON", "diagnosis": "4°经度差只对应16分钟，不是1小时。", "follow_up": "4°×4分钟等于多少分钟？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
     },
-    "explanation": "北京约116°E在120°E以西4°，地方时晚16分钟，因此约为11:44。",
-    "key_points": ["北京时间", "中央经线", "地方时与区时"],
-    "review_after_days": [2, 6, 14]
+    "explanation": "北京时间为东八区，纽约为西五区，两地相差13小时；纽约在西，21时48分减13小时为21日8时48分。",
+    "key_points": [
+      "区时换算",
+      "东加西减",
+      "日期进退"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-TIME-004",
     "topic_id": "physical.earth.time",
-    "title": "时区：先找中央经线",
-    "source": "原创诊断题",
+    "knowledge_point_id": "earth.time-zone-conversion",
+    "title": "日期判断太阳直射纬度",
+    "source": "资料包·步步高课时9课时精练第4题",
+    "source_material_kind": "text",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "西五区的中央经线是：",
+    "difficulty": 2,
+    "stem": "北京时间2021年5月21日21时48分，云南大理州漾濞县发生地震。该地震发生时，太阳直射点大致在：",
     "options": [
-      {"id": "A", "text": "75°W"},
-      {"id": "B", "text": "75°E"},
-      {"id": "C", "text": "5°W"},
-      {"id": "D", "text": "105°W"}
+      {
+        "id": "A",
+        "text": "0°～23°26′N之间"
+      },
+      {
+        "id": "B",
+        "text": "0°～23°26′S之间"
+      },
+      {
+        "id": "C",
+        "text": "23°26′N～66°34′N之间"
+      },
+      {
+        "id": "D",
+        "text": "23°26′S～66°34′S之间"
+      }
     ],
     "answer": "A",
     "error_map": {
-      "B": {"tag": "T-ZONE-DIR", "diagnosis": "时区数算对了，但把西时区写成了东经。", "follow_up": "“西五区”中的“西”应对应东经还是西经？"},
-      "C": {"tag": "T-ZONE-ID", "diagnosis": "时区数不是经度数。中央经线应为时区数乘15°。", "follow_up": "5×15°等于多少度？"},
-      "D": {"tag": "T-ZONE-ID", "diagnosis": "105°W是西七区中央经线，不是西五区。", "follow_up": "用105÷15反查它属于哪个时区。"}
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
     },
-    "explanation": "中央经线经度=时区数×15°；西五区为5×15°=75°W。",
-    "key_points": ["时区数", "中央经线", "东西时区"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "5月21日位于春分日至夏至日之间，太阳直射点在赤道与北回归线之间并向北移动。",
+    "key_points": [
+      "太阳直射点回归运动",
+      "春分至夏至",
+      "日期判读"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-TIME-005",
     "topic_id": "physical.earth.time",
-    "title": "UTC与北京时间换算",
-    "source": "原创诊断题",
+    "knowledge_point_id": "earth.time-flight",
+    "title": "跨区航班的起飞时刻换算",
+    "source": "资料包·步步高课时9课时精练第7题",
+    "source_material_kind": "text",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "某国际事件记录为UTC 04:00。忽略夏令时，此时北京时间为：",
+    "difficulty": 2,
+    "stem": "2021年9月24日16:27（当地时间），包机从加拿大温哥华（西八区）起飞。我国政府包机从加拿大起飞时，北京时间是：",
     "options": [
-      {"id": "A", "text": "前一日20:00"},
-      {"id": "B", "text": "当日04:00"},
-      {"id": "C", "text": "当日12:00"},
-      {"id": "D", "text": "当日20:00"}
+      {
+        "id": "A",
+        "text": "9月25日8:27"
+      },
+      {
+        "id": "B",
+        "text": "9月24日8:27"
+      },
+      {
+        "id": "C",
+        "text": "9月25日0:27"
+      },
+      {
+        "id": "D",
+        "text": "9月24日0:27"
+      }
     ],
-    "answer": "C",
+    "answer": "A",
     "error_map": {
-      "A": {"tag": "T-ZONE-DIR", "diagnosis": "东八区位于UTC以东，应在UTC基础上加8小时，而不是减8小时。", "follow_up": "北京时间写成UTC+8，其中加号表示什么？"},
-      "B": {"tag": "T-CONCEPT-REF", "diagnosis": "你把UTC显示值直接当成了北京时间，没有应用UTC+8。", "follow_up": "同一瞬间，UTC与东八区钟点相差几小时？"},
-      "D": {"tag": "T-ZONE-ID", "diagnosis": "04:00到20:00相差16小时，重复或错误使用了时差。", "follow_up": "只写一行算式：04:00加8小时。"}
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
     },
-    "explanation": "北京时间为东八区区时，即UTC+8；04:00+8小时=12:00。",
-    "key_points": ["UTC偏移", "东八区", "区时换算"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "温哥华西八区比北京东八区晚16小时，9月24日16:27加16小时为9月25日8:27。",
+    "key_points": [
+      "国际航班",
+      "东西十六时区",
+      "日期进位"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-TIME-006",
     "topic_id": "physical.earth.time",
-    "title": "航班题：先推进再换区",
-    "source": "原创诊断题",
+    "knowledge_point_id": "earth.time-flight",
+    "title": "统一时区计算飞行时间",
+    "source": "资料包·步步高课时9课时精练第8题",
+    "source_material_kind": "text",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "某航班东京时间14:00从东京（东九区）起飞，飞行3小时到上海（东八区）。到达时的北京时间是：",
+    "stem": "包机于温哥华当地时间2021年9月24日16:27起飞，于北京时间9月25日21:51在深圳降落。飞行时间约是：",
     "options": [
-      {"id": "A", "text": "15:00"},
-      {"id": "B", "text": "16:00"},
-      {"id": "C", "text": "17:00"},
-      {"id": "D", "text": "18:00"}
+      {
+        "id": "A",
+        "text": "13小时"
+      },
+      {
+        "id": "B",
+        "text": "13.5小时"
+      },
+      {
+        "id": "C",
+        "text": "14小时"
+      },
+      {
+        "id": "D",
+        "text": "14.5小时"
+      }
     ],
     "answer": "B",
     "error_map": {
-      "A": {"tag": "T-ORDER", "diagnosis": "你可能把飞行时间和时区差一起减了。应先把东京时间推进3小时，再换算上海时间。", "follow_up": "飞机抵达那一瞬间，东京钟表显示几点？"},
-      "C": {"tag": "T-ZONE-STEP", "diagnosis": "17:00是抵达瞬间的东京时间，还没有换算到比东京晚1小时的上海。", "follow_up": "上海在东京以东还是以西几个时区？"},
-      "D": {"tag": "T-ZONE-DIR", "diagnosis": "上海位于东京以西，钟点应比东京少1小时，不能再加。", "follow_up": "东九区与东八区谁的钟点更早进入下一小时？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
     },
-    "explanation": "东京14:00加3小时为17:00；上海东八区比东京东九区晚1小时，所以北京时间为16:00。",
-    "key_points": ["飞行时间", "区时换算顺序", "两步计算"],
-    "review_after_days": [2, 6, 14]
+    "explanation": "先将起飞时刻换算为北京时间9月25日8:27，再与到达时刻21:51相减，得13小时24分，约13.5小时。",
+    "key_points": [
+      "飞行时间",
+      "统一时间标准",
+      "时长计算"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-TIME-007",
     "topic_id": "physical.earth.time",
-    "title": "国际日界线：方向决定日期",
-    "source": "原创诊断题",
+    "knowledge_point_id": "earth.time-jetlag",
+    "title": "飞行方向与倒时差",
+    "source": "资料包·步步高课时9课时精练第10题",
+    "source_material_kind": "text",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "一艘船自西向东越过国际日界线，钟点保持连续时，日期应：",
+    "stem": "研究发现，跨越时区数为N时，往西飞一般需N/2天倒时差，往东飞需N×2/3天。某人从北京出发，前往下列目的地需要倒时差时间最长的是：",
     "options": [
-      {"id": "A", "text": "加一天"},
-      {"id": "B", "text": "减一天"},
-      {"id": "C", "text": "不变"},
-      {"id": "D", "text": "增加一小时"}
+      {
+        "id": "A",
+        "text": "莫斯科（38°E）"
+      },
+      {
+        "id": "B",
+        "text": "新德里（77°E）"
+      },
+      {
+        "id": "C",
+        "text": "悉尼（151°E）"
+      },
+      {
+        "id": "D",
+        "text": "檀香山（157°W）"
+      }
     ],
-    "answer": "B",
+    "answer": "D",
     "error_map": {
-      "A": {"tag": "T-DATE-IDL", "diagnosis": "过国际日界线的日期口诀方向用反了：向东越线减一天，向西越线加一天。", "follow_up": "把行进方向画成箭头，再写“东减西加”。"},
-      "C": {"tag": "T-DATE-IDL", "diagnosis": "国际日界线用于协调全球日期，越线时必须按方向调整一天。", "follow_up": "如果不改日期，绕地球一周后会出现什么矛盾？"},
-      "D": {"tag": "T-DATE-CARRY", "diagnosis": "国际日界线调整的是日期，不是只调整一小时。", "follow_up": "国际日界线两侧通常相差的是钟点还是日期？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
     },
-    "explanation": "自西向东越过国际日界线，日期减一天；自东向西越线，日期加一天。",
-    "key_points": ["国际日界线", "东减西加", "日期变化"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "按最短跨区方向计算，北京到檀香山跨6个时区且向东飞，需约4天，长于其他目的地。",
+    "key_points": [
+      "时区数",
+      "飞行方向",
+      "倒时差"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-TIME-008",
     "topic_id": "physical.earth.time",
-    "title": "全球同一日期的特殊条件",
-    "source": "原创诊断题",
+    "knowledge_point_id": "earth.time-jetlag",
+    "title": "抵达当地时刻与航班选择",
+    "source": "资料包·步步高课时9课时精练第11题",
+    "source_material_kind": "text",
     "type": "single_choice",
-    "difficulty": 3,
-    "stem": "理论上，全球处于同一日期的特殊时刻是：",
+    "difficulty": 2,
+    "stem": "长途飞行选择下午或晚上到达目的地更容易倒时差。北京飞往洛杉矶（118°W）约13小时，最适合选择的北京时间出发时刻是：",
     "options": [
-      {"id": "A", "text": "0°经线地方时为0:00"},
-      {"id": "B", "text": "90°E地方时为12:00"},
-      {"id": "C", "text": "180°经线地方时为0:00"},
-      {"id": "D", "text": "北京时间为0:00"}
+      {
+        "id": "A",
+        "text": "7:00"
+      },
+      {
+        "id": "B",
+        "text": "11:00"
+      },
+      {
+        "id": "C",
+        "text": "16:00"
+      },
+      {
+        "id": "D",
+        "text": "21:00"
+      }
     ],
-    "answer": "C",
+    "answer": "D",
     "error_map": {
-      "A": {"tag": "T-DATE-OM", "diagnosis": "0°经线为0时意味着自然日期界线位于0°，与180°国际日界线相隔最远，全球通常分属两个日期。", "follow_up": "全球同一日期要求0时经线与哪一条日期界线重合？"},
-      "B": {"tag": "T-DATE-OM", "diagnosis": "某条经线为正午并不能让两条日期界线重合。", "follow_up": "日期范围题真正需要追踪的是太阳直射点，还是0时经线？"},
-      "D": {"tag": "T-DATE-OM", "diagnosis": "北京时间0:00时，0时经线位于120°E，并未与180°经线重合。", "follow_up": "若120°E为0:00，180°经线地方时是多少？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
     },
-    "explanation": "全球同一日期要求自然日期界线（0时经线）与国际日界线（约180°经线）重合，即180°经线地方时为0:00。",
-    "key_points": ["0时经线", "180°经线", "全球日期范围"],
-    "review_after_days": [3, 7, 15]
-  },
-  {
-    "id":"GEO-EARTH-001","topic_id":"physical.earth.motion","title":"太阳日与恒星日","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
-    "stem":"同一地点连续两次看到太阳位于正南方向，所经历的时间最接近：","options":[{"id":"A","text":"23时56分4秒"},{"id":"B","text":"24小时"},{"id":"C","text":"365日6时9分10秒"},{"id":"D","text":"365日5时48分46秒"}],"answer":"B",
-    "error_map":{"A":{"tag":"E-SOLAR-SIDEREAL-DAY","diagnosis":"把相对恒星的自转周期当成了相对太阳的昼夜周期。","follow_up":"题干的参照物是太阳还是遥远恒星？"},"C":{"tag":"E-PERIOD-SCALE","diagnosis":"把日周期和年周期混淆。","follow_up":"相邻两次太阳正南是一天还是一年？"},"D":{"tag":"E-PERIOD-SCALE","diagnosis":"把回归年长度当成太阳日。","follow_up":"24小时对应哪一种日？"}},"explanation":"以太阳为参照的昼夜更替周期为一个太阳日，约24小时；恒星日约23时56分4秒。","key_points":["太阳日","恒星日","参照物"],"review_after_days":[2,6,14]
-  },
-  {
-    "id":"GEO-EARTH-002","topic_id":"physical.earth.motion","title":"回归年与恒星年","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
-    "stem":"若研究太阳直射点完成一次南北往返，应采用的周期是：","options":[{"id":"A","text":"恒星日"},{"id":"B","text":"太阳日"},{"id":"C","text":"回归年"},{"id":"D","text":"恒星年"}],"answer":"C",
-    "error_map":{"A":{"tag":"E-PERIOD-SCALE","diagnosis":"把日周期与年周期混淆。","follow_up":"直射点南北往返发生在一天还是一年尺度？"},"B":{"tag":"E-PERIOD-SCALE","diagnosis":"太阳日描述昼夜更替，不描述季节循环。","follow_up":"季节循环以哪两个相邻节气位置为参照？"},"D":{"tag":"E-TROPICAL-SIDEREAL-YEAR","diagnosis":"恒星年以遥远恒星为参照；直射点和季节循环对应回归年。","follow_up":"题干强调恒星背景还是太阳直射点？"}},"explanation":"太阳直射点和季节完成一次循环对应回归年，约365日5时48分46秒。","key_points":["回归年","恒星年","季节周期"],"review_after_days":[2,6,14]
-  },
-  {
-    "id":"GEO-EARTH-003","topic_id":"physical.earth.motion","title":"北极星高度与纬度","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
-    "stem":"在北半球某地测得北极星高度约为40°，该地纬度最接近：","options":[{"id":"A","text":"40°S"},{"id":"B","text":"50°N"},{"id":"C","text":"40°N"},{"id":"D","text":"无法判断"}],"answer":"C",
-    "error_map":{"A":{"tag":"E-POLARIS-HEMISPHERE","diagnosis":"北极星用于北半球定向，纬度应为北纬。","follow_up":"南半球能否看到北极星高悬在北天？"},"B":{"tag":"E-POLARIS-LATITUDE","diagnosis":"误用了90°减高度。","follow_up":"北极点与赤道看到北极星的高度分别约是多少？"},"D":{"tag":"E-POLARIS-LATITUDE","diagnosis":"忽略了北极星高度近似等于当地纬度。","follow_up":"从赤道向北极移动，北极星高度怎样变化？"}},"explanation":"北半球北极星高度近似等于当地地理纬度，因此约为40°N。","key_points":["北极星高度","地理纬度","星轨"],"review_after_days":[3,7,15]
-  },
-  {
-    "id":"GEO-EARTH-004","topic_id":"physical.earth.motion","title":"黄道面与赤道面","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":1,
-    "stem":"黄赤交角是指：","options":[{"id":"A","text":"地轴与黄道面的夹角"},{"id":"B","text":"黄道面与赤道面的夹角"},{"id":"C","text":"地轴与赤道面的夹角"},{"id":"D","text":"太阳光线与地轴的夹角"}],"answer":"B",
-    "error_map":{"A":{"tag":"X-PLANE-AXIS","diagnosis":"把平面夹角与地轴对黄道面的倾角混为一谈。","follow_up":"黄赤交角名称中的“黄”和“赤”分别代表什么平面？"},"C":{"tag":"X-PLANE-AXIS","diagnosis":"地轴与赤道面恒为垂直关系，不是黄赤交角。","follow_up":"赤道面与地轴是什么几何关系？"},"D":{"tag":"X-PLANE-AXIS","diagnosis":"黄赤交角由两个平面定义，不由某一时刻太阳光线定义。","follow_up":"找出题干中需要比较的两个平面。"}},"explanation":"黄赤交角是地球公转轨道面（黄道面）与赤道面的夹角，目前约23.5°。","key_points":["黄道面","赤道面","黄赤交角"],"review_after_days":[2,5,12]
-  },
-  {
-    "id":"GEO-EARTH-005","topic_id":"physical.earth.motion","title":"自转与公转方向","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":1,
-    "stem":"从北极上空俯视，地球自转与绕日公转的方向分别是：","options":[{"id":"A","text":"都为逆时针"},{"id":"B","text":"都为顺时针"},{"id":"C","text":"自转逆时针、公转顺时针"},{"id":"D","text":"自转顺时针、公转逆时针"}],"answer":"A",
-    "error_map":{"B":{"tag":"E-VIEW-ROTATION","diagnosis":"把南极上空的顺时针视角用于北极上空。","follow_up":"从北极上空看自西向东运动是顺时针还是逆时针？"},"C":{"tag":"E-ORBIT-DIRECTION","diagnosis":"误认为自转与公转方向相反。","follow_up":"教材示意图中两种运动是否都为自西向东？"},"D":{"tag":"E-VIEW-ROTATION","diagnosis":"自转和公转的俯视方向都判断反了。","follow_up":"先只判断北极上空的自转方向。"}},"explanation":"地球自转和公转总体均为自西向东，从北极上空俯视均呈逆时针。","key_points":["自转方向","公转方向","观察视角"],"review_after_days":[2,5,12]
-  },
-  {
-    "id":"GEO-EARTH-006","topic_id":"physical.earth.motion","title":"国际日界线弯折","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
-    "stem":"国际日界线在部分海域偏离180°经线，主要是为了：","options":[{"id":"A","text":"与本初子午线保持平行"},{"id":"B","text":"尽量避免同一国家或岛群使用两个日期"},{"id":"C","text":"使全球始终只有一个日期"},{"id":"D","text":"绕开所有海洋"}],"answer":"B",
-    "error_map":{"A":{"tag":"T-IDL-REAL-WORLD","diagnosis":"经线本就会在两极会合，日界线弯折不是为了平行。","follow_up":"弯折处通常靠近国家和岛群还是空旷海域？"},"C":{"tag":"T-IDL-REAL-WORLD","diagnosis":"全球多数时刻同时存在两个日期。","follow_up":"0时经线与国际日界线分别起什么作用？"},"D":{"tag":"T-IDL-REAL-WORLD","diagnosis":"日界线大部分位于海洋，并非绕开海洋。","follow_up":"它真正要尽量绕开的行政对象是什么？"}},"explanation":"国际日界线大致沿180°经线，但为减少行政与生活不便，会绕开部分国家和岛群。","key_points":["国际日界线","180°经线","实际弯折"],"review_after_days":[3,7,15]
-  },
-  {
-    "id":"GEO-EARTH-007","topic_id":"physical.earth.motion","title":"天文四季与气象四季","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
-    "stem":"关于天文四季与气象四季，下列说法正确的是：","options":[{"id":"A","text":"两者起止日期在全球完全相同"},{"id":"B","text":"气象四季以二分二至日划分"},{"id":"C","text":"天文四季常以二分二至为界，气象四季可按月份划分"},{"id":"D","text":"两者都只由近日点和远日点决定"}],"answer":"C",
-    "error_map":{"A":{"tag":"E-SEASON-DEFINITION","diagnosis":"把不同用途的季节划分方法当成完全一致。","follow_up":"天文学与气象统计分别更关注太阳位置还是整月资料？"},"B":{"tag":"E-SEASON-DEFINITION","diagnosis":"二分二至更常用于天文四季。","follow_up":"北半球气象学通常把哪三个月列为春季？"},"D":{"tag":"O-SEASON-DISTANCE","diagnosis":"四季并非由日地距离远近决定。","follow_up":"南北半球季节相反能否用同一日地距离解释？"}},"explanation":"天文四季常以二分二至为界；北半球气象学常按3—5月、6—8月、9—11月、12—2月划分。","key_points":["天文四季","气象四季","二分二至"],"review_after_days":[3,7,15]
-  },
-  {
-    "id":"GEO-EARTH-008","topic_id":"physical.earth.motion","title":"二十四节气的轨道含义","source":"原创诊断题（教材第一章补漏）","type":"single_choice","difficulty":2,
-    "stem":"二十四节气在一个回归年中的设置，最接近：","options":[{"id":"A","text":"地球自转每15°设置一个"},{"id":"B","text":"太阳直射纬度每隔15°设置一个"},{"id":"C","text":"月球绕地每15°设置一个"},{"id":"D","text":"太阳在黄道上的视位置每运行约15°设置一个"}],"answer":"D",
-    "error_map":{"A":{"tag":"E-SOLAR-TERMS-ORBIT","diagnosis":"把年尺度的节气误放到日尺度自转上。","follow_up":"24个节气循环一周需要一天还是一年？"},"B":{"tag":"E-SOLAR-TERMS-LATITUDE","diagnosis":"太阳直射纬度只在南北回归线间往返，不按15°连续绕一周。","follow_up":"节气等分的是直射纬度还是黄道位置？"},"C":{"tag":"E-SOLAR-TERMS-ORBIT","diagnosis":"二十四节气描述地球绕日运动，不是月球绕地运动。","follow_up":"节气与季节循环对应哪个天体运动？"}},"explanation":"一个圆周360°分为24份，每份15°；二十四节气对应太阳在黄道上的视位置变化。","key_points":["二十四节气","黄道位置","回归年"],"review_after_days":[3,7,15]
+    "explanation": "北京21:00起飞，飞行13小时并换算到洛杉矶当地时间后约为18:00，符合下午或晚上到达的条件。",
+    "key_points": [
+      "跨时区航班",
+      "当地到达时刻",
+      "时差应用"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-WEA-001",
     "topic_id": "physical.atmosphere",
-    "title": "冷锋过境：谁主动、雨落哪里",
-    "source": "原创诊断题（教材第三章第一节）",
+    "knowledge_point_id": "atmosphere.front-evolution",
+    "title": "主锋与副锋类型",
+    "source": "资料包·步步高课时14课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/main-secondary-front.png",
+    "source_image_alt": "我国局部地区主锋和副锋分布图",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "北半球某地受冷锋自西向东影响。只考虑典型冷锋结构，降水最可能集中在：",
+    "difficulty": 2,
+    "stem": "锋后气团性质改变后，被更后面的气团追上会形成副锋，原锋面称主锋。读我国某日局部地区主锋和副锋图，二者锋面类型分别是：",
     "options": [
-      {"id": "A", "text": "锋后、锋线附近，因为冷空气主动楔入并迫使暖空气快速抬升"},
-      {"id": "B", "text": "暖气团前方很远处，因为暖空气主动沿冷空气缓慢爬升"},
-      {"id": "C", "text": "高压中心，因为空气辐合上升"},
-      {"id": "D", "text": "锋面两侧均无降水，因为冷暖气团不会产生垂直运动"}
+      {
+        "id": "A",
+        "text": "冷锋、冷锋"
+      },
+      {
+        "id": "B",
+        "text": "暖锋、暖锋"
+      },
+      {
+        "id": "C",
+        "text": "冷锋、暖锋"
+      },
+      {
+        "id": "D",
+        "text": "暖锋、冷锋"
+      }
     ],
     "answer": "A",
     "error_map": {
-      "B": {"tag": "W-FRONT-ACTIVE-AIRMASS", "diagnosis": "把暖锋的主动气团和缓坡降水结构套到了冷锋。", "follow_up": "冷锋名称中的“冷”表示哪一侧气团主动推进？"},
-      "C": {"tag": "W-FRONT-CYCLONE-MIX", "diagnosis": "把锋面抬升与低压中心辐合混为一谈。", "follow_up": "题干要求判断锋面哪一侧，而不是气压中心。"},
-      "D": {"tag": "W-FRONT-UPLIFT", "diagnosis": "忽略了密度较大的冷空气楔入暖空气下方会迫使暖空气上升。", "follow_up": "暖湿空气上升冷却后，水汽会发生什么变化？"}
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
     },
-    "explanation": "典型冷锋中冷气团主动推进，插入暖气团下方，使暖空气快速抬升；降水多出现在冷气团一侧、锋线附近及锋后。",
-    "key_points": ["冷锋", "主动气团", "锋后降水", "暖空气抬升"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "图中两次均为西北侧冷空气向东南推进并追上前方气团，主锋和副锋均属于冷锋。",
+    "key_points": [
+      "冷锋",
+      "气团移动",
+      "副锋"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-WEA-002",
     "topic_id": "physical.atmosphere",
-    "title": "暖锋过境后的气温与气压",
-    "source": "原创诊断题（教材第三章第一节）",
+    "knowledge_point_id": "atmosphere.front-evolution",
+    "title": "冷气团南下后的变性",
+    "source": "资料包·步步高课时14课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/main-secondary-front.png",
+    "source_image_alt": "我国局部地区主锋和副锋分布图",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "一次典型暖锋过境后，测站由暖气团控制。与过境前相比，该地通常：",
+    "difficulty": 2,
+    "stem": "读我国某日局部地区主锋和副锋图。导致主锋锋后气团性质改变的主要原因是：",
     "options": [
-      {"id": "A", "text": "气温下降、气压上升、天气转晴"},
-      {"id": "B", "text": "气温升高、气压降低、天气转晴"},
-      {"id": "C", "text": "气温和气压都不变，连续性降水增强"},
-      {"id": "D", "text": "气温下降、气压降低，出现强对流暴雨"}
+      {
+        "id": "A",
+        "text": "阴雨削弱太阳辐射，气温下降"
+      },
+      {
+        "id": "B",
+        "text": "阴雨天气大气逆辐射强，气温下降"
+      },
+      {
+        "id": "C",
+        "text": "途经高原山地高海拔区，气温下降"
+      },
+      {
+        "id": "D",
+        "text": "途经地面辐射更强地区，气温升高"
+      }
     ],
-    "answer": "B",
+    "answer": "D",
     "error_map": {
-      "A": {"tag": "W-FRONT-AFTER-SEQUENCE", "diagnosis": "把冷锋过境后的要素变化套到了暖锋。", "follow_up": "暖锋过境后，占据测站的是冷气团还是暖气团？"},
-      "C": {"tag": "W-FRONT-STAGE", "diagnosis": "把过境时的连续性降水延续到了过境后。", "follow_up": "锋面离开后，持续抬升条件是否仍然存在？"},
-      "D": {"tag": "W-FRONT-WEATHER-TYPE", "diagnosis": "既把气温方向判断反了，也把暖锋常见的连续性降水误作强对流。", "follow_up": "暖空气沿缓坡徐徐爬升通常形成哪类降水？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
     },
-    "explanation": "暖锋过境后暖气团取代冷气团，气温升高、气压降低；锋面离开后天气通常转晴。",
-    "key_points": ["暖锋", "过境后", "气温变化", "气压变化"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "早期冷气团向南移动，经过地面辐射较强的低纬地区获得热量并增温，性质逐渐改变，后续更冷气团追上形成副锋。",
+    "key_points": [
+      "气团变性",
+      "地面辐射",
+      "冷锋演变"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-WEA-003",
     "topic_id": "physical.atmosphere",
-    "title": "准静止锋为什么阴雨连绵",
-    "source": "原创诊断题（教材第三章第一节）",
+    "knowledge_point_id": "atmosphere.inversion-fog",
+    "title": "海雾过程中的垂直温差",
+    "source": "资料包·步步高课时14课时精练第3题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/sea-fog-temperature.png",
+    "source_image_alt": "科考船记录的大气温度随高度和时间变化图",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "某地连续多日处在冷暖气团交界附近，锋线位置变化很小，阴雨持续。最合理的解释是：",
+    "stem": "受锋面过境影响，某科考船经历一次海雾过程。读部分大气温度随时间变化图，气温垂直变化最剧烈的时刻是：",
     "options": [
-      {"id": "A", "text": "冷气团快速推进，锋面很快离开"},
-      {"id": "B", "text": "暖气团快速推进，锋面很快离开"},
-      {"id": "C", "text": "冷暖气团势均力敌或受地形阻挡，锋面移动缓慢"},
-      {"id": "D", "text": "高压中心长期控制，空气持续下沉"}
+      {
+        "id": "A",
+        "text": "12日22时"
+      },
+      {
+        "id": "B",
+        "text": "13日4时"
+      },
+      {
+        "id": "C",
+        "text": "13日16时"
+      },
+      {
+        "id": "D",
+        "text": "14日4时"
+      }
     ],
-    "answer": "C",
+    "answer": "B",
     "error_map": {
-      "A": {"tag": "W-STATIONARY-MOVEMENT", "diagnosis": "快速推进会使锋面较快过境，难以解释同一地点长期阴雨。", "follow_up": "若锋面每天移动很远，降水区能否长期停留？"},
-      "B": {"tag": "W-STATIONARY-MOVEMENT", "diagnosis": "主动快速推进描述暖锋移动，不符合锋线位置变化很小。", "follow_up": "题干中哪句话直接说明锋面近似停滞？"},
-      "D": {"tag": "W-VERTICAL-WEATHER", "diagnosis": "高压中心的下沉气流通常不利于成云降水。", "follow_up": "阴雨需要上升还是下沉运动？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
     },
-    "explanation": "冷暖气团势均力敌或锋面受地形阻挡时，锋面移动缓慢或很少移动，暖湿空气持续抬升，容易形成阴雨连绵天气。",
-    "key_points": ["准静止锋", "锋面移动", "持续性降水", "地形阻挡"],
-    "review_after_days": [3, 7, 15]
+    "explanation": "13日4时图示高度内最低温约16～17℃、最高温约20～21℃，垂直温差约3～5℃，为各时刻中最剧烈。",
+    "key_points": [
+      "等温线",
+      "垂直温差",
+      "逆温"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-WEA-004",
     "topic_id": "physical.atmosphere",
-    "title": "北半球低压的风与天气",
-    "source": "原创诊断题（教材第三章第一节）",
+    "knowledge_point_id": "atmosphere.inversion-fog",
+    "title": "暖锋海雾的形成",
+    "source": "资料包·步步高课时14课时精练第4题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/sea-fog-temperature.png",
+    "source_image_alt": "科考船记录的大气温度随高度和时间变化图",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "北半球某闭合等压线系统中心气压低于四周。该系统近地面水平气流和中心天气最可能是：",
+    "stem": "结合海雾期间的大气温度变化，此次海雾发生的成因可能是：①暖锋过境　②逆温持续　③冷锋过境　④对流旺盛",
     "options": [
-      {"id": "A", "text": "顺时针辐散，中心下沉，多晴朗"},
-      {"id": "B", "text": "逆时针辐合，中心上升，多阴雨"},
-      {"id": "C", "text": "顺时针辐合，中心下沉，多阴雨"},
-      {"id": "D", "text": "逆时针辐散，中心上升，多晴朗"}
+      {
+        "id": "A",
+        "text": "①②"
+      },
+      {
+        "id": "B",
+        "text": "②③"
+      },
+      {
+        "id": "C",
+        "text": "①④"
+      },
+      {
+        "id": "D",
+        "text": "③④"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
+    },
+    "explanation": "暖锋带来较暖湿空气，近海面水汽趋于饱和；同时下冷上热的逆温抑制对流，使海雾维持。",
+    "key_points": [
+      "暖锋",
+      "逆温",
+      "海雾"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-AIR-001",
+    "topic_id": "physical.atmosphere",
+    "knowledge_point_id": "atmosphere.global-circulation",
+    "title": "0°经线环流中的气压带",
+    "source": "资料包·步步高课时16课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/zero-meridian-circulation.png",
+    "source_image_alt": "沿0度经线部分大气环流示意图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "读沿0°经线（部分）大气环流示意图，图中甲处为：",
+    "options": [
+      {
+        "id": "A",
+        "text": "极地高压带"
+      },
+      {
+        "id": "B",
+        "text": "副极地低压带"
+      },
+      {
+        "id": "C",
+        "text": "副热带高压带"
+      },
+      {
+        "id": "D",
+        "text": "赤道低压带"
+      }
     ],
     "answer": "B",
     "error_map": {
-      "A": {"tag": "W-CYCLONE-ANTICYCLONE", "diagnosis": "把北半球反气旋的水平与垂直运动套到了低压。", "follow_up": "低压近地面空气先由四周流向中心，还是由中心流出？"},
-      "C": {"tag": "W-CYCLONE-ROTATION", "diagnosis": "判断了辐合，却把北半球低压的旋转方向写反。", "follow_up": "流向低压的空气在北半球向运动方向哪侧偏？"},
-      "D": {"tag": "W-VERTICAL-WEATHER", "diagnosis": "低压近地面是辐合而非辐散；上升冷却通常利于成云降水。", "follow_up": "中心上升所需空气从哪里补充？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
     },
-    "explanation": "北半球低压近地面气流逆时针辐合，中心形成上升气流；空气上升冷却，水汽易凝结，因此多阴雨。",
-    "key_points": ["低气压", "气旋", "北半球", "辐合上升", "阴雨"],
-    "review_after_days": [2, 6, 14]
+    "explanation": "甲位于约60°N，是冷暖气流相遇并上升的区域，对应副极地低压带。",
+    "key_points": [
+      "三圈环流",
+      "副极地低压带",
+      "纬度定位"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-AIR-002",
     "topic_id": "physical.atmosphere",
-    "title": "副热带高压为何是动力高压",
-    "source": "原创诊断题（教材第三章第二节）",
+    "knowledge_point_id": "atmosphere.global-circulation",
+    "title": "北半球中纬西风方向",
+    "source": "资料包·步步高课时16课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/zero-meridian-circulation.png",
+    "source_image_alt": "沿0度经线部分大气环流示意图",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "在不考虑海陆分布和地形影响的三圈环流模型中，北纬30°附近形成副热带高压带。其主要形成过程是：",
+    "stem": "读沿0°经线（部分）大气环流示意图，乙处风向最可能是：",
     "options": [
-      {"id": "A", "text": "地面强烈受热，空气膨胀上升"},
-      {"id": "B", "text": "赤道上空流来的空气在此堆积下沉"},
-      {"id": "C", "text": "极地冷空气在此辐合抬升"},
-      {"id": "D", "text": "海洋降温慢，近地面空气持续上升"}
+      {
+        "id": "A",
+        "text": "东北风"
+      },
+      {
+        "id": "B",
+        "text": "东南风"
+      },
+      {
+        "id": "C",
+        "text": "西北风"
+      },
+      {
+        "id": "D",
+        "text": "西南风"
+      }
     ],
-    "answer": "B",
+    "answer": "D",
     "error_map": {
-      "A": {"tag": "A-CIRC-ORIGIN", "diagnosis": "把赤道低压带的热力上升过程套到了副热带高压带。", "follow_up": "北纬30°附近空气主要从高空下沉，还是从地面受热上升？"},
-      "C": {"tag": "A-CIRC-LATITUDE", "diagnosis": "西风与极地东风辐合抬升主要发生在约60°附近。", "follow_up": "副极地低压带大致位于30°还是60°附近？"},
-      "D": {"tag": "A-CIRC-IDEAL-REAL", "diagnosis": "题目限定理想三圈环流，不能直接用局地海陆热力差异解释。", "follow_up": "先忽略海陆后，30°附近高压来自哪一支高空气流？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
     },
-    "explanation": "赤道上升气流在高空向高纬流动，受地转偏向影响在副热带上空堆积并下沉，形成动力高压。",
-    "key_points": ["三圈环流", "副热带高压带", "动力高压", "下沉气流"],
-    "review_after_days": [2, 6, 14]
+    "explanation": "乙位于北半球中纬度盛行西风带，受地转偏向力作用形成西南风。",
+    "key_points": [
+      "盛行西风",
+      "北半球",
+      "风向"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-AIR-003",
     "topic_id": "physical.atmosphere",
-    "title": "气压带风带的季节移动",
-    "source": "原创诊断题（教材第三章第二节）",
+    "knowledge_point_id": "atmosphere.water-balance",
+    "title": "副热带海区水量平衡",
+    "source": "资料包·步步高课时16课时精练第3题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/global-water-balance.png",
+    "source_image_alt": "全球不同纬度多年平均水量平衡曲线",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "与春分、秋分前后相比，北半球夏季全球气压带和风带的位置大致：",
+    "difficulty": 2,
+    "stem": "读全球不同纬度多年平均水量平衡（降水量减实际蒸发量）曲线。造成①②两海区数值较低的大气环流主要为：",
     "options": [
-      {"id": "A", "text": "整体向北移动"},
-      {"id": "B", "text": "整体向南移动"},
-      {"id": "C", "text": "只有北半球移动，南半球不动"},
-      {"id": "D", "text": "与太阳直射点无关，全年固定"}
+      {
+        "id": "A",
+        "text": "盛行西风"
+      },
+      {
+        "id": "B",
+        "text": "赤道低压带"
+      },
+      {
+        "id": "C",
+        "text": "西南季风"
+      },
+      {
+        "id": "D",
+        "text": "副热带高压带"
+      }
     ],
-    "answer": "A",
+    "answer": "D",
     "error_map": {
-      "B": {"tag": "A-CIRC-SEASON", "diagnosis": "把北半球冬季的偏南位置用于夏季。", "follow_up": "北半球夏季太阳直射点位于赤道以北还是以南？"},
-      "C": {"tag": "A-CIRC-GLOBAL", "diagnosis": "气压带风带是全球连续系统，会随直射点整体季节移动。", "follow_up": "赤道低压带跨越赤道移动时，南半球相邻风带会不会响应？"},
-      "D": {"tag": "A-CIRC-SEASON", "diagnosis": "忽略了太阳直射点南北移动造成的热力赤道移动。", "follow_up": "教材图3.11中三个日期的气压带位置是否重合？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
     },
-    "explanation": "气压带和风带随太阳直射点南北移动。北半球夏季相对二分日整体偏北，冬季整体偏南。",
-    "key_points": ["太阳直射点", "气压带风带", "季节移动"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "①②位于副热带海区，副热带高压控制下盛行下沉气流，降水少且纬度较低、蒸发较强，因此水量平衡值低。",
+    "key_points": [
+      "水量平衡",
+      "副热带高压",
+      "下沉气流"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-AIR-004",
     "topic_id": "physical.atmosphere",
-    "title": "1月亚洲高压与东亚季风",
-    "source": "原创诊断题（教材第三章第二节）",
+    "knowledge_point_id": "atmosphere.water-balance",
+    "title": "低纬盈余水汽的输送",
+    "source": "资料包·步步高课时16课时精练第4题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/global-water-balance.png",
+    "source_image_alt": "全球不同纬度多年平均水量平衡曲线",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "1月亚洲大陆形成势力强大的亚洲高压。此时我国东部近地面盛行风及其性质最可能是：",
+    "stem": "低纬地区海洋与陆地的多年平均水量平衡差异说明，该区域：",
     "options": [
-      {"id": "A", "text": "东南风，温暖湿润"},
-      {"id": "B", "text": "西北风，寒冷干燥"},
-      {"id": "C", "text": "西南风，温暖湿润"},
-      {"id": "D", "text": "东北风，全年性质不变"}
+      {
+        "id": "A",
+        "text": "盈余水汽主要通过盛行西风输往中纬"
+      },
+      {
+        "id": "B",
+        "text": "盈余水汽主要通过上升运动形成降水"
+      },
+      {
+        "id": "C",
+        "text": "亏欠水汽主要通过信风从中纬带来"
+      },
+      {
+        "id": "D",
+        "text": "亏欠水汽主要通过上升运动形成降水"
+      }
     ],
-    "answer": "B",
+    "answer": "A",
     "error_map": {
-      "A": {"tag": "A-MONSOON-WIND", "diagnosis": "把东亚夏季风套到了冬季。", "follow_up": "1月近地面空气从亚洲高压吹向海洋，来向偏西北还是东南？"},
-      "C": {"tag": "A-MONSOON-REGION", "diagnosis": "西南季风主要用于描述南亚和我国西南地区的夏季风。", "follow_up": "题干目标是我国东部还是印度半岛？"},
-      "D": {"tag": "A-MONSOON-SEASON", "diagnosis": "季风的核心特征就是盛行风随季节有规律更替。", "follow_up": "若亚洲大陆夏季转为热低压，风向是否仍会保持不变？"}
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
     },
-    "explanation": "冬季亚洲大陆降温快，形成亚洲高压；空气由大陆吹向海洋，我国东部盛行寒冷干燥的西北季风。",
-    "key_points": ["亚洲高压", "东亚冬季风", "西北风", "海陆热力差异"],
-    "review_after_days": [2, 6, 14]
+    "explanation": "低纬海洋蒸发大于降水，产生的盈余水汽除在低纬形成降水外，还随大气环流输送到中纬地区。",
+    "key_points": [
+      "全球水分收支",
+      "水汽输送",
+      "低纬与中纬"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-AIR-005",
     "topic_id": "physical.atmosphere",
-    "title": "南亚夏季西南季风的来路",
-    "source": "原创诊断题（教材第三章第二节）",
+    "knowledge_point_id": "atmosphere.global-circulation",
+    "title": "赤道辐合带北移后的季风",
+    "source": "资料包·步步高课时16课时精练第5题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/itcz-april-july.png",
+    "source_image_alt": "世界某区域4月和7月赤道辐合带位置图",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "南亚夏季西南季风的一支重要气流来自南半球东南信风。该气流越过赤道后转为西南风，关键是：",
+    "stem": "赤道辐合带位置存在季节性移动。读世界某区域4月和7月赤道辐合带位置图，7月甲河流域的盛行风是：",
     "options": [
-      {"id": "A", "text": "进入北半球后向运动方向右侧偏转"},
-      {"id": "B", "text": "进入北半球后向运动方向左侧偏转"},
-      {"id": "C", "text": "越过赤道后不再受水平气压梯度力"},
-      {"id": "D", "text": "印度洋夏季形成强冷高压"}
+      {
+        "id": "A",
+        "text": "东北风"
+      },
+      {
+        "id": "B",
+        "text": "西南风"
+      },
+      {
+        "id": "C",
+        "text": "西北风"
+      },
+      {
+        "id": "D",
+        "text": "东南风"
+      }
     ],
-    "answer": "A",
+    "answer": "B",
     "error_map": {
-      "B": {"tag": "A-MONSOON-DEFLECTION", "diagnosis": "把南半球向左偏的规则延续到了北半球。", "follow_up": "气流越过赤道后所在半球是否已经改变？"},
-      "C": {"tag": "A-MONSOON-FORCE", "diagnosis": "气流仍受气压差驱动，越过赤道并不会使水平气压梯度力消失。", "follow_up": "夏季印度低压能否继续吸引海洋气流？"},
-      "D": {"tag": "A-MONSOON-PRESSURE", "diagnosis": "夏季印度洋并非形成驱动西南季风的强冷高压，亚洲大陆反而形成热低压。", "follow_up": "夏季陆地和海洋谁升温更快？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
     },
-    "explanation": "南半球东南信风越过赤道进入北半球后，受地转偏向力影响向运动方向右侧偏转，形成西南风，并吹向亚洲大陆热低压。",
-    "key_points": ["南亚夏季风", "跨赤道气流", "北半球右偏", "印度低压"],
-    "review_after_days": [3, 7, 15]
+    "explanation": "7月辐合带北移，南半球东南信风越过赤道后受北半球地转偏向力向右偏转，形成西南风。",
+    "key_points": [
+      "赤道辐合带",
+      "越赤道气流",
+      "西南季风"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-CLI-001",
     "topic_id": "physical.atmosphere",
-    "title": "上升与下沉气流怎样影响降水",
-    "source": "原创诊断题（教材第三章第三节）",
+    "knowledge_point_id": "climate.temperature-controls",
+    "title": "北美等温线密集的成因",
+    "source": "资料包·步步高课时18课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/north-america-temperature.png",
+    "source_image_alt": "北美部分区域1981至2010年年平均气温分布图",
     "type": "single_choice",
-    "difficulty": 1,
-    "stem": "只考虑气压带中心的垂直运动，赤道低压带控制区通常比副热带高压带控制区降水丰富，主要因为：",
+    "difficulty": 2,
+    "stem": "读某区域1981～2010年年平均气温分布图。影响甲地附近等温线平行且密集分布的主要因素是：①洋流　②地形　③纬度　④植被",
     "options": [
-      {"id": "A", "text": "赤道低压带盛行上升气流，水汽较易冷却凝结"},
-      {"id": "B", "text": "赤道低压带盛行下沉气流，空气不断增温"},
-      {"id": "C", "text": "副热带高压带盛行上升气流，水汽不易凝结"},
-      {"id": "D", "text": "高压区和低压区的垂直运动相同，差异只由纬度造成"}
+      {
+        "id": "A",
+        "text": "①②"
+      },
+      {
+        "id": "B",
+        "text": "①③"
+      },
+      {
+        "id": "C",
+        "text": "②④"
+      },
+      {
+        "id": "D",
+        "text": "③④"
+      }
     ],
     "answer": "A",
     "error_map": {
-      "B": {"tag": "A-CLIMATE-PROCESS", "diagnosis": "把低压中心的上升运动判断成下沉。", "follow_up": "近地面辐合后，空气更可能上升还是下沉？"},
-      "C": {"tag": "A-CLIMATE-PROCESS", "diagnosis": "把副热带高压的下沉运动判断成上升。", "follow_up": "副热带高压带为什么常与荒漠分布相联系？"},
-      "D": {"tag": "A-CLIMATE-CONTROL", "diagnosis": "忽略了高低压中心相反的垂直运动及其对凝结的直接影响。", "follow_up": "空气上升冷却与下沉增温，哪一种更利于达到饱和？"}
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
     },
-    "explanation": "低压控制区气流辐合上升，温度降低，水汽易凝结形成降水；高压控制区气流下沉增温，水汽不易凝结。",
-    "key_points": ["气压带", "垂直运动", "绝热变化", "降水"],
-    "review_after_days": [2, 5, 12]
+    "explanation": "甲地附近受阿拉斯加暖流增温和沿岸山地海拔变化共同影响，等温线大体沿海岸且密集。",
+    "key_points": [
+      "洋流",
+      "地形",
+      "等温线"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-CLI-002",
     "topic_id": "physical.atmosphere",
-    "title": "温带海洋性气候的水汽来路",
-    "source": "原创诊断题（教材第三章第三节）",
+    "knowledge_point_id": "climate.temperature-controls",
+    "title": "区域年平均气温分布方向",
+    "source": "资料包·步步高课时18课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/north-america-temperature.png",
+    "source_image_alt": "北美部分区域1981至2010年年平均气温分布图",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "欧洲西部中纬沿海地区全年较湿润、气温年变化较小。最能直接解释这一特征的大气环流条件是：",
+    "stem": "读图判断，该区域年平均气温分布特点最合理的是：",
     "options": [
-      {"id": "A", "text": "全年受从大西洋吹来的盛行西风影响"},
-      {"id": "B", "text": "全年受副热带高压带下沉气流控制"},
-      {"id": "C", "text": "全年受亚洲高压吹出的冬季风影响"},
-      {"id": "D", "text": "全年受赤道低压带上升气流控制"}
+      {
+        "id": "A",
+        "text": "由西南向东北升高"
+      },
+      {
+        "id": "B",
+        "text": "由西南向东北降低"
+      },
+      {
+        "id": "C",
+        "text": "由东南向西北升高"
+      },
+      {
+        "id": "D",
+        "text": "由东南向西北降低"
+      }
     ],
-    "answer": "A",
+    "answer": "B",
     "error_map": {
-      "B": {"tag": "A-CLIMATE-CONTROL", "diagnosis": "副热带高压的下沉气流更常造成少雨，不能解释全年湿润。", "follow_up": "欧洲西部主要位于30°还是40°—60°纬度带？"},
-      "C": {"tag": "A-CLIMATE-SOURCE", "diagnosis": "把东亚大陆冬季风用于欧洲西部。", "follow_up": "欧洲西部的上风向是大西洋还是亚洲大陆内部？"},
-      "D": {"tag": "A-CLIMATE-LATITUDE", "diagnosis": "赤道低压带主要影响低纬赤道附近，不是欧洲西部中纬地区的全年控制系统。", "follow_up": "40°—60°中纬近地面盛行哪一风带？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
     },
-    "explanation": "欧洲西部中纬沿海全年处在盛行西风带，西风从大西洋带来暖湿空气；海洋还减小气温年较差。",
-    "key_points": ["盛行西风", "海陆位置", "温带海洋性气候", "水汽来源"],
-    "review_after_days": [2, 6, 14]
+    "explanation": "区域整体跨越较大纬度，南部低纬气温高、东北高纬气温低，呈由西南向东北降低。",
+    "key_points": [
+      "纬度因素",
+      "气温空间分布",
+      "等温线"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-CLI-003",
     "topic_id": "physical.atmosphere",
-    "title": "地中海气候为什么夏干冬雨",
-    "source": "原创诊断题（教材第三章第三节）",
+    "knowledge_point_id": "climate.temperature-controls",
+    "title": "北美四地气候特征组合",
+    "source": "资料包·步步高课时18课时精练第3题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/north-america-temperature.png",
+    "source_image_alt": "北美部分区域1981至2010年年平均气温分布图",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "北半球地中海沿岸夏季炎热少雨、冬季温和多雨，关键在于：",
+    "stem": "关于图中甲、乙、丙、丁四地气候特征，正确的是：①甲、丁冬季易受锋面气旋影响　②乙常年受西风影响、气候类型单一　③丙受极地冷空气与热带暖空气影响，气温年较差大　④丁夏季干燥无雨",
     "options": [
-      {"id": "A", "text": "夏季受副热带高压带控制，冬季受西风带影响"},
-      {"id": "B", "text": "夏季受西风带控制，冬季受副热带高压带控制"},
-      {"id": "C", "text": "全年受赤道低压带控制，只是冬季蒸发较弱"},
-      {"id": "D", "text": "全年受季风控制，夏季风来自大陆内部"}
+      {
+        "id": "A",
+        "text": "①②"
+      },
+      {
+        "id": "B",
+        "text": "①③"
+      },
+      {
+        "id": "C",
+        "text": "②③"
+      },
+      {
+        "id": "D",
+        "text": "③④"
+      }
     ],
-    "answer": "A",
+    "answer": "B",
     "error_map": {
-      "B": {"tag": "A-CLIMATE-SEASON", "diagnosis": "把两种控制系统的季节位置颠倒了。", "follow_up": "北半球夏季气压带风带整体偏北时，副热带高压能否影响30°—40°大陆西岸？"},
-      "C": {"tag": "A-CLIMATE-CONTROL", "diagnosis": "地中海沿岸并非全年受赤道低压带控制。", "follow_up": "地中海沿岸纬度与赤道相距多远？"},
-      "D": {"tag": "A-CLIMATE-REGION", "diagnosis": "把大陆东岸季风气候的机制套到了大陆西岸。", "follow_up": "地中海沿岸位于大陆东岸还是西岸？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
     },
-    "explanation": "夏季气压带风带北移，副热带高压控制，气流下沉而少雨；冬季西风带南移，海洋气流带来降水。",
-    "key_points": ["交替控制", "副热带高压", "盛行西风", "地中海气候"],
-    "review_after_days": [3, 7, 15]
+    "explanation": "甲、丁位于中纬大陆西岸，冬季锋面气旋活动较多；丙位于北美中部平原，南北气流通道通畅，年温差大。",
+    "key_points": [
+      "大陆西岸气候",
+      "中部平原",
+      "气候影响因素"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-CLI-004",
     "topic_id": "physical.atmosphere",
-    "title": "气候图先判断什么",
-    "source": "原创诊断题（教材第三章第三节）",
+    "knowledge_point_id": "climate.rainfall-controls",
+    "title": "地中海岛屿7月少雨",
+    "source": "资料包·步步高课时18课时精练第4题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/island-july-rainfall.png",
+    "source_image_alt": "世界某岛屿7月降水分布图",
     "type": "single_choice",
     "difficulty": 2,
-    "stem": "某气候图中7月气温最高，12月至次年2月降水多，6—8月降水很少。仅依据这些特征，最合理的判断是：",
+    "stem": "读世界某岛屿7月降水分布图。该岛屿7月份降水稀少的主要原因是：",
     "options": [
-      {"id": "A", "text": "北半球地中海气候，夏干冬雨"},
-      {"id": "B", "text": "南半球地中海气候，夏干冬雨"},
-      {"id": "C", "text": "北半球温带季风气候，夏雨冬干"},
-      {"id": "D", "text": "热带雨林气候，全年高温多雨"}
+      {
+        "id": "A",
+        "text": "受干燥东北信风影响"
+      },
+      {
+        "id": "B",
+        "text": "寒流降温减湿增强"
+      },
+      {
+        "id": "C",
+        "text": "位于盛行西风背风坡"
+      },
+      {
+        "id": "D",
+        "text": "受副热带高压控制"
+      }
     ],
-    "answer": "A",
+    "answer": "D",
     "error_map": {
-      "B": {"tag": "A-GRAPH-HEMISPHERE", "diagnosis": "7月最热说明高温期在北半球夏季。", "follow_up": "南半球陆地通常在1月还是7月接近最热？"},
-      "C": {"tag": "A-GRAPH-PRECIP", "diagnosis": "题干显示夏季少雨、冬季多雨，与温带季风气候相反。", "follow_up": "先暂不命名气候，只写出6—8月和12—2月的干湿对比。"},
-      "D": {"tag": "A-GRAPH-TYPE", "diagnosis": "热带雨林气候应全年高温多雨，不应有明显夏季少雨。", "follow_up": "图中是否存在连续数月的显著少雨期？"}
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
     },
-    "explanation": "7月最热指向北半球；高温期少雨、低温期多雨，符合北半球地中海气候的夏干冬雨特征。",
-    "key_points": ["气候图", "半球判断", "降水季节分配", "地中海气候"],
-    "review_after_days": [2, 6, 14]
+    "explanation": "该岛位于地中海地区，7月受副热带高压控制，下沉气流不利于成云致雨。",
+    "key_points": [
+      "副热带高压",
+      "地中海气候",
+      "夏季少雨"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   },
   {
     "id": "GEO-CLI-005",
     "topic_id": "physical.atmosphere",
-    "title": "造山引雨不能漏掉的前提",
-    "source": "原创诊断题（教材第三章问题研究）",
+    "knowledge_point_id": "climate.rainfall-controls",
+    "title": "岛屿山地的降水类型",
+    "source": "资料包·步步高课时18课时精练第5题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/atmosphere/island-july-rainfall.png",
+    "source_image_alt": "世界某岛屿7月降水分布图",
     "type": "single_choice",
-    "difficulty": 3,
-    "stem": "评估阿联酋附近“造山引雨”设想时，即使拟建山体足够高，最先还应核对哪项自然条件？",
+    "difficulty": 2,
+    "stem": "读世界某岛屿7月降水分布图。甲地位于河流源地且降水量线闭合，其主要降水类型是：",
     "options": [
-      {"id": "A", "text": "是否有较稳定且含水汽较多的气流吹向山体"},
-      {"id": "B", "text": "山体名称是否容易用于旅游宣传"},
-      {"id": "C", "text": "背风坡是否一定比迎风坡降水更多"},
-      {"id": "D", "text": "只要抬升空气，任何干燥气流都会形成大量降水"}
+      {
+        "id": "A",
+        "text": "对流雨"
+      },
+      {
+        "id": "B",
+        "text": "地形雨"
+      },
+      {
+        "id": "C",
+        "text": "锋面雨"
+      },
+      {
+        "id": "D",
+        "text": "台风雨"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "甲地为岛上山地区域，湿润气流受地形抬升冷却凝结，主要形成地形雨。",
+    "key_points": [
+      "地形雨",
+      "河流源地",
+      "等降水量线"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-URB-001",
+    "topic_id": "human.urban",
+    "knowledge_point_id": "urban.satellite-town-location",
+    "title": "格林尼治小镇的居住吸引力",
+    "source": "资料包·步步高课时63课时精练第8题",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "格林尼治小镇距纽约42千米，是纽约卫星城镇。20世纪初，小镇只是纽约金融从业者逃避城市生活、放松休闲之地。其吸引纽约大量金融高端人士定居，主要是因为：",
+    "options": [
+      {
+        "id": "A",
+        "text": "交通便利"
+      },
+      {
+        "id": "B",
+        "text": "环境优美"
+      },
+      {
+        "id": "C",
+        "text": "地价低廉"
+      },
+      {
+        "id": "D",
+        "text": "设施完善"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "题干强调金融从业者来此逃避大城市生活、放松休闲，直接指向小镇环境优美。",
+    "key_points": [
+      "卫星城镇",
+      "居住区位",
+      "环境质量"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-URB-002",
+    "topic_id": "human.urban",
+    "knowledge_point_id": "urban.satellite-town-location",
+    "title": "金融服务小镇的集聚优势",
+    "source": "资料包·步步高课时63课时精练第9题",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "20世纪90年代，格林尼治小镇吸引纽约大量金融机构总部迁入，成为全球著名金融服务小镇。目前仍有大量金融管理机构入驻，其核心目的是获得：",
+    "options": [
+      {
+        "id": "A",
+        "text": "集聚优势"
+      },
+      {
+        "id": "B",
+        "text": "设备技术"
+      },
+      {
+        "id": "C",
+        "text": "工作人员"
+      },
+      {
+        "id": "D",
+        "text": "公共服务"
+      }
     ],
     "answer": "A",
     "error_map": {
-      "B": {"tag": "A-ORO-EVIDENCE", "diagnosis": "旅游宣传不是形成地形雨的自然前提。", "follow_up": "地形雨需要哪三项连续条件：水汽、抬升、什么过程？"},
-      "C": {"tag": "A-ORO-LEE", "diagnosis": "一般情况下迎风坡抬升降水较多，背风坡反而可能形成雨影。", "follow_up": "气流越过山顶后下沉增温，湿度会怎样变化？"},
-      "D": {"tag": "A-ORO-MOISTURE", "diagnosis": "把抬升当成必然大量降水，忽略了可凝结水汽来源。", "follow_up": "若空气本来很干，即使降温，能凝结出的水量是否一定大？"}
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
     },
-    "explanation": "山体只能迫使来流抬升，不能凭空制造水汽。稳定的湿润来流是形成明显地形雨的前提，之后还要评估山体尺度、成本、生态影响和替代措施。",
-    "key_points": ["地形雨", "水汽来源", "迎风坡", "工程可行性"],
-    "review_after_days": [3, 8, 16]
+    "explanation": "大量同类金融机构集聚，可共享专业劳动力、信息和公共服务，降低协作成本，核心是获得集聚优势。",
+    "key_points": [
+      "产业集聚",
+      "金融服务",
+      "卫星城镇"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REG-001",
+    "topic_id": "regional.resources",
+    "knowledge_point_id": "regional.resource-evaluation",
+    "title": "内蒙古优势自然资源",
+    "source": "资料包·步步高课时60课时精练第7题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/china-resource-evaluation.png",
+    "source_image_alt": "我国各省区资源条件评价示意图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "资源评价包括资源合理性、可利用量、自然品质、赋存条件和开发价值。读我国各省区资源条件评价图，内蒙古自治区的优势自然资源有：",
+    "options": [
+      {
+        "id": "A",
+        "text": "草场、煤炭、稀土"
+      },
+      {
+        "id": "B",
+        "text": "煤炭、石油、天然气"
+      },
+      {
+        "id": "C",
+        "text": "风能、水能、生物能"
+      },
+      {
+        "id": "D",
+        "text": "乳品、土地、有色金属"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
+    },
+    "explanation": "内蒙古草场广阔，煤炭、稀土等矿产资源丰富；乳品属于产品，不是自然资源。",
+    "key_points": [
+      "资源评价",
+      "内蒙古",
+      "自然资源分类"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REG-002",
+    "topic_id": "regional.resources",
+    "knowledge_point_id": "regional.resource-evaluation",
+    "title": "西部水土资源约束下的农业选择",
+    "source": "资料包·步步高课时60课时精练第8题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/china-resource-evaluation.png",
+    "source_image_alt": "我国各省区资源条件评价示意图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "我国西部地区土地资源丰富，但水资源相对不足，发展农业生产时应：",
+    "options": [
+      {
+        "id": "A",
+        "text": "重视跨流域调水工程建设"
+      },
+      {
+        "id": "B",
+        "text": "大力发展种植业"
+      },
+      {
+        "id": "C",
+        "text": "开垦荒地增加播种面积"
+      },
+      {
+        "id": "D",
+        "text": "突出畜牧业优势"
+      }
+    ],
+    "answer": "D",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
+    },
+    "explanation": "西部水资源不足限制大规模种植业，而草场资源丰富，应按因地制宜原则突出畜牧业优势。",
+    "key_points": [
+      "水土资源匹配",
+      "因地制宜",
+      "西部农业"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-005",
+    "topic_id": "regional.development",
+    "title": "青川与安吉：同尺度不等于同特征",
+    "source": "资料包·步步高课时59课时精练第5题",
+    "source_meta": {
+      "resource": "2024年高考地理一轮复习（新人教版） 第3部分 第1章 课时59 区域与区域发展.docx",
+      "section": "课时精练",
+      "question_label": "第5题",
+      "local_only": true
+    },
+    "source_image": "./assets/questions/region-development/qingchuan-anji-cooperation.png",
+    "source_image_alt": "青川县与安吉县位置、气候资料及一片叶子富一方百姓示意图",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "在国家政策支持下，浙江省安吉县在充分考虑地形、气候、土壤等适宜茶叶生长的自然条件后，选择帮扶四川省青川县建设绿色有机茶叶生产基地，茶叶后期加工销售由浙江省茶叶集团负责。青川县与安吉县：",
+    "options": [
+      {
+        "id": "A",
+        "text": "空间尺度相同"
+      },
+      {
+        "id": "B",
+        "text": "区域特征相同"
+      },
+      {
+        "id": "C",
+        "text": "气候类型不同"
+      },
+      {
+        "id": "D",
+        "text": "县界类型不同"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "R-SAME-SCALE-SAME-FEATURE",
+        "diagnosis": "你把同为县级、尺度相近推成区域特征完全相同。",
+        "follow_up": "两地降水量、位置和社会经济条件是否全部相同？"
+      },
+      "C": {
+        "tag": "R-CLIMATE-TYPE",
+        "diagnosis": "你把降水量差异误判成气候类型不同；两地都属于亚热带季风气候。",
+        "follow_up": "同一种气候类型内部能否存在降水总量差异？"
+      },
+      "D": {
+        "tag": "R-BOUNDARY-TYPE",
+        "diagnosis": "你忽略了两者都是县级行政区，县界类型相同。",
+        "follow_up": "边界类型由图幅面积决定，还是由行政区性质决定？"
+      }
+    },
+    "explanation": "源题解析指出，青川县与安吉县都是县级单位，空间尺度基本相同；两地都属于亚热带季风气候，但降水等区域特征并不完全相同，县界同属行政边界。",
+    "key_points": [
+      "区域尺度",
+      "区域特征",
+      "行政边界",
+      "同中有异"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "knowledge_point_id": "region.day01-boundary-scale",
+    "source_material_kind": "image"
+  },
+  {
+    "id": "GEO-REGDEV-006",
+    "topic_id": "regional.development",
+    "title": "一片叶子富两地：识别区域关联",
+    "source": "资料包·步步高课时59课时精练第6题",
+    "source_meta": {
+      "resource": "2024年高考地理一轮复习（新人教版） 第3部分 第1章 课时59 区域与区域发展.docx",
+      "section": "课时精练",
+      "question_label": "第6题",
+      "local_only": true
+    },
+    "source_image": "./assets/questions/region-development/qingchuan-anji-cooperation.png",
+    "source_image_alt": "青川县与安吉县位置、气候资料及一片叶子富一方百姓示意图",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "浙江省安吉县帮扶四川省青川县建设绿色有机茶叶生产基地，茶叶后期加工销售由浙江省茶叶集团负责。图中连接两地的箭头反映出区域间具有：",
+    "options": [
+      {
+        "id": "A",
+        "text": "整体性"
+      },
+      {
+        "id": "B",
+        "text": "差异性"
+      },
+      {
+        "id": "C",
+        "text": "关联性"
+      },
+      {
+        "id": "D",
+        "text": "连续性"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "R-INTERNAL-EXTERNAL",
+        "diagnosis": "你把区域内部要素组成整体与区域之间的要素联系混淆。",
+        "follow_up": "箭头是在一个区域内部，还是连接两个区域？"
+      },
+      "B": {
+        "tag": "R-DIFFERENCE-VS-LINK",
+        "diagnosis": "材料确实有区域差异，但箭头直接表达的是两地之间的帮扶、加工和销售联系。",
+        "follow_up": "如果题目问“箭头表示什么”，应优先读差异背景还是流动方向？"
+      },
+      "D": {
+        "tag": "R-INTERNAL-EXTERNAL",
+        "diagnosis": "连续性通常描述区域内部特征的延续，不能概括跨省协作箭头。",
+        "follow_up": "跨区域的产品、技术和市场联系属于哪一特征？"
+      }
+    },
+    "explanation": "源题解析指出，箭头位于两个区域之间，体现安吉与青川之间的帮扶、生产、加工和销售联系，因此反映区域关联性。",
+    "key_points": [
+      "区域关联性",
+      "要素流动",
+      "区域协作",
+      "图示信息"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "knowledge_point_id": "region.day01-boundary-scale",
+    "source_material_kind": "image"
+  },
+  {
+    "id": "GEO-REGDEV-001",
+    "topic_id": "regional.development",
+    "title": "南长滩村：先判断定居条件",
+    "source": "资料包·步步高课时59课时精练第1题（2023·湖北襄阳市期末）",
+    "source_meta": {
+      "resource": "2024年高考地理一轮复习（新人教版） 第3部分 第1章 课时59 区域与区域发展.docx",
+      "section": "课时精练",
+      "question_label": "第1题",
+      "local_only": true
+    },
+    "source_image": "./assets/questions/region-development/nanchangtan-village.png",
+    "source_image_alt": "南长滩村位于黄河凸岸河滩的景观图",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "南长滩村地处宁夏、甘肃两省交界处，因黄河黑山峡冲刷淤积形成狭长河滩地而得名，是黄河进入宁夏的第一个行政村，素有“宁夏黄河第一村”之称。南长滩村村民大多数姓拓，是西夏党项贵族后裔，并保存有完整的族谱。村中古宅庭院错落有致，石砌小道环绕其中。村里有一大片梨园，上千棵古梨树，有的树龄达四百多年。2008年12月，南长滩村被确定为宁夏首个“全国历史文化名村”。2000年以后，南长滩实现了通车、通电、通电话。南长滩村所在地吸引村民祖先定居的优势条件是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "文化底蕴深厚"
+      },
+      {
+        "id": "B",
+        "text": "交通条件便利"
+      },
+      {
+        "id": "C",
+        "text": "土壤疏松肥沃"
+      },
+      {
+        "id": "D",
+        "text": "自然灾害隐患小"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "R-TIME-CAUSE",
+        "diagnosis": "你把定居后形成的文化积淀当成了最初定居的前提。",
+        "follow_up": "区分“祖先定居时已经具备的条件”和“定居后逐渐形成的特征”。"
+      },
+      "B": {
+        "tag": "R-TIME-CAUSE",
+        "diagnosis": "你使用了2000年以后交通改善的信息解释更早的祖先定居。",
+        "follow_up": "题干中交通改善发生在什么时候？祖先最初定居又发生在什么时候？"
+      },
+      "D": {
+        "tag": "R-RIVER-RISK",
+        "diagnosis": "你忽略了河滩地邻近黄河，仍可能面临洪水和岸坡冲刷风险。",
+        "follow_up": "河流凸岸的堆积优势和临河灾害风险能否同时存在？"
+      }
+    },
+    "explanation": "源题解析指出，南长滩村位于河流凸岸，凸岸以流水堆积作用为主，地形较平坦，土壤疏松肥沃，有利于耕作；文化底蕴形成于定居之后，早期交通并不便利，临河也存在灾害隐患。",
+    "key_points": [
+      "区域整体性",
+      "自然条件",
+      "聚落区位",
+      "因果时序"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "knowledge_point_id": "region.day02-integrity-linkage",
+    "source_material_kind": "image"
+  },
+  {
+    "id": "GEO-REGDEV-002",
+    "topic_id": "regional.development",
+    "title": "南长滩村：发展方向要匹配资源",
+    "source": "资料包·步步高课时59课时精练第2题（2023·湖北襄阳市期末）",
+    "source_meta": {
+      "resource": "2024年高考地理一轮复习（新人教版） 第3部分 第1章 课时59 区域与区域发展.docx",
+      "section": "课时精练",
+      "question_label": "第2题",
+      "local_only": true
+    },
+    "source_image": "./assets/questions/region-development/nanchangtan-village.png",
+    "source_image_alt": "南长滩村位于黄河凸岸河滩的景观图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "南长滩村地处宁夏、甘肃两省交界处，因黄河黑山峡冲刷淤积形成狭长河滩地而得名，是黄河进入宁夏的第一个行政村，素有“宁夏黄河第一村”之称。南长滩村村民大多数姓拓，是西夏党项贵族后裔，并保存有完整的族谱。村中古宅庭院错落有致，石砌小道环绕其中。村里有一大片梨园，上千棵古梨树，有的树龄达四百多年。2008年12月，南长滩村被确定为宁夏首个“全国历史文化名村”。2000年以后，南长滩实现了通车、通电、通电话。增加南长滩村居民收入的最佳措施是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "扩大梨树种植面积"
+      },
+      {
+        "id": "B",
+        "text": "发展旅游观光业"
+      },
+      {
+        "id": "C",
+        "text": "发展航运及相关产业"
+      },
+      {
+        "id": "D",
+        "text": "发展舍饲畜牧业"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "R-LAND-CAPACITY",
+        "diagnosis": "你抓住了古梨树资源，但没有核对河滩耕地面积有限这一承载条件。",
+        "follow_up": "古梨树的价值更适合通过扩大面积，还是与历史村落共同转化为旅游吸引力？"
+      },
+      "C": {
+        "tag": "R-TRANSPORT-MISMATCH",
+        "diagnosis": "你把临河直接等同于适合航运，没有判断黄河该河段的航运条件。",
+        "follow_up": "河流存在是否就意味着航运价值一定高？还要核对哪些条件？"
+      },
+      "D": {
+        "tag": "R-ECOLOGY-TRADEOFF",
+        "diagnosis": "你忽略了舍饲畜牧业污染可能损害历史文化名村的环境品质。",
+        "follow_up": "该产业与村庄最稀缺、最有价值的资源之间是否存在冲突？"
+      }
+    },
+    "explanation": "源题解析依据独特自然景观、历史文化名村、古梨树资源和基础设施改善，判断旅游观光业最能带动就业与相关产业；大规模扩种受耕地限制，航运价值较低，畜牧污染不利于保护名村环境。",
+    "key_points": [
+      "因地制宜",
+      "资源优势",
+      "环境约束",
+      "区域发展方向"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "knowledge_point_id": "region.day02-integrity-linkage",
+    "source_material_kind": "image"
+  },
+  {
+    "id": "GEO-REGDEV-003",
+    "topic_id": "regional.development",
+    "title": "瑞士与贵州：读懂产业结构比例",
+    "source": "资料包·步步高课时59课时精练第3题",
+    "source_meta": {
+      "resource": "2024年高考地理一轮复习（新人教版） 第3部分 第1章 课时59 区域与区域发展.docx",
+      "section": "课时精练",
+      "question_label": "第3题",
+      "local_only": true
+    },
+    "dataset": {
+      "title": "瑞士和贵州产业结构（资料包原表）",
+      "columns": [
+        "地区",
+        "三次产业结构",
+        "主导产业"
+      ],
+      "rows": [
+        [
+          "瑞士",
+          "4∶50∶46",
+          "精密仪器设备制造、生物医药、旅游业、银行业、保险业"
+        ],
+        [
+          "贵州",
+          "15.6∶39.5∶44.9",
+          "能源工业、有色金属冶炼、化学工业、中药材加工、旅游业"
+        ]
+      ]
+    },
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "瑞士和贵州相隔万里且经济发展程度不同，但两地在自然地理环境、交通区位等诸多方面有相似之处。近年来，贵州希望借鉴瑞士的发展经验，促进产业结构升级和优化。与瑞士相比，贵州产业结构特征为：",
+    "options": [
+      {
+        "id": "A",
+        "text": "农业比重大于瑞士"
+      },
+      {
+        "id": "B",
+        "text": "高端制造业比重大"
+      },
+      {
+        "id": "C",
+        "text": "重化工业比重小"
+      },
+      {
+        "id": "D",
+        "text": "第三产业就业人数少"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "R-INDUSTRY-EVIDENCE",
+        "diagnosis": "你没有依据主导产业表判断高端制造业，反而把瑞士的产业优势移给了贵州。",
+        "follow_up": "精密仪器和生物医药列在哪个地区？贵州列出的制造业以哪类为主？"
+      },
+      "C": {
+        "tag": "R-INDUSTRY-EVIDENCE",
+        "diagnosis": "你忽略了贵州主导产业中的能源、有色冶炼和化学工业。",
+        "follow_up": "这些产业通常属于轻工业、高端制造业还是重化工业？"
+      },
+      "D": {
+        "tag": "R-RATIO-ABSOLUTE",
+        "diagnosis": "表格给的是产业产值结构比例，不能直接推出就业人数的绝对多少。",
+        "follow_up": "比例和绝对量分别还需要什么数据？"
+      }
+    },
+    "explanation": "源题解析指出，贵州第一产业比重为15.6%，明显高于瑞士的4%；贵州重化工业比重大、高端制造业比重不大。表中是产业结构比例，不能据此判断第三产业就业人数的绝对量。",
+    "key_points": [
+      "区域差异",
+      "产业结构",
+      "比例与绝对量",
+      "证据读取"
+    ],
+    "review_after_days": [
+      2,
+      6,
+      14
+    ],
+    "knowledge_point_id": "region.day03-comparison-transfer",
+    "source_material_kind": "table"
+  },
+  {
+    "id": "GEO-REGDEV-004",
+    "topic_id": "regional.development",
+    "title": "贵州产业升级：不能脱离区域条件",
+    "source": "资料包·步步高课时59课时精练第4题",
+    "source_meta": {
+      "resource": "2024年高考地理一轮复习（新人教版） 第3部分 第1章 课时59 区域与区域发展.docx",
+      "section": "课时精练",
+      "question_label": "第4题",
+      "local_only": true
+    },
+    "dataset": {
+      "title": "瑞士和贵州产业结构（资料包原表）",
+      "columns": [
+        "地区",
+        "三次产业结构",
+        "主导产业"
+      ],
+      "rows": [
+        [
+          "瑞士",
+          "4∶50∶46",
+          "精密仪器设备制造、生物医药、旅游业、银行业、保险业"
+        ],
+        [
+          "贵州",
+          "15.6∶39.5∶44.9",
+          "能源工业、有色金属冶炼、化学工业、中药材加工、旅游业"
+        ]
+      ]
+    },
+    "type": "single_choice",
+    "difficulty": 3,
+    "stem": "瑞士和贵州相隔万里且经济发展程度不同，但两地在自然地理环境、交通区位等诸多方面有相似之处。近年来，贵州希望借鉴瑞士的发展经验，促进产业结构升级和优化。优化贵州产业结构，不宜：",
+    "options": [
+      {
+        "id": "A",
+        "text": "加大资金、技术投入，推动产业转型升级"
+      },
+      {
+        "id": "B",
+        "text": "改善基础设施，推动旅游业的发展"
+      },
+      {
+        "id": "C",
+        "text": "积极发展核电，降低对煤炭的依赖"
+      },
+      {
+        "id": "D",
+        "text": "集约发展冶金、化工等工业，减少污染排放"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "R-TRANSFORM-METHOD",
+        "diagnosis": "你把产业转型需要的资金和技术投入误判为不宜措施。",
+        "follow_up": "贵州高效益产业偏少时，升级现有产业最缺少哪类要素？"
+      },
+      "B": {
+        "tag": "R-RESOURCE-ADVANTAGE",
+        "diagnosis": "你没有利用贵州旅游资源优势判断基础设施改善的作用。",
+        "follow_up": "交通与服务设施改善会怎样改变旅游资源的可达性和接待能力？"
+      },
+      "D": {
+        "tag": "R-TRANSFORM-METHOD",
+        "diagnosis": "你把“集约发展、减少污染”与“盲目扩大重化工业”混为一谈。",
+        "follow_up": "集约化能否同时提高能源利用率并降低单位产出的污染？"
+      }
+    },
+    "explanation": "源题解析认为贵州应通过资金、技术投入推进转型，改善基础设施发展旅游，并以集约方式提高重化工业效率、减少污染；贵州火电、水电资源较丰富，没有发展高成本核电的必要。",
+    "key_points": [
+      "因地制宜",
+      "产业升级",
+      "资源条件",
+      "措施评价"
+    ],
+    "review_after_days": [
+      3,
+      7,
+      15
+    ],
+    "knowledge_point_id": "region.day03-comparison-transfer",
+    "source_material_kind": "table"
+  },
+  {
+    "id": "GEO-REGDEV-007",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day04-natural-foundation",
+    "title": "黄河流域综合指数：甘肃优势",
+    "source": "资料包·步步高课时60课时精练第1题（2023·广西百色期末）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/yellow-river-index.png",
+    "source_image_alt": "2007至2017年黄河流域各省区水能源粮食安全综合指数均值图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "黄河流域水—能源—粮食安全系统综合指数越高，区域发展协调度越高。读2007～2017年均值空间分布图，甘肃省综合指数最高，得益于：",
+    "options": [
+      {
+        "id": "A",
+        "text": "农作物单产高"
+      },
+      {
+        "id": "B",
+        "text": "经济发展水平高"
+      },
+      {
+        "id": "C",
+        "text": "能源丰富多样"
+      },
+      {
+        "id": "D",
+        "text": "气候条件较优越"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
+    },
+    "explanation": "甘肃风能、水能、太阳能和煤炭等能源资源丰富，为经济和粮食生产提供多样能源保障。",
+    "key_points": [
+      "自然资源",
+      "区域协调",
+      "能源结构"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-008",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day04-natural-foundation",
+    "title": "黄河流域综合指数：山西短板",
+    "source": "资料包·步步高课时60课时精练第2题（2023·广西百色期末）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/yellow-river-index.png",
+    "source_image_alt": "2007至2017年黄河流域各省区水能源粮食安全综合指数均值图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "读黄河流域各省区水—能源—粮食安全系统综合指数均值空间分布图。山西省综合指数低的主要原因是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "煤炭消费量大，利用效率低"
+      },
+      {
+        "id": "B",
+        "text": "多山地丘陵，粮食生产面积小"
+      },
+      {
+        "id": "C",
+        "text": "位于干旱地区，降水总量少"
+      },
+      {
+        "id": "D",
+        "text": "热量条件差，作物生长周期短"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
+    },
+    "explanation": "山西能源结构以煤炭为主，消费量大且利用效率较低，影响水—能源—粮食系统协调。",
+    "key_points": [
+      "资源利用效率",
+      "产业结构",
+      "区域短板"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-009",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day05-ecological-governance",
+    "title": "风沙流防控的关键高度",
+    "source": "资料包·步步高课时61课时精练第1题（2023·四川绵阳模拟）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/wind-sand-height.png",
+    "source_image_alt": "蒙古国甲地风沙流输沙量随高度变化的累积分布图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "蒙古国甲地位于平坦河谷，植被覆盖率较高但年输沙量大。读近地面风沙流输沙量随高度变化的累积分布图，防控风沙流的关键高度是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "0～20 cm"
+      },
+      {
+        "id": "B",
+        "text": "21～40 cm"
+      },
+      {
+        "id": "C",
+        "text": "41～60 cm"
+      },
+      {
+        "id": "D",
+        "text": "61 cm以上"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
+    },
+    "explanation": "0～35 cm输沙累积增长最快，其中0～20 cm增速最大，是防控风沙流的关键高度。",
+    "key_points": [
+      "风沙流",
+      "读曲线",
+      "关键高度"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-010",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day05-ecological-governance",
+    "title": "风沙流防控的植被组合",
+    "source": "资料包·步步高课时61课时精练第2题（2023·四川绵阳模拟）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/wind-sand-height.png",
+    "source_image_alt": "蒙古国甲地风沙流输沙量随高度变化的累积分布图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "结合甲地风沙流主要集中在近地面低层且区域水资源有限，防控风沙流的有效生态措施是大量种植：",
+    "options": [
+      {
+        "id": "A",
+        "text": "灌木和乔木"
+      },
+      {
+        "id": "B",
+        "text": "草本和灌木"
+      },
+      {
+        "id": "C",
+        "text": "草本和乔木"
+      },
+      {
+        "id": "D",
+        "text": "藤本和水生植物"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "草本和灌木覆盖高度贴近关键输沙层，需水量又小于乔木，更符合干旱区生态承载力。",
+    "key_points": [
+      "生态治理",
+      "植被配置",
+      "水资源约束"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-011",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day06-resource-city-transition",
+    "title": "布查德花园的经营优势",
+    "source": "资料包·步步高课时62课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/butchart-garden.png",
+    "source_image_alt": "加拿大温哥华岛布查德花园位置与景观图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "加拿大温哥华岛石灰岩开采殆尽后，人们在矿坑上建造布查德花园，由专业设计师设计、专业园艺师运营，并配置多种服务设施。花园经营效果很好，主要因为：",
+    "options": [
+      {
+        "id": "A",
+        "text": "明确目标客户群定价"
+      },
+      {
+        "id": "B",
+        "text": "突出花园文化特色"
+      },
+      {
+        "id": "C",
+        "text": "专业规划与专业经营"
+      },
+      {
+        "id": "D",
+        "text": "充分发掘旅游衍生品"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
+    },
+    "explanation": "材料直接强调专业设计、专业运营和完善服务设施，这是花园持续吸引游客的核心。",
+    "key_points": [
+      "资源型地区转型",
+      "专业运营",
+      "旅游开发"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-012",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day06-resource-city-transition",
+    "title": "资源枯竭城市的转型启示",
+    "source": "资料包·步步高课时62课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/butchart-garden.png",
+    "source_image_alt": "加拿大温哥华岛布查德花园位置与景观图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "布查德花园经过几代人努力，由废弃石灰岩矿坑转型为著名旅游地。其经营模式给资源枯竭型城市的启示是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "加大投入，一次性完成战略转型"
+      },
+      {
+        "id": "B",
+        "text": "开发新的资源，培育新的主导产业"
+      },
+      {
+        "id": "C",
+        "text": "延长产业链，提升原有资源利用价值"
+      },
+      {
+        "id": "D",
+        "text": "依靠长久历史文化积淀"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "矿坑转为花园旅游地，本质是开发新的发展资源、培育替代产业，并非延伸原采矿产业链。",
+    "key_points": [
+      "替代产业",
+      "资源枯竭型城市",
+      "渐进转型"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-013",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day07-transition-case",
+    "title": "南桐煤炭基地的区位条件",
+    "source": "资料包·步步高课时62课时精练第3题（2023·江苏扬州期末）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/wansheng-location.png",
+    "source_image_alt": "重庆万盛区位置示意图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "读重庆市万盛区（原南桐矿区）位置与发展简历。南桐矿区发展为当时著名煤炭工业基地的区位条件有：①地形平坦开阔　②临近河流、航运发达　③煤炭丰富　④国防需求与政策支持",
+    "options": [
+      {
+        "id": "A",
+        "text": "①②"
+      },
+      {
+        "id": "B",
+        "text": "①③"
+      },
+      {
+        "id": "C",
+        "text": "②③"
+      },
+      {
+        "id": "D",
+        "text": "③④"
+      }
+    ],
+    "answer": "D",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
+    },
+    "explanation": "南桐矿区煤炭资源丰富，抗战时期国防物资需求与政策支持显著；其山区地形和距长江较远并非优势。",
+    "key_points": [
+      "资源型城市",
+      "区位条件",
+      "政策因素"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-014",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day07-transition-case",
+    "title": "万盛区的转型措施",
+    "source": "资料包·步步高课时62课时精练第4题（2023·江苏扬州期末）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/wansheng-location.png",
+    "source_image_alt": "重庆万盛区位置示意图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "面对煤炭资源枯竭和矿区环境问题，重庆万盛区转型发展的合理措施有：①开发新资源、培育新产业　②修梯田发展水稻　③整合小煤矿扩大规模　④治理环境发展旅游",
+    "options": [
+      {
+        "id": "A",
+        "text": "①②"
+      },
+      {
+        "id": "B",
+        "text": "①④"
+      },
+      {
+        "id": "C",
+        "text": "②③"
+      },
+      {
+        "id": "D",
+        "text": "②④"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "资源枯竭区应培育替代产业并修复生态、发展旅游；继续扩大煤炭开采不能解决资源枯竭，水稻种植也不符合山区条件。",
+    "key_points": [
+      "产业替代",
+      "生态修复",
+      "转型措施"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-015",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day08-city-radiation",
+    "title": "城市群核心辐射强度",
+    "source": "资料包·步步高课时63课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/city-cluster-crystal.png",
+    "source_image_alt": "单中心、双中心和多中心城市群空间结构组合图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "城市群空间扩展可形成类似晶体的分等级节点网络。读单中心、双中心和多中心组合城市群图，核心城市对周边城市的辐射功能由大到小是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "单中心、多中心、双中心"
+      },
+      {
+        "id": "B",
+        "text": "双中心、多中心、单中心"
+      },
+      {
+        "id": "C",
+        "text": "多中心、双中心、单中心"
+      },
+      {
+        "id": "D",
+        "text": "单中心、双中心、多中心"
+      }
+    ],
+    "answer": "D",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
+    },
+    "explanation": "核心数量越多，核心腹地重叠越明显，单个核心对节点城市的单一辐射程度越低。",
+    "key_points": [
+      "城市辐射",
+      "城市群结构",
+      "核心城市"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-016",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day08-city-radiation",
+    "title": "城市群核心城市等级",
+    "source": "资料包·步步高课时63课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/city-cluster-crystal.png",
+    "source_image_alt": "单中心、双中心和多中心城市群空间结构组合图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "下列城市群中，核心城市等级最高的是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "京津冀城市群"
+      },
+      {
+        "id": "B",
+        "text": "山东半岛城市群"
+      },
+      {
+        "id": "C",
+        "text": "辽中南城市群"
+      },
+      {
+        "id": "D",
+        "text": "长江中游城市群"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案A的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案A的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案A的证据差异。"
+      }
+    },
+    "explanation": "京津冀城市群核心北京为国家首都和全国性中心城市，城市等级高于其他选项中的核心城市。",
+    "key_points": [
+      "城市等级",
+      "服务范围",
+      "京津冀"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-017",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day09-industrial-structure",
+    "title": "榆林产业结构演化因素",
+    "source": "资料包·步步高课时64课时精练第1题（2023·湖南郴州期末）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/yulin-industry-structure.png",
+    "source_image_alt": "榆林市1990至2015年GDP与三次产业结构演化图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "榆林位于陕北能源开发区腹地，煤炭、石油、天然气丰富。读1990～2015年GDP与三次产业结构演化图，影响其产业结构演化的主要因素有：①资源禀赋　②人力数量　③市场需求　④国家政策",
+    "options": [
+      {
+        "id": "A",
+        "text": "①②③"
+      },
+      {
+        "id": "B",
+        "text": "①②④"
+      },
+      {
+        "id": "C",
+        "text": "①③④"
+      },
+      {
+        "id": "D",
+        "text": "②③④"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
+    },
+    "explanation": "能源资源禀赋、能源市场需求和国家能源基地政策共同推动第二产业发展，人力资源数量不是主要决定因素。",
+    "key_points": [
+      "产业结构",
+      "资源禀赋",
+      "市场与政策"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-018",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day09-industrial-structure",
+    "title": "榆林产业结构升级的影响",
+    "source": "资料包·步步高课时64课时精练第2题（2023·湖南郴州期末）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/yulin-industry-structure.png",
+    "source_image_alt": "榆林市1990至2015年GDP与三次产业结构演化图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "读图可见2012～2015年榆林第二产业比重下降、第三产业比重上升。该阶段产业结构演化对当地的主要影响是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "加快矿产资源开发"
+      },
+      {
+        "id": "B",
+        "text": "提高资源利用效率"
+      },
+      {
+        "id": "C",
+        "text": "加快基础设施建设"
+      },
+      {
+        "id": "D",
+        "text": "促进区域均衡发展"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "第二产业比重下降、第三产业上升表明资源开发增速放缓、技术和服务投入增强，有助于提高资源利用效率。",
+    "key_points": [
+      "产业升级",
+      "资源效率",
+      "三次产业"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-019",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day10-industry-localization",
+    "title": "汽车适应伊朗市场的性能取舍",
+    "source": "资料包·步步高课时68课时精练第4题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/iran-car-material.png",
+    "source_image_alt": "伊朗等高线图和德黑兰气候统计图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "某中国汽车品牌进入伊朗并针对当地自然环境进行适应性测试。读伊朗等高线图和德黑兰气候统计图，不需要着重考虑的性能是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "爬坡性能"
+      },
+      {
+        "id": "B",
+        "text": "防爆胎性能"
+      },
+      {
+        "id": "C",
+        "text": "防湿滑性能"
+      },
+      {
+        "id": "D",
+        "text": "防风沙性能"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
+    },
+    "explanation": "伊朗地形起伏大、气候干旱多风沙，需要考虑爬坡、防爆胎和防风沙；全年降水少，防湿滑并非重点。",
+    "key_points": [
+      "市场本土化",
+      "自然环境",
+      "产品适应性"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-020",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day10-industry-localization",
+    "title": "伊朗合资建厂的首要因素",
+    "source": "资料包·步步高课时68课时精练第5题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/iran-car-material.png",
+    "source_image_alt": "伊朗等高线图和德黑兰气候统计图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "该品牌在伊朗拥有年产6万辆整车的合资工厂和150家销售服务网点。在伊朗建设合资工厂考虑的最主要因素是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "优惠政策"
+      },
+      {
+        "id": "B",
+        "text": "市场前景"
+      },
+      {
+        "id": "C",
+        "text": "科技水平"
+      },
+      {
+        "id": "D",
+        "text": "劳动力成本"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "合资工厂与密集销售网点体现靠近消费市场、开拓市场的目的，汽车生产对低成本劳动力依赖相对较小。",
+    "key_points": [
+      "工业区位",
+      "市场因素",
+      "海外建厂"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-021",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day11-basin-coordination",
+    "title": "国际河流综合开发核心",
+    "source": "资料包·步步高课时65课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/senegal-basin-material.png",
+    "source_image_alt": "塞内加尔河流域区域图与甲乙站年降水量图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "马里、塞内加尔和毛里塔尼亚联合成立流域治理开发委员会并修建水坝。读流域图和甲、乙站年降水图，塞内加尔河流域综合开发利用的核心是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "矿产资源深加工"
+      },
+      {
+        "id": "B",
+        "text": "水资源的协作开发"
+      },
+      {
+        "id": "C",
+        "text": "水污染综合治理"
+      },
+      {
+        "id": "D",
+        "text": "大力发展内河航运"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "流域内降水空间和季节差异显著，多个国家共享河流，综合开发核心是跨国协作配置水资源。",
+    "key_points": [
+      "流域治理",
+      "国际河流",
+      "水资源协作"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-022",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day11-basin-coordination",
+    "title": "河口水坝的独特功能",
+    "source": "资料包·步步高课时65课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/senegal-basin-material.png",
+    "source_image_alt": "塞内加尔河流域区域图与甲乙站年降水量图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "与上游马南塔里坝相比，靠近塞内加尔河入海口的迪亚马坝独特功能可能是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "防洪"
+      },
+      {
+        "id": "B",
+        "text": "灌溉"
+      },
+      {
+        "id": "C",
+        "text": "航运"
+      },
+      {
+        "id": "D",
+        "text": "阻咸"
+      }
+    ],
+    "answer": "D",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
+    },
+    "explanation": "迪亚马坝位于地势低平的河口附近，能够阻挡海水倒灌，阻咸是其区别于上游水坝的功能。",
+    "key_points": [
+      "河口",
+      "水坝功能",
+      "海水倒灌"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-023",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day12-resource-transfer",
+    "title": "鄂北调水工程的水量特征",
+    "source": "资料包·步步高课时66课时精练第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/north-hubei-water-transfer.png",
+    "source_image_alt": "鄂北水资源配置一期工程线路图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "鄂北水资源配置工程起点为丹江口水库，沿线地势不断降低，人口和耕地较多。读图判断，该工程：",
+    "options": [
+      {
+        "id": "A",
+        "text": "需要逐级抽水东送"
+      },
+      {
+        "id": "B",
+        "text": "可彻底解决鄂北旱情"
+      },
+      {
+        "id": "C",
+        "text": "调水水量季节变化小"
+      },
+      {
+        "id": "D",
+        "text": "调水水质较差"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
+    },
+    "explanation": "水源来自具有调节能力的丹江口水库，调水量季节变化较小；线路地势降低可自流，工程只能缓解而非彻底解决旱情。",
+    "key_points": [
+      "跨流域调水",
+      "水库调节",
+      "工程评价"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-024",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day12-resource-transfer",
+    "title": "鄂北调水的区域影响",
+    "source": "资料包·步步高课时66课时精练第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/north-hubei-water-transfer.png",
+    "source_image_alt": "鄂北水资源配置一期工程线路图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "鄂北水资源配置工程通水的主要影响是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "造成调出区水资源枯竭"
+      },
+      {
+        "id": "B",
+        "text": "加剧沿线土壤盐渍化"
+      },
+      {
+        "id": "C",
+        "text": "根治沿线水质污染"
+      },
+      {
+        "id": "D",
+        "text": "提高鄂北地区水安全保障"
+      }
+    ],
+    "answer": "D",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
+    },
+    "explanation": "工程增加鄂北供水，可缓解缺水对生产生活的限制，提高水安全保障；其他选项均夸大或不符合当地条件。",
+    "key_points": [
+      "调水影响",
+      "水安全",
+      "区域协调"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-025",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day13-industry-transfer",
+    "title": "佛山高耗能产业转出",
+    "source": "资料包·步步高课时67课时精练第1题（2023·湖北黄冈模拟）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/guangzhou-industry-transfer.png",
+    "source_image_alt": "2009至2019年广州都市圈各城市产业转移系统综合水平图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "图中产业转移系统综合水平越高，产业转出比重越大。2013年佛山该指数达到峰值，原因可能是：",
+    "options": [
+      {
+        "id": "A",
+        "text": "人口回流意愿明显"
+      },
+      {
+        "id": "B",
+        "text": "高耗能产业迁出"
+      },
+      {
+        "id": "C",
+        "text": "生态环境遭到破坏"
+      },
+      {
+        "id": "D",
+        "text": "劳动力成本下降"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案B的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案B的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案B的证据差异。"
+      }
+    },
+    "explanation": "指数峰值表示产业转出比重高，佛山推进产业升级时高耗能产业外迁最能直接解释该变化。",
+    "key_points": [
+      "产业转移",
+      "高耗能产业",
+      "图表判读"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-026",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day13-industry-transfer",
+    "title": "产业转出骤降的影响",
+    "source": "资料包·步步高课时67课时精练第2题（2023·湖北黄冈模拟）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/region-development/guangzhou-industry-transfer.png",
+    "source_image_alt": "2009至2019年广州都市圈各城市产业转移系统综合水平图",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "2016～2017年部分城市产业转移系统综合水平呈断崖式下跌，说明产业转出比重降低。这将使：",
+    "options": [
+      {
+        "id": "A",
+        "text": "土地成本上升"
+      },
+      {
+        "id": "B",
+        "text": "交通条件改善"
+      },
+      {
+        "id": "C",
+        "text": "科技成本提高"
+      },
+      {
+        "id": "D",
+        "text": "经济稳定发展"
+      }
+    ],
+    "answer": "D",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案D的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案D的证据差异。"
+      },
+      "C": {
+        "tag": "材料证据核对-C",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择C说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明C与正确答案D的证据差异。"
+      }
+    },
+    "explanation": "产业转出比重突然下降意味着本地生产活动相对稳定，有助于维持就业和经济运行稳定；不能直接推出其他变化。",
+    "key_points": [
+      "产业转移水平",
+      "区域经济",
+      "指标解读"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-027",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day14-international-cooperation",
+    "title": "埃塞俄比亚承接成衣制造的优势",
+    "source": "资料包·步步高课时68课时精练第1题",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "我国服装企业在埃塞俄比亚工业园区投资建立成衣制造厂，使其成为向欧美出口服装和皮革的主要国家之一。埃塞俄比亚的比较优势是：①土地和劳动力成本低　②距市场近　③工业基础好　④政策支持",
+    "options": [
+      {
+        "id": "A",
+        "text": "①②"
+      },
+      {
+        "id": "B",
+        "text": "①②③"
+      },
+      {
+        "id": "C",
+        "text": "①②④"
+      },
+      {
+        "id": "D",
+        "text": "①②③④"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
+    },
+    "explanation": "埃塞俄比亚土地和劳动力成本低，面向欧美市场区位较近，且增长转型计划提供政策支持，但工业基础仍较薄弱。",
+    "key_points": [
+      "国际产业转移",
+      "比较优势",
+      "政策与市场"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
+  },
+  {
+    "id": "GEO-REGDEV-028",
+    "topic_id": "regional.development",
+    "knowledge_point_id": "region.day14-international-cooperation",
+    "title": "承接产业转移的区域影响",
+    "source": "资料包·步步高课时68课时精练第2题",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "埃塞俄比亚承接中国产业转移，对本国的影响是：①促进产业结构调整　②改善当地环境质量　③加快工业化和城镇化　④提高失业率",
+    "options": [
+      {
+        "id": "A",
+        "text": "①②"
+      },
+      {
+        "id": "B",
+        "text": "③④"
+      },
+      {
+        "id": "C",
+        "text": "①③"
+      },
+      {
+        "id": "D",
+        "text": "②④"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "材料证据核对-A",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择A说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明A与正确答案C的证据差异。"
+      },
+      "B": {
+        "tag": "材料证据核对-B",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择B说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明B与正确答案C的证据差异。"
+      },
+      "D": {
+        "tag": "材料证据核对-D",
+        "diagnosis": "这是依据题源答案形成的候选错因：选择D说明材料、图表信息或地理规律中至少有一项尚未核对完整。",
+        "follow_up": "回到题干和配图，逐项说明D与正确答案C的证据差异。"
+      }
+    },
+    "explanation": "承接制造业有利于产业结构调整、增加就业并推进工业化和城镇化；同时可能带来环境压力，不会提高失业率。",
+    "key_points": [
+      "产业转移影响",
+      "工业化",
+      "城镇化"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ]
   }
 ]

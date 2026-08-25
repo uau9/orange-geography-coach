@@ -54,7 +54,7 @@
         <div class="project-evidence">${escapeHtml(project.status_detail)}</div>
         <div class="project-card-actions">
           <button class="btn ${project.accent === "orange" ? "orange" : "secondary"}" ${actionAttributes(project)}>${escapeHtml(project.cta)}</button>
-          ${project.status_kind === "diagnostic" ? `<button class="btn secondary" data-action="open-diagnostic-catalog">查看题目目录</button>` : ""}
+          ${project.id === "diagnostic-questions" ? `<button class="btn secondary" data-action="open-diagnostic-catalog">查看题目目录</button>` : ""}
         </div>
       </article>`;
   }

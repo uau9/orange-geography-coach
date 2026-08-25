@@ -1,118 +1,294 @@
 [
   {
-    "schema_version": "0.2.0",
-    "id": "RETEST-GRAPH-001",
-    "source_paper_review_id": "PAPER-SZGZ-2026-FINAL",
-    "title": "图表专项复测：识别趋势与转折",
-    "purpose": "检测是否能区分变量、单位和时间尺度，并把图表信息改写成完整因果链。",
-    "source": "原创诊断题",
-    "review_after_days": [2, 5, 12],
-    "context": "某高山流域气温持续升高，同期冰川面积持续缩小。下表为该流域2019—2024年的年径流量。",
-    "dataset": {
-      "title": "2019—2024年某高山流域年径流量",
-      "columns": ["年份", "年径流量（亿m³）"],
-      "rows": [
-        ["2019", "12.4"],
-        ["2020", "13.8"],
-        ["2021", "15.1"],
-        ["2022", "15.9"],
-        ["2023", "14.7"],
-        ["2024", "13.2"]
-      ]
+    "schema_version": "0.3.0",
+    "id": "RETEST-REGDEV-001",
+    "source_topic_id": "regional.development",
+    "title": "延迟复测：陕西三大地理单元",
+    "purpose": "用资料包原题检验是否能从地形、气候、坡向和农业方向形成完整的区域比较证据链。",
+    "source": "资料包选题",
+    "source_meta": {
+      "resource": "2024年高考地理一轮复习（新人教版） 第3部分 第1章 课时59 区域与区域发展.docx",
+      "section": "课时精练第9题",
+      "origin": "2023·江苏盐城市期末",
+      "local_only": true
     },
-    "questions": [
+    "source_images": [
       {
-        "id": "Q1",
-        "prompt": "概括2019—2024年该流域年径流量的总体变化特征。",
-        "max_points": 2,
-        "rubric_points": [
-          {"id": "Q1-R1", "text": "明确写出先增加、后减少", "points": 2}
-        ]
+        "src": "./assets/questions/region-development/shaanxi-july-temperature.png",
+        "alt": "陕西省7月平均气温等温线图"
       },
       {
-        "id": "Q2",
-        "prompt": "指出年径流量峰值出现的年份，并引用表中数据说明。",
-        "max_points": 2,
-        "rubric_points": [
-          {"id": "Q2-R1", "text": "指出峰值出现在2022年", "points": 1},
-          {"id": "Q2-R2", "text": "引用15.9亿m³作为证据", "points": 1}
-        ]
-      },
-      {
-        "id": "Q3",
-        "prompt": "结合气温升高和冰川面积缩小，分阶段说明年径流量产生上述变化的原因。",
-        "max_points": 4,
-        "rubric_points": [
-          {"id": "Q3-R1", "text": "前期升温使冰雪融水增加，径流量增加", "points": 2},
-          {"id": "Q3-R2", "text": "后期冰川面积或储量减少，融水补给和径流量减少", "points": 2}
-        ]
+        "src": "./assets/questions/region-development/shaanxi-profile.png",
+        "alt": "陕西省沿109度东经地形剖面示意图"
       }
     ],
-    "pass_rule": {
-      "min_points": 6,
-      "required_rubric_ids": ["Q1-R1"]
-    }
-  },
-  {
-    "schema_version": "0.3.0",
-    "id": "RETEST-TIME-001",
-    "source_topic_id": "physical.earth.time",
-    "title": "时区专项复测：同一瞬间的三种时间",
-    "purpose": "检测是否能区分UTC、地方时和区时，并正确处理东西方向与日期进退。",
-    "source": "原创诊断题",
-    "review_after_days": [2, 5, 12],
-    "context": "某国际观测记录的基准时刻为6月15日UTC 04:00。所有计算均采用理论时区，不考虑夏令时和法定时区边界。",
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "context": "北京市某校学生利用暑假到陕西省西安、秦岭等地开展研究性学习。同学们了解到陕西省可以划分为陕南、关中和陕北三大地理单元；在考察秦岭时，发现其南北两侧地理环境差异明显。",
     "dataset": {
-      "title": "同一瞬间的地点信息",
-      "columns": ["地点", "经度", "理论时区"],
+      "title": "秦岭南北两侧植被覆盖度随坡向变化（资料包原表）",
+      "columns": [
+        "坡向",
+        "秦岭北侧（%）",
+        "秦岭南侧（%）"
+      ],
       "rows": [
-        ["甲地", "116°E", "东八区"],
-        ["乙地", "90°W", "西六区"]
+        [
+          "平地",
+          "60",
+          "71"
+        ],
+        [
+          "阴坡",
+          "76",
+          "87"
+        ],
+        [
+          "半阴坡",
+          "82",
+          "85"
+        ],
+        [
+          "阳坡",
+          "77",
+          "83"
+        ],
+        [
+          "半阳坡",
+          "80",
+          "84"
+        ]
       ]
     },
     "questions": [
       {
         "id": "Q1",
-        "prompt": "计算甲地的地方时，并写出经度换算过程。",
-        "max_points": 2,
+        "prompt": "说明西安及附近地区在7月成为陕西省高温中心的主要原因。（4分）",
+        "max_points": 4,
         "rubric_points": [
-          {"id": "TIME-Q1-R1", "text": "写出116°×4分钟=464分钟=7小时44分钟", "points": 1},
-          {"id": "TIME-Q1-R2", "text": "得出甲地地方时为11:44", "points": 1}
+          {
+            "id": "REGDEV1-Q1-R1",
+            "text": "指出西安及附近海拔较低",
+            "points": 2
+          },
+          {
+            "id": "REGDEV1-Q1-R2",
+            "text": "指出其处于夏季风背风坡，过山气流下沉增温（焚风效应）",
+            "points": 2
+          }
         ]
       },
       {
         "id": "Q2",
-        "prompt": "写出甲地采用的理论区时，并说明它为什么不同于甲地地方时。",
-        "max_points": 2,
+        "prompt": "说出秦岭南北两侧植被覆盖度随坡向变化的主要差异。（6分）",
+        "max_points": 6,
         "rubric_points": [
-          {"id": "TIME-Q2-R1", "text": "得出东八区区时为12:00", "points": 1},
-          {"id": "TIME-Q2-R2", "text": "说明区时采用120°E中央经线的地方时", "points": 1}
+          {
+            "id": "REGDEV1-Q2-R1",
+            "text": "指出南侧在任何坡向上的植被覆盖度都高于北侧",
+            "points": 2
+          },
+          {
+            "id": "REGDEV1-Q2-R2",
+            "text": "指出南侧随坡向变化的差异小于北侧",
+            "points": 2
+          },
+          {
+            "id": "REGDEV1-Q2-R3",
+            "text": "指出最大值南侧在阴坡、北侧在半阴坡",
+            "points": 2
+          }
         ]
       },
       {
         "id": "Q3",
-        "prompt": "若另一记录时刻为6月15日UTC 03:20，计算乙地的理论区时和日期。",
-        "max_points": 3,
+        "prompt": "分析秦岭南侧植被覆盖度最大值所在坡向的原因。（2分）",
+        "max_points": 2,
         "rubric_points": [
-          {"id": "TIME-Q3-R1", "text": "判断西六区为UTC-6", "points": 1},
-          {"id": "TIME-Q3-R2", "text": "算出区时为21:20", "points": 1},
-          {"id": "TIME-Q3-R3", "text": "判断日期为6月14日", "points": 1}
+          {
+            "id": "REGDEV1-Q3-R1",
+            "text": "指出阴坡太阳辐射较少、蒸发较弱，水分条件较好",
+            "points": 2
+          }
         ]
       },
       {
         "id": "Q4",
-        "prompt": "用自己的话解释：既然有UTC，为什么日常生活还需要区时？",
-        "max_points": 3,
+        "prompt": "在陕西省三大地理单元中任选两个，从地形、气候角度分析其农业主要发展方向。（6分）",
+        "max_points": 6,
         "rubric_points": [
-          {"id": "TIME-Q4-R1", "text": "指出UTC用于统一标记同一瞬间", "points": 1},
-          {"id": "TIME-Q4-R2", "text": "指出区时让一定区域统一使用同一钟点", "points": 1},
-          {"id": "TIME-Q4-R3", "text": "说明区时使钟点大致对应当地昼夜和社会作息", "points": 1}
+          {
+            "id": "REGDEV1-Q4-R1",
+            "text": "第一个地理单元同时写出地形、气候与相匹配的农业方向",
+            "points": 3
+          },
+          {
+            "id": "REGDEV1-Q4-R2",
+            "text": "第二个地理单元同时写出地形、气候与相匹配的农业方向",
+            "points": 3
+          }
         ]
       }
     ],
     "pass_rule": {
-      "min_points": 8,
-      "required_rubric_ids": ["TIME-Q3-R3", "TIME-Q4-R1", "TIME-Q4-R2"]
+      "min_points": 14,
+      "required_rubric_ids": [
+        "REGDEV1-Q2-R1",
+        "REGDEV1-Q4-R1",
+        "REGDEV1-Q4-R2"
+      ]
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "id": "RETEST-REGDEV-002",
+    "source_topic_id": "regional.development",
+    "title": "延迟复测：东南沿海村庄振兴",
+    "purpose": "用资料包中的2019年江苏卷原题检验能否把资源条件、人口问题和产业选择联结起来。",
+    "source": "资料包选题",
+    "source_meta": {
+      "resource": "赠1套word版补充习题库/第三部分 区域发展/第十二章 不同类型区域的发展/第33讲 区域与区域发展.DOCX",
+      "section": "视角三·第3题",
+      "origin": "2019·江苏卷",
+      "local_only": true
+    },
+    "source_images": [
+      {
+        "src": "./assets/questions/region-development/village-terrain-agriculture.png",
+        "alt": "某村等高线地形及立体农业示意图"
+      },
+      {
+        "src": "./assets/questions/region-development/village-land-use.png",
+        "alt": "某村土地利用结构图"
+      }
+    ],
+    "review_after_days": [
+      5,
+      12
+    ],
+    "context": "我国东南沿海某行政村总人口2 750人，其中70%外出就业生活。留村人口绝大多数从事农业生产活动，其中60岁以上占36%。近年来，该村农业总产值与收入有下滑趋势，家庭年均收入约5万元，主要源自外出务工。",
+    "dataset": {
+      "title": "材料一人口与收入信息（资料包原题）",
+      "columns": [
+        "总人口",
+        "外出就业生活",
+        "60岁以上占留村人口",
+        "家庭年均收入"
+      ],
+      "rows": [
+        [
+          "2 750人",
+          "70%",
+          "36%",
+          "约5万元，主要源自外出务工"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "Q1",
+        "prompt": "概括该村土地利用结构的主要特征。",
+        "max_points": 2,
+        "rubric_points": [
+          {
+            "id": "REGDEV2-Q1-R1",
+            "text": "指出土地利用类型多样",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q1-R2",
+            "text": "指出以园地和林地为主、耕地较少",
+            "points": 1
+          }
+        ]
+      },
+      {
+        "id": "Q2",
+        "prompt": "分析该村立体农业空间布局形成的主要自然原因。",
+        "max_points": 3,
+        "rubric_points": [
+          {
+            "id": "REGDEV2-Q2-R1",
+            "text": "指出地形以低山、丘陵为主",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q2-R2",
+            "text": "指出属亚热带季风气候、雨热同期",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q2-R3",
+            "text": "指出灌溉水源充足",
+            "points": 1
+          }
+        ]
+      },
+      {
+        "id": "Q3",
+        "prompt": "指出该村目前经济社会发展中出现的主要问题。",
+        "max_points": 4,
+        "rubric_points": [
+          {
+            "id": "REGDEV2-Q3-R1",
+            "text": "指出劳动力流失",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q3-R2",
+            "text": "指出人口老龄化",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q3-R3",
+            "text": "指出产业结构单一",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q3-R4",
+            "text": "指出农业衰退",
+            "points": 1
+          }
+        ]
+      },
+      {
+        "id": "Q4",
+        "prompt": "依据当地资源利用状况，写出为振兴该村经济可积极拓展的产业。",
+        "max_points": 4,
+        "rubric_points": [
+          {
+            "id": "REGDEV2-Q4-R1",
+            "text": "生态农业",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q4-R2",
+            "text": "特色农产品加工业",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q4-R3",
+            "text": "观光农业",
+            "points": 1
+          },
+          {
+            "id": "REGDEV2-Q4-R4",
+            "text": "农村电商",
+            "points": 1
+          }
+        ]
+      }
+    ],
+    "pass_rule": {
+      "min_points": 10,
+      "required_rubric_ids": [
+        "REGDEV2-Q2-R1",
+        "REGDEV2-Q3-R1",
+        "REGDEV2-Q3-R2"
+      ]
     }
   }
 ]

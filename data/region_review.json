@@ -1,0 +1,242 @@
+{
+  "schema_version": "0.27.0",
+  "id": "region-development-review",
+  "title": "选择性必修2·区域发展 14天复习",
+  "subtitle": "四章教材全覆盖",
+  "student": "橙子",
+  "local_only": false,
+  "source_note": "14天共28道诊断题和延迟复测题均选自2025高中地理学习资料包；项目仅发布实际入题所需的精选图表，不发布完整资料包或教材PDF。",
+  "textbook": {
+    "title": "人教版《地理·选择性必修2·区域发展》",
+    "path": ""
+  },
+  "reasoning_steps": [
+    {"order": 1, "label": "定位与尺度", "prompt": "在哪里？按什么目的和标准划分？研究尺度多大？"},
+    {"order": 2, "label": "列出要素", "prompt": "自然要素、人文要素分别有哪些？"},
+    {"order": 3, "label": "内部关系", "prompt": "区域内部哪些要素直接或间接相互影响？"},
+    {"order": 4, "label": "外部联系", "prompt": "哪些物质、人口、资金、技术或信息在区域间流动？"},
+    {"order": 5, "label": "比较差异", "prompt": "与参照区域相比，优势、限制和发展阶段有什么不同？"},
+    {"order": 6, "label": "确定方向", "prompt": "怎样扬长避短，做到因地制宜？"},
+    {"order": 7, "label": "评价边界", "prompt": "措施有什么收益、风险和适用条件，能否复制？"}
+  ],
+  "days": [
+    {
+      "day": 1,
+      "knowledge_point_id": "region.day01-boundary-scale",
+      "title": "区域是什么：类型、边界与尺度",
+      "goal": "分清区域的划分依据、边界性质、层级与空间尺度，并能识别区域间联系。",
+      "textbook_pages": "教材第2—6页",
+      "pdf_pages": "PDF第7—11页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "找出教材中的自然区域、人文区域和综合区域实例。",
+        "比较明确边界与过渡性边界，并说明区域尺度为何不等于面积完全相同。"
+      ],
+      "question_ids": ["GEO-REGDEV-005", "GEO-REGDEV-006"],
+      "source_label": "资料包·训练59第5—6题"
+    },
+    {
+      "day": 2,
+      "knowledge_point_id": "region.day02-integrity-linkage",
+      "title": "区域如何成为整体：要素、差异与因地制宜",
+      "goal": "从自然与人文要素的相互作用解释区域整体性，并据资源与约束选择发展方向。",
+      "textbook_pages": "教材第7—13页",
+      "pdf_pages": "PDF第12—18页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "用箭头写出一个区域内部“要素变化—连锁影响—发展结果”的链条。",
+        "对照长江三角洲与松嫩平原，区分相同条件、差异条件和发展结果。"
+      ],
+      "question_ids": ["GEO-REGDEV-001", "GEO-REGDEV-002"],
+      "source_label": "资料包·训练59第1—2题"
+    },
+    {
+      "day": 3,
+      "knowledge_point_id": "region.day03-comparison-transfer",
+      "title": "模式能否复制：区域比较与条件评价",
+      "goal": "从产业结构、资源条件和发展阶段比较区域，判断可借鉴的机制与不可照搬的条件。",
+      "textbook_pages": "教材第14—16页·问题研究",
+      "pdf_pages": "PDF第19—21页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "梳理毛里求斯发展阶段、支柱产业变化及其区位条件。",
+        "回答“能否复制”时，至少核对区位、资源、人才、市场和制度五类条件。"
+      ],
+      "question_ids": ["GEO-REGDEV-003", "GEO-REGDEV-004"],
+      "source_label": "资料包·训练59第3—4题"
+    },
+    {
+      "day": 4,
+      "knowledge_point_id": "region.day04-natural-foundation",
+      "title": "自然环境基础：资源优势不等于发展结果",
+      "goal": "从资源数量、组合、品质和利用效率评价自然条件，避免资源决定论。",
+      "textbook_pages": "教材第18—22页",
+      "pdf_pages": "PDF第23—27页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "把自然条件分为优势、限制和可改造条件，分别举证。",
+        "说明资源丰富为什么还需要技术、市场、政策和利用效率共同作用。"
+      ],
+      "question_ids": ["GEO-REGDEV-007", "GEO-REGDEV-008"],
+      "source_label": "资料包·训练60第1—2题"
+    },
+    {
+      "day": 5,
+      "knowledge_point_id": "region.day05-ecological-governance",
+      "title": "生态脆弱区：从问题机制到治理尺度",
+      "goal": "识别生态问题发生的关键空间层和季节，并选择符合承载力的治理措施。",
+      "textbook_pages": "教材第23—30页",
+      "pdf_pages": "PDF第28—35页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "先判断脆弱性的自然背景，再区分人类活动是诱因还是放大因素。",
+        "评价治理措施时同时核对高度、季节、水资源消耗和长期维护。"
+      ],
+      "question_ids": ["GEO-REGDEV-009", "GEO-REGDEV-010"],
+      "source_label": "资料包·训练61第1—2题"
+    },
+    {
+      "day": 6,
+      "knowledge_point_id": "region.day06-resource-city-transition",
+      "title": "资源型城市：识别衰退路径与替代产业",
+      "goal": "从资源生命周期、产业结构和环境成本判断转型必要性及替代产业方向。",
+      "textbook_pages": "教材第31—36页",
+      "pdf_pages": "PDF第36—41页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "列出资源型城市兴起、繁荣、衰退三个阶段的主导因素。",
+        "区分延长原产业链、发展替代产业和生态修复三类措施。"
+      ],
+      "question_ids": ["GEO-REGDEV-011", "GEO-REGDEV-012"],
+      "source_label": "资料包·训练62第1—2题"
+    },
+    {
+      "day": 7,
+      "knowledge_point_id": "region.day07-transition-case",
+      "title": "问题研究：资源型地区怎样完成转型",
+      "goal": "用区位条件—原有问题—转型措施—持续性评价链分析具体案例。",
+      "textbook_pages": "教材第37—39页·问题研究",
+      "pdf_pages": "PDF第42—44页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "把景德镇持续保持陶瓷优势的条件分为不可复制与可学习两类。",
+        "比较万盛转型措施与本地资源、环境和市场条件是否匹配。"
+      ],
+      "question_ids": ["GEO-REGDEV-013", "GEO-REGDEV-014"],
+      "source_label": "资料包·训练62第3—4题"
+    },
+    {
+      "day": 8,
+      "knowledge_point_id": "region.day08-city-radiation",
+      "title": "城市辐射：等级、腹地与网络联系",
+      "goal": "从城市等级、服务范围、交通和要素流解释核心城市的辐射功能。",
+      "textbook_pages": "教材第42—48页",
+      "pdf_pages": "PDF第47—53页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "指出城市辐射的载体：交通、物流、人流、资金流和信息流。",
+        "比较单中心、双中心和多中心结构中单个核心的影响范围。"
+      ],
+      "question_ids": ["GEO-REGDEV-015", "GEO-REGDEV-016"],
+      "source_label": "资料包·训练63第1—2题"
+    },
+    {
+      "day": 9,
+      "knowledge_point_id": "region.day09-industrial-structure",
+      "title": "产业结构：读懂演化曲线与驱动因素",
+      "goal": "从三次产业比重变化识别发展阶段，并解释资源、市场、技术和政策的共同作用。",
+      "textbook_pages": "教材第49—56页",
+      "pdf_pages": "PDF第54—61页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "区分产业产值增长与产业比重上升，避免把相对量当绝对量。",
+        "判断结构升级是否提高资源效率、就业质量和抗风险能力。"
+      ],
+      "question_ids": ["GEO-REGDEV-017", "GEO-REGDEV-018"],
+      "source_label": "资料包·训练64第1—2题"
+    },
+    {
+      "day": 10,
+      "knowledge_point_id": "region.day10-industry-localization",
+      "title": "问题研究：产业能否真正带动区域发展",
+      "goal": "评价产业进入一个区域后的市场适配、本地关联、就业和技术扩散。",
+      "textbook_pages": "教材第57—59页·问题研究",
+      "pdf_pages": "PDF第62—64页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "用产业链图判断汽车工业与当地企业、劳动力和市场的联系强弱。",
+        "区分简单设厂、产品本土化和形成区域产业集群三个层次。"
+      ],
+      "question_ids": ["GEO-REGDEV-019", "GEO-REGDEV-020"],
+      "source_label": "资料包·训练68第4—5题"
+    },
+    {
+      "day": 11,
+      "knowledge_point_id": "region.day11-basin-coordination",
+      "title": "流域协调：上下游与跨国利益如何平衡",
+      "goal": "从流域整体性识别上下游、左右岸和不同国家间的利益联系与冲突。",
+      "textbook_pages": "教材第60—68页",
+      "pdf_pages": "PDF第65—73页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "按上游—中游—下游列出开发收益、生态风险和责任。",
+        "判断不同水坝功能时先看位置、地形、来水和入海口条件。"
+      ],
+      "question_ids": ["GEO-REGDEV-021", "GEO-REGDEV-022"],
+      "source_label": "资料包·训练65第1—2题"
+    },
+    {
+      "day": 12,
+      "knowledge_point_id": "region.day12-resource-transfer",
+      "title": "资源调配：调入、调出和沿线三方评价",
+      "goal": "从供需差异、工程条件和三方影响评价资源跨区域调配。",
+      "textbook_pages": "教材第69—75页",
+      "pdf_pages": "PDF第74—80页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "分别写出调出区、调入区和沿线地区的收益与风险。",
+        "看到彻底、根治、必然等词时，用工程能力边界逐一核对。"
+      ],
+      "question_ids": ["GEO-REGDEV-023", "GEO-REGDEV-024"],
+      "source_label": "资料包·训练66第1—2题"
+    },
+    {
+      "day": 13,
+      "knowledge_point_id": "region.day13-industry-transfer",
+      "title": "产业转移：转出、承接与区域分工",
+      "goal": "从成本、市场、产业链和政策解释产业转移，并评价转出地与承接地影响。",
+      "textbook_pages": "教材第76—82页",
+      "pdf_pages": "PDF第81—87页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "先明确指标表示转出还是转入，再解释曲线升降。",
+        "评价产业转移时同时看就业、产业升级、环境压力和区域协作。"
+      ],
+      "question_ids": ["GEO-REGDEV-025", "GEO-REGDEV-026"],
+      "source_label": "资料包·训练67第1—2题"
+    },
+    {
+      "day": 14,
+      "knowledge_point_id": "region.day14-international-cooperation",
+      "title": "国际合作：比较优势、产业转移与共同发展",
+      "goal": "用比较优势和全球产业链解释国际合作，并识别东道国收益与风险。",
+      "textbook_pages": "教材第83—91页·含问题研究",
+      "pdf_pages": "PDF第88—96页",
+      "textbook_href": "",
+      "reading_prompts": [
+        "把国际合作条件分为成本、市场、政策、基础设施和产业基础。",
+        "总结14天分析链，并用藏水入疆问题研究检验收益—风险—边界评价。"
+      ],
+      "question_ids": ["GEO-REGDEV-027", "GEO-REGDEV-028"],
+      "source_label": "资料包·训练68第1—2题"
+    }
+  ],
+  "delayed_retest_ids": ["RETEST-REGDEV-001", "RETEST-REGDEV-002"],
+  "parent_checklist": [
+    "先让橙子指出图、表、文字分别提供了什么证据，再讨论答案。",
+    "错误诊断先标为候选；确认是读图、概念、因果还是措施评价问题后再归因。",
+    "答对也要追问一个错误选项为什么不成立，防止只记选项。",
+    "每完成一天可暂停，不要求连续刷题；第7天和第14天各做一次阶段回看。",
+    "完成14天诊断后至少间隔2天再做第一组复测；第二组建议间隔5天。"
+  ]
+}

@@ -7,7 +7,7 @@
     "schema_version": {"const": "0.3.0"},
     "id": {"type": "string", "pattern": "^RETEST-[A-Z0-9-]+$"},
     "source_topic_id": {"type": "string"},
-    "source": {"const": "原创诊断题"},
+    "source": {"const": "资料包选题"},
     "review_after_days": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 1}},
     "dataset": {"type": "object", "required": ["title", "columns", "rows"]},
     "questions": {"type": "array", "minItems": 1},

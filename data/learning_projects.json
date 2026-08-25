@@ -290,6 +290,18 @@
       "order": 29
     },
     {
+      "id": "region-development-review",
+      "eyebrow": "选择性必修2·四章",
+      "title": "区域发展·14天复习",
+      "summary": "四章教材阅读配合28道资料包原题，用“尺度—要素—联系—变化—措施—评价”证据链完成诊断和复盘。",
+      "action": "goto",
+      "route": "region-review",
+      "cta": "开始14天复习",
+      "status_kind": "diagnostic",
+      "accent": "emerald",
+      "order": 33
+    },
+    {
       "id": "diagnostic-questions",
       "eyebrow": "日常诊断",
       "title": "知识点诊断题",

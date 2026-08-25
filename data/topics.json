@@ -40,5 +40,12 @@
     "category": "自然地理",
     "description": "天体系统层级、宇宙尺度、地球位置与地球存在生命的条件",
     "order": 6
+  },
+  {
+    "id": "regional.development",
+    "name": "区域与区域发展",
+    "category": "区域认知",
+    "description": "区域类型与尺度、区域整体性、区域关联、因地制宜和发展模式评价",
+    "order": 7
   }
 ]

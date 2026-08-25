@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.25.0", ASSET_VERSION: "0.25.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.27.1", ASSET_VERSION: "0.27.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, regionReview: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
 
 function defaultState() {
   return {
@@ -259,6 +259,23 @@ function activeCurriculumQuestionIds() {
   return (catalog.curriculum?.books || []).flatMap((book) => (book.chapters || [])
     .filter((chapter) => chapter.status === "active")
     .flatMap((chapter) => (chapter.sections || []).flatMap((section) => section.question_ids || [])));
+}
+function curriculumQuestionIds() {
+  const curriculumIds = [...(catalog.curriculum?.books || [])]
+    .sort((a, b) => a.order - b.order)
+    .flatMap((book) => [...(book.chapters || [])]
+      .sort((a, b) => a.order - b.order)
+      .flatMap((chapter) => [...(chapter.sections || [])]
+        .sort((a, b) => a.order - b.order)
+        .flatMap((section) => section.question_ids || [])));
+  const supplementalIds = catalog.curriculum?.supplemental?.question_ids || [];
+  const listed = new Set([...curriculumIds, ...supplementalIds]);
+  return [...curriculumIds, ...supplementalIds, ...catalog.questions.map((question) => question.id).filter((id) => !listed.has(id))];
+}
+function chooseNextCatalogQuestion(currentQuestionId) {
+  const orderedIds = curriculumQuestionIds();
+  const currentIndex = orderedIds.indexOf(currentQuestionId);
+  return currentIndex >= 0 ? getQuestion(orderedIds[currentIndex + 1]) || chooseNextQuestion() : chooseNextQuestion();
 }
 function chooseNextQuestion() {
   const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
@@ -1243,12 +1260,44 @@ function renderAtmosphereLab() {
   app.innerHTML = feature.renderLab({ lab, scenario, scenarioIndex: state.atmosphereScenarioIndex % lab.scenarios.length });
 }
 
+function renderRegionReview() {
+  const feature = window.OrangeCoach?.features?.regionReview;
+  const module = catalog.regionReview;
+  if (!feature || !module) {
+    app.innerHTML = `<section class="card empty">区域发展复习模块尚未加载。</section>`;
+    return;
+  }
+  const diagnosticAttempts = latestAttempts();
+  const retestAttempts = latestRetestAttempts();
+  const days = module.days.map((day) => {
+    const dayQuestions = day.question_ids.map(getQuestion).filter(Boolean).map((question) => ({
+      ...question,
+      attempt: diagnosticAttempts.find((attempt) => attempt.question_id === question.id) || null
+    }));
+    return {
+      ...day,
+      questions: dayQuestions,
+      completed: dayQuestions.filter((question) => question.attempt).length,
+      total: dayQuestions.length
+    };
+  });
+  const retests = module.delayed_retest_ids.map(getRetest).filter(Boolean).map((retest) => ({
+    ...retest,
+    attempt: retestAttempts.find((attempt) => attempt.retest_id === retest.id) || null,
+    source_label: [retest.source_meta?.origin, retest.source_meta?.section].filter(Boolean).join(" · ") || retest.source,
+    review_label: `建议间隔${retest.review_after_days?.[0] || 2}天`
+  }));
+  app.innerHTML = feature.render({ module, days, retests });
+}
+
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => {
     const isDiagnosticRoute = ["train", "diagnostic-catalog"].includes(state.route);
-    button.classList.toggle("active", button.dataset.route === state.route || (button.dataset.route === "train" && isDiagnosticRoute));
+    const isProjectRoute = state.route === "region-review";
+    button.classList.toggle("active", button.dataset.route === state.route || (button.dataset.route === "train" && isDiagnosticRoute) || (button.dataset.route === "projects" && isProjectRoute));
   });
+  if (state.route === "region-review") return renderRegionReview();
   if (state.route === "retest") return renderRetest();
   if (state.route === "time-lab") return renderTimeLab();
   if (state.route === "earth-motion-lab") return renderEarthMotionLab();
@@ -1298,6 +1347,14 @@ function countPendingParentReviews() {
 }
 
 function projectStatus(project) {
+  if (project.id === "region-development-review") {
+    const questionIds = (catalog.regionReview?.days || []).flatMap((day) => day.question_ids || []);
+    const answered = new Set(state.attempts.filter((attempt) => questionIds.includes(attempt.question_id)).map((attempt) => attempt.question_id));
+    const confirmed = new Set(state.attempts.filter((attempt) => questionIds.includes(attempt.question_id) && attempt.parent_review_status === "已确认").map((attempt) => attempt.question_id));
+    return answered.size
+      ? { status_label: `${answered.size}/${questionIds.length}`, status_tone: confirmed.size === questionIds.length ? "green" : "orange", status_detail: `${confirmed.size} 道已由家长确认 · 复测另行安排` }
+      : { status_label: "待开始", status_tone: "", status_detail: "14天阅读 · 28道资料包诊断题 · 2组资料包复测" };
+  }
   if (project.status_kind === "atmosphere_reasoning") {
     const attempts = latestAtmosphereAttempts(project.id);
     const latest = attempts[0];
@@ -1780,13 +1837,14 @@ function renderDiagnosticCatalog() {
   const unseenCount = models.length - answeredCount;
   const hasUnseen = unseenCount > 0;
   const next = chooseNextQuestion();
+  const currentQuestionId = state.currentQuestionId;
   const byQuestionId = new Map(models.map((model) => [model.question.id, model]));
   const visibleIds = new Set(visibleModels.map((model) => model.question.id));
   const renderQuestionRows = (questionIds = []) => questionIds
     .map((id) => byQuestionId.get(id))
     .filter((model) => model && visibleIds.has(model.question.id))
     .map((model) => `
-      <button class="diagnostic-question-row" data-action="start-question" data-question-id="${escapeHtml(model.question.id)}" aria-label="打开第 ${model.index + 1} 题：${escapeHtml(model.question.title)}">
+      <button class="diagnostic-question-row ${model.question.id === currentQuestionId ? "current" : ""}" data-action="start-question" data-question-id="${escapeHtml(model.question.id)}" ${model.question.id === currentQuestionId ? 'data-current-question="true" aria-current="true"' : ""} aria-label="打开第 ${model.index + 1} 题：${escapeHtml(model.question.title)}">
         <span class="diagnostic-question-copy"><span class="diagnostic-question-code">第 ${model.index + 1} 题 · ${escapeHtml(model.question.id)}</span><strong>${escapeHtml(model.question.title)}</strong></span>
         <span class="pill ${escapeHtml(model.tone)}">${escapeHtml(model.label)}</span>
       </button>`).join("");
@@ -1798,13 +1856,15 @@ function renderDiagnosticCatalog() {
           const questionIds = chapter.sections.flatMap((section) => section.question_ids);
           const visibleCount = questionIds.filter((id) => visibleIds.has(id)).length;
           const status = curriculumStatusModel(chapter.status);
+          const containsCurrent = Boolean(currentQuestionId && questionIds.includes(currentQuestionId));
           return `
-            <details class="curriculum-chapter" ${chapter.status === "active" ? "open" : ""}>
+            <details class="curriculum-chapter" ${containsCurrent ? "open" : ""}>
               <summary><span><small>第${chapter.number}章</small><strong>${escapeHtml(chapter.title)}</strong></span><span class="curriculum-summary-meta"><span class="pill ${status.tone}">${status.label}</span><span class="pill">${questionIds.length ? `${visibleCount}/${questionIds.length} 道` : "0 道"}</span></span></summary>
               <div class="curriculum-chapter-body">
                 ${[...chapter.sections].sort((a, b) => a.order - b.order).map((section) => {
                   const rows = renderQuestionRows(section.question_ids);
-                  return `<div class="curriculum-section"><div class="curriculum-section-heading"><span>第${section.number}节</span><strong>${escapeHtml(section.title)}</strong><small>${section.question_ids.length} 道已登记</small></div>${rows ? `<div class="diagnostic-question-list">${rows}</div>` : `<div class="curriculum-empty">当前${section.question_ids.length ? "筛选下无题目" : "尚未登记题目"}。</div>`}</div>`;
+                  const sectionContainsCurrent = Boolean(currentQuestionId && section.question_ids.includes(currentQuestionId));
+                  return `<details class="curriculum-section diagnostic-section" ${sectionContainsCurrent ? "open" : ""}><summary class="curriculum-section-heading"><span>第${section.number}节</span><strong>${escapeHtml(section.title)}</strong><small>${section.question_ids.length} 道已登记</small></summary><div class="diagnostic-section-body">${rows ? `<div class="diagnostic-question-list">${rows}</div>` : `<div class="curriculum-empty">当前${section.question_ids.length ? "筛选下无题目" : "尚未登记题目"}。</div>`}</div></details>`;
                 }).join("")}
                 <div class="curriculum-research"><span>问题研究</span>${escapeHtml(chapter.research_task)}</div>
               </div>
@@ -1814,8 +1874,9 @@ function renderDiagnosticCatalog() {
     </section>`).join("");
   const supplemental = catalog.curriculum?.supplemental;
   const supplementalRows = supplemental ? renderQuestionRows(supplemental.question_ids) : "";
+  const supplementalContainsCurrent = Boolean(currentQuestionId && supplemental?.question_ids.includes(currentQuestionId));
   const supplementalGroup = supplemental ? `
-    <details class="curriculum-chapter supplemental-chapter" open>
+    <details class="curriculum-chapter supplemental-chapter" ${supplementalContainsCurrent ? "open" : ""}>
       <summary><span><small>教材外与跨章</small><strong>${escapeHtml(supplemental.title)}</strong></span><span class="pill">${supplemental.question_ids.filter((id) => visibleIds.has(id)).length}/${supplemental.question_ids.length} 道</span></summary>
       <div class="curriculum-chapter-body"><p class="small">${escapeHtml(supplemental.description)}</p>${supplementalRows ? `<div class="diagnostic-question-list">${supplementalRows}</div>` : `<div class="curriculum-empty">当前筛选下无题目。</div>`}</div>
     </details>` : "";
@@ -1842,6 +1903,7 @@ function renderDiagnosticCatalog() {
     ${curriculumBooks}
     ${supplementalGroup}
   `;
+  if (currentQuestionId) requestAnimationFrame(() => document.querySelector('[data-current-question="true"]')?.scrollIntoView({ block: "center" }));
 }
 
 function renderTrain() {
@@ -1857,7 +1919,10 @@ function renderTrain() {
     </div>
     <p class="page-subtitle">请先独立选择答案。理由可选填，留空也可以提交。</p>
     <section class="card">
+      ${question.source_image ? `<figure class="source-question-figure"><a href="${escapeHtml(question.source_image)}" target="_blank" rel="noopener"><img src="${escapeHtml(question.source_image)}" alt="${escapeHtml(question.source_image_alt || "源题配图")}" /></a><figcaption>资料包精选源题配图 · 点按查看原尺寸</figcaption></figure>` : ""}
       <div class="question-stem">${escapeHtml(question.stem)}</div>
+      ${question.dataset ? renderDatasetTable(question.dataset) : ""}
+      <div class="question-source-note">题源：${escapeHtml(question.source)}</div>
       <form id="answer-form">
         <div class="option-list">${question.options.map((option) => `<label class="option"><input type="radio" name="answer" value="${escapeHtml(option.id)}" /> <span><strong>${escapeHtml(option.id)}.</strong> ${escapeHtml(option.text)}</span></label>`).join("")}</div>
         <label class="field-label" for="reasoning">选择理由（选填）</label>
@@ -1881,10 +1946,19 @@ function renderResult(question, session) {
       <button class="btn secondary" data-action="open-diagnostic-catalog">题目目录</button>
     </div>
     <section class="card">
+      ${question.source_image ? `<figure class="source-question-figure"><a href="${escapeHtml(question.source_image)}" target="_blank" rel="noopener"><img src="${escapeHtml(question.source_image)}" alt="${escapeHtml(question.source_image_alt || "源题配图")}" /></a><figcaption>资料包精选源题配图 · 点按查看原尺寸</figcaption></figure>` : ""}
+      <div class="question-stem">${escapeHtml(question.stem)}</div>
+      ${question.dataset ? renderDatasetTable(question.dataset) : ""}
+      <div class="result-option-list" aria-label="原题选项（作答后对照）">${question.options.map((option) => {
+        const isSelected = option.id === session.selectedOption;
+        const isCorrect = option.id === question.answer;
+        return `<div class="result-option ${isSelected ? "selected" : ""} ${isCorrect ? "correct" : ""}"><strong>${escapeHtml(option.id)}.</strong><span>${escapeHtml(option.text)}</span>${isSelected ? '<em>你的选择</em>' : ""}${isCorrect ? '<em>正确答案</em>' : ""}</div>`;
+      }).join("")}</div>
       <p><strong>你的选择：</strong>${escapeHtml(session.selectedOption)}. ${escapeHtml(selected?.text || "")}</p>
       <p><strong>你的理由（选填）：</strong></p><div class="quote">${optionalReasoning(session.reasoning)}</div>
       <div class="answer-box ${correct ? "correct" : "wrong"}"><strong>${correct ? "结果：正确" : `结果：不正确，正确答案是 ${escapeHtml(question.answer)}`}</strong><br/>${escapeHtml(question.explanation)}</div>
       ${candidate ? `<div class="diagnosis"><strong>AI/题目给出的错因候选：${escapeHtml(candidate.tag)}</strong><br/>${escapeHtml(candidate.diagnosis)}<br/><br/><strong>追问：</strong>${escapeHtml(candidate.follow_up)}</div>` : `<div class="diagnosis"><strong>下一步：</strong>请用自己的话解释为什么不是另外三个选项，防止“碰巧答对”。</div>`}
+      <div class="btn-row"><button class="btn orange" data-action="continue-question">保存并继续下一题</button><button class="btn secondary" data-action="open-diagnostic-catalog">回到当前题目录位置</button></div>
     </section>
     <section class="card">
       <h3>把这道题交给 AI 诊断</h3>
@@ -1981,19 +2055,27 @@ function renderDatasetTable(dataset) {
   return `<div class="data-table-wrap"><table class="data-table"><caption>${escapeHtml(dataset.title)}</caption><thead><tr>${dataset.columns.map((column) => `<th>${escapeHtml(column)}</th>`).join("")}</tr></thead><tbody>${dataset.rows.map((row) => `<tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 }
 
+function renderSourceFigures(images = []) {
+  if (!images.length) return "";
+  return `<div class="source-figure-grid">${images.map((item, index) => `<figure class="source-question-figure"><a href="${escapeHtml(item.src)}" target="_blank" rel="noopener"><img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt || `源题配图${index + 1}`)}" /></a><figcaption>资料包源题配图${images.length > 1 ? ` ${index + 1}` : ""} · 点按查看原尺寸</figcaption></figure>`).join("")}</div>`;
+}
+
 function renderRetest() {
   const retest = getRetest(state.currentRetestId) || catalog.retests[0];
   if (!retest) { app.innerHTML = `<section class="card empty">暂无复测任务。</section>`; return; }
   state.currentRetestId = retest.id;
   const isTimeRetest = retest.source_topic_id === "physical.earth.time";
+  const isRegionRetest = retest.source_topic_id === "regional.development";
   app.innerHTML = `
-    <div class="topic-meta">原创变式复测 · ${escapeHtml(retest.id)}</div>
+    <div class="topic-meta">资料包原题复测 · ${escapeHtml(retest.id)}</div>
     <h2 class="page-title">${escapeHtml(retest.title)}</h2>
     <p class="page-subtitle">${escapeHtml(retest.purpose)}</p>
     <section class="card">
-      <div class="notice">${isTimeRetest ? "先写对象、差值、方向和日期，再完成解释。" : "先看变量、单位和时间尺度，再写总体趋势。"}提交前不显示评分点。</div>
+      <div class="notice">${isTimeRetest ? "先写对象、差值、方向和日期，再完成解释。" : isRegionRetest ? "先把图、表和文字材料对应到区域要素，再组织因果链。" : "先看变量、单位和时间尺度，再写总体趋势。"}提交前不显示评分点。</div>
       <p>${escapeHtml(retest.context)}</p>
+      ${renderSourceFigures(retest.source_images || [])}
       ${renderDatasetTable(retest.dataset)}
+      <div class="question-source-note">题源：${escapeHtml(retest.source_meta?.resource || retest.source)}${retest.source_meta?.section ? ` · ${escapeHtml(retest.source_meta.section)}` : ""}</div>
       <form id="retest-form">
         ${retest.questions.map((question, index) => `<div class="retest-question"><p><strong>${index + 1}. ${escapeHtml(question.prompt)}</strong> <span class="small">${question.max_points}分</span></p><textarea id="retest-answer-${escapeHtml(question.id)}" data-question-id="${escapeHtml(question.id)}" placeholder="按得分点分序作答"></textarea></div>`).join("")}
         <label class="field-label">你对这组答案的把握有多大？</label>
@@ -2501,6 +2583,10 @@ document.addEventListener("click", async (event) => {
     state.activeSession = null;
     state.route = "train";
     saveState(); render();
+  }
+  if (action === "continue-question") {
+    saveAttempt("next");
+    return;
   }
   if (action === "start-time-diagnostic") {
     state.currentQuestionId = chooseNextQuestionForTopic("physical.earth.time")?.id || null;
@@ -3847,7 +3933,7 @@ document.addEventListener("change", async (event) => {
   } catch (error) { alert(`导入失败：${error.message}`); }
 });
 
-function saveAttempt() {
+function saveAttempt(destination = "parent") {
   const question = getActiveQuestion();
   const session = state.activeSession;
   if (!question || !session) return;
@@ -3859,8 +3945,13 @@ function saveAttempt() {
     parent_review_status: "待家长确认", parent_note: "", submitted_at: session.submittedAt
   });
   state.activeSession = null;
-  state.route = "parent";
-  state.currentQuestionId = null;
+  if (destination === "next") {
+    state.currentQuestionId = chooseNextCatalogQuestion(question.id)?.id || null;
+    state.route = "train";
+  } else {
+    state.route = "parent";
+    state.currentQuestionId = null;
+  }
   saveState(); render();
 }
 
@@ -4071,13 +4162,14 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, regionReview, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/retests.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/learning_projects.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/curriculum_catalog.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/region_review.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/solar_season_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -4099,7 +4191,7 @@ async function init() {
       fetch(`./data/cyclone_system_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/atmosphere_reasoning_labs.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, regionReview, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;
