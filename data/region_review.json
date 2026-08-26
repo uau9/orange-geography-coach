@@ -1,15 +1,25 @@
 {
-  "schema_version": "0.27.0",
+  "schema_version": "0.28.0",
   "id": "region-development-review",
   "title": "选择性必修2·区域发展 14天复习",
   "subtitle": "四章教材全覆盖",
   "student": "橙子",
   "local_only": false,
-  "source_note": "14天共28道诊断题和延迟复测题均选自2025高中地理学习资料包；项目仅发布实际入题所需的精选图表，不发布完整资料包或教材PDF。",
+  "source_note": "14天共28道诊断题和延迟复测题均选自2025高中地理学习资料包；教材对应页面已发布为适合iPad阅读的清晰图片，完整资料包与教材PDF不直接发布。",
   "textbook": {
     "title": "人教版《地理·选择性必修2·区域发展》",
-    "path": ""
+    "path": "",
+    "image_base": "./assets/textbook/region-development",
+    "first_pdf_page": 7,
+    "last_pdf_page": 96,
+    "textbook_page_offset": 5
   },
+  "chapters": [
+    {"number": 1, "title": "区域与区域发展", "day_start": 1, "day_end": 3},
+    {"number": 2, "title": "资源、环境与区域发展", "day_start": 4, "day_end": 7},
+    {"number": 3, "title": "城市、产业与区域发展", "day_start": 8, "day_end": 10},
+    {"number": 4, "title": "区际联系与区域协调发展", "day_start": 11, "day_end": 14}
+  ],
   "reasoning_steps": [
     {"order": 1, "label": "定位与尺度", "prompt": "在哪里？按什么目的和标准划分？研究尺度多大？"},
     {"order": 2, "label": "列出要素", "prompt": "自然要素、人文要素分别有哪些？"},
@@ -27,6 +37,10 @@
       "goal": "分清区域的划分依据、边界性质、层级与空间尺度，并能识别区域间联系。",
       "textbook_pages": "教材第2—6页",
       "pdf_pages": "PDF第7—11页",
+      "textbook_page_start": 2,
+      "textbook_page_end": 6,
+      "pdf_page_start": 7,
+      "pdf_page_end": 11,
       "textbook_href": "",
       "reading_prompts": [
         "找出教材中的自然区域、人文区域和综合区域实例。",
@@ -42,6 +56,10 @@
       "goal": "从自然与人文要素的相互作用解释区域整体性，并据资源与约束选择发展方向。",
       "textbook_pages": "教材第7—13页",
       "pdf_pages": "PDF第12—18页",
+      "textbook_page_start": 7,
+      "textbook_page_end": 13,
+      "pdf_page_start": 12,
+      "pdf_page_end": 18,
       "textbook_href": "",
       "reading_prompts": [
         "用箭头写出一个区域内部“要素变化—连锁影响—发展结果”的链条。",
@@ -57,6 +75,10 @@
       "goal": "从产业结构、资源条件和发展阶段比较区域，判断可借鉴的机制与不可照搬的条件。",
       "textbook_pages": "教材第14—16页·问题研究",
       "pdf_pages": "PDF第19—21页",
+      "textbook_page_start": 14,
+      "textbook_page_end": 16,
+      "pdf_page_start": 19,
+      "pdf_page_end": 21,
       "textbook_href": "",
       "reading_prompts": [
         "梳理毛里求斯发展阶段、支柱产业变化及其区位条件。",
@@ -72,6 +94,10 @@
       "goal": "从资源数量、组合、品质和利用效率评价自然条件，避免资源决定论。",
       "textbook_pages": "教材第18—22页",
       "pdf_pages": "PDF第23—27页",
+      "textbook_page_start": 18,
+      "textbook_page_end": 22,
+      "pdf_page_start": 23,
+      "pdf_page_end": 27,
       "textbook_href": "",
       "reading_prompts": [
         "把自然条件分为优势、限制和可改造条件，分别举证。",
@@ -87,6 +113,10 @@
       "goal": "识别生态问题发生的关键空间层和季节，并选择符合承载力的治理措施。",
       "textbook_pages": "教材第23—30页",
       "pdf_pages": "PDF第28—35页",
+      "textbook_page_start": 23,
+      "textbook_page_end": 30,
+      "pdf_page_start": 28,
+      "pdf_page_end": 35,
       "textbook_href": "",
       "reading_prompts": [
         "先判断脆弱性的自然背景，再区分人类活动是诱因还是放大因素。",
@@ -102,6 +132,10 @@
       "goal": "从资源生命周期、产业结构和环境成本判断转型必要性及替代产业方向。",
       "textbook_pages": "教材第31—36页",
       "pdf_pages": "PDF第36—41页",
+      "textbook_page_start": 31,
+      "textbook_page_end": 36,
+      "pdf_page_start": 36,
+      "pdf_page_end": 41,
       "textbook_href": "",
       "reading_prompts": [
         "列出资源型城市兴起、繁荣、衰退三个阶段的主导因素。",
@@ -117,6 +151,10 @@
       "goal": "用区位条件—原有问题—转型措施—持续性评价链分析具体案例。",
       "textbook_pages": "教材第37—39页·问题研究",
       "pdf_pages": "PDF第42—44页",
+      "textbook_page_start": 37,
+      "textbook_page_end": 39,
+      "pdf_page_start": 42,
+      "pdf_page_end": 44,
       "textbook_href": "",
       "reading_prompts": [
         "把景德镇持续保持陶瓷优势的条件分为不可复制与可学习两类。",
@@ -132,6 +170,10 @@
       "goal": "从城市等级、服务范围、交通和要素流解释核心城市的辐射功能。",
       "textbook_pages": "教材第42—48页",
       "pdf_pages": "PDF第47—53页",
+      "textbook_page_start": 42,
+      "textbook_page_end": 48,
+      "pdf_page_start": 47,
+      "pdf_page_end": 53,
       "textbook_href": "",
       "reading_prompts": [
         "指出城市辐射的载体：交通、物流、人流、资金流和信息流。",
@@ -147,6 +189,10 @@
       "goal": "从三次产业比重变化识别发展阶段，并解释资源、市场、技术和政策的共同作用。",
       "textbook_pages": "教材第49—56页",
       "pdf_pages": "PDF第54—61页",
+      "textbook_page_start": 49,
+      "textbook_page_end": 56,
+      "pdf_page_start": 54,
+      "pdf_page_end": 61,
       "textbook_href": "",
       "reading_prompts": [
         "区分产业产值增长与产业比重上升，避免把相对量当绝对量。",
@@ -162,6 +208,10 @@
       "goal": "评价产业进入一个区域后的市场适配、本地关联、就业和技术扩散。",
       "textbook_pages": "教材第57—59页·问题研究",
       "pdf_pages": "PDF第62—64页",
+      "textbook_page_start": 57,
+      "textbook_page_end": 59,
+      "pdf_page_start": 62,
+      "pdf_page_end": 64,
       "textbook_href": "",
       "reading_prompts": [
         "用产业链图判断汽车工业与当地企业、劳动力和市场的联系强弱。",
@@ -177,6 +227,10 @@
       "goal": "从流域整体性识别上下游、左右岸和不同国家间的利益联系与冲突。",
       "textbook_pages": "教材第60—68页",
       "pdf_pages": "PDF第65—73页",
+      "textbook_page_start": 60,
+      "textbook_page_end": 68,
+      "pdf_page_start": 65,
+      "pdf_page_end": 73,
       "textbook_href": "",
       "reading_prompts": [
         "按上游—中游—下游列出开发收益、生态风险和责任。",
@@ -192,6 +246,10 @@
       "goal": "从供需差异、工程条件和三方影响评价资源跨区域调配。",
       "textbook_pages": "教材第69—75页",
       "pdf_pages": "PDF第74—80页",
+      "textbook_page_start": 69,
+      "textbook_page_end": 75,
+      "pdf_page_start": 74,
+      "pdf_page_end": 80,
       "textbook_href": "",
       "reading_prompts": [
         "分别写出调出区、调入区和沿线地区的收益与风险。",
@@ -207,6 +265,10 @@
       "goal": "从成本、市场、产业链和政策解释产业转移，并评价转出地与承接地影响。",
       "textbook_pages": "教材第76—82页",
       "pdf_pages": "PDF第81—87页",
+      "textbook_page_start": 76,
+      "textbook_page_end": 82,
+      "pdf_page_start": 81,
+      "pdf_page_end": 87,
       "textbook_href": "",
       "reading_prompts": [
         "先明确指标表示转出还是转入，再解释曲线升降。",
@@ -222,6 +284,10 @@
       "goal": "用比较优势和全球产业链解释国际合作，并识别东道国收益与风险。",
       "textbook_pages": "教材第83—91页·含问题研究",
       "pdf_pages": "PDF第88—96页",
+      "textbook_page_start": 83,
+      "textbook_page_end": 91,
+      "pdf_page_start": 88,
+      "pdf_page_end": 96,
       "textbook_href": "",
       "reading_prompts": [
         "把国际合作条件分为成本、市场、政策、基础设施和产业基础。",

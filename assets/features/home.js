@@ -19,9 +19,9 @@
     return `
       <div class="today-heading">
         <div><span class="section-kicker">今日建议</span><h2 class="page-title">先完成一条有价值的学习证据</h2></div>
-        <button class="text-button" data-action="goto" data-route="projects">查看全部项目</button>
+        <button class="text-button" data-action="goto" data-route="projects">打开学习目录</button>
       </div>
-      <p class="page-subtitle">首页只回答“今天先做什么”。诊断题可从底部“诊断”直接进入，全部学习内容仍可在“项目”页查看。</p>
+      <p class="page-subtitle">首页只回答“今天先做什么”。底部“学习”进入课程，“题目”进入全题库。</p>
       <section class="card today-focus-card" data-accent="${escapeHtml(recommendation.accent || "teal")}">
         <div class="today-focus-copy">
           <span class="pill orange">${escapeHtml(recommendation.eyebrow || "下一步")}</span>
@@ -64,32 +64,39 @@
     const utilities = model.utilities || [];
     const books = model.books || [];
     const supplemental = model.supplemental;
-    const structured = utilities.length || books.length || supplemental?.projects?.length;
+    const focus = projects.find((project) => project.id === "region-development-review");
+    const withoutFocus = (items = []) => items.filter((project) => project.id !== focus?.id);
+    const navigableBooks = books.map((book) => ({
+      ...book,
+      chapters: book.chapters.filter((chapter) => chapter.sections.some((section) => withoutFocus(section.projects).length))
+    })).filter((book) => book.chapters.length);
+    const structured = utilities.length || navigableBooks.length || supplemental?.projects?.length;
     return `
-      <div class="projects-heading"><div><span class="section-kicker">教材学习目录</span><h2 class="page-title">按册、章、节管理学习项目</h2></div><span class="pill">${projects.length} 个项目</span></div>
-      <p class="page-subtitle">诊断与复测保留快捷入口；实验室按教材章节归类。暂无稳定归属的内容放入“综合与拓展”，不强行归章。</p>
+      <div class="projects-heading"><div><span class="section-kicker">学习</span><h2 class="page-title">学习目录</h2></div><span class="pill">${projects.length} 个项目</span></div>
+      <p class="page-subtitle">先继续正在学习的内容；需要查找其他专题时，再按教材章节展开。每次只展开一层。</p>
+      ${focus ? `<section class="project-directory-section learning-focus-section"><div class="section-head"><div><span class="section-kicker">正在学习</span><h3>选择性必修2·区域发展</h3></div></div>${renderProjectCard(focus)}</section>` : ""}
       ${structured ? `
         <section class="project-directory-section">
-          <div class="section-head"><div><span class="section-kicker">快捷入口</span><h3>诊断与掌握验证</h3></div></div>
+          <div class="section-head"><div><span class="section-kicker">快捷工具</span><h3>题目与掌握验证</h3></div></div>
           <div class="project-grid">${utilities.map(renderProjectCard).join("")}</div>
         </section>
-        ${books.map((book) => `
+        ${navigableBooks.map((book) => `
           <section class="curriculum-book-block project-book-block">
             <div class="curriculum-book-heading"><div><span class="section-kicker">教材学习</span><h3>${escapeHtml(book.title)}</h3><p>${escapeHtml(book.publisher)}</p></div></div>
             <div class="curriculum-chapter-list">
               ${book.chapters.map((chapter) => {
-                const chapterCount = chapter.sections.reduce((sum, section) => sum + section.projects.length, 0);
-                return `<details class="curriculum-chapter project-chapter" ${chapter.status === "active" ? "open" : ""}>
+                const chapterCount = chapter.sections.reduce((sum, section) => sum + withoutFocus(section.projects).length, 0);
+                return `<details class="curriculum-chapter project-chapter">
                   <summary><span><small>第${chapter.number}章</small><strong>${escapeHtml(chapter.title)}</strong></span><span class="curriculum-summary-meta"><span class="pill ${escapeHtml(chapter.status_model.tone)}">${escapeHtml(chapter.status_model.label)}</span><span class="pill">${chapterCount} 个项目</span></span></summary>
                   <div class="curriculum-chapter-body">
-                    ${chapter.sections.map((section) => `<div class="curriculum-project-section"><div class="curriculum-section-heading"><span>第${section.number}节</span><strong>${escapeHtml(section.title)}</strong><small>${section.projects.length} 个项目</small></div>${section.projects.length ? `<div class="project-grid">${section.projects.map(renderProjectCard).join("")}</div>` : `<div class="curriculum-empty">尚未登记学习项目。</div>`}</div>`).join("")}
+                    ${chapter.sections.map((section) => { const sectionProjects = withoutFocus(section.projects); return `<div class="curriculum-project-section"><div class="curriculum-section-heading"><span>第${section.number}节</span><strong>${escapeHtml(section.title)}</strong><small>${sectionProjects.length} 个项目</small></div>${sectionProjects.length ? `<div class="project-grid">${sectionProjects.map(renderProjectCard).join("")}</div>` : `<div class="curriculum-empty">本节内容已并入上方主学习任务或尚未登记。</div>`}</div>`; }).join("")}
                     <div class="curriculum-research"><span>问题研究</span>${escapeHtml(chapter.research_task)}</div>
                   </div>
                 </details>`;
               }).join("")}
             </div>
           </section>`).join("")}
-        ${supplemental ? `<details class="curriculum-chapter supplemental-chapter project-supplemental"><summary><span><small>教材外与跨章</small><strong>${escapeHtml(supplemental.title)}</strong></span><span class="pill">${supplemental.projects.length} 个项目</span></summary><div class="curriculum-chapter-body"><p class="small">${escapeHtml(supplemental.description)}</p><div class="project-grid">${supplemental.projects.map(renderProjectCard).join("")}</div></div></details>` : ""}
+        ${supplemental ? `<details class="curriculum-chapter supplemental-chapter project-supplemental"><summary><span><small>教材外与跨章</small><strong>${escapeHtml(supplemental.title)}</strong></span><span class="pill">${withoutFocus(supplemental.projects).length} 个项目</span></summary><div class="curriculum-chapter-body"><p class="small">${escapeHtml(supplemental.description)}</p><div class="project-grid">${withoutFocus(supplemental.projects).map(renderProjectCard).join("")}</div></div></details>` : ""}
       ` : `<section class="project-grid">${projects.map(renderProjectCard).join("")}</section>`}
       <section class="card project-principle-card">
         <span class="section-kicker">共同规则</span>

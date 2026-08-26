@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/region-review.v0.28",
+  "title": "选择性必修2区域发展14天复习 v0.28",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "title", "subtitle", "student", "local_only", "source_note", "textbook", "chapters", "reasoning_steps", "days", "delayed_retest_ids", "parent_checklist"],
+  "properties": {
+    "schema_version": {"const": "0.28.0"},
+    "id": {"const": "region-development-review"},
+    "title": {"type": "string"},
+    "subtitle": {"type": "string"},
+    "student": {"type": "string"},
+    "local_only": {"const": false},
+    "source_note": {"type": "string"},
+    "textbook": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "path", "image_base", "first_pdf_page", "last_pdf_page", "textbook_page_offset"],
+      "properties": {
+        "title": {"type": "string"},
+        "path": {"type": "string"},
+        "image_base": {"type": "string", "pattern": "^\\./assets/textbook/region-development$"},
+        "first_pdf_page": {"const": 7},
+        "last_pdf_page": {"const": 96},
+        "textbook_page_offset": {"const": 5}
+      }
+    },
+    "chapters": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["number", "title", "day_start", "day_end"],
+        "properties": {
+          "number": {"type": "integer", "minimum": 1, "maximum": 4},
+          "title": {"type": "string"},
+          "day_start": {"type": "integer", "minimum": 1, "maximum": 14},
+          "day_end": {"type": "integer", "minimum": 1, "maximum": 14}
+        }
+      }
+    },
+    "reasoning_steps": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["order", "label", "prompt"],
+        "properties": {"order": {"type": "integer", "minimum": 1}, "label": {"type": "string"}, "prompt": {"type": "string"}}
+      }
+    },
+    "days": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["day", "knowledge_point_id", "title", "goal", "textbook_pages", "pdf_pages", "textbook_page_start", "textbook_page_end", "pdf_page_start", "pdf_page_end", "textbook_href", "reading_prompts", "question_ids", "source_label"],
+        "properties": {
+          "day": {"type": "integer", "minimum": 1, "maximum": 14},
+          "knowledge_point_id": {"type": "string", "minLength": 3},
+          "title": {"type": "string"},
+          "goal": {"type": "string"},
+          "textbook_pages": {"type": "string"},
+          "pdf_pages": {"type": "string"},
+          "textbook_page_start": {"type": "integer", "minimum": 1},
+          "textbook_page_end": {"type": "integer", "minimum": 1},
+          "pdf_page_start": {"type": "integer", "minimum": 1},
+          "pdf_page_end": {"type": "integer", "minimum": 1},
+          "textbook_href": {"type": "string"},
+          "reading_prompts": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "question_ids": {"type": "array", "minItems": 2, "maxItems": 5, "items": {"type": "string"}, "uniqueItems": true},
+          "source_label": {"type": "string"}
+        }
+      }
+    },
+    "delayed_retest_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "parent_checklist": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  }
+}

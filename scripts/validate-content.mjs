@@ -1,4 +1,4 @@
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, stat } from "node:fs/promises";
 import { calculateTimeLabAnswers, normalizeTimeAnswer } from "../assets/time-utils.js";
 await import("../assets/config.js");
 await import("../assets/features/solar-season.js");
@@ -25,6 +25,7 @@ const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.m
 const questions = JSON.parse(await readFile(new URL("../data/questions.json", import.meta.url), "utf8"));
 const appSource = await readFile(new URL("../assets/app.js", import.meta.url), "utf8");
 const homeSource = await readFile(new URL("../assets/features/home.js", import.meta.url), "utf8");
+const regionFeatureSource = await readFile(new URL("../assets/features/region-review.js", import.meta.url), "utf8");
 const indexSource = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const paperReviews = JSON.parse(await readFile(new URL("../data/paper_reviews.json", import.meta.url), "utf8"));
 const retests = JSON.parse(await readFile(new URL("../data/retests.json", import.meta.url), "utf8"));
@@ -90,7 +91,7 @@ const v020Schemas = await Promise.all([
 ].map(async (name) => JSON.parse(await readFile(new URL(`../schemas/${name}`, import.meta.url), "utf8"))));
 const presentationCatalogSchema = JSON.parse(await readFile(new URL("../schemas/presentation-catalog.v0.1.schema.json", import.meta.url), "utf8"));
 const curriculumCatalogSchema = JSON.parse(await readFile(new URL("../schemas/curriculum-catalog.v0.22.schema.json", import.meta.url), "utf8"));
-const regionReviewSchema = JSON.parse(await readFile(new URL("../schemas/region-review.v0.27.schema.json", import.meta.url), "utf8"));
+const regionReviewSchema = JSON.parse(await readFile(new URL("../schemas/region-review.v0.28.schema.json", import.meta.url), "utf8"));
 const retestV03Schema = JSON.parse(await readFile(new URL("../schemas/retest.v0.3.schema.json", import.meta.url), "utf8"));
 const gitignoreSource = await readFile(new URL("../.gitignore", import.meta.url), "utf8");
 const topicIds = new Set(topics.map((topic) => topic.id));
@@ -112,13 +113,14 @@ if (retestV03Schema.properties?.source?.const !== "资料包选题") errors.push
 if (!Array.isArray(topics) || topics.length === 0) errors.push("topics.json 必须是非空数组");
 if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.json 必须是非空数组");
 if (!appSource.includes("选择理由（选填）") || !appSource.includes('if (!selectedOption) return alert("请先选择答案。");') || appSource.includes("!selectedOption || !reasoning")) errors.push("普通诊断题必须允许理由留空提交");
-if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.27.1") || !indexSource.includes("app.js?v=0.27.1") || !indexSource.includes("region-review.js?v=0.27.1")) errors.push("网页展示版本、静态资源版本或区域发展模块入口不是v0.27.1");
-if (!indexSource.includes('data-action="start-next" data-route="train">诊断</button>')) errors.push("底部导航必须保留可直接进入诊断题的常驻入口");
+if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.28.0") || !indexSource.includes("app.js?v=0.28.0") || !indexSource.includes("region-review.js?v=0.28.0")) errors.push("网页展示版本、静态资源版本或区域发展模块入口不是v0.28.0");
+if (!indexSource.includes('data-action="goto" data-route="projects">学习</button>') || !indexSource.includes('data-action="start-next" data-route="train">题目</button>')) errors.push("底部导航必须保留学习目录和题目常驻入口");
 if (!diagnosticCatalogSource.includes("题目目录") || !diagnosticCatalogSource.includes("教材册—章—节") || !diagnosticCatalogSource.includes('data-action="start-question"') || !diagnosticCatalogSource.includes('data-action="set-diagnostic-filter"')) errors.push("诊断题目录必须支持教材章节、状态筛选和指定题目进入");
 if (!diagnosticCatalogSource.includes("diagnostic-section") || !diagnosticCatalogSource.includes('data-current-question="true"') || !diagnosticCatalogSource.includes("scrollIntoView")) errors.push("诊断题目录必须在第3级自动折叠题目并定位当前题");
 if (diagnosticCatalogSource.includes("question.answer") || diagnosticCatalogSource.includes("question.explanation") || diagnosticCatalogSource.includes("question.error_map")) errors.push("诊断题目录不得提前展示答案、解析或错因映射");
-if (!appSource.includes('class="result-option-list"') || !appSource.includes('data-action="continue-question"') || !appSource.includes("chooseNextCatalogQuestion(question.id)")) errors.push("诊断讲解页必须保留四个选项，并按题目目录顺序保存后继续");
-if (!homeSource.includes('data-action="open-diagnostic-catalog"') || !homeSource.includes("按册、章、节管理学习项目")) errors.push("项目页必须提供诊断题目录入口与教材章节导航");
+if (!appSource.includes('class="result-option-list"') || !appSource.includes('data-action="continue-question"') || !appSource.includes("chooseNextCatalogQuestion(question.id)") || !appSource.includes("没把握，去看教材第") || !appSource.includes('data-action="save-attempt-region-day"')) errors.push("诊断讲解页必须保留四个选项、教材页入口，以及保存后继续或返回本日的按钮");
+if (!homeSource.includes('data-action="open-diagnostic-catalog"') || !homeSource.includes("学习目录") || !homeSource.includes("learning-focus-section")) errors.push("学习目录必须提供当前学习项目与题目快捷入口");
+if (!regionFeatureSource.includes("region-chapter-card") || !regionFeatureSource.includes("region-day-card") || !regionFeatureSource.includes("textbook-inline-viewer") || !regionFeatureSource.includes('loading="lazy"')) errors.push("区域复习必须按章—日折叠，并延迟加载教材页面图片");
 if (!Array.isArray(paperReviews) || paperReviews.length === 0) errors.push("paper_reviews.json 必须是非空数组");
 if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json 必须是非空数组");
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
@@ -126,7 +128,7 @@ if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) e
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
 if (learningProjects?.schema_version !== "0.25.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length !== 27) errors.push("learning_projects.json 必须是0.25.0版且包含27个项目");
 if (curriculumCatalog?.schema_version !== "0.22.0" || !Array.isArray(curriculumCatalog.books) || curriculumCatalog.books.length !== 2) errors.push("curriculum_catalog.json 必须是0.22.0版且包含2册教材");
-if (regionReview?.schema_version !== "0.27.0" || regionReview.id !== "region-development-review" || regionReview.local_only !== false || regionReview.days?.length !== 14 || regionReview.reasoning_steps?.length !== 7) errors.push("region_review.json 必须是可发布的0.27.0十四日复习模块，并包含7步区域分析链");
+if (regionReview?.schema_version !== "0.28.0" || regionReview.id !== "region-development-review" || regionReview.local_only !== false || regionReview.days?.length !== 14 || regionReview.reasoning_steps?.length !== 7 || regionReview.chapters?.length !== 4 || regionReview.textbook?.image_base !== "./assets/textbook/region-development") errors.push("region_review.json 必须是可发布的0.28.0十四日复习模块，并包含四章目录、教材图片和7步区域分析链");
 const ignoredLocalSourceDirs = new Set(gitignoreSource.split(/\r?\n/));
 for (const sourceDir of ["local_learning_sources/", "教材/", "2025高中地理学习资料包 (知识点+教辅+试卷)/"]) {
   if (!ignoredLocalSourceDirs.has(sourceDir)) errors.push(`本机学习资料目录必须保持 Git 忽略：${sourceDir}`);
@@ -272,9 +274,23 @@ for (const [knowledgePointId, count] of knowledgeCounts) if (count < 2 || count 
 
 const regionQuestionIds = regionReview.days.flatMap((day) => day.question_ids || []);
 if (regionQuestionIds.length !== 28 || new Set(regionQuestionIds).size !== 28) errors.push("十四日复习必须引用28道不重复诊断题");
+const coveredRegionDays = regionReview.chapters?.flatMap((chapter) => Array.from({ length: chapter.day_end - chapter.day_start + 1 }, (_, index) => chapter.day_start + index)) || [];
+if (coveredRegionDays.length !== 14 || new Set(coveredRegionDays).size !== 14 || coveredRegionDays.some((day) => day < 1 || day > 14)) errors.push("区域发展四章必须无遗漏、无重复地覆盖DAY 1—14");
 for (const day of regionReview.days) {
   if (day.question_ids.length < 2 || day.question_ids.length > 5) errors.push(`第${day.day}天必须安排2—5道题`);
+  if (day.textbook_page_start > day.textbook_page_end || day.pdf_page_start > day.pdf_page_end) errors.push(`第${day.day}天教材或PDF页码范围倒置`);
+  if (day.pdf_page_start - day.textbook_page_start !== regionReview.textbook.textbook_page_offset || day.pdf_page_end - day.textbook_page_end !== regionReview.textbook.textbook_page_offset) errors.push(`第${day.day}天教材页与PDF页映射不一致`);
+  if (day.pdf_page_start < regionReview.textbook.first_pdf_page || day.pdf_page_end > regionReview.textbook.last_pdf_page) errors.push(`第${day.day}天教材图片超出发布页范围`);
   for (const questionId of day.question_ids) if (questions.find((item) => item.id === questionId)?.knowledge_point_id !== day.knowledge_point_id) errors.push(`${questionId} 的知识点与第${day.day}天不一致`);
+}
+for (let page = regionReview.textbook.first_pdf_page; page <= regionReview.textbook.last_pdf_page; page += 1) {
+  const filename = `page-${String(page).padStart(3, "0")}.jpg`;
+  try {
+    const imageInfo = await stat(new URL(`../assets/textbook/region-development/${filename}`, import.meta.url));
+    if (imageInfo.size < 100_000) errors.push(`教材页面图片疑似不完整：${filename}`);
+  } catch {
+    errors.push(`缺少教材页面图片：${filename}`);
+  }
 }
 for (const questionId of regionQuestionIds) {
   const question = questions.find((item) => item.id === questionId);
@@ -1163,7 +1179,7 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.27.1" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.28.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
   if (packet.summary.total_learning_records !== 18 || packet.summary.pending_parent_reviews !== 18) errors.push("学习档案摘要计数错误");
   if (packet.summary.by_project.length !== 26 || packet.summary.habitability_attempts !== 1 || packet.summary.solar_activity_attempts !== 1 || packet.summary.moon_phase_attempts !== 1 || packet.summary.eclipse_attempts !== 1 || packet.summary.tide_attempts !== 1 || packet.summary.coriolis_attempts !== 1 || packet.summary.front_weather_attempts !== 1 || packet.summary.cyclone_system_attempts !== 1 || packet.summary.atmosphere_reasoning_attempts !== 1 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts) || !Array.isArray(packet.axial_tilt_attempts) || !Array.isArray(packet.celestial_scale_attempts) || !Array.isArray(packet.habitability_attempts) || !Array.isArray(packet.solar_activity_attempts) || !Array.isArray(packet.moon_phase_attempts) || !Array.isArray(packet.eclipse_attempts) || !Array.isArray(packet.tide_attempts) || !Array.isArray(packet.coriolis_attempts) || !Array.isArray(packet.front_weather_attempts) || !Array.isArray(packet.cyclone_system_attempts) || !Array.isArray(packet.atmosphere_reasoning_attempts)) errors.push("学习档案缺少第三章项目进度或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");

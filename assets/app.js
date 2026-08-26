@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.27.1", ASSET_VERSION: "0.27.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.28.0", ASSET_VERSION: "0.28.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -65,6 +65,7 @@ function defaultState() {
     route: "today",
     currentQuestionId: null,
     diagnosticFilter: "all",
+    regionReviewDay: 1,
     currentRetestId: null,
     activeSession: null,
     activeRetestSession: null,
@@ -144,6 +145,7 @@ function defaultState() {
 function normalizeState(parsed) {
   const normalized = { ...defaultState(), ...parsed, version: "0.3.0" };
   normalized.diagnosticFilter = ["all", "unseen", "review", "answered"].includes(parsed?.diagnosticFilter) ? parsed.diagnosticFilter : "all";
+  normalized.regionReviewDay = Number.isInteger(Number(parsed?.regionReviewDay)) && Number(parsed.regionReviewDay) >= 1 && Number(parsed.regionReviewDay) <= 14 ? Number(parsed.regionReviewDay) : 1;
   normalized.attempts = Array.isArray(parsed?.attempts) ? parsed.attempts : [];
   normalized.retestAttempts = Array.isArray(parsed?.retestAttempts)
     ? parsed.retestAttempts
@@ -234,6 +236,18 @@ function optionalReasoning(value) {
 function getTopic(id) { return catalog.topics.find((topic) => topic.id === id); }
 function getQuestion(id) { return catalog.questions.find((question) => question.id === id); }
 function getRetest(id) { return catalog.retests.find((retest) => retest.id === id); }
+function getRegionReviewDay(dayNumber) { return catalog.regionReview?.days?.find((day) => day.day === Number(dayNumber)) || null; }
+function getRegionReviewDayForQuestion(questionId) { return catalog.regionReview?.days?.find((day) => day.question_ids.includes(questionId)) || null; }
+function firstIncompleteRegionReviewDay() {
+  const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
+  return catalog.regionReview?.days?.find((day) => day.question_ids.some((id) => !attempted.has(id))) || null;
+}
+function nextQuestionForRegionDay(dayNumber) {
+  const day = getRegionReviewDay(dayNumber);
+  if (!day) return null;
+  const attempted = new Set(state.attempts.map((attempt) => attempt.question_id));
+  return day.question_ids.map(getQuestion).find((question) => question && !attempted.has(question.id)) || getQuestion(day.question_ids[0]);
+}
 function getTimeLabAttempt(id) { return state.timeLabAttempts.find((attempt) => attempt.id === id); }
 function getEarthMotionAttempt(id) { return state.earthMotionAttempts.find((attempt) => attempt.id === id); }
 function getSolarSeasonAttempt(id) { return state.solarSeasonAttempts.find((attempt) => attempt.id === id); }
@@ -1281,13 +1295,29 @@ function renderRegionReview() {
       total: dayQuestions.length
     };
   });
+  const currentQuestionDay = getRegionReviewDayForQuestion(state.currentQuestionId);
+  const activeDay = getRegionReviewDay(state.regionReviewDay)?.day || currentQuestionDay?.day || firstIncompleteRegionReviewDay()?.day || 1;
+  state.regionReviewDay = activeDay;
+  const chapters = (module.chapters || []).map((chapter) => ({
+    ...chapter,
+    days: days.filter((day) => day.day >= chapter.day_start && day.day <= chapter.day_end)
+  }));
   const retests = module.delayed_retest_ids.map(getRetest).filter(Boolean).map((retest) => ({
     ...retest,
     attempt: retestAttempts.find((attempt) => attempt.retest_id === retest.id) || null,
     source_label: [retest.source_meta?.origin, retest.source_meta?.section].filter(Boolean).join(" · ") || retest.source,
     review_label: `建议间隔${retest.review_after_days?.[0] || 2}天`
   }));
-  app.innerHTML = feature.render({ module, days, retests });
+  app.innerHTML = feature.render({
+    module,
+    days,
+    chapters,
+    retests,
+    activeDay,
+    completedQuestions: days.reduce((sum, day) => sum + day.completed, 0),
+    totalQuestions: days.reduce((sum, day) => sum + day.total, 0)
+  });
+  requestAnimationFrame(() => document.querySelector(`[data-region-day="${activeDay}"]`)?.scrollIntoView({ block: "center" }));
 }
 
 function render() {
@@ -1556,7 +1586,11 @@ function getTodayRecommendation() {
   let reason;
   const attemptedQuestionIds = new Set(state.attempts.map((attempt) => attempt.question_id));
   const hasActiveUnseen = activeCurriculumQuestionIds().some((id) => !attemptedQuestionIds.has(id));
-  if (hasActiveUnseen) {
+  const nextRegionDay = firstIncompleteRegionReviewDay();
+  if (nextRegionDay) {
+    project = byId("region-development-review");
+    reason = `选择性必修2继续到DAY ${nextRegionDay.day}：先看教材第${nextRegionDay.textbook_page_start}—${nextRegionDay.textbook_page_end}页，再完成当天2道资料包题。`;
+  } else if (hasActiveUnseen) {
     project = byId("diagnostic-questions");
     reason = "第三章正在学习：先用一道常见天气系统诊断题定位薄弱环节，再进入对应实验室。";
   } else if (!latestFrontWeather) {
@@ -1910,12 +1944,18 @@ function renderTrain() {
   const question = getActiveQuestion();
   if (!question) { app.innerHTML = `<section class="card empty">暂无题目。</section>`; return; }
   state.currentQuestionId = question.id;
+  const regionDay = getRegionReviewDayForQuestion(question.id);
+  if (regionDay) state.regionReviewDay = regionDay.day;
+  const regionFeature = window.OrangeCoach?.features?.regionReview;
+  const textbookHelp = regionDay && regionFeature
+    ? regionFeature.renderTextbookPages(catalog.regionReview, regionDay, { prompt: `没把握，去看教材第${regionDay.textbook_page_start}—${regionDay.textbook_page_end}页`, idPrefix: `question-${question.id}` })
+    : "";
   const session = state.activeSession;
   if (session && session.questionId === question.id) return renderResult(question, session);
   app.innerHTML = `
     <div class="question-page-heading">
       <div><div class="topic-meta">${escapeHtml(getTopic(question.topic_id)?.category || "")} · ${escapeHtml(getTopic(question.topic_id)?.name || "")} · ${escapeHtml(question.id)}</div><h2 class="page-title">${escapeHtml(question.title)}</h2></div>
-      <button class="btn secondary" data-action="open-diagnostic-catalog">题目目录</button>
+      ${regionDay ? `<button class="btn secondary" data-action="return-region-day" data-day="${regionDay.day}">返回DAY ${regionDay.day}</button>` : `<button class="btn secondary" data-action="open-diagnostic-catalog">题目目录</button>`}
     </div>
     <p class="page-subtitle">请先独立选择答案。理由可选填，留空也可以提交。</p>
     <section class="card">
@@ -1927,9 +1967,10 @@ function renderTrain() {
         <div class="option-list">${question.options.map((option) => `<label class="option"><input type="radio" name="answer" value="${escapeHtml(option.id)}" /> <span><strong>${escapeHtml(option.id)}.</strong> ${escapeHtml(option.text)}</span></label>`).join("")}</div>
         <label class="field-label" for="reasoning">选择理由（选填）</label>
         <textarea id="reasoning" placeholder="可选：简单记录判断依据，留空不影响提交。"></textarea>
+        ${textbookHelp}
         <label class="field-label">你对答案的把握有多大？</label>
         <div class="confidence">${[1, 2, 3, 4, 5].map((value) => `<label><input type="radio" name="confidence" value="${value}" ${value === 3 ? "checked" : ""}/> ${value}</label>`).join("")}</div>
-        <div class="btn-row"><button class="btn" type="submit">提交并查看诊断</button><button class="btn secondary" type="button" data-action="goto" data-route="today">暂不作答</button></div>
+        <div class="btn-row"><button class="btn" type="submit">提交并查看诊断</button>${regionDay ? `<button class="btn secondary" type="button" data-action="return-region-day" data-day="${regionDay.day}">暂不作答，返回本日</button>` : `<button class="btn secondary" type="button" data-action="goto" data-route="today">暂不作答</button>`}</div>
       </form>
     </section>
   `;
@@ -1940,10 +1981,15 @@ function renderResult(question, session) {
   const correct = session.selectedOption === question.answer;
   const candidate = correct ? null : question.error_map[session.selectedOption];
   const prompt = makeAiPrompt(question, session, candidate);
+  const regionDay = getRegionReviewDayForQuestion(question.id);
+  const regionFeature = window.OrangeCoach?.features?.regionReview;
+  const textbookHelp = regionDay && regionFeature
+    ? regionFeature.renderTextbookPages(catalog.regionReview, regionDay, { prompt: `回教材第${regionDay.textbook_page_start}—${regionDay.textbook_page_end}页核对`, idPrefix: `result-${question.id}` })
+    : "";
   app.innerHTML = `
     <div class="question-page-heading">
       <div><div class="topic-meta">${escapeHtml(question.id)} · ${escapeHtml(getTopic(question.topic_id)?.name || "")}</div><h2 class="page-title">${correct ? "答对了，继续核对关键点" : "这道题值得复盘"}</h2></div>
-      <button class="btn secondary" data-action="open-diagnostic-catalog">题目目录</button>
+      ${regionDay ? `<button class="btn secondary" data-action="save-attempt-region-day" data-day="${regionDay.day}">保存并返回DAY ${regionDay.day}</button>` : `<button class="btn secondary" data-action="save-attempt-catalog">保存并回题目目录</button>`}
     </div>
     <section class="card">
       ${question.source_image ? `<figure class="source-question-figure"><a href="${escapeHtml(question.source_image)}" target="_blank" rel="noopener"><img src="${escapeHtml(question.source_image)}" alt="${escapeHtml(question.source_image_alt || "源题配图")}" /></a><figcaption>资料包精选源题配图 · 点按查看原尺寸</figcaption></figure>` : ""}
@@ -1958,7 +2004,8 @@ function renderResult(question, session) {
       <p><strong>你的理由（选填）：</strong></p><div class="quote">${optionalReasoning(session.reasoning)}</div>
       <div class="answer-box ${correct ? "correct" : "wrong"}"><strong>${correct ? "结果：正确" : `结果：不正确，正确答案是 ${escapeHtml(question.answer)}`}</strong><br/>${escapeHtml(question.explanation)}</div>
       ${candidate ? `<div class="diagnosis"><strong>AI/题目给出的错因候选：${escapeHtml(candidate.tag)}</strong><br/>${escapeHtml(candidate.diagnosis)}<br/><br/><strong>追问：</strong>${escapeHtml(candidate.follow_up)}</div>` : `<div class="diagnosis"><strong>下一步：</strong>请用自己的话解释为什么不是另外三个选项，防止“碰巧答对”。</div>`}
-      <div class="btn-row"><button class="btn orange" data-action="continue-question">保存并继续下一题</button><button class="btn secondary" data-action="open-diagnostic-catalog">回到当前题目录位置</button></div>
+      ${textbookHelp}
+      <div class="btn-row"><button class="btn orange" data-action="continue-question">保存并继续下一题</button>${regionDay ? `<button class="btn secondary" data-action="save-attempt-region-day" data-day="${regionDay.day}">保存并返回本日</button>` : `<button class="btn secondary" data-action="save-attempt-catalog">保存并回题目目录</button>`}</div>
     </section>
     <section class="card">
       <h3>把这道题交给 AI 诊断</h3>
@@ -2555,7 +2602,28 @@ document.addEventListener("click", async (event) => {
   }
   if (action === "goto") {
     state.route = actionTarget.dataset.route;
+    if (state.route === "region-review") state.regionReviewDay = firstIncompleteRegionReviewDay()?.day || state.regionReviewDay || 1;
     saveState(); render();
+    return;
+  }
+  if (action === "open-region-day" || action === "return-region-day") {
+    const day = getRegionReviewDay(actionTarget.dataset.day);
+    if (!day) return;
+    state.regionReviewDay = day.day;
+    state.route = "region-review";
+    saveState(); render();
+    return;
+  }
+  if (action === "start-region-day-question") {
+    const day = getRegionReviewDay(actionTarget.dataset.day);
+    const question = nextQuestionForRegionDay(day?.day);
+    if (!day || !question) return;
+    state.regionReviewDay = day.day;
+    state.currentQuestionId = question.id;
+    state.activeSession = null;
+    state.route = "train";
+    saveState(); render();
+    return;
   }
   if (action === "open-diagnostic-catalog") {
     state.route = "diagnostic-catalog";
@@ -2572,6 +2640,8 @@ document.addEventListener("click", async (event) => {
   if (action === "start-question") {
     const question = getQuestion(actionTarget.dataset.questionId);
     if (!question) return;
+    const regionDay = getRegionReviewDayForQuestion(question.id);
+    if (regionDay) state.regionReviewDay = regionDay.day;
     state.currentQuestionId = question.id;
     state.activeSession = null;
     state.route = "train";
@@ -2586,6 +2656,14 @@ document.addEventListener("click", async (event) => {
   }
   if (action === "continue-question") {
     saveAttempt("next");
+    return;
+  }
+  if (action === "save-attempt-region-day") {
+    saveAttempt("region-day");
+    return;
+  }
+  if (action === "save-attempt-catalog") {
+    saveAttempt("catalog");
     return;
   }
   if (action === "start-time-diagnostic") {
@@ -3946,8 +4024,18 @@ function saveAttempt(destination = "parent") {
   });
   state.activeSession = null;
   if (destination === "next") {
-    state.currentQuestionId = chooseNextCatalogQuestion(question.id)?.id || null;
+    const nextQuestion = chooseNextCatalogQuestion(question.id);
+    state.currentQuestionId = nextQuestion?.id || null;
+    const nextRegionDay = getRegionReviewDayForQuestion(nextQuestion?.id);
+    if (nextRegionDay) state.regionReviewDay = nextRegionDay.day;
     state.route = "train";
+  } else if (destination === "region-day") {
+    state.regionReviewDay = getRegionReviewDayForQuestion(question.id)?.day || state.regionReviewDay;
+    state.currentQuestionId = question.id;
+    state.route = "region-review";
+  } else if (destination === "catalog") {
+    state.currentQuestionId = question.id;
+    state.route = "diagnostic-catalog";
   } else {
     state.route = "parent";
     state.currentQuestionId = null;
