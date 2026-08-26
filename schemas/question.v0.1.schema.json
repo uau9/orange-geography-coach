@@ -2,15 +2,30 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "orange-geography-coach/question.v0.1",
   "type": "object",
-  "required": ["id", "topic_id", "stem", "options", "answer", "error_map", "explanation", "review_after_days"],
+  "required": ["id", "topic_id", "source", "source_document", "source_material", "source_fidelity", "stem", "options", "answer", "error_map", "explanation", "review_after_days"],
   "properties": {
     "id": {"type": "string", "pattern": "^GEO-[A-Z]+-[0-9]{3}$"},
     "topic_id": {"type": "string"},
+    "source": {"type": "string", "pattern": "^资料包·"},
+    "source_document": {"type": "string", "pattern": "\\.docx$"},
+    "source_material": {"type": "string", "minLength": 10},
+    "source_fidelity": {
+      "type": "object",
+      "required": ["status", "verified_on", "fields"],
+      "properties": {
+        "status": {"const": "verified_against_teacher_docx"},
+        "verified_on": {"type": "string", "format": "date"},
+        "fields": {
+          "type": "array",
+          "const": ["source_material", "stem", "options", "answer", "explanation"]
+        }
+      }
+    },
     "stem": {"type": "string", "minLength": 10},
-    "options": {"type": "array", "minItems": 2, "items": {"type": "object", "required": ["id", "text"]}},
+    "options": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "object", "required": ["id", "text"]}},
     "answer": {"type": "string"},
     "error_map": {"type": "object"},
-    "explanation": {"type": "string", "minLength": 10},
+    "explanation": {"type": "string", "minLength": 30},
     "review_after_days": {"type": "array", "items": {"type": "integer", "minimum": 1}}
   }
 }

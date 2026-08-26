@@ -1,7 +1,9 @@
 import fs from "node:fs";
 
 const outputPath = new URL("../data/questions.json", import.meta.url);
+const sourceFidelityPath = new URL("../data/question_source_fidelity.json", import.meta.url);
 const existing = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+const sourceFidelity = JSON.parse(fs.readFileSync(sourceFidelityPath, "utf8"));
 const existingRegion = new Map(existing.filter((item) => item.id.startsWith("GEO-REGDEV-")).map((item) => [item.id, item]));
 
 const letters = ["A", "B", "C", "D"];
@@ -350,6 +352,23 @@ packQuestions.push(
   regionQuestion({ id: "GEO-REGDEV-027", knowledge: "region.day14-international-cooperation", title: "埃塞俄比亚承接成衣制造的优势", source: "资料包·步步高课时68课时精练第1题", stem: "我国服装企业在埃塞俄比亚工业园区投资建立成衣制造厂，使其成为向欧美出口服装和皮革的主要国家之一。埃塞俄比亚的比较优势是：①土地和劳动力成本低　②距市场近　③工业基础好　④政策支持", options: ["①②", "①②③", "①②④", "①②③④"], answer: "C", explanation: "埃塞俄比亚土地和劳动力成本低，面向欧美市场区位较近，且增长转型计划提供政策支持，但工业基础仍较薄弱。", keyPoints: ["国际产业转移", "比较优势", "政策与市场"] }),
   regionQuestion({ id: "GEO-REGDEV-028", knowledge: "region.day14-international-cooperation", title: "承接产业转移的区域影响", source: "资料包·步步高课时68课时精练第2题", stem: "埃塞俄比亚承接中国产业转移，对本国的影响是：①促进产业结构调整　②改善当地环境质量　③加快工业化和城镇化　④提高失业率", options: ["①②", "③④", "①③", "②④"], answer: "C", explanation: "承接制造业有利于产业结构调整、增加就业并推进工业化和城镇化；同时可能带来环境压力，不会提高失业率。", keyPoints: ["产业转移影响", "工业化", "城镇化"] })
 );
+
+for (const item of packQuestions) {
+  const verified = sourceFidelity[item.id];
+  if (!verified) throw new Error(`缺少资料包原题核对记录：${item.id}`);
+  item.source = verified.source;
+  item.source_document = verified.source_document;
+  item.source_material = verified.source_material;
+  item.stem = verified.stem;
+  item.options = verified.options.map((text, index) => ({ id: letters[index], text }));
+  item.answer = verified.answer;
+  item.explanation = verified.explanation;
+  item.source_fidelity = {
+    status: "verified_against_teacher_docx",
+    verified_on: "2026-08-27",
+    fields: ["source_material", "stem", "options", "answer", "explanation"]
+  };
+}
 
 const ids = new Set();
 for (const item of packQuestions) {

@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.28.0", ASSET_VERSION: "0.28.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.28.1", ASSET_VERSION: "0.28.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -1959,9 +1959,7 @@ function renderTrain() {
     </div>
     <p class="page-subtitle">请先独立选择答案。理由可选填，留空也可以提交。</p>
     <section class="card">
-      ${question.source_image ? `<figure class="source-question-figure"><a href="${escapeHtml(question.source_image)}" target="_blank" rel="noopener"><img src="${escapeHtml(question.source_image)}" alt="${escapeHtml(question.source_image_alt || "源题配图")}" /></a><figcaption>资料包精选源题配图 · 点按查看原尺寸</figcaption></figure>` : ""}
-      <div class="question-stem">${escapeHtml(question.stem)}</div>
-      ${question.dataset ? renderDatasetTable(question.dataset) : ""}
+      ${renderQuestionSourceContent(question)}
       <div class="question-source-note">题源：${escapeHtml(question.source)}</div>
       <form id="answer-form">
         <div class="option-list">${question.options.map((option) => `<label class="option"><input type="radio" name="answer" value="${escapeHtml(option.id)}" /> <span><strong>${escapeHtml(option.id)}.</strong> ${escapeHtml(option.text)}</span></label>`).join("")}</div>
@@ -1992,9 +1990,7 @@ function renderResult(question, session) {
       ${regionDay ? `<button class="btn secondary" data-action="save-attempt-region-day" data-day="${regionDay.day}">保存并返回DAY ${regionDay.day}</button>` : `<button class="btn secondary" data-action="save-attempt-catalog">保存并回题目目录</button>`}
     </div>
     <section class="card">
-      ${question.source_image ? `<figure class="source-question-figure"><a href="${escapeHtml(question.source_image)}" target="_blank" rel="noopener"><img src="${escapeHtml(question.source_image)}" alt="${escapeHtml(question.source_image_alt || "源题配图")}" /></a><figcaption>资料包精选源题配图 · 点按查看原尺寸</figcaption></figure>` : ""}
-      <div class="question-stem">${escapeHtml(question.stem)}</div>
-      ${question.dataset ? renderDatasetTable(question.dataset) : ""}
+      ${renderQuestionSourceContent(question)}
       <div class="result-option-list" aria-label="原题选项（作答后对照）">${question.options.map((option) => {
         const isSelected = option.id === session.selectedOption;
         const isCorrect = option.id === question.answer;
@@ -2002,7 +1998,11 @@ function renderResult(question, session) {
       }).join("")}</div>
       <p><strong>你的选择：</strong>${escapeHtml(session.selectedOption)}. ${escapeHtml(selected?.text || "")}</p>
       <p><strong>你的理由（选填）：</strong></p><div class="quote">${optionalReasoning(session.reasoning)}</div>
-      <div class="answer-box ${correct ? "correct" : "wrong"}"><strong>${correct ? "结果：正确" : `结果：不正确，正确答案是 ${escapeHtml(question.answer)}`}</strong><br/>${escapeHtml(question.explanation)}</div>
+      <div class="answer-box ${correct ? "correct" : "wrong"}">
+        <strong>${correct ? "结果：正确" : `结果：不正确，正确答案是 ${escapeHtml(question.answer)}`}</strong>
+        <div class="source-explanation-label">资料原解析（完整保留）</div>
+        <div class="source-explanation-text">${escapeHtml(question.explanation)}</div>
+      </div>
       ${candidate ? `<div class="diagnosis"><strong>AI/题目给出的错因候选：${escapeHtml(candidate.tag)}</strong><br/>${escapeHtml(candidate.diagnosis)}<br/><br/><strong>追问：</strong>${escapeHtml(candidate.follow_up)}</div>` : `<div class="diagnosis"><strong>下一步：</strong>请用自己的话解释为什么不是另外三个选项，防止“碰巧答对”。</div>`}
       ${textbookHelp}
       <div class="btn-row"><button class="btn orange" data-action="continue-question">保存并继续下一题</button>${regionDay ? `<button class="btn secondary" data-action="save-attempt-region-day" data-day="${regionDay.day}">保存并返回本日</button>` : `<button class="btn secondary" data-action="save-attempt-catalog">保存并回题目目录</button>`}</div>
@@ -2100,6 +2100,15 @@ function renderTimeLabResult(scenario, attempt) {
 
 function renderDatasetTable(dataset) {
   return `<div class="data-table-wrap"><table class="data-table"><caption>${escapeHtml(dataset.title)}</caption><thead><tr>${dataset.columns.map((column) => `<th>${escapeHtml(column)}</th>`).join("")}</tr></thead><tbody>${dataset.rows.map((row) => `<tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+
+function renderQuestionSourceContent(question) {
+  return `
+    ${question.source_material ? `<section class="source-material-text" aria-label="原题共同材料"><strong>原题材料</strong><div>${escapeHtml(question.source_material)}</div></section>` : ""}
+    ${question.source_image ? `<figure class="source-question-figure"><a href="${escapeHtml(question.source_image)}" target="_blank" rel="noopener"><img src="${escapeHtml(question.source_image)}" alt="${escapeHtml(question.source_image_alt || "源题配图")}" /></a><figcaption>资料包源题配图 · 点按查看原尺寸</figcaption></figure>` : ""}
+    ${question.dataset ? renderDatasetTable(question.dataset) : ""}
+    <div class="question-stem">${escapeHtml(question.stem)}</div>
+  `;
 }
 
 function renderSourceFigures(images = []) {
@@ -2537,7 +2546,7 @@ function renderParentAttempt(attempt) {
 
 function makeAiPrompt(question, session, candidate) {
   const reasoning = String(session.reasoning || "").trim() || "未填写（选填）";
-  return `你是高中地理学习诊断助手，请帮助家长判断橙子的真实错因。\n\n【题目】\n${question.stem}\n${question.options.map((option) => `${option.id}. ${option.text}`).join("\n")}\n\n【正确答案】${question.answer}\n【橙子的选择】${session.selectedOption}\n【橙子的理由】${reasoning}\n【自评信心】${session.confidence}/5\n【题库提供的候选错因】${candidate?.tag || "答对，检查是否只是猜对"}\n\n请按以下顺序输出：\n1. 如果理由未填写，明确写“理由未填写，证据不足”，不要推测真实错因；否则仅根据理由判断最可能的错误环节。\n2. 给出一个不超过两句的纠正解释，不要堆砌术语。\n3. 提出两个追问，先检查推理链，不要直接让她背答案。\n4. 给出一个 5 分钟内可以完成的微任务。\n5. 标注：家长可确认 / 需要更多证据 / 建议教师复核。\n不要把一次答题表现写成稳定能力结论。`;
+  return `你是高中地理学习诊断助手，请帮助家长判断橙子的真实错因。\n\n【原题材料】\n${question.source_material || "无独立材料"}\n\n【题目】\n${question.stem}\n${question.options.map((option) => `${option.id}. ${option.text}`).join("\n")}\n\n【正确答案】${question.answer}\n【资料原解析】\n${question.explanation}\n\n【橙子的选择】${session.selectedOption}\n【橙子的理由】${reasoning}\n【自评信心】${session.confidence}/5\n【题库提供的候选错因】${candidate?.tag || "答对，检查是否只是猜对"}\n\n请按以下顺序输出：\n1. 如果理由未填写，明确写“理由未填写，证据不足”，不要推测真实错因；否则仅根据理由判断最可能的错误环节。\n2. 给出一个不超过两句的纠正解释，不要堆砌术语。\n3. 提出两个追问，先检查推理链，不要直接让她背答案。\n4. 给出一个 5 分钟内可以完成的微任务。\n5. 标注：家长可确认 / 需要更多证据 / 建议教师复核。\n不要把一次答题表现写成稳定能力结论。`;
 }
 
 function newId() { return `ATT-${Date.now()}-${Math.random().toString(16).slice(2, 7)}`; }
