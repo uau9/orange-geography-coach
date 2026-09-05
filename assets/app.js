@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.28.1", ASSET_VERSION: "0.28.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.29.1", ASSET_VERSION: "0.29.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, regionReview: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, regionReview: null, recallCards: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
 
 function defaultState() {
   return {
@@ -65,6 +65,8 @@ function defaultState() {
     route: "today",
     currentQuestionId: null,
     diagnosticFilter: "all",
+    recallLessonId: "recall-01",
+    recallProgress: {},
     regionReviewDay: 1,
     currentRetestId: null,
     activeSession: null,
@@ -145,6 +147,8 @@ function defaultState() {
 function normalizeState(parsed) {
   const normalized = { ...defaultState(), ...parsed, version: "0.3.0" };
   normalized.diagnosticFilter = ["all", "unseen", "review", "answered"].includes(parsed?.diagnosticFilter) ? parsed.diagnosticFilter : "all";
+  normalized.recallLessonId = typeof parsed?.recallLessonId === "string" ? parsed.recallLessonId : "recall-01";
+  normalized.recallProgress = parsed?.recallProgress && typeof parsed.recallProgress === "object" && !Array.isArray(parsed.recallProgress) ? parsed.recallProgress : {};
   normalized.regionReviewDay = Number.isInteger(Number(parsed?.regionReviewDay)) && Number(parsed.regionReviewDay) >= 1 && Number(parsed.regionReviewDay) <= 14 ? Number(parsed.regionReviewDay) : 1;
   normalized.attempts = Array.isArray(parsed?.attempts) ? parsed.attempts : [];
   normalized.retestAttempts = Array.isArray(parsed?.retestAttempts)
@@ -1349,6 +1353,7 @@ function render() {
   if (state.route === "front-weather-lab") return renderFrontWeatherLab();
   if (state.route === "cyclone-system-lab") return renderCycloneSystemLab();
   if (state.route === "atmosphere-lab") return renderAtmosphereLab();
+  if (state.route === "recall") return renderRecallCards();
   if (state.route === "diagnostic-catalog") return renderDiagnosticCatalog();
   if (state.route === "train") return renderTrain();
   if (state.route === "projects") return renderProjects();
@@ -1829,6 +1834,18 @@ function renderProjects() {
   const feature = window.OrangeCoach?.features?.home;
   if (!feature) { app.innerHTML = `<section class="card empty">项目导航未加载，请刷新页面。</section>`; return; }
   app.innerHTML = feature.renderProjects(projectNavigationModel());
+}
+
+function renderRecallCards() {
+  const feature = window.OrangeCoach?.features?.recallCards;
+  const module = catalog.recallCards;
+  if (!feature || !module?.lessons?.length) {
+    app.innerHTML = `<section class="card empty">背诵卡内容尚未加载。</section>`;
+    return;
+  }
+  const lesson = module.lessons.find((item) => item.id === state.recallLessonId) || module.lessons[0];
+  state.recallLessonId = lesson.id;
+  app.innerHTML = feature.render({ module, lesson, progressByLesson: state.recallProgress });
 }
 
 function renderAttemptSummary(attempt) {
@@ -2559,6 +2576,78 @@ document.addEventListener("click", async (event) => {
   const actionTarget = event.target.closest("[data-action]");
   if (!actionTarget) return;
   const action = actionTarget.dataset.action;
+  if (action === "open-recall-lesson") {
+    const lesson = catalog.recallCards?.lessons?.find((item) => item.id === actionTarget.dataset.lessonId);
+    if (!lesson) return;
+    state.recallLessonId = lesson.id;
+    state.route = "recall";
+    saveState(); render();
+    return;
+  }
+  if (action === "toggle-recall-answer") {
+    const lessonId = actionTarget.dataset.lessonId;
+    const answer = actionTarget.querySelector(".recall-blank-answer");
+    if (!answer || lessonId !== state.recallLessonId) return;
+    const shouldOpen = actionTarget.getAttribute("aria-expanded") !== "true";
+    actionTarget.setAttribute("aria-expanded", String(shouldOpen));
+    answer.hidden = !shouldOpen;
+    if (shouldOpen) {
+      const slot = actionTarget.getBoundingClientRect();
+      const page = actionTarget.closest(".recall-page-crop").getBoundingClientRect();
+      const width = Math.min(320, page.width - 16, window.innerWidth - 32, Math.max(76, answer.textContent.length * 15 + 24));
+      answer.style.width = `${width}px`;
+      const visibleLeft = Math.max(page.left, 0) + 8;
+      const visibleRight = Math.min(page.right, window.innerWidth) - 8;
+      const left = Math.max(visibleLeft, Math.min(slot.left + slot.width / 2 - width / 2, visibleRight - width));
+      answer.style.left = `${left - slot.left}px`;
+      const answerHeight = answer.getBoundingClientRect().height;
+      answer.style.top = `${slot.top - page.top > answerHeight + 8 ? -answerHeight - 5 : slot.height + 5}px`;
+      const previous = state.recallProgress[lessonId] || {};
+      state.recallProgress[lessonId] = {
+        ...previous,
+        reveal_count: Number(previous.reveal_count || 0) + 1,
+        last_revealed_at: new Date().toISOString()
+      };
+      saveState();
+    }
+    return;
+  }
+  if (action === "set-recall-status") {
+    const lessonId = actionTarget.dataset.lessonId;
+    if (!catalog.recallCards?.lessons?.some((item) => item.id === lessonId)) return;
+    const status = actionTarget.dataset.status === "recited" ? "recited" : "review";
+    const previous = state.recallProgress[lessonId] || {};
+    state.recallProgress[lessonId] = {
+      ...previous,
+      status,
+      parent_confirmed_at: status === "recited" ? new Date().toISOString() : null
+    };
+    saveState(); render();
+    return;
+  }
+  if (action === "zoom-recall-page") {
+    const zoom = document.querySelector("#recall-zoom");
+    const target = document.querySelector("#recall-zoom-page");
+    const page = actionTarget.closest(".recall-page-card")?.querySelector(".recall-page-crop");
+    const title = document.querySelector("#recall-zoom-title");
+    if (!zoom || !target || !title || !page) return;
+    const clone = page.cloneNode(true);
+    clone.querySelectorAll(".recall-blank").forEach((blank) => {
+      blank.setAttribute("aria-expanded", "false");
+      blank.querySelector(".recall-blank-answer").hidden = true;
+    });
+    target.replaceChildren(clone);
+    title.textContent = `第 ${actionTarget.dataset.page} 页 · 点击空格逐个查看`;
+    zoom.hidden = false;
+    zoom.querySelector(".recall-zoom-scroll").scrollTo(0, 0);
+    return;
+  }
+  if (action === "close-recall-zoom") {
+    const zoom = document.querySelector("#recall-zoom");
+    if (zoom) zoom.hidden = true;
+    document.querySelector("#recall-zoom-page")?.replaceChildren();
+    return;
+  }
   if (action === "select-map-longitude") {
     const rect = actionTarget.getBoundingClientRect();
     const longitude = ((event.clientX - rect.left) / rect.width) * 360 - 180;
@@ -4259,7 +4348,7 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, regionReview, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, regionReview, recallCards, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -4267,6 +4356,7 @@ async function init() {
       fetch(`./data/learning_projects.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/curriculum_catalog.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/region_review.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/recall_cards.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/solar_season_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -4288,7 +4378,7 @@ async function init() {
       fetch(`./data/cyclone_system_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/atmosphere_reasoning_labs.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, regionReview, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, regionReview, recallCards, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

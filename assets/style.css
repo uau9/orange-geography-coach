@@ -14,6 +14,7 @@
 }
 
 * { box-sizing: border-box; }
+.sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
 button, textarea, input, select { font: inherit; }
 button { cursor: pointer; }
@@ -126,7 +127,7 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .diagnosis { border-left: 4px solid var(--orange); background: #fff8ef; padding: 12px 14px; line-height: 1.65; }
 .quote { white-space: pre-wrap; background: #f4f7f8; border-radius: 10px; padding: 11px; color: #385366; font-size: 12px; line-height: 1.55; }
 .empty { text-align: center; color: var(--muted); padding: 26px 10px; }
-.bottom-nav { position: fixed; z-index: 5; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; padding: 8px max(10px, calc((100vw - 760px) / 2)); padding-bottom: max(8px, env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); backdrop-filter: blur(12px); }
+.bottom-nav { position: fixed; z-index: 5; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; padding: 8px max(10px, calc((100vw - 760px) / 2)); padding-bottom: max(8px, env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); backdrop-filter: blur(12px); }
 .bottom-nav button { border: 0; background: transparent; color: var(--muted); padding: 10px 4px; border-radius: 10px; font-size: 12px; }
 .bottom-nav button.active { background: #e8f2f2; color: var(--navy); font-weight: 700; }
 .notice { background: #fff7dc; border: 1px solid #f1dea1; color: #745818; border-radius: 12px; padding: 11px 13px; font-size: 12px; line-height: 1.6; }
@@ -158,6 +159,58 @@ select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-
 .rubric-list label { display: flex; align-items: flex-start; gap: 8px; border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-size: 12px; line-height: 1.5; }
 .rubric-list input { margin-top: 3px; accent-color: var(--teal); }
 .file-input { display: none; }
+
+main:has(.recall-layout) { width: min(100% - 28px, 1180px); }
+.recall-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.recall-layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 18px; align-items: start; }
+.recall-directory { position: sticky; top: 14px; max-height: calc(100vh - 112px); overflow: auto; border: 1px solid var(--line); border-radius: 16px; background: white; box-shadow: var(--shadow); }
+.recall-directory-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border-bottom: 1px solid var(--line); }
+.recall-directory-head small { color: var(--muted); }
+.recall-directory details { border-bottom: 1px solid var(--line); }
+.recall-directory details:last-child { border-bottom: 0; }
+.recall-directory summary { padding: 12px 14px; cursor: pointer; color: var(--navy); font-size: 12px; font-weight: 800; line-height: 1.5; }
+.recall-lesson-links { display: grid; gap: 5px; padding: 0 8px 10px; }
+.recall-lesson-links button { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 7px; width: 100%; border: 1px solid transparent; border-radius: 10px; padding: 9px; background: transparent; color: var(--ink); text-align: left; }
+.recall-lesson-links button:hover, .recall-lesson-links button:focus-visible { border-color: #bdd7d5; background: #f4faf9; outline: 0; }
+.recall-lesson-links button.active { border-color: var(--teal); background: #eaf5f3; }
+.recall-lesson-links button span { font-size: 11px; line-height: 1.45; }
+.recall-lesson-links button small { color: var(--muted); font-size: 9px; white-space: nowrap; }
+.recall-lesson-links button small.green { color: var(--green); }
+.recall-lesson-links button small.orange { color: #9a5d18; }
+.recall-lesson-main { min-width: 0; }
+.recall-lesson-summary { margin-top: 0; }
+.recall-lesson-summary h2 { margin-top: 4px; font-size: 20px; line-height: 1.45; }
+.recall-lesson-meta { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.recall-lesson-meta span { border-radius: 999px; padding: 5px 9px; background: #eff5f5; color: var(--muted); font-size: 10px; }
+.recall-page-list { display: grid; gap: 18px; }
+.recall-page-card { overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: white; box-shadow: var(--shadow); }
+.recall-page-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 13px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.recall-page-crop { position: relative; overflow: hidden; width: 100%; background: white; }
+.recall-page-crop > img { position: absolute; inset: 0 auto auto 0; display: block; width: 100%; height: auto; }
+.recall-blank { position: absolute; z-index: 2; min-width: 0; min-height: 0; border: 1px solid rgba(230, 142, 67, .35); border-radius: 2px; padding: 0; background: rgba(255, 206, 155, .45); color: #633415; cursor: pointer; }
+.recall-blank:hover, .recall-blank:focus-visible { outline: 2px solid var(--orange); outline-offset: 1px; background: rgba(255, 207, 151, .65); }
+.recall-blank[aria-expanded="true"] { z-index: 10; border-color: #da8a3e; background: #ffce99; }
+.recall-blank-answer { position: absolute; z-index: 11; display: block; box-sizing: border-box; border: 1px solid #e3a261; border-radius: 7px; padding: 8px 10px; background: #fff5e8; color: #613713; box-shadow: 0 3px 14px rgba(76, 46, 14, .16); font-size: 15px; font-weight: 600; line-height: 1.55; text-align: left; white-space: normal; overflow-wrap: anywhere; }
+.recall-blank-answer[hidden], .recall-zoom[hidden] { display: none; }
+.recall-zoom { position: fixed; z-index: 30; inset: 0; display: grid; grid-template-rows: auto minmax(0, 1fr); background: rgba(10, 28, 40, .96); }
+.recall-zoom-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; color: white; }
+.recall-zoom-scroll { overflow: auto; padding: 0 12px 28px; text-align: center; }
+#recall-zoom-page { width: max(1000px, 100%); max-width: 1240px; margin: 0 auto; background: white; box-shadow: 0 8px 32px rgba(0,0,0,.35); }
+
+@media (max-width: 760px) {
+  .recall-layout { grid-template-columns: 1fr; }
+  .recall-directory { position: static; max-height: none; }
+  .recall-directory details:not([open]) .recall-lesson-links { display: none; }
+}
+
+@media (max-width: 420px) {
+  .bottom-nav { gap: 1px; padding-left: 5px; padding-right: 5px; }
+  .bottom-nav button { padding-left: 2px; padding-right: 2px; font-size: 11px; }
+  .recall-heading { align-items: center; }
+  .recall-heading .page-title { font-size: 21px; }
+  .recall-lesson-summary { padding: 15px; }
+  .recall-page-list { gap: 13px; }
+}
 
 @media (min-width: 680px) {
   .source-figure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }

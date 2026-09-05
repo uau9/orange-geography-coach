@@ -20,6 +20,7 @@ await import("../assets/features/front-weather.js");
 await import("../assets/features/cyclone-system.js");
 await import("../assets/features/atmosphere-reasoning.js");
 await import("../assets/features/learning-export.js");
+await import("../assets/features/recall-cards.js");
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
 const questions = JSON.parse(await readFile(new URL("../data/questions.json", import.meta.url), "utf8"));
@@ -27,6 +28,7 @@ const questionSourceFidelity = JSON.parse(await readFile(new URL("../data/questi
 const appSource = await readFile(new URL("../assets/app.js", import.meta.url), "utf8");
 const homeSource = await readFile(new URL("../assets/features/home.js", import.meta.url), "utf8");
 const regionFeatureSource = await readFile(new URL("../assets/features/region-review.js", import.meta.url), "utf8");
+const recallFeatureSource = await readFile(new URL("../assets/features/recall-cards.js", import.meta.url), "utf8");
 const indexSource = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const paperReviews = JSON.parse(await readFile(new URL("../data/paper_reviews.json", import.meta.url), "utf8"));
 const retests = JSON.parse(await readFile(new URL("../data/retests.json", import.meta.url), "utf8"));
@@ -35,6 +37,7 @@ const earthMotionLab = JSON.parse(await readFile(new URL("../data/earth_motion_l
 const learningProjects = JSON.parse(await readFile(new URL("../data/learning_projects.json", import.meta.url), "utf8"));
 const curriculumCatalog = JSON.parse(await readFile(new URL("../data/curriculum_catalog.json", import.meta.url), "utf8"));
 const regionReview = JSON.parse(await readFile(new URL("../data/region_review.json", import.meta.url), "utf8"));
+const recallCards = JSON.parse(await readFile(new URL("../data/recall_cards.json", import.meta.url), "utf8"));
 const presentationCatalog = JSON.parse(await readFile(new URL("../data/presentation_catalog.json", import.meta.url), "utf8"));
 const solarSeasonLab = JSON.parse(await readFile(new URL("../data/solar_season_lab.json", import.meta.url), "utf8"));
 const solarPathLab = JSON.parse(await readFile(new URL("../data/solar_path_lab.json", import.meta.url), "utf8"));
@@ -93,6 +96,7 @@ const v020Schemas = await Promise.all([
 const presentationCatalogSchema = JSON.parse(await readFile(new URL("../schemas/presentation-catalog.v0.1.schema.json", import.meta.url), "utf8"));
 const curriculumCatalogSchema = JSON.parse(await readFile(new URL("../schemas/curriculum-catalog.v0.22.schema.json", import.meta.url), "utf8"));
 const regionReviewSchema = JSON.parse(await readFile(new URL("../schemas/region-review.v0.28.schema.json", import.meta.url), "utf8"));
+const recallCardsSchema = JSON.parse(await readFile(new URL("../schemas/recall-cards.v1.schema.json", import.meta.url), "utf8"));
 const retestV03Schema = JSON.parse(await readFile(new URL("../schemas/retest.v0.3.schema.json", import.meta.url), "utf8"));
 const gitignoreSource = await readFile(new URL("../.gitignore", import.meta.url), "utf8");
 const topicIds = new Set(topics.map((topic) => topic.id));
@@ -109,14 +113,15 @@ if (v025Schemas.some((schema) => !schema.$id || !schema.$schema)) errors.push("v
 if (!presentationCatalogSchema.$id || !presentationCatalogSchema.$schema) errors.push("PPT目录 schema 必须声明 $id 与 JSON Schema 版本");
 if (!curriculumCatalogSchema.$id || !curriculumCatalogSchema.$schema) errors.push("教材课程目录 schema 必须声明 $id 与 JSON Schema 版本");
 if (!regionReviewSchema.$id || !regionReviewSchema.$schema) errors.push("区域发展复习 schema 必须声明 $id 与 JSON Schema 版本");
+if (!recallCardsSchema.$id || !recallCardsSchema.$schema) errors.push("背诵卡 schema 必须声明 $id 与 JSON Schema 版本");
 if (retestV03Schema.properties?.source?.const !== "资料包选题") errors.push("复测 schema 必须只允许资料包选题");
 
 if (!Array.isArray(topics) || topics.length === 0) errors.push("topics.json 必须是非空数组");
 if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.json 必须是非空数组");
 if (Object.keys(questionSourceFidelity).length !== questions.length) errors.push("资料包原题核对清单必须覆盖全部诊断题");
 if (!appSource.includes("选择理由（选填）") || !appSource.includes('if (!selectedOption) return alert("请先选择答案。");') || appSource.includes("!selectedOption || !reasoning")) errors.push("普通诊断题必须允许理由留空提交");
-if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.28.1") || !indexSource.includes("app.js?v=0.28.1") || !indexSource.includes("region-review.js?v=0.28.1")) errors.push("网页展示版本、静态资源版本或区域发展模块入口不是v0.28.1");
-if (!indexSource.includes('data-action="goto" data-route="projects">学习</button>') || !indexSource.includes('data-action="start-next" data-route="train">题目</button>')) errors.push("底部导航必须保留学习目录和题目常驻入口");
+if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.29.1") || !indexSource.includes("app.js?v=0.29.1") || !indexSource.includes("region-review.js?v=0.29.1") || !indexSource.includes("recall-cards.js?v=0.29.1")) errors.push("网页展示版本、静态资源版本或背诵卡模块入口不是v0.29.1");
+if (!indexSource.includes('data-action="goto" data-route="projects">学习</button>') || !indexSource.includes('data-action="goto" data-route="recall">背诵</button>') || !indexSource.includes('data-action="start-next" data-route="train">题目</button>')) errors.push("底部导航必须保留学习、背诵和题目常驻入口");
 if (!diagnosticCatalogSource.includes("题目目录") || !diagnosticCatalogSource.includes("教材册—章—节") || !diagnosticCatalogSource.includes('data-action="start-question"') || !diagnosticCatalogSource.includes('data-action="set-diagnostic-filter"')) errors.push("诊断题目录必须支持教材章节、状态筛选和指定题目进入");
 if (!diagnosticCatalogSource.includes("diagnostic-section") || !diagnosticCatalogSource.includes('data-current-question="true"') || !diagnosticCatalogSource.includes("scrollIntoView")) errors.push("诊断题目录必须在第3级自动折叠题目并定位当前题");
 if (diagnosticCatalogSource.includes("question.answer") || diagnosticCatalogSource.includes("question.explanation") || diagnosticCatalogSource.includes("question.error_map")) errors.push("诊断题目录不得提前展示答案、解析或错因映射");
@@ -124,6 +129,7 @@ if (!appSource.includes('class="result-option-list"') || !appSource.includes('da
 if (!appSource.includes("原题材料") || !appSource.includes("资料原解析（完整保留）") || !appSource.includes("renderQuestionSourceContent(question)")) errors.push("诊断题作答页与讲解页必须完整展示原题材料和资料原解析");
 if (!homeSource.includes('data-action="open-diagnostic-catalog"') || !homeSource.includes("学习目录") || !homeSource.includes("learning-focus-section")) errors.push("学习目录必须提供当前学习项目与题目快捷入口");
 if (!regionFeatureSource.includes("region-chapter-card") || !regionFeatureSource.includes("region-day-card") || !regionFeatureSource.includes("textbook-inline-viewer") || !regionFeatureSource.includes('loading="lazy"')) errors.push("区域复习必须按章—日折叠，并延迟加载教材页面图片");
+if (!recallFeatureSource.includes('data-action="toggle-recall-answer"') || recallFeatureSource.includes("recall-answer-panel") || !recallFeatureSource.includes('class="recall-blank-answer" hidden') || !recallFeatureSource.includes('loading="lazy"')) errors.push("背诵卡必须默认隐藏独立答案，空格点击不得显示整课答案");
 if (!Array.isArray(paperReviews) || paperReviews.length === 0) errors.push("paper_reviews.json 必须是非空数组");
 if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json 必须是非空数组");
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
@@ -132,6 +138,47 @@ if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.vi
 if (learningProjects?.schema_version !== "0.25.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length !== 27) errors.push("learning_projects.json 必须是0.25.0版且包含27个项目");
 if (curriculumCatalog?.schema_version !== "0.22.0" || !Array.isArray(curriculumCatalog.books) || curriculumCatalog.books.length !== 2) errors.push("curriculum_catalog.json 必须是0.22.0版且包含2册教材");
 if (regionReview?.schema_version !== "0.28.0" || regionReview.id !== "region-development-review" || regionReview.local_only !== false || regionReview.days?.length !== 14 || regionReview.reasoning_steps?.length !== 7 || regionReview.chapters?.length !== 4 || regionReview.textbook?.image_base !== "./assets/textbook/region-development") errors.push("region_review.json 必须是可发布的0.28.0十四日复习模块，并包含四章目录、教材图片和7步区域分析链");
+if (recallCards?.schema_version !== "1.1.0" || recallCards.source?.page_count !== 74 || recallCards.chapters?.length !== 5 || recallCards.lessons?.length !== 25) errors.push("背诵卡必须使用逐空答案1.1.0版本，完整登记5章、25课时和74个原PDF页");
+const recallLessonIds = new Set();
+let expectedRecallPage = 1;
+let recallBlankCount = 0;
+const recallBlankIds = new Set();
+let recallTableBlanks = 0;
+for (const lesson of recallCards?.lessons || []) {
+  if (recallLessonIds.has(lesson.id)) errors.push(`背诵卡课时编号重复：${lesson.id}`);
+  recallLessonIds.add(lesson.id);
+  if (lesson.source_pages?.start !== expectedRecallPage || lesson.source_pages?.end < lesson.source_pages?.start) errors.push(`${lesson.id} 没有按原PDF页码连续编排`);
+  expectedRecallPage = lesson.source_pages.end + 1;
+  if (!lesson.question_pages?.length) errors.push(`${lesson.id} 没有可背诵题面`);
+  if (!lesson.answer_segments?.length && !lesson.supplement?.items?.length) errors.push(`${lesson.id} 缺少原答案或补全答案`);
+  for (const page of lesson.question_pages || []) {
+    recallBlankCount += page.blanks?.length || 0;
+    for (const blank of page.blanks || []) {
+      if (!blank.answer?.trim() || !blank.id || recallBlankIds.has(blank.id)) errors.push(`${lesson.id} 第${page.page_number}页缺少独立答案或空格编号重复`);
+      recallBlankIds.add(blank.id);
+      if (!["line", "table", "diagram"].includes(blank.kind)) errors.push(`${blank.id} 空格类型无效`);
+      if (blank.kind === "table") recallTableBlanks += 1;
+      if (blank.x < 0 || blank.y < 0 || blank.width <= 0 || blank.height <= 0 || blank.x + blank.width > 1.001 || blank.y + blank.height > page.crop_bottom + .001) errors.push(`${blank.id} 热点超出题面范围`);
+    }
+  }
+}
+if (expectedRecallPage !== 75) errors.push("背诵卡原PDF页码未完整覆盖1-74页");
+if (recallBlankCount < 750) errors.push(`背诵卡可点击空位疑似不完整：${recallBlankCount}`);
+if (recallTableBlanks < 150) errors.push(`表格内独立空格疑似遗漏：${recallTableBlanks}`);
+const recallPage57 = recallCards.lessons.find((lesson) => lesson.id === "recall-21").question_pages.find((page) => page.page_number === 57);
+if (!recallPage57.blanks.some((blank) => blank.x > .7 && blank.answer === "南") || !recallPage57.blanks.some((blank) => blank.x > .7 && blank.answer === "寒")) errors.push("第57页等温线洋流图应为南半球寒流");
+for (const chapter of recallCards?.chapters || []) for (const lessonId of chapter.lesson_ids || []) if (!recallLessonIds.has(lessonId)) errors.push(`背诵卡章节引用不存在的课时：${lessonId}`);
+for (let page = 1; page <= 74; page += 1) {
+  const filename = `page-${String(page).padStart(3, "0")}.jpg`;
+  try {
+    const imageInfo = await stat(new URL(`../assets/recall/geography-basics-26/${filename}`, import.meta.url));
+    if (imageInfo.size < 20_000) errors.push(`背诵卡原页图像疑似不完整：${filename}`);
+  } catch {
+    errors.push(`缺少背诵卡原页图像：${filename}`);
+  }
+}
+if (!recallCards.lessons.find((lesson) => lesson.id === "recall-02")?.supplement?.items?.some((item) => item.includes("南、北回归线"))) errors.push("地球自转和公转第二课时的原文缺失答案未补全");
+if (!recallCards.lessons.find((lesson) => lesson.id === "recall-18")?.corrections?.some((item) => item.includes("热带草原气候"))) errors.push("东非高原气候答案错误未纠正");
 const ignoredLocalSourceDirs = new Set(gitignoreSource.split(/\r?\n/));
 for (const sourceDir of ["local_learning_sources/", "教材/", "2025高中地理学习资料包 (知识点+教辅+试卷)/"]) {
   if (!ignoredLocalSourceDirs.has(sourceDir)) errors.push(`本机学习资料目录必须保持 Git 忽略：${sourceDir}`);
@@ -1196,7 +1243,7 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.28.1" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.29.1" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
   if (packet.summary.total_learning_records !== 18 || packet.summary.pending_parent_reviews !== 18) errors.push("学习档案摘要计数错误");
   if (packet.summary.by_project.length !== 26 || packet.summary.habitability_attempts !== 1 || packet.summary.solar_activity_attempts !== 1 || packet.summary.moon_phase_attempts !== 1 || packet.summary.eclipse_attempts !== 1 || packet.summary.tide_attempts !== 1 || packet.summary.coriolis_attempts !== 1 || packet.summary.front_weather_attempts !== 1 || packet.summary.cyclone_system_attempts !== 1 || packet.summary.atmosphere_reasoning_attempts !== 1 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts) || !Array.isArray(packet.axial_tilt_attempts) || !Array.isArray(packet.celestial_scale_attempts) || !Array.isArray(packet.habitability_attempts) || !Array.isArray(packet.solar_activity_attempts) || !Array.isArray(packet.moon_phase_attempts) || !Array.isArray(packet.eclipse_attempts) || !Array.isArray(packet.tide_attempts) || !Array.isArray(packet.coriolis_attempts) || !Array.isArray(packet.front_weather_attempts) || !Array.isArray(packet.cyclone_system_attempts) || !Array.isArray(packet.atmosphere_reasoning_attempts)) errors.push("学习档案缺少第三章项目进度或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");
@@ -1248,4 +1295,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${orbitScenarioIds.size} 个公转轨道组合，${linkScenarioIds.size} 个晨昏线综合情境，${rotationScenarioIds.size} 个自转速度情境，${dateRangeScenarioIds.size} 个全球日期情境，${axialTiltScenarioIds.size} 个黄赤交角情境，${celestialScenarioIds.size} 个天体系统尺度情境，${habitabilityScenarioIds.size} 个宜居条件对照情境，${solarActivityScenarioIds.size} 个太阳活动证据情境，${moonScenarioIds.size} 个月相位置情境，${eclipseScenarioIds.size} 个日月食几何情境，${tideScenarioIds.size} 个潮汐周期情境，${coriolisLab.scenarios.length} 个地转偏向力情境，${frontWeatherLab.scenarios.length} 个锋面天气情境，${cycloneSystemLab.scenarios.length} 个气旋反气旋情境，${atmosphereLabs.labs.reduce((sum, lab) => sum + lab.scenarios.length, 0)} 个大气环流、气候与地形雨情境，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);
+console.log(`✓ 内容校验通过：${topics.length} 个主题，${learningProjects.projects.length} 个学习项目，${questions.length} 道选择题，${recallCards.lessons.length} 个背诵课时/${recallBlankCount} 个可点击空位，${timeLab.scenarios.length} 个时区实验场景，${motionScenarioIds.size} 个晨昏线场景，${solarSeasonLab.dates.length * solarSeasonLab.places.length} 个太阳季节组合，${solarPathLab.dates.length * solarPathLab.places.length} 个太阳视运动组合，${annualSunLab.checkpoints.length * annualSunLab.places.length} 个周年回归组合，${orbitScenarioIds.size} 个公转轨道组合，${linkScenarioIds.size} 个晨昏线综合情境，${rotationScenarioIds.size} 个自转速度情境，${dateRangeScenarioIds.size} 个全球日期情境，${axialTiltScenarioIds.size} 个黄赤交角情境，${celestialScenarioIds.size} 个天体系统尺度情境，${habitabilityScenarioIds.size} 个宜居条件对照情境，${solarActivityScenarioIds.size} 个太阳活动证据情境，${moonScenarioIds.size} 个月相位置情境，${eclipseScenarioIds.size} 个日月食几何情境，${tideScenarioIds.size} 个潮汐周期情境，${coriolisLab.scenarios.length} 个地转偏向力情境，${frontWeatherLab.scenarios.length} 个锋面天气情境，${cycloneSystemLab.scenarios.length} 个气旋反气旋情境，${atmosphereLabs.labs.reduce((sum, lab) => sum + lab.scenarios.length, 0)} 个大气环流、气候与地形雨情境，${paperReviews.length} 份试卷复盘，${retests.length} 组复测，可批注档案通过校验`);
