@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.29.1", ASSET_VERSION: "0.29.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.29.2", ASSET_VERSION: "0.29.2", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -1836,6 +1836,24 @@ function renderProjects() {
   app.innerHTML = feature.renderProjects(projectNavigationModel());
 }
 
+function fitRecallAnswer(answer) {
+  const slot = answer.parentElement;
+  const pageWidth = slot.closest(".recall-page-crop").getBoundingClientRect().width;
+  let low = 0.1;
+  let high = Math.min(slot.clientHeight / 1.08, pageWidth * 11 / 595);
+  for (let i = 0; i < 14; i++) {
+    const size = (low + high) / 2;
+    answer.style.fontSize = `${size}px`;
+    if (answer.scrollWidth <= answer.clientWidth && answer.scrollHeight <= answer.clientHeight) low = size;
+    else high = size;
+  }
+  answer.style.fontSize = `${low}px`;
+}
+
+window.addEventListener("resize", () => {
+  document.querySelectorAll('.recall-blank[aria-expanded="true"] .recall-blank-answer').forEach(fitRecallAnswer);
+});
+
 function renderRecallCards() {
   const feature = window.OrangeCoach?.features?.recallCards;
   const module = catalog.recallCards;
@@ -2592,16 +2610,7 @@ document.addEventListener("click", async (event) => {
     actionTarget.setAttribute("aria-expanded", String(shouldOpen));
     answer.hidden = !shouldOpen;
     if (shouldOpen) {
-      const slot = actionTarget.getBoundingClientRect();
-      const page = actionTarget.closest(".recall-page-crop").getBoundingClientRect();
-      const width = Math.min(320, page.width - 16, window.innerWidth - 32, Math.max(76, answer.textContent.length * 15 + 24));
-      answer.style.width = `${width}px`;
-      const visibleLeft = Math.max(page.left, 0) + 8;
-      const visibleRight = Math.min(page.right, window.innerWidth) - 8;
-      const left = Math.max(visibleLeft, Math.min(slot.left + slot.width / 2 - width / 2, visibleRight - width));
-      answer.style.left = `${left - slot.left}px`;
-      const answerHeight = answer.getBoundingClientRect().height;
-      answer.style.top = `${slot.top - page.top > answerHeight + 8 ? -answerHeight - 5 : slot.height + 5}px`;
+      fitRecallAnswer(answer);
       const previous = state.recallProgress[lessonId] || {};
       state.recallProgress[lessonId] = {
         ...previous,
