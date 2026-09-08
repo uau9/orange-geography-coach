@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.30.0", ASSET_VERSION: "0.30.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.30.1", ASSET_VERSION: "0.30.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -154,7 +154,10 @@ function normalizeState(parsed) {
   normalized.recallProgress = parsed?.recallProgress && typeof parsed.recallProgress === "object" && !Array.isArray(parsed.recallProgress) ? parsed.recallProgress : {};
   normalized.regionReviewDay = Number.isInteger(Number(parsed?.regionReviewDay)) && Number(parsed.regionReviewDay) >= 1 && Number(parsed.regionReviewDay) <= 14 ? Number(parsed.regionReviewDay) : 1;
   normalized.textbookReadingPage = Number.isInteger(Number(parsed?.textbookReadingPage)) && Number(parsed.textbookReadingPage) >= 18 && Number(parsed.textbookReadingPage) <= 25 ? Number(parsed.textbookReadingPage) : 18;
-  normalized.textbookReadingProgress = parsed?.textbookReadingProgress && typeof parsed.textbookReadingProgress === "object" && !Array.isArray(parsed.textbookReadingProgress) ? parsed.textbookReadingProgress : {};
+  const legacyReadingProgress = parsed?.textbookReadingProgress && typeof parsed.textbookReadingProgress === "object" && !Array.isArray(parsed.textbookReadingProgress) ? parsed.textbookReadingProgress : {};
+  normalized.textbookReadingProgress = Object.fromEntries(Object.entries(legacyReadingProgress)
+    .filter(([, record]) => record?.read_at || record?.saved_at)
+    .map(([page, record]) => [page, { read_at: record.read_at || record.saved_at }]));
   normalized.questionReturnRoute = parsed?.questionReturnRoute === "textbook-close-reading" ? parsed.questionReturnRoute : null;
   normalized.attempts = Array.isArray(parsed?.attempts) ? parsed.attempts : [];
   normalized.retestAttempts = Array.isArray(parsed?.retestAttempts)
@@ -225,7 +228,10 @@ function normalizeState(parsed) {
 function loadState() {
   try {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-    return parsed && ["0.1.0", "0.2.0", "0.3.0"].includes(parsed.version) ? normalizeState(parsed) : defaultState();
+    if (!parsed || !["0.1.0", "0.2.0", "0.3.0"].includes(parsed.version)) return defaultState();
+    const normalized = normalizeState(parsed);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+    return normalized;
   } catch {
     return defaultState();
   }
@@ -1351,7 +1357,7 @@ function renderTextbookCloseReading() {
     module,
     page,
     progress: state.textbookReadingProgress,
-    completedPages: Object.values(state.textbookReadingProgress).filter((record) => record?.saved_at).length,
+    completedPages: Object.values(state.textbookReadingProgress).filter((record) => record?.read_at).length,
     questionGroups
   });
 }
@@ -1417,7 +1423,7 @@ function countPendingParentReviews() {
 function projectStatus(project) {
   if (project.status_kind === "textbook_reading") {
     const module = catalog.textbookCloseReading;
-    const completed = Object.values(state.textbookReadingProgress || {}).filter((record) => record?.saved_at).length;
+    const completed = Object.values(state.textbookReadingProgress || {}).filter((record) => record?.read_at).length;
     const questionIds = (module?.question_groups || []).flatMap((group) => group.question_ids || []);
     const answered = new Set(state.attempts.filter((attempt) => questionIds.includes(attempt.question_id)).map((attempt) => attempt.question_id));
     return completed || answered.size
@@ -1634,13 +1640,13 @@ function getTodayRecommendation() {
   const attemptedQuestionIds = new Set(state.attempts.map((attempt) => attempt.question_id));
   const hasActiveUnseen = activeCurriculumQuestionIds().some((id) => !attemptedQuestionIds.has(id));
   const nextRegionDay = firstIncompleteRegionReviewDay();
-  const readingPagesDone = Object.values(state.textbookReadingProgress || {}).filter((record) => record?.saved_at).length;
+  const readingPagesDone = Object.values(state.textbookReadingProgress || {}).filter((record) => record?.read_at).length;
   const readingQuestionIds = catalog.textbookCloseReading?.question_groups?.flatMap((group) => group.question_ids || []) || [];
   const readingQuestionsDone = readingQuestionIds.filter((id) => attemptedQuestionIds.has(id)).length;
   if (readingPagesDone < (catalog.textbookCloseReading?.pages?.length || 0) || readingQuestionsDone < readingQuestionIds.length) {
     project = byId("textbook-close-reading-ch02-s01");
     reason = readingPagesDone < 8
-      ? `选择性必修1第二章第一节：已精读${readingPagesDone}/8页。先留下关键词、因果链和真实疑问，再看逐页解析。`
+      ? `选择性必修1第二章第一节：已读${readingPagesDone}/8页。先读教材原页，再按需展开图片解读、解析、发散和总结。`
       : `选择性必修1第二章第一节：8页精读已完成，继续完成${readingQuestionsDone}/4道真题与资料包迁移题。`;
   } else if (nextRegionDay) {
     project = byId("region-development-review");
@@ -2772,22 +2778,11 @@ document.addEventListener("click", async (event) => {
     saveState(); render();
     return;
   }
-  if (action === "save-reading-page") {
+  if (action === "toggle-reading-page") {
     const page = Number(actionTarget.dataset.page);
     if (!catalog.textbookCloseReading?.pages?.some((item) => item.page === page)) return;
-    const keywords = document.querySelector("#reading-keywords")?.value.trim() || "";
-    const causalChain = document.querySelector("#reading-chain")?.value.trim() || "";
-    const question = document.querySelector("#reading-question")?.value.trim() || "";
-    if (!keywords || !causalChain || !question) return alert("请先写完关键词、因果链和一个真实疑问，再解锁解析。");
-    const previous = state.textbookReadingProgress[String(page)] || {};
-    state.textbookReadingProgress[String(page)] = {
-      ...previous,
-      keywords,
-      causal_chain: causalChain,
-      question,
-      saved_at: previous.saved_at || new Date().toISOString(),
-      updated_at: new Date().toISOString()
-    };
+    if (state.textbookReadingProgress[String(page)]?.read_at) delete state.textbookReadingProgress[String(page)];
+    else state.textbookReadingProgress[String(page)] = { read_at: new Date().toISOString() };
     state.textbookReadingPage = page;
     state.route = "textbook-close-reading";
     saveState(); render();
