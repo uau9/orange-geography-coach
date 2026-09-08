@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orange-geography-coach/question.v0.2",
+  "title": "诊断题 v0.2（资料包核对题或教材原创题）",
+  "type": "object",
+  "required": [
+    "id",
+    "topic_id",
+    "knowledge_point_id",
+    "source",
+    "source_document",
+    "source_material",
+    "source_fidelity",
+    "stem",
+    "options",
+    "answer",
+    "error_map",
+    "explanation",
+    "review_after_days"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^GEO-[A-Z]+-[0-9]{3}$"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "knowledge_point_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "source_document": {
+      "type": "string"
+    },
+    "source_material": {
+      "type": "string",
+      "minLength": 10
+    },
+    "source_fidelity": {
+      "type": "object",
+      "required": [
+        "status",
+        "verified_on",
+        "fields"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "verified_against_teacher_docx",
+            "verified_against_textbook_pdf"
+          ]
+        },
+        "verified_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "fields": {
+          "type": "array",
+          "const": [
+            "source_material",
+            "stem",
+            "options",
+            "answer",
+            "explanation"
+          ]
+        }
+      }
+    },
+    "textbook_bridge": {
+      "type": "object",
+      "required": [
+        "pages",
+        "plain_language",
+        "textbook_cue",
+        "steps"
+      ],
+      "properties": {
+        "pages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer"
+          }
+        },
+        "plain_language": {
+          "type": "string"
+        },
+        "textbook_cue": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "stem": {
+      "type": "string",
+      "minLength": 8
+    },
+    "options": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text"
+        ]
+      }
+    },
+    "answer": {
+      "type": "string"
+    },
+    "error_map": {
+      "type": "object"
+    },
+    "explanation": {
+      "type": "string",
+      "minLength": 30
+    },
+    "review_after_days": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "source": {
+          "pattern": "^资料包·"
+        },
+        "source_document": {
+          "pattern": "\\.docx$"
+        },
+        "source_fidelity": {
+          "properties": {
+            "status": {
+              "const": "verified_against_teacher_docx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "source": {
+          "pattern": "^教材原创·"
+        },
+        "source_document": {
+          "pattern": "\\.pdf$"
+        },
+        "source_fidelity": {
+          "properties": {
+            "status": {
+              "const": "verified_against_textbook_pdf"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

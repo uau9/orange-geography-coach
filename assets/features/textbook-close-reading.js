@@ -48,8 +48,29 @@
     </article>`;
   }
 
+  function renderChapterMap(module) {
+    const map = module.chapter_map;
+    return `<details class="card close-reading-chapter-map">
+      <summary><span><span class="section-kicker">全章地图</span><strong>${escapeHtml(map.guiding_question)}</strong></span><span class="close-reading-toggle-hint"><span class="when-closed">展开全章</span><span class="when-open">收起地图</span></span></summary>
+      <div class="close-reading-chapter-map-body">
+        <div class="close-reading-chapter-path">${map.sections.map((section) => `<article class="${section.status === "active" ? "active" : ""}"><small>第${section.number}节</small><strong>${escapeHtml(section.title)}</strong><p>${escapeHtml(section.role)}</p><span>${section.status === "active" ? "正在学习" : "后续学习"}</span></article>`).join("")}</div>
+        <div class="close-reading-research"><small>问题研究</small><strong>${escapeHtml(map.research.title)}</strong><p>${escapeHtml(map.research.role)}</p></div>
+      </div>
+    </details>`;
+  }
+
+  function renderPageCheck(page, question) {
+    if (!question) return "";
+    const status = question.attempt ? (question.attempt.is_correct ? "已答对" : "待复盘") : "未作答";
+    return `<section class="close-reading-page-check">
+      <div><span class="section-kicker">本页连接题 · 第${page.page}页</span><h3>读完马上用一次</h3><p>只考这一页的核心关系。进入题目后先看“课本桥”，再判断选项。</p></div>
+      <span class="pill ${question.attempt?.is_correct ? "green" : question.attempt ? "orange" : ""}">${status}</span>
+      <button class="btn orange" data-action="start-question" data-question-id="${escapeHtml(question.id)}" data-return-route="textbook-close-reading">${question.attempt ? "再做一次" : "做本页1题"}</button>
+    </section>`;
+  }
+
   function render(model) {
-    const { module, page, progress, completedPages, questionGroups } = model;
+    const { module, page, progress, completedPages, questionGroups, pageQuestion } = model;
     const read = Boolean(progress[String(page.page)]?.read_at);
     const practiceUnlocked = completedPages === module.pages.length;
     const imageSrc = `${module.textbook_image_base}/${page.image}`;
@@ -61,6 +82,7 @@
         <span class="pill ${practiceUnlocked ? "green" : "orange"}">${completedPages}/${module.pages.length}页</span>
       </div>
       <p class="page-subtitle">教材原页是主角。先独立读图文，再按需展开图片解读、逐页解析、知识发散和本页总结；每项都可再次点击收起。</p>
+      ${renderChapterMap(module)}
       <details class="card close-reading-method-card">
         <summary><span><span class="section-kicker">精读方法</span><strong>每页建议用8—12分钟</strong></span></summary>
         <ol>${module.method.student_steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
@@ -87,14 +109,15 @@
           ${renderDetail("03 · 知识发散", "连接考法、边界和易错点", `<ul>${page.extensions.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul><div class="diagnosis"><strong>迁移提醒：</strong>${escapeHtml(page.transfer)}</div>`, "extension")}
           ${renderDetail("04 · 本页总结", "合上课本前只记住这四点", `<dl class="close-reading-summary"><div><dt>核心结论</dt><dd>${escapeHtml(summary.core)}</dd></div><div><dt>因果链</dt><dd>${escapeHtml(summary.chain)}</dd></div><div><dt>关键词</dt><dd>${escapeHtml(summary.terms.join("、"))}</dd></div><div><dt>最易混淆</dt><dd>${escapeHtml(summary.pitfall)}</dd></div></dl>`, "summary")}
         </section>
+        ${renderPageCheck(page, pageQuestion)}
         <div class="close-reading-page-actions">
           ${page.page > module.page_start ? `<button class="btn secondary" data-action="select-reading-page" data-page="${page.page - 1}">上一页</button>` : "<span></span>"}
           ${page.page < module.page_end ? `<button class="btn orange" data-action="select-reading-page" data-page="${page.page + 1}">进入第${page.page + 1}页</button>` : ""}
         </div>
       </article>
-      <section class="close-reading-practice-heading"><div><span class="section-kicker">本节迁移训练</span><h2>真题与资料包例题</h2></div><span class="pill">4题</span></section>
-      <p class="page-subtitle">${practiceUnlocked ? "8页已读，可以开始迁移训练。" : `还需读完${module.pages.length - completedPages}页，之后开放迁移训练。`}题面与答案分离，提交前不显示答案或完整解析。</p>
-      <div class="close-reading-question-list">${questionGroups.map((group) => renderQuestionGroup(group, group.questions, practiceUnlocked)).join("")}</div>
+      <section class="close-reading-practice-heading"><div><span class="section-kicker">本节分层训练</span><h2>先连接课本，再迁移到真题</h2></div><span class="pill">12题</span></section>
+      <p class="page-subtitle">8道本页连接题随读随做；${practiceUnlocked ? "8页已读，4道进阶迁移题已经开放。" : `还需读完${module.pages.length - completedPages}页，之后开放4道进阶迁移题。`}提交前不显示答案或完整解析。</p>
+      <div class="close-reading-question-list">${questionGroups.map((group) => renderQuestionGroup(group, group.questions, group.unlock === "always" || practiceUnlocked)).join("")}</div>
       <details class="card close-reading-parent-card">
         <summary><span><span class="section-kicker">家长介入</span><strong>第一节验收清单</strong></span></summary>
         <ul>${module.parent_checklist.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>

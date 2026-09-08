@@ -4592,23 +4592,78 @@
     "difficulty": 3,
     "stem": "3．与丙地相比，形成甲地风化壳的()",
     "options": [
-      { "id": "A", "text": "物理风化作用较弱" },
-      { "id": "B", "text": "风力沉积作用较弱" },
-      { "id": "C", "text": "生物风化作用较弱" },
-      { "id": "D", "text": "流水侵蚀作用较强" }
+      {
+        "id": "A",
+        "text": "物理风化作用较弱"
+      },
+      {
+        "id": "B",
+        "text": "风力沉积作用较弱"
+      },
+      {
+        "id": "C",
+        "text": "生物风化作用较弱"
+      },
+      {
+        "id": "D",
+        "text": "流水侵蚀作用较强"
+      }
     ],
     "answer": "C",
     "error_map": {
-      "A": { "tag": "候选·风化类型与干湿条件倒置", "diagnosis": "候选错因：可能没有把甲地的干旱、温差大与较强物理风化对应起来。", "follow_up": "分别指出甲、丙的降水和植被差异，再判断哪类风化更强。" },
-      "B": { "tag": "候选·把沉积作用当作风化过程", "diagnosis": "候选错因：可能把风力沉积与风化壳形成条件混在一起。", "follow_up": "风化、侵蚀、搬运、堆积中，哪一个强调岩石在原地破坏？" },
-      "D": { "tag": "候选·忽略甲地干旱证据", "diagnosis": "候选错因：可能没有利用沙漠和等降水量线判断甲地流水作用较弱。", "follow_up": "从图中找两条能判断甲地干湿状况的证据。" }
+      "A": {
+        "tag": "候选·风化类型与干湿条件倒置",
+        "diagnosis": "候选错因：可能没有把甲地的干旱、温差大与较强物理风化对应起来。",
+        "follow_up": "分别指出甲、丙的降水和植被差异，再判断哪类风化更强。"
+      },
+      "B": {
+        "tag": "候选·把沉积作用当作风化过程",
+        "diagnosis": "候选错因：可能把风力沉积与风化壳形成条件混在一起。",
+        "follow_up": "风化、侵蚀、搬运、堆积中，哪一个强调岩石在原地破坏？"
+      },
+      "D": {
+        "tag": "候选·忽略甲地干旱证据",
+        "diagnosis": "候选错因：可能没有利用沙漠和等降水量线判断甲地流水作用较弱。",
+        "follow_up": "从图中找两条能判断甲地干湿状况的证据。"
+      }
     },
     "explanation": "第3题，据图中地理位置可判定甲地为热带沙漠气候，丙地为热带草原气候。甲地气候干旱，昼夜温差较大，植被稀少，地表多荒漠。与丙地相比，甲地流水侵蚀作用较弱，风力沉积作用较强，物理风化作用较强，生物风化作用较弱，故选C。",
-    "key_points": ["区域水热条件", "物理风化", "生物风化"],
-    "review_after_days": [2, 5, 12],
+    "key_points": [
+      "区域水热条件",
+      "物理风化",
+      "生物风化"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
     "source_document": "第一部分　第五章　第1讲　真题专练.docx",
     "source_material": "(2021·1月浙江选考)石棉主要形成于原有岩石与侵入岩的接触带。下图为“南部非洲局部图”。完成3～4题。",
-    "source_fidelity": { "status": "verified_against_teacher_docx", "verified_on": "2026-09-08", "fields": ["source_material", "stem", "options", "answer", "explanation"] }
+    "source_fidelity": {
+      "status": "verified_against_teacher_docx",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        20,
+        21
+      ],
+      "plain_language": "比较甲、丙两地的自然环境，判断哪一种外力作用差异符合课本规律。",
+      "textbook_cue": "第20页“风化、侵蚀、搬运、堆积”的区别；第21页“水热条件影响主导外力”。",
+      "steps": [
+        "先从图中判断甲、丙两地的气候与植被。",
+        "把干湿、温差和植被差异对应到物理风化、生物风化、流水与风力。",
+        "逐项比较强弱，只保留与两地环境都相符的一项。"
+      ]
+    }
   },
   {
     "id": "GEO-GEO-002",
@@ -4623,23 +4678,78 @@
     "difficulty": 2,
     "stem": "4．形成乙地石棉矿的地质作用是()",
     "options": [
-      { "id": "A", "text": "变质作用" },
-      { "id": "B", "text": "风化作用" },
-      { "id": "C", "text": "沉积作用" },
-      { "id": "D", "text": "喷出作用" }
+      {
+        "id": "A",
+        "text": "变质作用"
+      },
+      {
+        "id": "B",
+        "text": "风化作用"
+      },
+      {
+        "id": "C",
+        "text": "沉积作用"
+      },
+      {
+        "id": "D",
+        "text": "喷出作用"
+      }
     ],
     "answer": "A",
     "error_map": {
-      "B": { "tag": "候选·忽略侵入岩接触带", "diagnosis": "候选错因：可能只看到近地表矿物，没有使用“侵入岩接触带”的高温条件。", "follow_up": "侵入岩接触周围原有岩石时，温度和压力会怎样变化？" },
-      "C": { "tag": "候选·矿产形成与沉积混同", "diagnosis": "候选错因：可能把所有矿产形成都归为沉积作用。", "follow_up": "题干给出的直接成因线索是“接触带”还是“沉积物层理”？" },
-      "D": { "tag": "候选·侵入与喷出位置混淆", "diagnosis": "候选错因：可能没有区分侵入岩在地下侵入与岩浆喷出地表。", "follow_up": "题干中的石棉在原有岩石与什么岩石的接触带形成？" }
+      "B": {
+        "tag": "候选·忽略侵入岩接触带",
+        "diagnosis": "候选错因：可能只看到近地表矿物，没有使用“侵入岩接触带”的高温条件。",
+        "follow_up": "侵入岩接触周围原有岩石时，温度和压力会怎样变化？"
+      },
+      "C": {
+        "tag": "候选·矿产形成与沉积混同",
+        "diagnosis": "候选错因：可能把所有矿产形成都归为沉积作用。",
+        "follow_up": "题干给出的直接成因线索是“接触带”还是“沉积物层理”？"
+      },
+      "D": {
+        "tag": "候选·侵入与喷出位置混淆",
+        "diagnosis": "候选错因：可能没有区分侵入岩在地下侵入与岩浆喷出地表。",
+        "follow_up": "题干中的石棉在原有岩石与什么岩石的接触带形成？"
+      }
     },
     "explanation": "第4题，石棉主要形成于原有岩石与侵入岩的接触带，侵入岩为岩浆活动的结果，岩浆接触带的岩石会因高温、高压发生变质作用，故选A。",
-    "key_points": ["侵入岩", "接触变质", "高温高压"],
-    "review_after_days": [2, 5, 12],
+    "key_points": [
+      "侵入岩",
+      "接触变质",
+      "高温高压"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
     "source_document": "第一部分　第五章　第1讲　真题专练.docx",
     "source_material": "(2021·1月浙江选考)石棉主要形成于原有岩石与侵入岩的接触带。下图为“南部非洲局部图”。完成3～4题。",
-    "source_fidelity": { "status": "verified_against_teacher_docx", "verified_on": "2026-09-08", "fields": ["source_material", "stem", "options", "answer", "explanation"] }
+    "source_fidelity": {
+      "status": "verified_against_teacher_docx",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        19,
+        23
+      ],
+      "plain_language": "根据“原有岩石与侵入岩接触”这一位置证据，判断岩石经历的地质作用。",
+      "textbook_cue": "第19页变质作用的条件；第23页“已有岩石—高温高压—变质岩”。",
+      "steps": [
+        "圈出“原有岩石”“侵入岩”“接触带”。",
+        "由岩浆侵入想到接触部位温度、压力发生变化。",
+        "判断原岩未熔化时发生的作用名称。"
+      ]
+    }
   },
   {
     "id": "GEO-GEO-003",
@@ -4654,23 +4764,78 @@
     "difficulty": 3,
     "stem": "1．图1中①②③④代表的岩石，形成的先后顺序依次是()",
     "options": [
-      { "id": "A", "text": "①②③④" },
-      { "id": "B", "text": "②④③①" },
-      { "id": "C", "text": "③②①④" },
-      { "id": "D", "text": "④①②③" }
+      {
+        "id": "A",
+        "text": "①②③④"
+      },
+      {
+        "id": "B",
+        "text": "②④③①"
+      },
+      {
+        "id": "C",
+        "text": "③②①④"
+      },
+      {
+        "id": "D",
+        "text": "④①②③"
+      }
     ],
     "answer": "C",
     "error_map": {
-      "A": { "tag": "候选·沉积岩层新老顺序颠倒", "diagnosis": "候选错因：可能没有用正常沉积岩层下老上新的关系确定①②③。", "follow_up": "先不看④，只判断①②③谁最早、谁最晚。" },
-      "B": { "tag": "候选·未使用侵入切穿关系", "diagnosis": "候选错因：可能没有识别④切穿①②③，因此④形成更晚。", "follow_up": "如果一块岩体切穿另一岩层，哪一个必须后形成？" },
-      "D": { "tag": "候选·把侵入岩误判为最早", "diagnosis": "候选错因：可能只按图中上下位置判断，没有检查切穿关系。", "follow_up": "指出图中④与①②③之间最关键的接触关系。" }
+      "A": {
+        "tag": "候选·沉积岩层新老顺序颠倒",
+        "diagnosis": "候选错因：可能没有用正常沉积岩层下老上新的关系确定①②③。",
+        "follow_up": "先不看④，只判断①②③谁最早、谁最晚。"
+      },
+      "B": {
+        "tag": "候选·未使用侵入切穿关系",
+        "diagnosis": "候选错因：可能没有识别④切穿①②③，因此④形成更晚。",
+        "follow_up": "如果一块岩体切穿另一岩层，哪一个必须后形成？"
+      },
+      "D": {
+        "tag": "候选·把侵入岩误判为最早",
+        "diagnosis": "候选错因：可能只按图中上下位置判断，没有检查切穿关系。",
+        "follow_up": "指出图中④与①②③之间最关键的接触关系。"
+      }
     },
     "explanation": "第1题，读图1分析，①②③三个岩层层状为水平层状，最可能为沉积岩，根据埋藏深浅可判断其形成的先后顺序为③②①；④侵入并切穿了①②③岩层，可知④为侵入型岩浆岩，并且形成时间晚于①。故选C。",
-    "key_points": ["沉积岩层序", "侵入切穿关系", "地质过程排序"],
-    "review_after_days": [2, 5, 12],
+    "key_points": [
+      "沉积岩层序",
+      "侵入切穿关系",
+      "地质过程排序"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
     "source_document": "2024年高考地理一轮复习（新人教版） 第1部分　第5章　第1讲　课时25　塑造地表形态的力量.docx",
     "source_material": "图1为“某地地质构造剖面图”，图中①②③④⑤代表不同的岩石。图2为“岩石圈物质循环示意图”，甲、乙、丙、丁表示不同岩石类型。读图，完成1～2题。",
-    "source_fidelity": { "status": "verified_against_teacher_docx", "verified_on": "2026-09-08", "fields": ["source_material", "stem", "options", "answer", "explanation"] }
+    "source_fidelity": {
+      "status": "verified_against_teacher_docx",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        23,
+        24
+      ],
+      "plain_language": "先排沉积岩层的先后，再判断切穿这些岩层的侵入岩形成得早还是晚。",
+      "textbook_cue": "第23页沉积岩的层状特征；第24页岩浆冷却形成岩浆岩。",
+      "steps": [
+        "先认出呈层状分布的沉积岩。",
+        "用正常沉积顺序判断下老上新。",
+        "再用“切穿者形成较晚”判断侵入岩的时间。"
+      ]
+    }
   },
   {
     "id": "GEO-GEO-004",
@@ -4685,22 +4850,741 @@
     "difficulty": 3,
     "stem": "2．图2中与图1所示⑤岩石类型成因相同的岩石是()",
     "options": [
-      { "id": "A", "text": "甲" },
-      { "id": "B", "text": "乙" },
-      { "id": "C", "text": "丙" },
-      { "id": "D", "text": "丁" }
+      {
+        "id": "A",
+        "text": "甲"
+      },
+      {
+        "id": "B",
+        "text": "乙"
+      },
+      {
+        "id": "C",
+        "text": "丙"
+      },
+      {
+        "id": "D",
+        "text": "丁"
+      }
     ],
     "answer": "B",
     "error_map": {
-      "A": { "tag": "候选·接触带变质岩识别不足", "diagnosis": "候选错因：可能没有由⑤位于侵入岩与围岩接触部位判断其为变质岩。", "follow_up": "⑤所处位置会受到侵入岩带来的什么条件影响？" },
-      "C": { "tag": "候选·岩石循环箭头终点未核对", "diagnosis": "候选错因：可能凭图形位置猜岩石类型，没有沿箭头判断。", "follow_up": "在图2中，哪一类岩石由甲经固结成岩形成？" },
-      "D": { "tag": "候选·岩浆与岩石混淆", "diagnosis": "候选错因：可能把循环中的岩浆当成已经形成的岩石。", "follow_up": "图2中哪些箭头汇入丁，丁再通过什么过程形成岩石？" }
+      "A": {
+        "tag": "候选·接触带变质岩识别不足",
+        "diagnosis": "候选错因：可能没有由⑤位于侵入岩与围岩接触部位判断其为变质岩。",
+        "follow_up": "⑤所处位置会受到侵入岩带来的什么条件影响？"
+      },
+      "C": {
+        "tag": "候选·岩石循环箭头终点未核对",
+        "diagnosis": "候选错因：可能凭图形位置猜岩石类型，没有沿箭头判断。",
+        "follow_up": "在图2中，哪一类岩石由甲经固结成岩形成？"
+      },
+      "D": {
+        "tag": "候选·岩浆与岩石混淆",
+        "diagnosis": "候选错因：可能把循环中的岩浆当成已经形成的岩石。",
+        "follow_up": "图2中哪些箭头汇入丁，丁再通过什么过程形成岩石？"
+      }
     },
     "explanation": "第2题，结合上题分析，④为侵入型岩浆岩，⑤分布在④与周边沉积岩接触的部位，可知⑤应为变质岩；根据图2可知，甲为沉积岩，乙为变质岩，丙为喷出型岩浆岩，丁为侵入型岩浆岩，因此⑤岩石类型成因与图2中乙岩石类型成因相同。故选B。",
-    "key_points": ["接触变质", "循环图箭头", "岩石类型判读"],
-    "review_after_days": [2, 5, 12],
+    "key_points": [
+      "接触变质",
+      "循环图箭头",
+      "岩石类型判读"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
     "source_document": "2024年高考地理一轮复习（新人教版） 第1部分　第5章　第1讲　课时25　塑造地表形态的力量.docx",
     "source_material": "图1为“某地地质构造剖面图”，图中①②③④⑤代表不同的岩石。图2为“岩石圈物质循环示意图”，甲、乙、丙、丁表示不同岩石类型。读图，完成1～2题。",
-    "source_fidelity": { "status": "verified_against_teacher_docx", "verified_on": "2026-09-08", "fields": ["source_material", "stem", "options", "answer", "explanation"] }
+    "source_fidelity": {
+      "status": "verified_against_teacher_docx",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        23,
+        24
+      ],
+      "plain_language": "先用接触位置判断⑤的岩石类型，再到循环图中找成因相同的一类。",
+      "textbook_cue": "第23页接触变质；第24页依据箭头和过程识别三类岩石。",
+      "steps": [
+        "看⑤是否位于侵入岩与原有岩层的接触带。",
+        "由高温高压判断⑤的岩石类型。",
+        "在图2中沿箭头核对同类岩石，不凭位置猜。"
+      ]
+    }
+  },
+  {
+    "id": "GEO-GEO-005",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-internal-force",
+    "title": "火山喷发怎样改变地表",
+    "source": "教材原创·人教版选择性必修1第18页",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "这一现象最能说明（ ）",
+    "options": [
+      {
+        "id": "A",
+        "text": "内力作用都能在短时间内完成"
+      },
+      {
+        "id": "B",
+        "text": "岩浆喷出地表可以直接塑造地表"
+      },
+      {
+        "id": "C",
+        "text": "变质作用会直接扩大岛屿面积"
+      },
+      {
+        "id": "D",
+        "text": "外力作用决定岛屿的基本格局"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "候选·把快慢差异绝对化",
+        "diagnosis": "候选错因：可能把火山喷发速度快扩大成所有内力作用都很快。",
+        "follow_up": "第18页列举的内力作用速度都一样吗？"
+      },
+      "C": {
+        "tag": "候选·变质作用位置混淆",
+        "diagnosis": "候选错因：可能没有区分地下变质与地表岩浆喷出。",
+        "follow_up": "变质作用通常发生在地表还是地壳深处？"
+      },
+      "D": {
+        "tag": "候选·内外力主次混淆",
+        "diagnosis": "候选错因：可能忽略火山岛新增岩体直接来自岩浆。",
+        "follow_up": "材料中真正增加岛屿物质的是哪一种物质？"
+      }
+    },
+    "explanation": "喷出地表的岩浆冷却后形成新岩体，可以在较短时间内改变海岸线和岛屿面积，因此B正确。内力作用有快有慢；变质作用多发生在地壳深处；岛屿基本格局不能据此归因于外力。",
+    "key_points": [
+      "内力作用",
+      "岩浆喷出",
+      "地表塑造"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "source_document": "普通高中教科书_地理_选择性必修1_自然地理基础地理_人民教育出版社.pdf",
+    "source_material": "教材第18页图2.2显示，基拉韦厄火山喷出的岩浆流向海岸，岩浆冷却后形成新的岩体。",
+    "source_fidelity": {
+      "status": "verified_against_textbook_pdf",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        18
+      ],
+      "plain_language": "题目要你判断：图中的岩浆为什么能让岛屿变大。",
+      "textbook_cue": "看第18页图2.2的岩浆位置和图注，再读正文中“岩浆活动只有喷出地表时才可以直接影响地表”。",
+      "steps": [
+        "找对象：已经喷出地表的岩浆。",
+        "找过程：岩浆流动并冷却形成新岩体。",
+        "找结果：海岸线外移、岛屿面积增大。"
+      ]
+    }
+  },
+  {
+    "id": "GEO-GEO-006",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-internal-force",
+    "title": "哪种内力直接塑形最主要",
+    "source": "教材原创·人教版选择性必修1第19页",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "关于三种内力作用的说法，正确的是（ ）",
+    "options": [
+      {
+        "id": "A",
+        "text": "变质作用是直接塑造地表的主要方式"
+      },
+      {
+        "id": "B",
+        "text": "岩浆活动无论在地下还是地表都直接塑形"
+      },
+      {
+        "id": "C",
+        "text": "地壳运动是塑造地表形态的主要内力方式"
+      },
+      {
+        "id": "D",
+        "text": "地壳运动只会快速、突然地改变地表"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "候选·变质作用直接性混淆",
+        "diagnosis": "候选错因：可能把岩石内部变化当成直接地表塑形。",
+        "follow_up": "第19页说变质作用通常发生在哪里？"
+      },
+      "B": {
+        "tag": "候选·忽略喷出条件",
+        "diagnosis": "候选错因：可能漏读“只有喷出地表时”这个限制。",
+        "follow_up": "地下侵入的岩浆能否立刻改变地表形态？"
+      },
+      "D": {
+        "tag": "候选·地壳运动速度绝对化",
+        "diagnosis": "候选错因：可能只记住地震等快速现象。",
+        "follow_up": "地面抬升或大陆漂移通常是瞬间完成的吗？"
+      }
+    },
+    "explanation": "地壳运动使岩层变形或变位，是塑造地表形态的主要内力方式，C正确。变质作用多发生在地壳深处；岩浆只有喷出地表时才直接塑形；地壳运动既可缓慢也可快速。",
+    "key_points": [
+      "地壳运动",
+      "岩浆活动",
+      "变质作用"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "source_document": "普通高中教科书_地理_选择性必修1_自然地理基础地理_人民教育出版社.pdf",
+    "source_material": "教材第19页比较了地壳运动、岩浆活动和变质作用对地表形态的影响。",
+    "source_fidelity": {
+      "status": "verified_against_textbook_pdf",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        19
+      ],
+      "plain_language": "题目要你比较三种内力：谁主要、谁有条件、谁多在深处。",
+      "textbook_cue": "回看第19页正文中三种内力作用的比较句，重点找“主要”“只有……才”“不能直接”等限定词。",
+      "steps": [
+        "先找“地壳运动”的作用结果。",
+        "再检查岩浆活动是否附带“喷出地表”条件。",
+        "最后检查变质作用发生的位置。"
+      ]
+    }
+  },
+  {
+    "id": "GEO-GEO-007",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-external-force",
+    "title": "昼夜温差造成哪种作用",
+    "source": "教材原创·人教版选择性必修1第20页",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "该过程首先属于（ ）",
+    "options": [
+      {
+        "id": "A",
+        "text": "物理风化"
+      },
+      {
+        "id": "B",
+        "text": "流水侵蚀"
+      },
+      {
+        "id": "C",
+        "text": "风力搬运"
+      },
+      {
+        "id": "D",
+        "text": "沉积作用"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "候选·风化侵蚀混淆",
+        "diagnosis": "候选错因：可能见到岩石破坏就选择侵蚀。",
+        "follow_up": "材料有没有说碎块被流水带走？"
+      },
+      "C": {
+        "tag": "候选·过程顺序混淆",
+        "diagnosis": "候选错因：可能忽略搬运必须发生位置转移。",
+        "follow_up": "碎块的位置发生变化了吗？"
+      },
+      "D": {
+        "tag": "候选·堆积条件混淆",
+        "diagnosis": "候选错因：可能把碎块留在原地误当成搬运后的沉积。",
+        "follow_up": "沉积之前是否应先有搬运过程和动力减弱？"
+      }
+    },
+    "explanation": "岩石因温度变化在原地破碎，物质没有被明显带走，属于物理风化，A正确。侵蚀强调刮蚀并带走，搬运强调位置转移，沉积强调动力减弱后物质停积。",
+    "key_points": [
+      "物理风化",
+      "侵蚀",
+      "搬运与沉积"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "source_document": "普通高中教科书_地理_选择性必修1_自然地理基础地理_人民教育出版社.pdf",
+    "source_material": "某干旱区裸露岩石白天受热膨胀、夜间冷却收缩，反复变化后在原地裂成碎块，碎块尚未被带走。",
+    "source_fidelity": {
+      "status": "verified_against_textbook_pdf",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        20
+      ],
+      "plain_language": "题目要你依据“岩石是否离开原地”区分四种外力过程。",
+      "textbook_cue": "看第20页图2.4和正文：风化是原地变化；侵蚀、搬运、堆积分别对应带走、转移、停下。",
+      "steps": [
+        "圈出“原地裂成碎块”。",
+        "检查有没有“被带走”或“位置转移”。",
+        "再判断岩石成分是否改变；这里只是热胀冷缩。"
+      ]
+    }
+  },
+  {
+    "id": "GEO-GEO-008",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-external-force",
+    "title": "湿润山区的主导外力",
+    "source": "教材原创·人教版选择性必修1第21页",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "该地区塑造地貌最活跃的外力是（ ）",
+    "options": [
+      {
+        "id": "A",
+        "text": "风力作用"
+      },
+      {
+        "id": "B",
+        "text": "流水作用"
+      },
+      {
+        "id": "C",
+        "text": "冰川作用"
+      },
+      {
+        "id": "D",
+        "text": "岩浆活动"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "候选·主导外力与区域错配",
+        "diagnosis": "候选错因：可能见到碎屑物就联想到风。",
+        "follow_up": "材料体现的是干旱少雨还是降水丰富？"
+      },
+      "C": {
+        "tag": "候选·冰川分布条件不足",
+        "diagnosis": "候选错因：可能把山区直接等同于冰川区。",
+        "follow_up": "材料有没有高海拔、低温、积雪冰川证据？"
+      },
+      "D": {
+        "tag": "候选·内外力分类混淆",
+        "diagnosis": "候选错因：可能只关注“塑造地貌”而没有先分内力和外力。",
+        "follow_up": "岩浆活动的能量来自地球内部还是太阳辐射？"
+      }
+    },
+    "explanation": "低纬、降水丰富且河网密集，材料还直接给出流水冲刷和搬运证据，说明流水作用最活跃，B正确。风力在干旱区更突出，冰川多见于高山高纬，岩浆活动属于内力。",
+    "key_points": [
+      "区域水热",
+      "流水作用",
+      "主导外力"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "source_document": "普通高中教科书_地理_选择性必修1_自然地理基础地理_人民教育出版社.pdf",
+    "source_material": "某低纬山区降水丰富，河网密集，谷坡常被流水冲刷，山麓可见河流搬运来的碎屑物。",
+    "source_fidelity": {
+      "status": "verified_against_textbook_pdf",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        21
+      ],
+      "plain_language": "题目要你从水热条件和材料动词判断当地最活跃的外力。",
+      "textbook_cue": "回看第21页不同区域的主导外力：湿润区看流水，干旱区看风，高山高纬看冰川。",
+      "steps": [
+        "先判断区域：低纬、降水丰富。",
+        "再找直接证据：河网密集、流水冲刷和搬运。",
+        "排除与水热条件不符或不属于外力的选项。"
+      ]
+    }
+  },
+  {
+    "id": "GEO-GEO-009",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-rock-types",
+    "title": "地下缓慢冷却形成什么岩石",
+    "source": "教材原创·人教版选择性必修1第22页",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "由此形成的岩石最可能是（ ）",
+    "options": [
+      {
+        "id": "A",
+        "text": "花岗岩"
+      },
+      {
+        "id": "B",
+        "text": "玄武岩"
+      },
+      {
+        "id": "C",
+        "text": "砂岩"
+      },
+      {
+        "id": "D",
+        "text": "大理岩"
+      }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": {
+        "tag": "候选·侵入岩喷出岩混淆",
+        "diagnosis": "候选错因：可能只看到“岩浆冷却”而漏看形成位置。",
+        "follow_up": "玄武岩通常在地下还是地表附近快速冷却？"
+      },
+      "C": {
+        "tag": "候选·岩石成因分类混淆",
+        "diagnosis": "候选错因：可能没有先分岩浆岩与沉积岩。",
+        "follow_up": "砂岩的原料是岩浆还是沉积物？"
+      },
+      "D": {
+        "tag": "候选·岩浆岩变质岩混淆",
+        "diagnosis": "候选错因：可能把高温环境与变质作用直接画等号。",
+        "follow_up": "材料中的岩浆是冷却凝固，还是原有岩石受高温高压？"
+      }
+    },
+    "explanation": "岩浆在地下缓慢冷却凝固形成侵入岩，花岗岩是常见侵入岩，因此A正确。玄武岩多为喷出岩，砂岩是沉积岩，大理岩是变质岩。",
+    "key_points": [
+      "岩浆岩",
+      "侵入岩",
+      "花岗岩"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "source_document": "普通高中教科书_地理_选择性必修1_自然地理基础地理_人民教育出版社.pdf",
+    "source_material": "岩浆侵入地壳上部后没有喷出地表，而是在地下缓慢冷却凝固。",
+    "source_fidelity": {
+      "status": "verified_against_textbook_pdf",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        22
+      ],
+      "plain_language": "题目给出形成位置和冷却方式，要你对应到岩石类型。",
+      "textbook_cue": "看第22页图2.7及正文，比较花岗岩与玄武岩的形成位置和冷却条件。",
+      "steps": [
+        "先圈出“没有喷出地表”“地下”。",
+        "由地下冷却判断侵入岩。",
+        "在选项中找常见侵入岩代表。"
+      ]
+    }
+  },
+  {
+    "id": "GEO-GEO-010",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-rock-types",
+    "title": "页岩受热受压后的变化",
+    "source": "教材原创·人教版选择性必修1第23页",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "形成的新岩石属于（ ）",
+    "options": [
+      {
+        "id": "A",
+        "text": "岩浆岩"
+      },
+      {
+        "id": "B",
+        "text": "沉积岩"
+      },
+      {
+        "id": "C",
+        "text": "变质岩"
+      },
+      {
+        "id": "D",
+        "text": "沉积物"
+      }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": {
+        "tag": "候选·冷却凝固与变质混淆",
+        "diagnosis": "候选错因：可能见到高温就想到岩浆岩。",
+        "follow_up": "岩浆岩的原料应是岩浆，材料中的原料是什么？"
+      },
+      "B": {
+        "tag": "候选·原岩类别停留",
+        "diagnosis": "候选错因：可能只记住页岩原来属于沉积岩。",
+        "follow_up": "结构和性质已经改变后，还能只按原岩类别判断吗？"
+      },
+      "D": {
+        "tag": "候选·岩石与松散物混淆",
+        "diagnosis": "候选错因：可能没有区分岩石与尚未固结的沉积物。",
+        "follow_up": "材料描述的是松散碎屑还是完整岩石？"
+      }
+    },
+    "explanation": "已有岩石在高温、高压下未熔化，但成分、性质或结构发生改变，属于变质作用，形成变质岩；页岩可变质形成板岩，因此C正确。",
+    "key_points": [
+      "变质作用",
+      "原岩",
+      "板岩"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "source_document": "普通高中教科书_地理_选择性必修1_自然地理基础地理_人民教育出版社.pdf",
+    "source_material": "已有页岩在地壳深处受到高温、高压作用，岩石没有熔化，但结构和性质发生改变。",
+    "source_fidelity": {
+      "status": "verified_against_textbook_pdf",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        23
+      ],
+      "plain_language": "题目要你抓住“已有岩石、未熔化、高温高压”三个条件判断岩石类型。",
+      "textbook_cue": "看第23页变质岩段落和图2.9中“页岩—板岩”的对应关系。",
+      "steps": [
+        "确定原料是已经形成的页岩。",
+        "确认条件是高温、高压且没有熔化。",
+        "把这一过程对应到变质作用和变质岩。"
+      ]
+    }
+  },
+  {
+    "id": "GEO-GEO-011",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-rock-cycle-method",
+    "title": "箭头指向岩浆代表什么",
+    "source": "教材原创·人教版选择性必修1第24页",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "该箭头表示的地质过程是（ ）",
+    "options": [
+      {
+        "id": "A",
+        "text": "冷却凝固"
+      },
+      {
+        "id": "B",
+        "text": "压实固结"
+      },
+      {
+        "id": "C",
+        "text": "变质作用"
+      },
+      {
+        "id": "D",
+        "text": "熔化"
+      }
+    ],
+    "answer": "D",
+    "error_map": {
+      "A": {
+        "tag": "候选·箭头方向看反",
+        "diagnosis": "候选错因：可能把岩浆形成岩浆岩的过程反向套用。",
+        "follow_up": "冷却凝固的起点应是岩浆还是沉积岩？"
+      },
+      "B": {
+        "tag": "候选·沉积物与沉积岩混淆",
+        "diagnosis": "候选错因：可能把沉积岩误当成尚未固结的沉积物。",
+        "follow_up": "压实固结的终点是哪类岩石？"
+      },
+      "C": {
+        "tag": "候选·变质与熔化边界混淆",
+        "diagnosis": "候选错因：可能没有根据终点区分变质岩与岩浆。",
+        "follow_up": "变质作用后岩石通常已经熔化了吗？"
+      }
+    },
+    "explanation": "判断循环图箭头先看终点。箭头终点是岩浆，已有沉积岩要转变为岩浆必须发生熔化，因此D正确。冷却凝固由岩浆指向岩浆岩，压实固结由沉积物指向沉积岩。",
+    "key_points": [
+      "岩石圈物质循环",
+      "箭头终点",
+      "熔化"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "source_document": "普通高中教科书_地理_选择性必修1_自然地理基础地理_人民教育出版社.pdf",
+    "source_material": "在岩石圈物质循环图中，一条箭头由沉积岩指向岩浆。",
+    "source_fidelity": {
+      "status": "verified_against_textbook_pdf",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        24
+      ],
+      "plain_language": "题目要你读箭头终点：任何岩石怎样才能变成岩浆。",
+      "textbook_cue": "看第24页图2.10，不背图形位置，只核对箭头终点和过程名称。",
+      "steps": [
+        "先看箭头终点是岩浆。",
+        "再问已有岩石变成熔融物需要什么变化。",
+        "用过程名称排除方向相反的选项。"
+      ]
+    }
+  },
+  {
+    "id": "GEO-GEO-012",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-rock-cycle-method",
+    "title": "珊瑚化石怎样说明古环境",
+    "source": "教材原创·人教版选择性必修1第25页",
+    "source_material_kind": "text",
+    "type": "single_choice",
+    "difficulty": 1,
+    "stem": "依据“将今论古”的思路，可以推测该岩层形成时（ ）",
+    "options": [
+      {
+        "id": "A",
+        "text": "当地处于寒冷深海环境"
+      },
+      {
+        "id": "B",
+        "text": "当地可能是温暖浅海环境"
+      },
+      {
+        "id": "C",
+        "text": "高山已经达到今天的海拔"
+      },
+      {
+        "id": "D",
+        "text": "珊瑚能生活在任何水域"
+      }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": {
+        "tag": "候选·现代规律对应错误",
+        "diagnosis": "候选错因：可能没有把现代珊瑚的生境作为推理起点。",
+        "follow_up": "材料明确给出的现代珊瑚生境是什么？"
+      },
+      "C": {
+        "tag": "候选·形成环境与现今位置混淆",
+        "diagnosis": "候选错因：可能把今天的高山位置直接当成岩层形成位置。",
+        "follow_up": "含珊瑚岩层形成后还可能发生什么地壳运动？"
+      },
+      "D": {
+        "tag": "候选·证据边界忽略",
+        "diagnosis": "候选错因：可能忽略材料对造礁珊瑚生活条件的限定。",
+        "follow_up": "“温暖、清澈的浅海”是不是任意水域？"
+      }
+    },
+    "explanation": "“将今论古”是以今天观察到的自然规律为参照解释地质历史。现代造礁珊瑚多生活在温暖浅海，因此可推测该岩层形成时当地可能为温暖浅海环境，B正确；后来还可能经历地壳抬升。",
+    "key_points": [
+      "将今论古",
+      "化石证据",
+      "古环境恢复"
+    ],
+    "review_after_days": [
+      2,
+      5,
+      12
+    ],
+    "source_document": "普通高中教科书_地理_选择性必修1_自然地理基础地理_人民教育出版社.pdf",
+    "source_material": "地质学家在某高山岩层中发现大量珊瑚化石。现代造礁珊瑚多生活在温暖、清澈的浅海。",
+    "source_fidelity": {
+      "status": "verified_against_textbook_pdf",
+      "verified_on": "2026-09-08",
+      "fields": [
+        "source_material",
+        "stem",
+        "options",
+        "answer",
+        "explanation"
+      ]
+    },
+    "textbook_bridge": {
+      "pages": [
+        25
+      ],
+      "plain_language": "题目要你用现代珊瑚的生活环境，反推岩层形成时的古环境。",
+      "textbook_cue": "看第25页“将今论古”方法和珊瑚化石示例，区分形成环境与后来地壳变化。",
+      "steps": [
+        "读取现代规律：造礁珊瑚常生活在温暖浅海。",
+        "把化石看作岩层形成时留下的环境证据。",
+        "先推古环境，再把高山位置解释为后期变化。"
+      ]
+    }
   }
 ]

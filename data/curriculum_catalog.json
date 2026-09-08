@@ -40,7 +40,7 @@
           "status": "active",
           "order": 2,
           "sections": [
-            { "id": "pep-selective-1-ch02-s01", "number": 1, "title": "塑造地表形态的力量", "order": 1, "question_ids": ["GEO-GEO-001", "GEO-GEO-002", "GEO-GEO-003", "GEO-GEO-004"], "project_ids": ["textbook-close-reading-ch02-s01"] },
+            { "id": "pep-selective-1-ch02-s01", "number": 1, "title": "塑造地表形态的力量", "order": 1, "question_ids": ["GEO-GEO-005", "GEO-GEO-006", "GEO-GEO-007", "GEO-GEO-008", "GEO-GEO-009", "GEO-GEO-010", "GEO-GEO-011", "GEO-GEO-012", "GEO-GEO-001", "GEO-GEO-002", "GEO-GEO-003", "GEO-GEO-004"], "project_ids": ["textbook-close-reading-ch02-s01"] },
             { "id": "pep-selective-1-ch02-s02", "number": 2, "title": "构造地貌的形成", "order": 2, "question_ids": [], "project_ids": [] },
             { "id": "pep-selective-1-ch02-s03", "number": 3, "title": "河流地貌的发育", "order": 3, "question_ids": [], "project_ids": [] }
           ],

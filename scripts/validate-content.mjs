@@ -99,7 +99,8 @@ const v020Schemas = await Promise.all([
 const presentationCatalogSchema = JSON.parse(await readFile(new URL("../schemas/presentation-catalog.v0.1.schema.json", import.meta.url), "utf8"));
 const curriculumCatalogSchema = JSON.parse(await readFile(new URL("../schemas/curriculum-catalog.v0.22.schema.json", import.meta.url), "utf8"));
 const regionReviewSchema = JSON.parse(await readFile(new URL("../schemas/region-review.v0.28.schema.json", import.meta.url), "utf8"));
-const textbookCloseReadingSchema = JSON.parse(await readFile(new URL("../schemas/textbook-close-reading.v0.30.1.schema.json", import.meta.url), "utf8"));
+const textbookCloseReadingSchema = JSON.parse(await readFile(new URL("../schemas/textbook-close-reading.v0.31.schema.json", import.meta.url), "utf8"));
+const questionV02Schema = JSON.parse(await readFile(new URL("../schemas/question.v0.2.schema.json", import.meta.url), "utf8"));
 const recallCardsSchema = JSON.parse(await readFile(new URL("../schemas/recall-cards.v1.schema.json", import.meta.url), "utf8"));
 const retestV03Schema = JSON.parse(await readFile(new URL("../schemas/retest.v0.3.schema.json", import.meta.url), "utf8"));
 const gitignoreSource = await readFile(new URL("../.gitignore", import.meta.url), "utf8");
@@ -118,20 +119,22 @@ if (!presentationCatalogSchema.$id || !presentationCatalogSchema.$schema) errors
 if (!curriculumCatalogSchema.$id || !curriculumCatalogSchema.$schema) errors.push("教材课程目录 schema 必须声明 $id 与 JSON Schema 版本");
 if (!regionReviewSchema.$id || !regionReviewSchema.$schema) errors.push("区域发展复习 schema 必须声明 $id 与 JSON Schema 版本");
 if (!textbookCloseReadingSchema.$id || !textbookCloseReadingSchema.$schema) errors.push("教材逐页精读 schema 必须声明 $id 与 JSON Schema 版本");
+if (!questionV02Schema.$id || !questionV02Schema.$schema) errors.push("诊断题 v0.2 schema 必须声明 $id 与 JSON Schema 版本");
 if (!recallCardsSchema.$id || !recallCardsSchema.$schema) errors.push("背诵卡 schema 必须声明 $id 与 JSON Schema 版本");
 if (retestV03Schema.properties?.source?.const !== "资料包选题") errors.push("复测 schema 必须只允许资料包选题");
 
 if (!Array.isArray(topics) || topics.length === 0) errors.push("topics.json 必须是非空数组");
 if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.json 必须是非空数组");
-if (Object.keys(questionSourceFidelity).length !== questions.length) errors.push("资料包原题核对清单必须覆盖全部诊断题");
+if (Object.keys(questionSourceFidelity).length !== questions.length) errors.push("题目来源核对清单必须覆盖全部诊断题");
 if (!appSource.includes("选择理由（选填）") || !appSource.includes('if (!selectedOption) return alert("请先选择答案。");') || appSource.includes("!selectedOption || !reasoning")) errors.push("普通诊断题必须允许理由留空提交");
-if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.30.1") || !indexSource.includes("app.js?v=0.30.1") || !indexSource.includes("region-review.js?v=0.30.1") || !indexSource.includes("textbook-close-reading.js?v=0.30.1")) errors.push("网页展示版本、静态资源版本或逐页精读模块入口不是v0.30.1");
+if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.31.0") || !indexSource.includes("app.js?v=0.31.0") || !indexSource.includes("region-review.js?v=0.31.0") || !indexSource.includes("textbook-close-reading.js?v=0.31.0")) errors.push("网页展示版本、静态资源版本或逐页精读模块入口不是v0.31.0");
 if (!indexSource.includes('data-action="goto" data-route="projects">学习</button>') || !indexSource.includes('data-action="goto" data-route="recall">背诵</button>') || !indexSource.includes('data-action="start-next" data-route="train">题目</button>')) errors.push("底部导航必须保留学习、背诵和题目常驻入口");
 if (!diagnosticCatalogSource.includes("题目目录") || !diagnosticCatalogSource.includes("教材册—章—节") || !diagnosticCatalogSource.includes('data-action="start-question"') || !diagnosticCatalogSource.includes('data-action="set-diagnostic-filter"')) errors.push("诊断题目录必须支持教材章节、状态筛选和指定题目进入");
 if (!diagnosticCatalogSource.includes("diagnostic-section") || !diagnosticCatalogSource.includes('data-current-question="true"') || !diagnosticCatalogSource.includes("scrollIntoView")) errors.push("诊断题目录必须在第3级自动折叠题目并定位当前题");
 if (diagnosticCatalogSource.includes("question.answer") || diagnosticCatalogSource.includes("question.explanation") || diagnosticCatalogSource.includes("question.error_map")) errors.push("诊断题目录不得提前展示答案、解析或错因映射");
 if (!appSource.includes('class="result-option-list"') || !appSource.includes('data-action="continue-question"') || !appSource.includes("chooseNextCatalogQuestion(question.id)") || !appSource.includes("没把握，去看教材第") || !appSource.includes('data-action="save-attempt-region-day"')) errors.push("诊断讲解页必须保留四个选项、教材页入口，以及保存后继续或返回本日的按钮");
 if (!appSource.includes("原题材料") || !appSource.includes("资料原解析（完整保留）") || !appSource.includes("renderQuestionSourceContent(question)")) errors.push("诊断题作答页与讲解页必须完整展示原题材料和资料原解析");
+if (!appSource.includes("function renderTextbookBridge(question)") || !appSource.includes("先搭课本桥") || !appSource.includes("不含答案")) errors.push("第二章第一节题目必须在作答前提供不泄露答案的课本桥");
 if (!homeSource.includes('data-action="open-diagnostic-catalog"') || !homeSource.includes("学习目录") || !homeSource.includes("learning-focus-section")) errors.push("学习目录必须提供当前学习项目与题目快捷入口");
 if (!regionFeatureSource.includes("region-chapter-card") || !regionFeatureSource.includes("region-day-card") || !regionFeatureSource.includes("textbook-inline-viewer") || !regionFeatureSource.includes('loading="lazy"')) errors.push("区域复习必须按章—日折叠，并延迟加载教材页面图片");
 if (!recallFeatureSource.includes('data-action="toggle-recall-answer"') || recallFeatureSource.includes("recall-answer-panel") || !recallFeatureSource.includes('class="recall-blank-answer" hidden') || !recallFeatureSource.includes('loading="lazy"')) errors.push("背诵卡必须默认隐藏独立答案，空格点击不得显示整课答案");
@@ -143,16 +146,22 @@ if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.vi
 if (learningProjects?.schema_version !== "0.25.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length !== 28) errors.push("learning_projects.json 必须是0.25.0版且包含28个项目");
 if (curriculumCatalog?.schema_version !== "0.22.0" || !Array.isArray(curriculumCatalog.books) || curriculumCatalog.books.length !== 2) errors.push("curriculum_catalog.json 必须是0.22.0版且包含2册教材");
 if (regionReview?.schema_version !== "0.28.0" || regionReview.id !== "region-development-review" || regionReview.local_only !== false || regionReview.days?.length !== 14 || regionReview.reasoning_steps?.length !== 7 || regionReview.chapters?.length !== 4 || regionReview.textbook?.image_base !== "./assets/textbook/region-development") errors.push("region_review.json 必须是可发布的0.28.0十四日复习模块，并包含四章目录、教材图片和7步区域分析链");
-if (textbookCloseReading?.schema_version !== "0.30.1" || textbookCloseReading.id !== "selective-1-ch02-s01-close-reading" || textbookCloseReading.status !== "published" || textbookCloseReading.pages?.length !== 8 || textbookCloseReading.page_start !== 18 || textbookCloseReading.page_end !== 25 || textbookCloseReading.question_groups?.flatMap((group) => group.question_ids || []).length !== 4) errors.push("第二章第一节逐页精读必须完整登记教材18—25页和4道迁移题");
+if (textbookCloseReading?.schema_version !== "0.31.0" || textbookCloseReading.id !== "selective-1-ch02-s01-close-reading" || textbookCloseReading.status !== "published" || textbookCloseReading.pages?.length !== 8 || textbookCloseReading.page_start !== 18 || textbookCloseReading.page_end !== 25 || textbookCloseReading.question_groups?.flatMap((group) => group.question_ids || []).length !== 12) errors.push("第二章第一节逐页精读必须完整登记教材18—25页、8道连接题和4道迁移题");
+if (textbookCloseReading?.chapter_map?.sections?.length !== 3 || textbookCloseReading?.chapter_map?.research?.title !== "崇明岛的未来是什么样子") errors.push("第二章第一节必须提供连接三节与问题研究的全章地图");
 if (!closeReadingFeatureSource.includes('data-action="toggle-reading-page"') || !closeReadingFeatureSource.includes("图片解读") || !closeReadingFeatureSource.includes("逐页解析") || !closeReadingFeatureSource.includes("知识发散") || !closeReadingFeatureSource.includes("本页总结") || !closeReadingFeatureSource.includes('data-return-route="textbook-close-reading"') || closeReadingFeatureSource.includes("reading-keywords") || appSource.includes("save-reading-page")) errors.push("逐页精读必须移除阅读证据输入，并提供四个可折叠的教材辅助栏目");
 for (const page of textbookCloseReading?.pages || []) {
   if (page.read_targets?.length < 3 || page.image_reading?.length < 1 || page.analysis?.length < 5 || page.extensions?.length < 4 || !page.transfer || !page.summary?.core || !page.summary?.chain || page.summary?.terms?.length < 4 || !page.summary?.pitfall) errors.push(`教材第${page.page}页缺少足量的图片解读、逐页解析、发散或总结`);
+  if (!page.check_question_id || !questions.some((question) => question.id === page.check_question_id)) errors.push(`教材第${page.page}页缺少可随读随做的连接题`);
   try {
     const imageInfo = await stat(new URL(`../assets/textbook/selective-1-ch02-s01/${page.image}`, import.meta.url));
     if (imageInfo.size < 100_000) errors.push(`教材第${page.page}页图片疑似不完整`);
   } catch { errors.push(`缺少教材第${page.page}页图片`); }
 }
-for (const id of ["GEO-GEO-001", "GEO-GEO-002", "GEO-GEO-003", "GEO-GEO-004"]) if (!questions.some((question) => question.id === id)) errors.push(`逐页精读配套题不存在：${id}`);
+for (const id of Array.from({ length: 12 }, (_, index) => `GEO-GEO-${String(index + 1).padStart(3, "0")}`)) {
+  const question = questions.find((item) => item.id === id);
+  if (!question) errors.push(`逐页精读配套题不存在：${id}`);
+  if (!question?.textbook_bridge?.pages?.length || question.textbook_bridge.steps?.length < 3) errors.push(`${id} 缺少题意、课本页和判断步骤组成的课本桥`);
+}
 if (recallCards?.schema_version !== "1.1.0" || recallCards.source?.page_count !== 74 || recallCards.chapters?.length !== 5 || recallCards.lessons?.length !== 25) errors.push("背诵卡必须使用逐空答案1.1.0版本，完整登记5章、25课时和74个原PDF页");
 const recallLessonIds = new Set();
 let expectedRecallPage = 1;
@@ -316,20 +325,24 @@ for (const question of questions) {
   if (ids.has(question.id)) errors.push(`题目编号重复：${question.id}`);
   ids.add(question.id);
   if (!topicIds.has(question.topic_id)) errors.push(`${question.id} 引用了不存在的主题：${question.topic_id}`);
-  if (!question.source?.startsWith("资料包·")) errors.push(`${question.id} 不是资料包选题`);
+  const isTextbookOriginal = question.source?.startsWith("教材原创·");
+  const isPackQuestion = question.source?.startsWith("资料包·");
+  if (!isTextbookOriginal && !isPackQuestion) errors.push(`${question.id} 必须标明资料包题或教材原创题`);
   const verifiedSource = questionSourceFidelity[question.id];
   if (!verifiedSource) {
-    errors.push(`${question.id} 缺少资料包原题核对记录`);
+    errors.push(`${question.id} 缺少题目来源核对记录`);
   } else {
     for (const field of ["source", "source_document", "source_material", "stem", "answer", "explanation"]) {
-      if (question[field] !== verifiedSource[field]) errors.push(`${question.id} 的 ${field} 与资料包核对清单不一致`);
+      if (question[field] !== verifiedSource[field]) errors.push(`${question.id} 的 ${field} 与来源核对清单不一致`);
     }
     const questionOptionTexts = question.options?.map((option) => option.text) || [];
-    if (JSON.stringify(questionOptionTexts) !== JSON.stringify(verifiedSource.options)) errors.push(`${question.id} 的四个选项与资料包核对清单不一致`);
+    if (JSON.stringify(questionOptionTexts) !== JSON.stringify(verifiedSource.options)) errors.push(`${question.id} 的四个选项与来源核对清单不一致`);
   }
   if (!question.source_material?.trim()) errors.push(`${question.id} 缺少完整原题共同材料`);
-  if (!question.source_document?.endsWith(".docx")) errors.push(`${question.id} 缺少可追溯的资料包教师版文件名`);
-  if (question.source_fidelity?.status !== "verified_against_teacher_docx" || question.source_fidelity?.fields?.length !== 5) errors.push(`${question.id} 未声明题面与解析已逐项核对`);
+  if (isPackQuestion && !question.source_document?.endsWith(".docx")) errors.push(`${question.id} 缺少可追溯的资料包教师版文件名`);
+  if (isTextbookOriginal && !question.source_document?.endsWith(".pdf")) errors.push(`${question.id} 缺少可追溯的教材PDF文件名`);
+  const expectedFidelity = isTextbookOriginal ? "verified_against_textbook_pdf" : "verified_against_teacher_docx";
+  if (question.source_fidelity?.status !== expectedFidelity || question.source_fidelity?.fields?.length !== 5) errors.push(`${question.id} 未声明题面与解析已逐项核对`);
   if (question.options?.length !== 4) errors.push(`${question.id} 必须完整保留四个选项`);
   if (!question.knowledge_point_id?.trim()) errors.push(`${question.id} 缺少 knowledge_point_id`);
   const optionIds = question.options?.map((option) => option.id) ?? [];
@@ -1258,7 +1271,7 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.30.1" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.31.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
   if (packet.summary.total_learning_records !== 18 || packet.summary.pending_parent_reviews !== 18) errors.push("学习档案摘要计数错误");
   if (packet.summary.by_project.length !== 26 || packet.summary.habitability_attempts !== 1 || packet.summary.solar_activity_attempts !== 1 || packet.summary.moon_phase_attempts !== 1 || packet.summary.eclipse_attempts !== 1 || packet.summary.tide_attempts !== 1 || packet.summary.coriolis_attempts !== 1 || packet.summary.front_weather_attempts !== 1 || packet.summary.cyclone_system_attempts !== 1 || packet.summary.atmosphere_reasoning_attempts !== 1 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts) || !Array.isArray(packet.axial_tilt_attempts) || !Array.isArray(packet.celestial_scale_attempts) || !Array.isArray(packet.habitability_attempts) || !Array.isArray(packet.solar_activity_attempts) || !Array.isArray(packet.moon_phase_attempts) || !Array.isArray(packet.eclipse_attempts) || !Array.isArray(packet.tide_attempts) || !Array.isArray(packet.coriolis_attempts) || !Array.isArray(packet.front_weather_attempts) || !Array.isArray(packet.cyclone_system_attempts) || !Array.isArray(packet.atmosphere_reasoning_attempts)) errors.push("学习档案缺少第三章项目进度或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");
