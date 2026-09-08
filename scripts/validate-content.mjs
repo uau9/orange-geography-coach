@@ -21,6 +21,7 @@ await import("../assets/features/cyclone-system.js");
 await import("../assets/features/atmosphere-reasoning.js");
 await import("../assets/features/learning-export.js");
 await import("../assets/features/recall-cards.js");
+await import("../assets/features/textbook-close-reading.js");
 
 const topics = JSON.parse(await readFile(new URL("../data/topics.json", import.meta.url), "utf8"));
 const questions = JSON.parse(await readFile(new URL("../data/questions.json", import.meta.url), "utf8"));
@@ -29,6 +30,7 @@ const appSource = await readFile(new URL("../assets/app.js", import.meta.url), "
 const homeSource = await readFile(new URL("../assets/features/home.js", import.meta.url), "utf8");
 const regionFeatureSource = await readFile(new URL("../assets/features/region-review.js", import.meta.url), "utf8");
 const recallFeatureSource = await readFile(new URL("../assets/features/recall-cards.js", import.meta.url), "utf8");
+const closeReadingFeatureSource = await readFile(new URL("../assets/features/textbook-close-reading.js", import.meta.url), "utf8");
 const indexSource = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const paperReviews = JSON.parse(await readFile(new URL("../data/paper_reviews.json", import.meta.url), "utf8"));
 const retests = JSON.parse(await readFile(new URL("../data/retests.json", import.meta.url), "utf8"));
@@ -37,6 +39,7 @@ const earthMotionLab = JSON.parse(await readFile(new URL("../data/earth_motion_l
 const learningProjects = JSON.parse(await readFile(new URL("../data/learning_projects.json", import.meta.url), "utf8"));
 const curriculumCatalog = JSON.parse(await readFile(new URL("../data/curriculum_catalog.json", import.meta.url), "utf8"));
 const regionReview = JSON.parse(await readFile(new URL("../data/region_review.json", import.meta.url), "utf8"));
+const textbookCloseReading = JSON.parse(await readFile(new URL("../data/textbook_close_reading.json", import.meta.url), "utf8"));
 const recallCards = JSON.parse(await readFile(new URL("../data/recall_cards.json", import.meta.url), "utf8"));
 const presentationCatalog = JSON.parse(await readFile(new URL("../data/presentation_catalog.json", import.meta.url), "utf8"));
 const solarSeasonLab = JSON.parse(await readFile(new URL("../data/solar_season_lab.json", import.meta.url), "utf8"));
@@ -96,6 +99,7 @@ const v020Schemas = await Promise.all([
 const presentationCatalogSchema = JSON.parse(await readFile(new URL("../schemas/presentation-catalog.v0.1.schema.json", import.meta.url), "utf8"));
 const curriculumCatalogSchema = JSON.parse(await readFile(new URL("../schemas/curriculum-catalog.v0.22.schema.json", import.meta.url), "utf8"));
 const regionReviewSchema = JSON.parse(await readFile(new URL("../schemas/region-review.v0.28.schema.json", import.meta.url), "utf8"));
+const textbookCloseReadingSchema = JSON.parse(await readFile(new URL("../schemas/textbook-close-reading.v0.30.schema.json", import.meta.url), "utf8"));
 const recallCardsSchema = JSON.parse(await readFile(new URL("../schemas/recall-cards.v1.schema.json", import.meta.url), "utf8"));
 const retestV03Schema = JSON.parse(await readFile(new URL("../schemas/retest.v0.3.schema.json", import.meta.url), "utf8"));
 const gitignoreSource = await readFile(new URL("../.gitignore", import.meta.url), "utf8");
@@ -113,6 +117,7 @@ if (v025Schemas.some((schema) => !schema.$id || !schema.$schema)) errors.push("v
 if (!presentationCatalogSchema.$id || !presentationCatalogSchema.$schema) errors.push("PPT目录 schema 必须声明 $id 与 JSON Schema 版本");
 if (!curriculumCatalogSchema.$id || !curriculumCatalogSchema.$schema) errors.push("教材课程目录 schema 必须声明 $id 与 JSON Schema 版本");
 if (!regionReviewSchema.$id || !regionReviewSchema.$schema) errors.push("区域发展复习 schema 必须声明 $id 与 JSON Schema 版本");
+if (!textbookCloseReadingSchema.$id || !textbookCloseReadingSchema.$schema) errors.push("教材逐页精读 schema 必须声明 $id 与 JSON Schema 版本");
 if (!recallCardsSchema.$id || !recallCardsSchema.$schema) errors.push("背诵卡 schema 必须声明 $id 与 JSON Schema 版本");
 if (retestV03Schema.properties?.source?.const !== "资料包选题") errors.push("复测 schema 必须只允许资料包选题");
 
@@ -120,7 +125,7 @@ if (!Array.isArray(topics) || topics.length === 0) errors.push("topics.json 必�
 if (!Array.isArray(questions) || questions.length === 0) errors.push("questions.json 必须是非空数组");
 if (Object.keys(questionSourceFidelity).length !== questions.length) errors.push("资料包原题核对清单必须覆盖全部诊断题");
 if (!appSource.includes("选择理由（选填）") || !appSource.includes('if (!selectedOption) return alert("请先选择答案。");') || appSource.includes("!selectedOption || !reasoning")) errors.push("普通诊断题必须允许理由留空提交");
-if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.29.2") || !indexSource.includes("app.js?v=0.29.2") || !indexSource.includes("region-review.js?v=0.29.2") || !indexSource.includes("recall-cards.js?v=0.29.2")) errors.push("网页展示版本、静态资源版本或背诵卡模块入口不是v0.29.2");
+if (!indexSource.includes("ORANGE GEOGRAPHY COACH · v0.30.0") || !indexSource.includes("app.js?v=0.30.0") || !indexSource.includes("region-review.js?v=0.30.0") || !indexSource.includes("textbook-close-reading.js?v=0.30.0")) errors.push("网页展示版本、静态资源版本或逐页精读模块入口不是v0.30.0");
 if (!indexSource.includes('data-action="goto" data-route="projects">学习</button>') || !indexSource.includes('data-action="goto" data-route="recall">背诵</button>') || !indexSource.includes('data-action="start-next" data-route="train">题目</button>')) errors.push("底部导航必须保留学习、背诵和题目常驻入口");
 if (!diagnosticCatalogSource.includes("题目目录") || !diagnosticCatalogSource.includes("教材册—章—节") || !diagnosticCatalogSource.includes('data-action="start-question"') || !diagnosticCatalogSource.includes('data-action="set-diagnostic-filter"')) errors.push("诊断题目录必须支持教材章节、状态筛选和指定题目进入");
 if (!diagnosticCatalogSource.includes("diagnostic-section") || !diagnosticCatalogSource.includes('data-current-question="true"') || !diagnosticCatalogSource.includes("scrollIntoView")) errors.push("诊断题目录必须在第3级自动折叠题目并定位当前题");
@@ -135,9 +140,19 @@ if (!Array.isArray(retests) || retests.length === 0) errors.push("retests.json �
 if (!timeLab || !Array.isArray(timeLab.scenarios) || timeLab.scenarios.length === 0) errors.push("time_lab.json 必须包含非空 scenarios");
 if (!timeLab || !Array.isArray(timeLab.places) || timeLab.places.length === 0) errors.push("time_lab.json 必须包含非空 places");
 if (!earthMotionLab || !Array.isArray(earthMotionLab.views) || earthMotionLab.views.length !== 3) errors.push("earth_motion_lab.json 必须包含3种观察视角");
-if (learningProjects?.schema_version !== "0.25.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length !== 27) errors.push("learning_projects.json 必须是0.25.0版且包含27个项目");
+if (learningProjects?.schema_version !== "0.25.0" || !Array.isArray(learningProjects.projects) || learningProjects.projects.length !== 28) errors.push("learning_projects.json 必须是0.25.0版且包含28个项目");
 if (curriculumCatalog?.schema_version !== "0.22.0" || !Array.isArray(curriculumCatalog.books) || curriculumCatalog.books.length !== 2) errors.push("curriculum_catalog.json 必须是0.22.0版且包含2册教材");
 if (regionReview?.schema_version !== "0.28.0" || regionReview.id !== "region-development-review" || regionReview.local_only !== false || regionReview.days?.length !== 14 || regionReview.reasoning_steps?.length !== 7 || regionReview.chapters?.length !== 4 || regionReview.textbook?.image_base !== "./assets/textbook/region-development") errors.push("region_review.json 必须是可发布的0.28.0十四日复习模块，并包含四章目录、教材图片和7步区域分析链");
+if (textbookCloseReading?.schema_version !== "0.30.0" || textbookCloseReading.id !== "selective-1-ch02-s01-close-reading" || textbookCloseReading.status !== "published" || textbookCloseReading.pages?.length !== 8 || textbookCloseReading.page_start !== 18 || textbookCloseReading.page_end !== 25 || textbookCloseReading.question_groups?.flatMap((group) => group.question_ids || []).length !== 4) errors.push("第二章第一节逐页精读必须完整登记教材18—25页和4道迁移题");
+if (!closeReadingFeatureSource.includes('data-action="save-reading-page"') || !closeReadingFeatureSource.includes("先写，再看解析") || !closeReadingFeatureSource.includes('data-return-route="textbook-close-reading"') || !closeReadingFeatureSource.includes("完成8页后开放")) errors.push("逐页精读必须先保存阅读证据，再进入解析与配套题");
+for (const page of textbookCloseReading?.pages || []) {
+  if (!page.read_targets?.length || !page.analysis?.length || !page.extensions?.length || !page.transfer) errors.push(`教材第${page.page}页缺少阅读目标、解析、发散或迁移任务`);
+  try {
+    const imageInfo = await stat(new URL(`../assets/textbook/selective-1-ch02-s01/${page.image}`, import.meta.url));
+    if (imageInfo.size < 100_000) errors.push(`教材第${page.page}页图片疑似不完整`);
+  } catch { errors.push(`缺少教材第${page.page}页图片`); }
+}
+for (const id of ["GEO-GEO-001", "GEO-GEO-002", "GEO-GEO-003", "GEO-GEO-004"]) if (!questions.some((question) => question.id === id)) errors.push(`逐页精读配套题不存在：${id}`);
 if (recallCards?.schema_version !== "1.1.0" || recallCards.source?.page_count !== 74 || recallCards.chapters?.length !== 5 || recallCards.lessons?.length !== 25) errors.push("背诵卡必须使用逐空答案1.1.0版本，完整登记5章、25课时和74个原PDF页");
 const recallLessonIds = new Set();
 let expectedRecallPage = 1;
@@ -206,7 +221,7 @@ if (atmosphereLabs?.schema_version !== "0.25.0" || !Array.isArray(atmosphereLabs
 const projectIds = new Set();
 const projectOrders = new Set();
 const allowedProjectActions = new Set(["start-atmosphere-lab", "start-front-weather", "start-cyclone-system", "start-earth-motion", "start-coriolis", "start-solar-season", "start-annual-sun", "start-orbit-speed", "start-terminator-link", "start-rotation-speed", "start-date-range", "start-axial-tilt", "start-celestial-scale", "start-habitability", "start-solar-activity", "start-moon-phase", "start-eclipse", "start-tide", "start-solar-path", "start-time-lab", "start-next", "goto"]);
-const allowedStatusKinds = new Set(["atmosphere_reasoning", "front_weather", "cyclone_system", "earth_motion", "coriolis", "solar_season", "annual_sun", "orbit_speed", "terminator_link", "rotation_speed", "date_range", "axial_tilt", "celestial_scale", "habitability", "solar_activity", "moon_phase", "eclipse", "tide", "solar_path", "time_lab", "diagnostic", "retest"]);
+const allowedStatusKinds = new Set(["textbook_reading", "atmosphere_reasoning", "front_weather", "cyclone_system", "earth_motion", "coriolis", "solar_season", "annual_sun", "orbit_speed", "terminator_link", "rotation_speed", "date_range", "axial_tilt", "celestial_scale", "habitability", "solar_activity", "moon_phase", "eclipse", "tide", "solar_path", "time_lab", "diagnostic", "retest"]);
 for (const project of learningProjects?.projects || []) {
   if (projectIds.has(project.id)) errors.push(`学习项目编号重复：${project.id}`);
   projectIds.add(project.id);
@@ -1243,7 +1258,7 @@ if (!learningExport) {
     config: globalThis.OrangeCoach.config
   });
   const filename = learningExport.exportFilename(testNow);
-  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.29.2" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
+  if (packet.export_schema_version !== "0.25.0" || packet.app_version !== "0.30.0" || packet.exported_at !== testNow.toISOString()) errors.push("学习档案版本或导出时间戳错误");
   if (packet.summary.total_learning_records !== 18 || packet.summary.pending_parent_reviews !== 18) errors.push("学习档案摘要计数错误");
   if (packet.summary.by_project.length !== 26 || packet.summary.habitability_attempts !== 1 || packet.summary.solar_activity_attempts !== 1 || packet.summary.moon_phase_attempts !== 1 || packet.summary.eclipse_attempts !== 1 || packet.summary.tide_attempts !== 1 || packet.summary.coriolis_attempts !== 1 || packet.summary.front_weather_attempts !== 1 || packet.summary.cyclone_system_attempts !== 1 || packet.summary.atmosphere_reasoning_attempts !== 1 || packet.summary.activity_window.first_recorded_at == null || !Array.isArray(packet.solar_season_attempts) || !Array.isArray(packet.solar_path_attempts) || !Array.isArray(packet.annual_sun_attempts) || !Array.isArray(packet.orbit_speed_attempts) || !Array.isArray(packet.terminator_link_attempts) || !Array.isArray(packet.rotation_speed_attempts) || !Array.isArray(packet.date_range_attempts) || !Array.isArray(packet.axial_tilt_attempts) || !Array.isArray(packet.celestial_scale_attempts) || !Array.isArray(packet.habitability_attempts) || !Array.isArray(packet.solar_activity_attempts) || !Array.isArray(packet.moon_phase_attempts) || !Array.isArray(packet.eclipse_attempts) || !Array.isArray(packet.tide_attempts) || !Array.isArray(packet.coriolis_attempts) || !Array.isArray(packet.front_weather_attempts) || !Array.isArray(packet.cyclone_system_attempts) || !Array.isArray(packet.atmosphere_reasoning_attempts)) errors.push("学习档案缺少第三章项目进度或学习时间范围");
   if (packet.summary.candidate_error_tags[0]?.error_tag !== "TEST-TAG") errors.push("学习档案错因聚合错误");

@@ -2,6 +2,18 @@
   "schema_version": "0.25.0",
   "projects": [
     {
+      "id": "textbook-close-reading-ch02-s01",
+      "eyebrow": "第二章·第一节",
+      "title": "教材逐页精读：塑造地表形态的力量",
+      "summary": "按教材第18—25页逐页圈关键词、写因果链和真实疑问，保存后再看解析；配套2道高考真题和2道资料包例题。",
+      "action": "goto",
+      "route": "textbook-close-reading",
+      "cta": "开始第一节精读",
+      "status_kind": "textbook_reading",
+      "accent": "orange",
+      "order": 4
+    },
+    {
       "id": "front-weather-lab",
       "eyebrow": "第三章·常见天气系统",
       "title": "锋面结构与过境天气",

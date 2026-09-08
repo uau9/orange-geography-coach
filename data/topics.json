@@ -47,5 +47,12 @@
     "category": "区域认知",
     "description": "区域类型与尺度、区域整体性、区域关联、因地制宜和发展模式评价",
     "order": 7
+  },
+  {
+    "id": "physical.geomorphology",
+    "name": "地表形态的塑造",
+    "category": "自然地理",
+    "description": "内外力作用、岩石圈物质循环、地质过程与地貌演变",
+    "order": 8
   }
 ]

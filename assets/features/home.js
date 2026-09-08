@@ -64,7 +64,7 @@
     const utilities = model.utilities || [];
     const books = model.books || [];
     const supplemental = model.supplemental;
-    const focus = projects.find((project) => project.id === "region-development-review");
+    const focus = projects.find((project) => project.id === "textbook-close-reading-ch02-s01") || projects.find((project) => project.id === "region-development-review");
     const withoutFocus = (items = []) => items.filter((project) => project.id !== focus?.id);
     const navigableBooks = books.map((book) => ({
       ...book,
@@ -74,7 +74,7 @@
     return `
       <div class="projects-heading"><div><span class="section-kicker">学习</span><h2 class="page-title">学习目录</h2></div><span class="pill">${projects.length} 个项目</span></div>
       <p class="page-subtitle">先继续正在学习的内容；需要查找其他专题时，再按教材章节展开。每次只展开一层。</p>
-      ${focus ? `<section class="project-directory-section learning-focus-section"><div class="section-head"><div><span class="section-kicker">正在学习</span><h3>选择性必修2·区域发展</h3></div></div>${renderProjectCard(focus)}</section>` : ""}
+      ${focus ? `<section class="project-directory-section learning-focus-section"><div class="section-head"><div><span class="section-kicker">正在学习</span><h3>${escapeHtml(focus.eyebrow)}</h3></div></div>${renderProjectCard(focus)}</section>` : ""}
       ${structured ? `
         <section class="project-directory-section">
           <div class="section-head"><div><span class="section-kicker">快捷工具</span><h3>题目与掌握验证</h3></div></div>

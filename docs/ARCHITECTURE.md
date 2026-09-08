@@ -13,6 +13,7 @@
 - `presentation_catalog.json` 是章节 PPT 的机器可读目录，保存稳定的 deck、slide、lab 和 question 映射；
 - `questions.json`、`retests.json` 是诊断与复测内容；
 - `region_review.json` 是选择性必修2四章的14天复习编排，记录章—DAY层级和教材页/PDF页映射；`教材/`、完整资料包与 `local_learning_sources/` 保持Git忽略，区域发展对应教材页面图片发布到 `assets/textbook/region-development/`，实际入题所需图表发布到 `assets/questions/`；
+- `textbook_close_reading.json` 是选择性必修1第二章第一节的逐页精读数据，保存教材18—25页映射、阅读目标、保存后解析、知识发散、迁移任务与题目分组；
 - `time_lab.json`、`earth_motion_lab.json`、`solar_season_lab.json`、`solar_path_lab.json`、`annual_sun_lab.json`、`orbit_speed_lab.json`、`terminator_link_lab.json`、`rotation_speed_lab.json`、`date_range_lab.json`、`axial_tilt_lab.json`、`celestial_scale_lab.json`、`habitability_lab.json`、`solar_activity_lab.json`、`moon_phase_lab.json`、`eclipse_lab.json`、`tide_lab.json`、`coriolis_lab.json`、`front_weather_lab.json`、`cyclone_system_lab.json`、`atmosphere_reasoning_labs.json` 是专题实验模型；
 - 内容文件不直接包含HTML，也不保存浏览器作答状态。
 
@@ -45,6 +46,7 @@
 - `atmosphere-reasoning.js`：三圈环流、气压带风带季节移动、海陆气压中心与季风的通用五步实验；
 - `learning-export.js`：学习档案摘要、时间戳和文件名；
 - `region-review.js`：章—DAY折叠目录、教材页面图片、资料包诊断题、延迟复测与家长检查清单的纯渲染；
+- `textbook-close-reading.js`：教材页导航、阅读证据输入、解析解锁、真题/资料包分组和家长验收清单的纯渲染；
 - 后续专题可继续拆分自己的渲染和计算模块。
 
 脚本加载顺序由 `index.html` 明确声明：配置 → 功能模块 → `app.js` 集成层。
@@ -81,7 +83,7 @@
 
 ## 版本规则
 
-- 应用资源版本当前为 `0.28.1`，集中定义在 `assets/config.js`；
+- 应用资源版本当前为 `0.30.0`，集中定义在 `assets/config.js`；
 - LocalStorage 学习记录仍使用兼容版本 `0.3.0`，避免破坏已有浏览器数据；
 - 导出档案独立使用 `export_schema_version: 0.25.0`；
 - 修改数据结构时分别判断“应用版本、记录版本、导出版本”是否需要升级。
@@ -97,4 +99,5 @@
 - 诊断题目录不提前输出正确答案或解析，状态筛选与指定题目进入不改写原有作答记录；
 - 所有诊断与复测均来自资料包；每个知识点2—5题；共同材料、题干、四个选项、答案、原解析、原图、原表、图例和单位缺任一项时校验失败；精选题图必须位于可发布的 `assets/questions/`；
 - 区域发展教材第2—91页以页面图片发布，14天页码映射、图片存在性和最小文件大小由校验脚本检查；整本PDF不进入站点资源；
+- 第二章第一节教材第18—25页以页面图片发布；每页先保存关键词、因果链和真实疑问，解析与知识发散随后解锁；第二节在第一节完成发布前不开放；
 - `npm test` 通过，iPad横竖屏与手机触控流程可用。

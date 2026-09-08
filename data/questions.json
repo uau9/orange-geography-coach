@@ -4578,5 +4578,129 @@
         "explanation"
       ]
     }
+  },
+  {
+    "id": "GEO-GEO-001",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-weathering-metamorphism",
+    "title": "南部非洲风化壳差异",
+    "source": "资料包·步步高第5章第1讲真题专练第3题（2021年1月浙江选考）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/geomorphology/2021-zhejiang-southern-africa.png",
+    "source_image_alt": "南部非洲局部图，含甲乙丙位置、沙漠、水域、河流、石棉和500毫米等年降水量线",
+    "type": "single_choice",
+    "difficulty": 3,
+    "stem": "3．与丙地相比，形成甲地风化壳的()",
+    "options": [
+      { "id": "A", "text": "物理风化作用较弱" },
+      { "id": "B", "text": "风力沉积作用较弱" },
+      { "id": "C", "text": "生物风化作用较弱" },
+      { "id": "D", "text": "流水侵蚀作用较强" }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": { "tag": "候选·风化类型与干湿条件倒置", "diagnosis": "候选错因：可能没有把甲地的干旱、温差大与较强物理风化对应起来。", "follow_up": "分别指出甲、丙的降水和植被差异，再判断哪类风化更强。" },
+      "B": { "tag": "候选·把沉积作用当作风化过程", "diagnosis": "候选错因：可能把风力沉积与风化壳形成条件混在一起。", "follow_up": "风化、侵蚀、搬运、堆积中，哪一个强调岩石在原地破坏？" },
+      "D": { "tag": "候选·忽略甲地干旱证据", "diagnosis": "候选错因：可能没有利用沙漠和等降水量线判断甲地流水作用较弱。", "follow_up": "从图中找两条能判断甲地干湿状况的证据。" }
+    },
+    "explanation": "第3题，据图中地理位置可判定甲地为热带沙漠气候，丙地为热带草原气候。甲地气候干旱，昼夜温差较大，植被稀少，地表多荒漠。与丙地相比，甲地流水侵蚀作用较弱，风力沉积作用较强，物理风化作用较强，生物风化作用较弱，故选C。",
+    "key_points": ["区域水热条件", "物理风化", "生物风化"],
+    "review_after_days": [2, 5, 12],
+    "source_document": "第一部分　第五章　第1讲　真题专练.docx",
+    "source_material": "(2021·1月浙江选考)石棉主要形成于原有岩石与侵入岩的接触带。下图为“南部非洲局部图”。完成3～4题。",
+    "source_fidelity": { "status": "verified_against_teacher_docx", "verified_on": "2026-09-08", "fields": ["source_material", "stem", "options", "answer", "explanation"] }
+  },
+  {
+    "id": "GEO-GEO-002",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-weathering-metamorphism",
+    "title": "石棉接触带的地质作用",
+    "source": "资料包·步步高第5章第1讲真题专练第4题（2021年1月浙江选考）",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/geomorphology/2021-zhejiang-southern-africa.png",
+    "source_image_alt": "南部非洲局部图，含甲乙丙位置、沙漠、水域、河流、石棉和500毫米等年降水量线",
+    "type": "single_choice",
+    "difficulty": 2,
+    "stem": "4．形成乙地石棉矿的地质作用是()",
+    "options": [
+      { "id": "A", "text": "变质作用" },
+      { "id": "B", "text": "风化作用" },
+      { "id": "C", "text": "沉积作用" },
+      { "id": "D", "text": "喷出作用" }
+    ],
+    "answer": "A",
+    "error_map": {
+      "B": { "tag": "候选·忽略侵入岩接触带", "diagnosis": "候选错因：可能只看到近地表矿物，没有使用“侵入岩接触带”的高温条件。", "follow_up": "侵入岩接触周围原有岩石时，温度和压力会怎样变化？" },
+      "C": { "tag": "候选·矿产形成与沉积混同", "diagnosis": "候选错因：可能把所有矿产形成都归为沉积作用。", "follow_up": "题干给出的直接成因线索是“接触带”还是“沉积物层理”？" },
+      "D": { "tag": "候选·侵入与喷出位置混淆", "diagnosis": "候选错因：可能没有区分侵入岩在地下侵入与岩浆喷出地表。", "follow_up": "题干中的石棉在原有岩石与什么岩石的接触带形成？" }
+    },
+    "explanation": "第4题，石棉主要形成于原有岩石与侵入岩的接触带，侵入岩为岩浆活动的结果，岩浆接触带的岩石会因高温、高压发生变质作用，故选A。",
+    "key_points": ["侵入岩", "接触变质", "高温高压"],
+    "review_after_days": [2, 5, 12],
+    "source_document": "第一部分　第五章　第1讲　真题专练.docx",
+    "source_material": "(2021·1月浙江选考)石棉主要形成于原有岩石与侵入岩的接触带。下图为“南部非洲局部图”。完成3～4题。",
+    "source_fidelity": { "status": "verified_against_teacher_docx", "verified_on": "2026-09-08", "fields": ["source_material", "stem", "options", "answer", "explanation"] }
+  },
+  {
+    "id": "GEO-GEO-003",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-rock-cycle-sequence",
+    "title": "岩层形成先后顺序",
+    "source": "资料包·步步高课时25考向1第1题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/geomorphology/pack-rock-cycle-sequence.jpg",
+    "source_image_alt": "某地地质构造剖面图和岩石圈物质循环示意图",
+    "type": "single_choice",
+    "difficulty": 3,
+    "stem": "1．图1中①②③④代表的岩石，形成的先后顺序依次是()",
+    "options": [
+      { "id": "A", "text": "①②③④" },
+      { "id": "B", "text": "②④③①" },
+      { "id": "C", "text": "③②①④" },
+      { "id": "D", "text": "④①②③" }
+    ],
+    "answer": "C",
+    "error_map": {
+      "A": { "tag": "候选·沉积岩层新老顺序颠倒", "diagnosis": "候选错因：可能没有用正常沉积岩层下老上新的关系确定①②③。", "follow_up": "先不看④，只判断①②③谁最早、谁最晚。" },
+      "B": { "tag": "候选·未使用侵入切穿关系", "diagnosis": "候选错因：可能没有识别④切穿①②③，因此④形成更晚。", "follow_up": "如果一块岩体切穿另一岩层，哪一个必须后形成？" },
+      "D": { "tag": "候选·把侵入岩误判为最早", "diagnosis": "候选错因：可能只按图中上下位置判断，没有检查切穿关系。", "follow_up": "指出图中④与①②③之间最关键的接触关系。" }
+    },
+    "explanation": "第1题，读图1分析，①②③三个岩层层状为水平层状，最可能为沉积岩，根据埋藏深浅可判断其形成的先后顺序为③②①；④侵入并切穿了①②③岩层，可知④为侵入型岩浆岩，并且形成时间晚于①。故选C。",
+    "key_points": ["沉积岩层序", "侵入切穿关系", "地质过程排序"],
+    "review_after_days": [2, 5, 12],
+    "source_document": "2024年高考地理一轮复习（新人教版） 第1部分　第5章　第1讲　课时25　塑造地表形态的力量.docx",
+    "source_material": "图1为“某地地质构造剖面图”，图中①②③④⑤代表不同的岩石。图2为“岩石圈物质循环示意图”，甲、乙、丙、丁表示不同岩石类型。读图，完成1～2题。",
+    "source_fidelity": { "status": "verified_against_teacher_docx", "verified_on": "2026-09-08", "fields": ["source_material", "stem", "options", "answer", "explanation"] }
+  },
+  {
+    "id": "GEO-GEO-004",
+    "topic_id": "physical.geomorphology",
+    "knowledge_point_id": "geomorph.section1-rock-cycle-sequence",
+    "title": "接触带岩石与循环图",
+    "source": "资料包·步步高课时25考向1第2题",
+    "source_material_kind": "image",
+    "source_image": "./assets/questions/geomorphology/pack-rock-cycle-sequence.jpg",
+    "source_image_alt": "某地地质构造剖面图和岩石圈物质循环示意图",
+    "type": "single_choice",
+    "difficulty": 3,
+    "stem": "2．图2中与图1所示⑤岩石类型成因相同的岩石是()",
+    "options": [
+      { "id": "A", "text": "甲" },
+      { "id": "B", "text": "乙" },
+      { "id": "C", "text": "丙" },
+      { "id": "D", "text": "丁" }
+    ],
+    "answer": "B",
+    "error_map": {
+      "A": { "tag": "候选·接触带变质岩识别不足", "diagnosis": "候选错因：可能没有由⑤位于侵入岩与围岩接触部位判断其为变质岩。", "follow_up": "⑤所处位置会受到侵入岩带来的什么条件影响？" },
+      "C": { "tag": "候选·岩石循环箭头终点未核对", "diagnosis": "候选错因：可能凭图形位置猜岩石类型，没有沿箭头判断。", "follow_up": "在图2中，哪一类岩石由甲经固结成岩形成？" },
+      "D": { "tag": "候选·岩浆与岩石混淆", "diagnosis": "候选错因：可能把循环中的岩浆当成已经形成的岩石。", "follow_up": "图2中哪些箭头汇入丁，丁再通过什么过程形成岩石？" }
+    },
+    "explanation": "第2题，结合上题分析，④为侵入型岩浆岩，⑤分布在④与周边沉积岩接触的部位，可知⑤应为变质岩；根据图2可知，甲为沉积岩，乙为变质岩，丙为喷出型岩浆岩，丁为侵入型岩浆岩，因此⑤岩石类型成因与图2中乙岩石类型成因相同。故选B。",
+    "key_points": ["接触变质", "循环图箭头", "岩石类型判读"],
+    "review_after_days": [2, 5, 12],
+    "source_document": "2024年高考地理一轮复习（新人教版） 第1部分　第5章　第1讲　课时25　塑造地表形态的力量.docx",
+    "source_material": "图1为“某地地质构造剖面图”，图中①②③④⑤代表不同的岩石。图2为“岩石圈物质循环示意图”，甲、乙、丙、丁表示不同岩石类型。读图，完成1～2题。",
+    "source_fidelity": { "status": "verified_against_teacher_docx", "verified_on": "2026-09-08", "fields": ["source_material", "stem", "options", "answer", "explanation"] }
   }
 ]

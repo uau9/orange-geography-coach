@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.29.2", ASSET_VERSION: "0.29.2", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.30.0", ASSET_VERSION: "0.30.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, regionReview: null, recallCards: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, regionReview: null, textbookCloseReading: null, recallCards: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
 
 function defaultState() {
   return {
@@ -68,6 +68,9 @@ function defaultState() {
     recallLessonId: "recall-01",
     recallProgress: {},
     regionReviewDay: 1,
+    textbookReadingPage: 18,
+    textbookReadingProgress: {},
+    questionReturnRoute: null,
     currentRetestId: null,
     activeSession: null,
     activeRetestSession: null,
@@ -150,6 +153,9 @@ function normalizeState(parsed) {
   normalized.recallLessonId = typeof parsed?.recallLessonId === "string" ? parsed.recallLessonId : "recall-01";
   normalized.recallProgress = parsed?.recallProgress && typeof parsed.recallProgress === "object" && !Array.isArray(parsed.recallProgress) ? parsed.recallProgress : {};
   normalized.regionReviewDay = Number.isInteger(Number(parsed?.regionReviewDay)) && Number(parsed.regionReviewDay) >= 1 && Number(parsed.regionReviewDay) <= 14 ? Number(parsed.regionReviewDay) : 1;
+  normalized.textbookReadingPage = Number.isInteger(Number(parsed?.textbookReadingPage)) && Number(parsed.textbookReadingPage) >= 18 && Number(parsed.textbookReadingPage) <= 25 ? Number(parsed.textbookReadingPage) : 18;
+  normalized.textbookReadingProgress = parsed?.textbookReadingProgress && typeof parsed.textbookReadingProgress === "object" && !Array.isArray(parsed.textbookReadingProgress) ? parsed.textbookReadingProgress : {};
+  normalized.questionReturnRoute = parsed?.questionReturnRoute === "textbook-close-reading" ? parsed.questionReturnRoute : null;
   normalized.attempts = Array.isArray(parsed?.attempts) ? parsed.attempts : [];
   normalized.retestAttempts = Array.isArray(parsed?.retestAttempts)
     ? parsed.retestAttempts
@@ -1324,14 +1330,41 @@ function renderRegionReview() {
   requestAnimationFrame(() => document.querySelector(`[data-region-day="${activeDay}"]`)?.scrollIntoView({ block: "center" }));
 }
 
+function renderTextbookCloseReading() {
+  const feature = window.OrangeCoach?.features?.textbookCloseReading;
+  const module = catalog.textbookCloseReading;
+  if (!feature || !module) {
+    app.innerHTML = `<section class="card empty">教材逐页精读模块尚未加载。</section>`;
+    return;
+  }
+  const page = module.pages.find((item) => item.page === Number(state.textbookReadingPage)) || module.pages[0];
+  state.textbookReadingPage = page.page;
+  const attempts = latestAttempts();
+  const questionGroups = module.question_groups.map((group) => ({
+    ...group,
+    questions: group.question_ids.map(getQuestion).filter(Boolean).map((question) => ({
+      ...question,
+      attempt: attempts.find((attempt) => attempt.question_id === question.id) || null
+    }))
+  }));
+  app.innerHTML = feature.render({
+    module,
+    page,
+    progress: state.textbookReadingProgress,
+    completedPages: Object.values(state.textbookReadingProgress).filter((record) => record?.saved_at).length,
+    questionGroups
+  });
+}
+
 function render() {
   window.scrollTo(0, 0);
   document.querySelectorAll(".bottom-nav button").forEach((button) => {
     const isDiagnosticRoute = ["train", "diagnostic-catalog"].includes(state.route);
-    const isProjectRoute = state.route === "region-review";
+    const isProjectRoute = ["region-review", "textbook-close-reading"].includes(state.route);
     button.classList.toggle("active", button.dataset.route === state.route || (button.dataset.route === "train" && isDiagnosticRoute) || (button.dataset.route === "projects" && isProjectRoute));
   });
   if (state.route === "region-review") return renderRegionReview();
+  if (state.route === "textbook-close-reading") return renderTextbookCloseReading();
   if (state.route === "retest") return renderRetest();
   if (state.route === "time-lab") return renderTimeLab();
   if (state.route === "earth-motion-lab") return renderEarthMotionLab();
@@ -1382,6 +1415,15 @@ function countPendingParentReviews() {
 }
 
 function projectStatus(project) {
+  if (project.status_kind === "textbook_reading") {
+    const module = catalog.textbookCloseReading;
+    const completed = Object.values(state.textbookReadingProgress || {}).filter((record) => record?.saved_at).length;
+    const questionIds = (module?.question_groups || []).flatMap((group) => group.question_ids || []);
+    const answered = new Set(state.attempts.filter((attempt) => questionIds.includes(attempt.question_id)).map((attempt) => attempt.question_id));
+    return completed || answered.size
+      ? { status_label: `${completed}/${module?.pages?.length || 8}页`, status_tone: completed === module?.pages?.length && answered.size === questionIds.length ? "green" : "orange", status_detail: `${answered.size}/${questionIds.length} 道配套题已作答 · 第二节尚未开放` }
+      : { status_label: "待开始", status_tone: "", status_detail: "教材18—25页 · 2道高考真题 · 2道资料包例题" };
+  }
   if (project.id === "region-development-review") {
     const questionIds = (catalog.regionReview?.days || []).flatMap((day) => day.question_ids || []);
     const answered = new Set(state.attempts.filter((attempt) => questionIds.includes(attempt.question_id)).map((attempt) => attempt.question_id));
@@ -1592,7 +1634,15 @@ function getTodayRecommendation() {
   const attemptedQuestionIds = new Set(state.attempts.map((attempt) => attempt.question_id));
   const hasActiveUnseen = activeCurriculumQuestionIds().some((id) => !attemptedQuestionIds.has(id));
   const nextRegionDay = firstIncompleteRegionReviewDay();
-  if (nextRegionDay) {
+  const readingPagesDone = Object.values(state.textbookReadingProgress || {}).filter((record) => record?.saved_at).length;
+  const readingQuestionIds = catalog.textbookCloseReading?.question_groups?.flatMap((group) => group.question_ids || []) || [];
+  const readingQuestionsDone = readingQuestionIds.filter((id) => attemptedQuestionIds.has(id)).length;
+  if (readingPagesDone < (catalog.textbookCloseReading?.pages?.length || 0) || readingQuestionsDone < readingQuestionIds.length) {
+    project = byId("textbook-close-reading-ch02-s01");
+    reason = readingPagesDone < 8
+      ? `选择性必修1第二章第一节：已精读${readingPagesDone}/8页。先留下关键词、因果链和真实疑问，再看逐页解析。`
+      : `选择性必修1第二章第一节：8页精读已完成，继续完成${readingQuestionsDone}/4道真题与资料包迁移题。`;
+  } else if (nextRegionDay) {
     project = byId("region-development-review");
     reason = `选择性必修2继续到DAY ${nextRegionDay.day}：先看教材第${nextRegionDay.textbook_page_start}—${nextRegionDay.textbook_page_end}页，再完成当天2道资料包题。`;
   } else if (hasActiveUnseen) {
@@ -1990,7 +2040,7 @@ function renderTrain() {
   app.innerHTML = `
     <div class="question-page-heading">
       <div><div class="topic-meta">${escapeHtml(getTopic(question.topic_id)?.category || "")} · ${escapeHtml(getTopic(question.topic_id)?.name || "")} · ${escapeHtml(question.id)}</div><h2 class="page-title">${escapeHtml(question.title)}</h2></div>
-      ${regionDay ? `<button class="btn secondary" data-action="return-region-day" data-day="${regionDay.day}">返回DAY ${regionDay.day}</button>` : `<button class="btn secondary" data-action="open-diagnostic-catalog">题目目录</button>`}
+      ${regionDay ? `<button class="btn secondary" data-action="return-region-day" data-day="${regionDay.day}">返回DAY ${regionDay.day}</button>` : state.questionReturnRoute === "textbook-close-reading" ? `<button class="btn secondary" data-action="goto" data-route="textbook-close-reading">返回第一节精读</button>` : `<button class="btn secondary" data-action="open-diagnostic-catalog">题目目录</button>`}
     </div>
     <p class="page-subtitle">请先独立选择答案。理由可选填，留空也可以提交。</p>
     <section class="card">
@@ -2003,7 +2053,7 @@ function renderTrain() {
         ${textbookHelp}
         <label class="field-label">你对答案的把握有多大？</label>
         <div class="confidence">${[1, 2, 3, 4, 5].map((value) => `<label><input type="radio" name="confidence" value="${value}" ${value === 3 ? "checked" : ""}/> ${value}</label>`).join("")}</div>
-        <div class="btn-row"><button class="btn" type="submit">提交并查看诊断</button>${regionDay ? `<button class="btn secondary" type="button" data-action="return-region-day" data-day="${regionDay.day}">暂不作答，返回本日</button>` : `<button class="btn secondary" type="button" data-action="goto" data-route="today">暂不作答</button>`}</div>
+        <div class="btn-row"><button class="btn" type="submit">提交并查看诊断</button>${regionDay ? `<button class="btn secondary" type="button" data-action="return-region-day" data-day="${regionDay.day}">暂不作答，返回本日</button>` : state.questionReturnRoute === "textbook-close-reading" ? `<button class="btn secondary" type="button" data-action="goto" data-route="textbook-close-reading">暂不作答，返回精读</button>` : `<button class="btn secondary" type="button" data-action="goto" data-route="today">暂不作答</button>`}</div>
       </form>
     </section>
   `;
@@ -2022,7 +2072,7 @@ function renderResult(question, session) {
   app.innerHTML = `
     <div class="question-page-heading">
       <div><div class="topic-meta">${escapeHtml(question.id)} · ${escapeHtml(getTopic(question.topic_id)?.name || "")}</div><h2 class="page-title">${correct ? "答对了，继续核对关键点" : "这道题值得复盘"}</h2></div>
-      ${regionDay ? `<button class="btn secondary" data-action="save-attempt-region-day" data-day="${regionDay.day}">保存并返回DAY ${regionDay.day}</button>` : `<button class="btn secondary" data-action="save-attempt-catalog">保存并回题目目录</button>`}
+      ${regionDay ? `<button class="btn secondary" data-action="save-attempt-region-day" data-day="${regionDay.day}">保存并返回DAY ${regionDay.day}</button>` : state.questionReturnRoute === "textbook-close-reading" ? `<button class="btn secondary" data-action="save-attempt-reading">保存并返回第一节精读</button>` : `<button class="btn secondary" data-action="save-attempt-catalog">保存并回题目目录</button>`}
     </div>
     <section class="card">
       ${renderQuestionSourceContent(question)}
@@ -2040,7 +2090,7 @@ function renderResult(question, session) {
       </div>
       ${candidate ? `<div class="diagnosis"><strong>AI/题目给出的错因候选：${escapeHtml(candidate.tag)}</strong><br/>${escapeHtml(candidate.diagnosis)}<br/><br/><strong>追问：</strong>${escapeHtml(candidate.follow_up)}</div>` : `<div class="diagnosis"><strong>下一步：</strong>请用自己的话解释为什么不是另外三个选项，防止“碰巧答对”。</div>`}
       ${textbookHelp}
-      <div class="btn-row"><button class="btn orange" data-action="continue-question">保存并继续下一题</button>${regionDay ? `<button class="btn secondary" data-action="save-attempt-region-day" data-day="${regionDay.day}">保存并返回本日</button>` : `<button class="btn secondary" data-action="save-attempt-catalog">保存并回题目目录</button>`}</div>
+      <div class="btn-row">${state.questionReturnRoute === "textbook-close-reading" ? `<button class="btn orange" data-action="save-attempt-reading">保存并返回第一节精读</button>` : `<button class="btn orange" data-action="continue-question">保存并继续下一题</button>`}${regionDay ? `<button class="btn secondary" data-action="save-attempt-region-day" data-day="${regionDay.day}">保存并返回本日</button>` : state.questionReturnRoute === "textbook-close-reading" ? "" : `<button class="btn secondary" data-action="save-attempt-catalog">保存并回题目目录</button>`}</div>
     </section>
     <section class="card">
       <h3>把这道题交给 AI 诊断</h3>
@@ -2709,7 +2759,37 @@ document.addEventListener("click", async (event) => {
   }
   if (action === "goto") {
     state.route = actionTarget.dataset.route;
+    if (state.route !== "train") state.questionReturnRoute = null;
     if (state.route === "region-review") state.regionReviewDay = firstIncompleteRegionReviewDay()?.day || state.regionReviewDay || 1;
+    saveState(); render();
+    return;
+  }
+  if (action === "select-reading-page") {
+    const page = Number(actionTarget.dataset.page);
+    if (!catalog.textbookCloseReading?.pages?.some((item) => item.page === page)) return;
+    state.textbookReadingPage = page;
+    state.route = "textbook-close-reading";
+    saveState(); render();
+    return;
+  }
+  if (action === "save-reading-page") {
+    const page = Number(actionTarget.dataset.page);
+    if (!catalog.textbookCloseReading?.pages?.some((item) => item.page === page)) return;
+    const keywords = document.querySelector("#reading-keywords")?.value.trim() || "";
+    const causalChain = document.querySelector("#reading-chain")?.value.trim() || "";
+    const question = document.querySelector("#reading-question")?.value.trim() || "";
+    if (!keywords || !causalChain || !question) return alert("请先写完关键词、因果链和一个真实疑问，再解锁解析。");
+    const previous = state.textbookReadingProgress[String(page)] || {};
+    state.textbookReadingProgress[String(page)] = {
+      ...previous,
+      keywords,
+      causal_chain: causalChain,
+      question,
+      saved_at: previous.saved_at || new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    };
+    state.textbookReadingPage = page;
+    state.route = "textbook-close-reading";
     saveState(); render();
     return;
   }
@@ -2750,6 +2830,7 @@ document.addEventListener("click", async (event) => {
     const regionDay = getRegionReviewDayForQuestion(question.id);
     if (regionDay) state.regionReviewDay = regionDay.day;
     state.currentQuestionId = question.id;
+    state.questionReturnRoute = actionTarget.dataset.returnRoute || null;
     state.activeSession = null;
     state.route = "train";
     saveState(); render();
@@ -2771,6 +2852,10 @@ document.addEventListener("click", async (event) => {
   }
   if (action === "save-attempt-catalog") {
     saveAttempt("catalog");
+    return;
+  }
+  if (action === "save-attempt-reading") {
+    saveAttempt("reading");
     return;
   }
   if (action === "start-time-diagnostic") {
@@ -3109,7 +3194,7 @@ document.addEventListener("click", async (event) => {
     actionTarget.textContent = ok ? "批注说明已复制" : "复制失败，请查看导出档案内说明";
     setTimeout(() => { actionTarget.textContent = "复制批注说明"; }, 1800);
   }
-  if (action === "save-attempt") saveAttempt();
+  if (action === "save-attempt") saveAttempt(state.questionReturnRoute === "textbook-close-reading" ? "reading" : "parent");
   if (action === "save-review") saveReview(actionTarget.dataset.attemptId);
   if (action === "save-lab-review") saveLabReview(actionTarget.dataset.attemptId);
   if (action === "save-motion-review") saveEarthMotionReview(actionTarget.dataset.attemptId);
@@ -4143,6 +4228,10 @@ function saveAttempt(destination = "parent") {
   } else if (destination === "catalog") {
     state.currentQuestionId = question.id;
     state.route = "diagnostic-catalog";
+  } else if (destination === "reading") {
+    state.currentQuestionId = question.id;
+    state.questionReturnRoute = null;
+    state.route = "textbook-close-reading";
   } else {
     state.route = "parent";
     state.currentQuestionId = null;
@@ -4357,7 +4446,7 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, regionReview, recallCards, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, regionReview, textbookCloseReading, recallCards, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -4365,6 +4454,7 @@ async function init() {
       fetch(`./data/learning_projects.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/curriculum_catalog.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/region_review.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/textbook_close_reading.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/recall_cards.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -4387,7 +4477,7 @@ async function init() {
       fetch(`./data/cyclone_system_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/atmosphere_reasoning_labs.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, regionReview, recallCards, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, regionReview, textbookCloseReading, recallCards, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

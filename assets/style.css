@@ -1167,3 +1167,34 @@ main:has(.recall-layout) { width: min(100% - 28px, 1180px); }
   .tide-layout, .tide-result-layout { grid-template-columns: 1fr; }
   .weather-system-layout { grid-template-columns: 1fr; }
 }
+
+/* 教材逐页精读 */
+.learning-breadcrumb,.close-reading-heading,.close-reading-practice-heading,.close-reading-page-head,.close-reading-group-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.learning-breadcrumb{margin-bottom:12px;color:var(--muted)}
+.learning-breadcrumb span{opacity:.55}
+.close-reading-method-card summary,.close-reading-parent-card summary{cursor:pointer;display:flex;justify-content:space-between}
+.close-reading-page-nav{display:grid;grid-template-columns:repeat(8,minmax(54px,1fr));gap:8px;margin:16px 0;overflow-x:auto;padding-bottom:4px}
+.close-reading-page-chip{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:9px 8px;color:var(--ink);min-width:54px}
+.close-reading-page-chip span,.close-reading-page-chip small{display:block}
+.close-reading-page-chip span{font-weight:800;font-size:1.05rem}
+.close-reading-page-chip small{color:var(--muted);font-size:.72rem;margin-top:2px}
+.close-reading-page-chip.active{border-color:var(--orange);box-shadow:0 0 0 2px rgba(243,139,53,.18)}
+.close-reading-page-chip.complete{background:#eef7ee}
+.close-reading-workspace{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:16px;align-items:start}
+.close-reading-textbook-page{margin:14px 0}
+.close-reading-textbook-page img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.close-reading-textbook-page figcaption{font-size:.76rem;color:var(--muted);margin-top:6px}
+.close-reading-notes-card{position:sticky;top:12px}
+.close-reading-notes-card label{display:grid;gap:6px;margin:14px 0;font-weight:700}
+.close-reading-notes-card input,.close-reading-notes-card textarea{font:inherit;font-weight:400}
+.close-reading-saved-note{color:#397349;font-size:.84rem}
+.close-reading-analysis-card{margin-top:16px}
+.close-reading-analysis-card li{margin-bottom:10px;line-height:1.7}
+.close-reading-extension{background:#f3f7f5;border-radius:12px;padding:14px;margin:14px 0}
+.close-reading-extension p{margin:8px 0 0}
+.close-reading-page-actions{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.close-reading-practice-heading{margin-top:24px}
+.close-reading-question-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.close-reading-question-group{margin:0}
+.close-reading-parent-card{margin-top:16px}
+@media (max-width:760px){.close-reading-workspace,.close-reading-question-list{grid-template-columns:1fr}.close-reading-notes-card{position:static}.close-reading-page-nav{grid-template-columns:repeat(8,58px)}.close-reading-heading,.close-reading-practice-heading{align-items:flex-start}.close-reading-page-head{align-items:flex-start}}
