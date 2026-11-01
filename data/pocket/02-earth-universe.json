@@ -1,0 +1,5897 @@
+{
+  "schema_version": "1.1.0",
+  "id": "pocket-earth-universe",
+  "topic_id": "pocket02",
+  "title": "专题02 宇宙中的地球",
+  "status": "published",
+  "source": {
+    "file": "2025高中地理学习资料包 (知识点+教辅+试卷)/【口袋书】2024年高考地理一轮复习知识清单/专题02宇宙中的地球-【口袋书】2024年高考地理一轮复习知识清单.docx",
+    "sha256": "a44ec24d9d7d568c43c54b2837ddb8b7427f17b87a7e3a05be6aa34371995472",
+    "included": [
+      "思维导图",
+      "知识清单",
+      "易错易混",
+      "知能拓展"
+    ],
+    "excluded": [
+      "考情速递",
+      "训练营",
+      "答案解析"
+    ]
+  },
+  "overview": {
+    "type": "figure",
+    "source_block": 29,
+    "image": "assets/recall/pocket-02/image-004.png",
+    "width": 1659,
+    "height": 1569,
+    "masks": [],
+    "caption": "专题总览 · 原图4",
+    "disclosure": false,
+    "source_image_sha256": "ab8d6f33f20d11b265dd958c673005a3820dbd9f4b7a587461d683d73c68e446"
+  },
+  "additional_overviews": [],
+  "sections": [
+    {
+      "id": "pocket02-01",
+      "group": "知识清单",
+      "title": "知识点一 地球的宇宙环境",
+      "source_blocks": [
+        36,
+        78
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0001",
+              "answer": "可观测宇宙",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "是其发出的光等信号能够到达观测者的宇宙区域，不等于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0002",
+              "answer": "整个宇宙",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。常用宇宙模型给出的当今"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0003",
+              "answer": "可观测宇宙",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "半径约465亿光年；宇宙年龄、光传播时间与今天的空间距离不能直接混用，具体题目按材料定义判断。"
+            }
+          ],
+          "source_block": 37,
+          "source_row": null,
+          "source_text": "天文学家把人类已经观测到的有限宇宙叫作“可见宇宙”或“已知宇宙”，半径约140亿光年。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、天体（基础）"
+            }
+          ],
+          "source_block": 38,
+          "source_row": null,
+          "source_text": "1、天体（基础）"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）宇宙中的恒星、星云、行星、卫星等各种"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0004",
+              "answer": "物质",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，通称天体。"
+            }
+          ],
+          "source_block": 39,
+          "source_row": null,
+          "source_text": "1）宇宙中的恒星、星云、行星、卫星等各种物质，通称天体。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）天体类型："
+            }
+          ],
+          "source_block": 40,
+          "source_row": null,
+          "source_text": "2）天体类型："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0005",
+              "answer": "自然天体",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：恒星、星云、行星、卫星、流星、彗星及星际空间的气体和尘埃等。"
+            }
+          ],
+          "source_block": 41,
+          "source_row": null,
+          "source_text": "①自然天体：恒星、星云、行星、卫星、流星、彗星及星际空间的气体和尘埃等。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "最基本的天体是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0006",
+              "answer": "恒星",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0007",
+              "answer": "星云",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。太阳是距离地球最近的一颗恒星。"
+            }
+          ],
+          "source_block": 42,
+          "source_row": null,
+          "source_text": "最基本的天体是恒星和星云。太阳是距离地球最近的一颗恒星。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "恒星是由"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0008",
+              "answer": "炽热气体",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "组成，能自己"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0009",
+              "answer": "发光",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的球状天体，质量很大。"
+            }
+          ],
+          "source_block": 43,
+          "source_row": null,
+          "source_text": "恒星是由炽热气体组成，能自己发光的球状天体，质量很大。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "星云是由"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0010",
+              "answer": "气体和尘埃",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "组成的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0011",
+              "answer": "呈云雾状",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "外表的天体，主要成分是氢。"
+            }
+          ],
+          "source_block": 44,
+          "source_row": null,
+          "source_text": "星云是由气体和尘埃组成的呈云雾状外表的天体，主要成分是氢。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0012",
+              "answer": "人造天体",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：航天飞机、人造卫星、空间站、太空垃圾等。"
+            }
+          ],
+          "source_block": 45,
+          "source_row": null,
+          "source_text": "②人造天体：航天飞机、人造卫星、空间站、太空垃圾等。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "判断人造天体时，要看航天器是否已进入太空并"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0013",
+              "answer": "独立运行",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "；停在地面或仍依附于其他天体表面的物体不直接算独立天体，不能只以是否位于大气层外作为唯一标准。"
+            }
+          ],
+          "source_block": 46,
+          "source_row": null,
+          "source_text": "判断依据：看是否脱离了地球的大气层。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、天体系统（基础）"
+            }
+          ],
+          "source_block": 47,
+          "source_row": null,
+          "source_text": "2、天体系统（基础）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "宇宙中的天体都在运动着，它们"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0014",
+              "answer": "相互吸引",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0015",
+              "answer": "相互绕转",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "（形成天体系统的条件），形成"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0016",
+              "answer": "天体系统",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 48,
+          "source_row": null,
+          "source_text": "宇宙中的天体都在运动着，它们相互吸引、相互绕转（形成天体系统的条件），形成天体系统。"
+        },
+        {
+          "type": "figure",
+          "source_block": 49,
+          "image": "assets/recall/pocket-02/image-007.png",
+          "width": 895,
+          "height": 239,
+          "masks": [],
+          "caption": "知识点一 地球的宇宙环境 · 原图7",
+          "disclosure": true,
+          "source_image_sha256": "ae06edbb54a0595fab931593badfec93706f54b14e74b3747e93f72468b815cc"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0017",
+              "answer": "中心天体",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：地月系中心天体是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0018",
+              "answer": "地球",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，太阳系中心天体是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0019",
+              "answer": "太阳",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，银河系中心天体是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0020",
+              "answer": "银心",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 50,
+          "source_row": null,
+          "source_text": "中心天体：地月系中心天体是地球，太阳系中心天体是太阳，银河系中心天体是银心。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、地球在太阳系中的地位（重点）"
+            }
+          ],
+          "source_block": 51,
+          "source_row": null,
+          "source_text": "3、地球在太阳系中的地位（重点）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地球是一颗"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0021",
+              "answer": "普通的行星",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 52,
+          "source_row": null,
+          "source_text": "地球是一颗普通的行星"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在太阳系中的地球的质量、体积、公转和自转运动都没有特殊之处。"
+            }
+          ],
+          "source_block": 53,
+          "source_row": null,
+          "source_text": "在太阳系中的地球的质量、体积、公转和自转运动都没有特殊之处。"
+        },
+        {
+          "type": "figure",
+          "source_block": 54,
+          "image": "assets/recall/pocket-02/image-008.jpeg",
+          "width": 934,
+          "height": 330,
+          "masks": [],
+          "caption": "知识点一 地球的宇宙环境 · 原图8",
+          "disclosure": true,
+          "source_image_sha256": "fe03c62efd328030030d4660d8df45eef6c87f818b3f395ea8c6ecdc9f5ce5a5"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①八大行星的位置和划分："
+            }
+          ],
+          "source_block": 57,
+          "source_row": null,
+          "source_text": "①八大行星的位置和划分："
+        },
+        {
+          "type": "figure",
+          "source_block": 59,
+          "image": "assets/recall/pocket-02/image-009.png",
+          "width": 1820,
+          "height": 792,
+          "masks": [],
+          "caption": "知识点一 地球的宇宙环境 · 原图9",
+          "disclosure": true,
+          "source_image_sha256": "d82121628ebde7877487ed91482747d89541c58868f49f71446468f91d8f078a"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②八大行星的运动特征："
+            }
+          ],
+          "source_block": 60,
+          "source_row": null,
+          "source_text": "②八大行星的运动特征："
+        },
+        {
+          "type": "table",
+          "source_block": 62,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "运动特征"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 0,
+                    "source_text": "运动特征"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "含义"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 0,
+                    "source_text": "含义"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特殊的行星"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 0,
+                    "source_text": "特殊的行星"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "共面性"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 1,
+                    "source_text": "共面性"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "公转轨道面几乎在一个平面上"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 1,
+                    "source_text": "公转轨道面几乎在一个平面上"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水星公转轨道倾斜较大，但也仅有7°"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 1,
+                    "source_text": "水星公转轨道倾斜较大，但也仅有7°"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "同向性"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 2,
+                    "source_text": "同向性"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "公转方向都是自西向东"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 2,
+                    "source_text": "公转方向都是自西向东"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "/"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 2,
+                    "source_text": "/"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "近圆性"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 3,
+                    "source_text": "近圆性"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "公转轨道形状接近圆形"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 3,
+                    "source_text": "公转轨道形状接近圆形"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水星的轨道偏心率较大，但也仅有0.2056"
+                      }
+                    ],
+                    "source_block": 62,
+                    "source_row": 3,
+                    "source_text": "水星的轨道偏心率较大，但也仅有0.2056"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地球是一颗"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0022",
+              "answer": "特殊的行星",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "----地球上产生了目前所知道的唯一的高级智慧生命——人类。"
+            }
+          ],
+          "source_block": 64,
+          "source_row": null,
+          "source_text": "地球是一颗特殊的行星----地球上产生了目前目前所知道的唯一的高级智慧生命——人类。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "分析地球上生命存在的条件，要结合生命存在所必备的水、气、热等条件，从地球的外部和自身环境两方面综合分析。"
+            }
+          ],
+          "source_block": 65,
+          "source_row": null,
+          "source_text": "分析地球上生命存在的条件，要结合生命存在所必备的水、气、热等条件，从地球的外部和自身环境两方面综合分析。"
+        },
+        {
+          "type": "figure",
+          "source_block": 66,
+          "image": "assets/recall/pocket-02/image-010.png",
+          "width": 430,
+          "height": 417,
+          "masks": [],
+          "caption": "知识点一 地球的宇宙环境 · 原图10",
+          "disclosure": true,
+          "source_image_sha256": "e63167cb9ded2732b0eaa00bceca6c43c9792f08ac68fd7f840f3a157adf4a66"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0023",
+              "answer": "稳定的光照条件",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：太阳处于主序阶段，长期提供"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0024",
+              "answer": "相对稳定",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的辐射能量，为生命演化提供外部条件。"
+            }
+          ],
+          "source_block": 67,
+          "source_row": null,
+          "source_text": "稳定的光照条件：太阳正处于壮年期，状态稳定，生命的进化没有中断。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0025",
+              "answer": "安全的运行轨道",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：大行星轨道"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0026",
+              "answer": "长期相对稳定",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，为地球生命演化提供相对安全的运行环境；这不表示天体之间完全没有引力扰动或撞击事件。"
+            }
+          ],
+          "source_block": 68,
+          "source_row": null,
+          "source_text": "安全的运行轨道：行星和小行星各行其道，互不干扰。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0027",
+              "answer": "适宜的温度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：日地距离适中、自转和公转周期适中，有利于液态水的存在。"
+            }
+          ],
+          "source_block": 69,
+          "source_row": null,
+          "source_text": "适宜的温度：日地距离适中、自转和公转周期适中，有利于液态水的存在。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0028",
+              "answer": "适当的大气成分",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：适中的体积和质量为大气层的形成创造了条件，并形成了适合生物呼吸的大气成分。"
+            }
+          ],
+          "source_block": 70,
+          "source_row": null,
+          "source_text": "适当的大气成分：适中的体积和质量为大气层的形成创造了条件，并形成了适合生物呼吸的大气成分。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0029",
+              "answer": "液态水的存在",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：为生命的诞生和孕育创造了条件。"
+            }
+          ],
+          "source_block": 71,
+          "source_row": null,
+          "source_text": "液态水的存在：为生命的诞生和孕育创造了条件。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、月相的形成和变化规律"
+            }
+          ],
+          "source_block": 72,
+          "source_row": null,
+          "source_text": "4、月相的形成和变化规律"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）月球自身不发光，靠反射太阳光发亮，面向太阳的半球为昼，背向太阳的半球为夜。"
+            }
+          ],
+          "source_block": 73,
+          "source_row": null,
+          "source_text": "1）月球自身不发光，靠反射太阳光发亮，面向太阳的半球为昼，背向太阳的半球为夜。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）因日、月、地三者位置关系及月球绕地球自西向东公转，形成周期为29.53天的月相变化周期(即"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0030",
+              "answer": "新月—上弦月—满月—下弦月—新月",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的月相周期)。"
+            }
+          ],
+          "source_block": 74,
+          "source_row": null,
+          "source_text": "2）因日、月、地三者位置关系及月球绕地球自西向东公转，形成周期为29.53天的月相变化周期(即新月—上弦月—满月—下弦月—新月的月相周期)。"
+        },
+        {
+          "type": "figure",
+          "source_block": 76,
+          "image": "assets/recall/pocket-02/image-011.png",
+          "width": 782,
+          "height": 538,
+          "masks": [],
+          "caption": "知识点一 地球的宇宙环境 · 原图11",
+          "disclosure": true,
+          "source_image_sha256": "7d407b84fb0798ab3c80e3086df43b23c8a2b20bf7f2e43c9730171b989d3809"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）巧记："
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0031",
+              "answer": "上上上西西、下下下东东",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。(上弦月出现在农历月的上半月的上半夜，亮面朝西，位于西半天空；下弦月出现在农历月的下半月的下半夜，亮面朝东，位于东半天空。)"
+            }
+          ],
+          "source_block": 77,
+          "source_row": null,
+          "source_text": "3）巧记：上上上西西、下下下东东。(上弦月出现在农历月的上半月的上半夜，月面朝西，位于西半天空；下弦月出现在农历月的下半月的下半夜，月面朝东，位于东半天空。)"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-02",
+      "group": "知识清单",
+      "title": "知识点二 太阳对地球的影响",
+      "source_blocks": [
+        79,
+        101
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、太阳对地球的影响（重点）"
+            }
+          ],
+          "source_block": 80,
+          "source_row": null,
+          "source_text": "1、太阳对地球的影响（重点）"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）太阳辐射"
+            }
+          ],
+          "source_block": 81,
+          "source_row": null,
+          "source_text": "1）太阳辐射"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0032",
+              "answer": "太阳辐射",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是太阳以"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0033",
+              "answer": "电磁波",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的形式向宇宙空间放射的能量。太阳内部的氢核聚变为氦产生的热量会源源不断的地传递给地球。"
+            }
+          ],
+          "source_block": 82,
+          "source_row": null,
+          "source_text": "太阳辐射是太阳以电磁波的形式向宇宙空间放射的能量。太阳内部的氢氦核聚变产生的热量会源源不断的地传递给地球。"
+        },
+        {
+          "type": "figure",
+          "source_block": 83,
+          "image": "assets/recall/pocket-02/image-012.png",
+          "width": 532,
+          "height": 355,
+          "masks": [],
+          "caption": "知识点二 太阳对地球的影响 · 原图12",
+          "disclosure": true,
+          "source_image_sha256": "185780e9a2a66973bdbcbb2d4b1b60c4659a2863a530058b6e0859db9661ac47"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）太阳辐射对地球的影响"
+            }
+          ],
+          "source_block": 84,
+          "source_row": null,
+          "source_text": "2）太阳辐射对地球的影响"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①为地球提供"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0034",
+              "answer": "光热资源",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；②太阳辐射可以转化成有机物中的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0035",
+              "answer": "生物化学能",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；③也是地球"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0036",
+              "answer": "大气运动、水循环",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的主要能源。"
+            }
+          ],
+          "source_block": 85,
+          "source_row": null,
+          "source_text": "①为地球提供光热资源；②太阳辐射可以转化成有机物中的生物化学能；③也是地球大气运动、水循环的主要能源。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3)影响太阳辐射的主要因素"
+            }
+          ],
+          "source_block": 86,
+          "source_row": null,
+          "source_text": "3)影响太阳辐射的主要因素"
+        },
+        {
+          "type": "figure",
+          "source_block": 87,
+          "image": "assets/recall/pocket-02/image-013.png",
+          "width": 716,
+          "height": 396,
+          "masks": [],
+          "caption": "知识点二 太阳对地球的影响 · 原图13",
+          "disclosure": true,
+          "source_image_sha256": "a4251a1941b1a3cc0633ff50bea9a84d4c2a3e88080e257f9e742274320d0c44"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①太阳高度因素：太阳高度由"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0037",
+              "answer": "纬度、日期和时刻",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "共同决定。在其他条件相同时，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0038",
+              "answer": "太阳高度越大",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，地面单位面积接受的太阳辐射通常越强；不能在任何日期都简单认定纬度越低正午"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0039",
+              "answer": "太阳高度越大",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 88,
+          "source_row": null,
+          "source_text": "①纬度因素：纬度越低，正午太阳高度(角)越大，辐射越强；由低纬向高纬递减。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②昼长因素：白昼越长，可接受太阳辐射的时间越长；实际日照时数还受"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0040",
+              "answer": "云雨",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "等影响，不能把昼长与实际日照时数直接等同。"
+            }
+          ],
+          "source_block": 89,
+          "source_row": null,
+          "source_text": "②昼长因素：白昼时间越长，日照时数越长，获得的太阳辐射越多。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③地势因素：在其他条件相近时，海拔较高通常使上覆空气较少，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0041",
+              "answer": "大气削弱作用较弱",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "；日照时数仍受云雨和地形遮挡影响，不能由海拔高直接推出日照时间长。"
+            }
+          ],
+          "source_block": 90,
+          "source_row": null,
+          "source_text": "③地势因素：地势越高，大气层越薄，透明度越高，日照时数越长，且大气对太阳辐射的削弱作用越弱，太阳辐射越强。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "④"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0042",
+              "answer": "天气因素",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：晴天云少，大气的削弱作用弱，日照时数长，辐射越强，气温日较差大；阴天反之。"
+            }
+          ],
+          "source_block": 91,
+          "source_row": null,
+          "source_text": "④天气因素：晴天云少，大气的削弱作用弱，日照时数长，辐射越强，气温日较差大；阴天反之。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）太阳辐射的空间分布："
+            }
+          ],
+          "source_block": 92,
+          "source_row": null,
+          "source_text": "4）太阳辐射的空间分布："
+        },
+        {
+          "type": "figure",
+          "source_block": 94,
+          "image": "assets/recall/pocket-02/image-014.jpeg",
+          "width": 369,
+          "height": 239,
+          "masks": [],
+          "caption": "知识点二 太阳对地球的影响 · 原图14",
+          "disclosure": true,
+          "source_image_sha256": "d6935d5d3e14533fee2483ebd1b79f0778ffb8529f9e6bb794d090a266c2844f"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0043",
+              "answer": "全球",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "年太阳辐射量由低纬向高纬递减；②同纬度地区，由内陆向沿海递减，由海拔高处向海拔低处递减。"
+            }
+          ],
+          "source_block": 95,
+          "source_row": null,
+          "source_text": "①全球年太阳辐射量由低纬向高纬递减；②同纬度地区，由内陆向沿海递减，由海拔高处向海拔低处递减。"
+        },
+        {
+          "type": "figure",
+          "source_block": 96,
+          "image": "assets/recall/pocket-02/image-015.jpeg",
+          "width": 946,
+          "height": 802,
+          "masks": [],
+          "caption": "知识点二 太阳对地球的影响 · 原图15",
+          "disclosure": true,
+          "source_image_sha256": "39fbf4cd9e55418ed2915cc568419f37b29fa0115711c3eb21bbbf8d83aab411"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0044",
+              "answer": "我国",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "年太阳辐射总量由西部非季风区向东部季风区递减；②地势高的地区向地势低的地区递减。"
+            }
+          ],
+          "source_block": 97,
+          "source_row": null,
+          "source_text": "①我国年太阳辐射总量由西部非季风区向东部季风区递减；②地势高的地区向地势低的地区递减。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）太阳活动与地球"
+            }
+          ],
+          "source_block": 98,
+          "source_row": null,
+          "source_text": "5）太阳活动与地球"
+        },
+        {
+          "type": "figure",
+          "source_block": 99,
+          "image": "assets/recall/pocket-02/image-016.jpeg",
+          "width": 750,
+          "height": 471,
+          "masks": [],
+          "caption": "知识点二 太阳对地球的影响 · 原图16",
+          "disclosure": true,
+          "source_image_sha256": "a33ead95b71b2b2792fd25c733e630a17a093ecf0c8278215dbb53b4d85e5d56"
+        },
+        {
+          "type": "table",
+          "source_block": 101,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "太阳活动"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 0,
+                    "source_text": "太阳活动"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "所在圈层"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 0,
+                    "source_text": "所在圈层"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特征"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 0,
+                    "source_text": "特征"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对地球的影响"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 0,
+                    "source_text": "对地球的影响"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "太阳"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 1,
+                    "source_text": "太阳"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "黑子"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 1,
+                    "source_text": "黑子"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "光球层"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 1,
+                    "source_text": "光球层"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "光球上温度低于周围、"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0045",
+                        "answer": "磁场较强",
+                        "origin": "reviewed-addition"
+                      },
+                      {
+                        "type": "text",
+                        "text": "的暗区。太阳活动周期"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0046",
+                        "answer": "约11年",
+                        "origin": "reviewed-addition"
+                      },
+                      {
+                        "type": "text",
+                        "text": "。"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 1,
+                    "source_text": "高速旋转的气体漩涡，温度毕光球层平均温度低。活动周期为11年。"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "太阳活动影响近地空间环境；地面天气和气候受多种因素影响，不能仅据太阳活动峰年断言极端天气必然增多。"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 1,
+                    "source_text": "与地球气候变化有关联性，太阳活动峰年，地球上激烈天气明显增多。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "太阳"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 2,
+                    "source_text": "太阳"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "耀斑"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 2,
+                    "source_text": "耀斑"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "色球层"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 2,
+                    "source_text": "色球层"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "色球层中激烈的能量爆发，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0047",
+                        "answer": "与太阳黑子活动周期一致",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "。"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 2,
+                    "source_text": "色球层中激烈的能量爆发，与太阳黑子活动周期一致。"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "引发磁暴，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0048",
+                        "answer": "影响短波通信",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，干扰电子设备，甚至威胁宇航器的安全。"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 2,
+                    "source_text": "引发磁暴，影响短波通信，干扰电子设备，甚至威胁宇航器的安全。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "日珥"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 3,
+                    "source_text": "日珥"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气体呈弧状喷射，爆发时会喷射大量带电粒子。"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 3,
+                    "source_text": "气体呈弧状喷射，爆发时会喷射大量带电粒子。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "太阳风"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 4,
+                    "source_text": "太阳风"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "日冕层"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 4,
+                    "source_text": "日冕层"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "带电粒子脱离太阳飞向宇宙空间，形成带电粒子流。"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 4,
+                    "source_text": "带电粒子脱离太阳飞向宇宙空间，形成带电粒子流。"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "轰击高层大气，产生发光现象，高纬地区形成极光。"
+                      }
+                    ],
+                    "source_block": 101,
+                    "source_row": 4,
+                    "source_text": "轰击高层大气，产生发光现象，高纬地区形成极光。"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "太阳黑子约11年周期是统计近似。耀斑、日冕物质抛射、带电粒子与不同空间天气效应须区分，不能把所有效应都归结为同一种机制。"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-03",
+      "group": "知识清单",
+      "title": "知识点三 地球的圈层结构",
+      "source_blocks": [
+        102,
+        128
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、地震和地震波（基础）"
+            }
+          ],
+          "source_block": 103,
+          "source_row": null,
+          "source_text": "1、地震和地震波（基础）"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0049",
+              "answer": "地震",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是地壳快速释放能量的过程中造成的地面震动。"
+            }
+          ],
+          "source_block": 104,
+          "source_row": null,
+          "source_text": "1）地震是地壳快速释放能量的过程中造成的地面震动。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0050",
+              "answer": "地震波",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是地震的能量以波动的方式向外传播。"
+            }
+          ],
+          "source_block": 105,
+          "source_row": null,
+          "source_text": "2）地震波是地震的能量以波动的方式向外传播。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0051",
+              "answer": "横波（S波）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：波动方向和传播方向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0052",
+              "answer": "垂直",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，传播速度"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0053",
+              "answer": "慢",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0054",
+              "answer": "且只能通过固态",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，地面表现为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0055",
+              "answer": "左右摇晃",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 106,
+          "source_row": null,
+          "source_text": "横波（S波）：波动方向和传播方向垂直，传播速度慢，且只能通过固态，地面表现为左右摇晃。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0056",
+              "answer": "纵波（P波）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：波动方向和传播方向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0057",
+              "answer": "一致",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，传播速度"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0058",
+              "answer": "快",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0059",
+              "answer": "能够通过固、液、气三态",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，地面表现为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0060",
+              "answer": "上下颠簸",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 107,
+          "source_row": null,
+          "source_text": "纵波（P波）：波动方向和传播方向一致，传播速度快，能够通过固、液、气三态，地面表现为上下颠簸。"
+        },
+        {
+          "type": "figure",
+          "source_block": 108,
+          "image": "assets/recall/pocket-02/image-017.jpeg",
+          "width": 450,
+          "height": 300,
+          "masks": [],
+          "caption": "知识点三 地球的圈层结构 · 原图17",
+          "disclosure": true,
+          "source_image_sha256": "768bc9550eb4e1839a7cac3c5a919a52a8b7f89f49c5dbe43f83f174a113f202"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、地球的内部圈层（重点）"
+            }
+          ],
+          "source_block": 110,
+          "source_row": null,
+          "source_text": "2、地球的内部圈层（重点）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）通过对地震波的传播速度的研究，把地球内部分为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0061",
+              "answer": "地壳、地幔和地核",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "三个主要圈层，三个圈层之间的两个界面分别为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0062",
+              "answer": "莫霍面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "（"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0063",
+              "answer": "地下平均17千米处，纵波和横波的传播速度都明显加快",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "）和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0064",
+              "answer": "古登堡面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "（"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0065",
+              "answer": "距地表2900千米处，纵波传播速度突然下降，横波则完全消失",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "）。"
+            }
+          ],
+          "source_block": 111,
+          "source_row": null,
+          "source_text": "1）通过对地震波的传播速度的研究，把地球内部分为地壳、地幔和地核三个主要圈层，三个圈层之间的两个界面非别为莫霍面（地下平均17千米处，纵波和横波的传播速度都明显加快）和古登堡面（距地表2900千米处，纵波传播速度突然下降，横波则完全消失）。"
+        },
+        {
+          "type": "figure",
+          "source_block": 114,
+          "image": "assets/recall/pocket-02/image-018.jpeg",
+          "width": 950,
+          "height": 509,
+          "masks": [],
+          "caption": "知识点三 地球的圈层结构 · 原图18",
+          "disclosure": true,
+          "source_image_sha256": "f702174c53553757e8029830e4cb988b39bca535fb58fbbd67a2b5fb4475e4cf"
+        },
+        {
+          "type": "table",
+          "source_block": 115,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "内部圈层"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 0,
+                    "source_text": "内部圈层"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "范围"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 0,
+                    "source_text": "范围"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "结构特点"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 0,
+                    "source_text": "结构特点"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地壳"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 1,
+                    "source_text": "地壳"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "硅铝层"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 1,
+                    "source_text": "硅铝层"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "莫霍面以上"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 1,
+                    "source_text": "莫霍面以上"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地壳为固态，平均厚度约"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0066",
+                        "answer": "17千米",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，陆壳平均厚度约33千米，洋壳平均厚度约6千米（陆地地壳较厚，海洋地壳较薄）。地球大范围固体表面的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0067",
+                        "answer": "海拔越高",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0068",
+                        "answer": "地壳越厚",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0069",
+                        "answer": "海拔越低",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0070",
+                        "answer": "地壳越薄",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "。"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 1,
+                    "source_text": "地壳为固态，平均厚度约17千米，陆壳平均厚度约33千米，洋壳平均厚度约6千米（陆地地壳较厚，海洋地壳较薄）。地球大范围固体表面的海拔越高，地壳越厚；海拔越低，地壳越薄。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "硅镁层"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 2,
+                    "source_text": "硅镁层"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地幔"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 3,
+                    "source_text": "地幔"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "上地幔"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 3,
+                    "source_text": "上地幔"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "莫霍面与古登堡面之间"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 3,
+                    "source_text": "莫霍面与古登堡面之间"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "其上层物质具有固态特征，主要由含铁、镁的硅酸盐类矿物组成，铁、镁含量由上而下逐渐增加。"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 3,
+                    "source_text": "其上层物质具有固态特征，主要由含铁、镁的硅酸盐类矿物组成，铁、镁含量由上而下逐渐增加。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "下地幔"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 4,
+                    "source_text": "下地幔"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地核"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 5,
+                    "source_text": "地核"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "外核"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 5,
+                    "source_text": "外核"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "古登堡面以下"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 5,
+                    "source_text": "古登堡面以下"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "组成物质可能是极高温度和高压状态下的铁和镍。地核可分为外核(液态或熔融状态)和内核(固态)。"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 5,
+                    "source_text": "组成物质可能是极高温度和高压状态下的铁和镍。地核可分为外核(液态或熔融状态)和内核(固态)。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "内核"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 6,
+                    "source_text": "内核"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "地壳厚度是区域统计概括；莫霍面深度随地区变化，不能把地下17千米当作全球固定界面。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）岩石圈和地壳的关系"
+            }
+          ],
+          "source_block": 117,
+          "source_row": null,
+          "source_text": "2）岩石圈和地壳的关系"
+        },
+        {
+          "type": "table",
+          "source_block": 119,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "厚度"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 0,
+                    "source_text": "厚度"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "范围"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 0,
+                    "source_text": "范围"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "联系"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 0,
+                    "source_text": "联系"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地壳"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 1,
+                    "source_text": "地壳"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "平均约17千米"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 1,
+                    "source_text": "平均约17千米"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地表至"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0071",
+                        "answer": "莫霍面",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 1,
+                    "source_text": "地表至莫霍面"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "岩石圈不仅包含地壳而且还包含上地幔顶部(软流层以上部分)"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 1,
+                    "source_text": "岩石圈不仅包含地壳而且还包含上地幔顶部(软流层以上部分)"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0072",
+                        "answer": "岩石圈",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 2,
+                    "source_text": "岩石圈"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "平均约100千米"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 2,
+                    "source_text": "平均约100千米"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地表至"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0073",
+                        "answer": "软流层顶部",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 119,
+                    "source_row": 2,
+                    "source_text": "地表至软流层顶部"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0074",
+              "answer": "软流层",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "又称软流圈，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0075",
+              "answer": "位于上地幔上部",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0076",
+              "answer": "岩石圈之下",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，由塑性物质组成，一般认为是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0077",
+              "answer": "岩浆的主要发源地",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 121,
+          "source_row": null,
+          "source_text": "软流层又称软流圈，位于上地幔上部、岩石圈之下，由塑性物质组成，一般认为是岩浆的主要发源地。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、地球的外部圈层（基础）"
+            }
+          ],
+          "source_block": 123,
+          "source_row": null,
+          "source_text": "3、地球的外部圈层（基础）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "通常把地壳表层以外的由大气、水体和生物组成的自然界划分为三个圈层：大气圈、水圈和生物圈，统称为地球的外部圈层。"
+            }
+          ],
+          "source_block": 124,
+          "source_row": null,
+          "source_text": "通常把地壳表层以外的由大气、水体和生物组成的自然界划分为三个圈层：大气圈、水圈和生物圈，统称为地球的外部圈层。"
+        },
+        {
+          "type": "figure",
+          "source_block": 125,
+          "image": "assets/recall/pocket-02/image-019.jpeg",
+          "width": 692,
+          "height": 139,
+          "masks": [],
+          "caption": "知识点三 地球的圈层结构 · 原图19",
+          "disclosure": true,
+          "source_image_sha256": "99c15a5419d256b1cff00cb435dc12d001129add27c07bb40f61f24597f26107"
+        },
+        {
+          "type": "table",
+          "source_block": 127,
+          "columns": 2,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "外部圈层"
+                      }
+                    ],
+                    "source_block": 127,
+                    "source_row": 0,
+                    "source_text": "外部圈层"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特点"
+                      }
+                    ],
+                    "source_block": 127,
+                    "source_row": 0,
+                    "source_text": "特点"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大气圈"
+                      }
+                    ],
+                    "source_block": 127,
+                    "source_row": 1,
+                    "source_text": "大气圈"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大气圈是地球生命生存的基础条件之一。近地面的大气密度大，随着高度的增加，大气的密度迅速减小。大气随高度逐渐稀薄，没有绝对清晰的上界，不同研究定义采用的高度界限可能不同。"
+                      }
+                    ],
+                    "source_block": 127,
+                    "source_row": 1,
+                    "source_text": "大气圈是地球生命生存的基础条件之一。近地面的大气密度大，随着高度的增加，大气的密度迅速减小。一般把2000-3000千米的高空作为大气圈的上界。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水圈"
+                      }
+                    ],
+                    "source_block": 127,
+                    "source_row": 2,
+                    "source_text": "水圈"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水圈由液态水、固态水和气态水组成。按照它们存在的位置和状态，可分为"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0078",
+                        "answer": "海洋水、陆地水、大气水和生物水",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "。陆地水(分"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0079",
+                        "answer": "地表水和地下水",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")与人类社会的关系最为密切。"
+                      }
+                    ],
+                    "source_block": 127,
+                    "source_row": 2,
+                    "source_text": "水圈由液态水、固态水和气态水组成。按照它们存在的位置和状态，可分为海洋水、陆地水、大气水和生物水。陆地水(分地表水和地下水)与人类社会的关系最为密切。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "生物圈"
+                      }
+                    ],
+                    "source_block": 127,
+                    "source_row": 3,
+                    "source_text": "生物圈"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "生物圈广泛分布于地壳、大气圈和水圈之中。生物圈与地壳(或岩石圈)、大气圈、水圈共同组成了地球生态系统。"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0080",
+                        "answer": "生物是这个系统中的主体和最活跃的因素",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "。"
+                      }
+                    ],
+                    "source_block": 127,
+                    "source_row": 3,
+                    "source_text": "生物圈广泛分布于地壳、大气圈和水圈之中。生物圈与地壳(或岩石圈)、大气圈、水圈共同组成了地球生态系统。生物是这个系统中的主体和最活跃的因素。"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket02-04",
+      "group": "知识清单",
+      "title": "知识点四 地球的形成和演化",
+      "source_blocks": [
+        129,
+        151
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、地层及其特点（基础）"
+            }
+          ],
+          "source_block": 130,
+          "source_row": null,
+          "source_text": "1、地层及其特点（基础）"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0081",
+              "answer": "地层",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是地质历史上某一时代形成的成层的岩石和堆积物。"
+            }
+          ],
+          "source_block": 131,
+          "source_row": null,
+          "source_text": "1）地层是地质历史上某一时代形成的成层的岩石和堆积物。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "不同年代形成的地层中，包含了不同时期的气候、水文等多种信息，还包括了各种动植物的化石，这些都能够反映地球的历史。"
+            }
+          ],
+          "source_block": 132,
+          "source_row": null,
+          "source_text": "不同年代形成的地层中，包含了不同时期的气候、水文等多种信息，还包括了各种动植物的化石，这些都能够反映地球的历史。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "沉积岩地层的特点：① 具有明显的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0082",
+              "answer": "层理构造",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，常"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0083",
+              "answer": "含有化石",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，一般先沉积的在下，后沉积的在上。"
+            }
+          ],
+          "source_block": 133,
+          "source_row": null,
+          "source_text": "沉积岩地层的特点：① 具有明显的层理构造，常含有化石，一般先沉积的在下，后沉积的在上。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "② 越古老的地层，含有的生物化石越简单，越低级。"
+            }
+          ],
+          "source_block": 134,
+          "source_row": null,
+          "source_text": "② 越古老的地层，含有的生物化石越简单，越低级。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、地球的演化史（重点）"
+            }
+          ],
+          "source_block": 135,
+          "source_row": null,
+          "source_text": "2、地球的演化史（重点）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）从地表的演化、生物的演化和矿产的形成三个方面，可将地球演化历程分为前寒武纪、古生代、中生代和新生代。"
+            }
+          ],
+          "source_block": 136,
+          "source_row": null,
+          "source_text": "1）从地表的演化、生物的演化和矿产的形成三个方面，可将地球演化历程分为前寒武纪、古生代、中生代和新生代。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）地质年代简表中的时间单位为宙、代、纪，其尺度为宙>代>纪。"
+            }
+          ],
+          "source_block": 137,
+          "source_row": null,
+          "source_text": "2）地质年代简表中的时间单位为宙、代、纪，其尺度为宙>代>纪。"
+        },
+        {
+          "type": "figure",
+          "source_block": 138,
+          "image": "assets/recall/pocket-02/image-020.png",
+          "width": 712,
+          "height": 559,
+          "masks": [],
+          "caption": "知识点四 地球的形成和演化 · 原图20",
+          "disclosure": true,
+          "source_image_sha256": "a539c86aa7723863fb43bda160da2eff027047a2a87fc9d5c546bf319a838abd"
+        },
+        {
+          "type": "figure",
+          "source_block": 139,
+          "image": "assets/recall/pocket-02/image-021.png",
+          "width": 1346,
+          "height": 2000,
+          "masks": [],
+          "caption": "知识点四 地球的形成和演化 · 原图21",
+          "disclosure": true,
+          "source_image_sha256": "8aba0d151856661e87182bb8509b21b6a90a8dc07f1c3179d90463611baa8196"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、地球演化的关键要点（重点）"
+            }
+          ],
+          "source_block": 140,
+          "source_row": null,
+          "source_text": "3、地球演化的关键要点（重点）"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）演化要点一：“生命大灭绝事件”"
+            }
+          ],
+          "source_block": 141,
+          "source_row": null,
+          "source_text": "1）演化要点一：“生命大灭绝事件”"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地质历史中通常讨论五次生物大灭绝。古生代末的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0084",
+              "answer": "二叠纪末",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "大灭绝规模极大；中生代末的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0085",
+              "answer": "白垩纪末",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "大灭绝使"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0086",
+              "answer": "非鸟类恐龙",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "等大量类群灭绝。损失比例需区分物种、类群和统计范围，不能把“所有恐龙”和原资料百分比直接泛化到全部生物。"
+            }
+          ],
+          "source_block": 142,
+          "source_row": null,
+          "source_text": "地球已经发生过5次生物大灭绝，其中发生在古生代末期，即二叠纪末期的生物大灭绝，约95%的生物从地球上消失；中生代末期，即白垩纪末期的生物大灭绝，恐龙和海洋中50%的无脊椎动物从地球上消失。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）演化要点二：“重要成矿期”"
+            }
+          ],
+          "source_block": 143,
+          "source_row": null,
+          "source_text": "2）演化要点二：“重要成矿期”"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①古元古代是地史上第一次十分重要的成矿期。以矿种多、规模大、矿床类型复杂著称。比如中国这一阶段就有大量因古大陆裂解离散-造山而产生的矿产，构成了铁、铜、铅锌、金、硼、菱镁矿、滑石等矿床成矿带。"
+            }
+          ],
+          "source_block": 144,
+          "source_row": null,
+          "source_text": "①古元古代是地史上第一次十分重要的成矿期。以矿种多、规模大、矿床类型复杂著称。比如中国这一阶段就有大量因古大陆裂解离散-造山而产生的矿产，构成了铁、铜、铅锌、金、硼、菱镁矿、滑石等矿床成矿带。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②晚古生代和中生代都是重要的成煤期，晚古生代蕨类繁盛，中生代裸子植物繁盛。"
+            }
+          ],
+          "source_block": 145,
+          "source_row": null,
+          "source_text": "②晚古生代和中生代都是重要的成煤期，晚古生代蕨类繁盛，中生代裸子植物繁盛。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）演化要点三：“生物进化特点”"
+            }
+          ],
+          "source_block": 146,
+          "source_row": null,
+          "source_text": "3）演化要点三：“生物进化特点”"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "植物：藻类 → → 苔藓植物、蕨类植物 → → 裸子植物 → → 被子植物"
+            }
+          ],
+          "source_block": 147,
+          "source_row": null,
+          "source_text": "植物：藻类 → → 苔藓植物、蕨类植物 → → 裸子植物 → → 被子植物"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "动物：原始单细胞动物 → →无脊椎动物 → →脊椎动物（鱼类、两栖类、爬行类）→ →脊椎动物"
+            }
+          ],
+          "source_block": 148,
+          "source_row": null,
+          "source_text": "动物：原始单细胞动物 → →无脊椎动物 → →脊椎动物（鱼类、两栖类、爬行类）→ →脊椎动物"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（鸟类、哺乳类）"
+            }
+          ],
+          "source_block": 149,
+          "source_row": null,
+          "source_text": "（鸟类、哺乳类）"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-05",
+      "group": "易错易混",
+      "title": "易错易混01 天体的判读方法",
+      "source_blocks": [
+        152,
+        156
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "(1)“"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0087",
+              "answer": "三看法",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "”判断天体"
+            }
+          ],
+          "source_block": 153,
+          "source_row": null,
+          "source_text": "(1)“三看法”判断天体"
+        },
+        {
+          "type": "figure",
+          "source_block": 154,
+          "image": "assets/recall/pocket-02/image-023.png",
+          "width": 1938,
+          "height": 924,
+          "masks": [],
+          "caption": "易错易混01 天体的判读方法 · 原图23",
+          "disclosure": true,
+          "source_image_sha256": "9a2981ec6175ac9a028f6f4dcc09e55421cdb555807fe9dc1f3d7dfac237cfd8"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "(2)以下图为例，判断流星体、流星现象与陨星是否属于天体："
+            }
+          ],
+          "source_block": 155,
+          "source_row": null,
+          "source_text": "(2)以下图为例，判断流星体、流星现象与陨星是否属于天体："
+        },
+        {
+          "type": "figure",
+          "source_block": 156,
+          "image": "assets/recall/pocket-02/image-024.png",
+          "width": 1841,
+          "height": 731,
+          "masks": [],
+          "caption": "易错易混01 天体的判读方法 · 原图24",
+          "disclosure": true,
+          "source_image_sha256": "8b948f0062b26a1928d69f173bf24d14779dfccc03d9a252dff581ec93c8033a"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-06",
+      "group": "易错易混",
+      "title": "易错易混02 太阳辐射",
+      "source_blocks": [
+        157,
+        162
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（1）太阳辐射对农业生产的影响：一般来说，太阳辐射量越大，光照越充足，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0088",
+              "answer": "光合作用",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "就越强，越有利于农业生产，如南疆绿洲农业发展的瓜果、棉花生产。"
+            }
+          ],
+          "source_block": 158,
+          "source_row": null,
+          "source_text": "（1）太阳辐射对农业生产的影响：一般来说，太阳辐射量越大，光照越充足，光合作用就越强，越有利于农业生产，如南疆绿洲农业发展的瓜果、棉花生产。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "【易错提醒】光照充足、太阳辐射强，并不意味着"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0089",
+              "answer": "热量",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "充足。比如，青藏高原上雅鲁藏布江谷地农业单产较高的重要原因是太阳辐射强，光照充足。但是该地由于地势较高，空气稀薄，大气保温作用差，温度较低，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0090",
+              "answer": "热量",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "不足，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0091",
+              "answer": "热量",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "成为农业发展的限制性条件。"
+            }
+          ],
+          "source_block": 159,
+          "source_row": null,
+          "source_text": "【易错提醒】光照充足、太阳辐射强，并不意味着热量充足。比如，青藏高原上雅鲁藏布江谷地农业单产较高的重要原因是太阳辐射强，光照充足。但是该地由于地势较高，空气稀薄，大气保温作用差，温度较低，热量不足，热量成为农业发展的限制性条件。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "太阳能开发的优缺点："
+            }
+          ],
+          "source_block": 160,
+          "source_row": null,
+          "source_text": "太阳能开发的优缺点："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①优点：能量巨大，是人类可利用的最丰富的资源，取之不尽、用之不竭；分布广泛，地球上处处都有；清洁能源，无污染、无公害。"
+            }
+          ],
+          "source_block": 161,
+          "source_row": null,
+          "source_text": "①优点：能量巨大，是人类可利用的最丰富的资源，取之不尽、用之不竭；分布广泛，地球上处处都有；清洁能源，无污染、无公害。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②缺点："
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0092",
+              "answer": "能量密度低",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，利用成本高；受"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0093",
+              "answer": "天气",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "影响大，辐射强度的波动较大。"
+            }
+          ],
+          "source_block": 162,
+          "source_row": null,
+          "source_text": "②缺点：能量密度低，利用成本高；受天气影响大，辐射强度的波动较大。"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-07",
+      "group": "易错易混",
+      "title": "易错易混03 地球生命存在问题的分析思路",
+      "source_blocks": [
+        163,
+        168
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "分析某行星是否有生命物质存在时可从“四看三分析”入手："
+            }
+          ],
+          "source_block": 164,
+          "source_row": null,
+          "source_text": "分析某行星是否有生命物质存在时可从“四看三分析”入手："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "一看：该行星所处的宇宙环境是否"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0094",
+              "answer": "安全稳定",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 165,
+          "source_row": null,
+          "source_text": "一看：该行星所处的宇宙环境是否安全稳定。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "二看：该行星是否有适宜的温度。从距恒星的距离    远近、自转和公转周期长短、大气层方面分析该行星是否有适宜的温度。"
+            }
+          ],
+          "source_block": 166,
+          "source_row": null,
+          "source_text": "二看：该行星是否有适宜的温度。从距恒星的距离    远近、自转和公转周期长短、大气层方面分析该行星是否有适宜的温度。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "三看：该行星周围有无适合生物呼吸的大气。从该行星的体积、质量和大气演化方面分析该行星是否具有适宜生物呼吸的大气。"
+            }
+          ],
+          "source_block": 167,
+          "source_row": null,
+          "source_text": "三看：该行星周围有无适合生物呼吸的大气。从该行星的体积、质量和大气演化方面分析该行星是否具有适宜生物呼吸的大气。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "四看：该行星是否有"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0095",
+              "answer": "液态水",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "存在。从温度高低和水体运动方面分析该行星是否有"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0096",
+              "answer": "液态水",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "存在。"
+            }
+          ],
+          "source_block": 168,
+          "source_row": null,
+          "source_text": "四看：该行星是否有液态水存在。从温度高低和水体运动方面分析该行星是否有液态水存在。"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-08",
+      "group": "易错易混",
+      "title": "易错易混04 地震和地震波",
+      "source_blocks": [
+        169,
+        177
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、地震：  "
+            }
+          ],
+          "source_block": 170,
+          "source_row": null,
+          "source_text": "1、地震：  "
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0097",
+              "answer": "地震",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：是地壳快速释放能量过程中造成的地面震动，是一种危害和影响巨大的自然灾害。"
+            }
+          ],
+          "source_block": 171,
+          "source_row": null,
+          "source_text": "1）地震：是地壳快速释放能量过程中造成的地面震动，是一种危害和影响巨大的自然灾害。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）震级：地震的大小。地震释放出来的能量越大，震级越高。同一次地震在同一震级标度下有一个代表其大小的震级值；不同震级标度或测定方法可能给出不同数值。"
+            }
+          ],
+          "source_block": 172,
+          "source_row": null,
+          "source_text": "2）震级：地震的大小。地震释放出来的能量越大，震级越高。一次地震，只有一个震级。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0098",
+              "answer": "烈度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：地震对地表和建筑物等破坏强弱的程度。一次地震，可"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0099",
+              "answer": "以有多个烈度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 173,
+          "source_row": null,
+          "source_text": "3）烈度：地震对地表和建筑物等破坏强弱的程度。一次地震，可以有多个烈度。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、地震波："
+            }
+          ],
+          "source_block": 174,
+          "source_row": null,
+          "source_text": "2、地震波："
+        },
+        {
+          "type": "table",
+          "source_block": 175,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地震波"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 0,
+                    "source_text": "地震波"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "纵波（P波）"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 0,
+                    "source_text": "纵波（P波）"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "横波（S波）"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 0,
+                    "source_text": "横波（S波）"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "概念"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 1,
+                    "source_text": "概念"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "波的振动方向与传播方向"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0100",
+                        "answer": "一致",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 1,
+                    "source_text": "波的振动方向与传播方向一致"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "波的振动方向与传播方向"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0101",
+                        "answer": "垂直",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 1,
+                    "source_text": "波的振动方向与传播方向垂直"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "传播状况"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 2,
+                    "source_text": "传播状况"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "速度"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 2,
+                    "source_text": "速度"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0102",
+                        "answer": "较快",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 2,
+                    "source_text": "较快"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0103",
+                        "answer": "较慢",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 2,
+                    "source_text": "较慢"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "介质"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 3,
+                    "source_text": "介质"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "可以通过"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0104",
+                        "answer": "固体、液体和气体传播",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 3,
+                    "source_text": "可以通过固体、液体和气体传播"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "只能通过"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0105",
+                        "answer": "固体",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "传播"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 3,
+                    "source_text": "只能通过固体传播"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "共性"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 4,
+                    "source_text": "共性"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "传播速度都随着所通过物质的性质变化而变化；都是弹性波；都是能量的载体和传播形式"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 4,
+                    "source_text": "传播速度都随着所通过物质的性质变化而变化；都是弹性波；都是能量的载体和传播形式"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地物表现"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 5,
+                    "source_text": "地物表现"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0106",
+                        "answer": "上下颠簸",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 5,
+                    "source_text": "上下颠簸"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket02-blank-0107",
+                        "answer": "左右摇晃",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 175,
+                    "source_row": 5,
+                    "source_text": "左右摇晃"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "上下颠簸、左右摇晃是教材中的简化体感描述；波型严格按振动方向与传播方向的关系定义。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0108",
+              "answer": "P波",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "通常比"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0109",
+              "answer": "S波",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "先到达；"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0110",
+              "answer": "P波",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "质点振动方向与传播方向平行，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0111",
+              "answer": "S波",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "与传播方向垂直。教材常以先上下颠簸、后左右摇晃作近似描述，但实际地面或船体运动还受传播方向、海浪及结构等影响，不能将运动方向绝对化；"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0112",
+              "answer": "S波",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0113",
+              "answer": "不能在液体中传播",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 176,
+          "source_row": null,
+          "source_text": "地震发生时：陆地上的人先感觉到上下颠，在感觉到左右晃，但是地震是短时间内能量的快速释放，这个时间差并不大。因为只有纵波可以在液体中传播，所以漂浮在水面上的船只只能感受到上下颠簸，而感受不到左右摇晃。"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-09",
+      "group": "知能拓展",
+      "title": "考点01 卫星发射",
+      "source_blocks": [
+        178,
+        196
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、卫星发射基地选址的条件从哪些方面考虑？"
+            }
+          ],
+          "source_block": 179,
+          "source_row": null,
+          "source_text": "1、卫星发射基地选址的条件从哪些方面考虑？"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）良好的气象条件，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0114",
+              "answer": "风速小",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0115",
+              "answer": "晴天较多",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，大气透明度好；"
+            }
+          ],
+          "source_block": 180,
+          "source_row": null,
+          "source_text": "1）良好的气象条件，风速小，晴天较多，大气透明度好；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）地势平坦开阔，地质结构稳定；"
+            }
+          ],
+          "source_block": 181,
+          "source_row": null,
+          "source_text": "2）地势平坦开阔，地质结构稳定；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）人烟稀少，有建禁区的可能；"
+            }
+          ],
+          "source_block": 182,
+          "source_row": null,
+          "source_text": "3）人烟稀少，有建禁区的可能；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）对于顺地球自转方向发射的任务，低纬地区可利用较大的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0116",
+              "answer": "地表自转线速度",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，节省进入轨道所需的部分速度增量；实际发射场还要结合"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0117",
+              "answer": "目标轨道倾角",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、航区和安全条件选择。"
+            }
+          ],
+          "source_block": 183,
+          "source_row": null,
+          "source_text": "4）最好接近赤道地区，因为纬度低，惯性离心力大且地转偏向小，航天器自转线速度大，利于发射，节约燃料；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）交通、测控与保障条件便利，并满足国防、航区和地面安全要求；是否在夜间发射由具体任务窗口决定。"
+            }
+          ],
+          "source_block": 184,
+          "source_row": null,
+          "source_text": "5）交通便利，符合国防安全的要求；夜间发射，利于跟踪目标进行观察等。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、卫星发射时间和方向的选择？"
+            }
+          ],
+          "source_block": 185,
+          "source_row": null,
+          "source_text": "2、卫星发射时间和方向的选择？"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）发射时间由目标轨道、交会或转移任务、测控、安全及天气等条件共同决定，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0118",
+              "answer": "发射窗口",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "可以在白天，也可以在夜晚，不存在普遍必须夜间发射的规则。"
+            }
+          ],
+          "source_block": 186,
+          "source_row": null,
+          "source_text": "1）发射时间：在一天中一般选择在晴朗无云的夜晚，主要是便于定位和跟踪。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）发射季节需按具体任务窗口与保障条件确定，我国航天发射并非普遍以冬季为主。远望号测量船所在航区的海况是特定任务可能考虑的因素，不能由此推出所有任务的发射季节。"
+            }
+          ],
+          "source_block": 187,
+          "source_row": null,
+          "source_text": "2）我国发射的季节：主要选择在冬季，便于航天测控网对飞船的监控、管理、回收。我国有多艘“望远号”监测船在南半球纬度较高的海域，选择冬季是为了避开南半球恶劣的海况。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）发射方向：一般与地球运动方向一致，向东发射可充分利用自转线速度的作用，节约能源。"
+            }
+          ],
+          "source_block": 188,
+          "source_row": null,
+          "source_text": "3）发射方向：一般与地球运动方向一致，向东发射可充分利用自转线速度的作用，节约能源。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、卫星返回基地选择的条件是什么？"
+            }
+          ],
+          "source_block": 189,
+          "source_row": null,
+          "source_text": "3、卫星返回基地选择的条件是什么？"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）平坦开阔、地质稳定；"
+            }
+          ],
+          "source_block": 190,
+          "source_row": null,
+          "source_text": "1）平坦开阔、地质稳定；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）人烟稀少，城市稀少，利于安全；"
+            }
+          ],
+          "source_block": 191,
+          "source_row": null,
+          "source_text": "2）人烟稀少，城市稀少，利于安全；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）无大河湖泊，少森林地区；"
+            }
+          ],
+          "source_block": 192,
+          "source_row": null,
+          "source_text": "3）无大河湖泊，少森林地区；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）气象条件要求降水少，空气能见度高；"
+            }
+          ],
+          "source_block": 193,
+          "source_row": null,
+          "source_text": "4）气象条件要求降水少，空气能见度高；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）云层较少，航天器着陆安全且便于救援。"
+            }
+          ],
+          "source_block": 194,
+          "source_row": null,
+          "source_text": "5）云层较少，航天器着陆安全且便于救援。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、我国和世界一些著名航天基地的地理区位及条件分析"
+            }
+          ],
+          "source_block": 195,
+          "source_row": null,
+          "source_text": "4、我国和世界一些著名航天基地的地理区位及条件分析"
+        },
+        {
+          "type": "table",
+          "source_block": 196,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "著名航天基地"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 0,
+                    "source_text": "著名航天基地"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "经纬度"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 0,
+                    "source_text": "经纬度"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "条件"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 0,
+                    "source_text": "条件"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国甘肃酒泉"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 1,
+                    "source_text": "我国甘肃酒泉"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "41°N，100°E"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 1,
+                    "source_text": "41°N，100°E"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气候干旱，大气透明度好，人烟稀少，交通便利"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 1,
+                    "source_text": "气候干旱，大气透明度好，人烟稀少，交通便利"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国四川西昌"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 2,
+                    "source_text": "我国四川西昌"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "28°N，102°E"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 2,
+                    "source_text": "28°N，102°E"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "纬度相对较低，气候湿润但洁净，交通便利"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 2,
+                    "source_text": "纬度相对较低，气候湿润但洁净，交通便利"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国山西太原"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 3,
+                    "source_text": "我国山西太原"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "38°N，113°E"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 3,
+                    "source_text": "38°N，113°E"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "航天工业基础较好，温带季风气候，冬春季天气晴朗"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 3,
+                    "source_text": "航天工业基础较好，温带季风气候，冬春季天气晴朗"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "法属圭亚那"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 4,
+                    "source_text": "法属圭亚那"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "约5°N，53°W"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 4,
+                    "source_text": "约5°N，53°W"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "纬度低，利于获得较高的发射初始速度。人烟稀少，冬季天气晴朗"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 4,
+                    "source_text": "纬度低，利于获得较高的发射初始速度。人烟稀少，冬季天气晴朗"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "卡纳维拉尔角(美国)"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 5,
+                    "source_text": "卡纳维拉尔角(美国)"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "29°N，81°W"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 5,
+                    "source_text": "29°N，81°W"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "纬度较低，濒临海洋，地形开阔，冬季天气晴朗，利于观测"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 5,
+                    "source_text": "纬度较低，濒临海洋，地形开阔，冬季天气晴朗，利于观测"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "意大利圣马科航天发射场(肯尼亚)"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 6,
+                    "source_text": "意大利圣马科航天发射场(肯尼亚)"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "3°S，40°E"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 6,
+                    "source_text": "3°S，40°E"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "纬度低，利于获得较高的发射初始速度。冬季天气晴朗"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 6,
+                    "source_text": "纬度低，利于获得较高的发射初始速度。冬季天气晴朗"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "拜克努尔航天发射场(哈萨克)"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 7,
+                    "source_text": "拜克努尔航天发射场(哈萨克)"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "46°N，63°E"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 7,
+                    "source_text": "46°N，63°E"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气候干旱，大气透明度好，人烟稀少"
+                      }
+                    ],
+                    "source_block": 196,
+                    "source_row": 7,
+                    "source_text": "气候干旱，大气透明度好，人烟稀少"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "发射场举例保留原资料历史背景；各地天气季节与任务窗口要具体分析，不能只凭“冬季晴朗”推断适合发射。"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-10",
+      "group": "知能拓展",
+      "title": "考点02 太阳辐射量",
+      "source_blocks": [
+        197,
+        222
+      ],
+      "blocks": [
+        {
+          "type": "figure",
+          "source_block": 198,
+          "image": "assets/recall/pocket-02/image-026.png",
+          "width": 2008,
+          "height": 1265,
+          "masks": [],
+          "caption": "考点02 太阳辐射量 · 原图26",
+          "disclosure": true,
+          "source_image_sha256": "9ca9a89f51d6658425004ea1c64b77e3310189a72f4d16abf8a1c3e5e8b95ead"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、A、B两地太阳辐射强度季节变比较"
+            }
+          ],
+          "source_block": 199,
+          "source_row": null,
+          "source_text": "1、A、B两地太阳辐射强度季节变比较"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "虽然A、B两地的纬度值约为37°N，但A地属于地中海气候，夏季受"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0119",
+              "answer": "副热带高气压",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "控制，炎热干燥，对太阳辐射削弱作用弱；冬季太阳高度角小，白昼短，受"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0120",
+              "answer": "西风带",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "影响，多阴雨天气，对太阳辐射削弱作用强。"
+            }
+          ],
+          "source_block": 200,
+          "source_row": null,
+          "source_text": "虽然A、B两地的纬度值约为37°N，但A地属于地中海气候，夏季受副热带高气压控制，炎热干燥，对太阳辐射削弱作用弱；冬季太阳高度角小，白昼短，受西风带影响，多阴雨天气，对太阳辐射削弱作用强。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、城市和郊区的太阳辐射量比较"
+            }
+          ],
+          "source_block": 201,
+          "source_row": null,
+          "source_text": "2、城市和郊区的太阳辐射量比较"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "城市的雨岛效应，多雾；大气尘埃多，对太阳辐射削弱作用强"
+            }
+          ],
+          "source_block": 202,
+          "source_row": null,
+          "source_text": "城市的雨岛效应，多雾；大气尘埃多，对太阳辐射削弱作用强"
+        },
+        {
+          "type": "figure",
+          "source_block": 204,
+          "image": "assets/recall/pocket-02/image-027.jpeg",
+          "width": 688,
+          "height": 500,
+          "masks": [],
+          "caption": "考点02 太阳辐射量 · 原图27",
+          "disclosure": true,
+          "source_image_sha256": "716d840edbd8683eb8ecb211fde0506ff2947a945e42624fe13d1e2a32dc8542"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "我国太阳年辐射总量分布"
+            }
+          ],
+          "source_block": 205,
+          "source_row": null,
+          "source_text": "我国太阳年辐射总量分布"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、对比分析我国的一些地区的太阳辐射量"
+            }
+          ],
+          "source_block": 206,
+          "source_row": null,
+          "source_text": "3、对比分析我国的一些地区的太阳辐射量"
+        },
+        {
+          "type": "table",
+          "source_block": 207,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地区"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 0,
+                    "source_text": "地区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "太阳辐射"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 0,
+                    "source_text": "太阳辐射"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对比分析"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 0,
+                    "source_text": "对比分析"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北方地区"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 1,
+                    "source_text": "北方地区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北方地区比南方地区丰富"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 1,
+                    "source_text": "北方地区比南方地区丰富"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "排除纬度因素，侧重分析：①北方地区天气：晴天多，阴雨天少；②夏季北方地区白昼较长，日照时间长"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 1,
+                    "source_text": "排除纬度因素，侧重分析：①北方地区天气：晴天多，阴雨天少；②夏季北方地区白昼较长，日照时间长"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "南方地区"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 2,
+                    "source_text": "南方地区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "西北地区"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 3,
+                    "source_text": "西北地区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "丰富"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 3,
+                    "source_text": "丰富"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "排除纬度因素，侧重分析：①北方地区天气：晴天多，阴雨天少；②夏季北方地区白昼较长，日照时间长"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 3,
+                    "source_text": "排除纬度因素，侧重分析：①北方地区天气：晴天多，阴雨天少；②夏季北方地区白昼较长，日照时间长"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "青藏地区"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 4,
+                    "source_text": "青藏地区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "最丰富"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 4,
+                    "source_text": "最丰富"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "重点强调海拔高，空气稀薄，日照时间长"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 4,
+                    "source_text": "重点强调海拔高，空气稀薄，日照时间长"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "四川盆地"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 5,
+                    "source_text": "四川盆地"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "贫乏"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 5,
+                    "source_text": "贫乏"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "重点分析盆地地形，水汽不易散发，雨、雾天多"
+                      }
+                    ],
+                    "source_block": 207,
+                    "source_row": 5,
+                    "source_text": "重点分析盆地地形，水汽不易散发，雨、雾天多"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、分析我国年太阳辐射总量极值中心的成因"
+            }
+          ],
+          "source_block": 208,
+          "source_row": null,
+          "source_text": "4、分析我国年太阳辐射总量极值中心的成因"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）青藏高原成为太阳辐射的高值中心的原因："
+            }
+          ],
+          "source_block": 209,
+          "source_row": null,
+          "source_text": "1）青藏高原成为太阳辐射的高值中心的原因："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①海拔高，空气稀薄，空气中尘埃含量较少，晴天较多，日照时间较长；"
+            }
+          ],
+          "source_block": 210,
+          "source_row": null,
+          "source_text": "①海拔高，空气稀薄，空气中尘埃含量较少，晴天较多，日照时间较长；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②纬度低，太阳高度大；"
+            }
+          ],
+          "source_block": 211,
+          "source_row": null,
+          "source_text": "②纬度低，太阳高度大；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③大气对太阳辐射的削弱作用小，到达地面的太阳辐射能量多。"
+            }
+          ],
+          "source_block": 212,
+          "source_row": null,
+          "source_text": "③大气对太阳辐射的削弱作用小，到达地面的太阳辐射能量多。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）四川盆地为低值中心的原因："
+            }
+          ],
+          "source_block": 213,
+          "source_row": null,
+          "source_text": "2）四川盆地为低值中心的原因："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "盆地地形，水汽不易散发，空气中水汽含量多，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0121",
+              "answer": "阴天、雾天较多",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，对太阳辐射削弱作用强，从而导致日照时间短，日照强度弱，太阳能资源匮乏。"
+            }
+          ],
+          "source_block": 214,
+          "source_row": null,
+          "source_text": "盆地地形，水汽不易散发，空气中水汽含量多，阴天、雾天较多，对太阳辐射削弱作用强，从而导致日照时间短，日照强度弱，太阳能资源匮乏。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5、分析地形的坡度和坡向对太阳辐射量多少的影响"
+            }
+          ],
+          "source_block": 215,
+          "source_row": null,
+          "source_text": "5、分析地形的坡度和坡向对太阳辐射量多少的影响"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）坡向对太阳辐射量的影响"
+            }
+          ],
+          "source_block": 216,
+          "source_row": null,
+          "source_text": "1）坡向对太阳辐射量的影响"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①迎风坡一般降水多，阴天多，获得的太阳辐射量少些；"
+            }
+          ],
+          "source_block": 217,
+          "source_row": null,
+          "source_text": "①迎风坡一般降水多，阴天多，获得的太阳辐射量少些；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②背风坡一般降水少，晴天多，获得的太阳辐射量多些。"
+            }
+          ],
+          "source_block": 218,
+          "source_row": null,
+          "source_text": "②背风坡一般降水少，晴天多，获得的太阳辐射量多些。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）北半球南坡坡度不断变化，对获得的太阳辐射量的影响"
+            }
+          ],
+          "source_block": 219,
+          "source_row": null,
+          "source_text": "2）北半球南坡坡度不断变化，对获得的太阳辐射量的影响"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①当坡度与太阳高度角互余时，则获得的太阳辐射量最多；"
+            }
+          ],
+          "source_block": 220,
+          "source_row": null,
+          "source_text": "①当坡度与太阳高度角互余时，则获得的太阳辐射量最多；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②当坡度由0°增大到与太阳高度角互余的坡度时，坡度增大，获得的太阳辐射量随之增大；"
+            }
+          ],
+          "source_block": 221,
+          "source_row": null,
+          "source_text": "②当坡度由0°增大到与太阳高度角互余的坡度时，坡度增大，获得的太阳辐射量随之增大；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③当坡度再继续增大时，获得的太阳辐射量随之减少。"
+            }
+          ],
+          "source_block": 222,
+          "source_row": null,
+          "source_text": "③当坡度在继续增大时，获得的太阳辐射量随之减少。"
+        }
+      ]
+    },
+    {
+      "id": "pocket02-11",
+      "group": "知能拓展",
+      "title": "考点03 地层的判断",
+      "source_blocks": [
+        223,
+        226
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、地层年代的判断依据：生物的进化由低级到高级，在不同时代的地层中含有不同的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0122",
+              "answer": "化石",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，根据对这些"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0123",
+              "answer": "化石",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的判断分析，可以推断出这些"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0124",
+              "answer": "化石",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "所处的地层年代。"
+            }
+          ],
+          "source_block": 224,
+          "source_row": null,
+          "source_text": "1、地层年代的判断依据：生物的进化由低级到高级，在不同时代的地层中含有不同的化石，根据对这些化石的判断分析，可以推断出这些化石所处的地层年代。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0125",
+              "answer": "沉积地层",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "中可能含有化石：化石是古生物遗体或遗迹沉积在地层中保存形成的。化石主要保存在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0126",
+              "answer": "沉积地层",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "中，但并非所有"
+            },
+            {
+              "type": "blank",
+              "id": "pocket02-blank-0127",
+              "answer": "沉积地层",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "都含有化石；判断年代还应结合地层关系和保存条件。"
+            }
+          ],
+          "source_block": 225,
+          "source_row": null,
+          "source_text": "2、沉积地层中可能含有化石：化石是古生物遗体或遗迹沉积在地层中保存形成的。只有在沉积地层中才能找到化石，但是并非所有沉积地层中都含有化石。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、中生代爬行动物盛行：中生代爬行动物盛行，并不是说中生代只有爬行动物。古生代出现的无脊椎动物及中生代后期出现的鸟类和小型哺乳动物均存在于中生代。"
+            }
+          ],
+          "source_block": 226,
+          "source_row": null,
+          "source_text": "3、中生代爬行动物盛行：中生代爬行动物盛行，并不是说中生代只有爬行动物。古生代出现的无脊椎动物及中生代后期出现的鸟类和小型哺乳动物均存在于中生代。"
+        }
+      ]
+    }
+  ],
+  "audit": {
+    "reviewed_on": "2026-11-02",
+    "blank_count": 127,
+    "images_sha256": {
+      "assets/recall/pocket-02/image-004.png": "ab8d6f33f20d11b265dd958c673005a3820dbd9f4b7a587461d683d73c68e446",
+      "assets/recall/pocket-02/image-007.png": "ae06edbb54a0595fab931593badfec93706f54b14e74b3747e93f72468b815cc",
+      "assets/recall/pocket-02/image-008.jpeg": "fe03c62efd328030030d4660d8df45eef6c87f818b3f395ea8c6ecdc9f5ce5a5",
+      "assets/recall/pocket-02/image-009.png": "d82121628ebde7877487ed91482747d89541c58868f49f71446468f91d8f078a",
+      "assets/recall/pocket-02/image-010.png": "e63167cb9ded2732b0eaa00bceca6c43c9792f08ac68fd7f840f3a157adf4a66",
+      "assets/recall/pocket-02/image-011.png": "7d407b84fb0798ab3c80e3086df43b23c8a2b20bf7f2e43c9730171b989d3809",
+      "assets/recall/pocket-02/image-012.png": "185780e9a2a66973bdbcbb2d4b1b60c4659a2863a530058b6e0859db9661ac47",
+      "assets/recall/pocket-02/image-013.png": "a4251a1941b1a3cc0633ff50bea9a84d4c2a3e88080e257f9e742274320d0c44",
+      "assets/recall/pocket-02/image-014.jpeg": "d6935d5d3e14533fee2483ebd1b79f0778ffb8529f9e6bb794d090a266c2844f",
+      "assets/recall/pocket-02/image-015.jpeg": "39fbf4cd9e55418ed2915cc568419f37b29fa0115711c3eb21bbbf8d83aab411",
+      "assets/recall/pocket-02/image-016.jpeg": "a33ead95b71b2b2792fd25c733e630a17a093ecf0c8278215dbb53b4d85e5d56",
+      "assets/recall/pocket-02/image-017.jpeg": "768bc9550eb4e1839a7cac3c5a919a52a8b7f89f49c5dbe43f83f174a113f202",
+      "assets/recall/pocket-02/image-018.jpeg": "f702174c53553757e8029830e4cb988b39bca535fb58fbbd67a2b5fb4475e4cf",
+      "assets/recall/pocket-02/image-019.jpeg": "99c15a5419d256b1cff00cb435dc12d001129add27c07bb40f61f24597f26107",
+      "assets/recall/pocket-02/image-020.png": "a539c86aa7723863fb43bda160da2eff027047a2a87fc9d5c546bf319a838abd",
+      "assets/recall/pocket-02/image-021.png": "8aba0d151856661e87182bb8509b21b6a90a8dc07f1c3179d90463611baa8196",
+      "assets/recall/pocket-02/image-023.png": "9a2981ec6175ac9a028f6f4dcc09e55421cdb555807fe9dc1f3d7dfac237cfd8",
+      "assets/recall/pocket-02/image-024.png": "8b948f0062b26a1928d69f173bf24d14779dfccc03d9a252dff581ec93c8033a",
+      "assets/recall/pocket-02/image-026.png": "9ca9a89f51d6658425004ea1c64b77e3310189a72f4d16abf8a1c3e5e8b95ead",
+      "assets/recall/pocket-02/image-027.jpeg": "716d840edbd8683eb8ecb211fde0506ff2947a945e42624fe13d1e2a32dc8542"
+    },
+    "counters": {
+      "reviewed-addition": 46,
+      "paragraphs": 257,
+      "source-marking": 81,
+      "tables": 8
+    },
+    "corrections": [
+      {
+        "source_block": 37,
+        "source_row": null,
+        "original": "天文学家把人类已经观测到的有限宇宙叫作“可见宇宙”或“已知宇宙”，半径约140亿光年。",
+        "revised": "可观测宇宙是其发出的光等信号能够到达观测者的宇宙区域，不等于整个宇宙。常用宇宙模型给出的当今可观测宇宙半径约465亿光年；宇宙年龄、光传播时间与今天的空间距离不能直接混用，具体题目按材料定义判断。",
+        "reason": "修正可观测宇宙尺度与宇宙年龄混用。",
+        "references": [
+          "nasa-observable"
+        ]
+      },
+      {
+        "source_block": 46,
+        "source_row": null,
+        "original": "判断依据：看是否脱离了地球的大气层。",
+        "revised": "判断人造天体时，要看航天器是否已进入太空并独立运行；停在地面或仍依附于其他天体表面的物体不直接算独立天体，不能只以是否位于大气层外作为唯一标准。",
+        "reason": "补充人造天体判读条件，避免单一高度标准。",
+        "references": []
+      },
+      {
+        "source_block": 64,
+        "source_row": null,
+        "original": "目前目前",
+        "revised": "目前",
+        "reason": "删除重复文字。",
+        "references": []
+      },
+      {
+        "source_block": 67,
+        "source_row": null,
+        "original": "太阳正处于壮年期，状态稳定，生命的进化没有中断。",
+        "revised": "太阳处于主序阶段，长期提供相对稳定的辐射能量，为生命演化提供外部条件。",
+        "reason": "去除关于生命进化不中断的绝对化推断。",
+        "references": []
+      },
+      {
+        "source_block": 68,
+        "source_row": null,
+        "original": "行星和小行星各行其道，互不干扰。",
+        "revised": "大行星轨道长期相对稳定，为地球生命演化提供相对安全的运行环境；这不表示天体之间完全没有引力扰动或撞击事件。",
+        "reason": "明确轨道安全是相对条件。",
+        "references": []
+      },
+      {
+        "source_block": 77,
+        "source_row": null,
+        "original": "月面朝西",
+        "revised": "亮面朝西",
+        "reason": "月相口诀描述亮面朝向。",
+        "references": []
+      },
+      {
+        "source_block": 77,
+        "source_row": null,
+        "original": "月面朝东",
+        "revised": "亮面朝东",
+        "reason": "月相口诀描述亮面朝向。",
+        "references": []
+      },
+      {
+        "source_block": 82,
+        "source_row": null,
+        "original": "氢氦核聚变",
+        "revised": "氢核聚变为氦",
+        "reason": "明确太阳核心核聚变的主要过程。",
+        "references": []
+      },
+      {
+        "source_block": 88,
+        "source_row": null,
+        "original": "①纬度因素：纬度越低，正午太阳高度(角)越大，辐射越强；由低纬向高纬递减。",
+        "revised": "①太阳高度因素：太阳高度由纬度、日期和时刻共同决定。在其他条件相同时，太阳高度越大，地面单位面积接受的太阳辐射通常越强；不能在任何日期都简单认定纬度越低正午太阳高度越大。",
+        "reason": "补充太阳高度的日期条件。",
+        "references": []
+      },
+      {
+        "source_block": 89,
+        "source_row": null,
+        "original": "②昼长因素：白昼时间越长，日照时数越长，获得的太阳辐射越多。",
+        "revised": "②昼长因素：白昼越长，可接受太阳辐射的时间越长；实际日照时数还受云雨等影响，不能把昼长与实际日照时数直接等同。",
+        "reason": "区分昼长与实际日照时数。",
+        "references": []
+      },
+      {
+        "source_block": 90,
+        "source_row": null,
+        "original": "③地势因素：地势越高，大气层越薄，透明度越高，日照时数越长，且大气对太阳辐射的削弱作用越弱，太阳辐射越强。",
+        "revised": "③地势因素：在其他条件相近时，海拔较高通常使上覆空气较少，大气削弱作用较弱；日照时数仍受云雨和地形遮挡影响，不能由海拔高直接推出日照时间长。",
+        "reason": "修正海拔高必然日照时间长的推断。",
+        "references": []
+      },
+      {
+        "source_block": 101,
+        "source_row": 1,
+        "original": "高速旋转的气体漩涡，温度毕光球层平均温度低。活动周期为11年。",
+        "revised": "光球上温度低于周围、磁场较强的暗区。太阳活动周期约11年。",
+        "reason": "修正太阳黑子定义与文字错误，周期采用近似值。",
+        "references": [
+          "nasa-sun"
+        ]
+      },
+      {
+        "source_block": 101,
+        "source_row": 1,
+        "original": "与地球气候变化有关联性，太阳活动峰年，地球上激烈天气明显增多。",
+        "revised": "太阳活动影响近地空间环境；地面天气和气候受多种因素影响，不能仅据太阳活动峰年断言极端天气必然增多。",
+        "reason": "去除太阳活动与极端天气之间的必然对应。",
+        "references": [
+          "noaa-space-weather"
+        ]
+      },
+      {
+        "source_block": 111,
+        "source_row": null,
+        "original": "非别为",
+        "revised": "分别为",
+        "reason": "修正文字错误。",
+        "references": []
+      },
+      {
+        "source_block": 127,
+        "source_row": 1,
+        "original": "一般把2000-3000千米的高空作为大气圈的上界。",
+        "revised": "大气随高度逐渐稀薄，没有绝对清晰的上界，不同研究定义采用的高度界限可能不同。",
+        "reason": "不将人为高度界限定为大气圈绝对上界。",
+        "references": []
+      },
+      {
+        "source_block": 142,
+        "source_row": null,
+        "original": "地球已经发生过5次生物大灭绝，其中发生在古生代末期，即二叠纪末期的生物大灭绝，约95%的生物从地球上消失；中生代末期，即白垩纪末期的生物大灭绝，恐龙和海洋中50%的无脊椎动物从地球上消失。",
+        "revised": "地质历史中通常讨论五次生物大灭绝。古生代末的二叠纪末大灭绝规模极大；中生代末的白垩纪末大灭绝使非鸟类恐龙等大量类群灭绝。损失比例需区分物种、类群和统计范围，不能把“所有恐龙”和原资料百分比直接泛化到全部生物。",
+        "reason": "区分非鸟类恐龙与鸟类，避免混用灭绝比例的统计对象。",
+        "references": []
+      },
+      {
+        "source_block": 172,
+        "source_row": null,
+        "original": "一次地震，只有一个震级。",
+        "revised": "同一次地震在同一震级标度下有一个代表其大小的震级值；不同震级标度或测定方法可能给出不同数值。",
+        "reason": "补充震级比较的标度前提。",
+        "references": []
+      },
+      {
+        "source_block": 176,
+        "source_row": null,
+        "original": "地震发生时：陆地上的人先感觉到上下颠，在感觉到左右晃，但是地震是短时间内能量的快速释放，这个时间差并不大。因为只有纵波可以在液体中传播，所以漂浮在水面上的船只只能感受到上下颠簸，而感受不到左右摇晃。",
+        "revised": "P波通常比S波先到达；P波质点振动方向与传播方向平行，S波与传播方向垂直。教材常以先上下颠簸、后左右摇晃作近似描述，但实际地面或船体运动还受传播方向、海浪及结构等影响，不能将运动方向绝对化；S波不能在液体中传播。",
+        "reason": "区分波型定义与简化体感描述。",
+        "references": []
+      },
+      {
+        "source_block": 183,
+        "source_row": null,
+        "original": "4）最好接近赤道地区，因为纬度低，惯性离心力大且地转偏向小，航天器自转线速度大，利于发射，节约燃料；",
+        "revised": "4）对于顺地球自转方向发射的任务，低纬地区可利用较大的地表自转线速度，节省进入轨道所需的部分速度增量；实际发射场还要结合目标轨道倾角、航区和安全条件选择。",
+        "reason": "发射节能的关键是利用地表自转速度，不能以地转偏向小作为主要原因。",
+        "references": [
+          "nasa-launch"
+        ]
+      },
+      {
+        "source_block": 184,
+        "source_row": null,
+        "original": "5）交通便利，符合国防安全的要求；夜间发射，利于跟踪目标进行观察等。",
+        "revised": "5）交通、测控与保障条件便利，并满足国防、航区和地面安全要求；是否在夜间发射由具体任务窗口决定。",
+        "reason": "与发射窗口修订保持一致。",
+        "references": []
+      },
+      {
+        "source_block": 186,
+        "source_row": null,
+        "original": "1）发射时间：在一天中一般选择在晴朗无云的夜晚，主要是便于定位和跟踪。",
+        "revised": "1）发射时间由目标轨道、交会或转移任务、测控、安全及天气等条件共同决定，发射窗口可以在白天，也可以在夜晚，不存在普遍必须夜间发射的规则。",
+        "reason": "按任务窗口确定发射时间，纠正普遍夜间发射的旧说法。",
+        "references": [
+          "nasa-launch"
+        ]
+      },
+      {
+        "source_block": 187,
+        "source_row": null,
+        "original": "2）我国发射的季节：主要选择在冬季，便于航天测控网对飞船的监控、管理、回收。我国有多艘“望远号”监测船在南半球纬度较高的海域，选择冬季是为了避开南半球恶劣的海况。",
+        "revised": "2）发射季节需按具体任务窗口与保障条件确定，我国航天发射并非普遍以冬季为主。远望号测量船所在航区的海况是特定任务可能考虑的因素，不能由此推出所有任务的发射季节。",
+        "reason": "纠正季节绝对化推断及测量船名称。",
+        "references": [
+          "nasa-launch"
+        ]
+      },
+      {
+        "source_block": 222,
+        "source_row": null,
+        "original": "在继续增大",
+        "revised": "再继续增大",
+        "reason": "修正文字错误。",
+        "references": []
+      },
+      {
+        "source_block": 225,
+        "source_row": null,
+        "original": "只有在沉积地层中才能找到化石，但是并非所有沉积地层中都含有化石。",
+        "revised": "化石主要保存在沉积地层中，但并非所有沉积地层都含有化石；判断年代还应结合地层关系和保存条件。",
+        "reason": "避免将化石保存条件绝对化。",
+        "references": []
+      }
+    ],
+    "references": [
+      {
+        "id": "nasa-observable",
+        "title": "NASA：可观测宇宙范围说明",
+        "url": "https://nepp.nasa.gov/docs/etw/2022/13-JUN-MON/1055-Geithner-v3-20220009134.pdf"
+      },
+      {
+        "id": "nasa-sun",
+        "title": "NASA：太阳事实与太阳活动",
+        "url": "https://science.nasa.gov/sun/facts/"
+      },
+      {
+        "id": "noaa-space-weather",
+        "title": "NOAA：空间天气",
+        "url": "https://www.noaa.gov/education/resource-collections/weather-atmosphere/space-weather"
+      },
+      {
+        "id": "nasa-launch",
+        "title": "NASA：航天发射与窗口",
+        "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter14-1/"
+      }
+    ],
+    "note": "按原顺序提取，保留标记答案与原图。含标注的原图默认折叠，先回忆再展开核对；重点修订有原文记录，具体条件以题目材料为准。"
+  }
+}

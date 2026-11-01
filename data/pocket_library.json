@@ -3,6 +3,7 @@
   "title": "口袋书 · 知识清单",
   "topics": [
     {"id": "pocket01", "title": "专题01 地球与地图", "data": "data/pocket/01-earth-map.json"},
+    {"id": "pocket02", "title": "专题02 宇宙中的地球", "data": "data/pocket/02-earth-universe.json"},
     {"id": "pocket11", "title": "专题11 人口", "data": "data/pocket_population.json"}
   ]
 }

@@ -100,7 +100,7 @@ class BookBuilder(population.Builder):
             else:
                 parts.append({"type": part_kind, "text": value})
         original = "".join(part["text"] for part in parts)
-        targets = []
+        targets = list(self.config.get("extra_blanks", {}).get(str(index), []))
         for edit_number, edit in enumerate(self.config.get("edits", [])):
             if edit["block"] != index or ("row" in edit and edit["row"] != self.context_row):
                 continue

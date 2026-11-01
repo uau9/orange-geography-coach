@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.33.0", ASSET_VERSION: "0.33.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.33.1", ASSET_VERSION: "0.33.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -2750,7 +2750,7 @@ document.addEventListener("click", async (event) => {
       blank.querySelector(".recall-blank-answer").hidden = true;
     });
     document.querySelector("#pocket-zoom-content").replaceChildren(clone);
-    document.querySelector("#pocket-zoom .recall-zoom-head strong").textContent = source.querySelector(".recall-blank") ? "原图放大 · 点击橙色区域逐空背诵" : "思维导图 · 可横向移动查看完整原图";
+    document.querySelector("#pocket-zoom .recall-zoom-head strong").textContent = source.querySelector(".recall-blank") ? "原图放大 · 点击橙色区域逐空背诵" : actionTarget.closest(".pocket-overview") ? "思维导图 · 可横向移动查看完整原图" : "原图放大 · 可横向移动查看完整标注";
     document.querySelector("#pocket-zoom").hidden = false;
     document.querySelector("#pocket-zoom .recall-zoom-scroll").scrollTo(0, 0);
     return;
