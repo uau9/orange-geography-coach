@@ -1,0 +1,6536 @@
+{
+  "schema_version": "1.0.0",
+  "id": "pocket-population",
+  "title": "专题11 人口",
+  "status": "published",
+  "source": {
+    "file": "2025高中地理学习资料包 (知识点+教辅+试卷)/【口袋书】2024年高考地理一轮复习知识清单/专题11人口-【口袋书】2024年高考地理一轮复习知识清单.docx",
+    "sha256": "435b370cabe6a8f9d8cef985328bf5e75b35b0398ba3685cfee6bc6c48337380",
+    "edition": "2024年高考地理一轮复习知识清单",
+    "included": [
+      "思维导图",
+      "知识清单",
+      "易错易混",
+      "知能拓展"
+    ],
+    "excluded": [
+      "高考考情速递",
+      "好题训练营",
+      "答案解析"
+    ]
+  },
+  "overview": {
+    "type": "figure",
+    "image": "assets/recall/pocket-population/image-04.png",
+    "width": 1488,
+    "height": 1494,
+    "caption": "原文件第2页 · 人口专题思维导图",
+    "note": "",
+    "masks": [],
+    "source_block": 23
+  },
+  "sections": [
+    {
+      "id": "pocket11-01",
+      "group": "知识清单",
+      "title": "知识点一 人口分布和人口变化",
+      "source_blocks": [
+        33,
+        60
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "一、人口的分布"
+            }
+          ],
+          "source_block": 34,
+          "source_text": "一、人口的分布"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、影响人口分布的因素"
+            }
+          ],
+          "source_block": 35,
+          "source_text": "1、影响人口分布的因素"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）自然因素"
+            }
+          ],
+          "source_block": 36,
+          "source_text": "1）自然因素"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "自然因素"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "自然因素"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对人口分布的影响"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "对人口分布的影响"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "举例"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "举例"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气候"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "气候"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-001",
+                        "answer": "气温",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "气温"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "温暖的气候适宜人类生产和生活"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "温暖的气候适宜人类生产和生活"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北半球温带地区，气温适宜人类居住和农业生产，世界上约半数以上的人口居住在这一地带"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "北半球温带地区，气温适宜人类居住和农业生产，世界上约半数以上的人口居住在这一地带"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-002",
+                        "answer": "降水",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "降水"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "降水"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-003",
+                        "answer": "主要通过影响植被分布间",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "接影响人口分布。降水适中的地区适宜人类居住和生产，人口分布往往较为集中"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "降水主要通过影响植被分布间接影响人口分布。降水适中的地区适宜人类居住和生产，人口分布往往较为集中"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "干旱的沙漠、戈壁地区，由于降水量极少，生存环境恶劣，往往成为无人区或人口稀少区"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "干旱的沙漠、戈壁地区，由于降水量极少，生存环境恶劣，往往成为无人区或人口稀少区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-004",
+                        "answer": "地形",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "地形"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "平原地区地形平坦，交通便利，易于开发，是人类的主要聚居地"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "平原地区地形平坦，交通便利，易于开发，是人类的主要聚居地"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国的华北平原、长江中下游平原，印度的恒河平原，都是人口密集的地区"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "我国的华北平原、长江中下游平原，印度的恒河平原，都是人口密集的地区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-005",
+                        "answer": "水源",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "水源"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "一般来说，河流、湖泊沿岸供水方便，具有交通、水产养殖等方面的优势，利于人类生产和生活，人口较为密集"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "一般来说，河流、湖泊沿岸供水方便，具有交通、水产养殖等方面的优势，利于人类生产和生活，人口较为密集"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北美五大湖地区，人口稠密"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "北美五大湖地区，人口稠密"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "在干旱地区，有水灌溉的地方往往成为人口聚居地"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "在干旱地区，有水灌溉的地方往往成为人口聚居地"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国塔里木盆地的绿洲"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "我国塔里木盆地的绿洲"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-006",
+                        "answer": "土壤",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "土壤"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-007",
+                        "answer": "土壤",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "是发展农业生产最基本的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-008",
+                        "answer": "物质基础",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，它大多是通过农业发展间接地影响人口分布"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "土壤是发展农业生产最基本的物质基础，它大多是通过农业发展间接地影响人口分布"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "在我国东北地区，肥沃的黑土分布区农业比较发达，人口密度也较大"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "在我国东北地区，肥沃的黑土分布区农业比较发达，人口密度也较大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-009",
+                        "answer": "矿产资源",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "矿产资源"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "矿产资源的开发促进了地区经济发展，提供了大量就业岗位，从而影响人口分布"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "矿产资源的开发促进了地区经济发展，提供了大量就业岗位，从而影响人口分布"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大型油田的发现和开采，使原本荒无人烟的地区崛起为一座新城市"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_text": "大型油田的发现和开采，使原本荒无人烟的地区崛起为一座新城市"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 4,
+          "header_rows": 1,
+          "source_block": 37,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）人文因素"
+            }
+          ],
+          "source_block": 38,
+          "source_text": "2）人文因素"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人文因素"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "人文因素"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响及实例"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "影响及实例"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-010",
+                        "answer": "经济发展水平",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "经济发展水平"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "一般来说，经济发展水平较高的地区，人口稠密，如我国东部地区、美国东部地区和欧洲西部地区"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "一般来说，经济发展水平较高的地区，人口稠密，如我国东部地区、美国东部地区和欧洲西部地区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-011",
+                        "answer": "历史因素",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "历史因素"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "历史较悠久的地区人口较稠密，如东亚、南亚的人口稠密区"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "历史较悠久的地区人口较稠密，如东亚、南亚的人口稠密区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "政治因素"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "政治因素"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "战争"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "战争"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "有时可在较短时间内改变人口分布状况。如两次世界大战使世界政治版图发生明显变化，人口也随之大规模移动，改变了人口的空间分布"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "有时可在较短时间内改变人口分布状况。如两次世界大战使世界政治版图发生明显变化，人口也随之大规模移动，改变了人口的空间分布"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-012",
+                        "answer": "政策",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "政策"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "鼓励或限制政策能够影响人口的流动和增长，进而影响人口分布。如二战后，日本先后制定了 5 次全国综合开发计划，有计划地开发落后地区和疏散过密的城市人口和产业，改变了人口的空间分布"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "鼓励或限制政策能够影响人口的流动和增长，进而影响人口分布。如二战后，日本先后制定了 5 次全国综合开发计划，有计划地开发落后地区和疏散过密的城市人口和产业，改变了人口的空间分布"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "文化因素"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "文化因素"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "婚育习俗等影响人口增长，进而影响人口分布。如发展中国家和地区普遍盛行早婚早育，增加了出生人口；发达国家和地区普遍盛行晚婚晚育甚至不育，减少了出生人口"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_text": "婚育习俗等影响人口增长，进而影响人口分布。如发展中国家和地区普遍盛行早婚早育，增加了出生人口；发达国家和地区普遍盛行晚婚晚育甚至不育，减少了出生人口"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 3,
+          "header_rows": 1,
+          "source_block": 39,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、世界人口分布特点及其形成原因"
+            }
+          ],
+          "source_block": 40,
+          "source_text": "2、世界人口分布特点及其形成原因"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "分布区"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "分布区"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原因"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "原因"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 4,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "区域性"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "区域性"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口密集区"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "人口密集区"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-013",
+                        "answer": "亚洲东部与南部",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "亚洲东部与南部"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①世界古老文明中心，人类聚居历史悠久；"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "①世界古老文明中心，人类聚居历史悠久；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "②发展农业的自然条件优越"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "②发展农业的自然条件优越"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-014",
+                        "answer": "西欧",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "西欧"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①资本主义发展最早；②商业贸易活动频繁；"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "①资本主义发展最早；②商业贸易活动频繁；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "③世界重要的工业地带"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "③世界重要的工业地带"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-015",
+                        "answer": "美国东北部",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n(五大湖区)"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "美国东北部\n(五大湖区)"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "世界上最发达的工业和金融贸易区"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "世界上最发达的工业和金融贸易区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口稀疏区"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "人口稀疏区"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北美洲、亚洲的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-016",
+                        "answer": "高山和寒冷地带",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；撒哈拉、中亚、澳大利亚的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-017",
+                        "answer": "沙漠地带",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；亚马孙、刚果河流域的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-018",
+                        "answer": "湿热地带",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；南极洲大陆"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "北美洲、亚洲的高山和寒冷地带；撒哈拉、中亚、澳大利亚的沙漠地带；亚马孙、刚果河流域的湿热地带；南极洲大陆"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地带性"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "地带性"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-019",
+                        "answer": "纬度分布",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "纬度分布"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "世界上大部分人口集中分布在北半球中低纬度沿海平原地带"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "世界上大部分人口集中分布在北半球中低纬度沿海平原地带"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北半球"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-020",
+                        "answer": "中低纬度",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "地区气候适宜，自然条件优越"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "北半球中低纬度地区气候适宜，自然条件优越"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-021",
+                        "answer": "海陆分布",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "海陆分布"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "沿海地区交通便利，自然条件优越"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "沿海地区交通便利，自然条件优越"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-022",
+                        "answer": "垂直分布",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "垂直分布"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "平原地区地形平坦，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-023",
+                        "answer": "土壤深厚、肥沃",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，发展农业生产的条件优越"
+                      }
+                    ],
+                    "source_block": 41,
+                    "source_text": "平原地区地形平坦，土壤深厚、肥沃，发展农业生产的条件优越"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 4,
+          "header_rows": 1,
+          "source_block": 41,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "二、人口变化"
+            }
+          ],
+          "source_block": 42,
+          "source_text": "二、人口变化"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、人口的自然增长"
+            }
+          ],
+          "source_block": 43,
+          "source_text": "1、人口的自然增长"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）影响人口自然增长的因素"
+            }
+          ],
+          "source_block": 44,
+          "source_text": "1）影响人口自然增长的因素"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "人口增长受"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-024",
+              "answer": "社会",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-025",
+              "answer": "经济",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-026",
+              "answer": "自然因素",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的影响，"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-027",
+              "answer": "生产力水平",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是决定人口增长快慢的重要因素。一个地区人口的自然增长是由"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-028",
+              "answer": "出生率",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-029",
+              "answer": "死亡率",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "共同决定的，其计算公式为："
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-030",
+              "answer": "人口自然增长率=人口出生率-人口死亡率",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 45,
+          "source_text": "人口增长受社会、经济、自然因素的影响，生产力水平是决定人口增长快慢的重要因素。一个地区人口的自然增长是由出生率和死亡率共同决定的，其计算公式为：人口自然增长率=人口出生率-人口死亡率。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）世界人口增长的时间差异"
+            }
+          ],
+          "source_block": 46,
+          "source_text": "2）世界人口增长的时间差异"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "世界人口数量变化的总趋势是不断增长的，但是不同的历史时期，人口数量增长的特点不同。"
+            }
+          ],
+          "source_block": 47,
+          "source_text": "世界人口数量变化的总趋势是不断增长的，但是不同的历史时期，人口数量增长的特点不同。"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "历史时期"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "历史时期"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口数量和人口增长特点"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "人口数量和人口增长特点"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原因"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "原因"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "农业革命以前"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "农业革命以前"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "数量少，增长速度极其缓慢"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "数量少，增长速度极其缓慢"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "生产力水平"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-031",
+                        "answer": "低下",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，死亡率"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-032",
+                        "answer": "高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "生产力水平低下，死亡率高"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "农业革命期间"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "农业革命期间"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "数量增多，增长速度加快"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "数量增多，增长速度加快"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "生产力水平有了"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-033",
+                        "answer": "提高",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，医疗条件得到"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-034",
+                        "answer": "改善",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，死亡率有所"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-035",
+                        "answer": "降低",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "生产力水平有了提高，医疗条件得到改善，死亡率有所降低"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "工业革命以后"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "工业革命以后"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "数量持续增加，人口增长迅速"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "数量持续增加，人口增长迅速"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "生产力水平"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-036",
+                        "answer": "提高",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，生活质量"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-037",
+                        "answer": "不断改善",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，医疗水平不断"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-038",
+                        "answer": "提高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 48,
+                    "source_text": "生产力水平提高，生活质量不断改善，医疗水平不断提高"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 3,
+          "header_rows": 1,
+          "source_block": 48,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）世界人口增长的地区差异"
+            }
+          ],
+          "source_block": 49,
+          "source_text": "3）世界人口增长的地区差异"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "世界人口增长存在地区上的差异，主要表现在发达国家与发展中国家之间、各大洲之间。"
+            }
+          ],
+          "source_block": 50,
+          "source_text": "世界人口增长存在地区上的差异，主要表现在发达国家与发展中国家之间、各大洲之间。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①大洲之间的差异"
+            }
+          ],
+          "source_block": 51,
+          "source_text": "①大洲之间的差异"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "population-blank-039",
+              "answer": "亚洲",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "人口数量"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-040",
+              "answer": "最多",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-041",
+              "answer": "非洲",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "人口增长"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-042",
+              "answer": "最快",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。欧洲、北美洲、大洋洲增长比较"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-043",
+              "answer": "缓慢",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 52,
+          "source_text": "亚洲人口数量最多，非洲人口增长最快。欧洲、北美洲、大洋洲增长比较缓慢。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②国家之间的差异"
+            }
+          ],
+          "source_block": 53,
+          "source_text": "②国家之间的差异"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "国家"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "国家"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-044",
+                        "answer": "发达",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "国家"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "发达国家"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-045",
+                        "answer": "发展中",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "国家"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "发展中国家"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "主要分布大洲"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "主要分布大洲"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "欧洲、北美洲、大洋洲"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "欧洲、北美洲、大洋洲"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "亚洲、非洲、南美洲"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "亚洲、非洲、南美洲"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "自然增长率水平"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "自然增长率水平"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "保持"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-046",
+                        "answer": "较低",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "水平"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "保持较低水平"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水平"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-047",
+                        "answer": "较高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "水平较高"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口增长"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "人口增长"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特点"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "特点"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-048",
+                        "answer": "缓慢",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "缓慢"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-049",
+                        "answer": "很快",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "很快"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原因"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "原因"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "受经济发展水平，社会保障制度健全，生育观念的转变等因素影响"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "受经济发展水平，社会保障制度健全，生育观念的转变等因素影响"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "政治上的独立，民族经济的发展，医疗卫生事业的进步，死亡率下降"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "政治上的独立，民族经济的发展，医疗卫生事业的进步，死亡率下降"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "今后变化趋势"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "今后变化趋势"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "较稳定，一些国家的人口还会逐渐减少"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "较稳定，一些国家的人口还会逐渐减少"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "采取了控制人口的措施，人口增长速度将趋缓，但人口数量还将增加"
+                      }
+                    ],
+                    "source_block": 54,
+                    "source_text": "采取了控制人口的措施，人口增长速度将趋缓，但人口数量还将增加"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 4,
+          "header_rows": 1,
+          "source_block": 54,
+          "note": "这是原资料对不同发展阶段的概括，不是当下所有国家的统一特征。判断具体国家时，应读取材料年份、出生率和死亡率。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、人口的增长模式"
+            }
+          ],
+          "source_block": 55,
+          "source_text": "2、人口的增长模式"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）人口增长模式的构成及类型"
+            }
+          ],
+          "source_block": 56,
+          "source_text": "1）人口增长模式的构成及类型"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①构成：人口增长模式是由出生率、死亡率和自然增长率三项指标共同构成的。"
+            }
+          ],
+          "source_block": 57,
+          "source_text": "①构成：人口增长模式是由出生率、死亡率和自然增长率三项指标共同构成的。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②类型：根据不同历史阶段人口的出生率、死亡率和自然增长率，世界人口增长模式可以划分为"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-050",
+              "answer": "原始型、传统型和现代型",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "三种类型。"
+            }
+          ],
+          "source_block": 58,
+          "source_text": "②类型：根据不同历史阶段人口的出生率、死亡率和自然增长率，世界人口增长模式可以划分为原始型、传统型和现代型三种类型。"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原始型"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "原始型"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "传统型"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "传统型"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "现代型"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "现代型"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特征"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "特征"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "出生率"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "出生率"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-051",
+                        "answer": "高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "高"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-052",
+                        "answer": "高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "高"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-053",
+                        "answer": "低",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "低"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "死亡率"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "死亡率"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-054",
+                        "answer": "高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "高"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-055",
+                        "answer": "低",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "低"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-056",
+                        "answer": "低",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "低"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "自然增长率"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "自然增长率"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-057",
+                        "answer": "低",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "低"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-058",
+                        "answer": "高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "高"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-059",
+                        "answer": "低",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "低"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原因"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "原因"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（1）高出生率：①没有控制生育②早期的农业社会需要多生子女，来帮助从事农业"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "（1）高出生率：①没有控制生育②早期的农业社会需要多生子女，来帮助从事农业"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（2）高死亡率：①战争频繁；②食物匮乏③医疗卫生条件差"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "（2）高死亡率：①战争频繁；②食物匮乏③医疗卫生条件差"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（1）高出生率：①节育还不普及②多生子女一方面可以养老，另一方面可以分担工作，增加收入"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "（1）高出生率：①节育还不普及②多生子女一方面可以养老，另一方面可以分担工作，增加收入"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（2）低死亡率：生产力水平提高，粮食供应和医疗条件改善，人们寿命延长"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "（2）低死亡率：生产力水平提高，粮食供应和医疗条件改善，人们寿命延长"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（1）低出生率：①生活水平提高，社会和家庭观念开始变化；②各种社会保险和福利事业的发展等"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "（1）低出生率：①生活水平提高，社会和家庭观念开始变化；②各种社会保险和福利事业的发展等"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（2）低死亡率：生产力水平随着社会向工业化发展不断提高，生活质量不断改善，医疗水平不断提高"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "（2）低死亡率：生产力水平随着社会向工业化发展不断提高，生活质量不断改善，医疗水平不断提高"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "主要分布地区"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "主要分布地区"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "发展中国家的个别落后地区"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "发展中国家的个别落后地区"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "印度等大部分发展中国家"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "印度等大部分发展中国家"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "欧日美等发达地区和少部分发展中国家，如中国"
+                      }
+                    ],
+                    "source_block": 59,
+                    "source_text": "欧日美等发达地区和少部分发展中国家，如中国"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 5,
+          "header_rows": 1,
+          "source_block": 59,
+          "note": "本表用于比较原始型、传统型、现代型的指标组合；末行国家举例带有资料编写时期的背景，不能据国名直接判断当前增长模式。"
+        }
+      ]
+    },
+    {
+      "id": "pocket11-02",
+      "group": "知识清单",
+      "title": "知识点二 人口容量",
+      "source_blocks": [
+        61,
+        77
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "population-blank-060",
+              "answer": "环境人口容量（环境承载力）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": ":某区域所能持续供养的人口数量"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-061",
+              "answer": "（极限人口）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 62,
+          "source_text": "环境人口容量（环境承载力）:某区域所能持续供养的人口数量（极限人口）。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在其他条件一定时，区域人口容量受"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-062",
+              "answer": "最紧缺的限制性资源",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "约束；这里的“最少”指相对于人口需求的短缺程度，不是不同资源实物数量的直接比较。"
+            }
+          ],
+          "source_block": 63,
+          "source_text": "一个地区的最少的资源（影响生存的，如土地、淡水、能源等）的环境承载力就是该区的环境人口容量。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-063",
+              "answer": "人口合理容量",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": ":一个国家或地区按照合理的生活方式，保障健康的生活水平，不妨碍未来人口生活质量的前提下最适宜的人口数量。"
+            }
+          ],
+          "source_block": 64,
+          "source_text": "2、人口合理容量:一个国家或地区按照合理的生活方式，保障健康的生活水平，不妨碍未来人口生活质量的前提下最适宜的人口数量。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在相同区域和条件下，环境人口容量通常大于人口合理容量：前者强调"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-064",
+              "answer": "承载上限",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，后者强调"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-065",
+              "answer": "适宜规模",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "与可持续生活。"
+            }
+          ],
+          "source_block": 65,
+          "source_text": "一个地区的环境人口容量＞人口合理容量"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、环境人口容量和人口合理容量的影响因素"
+            }
+          ],
+          "source_block": 66,
+          "source_text": "3、环境人口容量和人口合理容量的影响因素"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "因素"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "因素"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "与环境人口容量/人口合理容量的关系"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "与环境人口容量/人口合理容量的关系"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "资源丰富程度"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "资源丰富程度"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-066",
+                        "answer": "正",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "相关"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "正相关"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "资源越丰富,环境人口容量越大"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "资源越丰富,环境人口容量越大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "科技发展水平"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "科技发展水平"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-067",
+                        "answer": "正",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "相关"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "正相关"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "科技发展水平越高,环境人口容量越大"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "科技发展水平越高,环境人口容量越大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "经济发达程度"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "经济发达程度"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-068",
+                        "answer": "正",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "相关"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "正相关"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "经济越发达,环境人口容量越大"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "经济越发达,环境人口容量越大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口受教育水平"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "人口受教育水平"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-069",
+                        "answer": "正",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "相关"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "正相关"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口受教育水平越高,环境人口容量越大"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "人口受教育水平越高,环境人口容量越大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地区开放程度"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "地区开放程度"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-070",
+                        "answer": "正",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "相关"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "正相关"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地区开放程度越高,环境人口容量越大"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "地区开放程度越高,环境人口容量越大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "生活消费水平"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "生活消费水平"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-071",
+                        "answer": "负",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "相关"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "负相关"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "消费水平越高,环境人口容量越小"
+                      }
+                    ],
+                    "source_block": 67,
+                    "source_text": "消费水平越高,环境人口容量越小"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 3,
+          "header_rows": 1,
+          "source_block": 67,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、人口结构与人口问题"
+            }
+          ],
+          "source_block": 68,
+          "source_text": "4、人口结构与人口问题"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "人口结构主要包括人口年龄结构、人口性别结构、人口文化素质结构等。人口结构若出现不合理，则会引发人口问题。"
+            }
+          ],
+          "source_block": 69,
+          "source_text": "人口结构主要包括人口年龄结构、人口性别结构、人口文化素质结构等。人口结构若出现不合理，则会引发人口问题。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）人口的年龄结构与人口问题"
+            }
+          ],
+          "source_block": 70,
+          "source_text": "1）人口的年龄结构与人口问题"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "人口的年龄结构是指各年龄段人口占总人口的比重。就目前而言，世界人口年龄结构存在的问题主要表现为人口年轻化和人口老龄化。"
+            }
+          ],
+          "source_block": 71,
+          "source_text": "人口的年龄结构是指各年龄段人口占总人口的比重。就目前而言，世界人口年龄结构存在的问题主要表现为人口年轻化和人口老龄化。"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口年轻化"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_text": "人口年轻化"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口老龄化"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_text": "人口老龄化"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口年龄结构趋势"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_text": "人口年龄结构趋势"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "少年儿童人口的比重不断上升，而老年人口的比重不断下降"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_text": "少年儿童人口的比重不断上升，而老年人口的比重不断下降"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "少年儿童人口的比重不断下降，而老年人口的比重不断上升"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_text": "少年儿童人口的比重不断下降，而老年人口的比重不断上升"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口问题"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_text": "人口问题"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口年轻化可导致人口增长过快。人口持续增长，最终会超出环境的供应和自净能力，进而引发各种资源问题、环境问题和社会问题"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_text": "人口年轻化可导致人口增长过快。人口持续增长，最终会超出环境的供应和自净能力，进而引发各种资源问题、环境问题和社会问题"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口老龄化可造成劳动力短缺、国防兵源不足、社会上用于老年人的退休和养老等费用增加、老年人生活困难和孤单等问题"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_text": "人口老龄化可造成劳动力短缺、国防兵源不足、社会上用于老年人的退休和养老等费用增加、老年人生活困难和孤单等问题"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 3,
+          "header_rows": 1,
+          "source_block": 72,
+          "note": "区分“年轻型/老年型”的结构状态与“年轻化/老龄化”的变化过程。单一年龄组比重变化不一定使其他年龄组比重同时反向变化。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）人口的性别结构与人口问题"
+            }
+          ],
+          "source_block": 74,
+          "source_text": "2）人口的性别结构与人口问题"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "人口性别结构是男性和女性在总人口中的构成。总人口性别比以"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-072",
+              "answer": "女性为100",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，表示男性对女性的比例；出生人口性别比只针对一定时期的出生人口，通常正常范围为"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-073",
+              "answer": "103—107",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。不能把出生人口性别比约105当作所有地区总人口性别比的固定标准。"
+            }
+          ],
+          "source_block": 75,
+          "source_text": "人口性别结构是指在一定时期内（通常为一年内），一个国家或地区的人口构成中，新出生的男性或女性各占总人口的比例。通常用“性别比”来衡量，即用100位女性对应的男性数来衡量，通常情况下男女比例为105∶100。"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "性别比失衡的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-074",
+                        "answer": "原因",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_text": "性别比失衡的原因"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "社会经济发展相对滞后、养老保障机制不健全、生育观念落后、男女不平等现象、人为的技术干预因素等"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_text": "社会经济发展相对滞后、养老保障机制不健全、生育观念落后、男女不平等现象、人为的技术干预因素等"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "性别比失衡的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-075",
+                        "answer": "影响",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_text": "性别比失衡的影响"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "性别比失衡会造成婚姻、家庭、社会的不稳定，不利于社会经济的发展"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_text": "性别比失衡会造成婚姻、家庭、社会的不稳定，不利于社会经济的发展"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "性别比失衡的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-076",
+                        "answer": "对策",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_text": "性别比失衡的对策"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "加强非法性别选择的监管，大力发展生产力，提高妇女地位，建立健全养老保障体系，加强宣传教育，转变群众的婚育观念等"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_text": "加强非法性别选择的监管，大力发展生产力，提高妇女地位，建立健全养老保障体系，加强宣传教育，转变群众的婚育观念等"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 2,
+          "header_rows": 0,
+          "source_block": 76,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket11-03",
+      "group": "知识清单",
+      "title": "知识点三 人口迁移",
+      "source_blocks": [
+        78,
+        97
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、人口迁移"
+            }
+          ],
+          "source_block": 79,
+          "source_text": "1、人口迁移"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）人口迁移是人的居住地在国际或本国范围内发生"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-077",
+              "answer": "长期或永久改变",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，通常伴随跨越一定行政区界线；旅游、短期出差和日常通勤不直接算人口迁移。"
+            }
+          ],
+          "source_block": 80,
+          "source_text": "1）人口迁移就是人的居住地在国际或本国范围内发生改变。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）人口迁移按照是否越国界可分为国际人口迁移和国内人口迁移。"
+            }
+          ],
+          "source_block": 81,
+          "source_text": "2）人口迁移按照是否越国界可分为国际人口迁移和国内人口迁移。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①国际人口迁移：国际人口迁移是指人口跨国界并改变住所达到一定时间(通常为1年)的迁移活动。"
+            }
+          ],
+          "source_block": 82,
+          "source_text": "①国际人口迁移：国际人口迁移是指人口跨国界并改变住所达到一定时间(通常为1年)的迁移活动。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②不同时期的国际人口迁移"
+            }
+          ],
+          "source_block": 83,
+          "source_text": "②不同时期的国际人口迁移"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特点"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "特点"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "流向"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "流向"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原因"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "原因"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "意义"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "意义"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "二战前"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "二战前"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "集团性、大批的移民为主"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "集团性、大批的移民为主"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "由欧洲、非洲、亚洲等旧大陆迁往美洲和大洋洲等新大陆"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "由欧洲、非洲、亚洲等旧大陆迁往美洲和大洋洲等新大陆"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地理大发现与新航线的开辟；资本主义发展与殖民扩张、黑奴贸易、殖民主义者招工开发东南亚和美洲"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "地理大发现与新航线的开辟；资本主义发展与殖民扩张、黑奴贸易、殖民主义者招工开发东南亚和美洲"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "在客观上开发了新大陆，传播了工业文明，也改变了人种的空间分布"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "在客观上开发了新大陆，传播了工业文明，也改变了人种的空间分布"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "二战后"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "二战后"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口从发展中国家流向发达国家；定居移民减少，短期流动的人口增多"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "人口从发展中国家流向发达国家；定居移民减少，短期流动的人口增多"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "亚、非、拉发展中国家向北美、西欧等发达国家及西亚和北非石油产区"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "亚、非、拉发展中国家向北美、西欧等发达国家及西亚和北非石油产区"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "各国生产力发展不平衡；劳动力供求关系的地区差异"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "各国生产力发展不平衡；劳动力供求关系的地区差异"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "调整了劳动力空间分布不均的状况"
+                      }
+                    ],
+                    "source_block": 84,
+                    "source_text": "调整了劳动力空间分布不均的状况"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 5,
+          "header_rows": 1,
+          "source_block": 84,
+          "note": ""
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③国内人口迁移：国内人口迁移是指在一国范围内，人口从一个地区向另一个地区移居的现象。"
+            }
+          ],
+          "source_block": 86,
+          "source_text": "③国内人口迁移：国内人口迁移是指在一国范围内，人口从一个地区向另一个地区移居的现象。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "④我国不同时期的国内人口迁移"
+            }
+          ],
+          "source_block": 87,
+          "source_text": "④我国不同时期的国内人口迁移"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特点"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "特点"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "流向"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "流向"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响因素"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "影响因素"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "古代"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "古代"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大批迁移"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "大批迁移"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "秦汉开始：黄河中下游→长江流域和珠江流域；“安史之乱”：人口分布中心由黄河流域→长江流域"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "秦汉开始：黄河中下游→长江流域和珠江流域；“安史之乱”：人口分布中心由黄河流域→长江流域"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "深受统治者及其行政力量的束缚；自给自足的农业经济脆弱；战争频繁；自然灾害；移民支边；"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "深受统治者及其行政力量的束缚；自给自足的农业经济脆弱；战争频繁；自然灾害；移民支边；"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 4,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "当代"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "当代"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-078",
+                        "answer": "新中国成立后到80年代",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "中期的人口迁移"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "新中国成立后到80年代中期的人口迁移"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "有计划、有组织"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "有计划、有组织"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（迁移规模比较小、频率比较低）"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "（迁移规模比较小、频率比较低）"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "东部→西北和东北；沿海→内陆"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "东部→西北和东北；沿海→内陆"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "净迁出省区：辽、鲁、沪、川；持平省区：西藏；其余为人口净迁入省区。"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "净迁出省区：辽、鲁、沪、川；持平省区：西藏；其余为人口净迁入省区。"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①计划经济；②严格的户籍管理制度；③政策限制农民进城"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "①计划经济；②严格的户籍管理制度；③政策限制农民进城"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 4,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "方式：①安置失业人员和闲散劳动力；②支援新开发工业基地建设；③移民垦荒、支援边疆、建设农林牧业新基地；④高等学校搬迁、招生和分配；⑤新修水利水库、库区移民；⑥压缩城市人口规模；⑦少量的自发迁移。"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "方式：①安置失业人员和闲散劳动力；②支援新开发工业基地建设；③移民垦荒、支援边疆、建设农林牧业新基地；④高等学校搬迁、招生和分配；⑤新修水利水库、库区移民；⑥压缩城市人口规模；⑦少量的自发迁移。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-079",
+                        "answer": "20世纪80年代中期以来",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "20世纪80年代中期以来"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "迁移流量大，流向改变"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "迁移流量大，流向改变"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（流动人口增加，自发流动为主）"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "（流动人口增加，自发流动为主）"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "从农村到城市；从内地省、自治区到沿海城市和工矿地区。"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "从农村到城市；从内地省、自治区到沿海城市和工矿地区。"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①城乡和地区之间巨大的收入差异（根本原因）；②农村中存在大量剩余劳动力；③政策允许农民进入小城镇落户"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "①城乡和地区之间巨大的收入差异（根本原因）；②农村中存在大量剩余劳动力；③政策允许农民进入小城镇落户"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 3,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "目的：务工、经商、学习"
+                      }
+                    ],
+                    "source_block": 88,
+                    "source_text": "目的：务工、经商、学习"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 6,
+          "header_rows": 1,
+          "source_block": 88,
+          "note": "本表按原资料保留历史迁移背景与举例，不代表当前各省人口净流入、净流出的格局。具体判断须使用题目给定时段。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "影响人口迁移的因素"
+            }
+          ],
+          "source_block": 89,
+          "source_text": "影响人口迁移的因素"
+        },
+        {
+          "type": "figure",
+          "image": "assets/recall/pocket-population/image-07.png",
+          "width": 853,
+          "height": 609,
+          "caption": "影响人口迁移的因素",
+          "note": "",
+          "masks": [],
+          "source_block": 90
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响因素"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "影响因素"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "案例"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "案例"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 5,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-080",
+                        "answer": "自然",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "自然"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-081",
+                        "answer": "因素",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "因素"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气候"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "气候"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "美国本土老年人在退休后由东北部“冷冻地带”向南方"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "population-blank-082",
+                        "answer": "“阳光地带”",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "迁移"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "美国本土老年人在退休后由东北部“冷冻地带”向南方“阳光地带”迁移"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水源"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "水源"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "塔里木盆地中绿洲地区人口向河流上游移动"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "塔里木盆地中绿洲地区人口向河流上游移动"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "土壤"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "土壤"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "农民因耕地不足发生人口迁移"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "农民因耕地不足发生人口迁移"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "矿产资源"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "矿产资源"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大庆、攀枝花吸引大量工人、技术人员和家属迁入"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "大庆、攀枝花吸引大量工人、技术人员和家属迁入"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "生态恶化"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "生态恶化"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "20世纪非洲干旱造成的环境难民"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "20世纪非洲干旱造成的环境难民"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-083",
+                        "answer": "经济",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "经济"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-084",
+                        "answer": "因素",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "因素"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "经济水平"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "经济水平"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "20世纪80年代，深圳、珠海等经济特区的设立，致大量人口迁入"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "20世纪80年代，深圳、珠海等经济特区的设立，致大量人口迁入"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "交通和通讯的发展"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "交通和通讯的发展"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "近几个世纪的人口迁移高潮"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "近几个世纪的人口迁移高潮"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-085",
+                        "answer": "社会",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "社会"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-086",
+                        "answer": "因素",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "因素"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "政治"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "政治"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国六、七十年代知青下乡"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "我国六、七十年代知青下乡"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "战争"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "战争"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "波黑战争引起200多万难民逃离家乡"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "波黑战争引起200多万难民逃离家乡"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "婚姻"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "婚姻"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "军人家属随军"
+                      }
+                    ],
+                    "source_block": 91,
+                    "source_text": "军人家属的从军"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 3,
+          "header_rows": 1,
+          "source_block": 91,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "人口迁移的影响"
+            }
+          ],
+          "source_block": 92,
+          "source_text": "人口迁移的影响"
+        },
+        {
+          "type": "figure",
+          "image": "assets/recall/pocket-population/image-08.png",
+          "width": 1368,
+          "height": 464,
+          "caption": "城乡之间的推力与拉力",
+          "note": "",
+          "masks": [
+            {
+              "x": 0.4093567251461988,
+              "y": 0.1314655172413793,
+              "width": 0.16812865497076024,
+              "height": 0.14870689655172414,
+              "type": "blank",
+              "id": "population-blank-087",
+              "answer": "城市的拉力",
+              "origin": "reviewed-image-mask"
+            },
+            {
+              "x": 0.4093567251461988,
+              "y": 0.35560344827586204,
+              "width": 0.16812865497076024,
+              "height": 0.14870689655172414,
+              "type": "blank",
+              "id": "population-blank-088",
+              "answer": "城市的推力",
+              "origin": "reviewed-image-mask"
+            },
+            {
+              "x": 0.4093567251461988,
+              "y": 0.5797413793103449,
+              "width": 0.16812865497076024,
+              "height": 0.14870689655172414,
+              "type": "blank",
+              "id": "population-blank-089",
+              "answer": "乡村的推力",
+              "origin": "reviewed-image-mask"
+            },
+            {
+              "x": 0.4093567251461988,
+              "y": 0.8038793103448276,
+              "width": 0.16812865497076024,
+              "height": 0.14870689655172414,
+              "type": "blank",
+              "id": "population-blank-090",
+              "answer": "乡村的拉力",
+              "origin": "reviewed-image-mask"
+            }
+          ],
+          "source_block": 93
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "推拉理论"
+            }
+          ],
+          "source_block": 94,
+          "source_text": "推拉理论"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "项目"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "项目"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-091",
+                        "answer": "正面",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "影响"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "正面影响"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-092",
+                        "answer": "负面",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "影响"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "负面影响"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-093",
+                        "answer": "迁入地",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "迁入地"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①迁移者获得更多的工作机会和更高的经济收入；"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "①迁移者获得更多的工作机会和更高的经济收入；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "②缓解迁入地劳动力紧缺的状况；"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "②缓解迁入地劳动力紧缺的状况；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "③促进商品流通和经济发展"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "③促进商品流通和经济发展"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①增加了公共设施的负担和城市管理的难度；"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "①增加了公共设施的负担和城市管理的难度；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "②增大了生态环境的压力；"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "②增大了生态环境的压力；"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "population-blank-094",
+                        "answer": "迁出地",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "迁出地"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①减轻迁出地的压力，缓解人地矛盾"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "①减轻迁出地的压力，缓解人地矛盾"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "②更好地开发利用土地资源；（集中管理生产）"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "②更好地开发利用土地资源；（集中管理生产）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①劳动力减少，人才外流"
+                      }
+                    ],
+                    "source_block": 95,
+                    "source_text": "①劳动力减少，人才外流"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 3,
+          "header_rows": 1,
+          "source_block": 95,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket11-04",
+      "group": "易错易混",
+      "title": "易错易混01 常住人口和户籍人口",
+      "source_blocks": [
+        99,
+        102
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、我国人口统计中的常住人口按"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-095",
+              "answer": "经常居住地",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "统计，通常包括本地户口且居住本地或短期外出者、在本地经常居住并离开户口登记地"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-096",
+              "answer": "半年及以上",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "者，以及本地居住且户口待定者。具体以题目给定的地域、时点和统计口径为准。"
+            }
+          ],
+          "source_block": 100,
+          "source_text": "1、常住人口指经常居住在某一地区的人口，它包括常住该地而临时外出的人口，不包括临时寄住的人口。常住人口是国际上进行人口普查时常用的统计口径之一。目前世界上大多数国家都把居住半年以上作为判别常住人口的时间标准。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-097",
+              "answer": "户籍人口",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "是指公民依照《中华人民共和国户口登记条例》已在其经常居住地的公安户籍管理机关登记了常住户口的人。这类人口不管其是否外出，也不管外出时间长短，只要在某地注册有常住户口，则为该地区的"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-098",
+              "answer": "户籍人口",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 101,
+          "source_text": "2、户籍人口是指公民依照《中华人民共和国户口登记条例》已在其经常居住地的公安户籍管理机关登记了常住户口的人。这类人口不管其是否外出，也不管外出时间长短，只要在某地注册有常住户口，则为该地区的户籍人口。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、在地域、时点和分类口径一致且互不重复时，可简记：常住人口＝户籍人口－"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-099",
+              "answer": "本地户籍外出半年及以上人口",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "＋"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-100",
+              "answer": "外地户籍迁入并离开户籍地半年及以上人口",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "＋本地户口待定人口。特殊统计规定以题目材料为准。"
+            }
+          ],
+          "source_block": 102,
+          "source_text": "3、常住人口＝户籍人口－户籍人口中外出半年以上的人口＋离开户籍地半年以上的外来人口＋户口待定人口。"
+        }
+      ]
+    },
+    {
+      "id": "pocket11-05",
+      "group": "易错易混",
+      "title": "易错易混02 我国的人口问题及对策",
+      "source_blocks": [
+        103,
+        107
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "我国人口形势已发生变化，不能继续概括为“人口增长速度较快”。国家统计局公布的2025年人口自然增长率为"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-101",
+              "answer": "−2.41‰",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。复习应关注"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-102",
+              "answer": "低生育",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-103",
+              "answer": "人口老龄化",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、人口与资源环境的协调及人口空间分布差异；具体题目按材料年份分析。下表保留原资料列举的问题与对策，并对旧表述作了调整。"
+            }
+          ],
+          "source_block": 104,
+          "source_text": "我国人口问题比较特殊，既有发展中国家普遍存在的人口增长速度过快的问题，也有发达国家的人口老龄化问题，这是因为虽然我国的自然增长率较低，但是由于人口基数大，所以人口增长速度较快。除此之外，我国在人口上还存在着其他不合理问题。具体如下表所示："
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口问题"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "人口问题"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "解决措施"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "解决措施"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口性别结构不合理(男性比重偏高)"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "人口性别结构不合理(男性比重偏高)"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "促进性别平等，转变重男轻女观念，依法治理非医学需要的胎儿性别鉴定和选择性别的人工终止妊娠"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "调整计划生育政策，转变人口生育观念"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口素质提升需求"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "人口素质较低"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大力发展科技教育，提高人口素质"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "大力发展科技教育，提高人口素质"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口地区分布不平衡"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "人口地区分布不平衡"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "加强经济建设，提高和改善落后地区的社会经济条件"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "加强经济建设，提高和改善落后地区的社会经济条件"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口流动规模大"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "人口流动规模大"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "积极发展交通、经济，缩小地区发展差距，增加本地就业机会"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "积极发展交通、经济，缩小地区发展差距，增加本地就业机会"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "空巢老人、留守儿童、独生子女家庭增多"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "空巢老人、留守儿童、独生子女家庭增多"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "发展社会保障事业，增加本地就业岗位和机会等"
+                      }
+                    ],
+                    "source_block": 105,
+                    "source_text": "发展社会保障事业，增加本地就业岗位和机会等"
+                  }
+                ]
+              }
+            ]
+          ],
+          "columns": 2,
+          "header_rows": 1,
+          "source_block": 105,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket11-06",
+      "group": "知能拓展",
+      "title": "考点01 影响人口迁移因素的分析方法",
+      "source_blocks": [
+        109,
+        115
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "影响人口迁移的因素具有具体性和复杂性，因此在分析某具体案例时，要注意以下原则。"
+            }
+          ],
+          "source_block": 110,
+          "source_text": "影响人口迁移的因素具有具体性和复杂性，因此在分析某具体案例时，要注意以下原则。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、抓主要"
+            }
+          ],
+          "source_block": 111,
+          "source_text": "1、抓主要"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "影响某地人口迁移的因素不止一个，要抓住主要因素作重点分析。一般情况下，在现代社会中，"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-104",
+              "answer": "经济因素",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "是主要的经常起作用的因素，如下图所示："
+            }
+          ],
+          "source_block": 112,
+          "source_text": "影响某地人口迁移的因素不止一个，要抓住主要因素作重点分析。一般情况下，在现代社会中，经济因素是主要的经常起作用的因素，如下图所示："
+        },
+        {
+          "type": "figure",
+          "image": "assets/recall/pocket-population/image-11.png",
+          "width": 1568,
+          "height": 615,
+          "caption": "经济因素与人口迁移",
+          "note": "",
+          "masks": [
+            {
+              "x": 0.350765306122449,
+              "y": 0.6910569105691057,
+              "width": 0.29336734693877553,
+              "height": 0.15447154471544716,
+              "type": "blank",
+              "id": "population-blank-105",
+              "answer": "经济因素",
+              "origin": "reviewed-image-mask"
+            }
+          ],
+          "source_block": 113
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、重具体"
+            }
+          ],
+          "source_block": 114,
+          "source_text": "2、重具体"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "人口迁移因素的分析没有固定模式来套用，看似相同的人口迁移现象，其原因可能是不一样的，因此一定要具体问题具体分析。比如，同样是老年人的迁移，美国老年人向“阳光地带”迁移，主要是"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-106",
+              "answer": "气候因素",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的吸引作用。中国老年人则多出于"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-107",
+              "answer": "家庭因素",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "考虑而向成年儿女居住地迁移。"
+            }
+          ],
+          "source_block": 115,
+          "source_text": "人口迁移因素的分析没有固定模式来套用，看似相同的人口迁移现象，其原因可能是不一样的，因此一定要具体问题具体分析。比如，同样是老年人的迁移，美国老年人向“阳光地带”迁移，主要是气候因素的吸引作用。中国老年人则多出于家庭因素考虑而向成年儿女居住地迁移。"
+        }
+      ]
+    },
+    {
+      "id": "pocket11-07",
+      "group": "知能拓展",
+      "title": "考点02 人口模式图判读",
+      "source_blocks": [
+        116,
+        132
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、人口金字塔的判读"
+            }
+          ],
+          "source_block": 117,
+          "source_text": "1、人口金字塔的判读"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）读构成"
+            }
+          ],
+          "source_block": 118,
+          "source_text": "1）读构成"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "可从人口金字塔读取不同年龄组及男女构成，辨认"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-108",
+              "answer": "年龄结构",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-109",
+              "answer": "性别结构",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。判断人口增长特征还应结合出生率、死亡率及迁移等信息，不能只凭形状直接确定增长模式。"
+            }
+          ],
+          "source_block": 119,
+          "source_text": "可直接读出该地区不同年龄段人口占总人口的比重(如图)。人口金字塔可以读取人口性别结构、人口年龄结构、人口增长模式。"
+        },
+        {
+          "type": "figure",
+          "image": "assets/recall/pocket-population/image-12.png",
+          "width": 1407,
+          "height": 1005,
+          "caption": "人口金字塔的读图要素",
+          "note": "",
+          "masks": [
+            {
+              "x": 0.04975124378109453,
+              "y": 0.01990049751243781,
+              "width": 0.8955223880597015,
+              "height": 0.08756218905472637,
+              "type": "blank",
+              "id": "population-blank-110",
+              "answer": "左半部分代表男性，右半部分代表女性",
+              "origin": "reviewed-image-mask"
+            }
+          ],
+          "source_block": 120
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）定类型"
+            }
+          ],
+          "source_block": 122,
+          "source_text": "2）定类型"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "年轻型通常"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-111",
+              "answer": "底部较宽",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、少儿比重较大；成年型各年龄组相对均衡；老年型通常"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-112",
+              "answer": "底部收窄",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、老年比重较大。它们反映年龄结构，人口增长趋势还受出生、死亡和迁移影响，不能把成年型直接等同于某一种人口增长模式。"
+            }
+          ],
+          "source_block": 123,
+          "source_text": "年轻型和成年型人口金字塔图对应传统型（高低高模式或过渡模式）的人口增长模式，其中年轻型人口处于高增长阶段，成年型人口处于增长下降阶段；老年型人口金字塔图对应现代型（三低模式）的人口增长模式。"
+        },
+        {
+          "type": "figure",
+          "image": "assets/recall/pocket-population/image-13.png",
+          "width": 783,
+          "height": 293,
+          "caption": "三种人口年龄结构类型",
+          "note": "",
+          "masks": [
+            {
+              "x": 0.22988505747126436,
+              "y": 0.6382252559726962,
+              "width": 0.22349936143039592,
+              "height": 0.24573378839590443,
+              "type": "blank",
+              "id": "population-blank-113",
+              "answer": "年轻型（增长型）",
+              "origin": "reviewed-image-mask"
+            },
+            {
+              "x": 0.4827586206896552,
+              "y": 0.6382252559726962,
+              "width": 0.24904214559386972,
+              "height": 0.24573378839590443,
+              "type": "blank",
+              "id": "population-blank-114",
+              "answer": "成年型（静止型）",
+              "origin": "reviewed-image-mask"
+            },
+            {
+              "x": 0.7445721583652618,
+              "y": 0.6382252559726962,
+              "width": 0.2503192848020434,
+              "height": 0.24573378839590443,
+              "type": "blank",
+              "id": "population-blank-115",
+              "answer": "老年型（缩减型）",
+              "origin": "reviewed-image-mask"
+            }
+          ],
+          "source_block": 124
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）析变化"
+            }
+          ],
+          "source_block": 125,
+          "source_text": "3）析变化"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①正常变化"
+            }
+          ],
+          "source_block": 126,
+          "source_text": "①正常变化"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "从年轻型到老年型的正常转变。其变化主要是随着生产力的发展，受人口自然增长的影响，人口增长模式由"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-116",
+              "answer": "原始型→传统型→现代型",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "转变。"
+            }
+          ],
+          "source_block": 127,
+          "source_text": "从年轻型到老年型的正常转变。其变化主要是随着生产力的发展，受人口自然增长的影响，人口增长模式由原始型→传统型→现代型转变。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②特殊变化"
+            }
+          ],
+          "source_block": 128,
+          "source_text": "②特殊变化"
+        },
+        {
+          "type": "figure",
+          "image": "assets/recall/pocket-population/image-14.png",
+          "width": 610,
+          "height": 400,
+          "caption": "人口金字塔的异常变化",
+          "note": "",
+          "masks": [],
+          "source_block": 129
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "a.某年龄段人口比例突然变小(如上图A处)。其原因主要有以下几种情况：一是计划生育政策实施等导致"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-117",
+              "answer": "出生率突然降低",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，二是重大灾害等导致"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-118",
+              "answer": "死亡率上升",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，三是"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-119",
+              "answer": "人口的大量外迁",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 130,
+          "source_text": "a.某年龄段人口比例突然变小(如上图A处)。其原因主要有以下几种情况：一是计划生育政策实施等导致出生率突然降低，二是重大灾害等导致死亡率上升，三是人口的大量外迁。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "b.某年龄段人口比例突然增加(如上图B处)。其原因可能是就业、升学等导致的"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-120",
+              "answer": "人口大量迁入",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 131,
+          "source_text": "b.某年龄段人口比例突然增加(如上图B处)。其原因可能是就业、升学等导致的人口大量迁入。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "c.男女比例的明显失调(如上图C处)。可能是"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-121",
+              "answer": "战争",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "导致大量男性死亡，也可能是钢铁、纺织等对职工性别有一定要求的"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-122",
+              "answer": "工厂建设",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "导致的。"
+            }
+          ],
+          "source_block": 132,
+          "source_text": "c.男女比例的明显失调(如上图C处)。可能是战争导致大量男性死亡，也可能是钢铁、纺织等对职工性别有一定要求的工厂建设导致的。"
+        }
+      ]
+    },
+    {
+      "id": "pocket11-08",
+      "group": "知能拓展",
+      "title": "考点03 人口惯性与计生政策的变化",
+      "source_blocks": [
+        133,
+        155
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、人口惯性：由"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-123",
+              "answer": "人口年龄结构",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "引起。"
+            }
+          ],
+          "source_block": 134,
+          "source_text": "1、人口惯性：由人口年龄结构引起。"
+        },
+        {
+          "type": "figure",
+          "image": "assets/recall/pocket-population/image-15.png",
+          "width": 771,
+          "height": 364,
+          "caption": "人口惯性增长与惯性减少",
+          "note": "图中的生育更替水平约2.1是概括性示例，具体水平受生育、死亡等条件影响。",
+          "masks": [
+            {
+              "x": 0.3125810635538262,
+              "y": 0.3516483516483517,
+              "width": 0.25421530479896237,
+              "height": 0.1813186813186813,
+              "type": "blank",
+              "id": "population-blank-124",
+              "answer": "形成一个年龄结构较轻的人口群体",
+              "origin": "reviewed-image-mask"
+            },
+            {
+              "x": 0.5810635538261998,
+              "y": 0.34615384615384615,
+              "width": 0.16601815823605706,
+              "height": 0.20604395604395603,
+              "type": "blank",
+              "id": "population-blank-125",
+              "answer": "育龄人群比重大",
+              "origin": "reviewed-image-mask"
+            },
+            {
+              "x": 0.5784695201037614,
+              "y": 0.7582417582417582,
+              "width": 0.1608300907911803,
+              "height": 0.19230769230769232,
+              "type": "blank",
+              "id": "population-blank-126",
+              "answer": "人口结构老化",
+              "origin": "reviewed-image-mask"
+            }
+          ],
+          "source_block": 137
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、生育政策："
+            }
+          ],
+          "source_block": 139,
+          "source_text": "2、生育政策："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "生育政策方向转变的时机选择折射了一国政府对人口内在规律的把握程度，以及对未来人口态势的判断。人口政策存在"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-127",
+              "answer": "实施与见效的时间差",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，应结合年龄结构变化提前研判，不能把“问题一旦出现就已错过最佳时机”当作普遍规律。"
+            }
+          ],
+          "source_block": 140,
+          "source_text": "生育政策方向转变的时机选择折射了一国政府对人口内在规律的把握程度，以及对未来人口态势的判断。人口内在发展规律一再告诫我们，人口问题一旦出现，意味着解决人口问题的最佳时机已经过去。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "抓紧构建"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-128",
+              "answer": "鼓励生育",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的政策体系，使生育政策和其他经济社会政策相衔接，营造生育友好型社会环境，增强生育率的恢复。"
+            }
+          ],
+          "source_block": 141,
+          "source_text": "抓紧构建鼓励生育的政策体系，使生育政策和其他经济社会政策相衔接，营造生育友好型社会环境，增强生育率的恢复。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（针对劳力不足）具体措施：出台一系列保障生育和育儿等方面的政策“组合拳”，提高生育率水平（各种福利措施）；其次，加大"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-129",
+              "answer": "教育投入",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，特别是对职业教育的投入力度，进而以人口质量的提高对冲人口老龄化带来的不利影响，实现“"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-130",
+              "answer": "人才红利",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "”；最后，进一步推进户籍制度改革，建立高素质人才流动机制，逐步探索多元化的城市人口政策，实现"
+            },
+            {
+              "type": "blank",
+              "id": "population-blank-131",
+              "answer": "人才和工作岗位的最优匹配",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，促进产业高质量发展。"
+            }
+          ],
+          "source_block": 142,
+          "source_text": "（针对劳力不足）具体措施：出台一系列保障生育和育儿等方面的政策“组合拳”，提高生育率水平（各种福利措施）；其次，加大教育投入，特别是对职业教育的投入力度，进而以人口质量的提高对冲人口老龄化带来的不利影响，实现“人才红利”；最后，进一步推进户籍制度改革，建立高素质人才流动机制，逐步探索多元化的城市人口政策，实现人才和工作岗位的最优匹配，促进产业高质量发展。"
+        }
+      ]
+    }
+  ],
+  "audit": {
+    "reviewed_on": "2026-11-01",
+    "references": [
+      {
+        "id": "nbs-2025",
+        "title": "国家统计局：2025年国民经济和社会发展统计公报",
+        "url": "https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html"
+      },
+      {
+        "id": "nbs-sex",
+        "title": "国家统计局：2025年全国1%人口抽样调查主要数据公报",
+        "url": "https://www.stats.gov.cn/zwfwck/sjfb/202605/t20260522_1963788.html"
+      },
+      {
+        "id": "nbs-resident",
+        "title": "国家统计局：常住人口和流动人口如何区分",
+        "url": "https://www.stats.gov.cn/zs/tjws/tjbz/202301/t20230101_1903796.html"
+      },
+      {
+        "id": "nhc-birth-sex",
+        "title": "国家卫生健康委：出生人口性别比及其正常范围",
+        "url": "https://www.nhc.gov.cn/jtfzs/s3578/201502/ab0ea18da9c34d7789b5957464da51c3.shtml"
+      }
+    ],
+    "corrections": [
+      {
+        "source_block": 63,
+        "original": "一个地区的最少的资源（影响生存的，如土地、淡水、能源等）的环境承载力就是该区的环境人口容量。",
+        "revised": "在其他条件一定时，区域人口容量受最紧缺的限制性资源约束；这里的“最少”指相对于人口需求的短缺程度，不是不同资源实物数量的直接比较。",
+        "reason": "明确资源短板的含义。",
+        "references": []
+      },
+      {
+        "source_block": 65,
+        "original": "一个地区的环境人口容量＞人口合理容量",
+        "revised": "在相同区域和条件下，环境人口容量通常大于人口合理容量：前者强调承载上限，后者强调适宜规模与可持续生活。",
+        "reason": "说明两个容量的比较前提。",
+        "references": []
+      },
+      {
+        "source_block": 75,
+        "original": "人口性别结构是指在一定时期内（通常为一年内），一个国家或地区的人口构成中，新出生的男性或女性各占总人口的比例。通常用“性别比”来衡量，即用100位女性对应的男性数来衡量，通常情况下男女比例为105∶100。",
+        "revised": "人口性别结构是男性和女性在总人口中的构成。总人口性别比以女性为100，表示男性对女性的比例；出生人口性别比只针对一定时期的出生人口，通常正常范围为103—107。不能把出生人口性别比约105当作所有地区总人口性别比的固定标准。",
+        "reason": "区分总人口与出生人口性别比。",
+        "references": [
+          "nbs-sex",
+          "nhc-birth-sex"
+        ]
+      },
+      {
+        "source_block": 80,
+        "original": "1）人口迁移就是人的居住地在国际或本国范围内发生改变。",
+        "revised": "1）人口迁移是人的居住地在国际或本国范围内发生长期或永久改变，通常伴随跨越一定行政区界线；旅游、短期出差和日常通勤不直接算人口迁移。",
+        "reason": "补充时间与空间条件，避免将短期流动当作迁移。",
+        "references": []
+      },
+      {
+        "source_block": 91,
+        "original": "军人家属的从军",
+        "revised": "军人家属随军",
+        "reason": "修正文字错误。",
+        "references": []
+      },
+      {
+        "source_block": 100,
+        "original": "1、常住人口指经常居住在某一地区的人口，它包括常住该地而临时外出的人口，不包括临时寄住的人口。常住人口是国际上进行人口普查时常用的统计口径之一。目前世界上大多数国家都把居住半年以上作为判别常住人口的时间标准。",
+        "revised": "1、我国人口统计中的常住人口按经常居住地统计，通常包括本地户口且居住本地或短期外出者、在本地经常居住并离开户口登记地半年及以上者，以及本地居住且户口待定者。具体以题目给定的地域、时点和统计口径为准。",
+        "reason": "按国家统计局口径表述，避免将半年标准泛化到所有国家。",
+        "references": [
+          "nbs-resident"
+        ]
+      },
+      {
+        "source_block": 102,
+        "original": "3、常住人口＝户籍人口－户籍人口中外出半年以上的人口＋离开户籍地半年以上的外来人口＋户口待定人口。",
+        "revised": "3、在地域、时点和分类口径一致且互不重复时，可简记：常住人口＝户籍人口－本地户籍外出半年及以上人口＋外地户籍迁入并离开户籍地半年及以上人口＋本地户口待定人口。特殊统计规定以题目材料为准。",
+        "reason": "补充恒等式适用前提与半年及以上边界。",
+        "references": [
+          "nbs-resident"
+        ]
+      },
+      {
+        "source_block": 104,
+        "original": "我国人口问题比较特殊，既有发展中国家普遍存在的人口增长速度过快的问题，也有发达国家的人口老龄化问题，这是因为虽然我国的自然增长率较低，但是由于人口基数大，所以人口增长速度较快。除此之外，我国在人口上还存在着其他不合理问题。具体如下表所示：",
+        "revised": "我国人口形势已发生变化，不能继续概括为“人口增长速度较快”。国家统计局公布的2025年人口自然增长率为−2.41‰。复习应关注低生育、人口老龄化、人口与资源环境的协调及人口空间分布差异；具体题目按材料年份分析。下表保留原资料列举的问题与对策，并对旧表述作了调整。",
+        "reason": "更新已过时的人口增长判断，明确数据年份。",
+        "references": [
+          "nbs-2025"
+        ]
+      },
+      {
+        "source_block": 105,
+        "original": "调整计划生育政策，转变人口生育观念",
+        "revised": "促进性别平等，转变重男轻女观念，依法治理非医学需要的胎儿性别鉴定和选择性别的人工终止妊娠",
+        "reason": "纠正对策与性别比问题的对应关系，避免笼统评价。",
+        "references": []
+      },
+      {
+        "source_block": 105,
+        "original": "人口素质较低",
+        "revised": "人口素质提升需求",
+        "reason": "纠正对策与性别比问题的对应关系，避免笼统评价。",
+        "references": []
+      },
+      {
+        "source_block": 119,
+        "original": "可直接读出该地区不同年龄段人口占总人口的比重(如图)。人口金字塔可以读取人口性别结构、人口年龄结构、人口增长模式。",
+        "revised": "可从人口金字塔读取不同年龄组及男女构成，辨认年龄结构和性别结构。判断人口增长特征还应结合出生率、死亡率及迁移等信息，不能只凭形状直接确定增长模式。",
+        "reason": "区分图上直接读取与需要推断的信息。",
+        "references": []
+      },
+      {
+        "source_block": 123,
+        "original": "年轻型和成年型人口金字塔图对应传统型（高低高模式或过渡模式）的人口增长模式，其中年轻型人口处于高增长阶段，成年型人口处于增长下降阶段；老年型人口金字塔图对应现代型（三低模式）的人口增长模式。",
+        "revised": "年轻型通常底部较宽、少儿比重较大；成年型各年龄组相对均衡；老年型通常底部收窄、老年比重较大。它们反映年龄结构，人口增长趋势还受出生、死亡和迁移影响，不能把成年型直接等同于某一种人口增长模式。",
+        "reason": "修正年龄结构类型与增长模式的一一对应。",
+        "references": []
+      },
+      {
+        "source_block": 140,
+        "original": "人口内在发展规律一再告诫我们，人口问题一旦出现，意味着解决人口问题的最佳时机已经过去。",
+        "revised": "人口政策存在实施与见效的时间差，应结合年龄结构变化提前研判，不能把“问题一旦出现就已错过最佳时机”当作普遍规律。",
+        "reason": "去除绝对化判断。",
+        "references": []
+      }
+    ],
+    "blank_count": 131,
+    "images_sha256": {
+      "assets/recall/pocket-population/image-04.png": "681b365483f7a618bdc93b73fd520e55689c5920667f4cfdf635d2a394eed0af",
+      "assets/recall/pocket-population/image-07.png": "d7bac2d34850065ce63f2f2a6886db12fd6cba0439053faf13ae6a851cce1f5a",
+      "assets/recall/pocket-population/image-08.png": "6d06f094a3db2585dc62935cd59ece4d0cdb52d5e5555c87d9145cd37d1f310f",
+      "assets/recall/pocket-population/image-11.png": "a0ef061d1897a5f9cad874d2110ff20e9ebdc0a43b4a66e8f6dfd26e14447b97",
+      "assets/recall/pocket-population/image-12.png": "466881c48994b4264f24f0b717f5dc6ca2dd850ae94adfd0348b9ba9f3495296",
+      "assets/recall/pocket-population/image-13.png": "cce70a0ceddd5dd8a41f7a7d3c834ce25ecbd47f8fd9ffcd160f5d2e0f41a7a6",
+      "assets/recall/pocket-population/image-14.png": "f80d0b70fea9976d192533eff95d0204362ae8c9346f3c1e8a9297e223b1ede6",
+      "assets/recall/pocket-population/image-15.png": "c8133b9ab1f37ac472778113e08768e644533bb67cd9ee11f6a498552723997c"
+    },
+    "note": "人口样板已通过用户本地试用确认；历史分类按原顺序保留，现实人口判断须结合材料年份，查看答案不视为掌握。"
+  }
+}

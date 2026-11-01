@@ -197,10 +197,41 @@ main:has(.recall-layout) { width: min(100% - 28px, 1180px); }
 .recall-zoom-scroll { overflow: auto; padding: 0 12px 28px; text-align: center; }
 #recall-zoom-page { width: max(1000px, 100%); max-width: 1240px; margin: 0 auto; background: white; box-shadow: 0 8px 32px rgba(0,0,0,.35); }
 
+.recall-collections { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.pocket-content { padding: clamp(16px, 3vw, 30px); overflow: hidden; }
+.pocket-content > h2 { font-size: 23px; line-height: 1.45; }
+.pocket-paragraph { font-size: 16px; line-height: 1.95; margin: 14px 0; overflow-wrap: anywhere; }
+.pocket-subheading { font-size: 18px; line-height: 1.65; margin: 26px 0 12px; }
+.pocket-blank { display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; vertical-align: baseline; border: 0; border-radius: 3px; padding: 1px 4px; color: #633415; background: #ffe3c2; font: inherit; line-height: inherit; cursor: pointer; overflow-wrap: anywhere; }
+.pocket-blank-placeholder { display: inline-block; width: calc(var(--blank-length) * .65em); max-width: 100%; line-height: 1; }
+.pocket-blank-answer[hidden], .pocket-blank-placeholder[hidden] { display: none; }
+.pocket-blank:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+.pocket-table-scroll { max-width: 100%; overflow-x: auto; margin: 16px 0 24px; border: 1px solid #dce5e9; border-radius: 8px; }
+.pocket-table { border-collapse: collapse; table-layout: auto; width: 100%; min-width: 620px; font-size: 15px; }
+.pocket-table[data-column-count="2"] { min-width: 480px; table-layout: fixed; }
+.pocket-table[data-column-count="2"] th:first-child { width: 34%; }
+.pocket-table-hint { display: none; }
+.pocket-table th, .pocket-table td { min-width: 82px; max-width: 360px; padding: 12px; border: 1px solid #dce5e9; vertical-align: middle; color: var(--ink); }
+.pocket-table th { background: #edf4f5; text-align: left; }
+.pocket-table tr:nth-child(2n) td { background: #fbfcfc; }
+.pocket-table .pocket-paragraph { margin: 0; font-size: 15px; line-height: 1.85; }
+.pocket-table .pocket-subheading { margin: 0; font-size: 15px; }
+.pocket-figure { margin: 24px 0; }
+.pocket-figure-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; font-size: 14px; color: var(--muted); }
+.pocket-figure-canvas { position: relative; width: 100%; background: white; }
+.pocket-figure-canvas > img { display: block; width: 100%; height: auto; }
+.pocket-image-blank { border: 0; background: #ffe3c2; }
+.pocket-image-blank:hover, .pocket-image-blank:focus-visible { background: #ffe3c2; }
+.pocket-source { margin-top: 18px; font-size: 14px; line-height: 1.8; }
+.pocket-source a { overflow-wrap: anywhere; }
+.pocket-overview { margin-bottom: 18px; line-height: 1.8; }
+.pocket-overview > summary { cursor: pointer; font-weight: 600; }
+#pocket-zoom-content { width: max(1000px, 100%); max-width: 1600px; margin: 0 auto; }
 .recall-return-directory { display: none; }
 .recall-lesson-main { scroll-margin-top: 12px; }
 
 @media (max-width: 760px) {
+  .pocket-table-hint { display: block; margin-bottom: 4px; }
   .recall-return-directory { display: inline-flex; margin-bottom: 12px; }
   .recall-layout { grid-template-columns: 1fr; }
   .recall-directory { position: static; max-height: none; }

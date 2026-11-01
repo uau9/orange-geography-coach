@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.31.1", ASSET_VERSION: "0.31.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.32.0", ASSET_VERSION: "0.32.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,7 +57,7 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
-let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, regionReview: null, textbookCloseReading: null, recallCards: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
+let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, regionReview: null, textbookCloseReading: null, recallCards: null, pocketPopulation: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
 
 function defaultState() {
   return {
@@ -66,6 +66,8 @@ function defaultState() {
     currentQuestionId: null,
     diagnosticFilter: "all",
     recallLessonId: "recall-01",
+    recallCollection: "basics",
+    pocketSectionId: "pocket11-01",
     recallProgress: {},
     regionReviewDay: 1,
     textbookReadingPage: 18,
@@ -151,6 +153,8 @@ function normalizeState(parsed) {
   const normalized = { ...defaultState(), ...parsed, version: "0.3.0" };
   normalized.diagnosticFilter = ["all", "unseen", "review", "answered"].includes(parsed?.diagnosticFilter) ? parsed.diagnosticFilter : "all";
   normalized.recallLessonId = typeof parsed?.recallLessonId === "string" ? parsed.recallLessonId : "recall-01";
+  normalized.recallCollection = parsed?.recallCollection === "population" ? "population" : "basics";
+  normalized.pocketSectionId = typeof parsed?.pocketSectionId === "string" ? parsed.pocketSectionId : "pocket11-01";
   normalized.recallProgress = parsed?.recallProgress && typeof parsed.recallProgress === "object" && !Array.isArray(parsed.recallProgress) ? parsed.recallProgress : {};
   normalized.regionReviewDay = Number.isInteger(Number(parsed?.regionReviewDay)) && Number(parsed.regionReviewDay) >= 1 && Number(parsed.regionReviewDay) <= 14 ? Number(parsed.regionReviewDay) : 1;
   normalized.textbookReadingPage = Number.isInteger(Number(parsed?.textbookReadingPage)) && Number(parsed.textbookReadingPage) >= 18 && Number(parsed.textbookReadingPage) <= 25 ? Number(parsed.textbookReadingPage) : 18;
@@ -1899,7 +1903,7 @@ function renderProjects() {
 
 function fitRecallAnswer(answer) {
   const slot = answer.parentElement;
-  const pageWidth = slot.closest(".recall-page-crop").getBoundingClientRect().width;
+  const pageWidth = slot.closest(".recall-page-crop, .pocket-figure-canvas").getBoundingClientRect().width;
   let low = 0.1;
   let high = Math.min(slot.clientHeight / 1.08, pageWidth * 11 / 595);
   for (let i = 0; i < 14; i++) {
@@ -1916,6 +1920,18 @@ window.addEventListener("resize", () => {
 });
 
 function renderRecallCards() {
+  const collectionPicker = `<div class="recall-collections" role="group" aria-label="选择背诵资料"><button type="button" class="btn ${state.recallCollection === "basics" ? "orange" : "secondary"}" data-action="select-recall-collection" data-collection="basics" aria-pressed="${state.recallCollection === "basics"}">基础挖空 · 26版</button><button type="button" class="btn ${state.recallCollection === "population" ? "orange" : "secondary"}" data-action="select-recall-collection" data-collection="population" aria-pressed="${state.recallCollection === "population"}">口袋书 · 人口样板</button></div>`;
+  if (state.recallCollection === "population") {
+    const module = catalog.pocketPopulation;
+    const section = module?.sections.find((s) => s.id === state.pocketSectionId) || module?.sections[0];
+    if (!section || !window.OrangeCoach?.features?.pocketRecall) {
+      app.innerHTML = collectionPicker + `<section class="card empty">人口样板内容尚未加载。</section>`;
+      return;
+    }
+    state.pocketSectionId = section.id;
+    app.innerHTML = collectionPicker + window.OrangeCoach.features.pocketRecall.render({ module, section, progressByLesson: state.recallProgress });
+    return;
+  }
   const feature = window.OrangeCoach?.features?.recallCards;
   const module = catalog.recallCards;
   if (!feature || !module?.lessons?.length) {
@@ -1924,7 +1940,7 @@ function renderRecallCards() {
   }
   const lesson = module.lessons.find((item) => item.id === state.recallLessonId) || module.lessons[0];
   state.recallLessonId = lesson.id;
-  app.innerHTML = feature.render({ module, lesson, progressByLesson: state.recallProgress });
+  app.innerHTML = collectionPicker + feature.render({ module, lesson, progressByLesson: state.recallProgress });
 }
 
 function renderAttemptSummary(attempt) {
@@ -2672,6 +2688,57 @@ document.addEventListener("click", async (event) => {
   const actionTarget = event.target.closest("[data-action]");
   if (!actionTarget) return;
   const action = actionTarget.dataset.action;
+  if (action === "select-recall-collection") {
+    state.recallCollection = actionTarget.dataset.collection === "population" ? "population" : "basics";
+    saveState(); render();
+    return;
+  }
+  if (action === "open-pocket-section") {
+    const section = catalog.pocketPopulation?.sections.find((s) => s.id === actionTarget.dataset.sectionId);
+    if (!section) return;
+    state.pocketSectionId = section.id;
+    saveState(); render();
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      const content = document.querySelector(".recall-lesson-main");
+      content?.focus({ preventScroll: true });
+      content?.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+    return;
+  }
+  if (action === "toggle-pocket-blank") {
+    if (actionTarget.dataset.sectionId !== state.pocketSectionId) return;
+    const answer = actionTarget.querySelector(".pocket-blank-answer, .recall-blank-answer");
+    const shouldOpen = actionTarget.getAttribute("aria-expanded") !== "true";
+    actionTarget.setAttribute("aria-expanded", String(shouldOpen));
+    answer.hidden = !shouldOpen;
+    const placeholder = actionTarget.querySelector(".pocket-blank-placeholder");
+    if (placeholder) placeholder.hidden = shouldOpen;
+    if (shouldOpen) {
+      if (actionTarget.dataset.figure === "true") fitRecallAnswer(answer);
+      const previous = state.recallProgress[state.pocketSectionId] || {};
+      state.recallProgress[state.pocketSectionId] = { ...previous, reveal_count: Number(previous.reveal_count || 0) + 1, last_revealed_at: new Date().toISOString() };
+      saveState();
+    }
+    return;
+  }
+  if (action === "zoom-pocket-figure") {
+    const source = actionTarget.closest(".pocket-figure").querySelector(".pocket-figure-canvas");
+    const clone = source.cloneNode(true);
+    clone.querySelectorAll(".recall-blank").forEach((blank) => {
+      blank.setAttribute("aria-expanded", "false");
+      blank.querySelector(".recall-blank-answer").hidden = true;
+    });
+    document.querySelector("#pocket-zoom-content").replaceChildren(clone);
+    document.querySelector("#pocket-zoom .recall-zoom-head strong").textContent = source.querySelector(".recall-blank") ? "原图放大 · 点击橙色区域逐空背诵" : "思维导图 · 可横向移动查看完整原图";
+    document.querySelector("#pocket-zoom").hidden = false;
+    document.querySelector("#pocket-zoom .recall-zoom-scroll").scrollTo(0, 0);
+    return;
+  }
+  if (action === "close-pocket-zoom") {
+    document.querySelector("#pocket-zoom").hidden = true;
+    document.querySelector("#pocket-zoom-content").replaceChildren();
+    return;
+  }
   if (action === "open-recall-lesson") {
     const lesson = catalog.recallCards?.lessons?.find((item) => item.id === actionTarget.dataset.lessonId);
     if (!lesson) return;
@@ -2712,7 +2779,7 @@ document.addEventListener("click", async (event) => {
   }
   if (action === "set-recall-status") {
     const lessonId = actionTarget.dataset.lessonId;
-    if (!catalog.recallCards?.lessons?.some((item) => item.id === lessonId)) return;
+    if (!catalog.recallCards?.lessons?.some((item) => item.id === lessonId) && !catalog.pocketPopulation?.sections?.some((item) => item.id === lessonId)) return;
     const status = actionTarget.dataset.status === "recited" ? "recited" : "review";
     const previous = state.recallProgress[lessonId] || {};
     state.recallProgress[lessonId] = {
@@ -4474,7 +4541,7 @@ function exportData() {
 
 async function init() {
   try {
-    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, regionReview, textbookCloseReading, recallCards, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
+    const [topics, questions, paperReviews, retests, projectCatalog, curriculum, regionReview, textbookCloseReading, recallCards, pocketPopulation, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs] = await Promise.all([
       fetch(`./data/topics.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/questions.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/paper_reviews.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -4484,6 +4551,7 @@ async function init() {
       fetch(`./data/region_review.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/textbook_close_reading.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/recall_cards.json?v=${ASSET_VERSION}`).then((response) => response.json()),
+      fetch(`./data/pocket_population.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/time_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/earth_motion_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/solar_season_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
@@ -4505,7 +4573,7 @@ async function init() {
       fetch(`./data/cyclone_system_lab.json?v=${ASSET_VERSION}`).then((response) => response.json()),
       fetch(`./data/atmosphere_reasoning_labs.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
-    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, regionReview, textbookCloseReading, recallCards, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
+    catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, regionReview, textbookCloseReading, recallCards, pocketPopulation, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;
