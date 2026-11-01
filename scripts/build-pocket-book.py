@@ -222,7 +222,7 @@ class BookBuilder(population.Builder):
                     blocks.extend(self.paragraph(element, index))
                 elif element.tag == W + "tbl":
                     blocks.append(self.table(element, index))
-            sections.append({"id": f"pocket{self.number}-{number:02d}", "group": group, "title": title,
+            sections.append({"id": f"pocket{self.number}-{number:02d}", "group": group, "title": title, "note": self.config.get("section_notes", {}).get(str(number), ""),
                              "source_blocks": [start, end - 1], "blocks": blocks})
         missing = set(range(len(self.config.get("edits", [])))) - self.applied_edits
         if missing:

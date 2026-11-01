@@ -1,0 +1,5433 @@
+{
+  "schema_version": "1.1.0",
+  "id": "pocket-earth-motion",
+  "topic_id": "pocket03",
+  "title": "专题03 地球运动",
+  "status": "published",
+  "source": {
+    "file": "2025高中地理学习资料包 (知识点+教辅+试卷)/【口袋书】2024年高考地理一轮复习知识清单/专题03地球运动-【口袋书】2024年高考地理一轮复习知识清单.docx",
+    "sha256": "8cdfb4ebb7fb522aa2de8586b30dc379bd07d1267c3ef135f1e5a9129bc992b5",
+    "included": [
+      "思维导图",
+      "知识清单",
+      "易错易混",
+      "知能拓展"
+    ],
+    "excluded": [
+      "考情速递",
+      "训练营",
+      "答案解析"
+    ]
+  },
+  "overview": {
+    "type": "figure",
+    "source_block": 25,
+    "image": "assets/recall/pocket-03/image-004.png",
+    "width": 1528,
+    "height": 1782,
+    "masks": [],
+    "caption": "专题总览 · 原图4",
+    "disclosure": false,
+    "source_image_sha256": "05dac77cacf55df4775db85f7ec0aeb5197c01ef0a0a3d869d768fd071f378a3"
+  },
+  "additional_overviews": [],
+  "sections": [
+    {
+      "id": "pocket03-01",
+      "group": "知识清单",
+      "title": "知识点一 地球的自转",
+      "note": "",
+      "source_blocks": [
+        29,
+        37
+      ],
+      "blocks": [
+        {
+          "type": "figure",
+          "source_block": 30,
+          "image": "assets/recall/pocket-03/image-007.png",
+          "width": 171,
+          "height": 64,
+          "masks": [],
+          "caption": "知识点一 地球的自转 · 原图7",
+          "disclosure": true,
+          "source_image_sha256": "fcf93bfe27e3fee6ef0394ea3d78ac450847a598ed1ceef970eefbafb0ccd5c4"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、方向："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0001",
+              "answer": "自西向东",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0002",
+              "answer": "北极",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "上空俯视：呈"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0003",
+              "answer": "逆时针",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "方向旋转；从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0004",
+              "answer": "南极",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "上空俯视：呈"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0005",
+              "answer": "顺时针",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "方向旋转。"
+            }
+          ],
+          "source_block": 31,
+          "source_row": null,
+          "source_text": "1、方向：自西向东；从北极上空俯视：呈逆时针方向旋转；从南极上空俯视：呈顺时针方向旋转。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、周期："
+            }
+          ],
+          "source_block": 32,
+          "source_row": null,
+          "source_text": "2、周期："
+        },
+        {
+          "type": "table",
+          "source_block": 33,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "项目"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 0,
+                    "source_text": "项目"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "周期"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 0,
+                    "source_text": "周期"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "旋转角度"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 0,
+                    "source_text": "旋转角度"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "意义"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 0,
+                    "source_text": "意义"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "恒星日"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "恒星日"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "23时56分4秒"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "23时56分4秒"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0006",
+                        "answer": "360°",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "360°"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0007",
+                        "answer": "真正周期",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "真正周期"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "太阳日"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 2,
+                    "source_text": "太阳日"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0008",
+                        "answer": "24小时",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 2,
+                    "source_text": "24小时"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "360°59′"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 2,
+                    "source_text": "360°59′"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0009",
+                        "answer": "昼夜交替",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "的周期"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 2,
+                    "source_text": "昼夜交替的周期"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、速度："
+            }
+          ],
+          "source_block": 34,
+          "source_row": null,
+          "source_text": "3、速度："
+        },
+        {
+          "type": "figure",
+          "source_block": 35,
+          "image": "assets/recall/pocket-03/image-008.png",
+          "width": 292,
+          "height": 303,
+          "masks": [],
+          "caption": "知识点一 地球的自转 · 原图8",
+          "disclosure": true,
+          "source_image_sha256": "43c8e411cf967e775293768e73bc0269dc30d74f317188bb339218d91d512641"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）角速度："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0010",
+              "answer": "除两极点外",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，任何地点的自转"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0011",
+              "answer": "角速度都是15°/h",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 36,
+          "source_row": null,
+          "source_text": "1）角速度：除两极点外，任何地点的自转角速度都是15°/h。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）线速度："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0012",
+              "answer": "由赤道向两极递减",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0013",
+              "answer": "赤道最大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0014",
+              "answer": "南北极点为0",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；60°纬度的线速度是赤道线速度的一半；纬度相同，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0015",
+              "answer": "海拔越高，线速度越大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 37,
+          "source_row": null,
+          "source_text": "2）线速度：由赤道向两极递减；赤道最大，南北极点为0；60°纬度的线速度是赤道线速度的一半；纬度相同，海拔越高，线速度越大。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-02",
+      "group": "知识清单",
+      "title": "知识点二 地球自转的地理意义",
+      "note": "本专题采用高中几何模型，通常忽略大气折射、太阳视半径、地形遮挡和均时差；极昼、极夜及极点需单独判断。河岸侵蚀还受河流弯曲等因素影响，不能只凭半球决定岸边选址。",
+      "source_blocks": [
+        38,
+        66
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、地转偏向力"
+            }
+          ],
+          "source_block": 39,
+          "source_row": null,
+          "source_text": "1、地转偏向力"
+        },
+        {
+          "type": "figure",
+          "source_block": 40,
+          "image": "assets/recall/pocket-03/image-009.jpeg",
+          "width": 186,
+          "height": 179,
+          "masks": [],
+          "caption": "知识点二 地球自转的地理意义 · 原图9",
+          "disclosure": true,
+          "source_image_sha256": "a61072fbba66c08cdc3e447dbc3a3b364d3b682021d298a1fb0bf39c3aafce91"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "偏转原因：受运动惯性的影响，物体总是力图保持原来的方向和速度，但由于受地球的形状和运动的影响，导致它们逐渐偏离了原来的运动方向。"
+            }
+          ],
+          "source_block": 41,
+          "source_row": null,
+          "source_text": "偏转原因：受运动惯性的影响，物体总是力图保持原来的方向和速度，但由于受地球的形状和运动的影响，导致它们逐渐偏离了原来的运动方向。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）偏转特点：地转偏向力垂直于物体的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0016",
+              "answer": "运动方向",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "；只改变"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0017",
+              "answer": "运动方向",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，不直接改变"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0018",
+              "answer": "速率",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "；在质量和水平运动"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0019",
+              "answer": "速率",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "相同等条件下，纬度绝对值越大，其水平偏转效应越强。"
+            }
+          ],
+          "source_block": 42,
+          "source_row": null,
+          "source_text": "2）偏转特点：地转偏向力垂直于物体的运动方向；只影响运动方向，不影响运动速度；纬度越高，地转偏向力越大。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）偏转规律："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0020",
+              "answer": "北半球",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "向物体运动方向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0021",
+              "answer": "右偏",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0022",
+              "answer": "南半球",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "向物体运动方向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0023",
+              "answer": "左偏",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0024",
+              "answer": "赤道上不偏转",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 43,
+          "source_row": null,
+          "source_text": "3）偏转规律：北半球向物体运动方向右偏，南半球向物体运动方向左偏，赤道上不偏转。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）产生的影响：①大气的水平运动；②水体的水平运动：如北半球河流右岸侵蚀，左岸堆积。"
+            }
+          ],
+          "source_block": 44,
+          "source_row": null,
+          "source_text": "4）产生的影响：①大气的水平运动；②水体的水平运动：如北半球河流右岸侵蚀，左岸堆积。"
+        },
+        {
+          "type": "table",
+          "source_block": 46,
+          "columns": 2,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "表现"
+                      }
+                    ],
+                    "source_block": 46,
+                    "source_row": 0,
+                    "source_text": "表现"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "河岸不对称、大气中的气流运动方向改变、大洋中洋流运动方向改变"
+                      }
+                    ],
+                    "source_block": 46,
+                    "source_row": 0,
+                    "source_text": "河岸不对称、大气中的气流运动方向改变、大洋中洋流运动方向改变"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原理"
+                      }
+                    ],
+                    "source_block": 46,
+                    "source_row": 1,
+                    "source_text": "原理"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "应用"
+                      }
+                    ],
+                    "source_block": 46,
+                    "source_row": 1,
+                    "source_text": "应用"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①河流沿岸人类活动的选址受地转偏向力的影响，北半球河流冲蚀右岸，在左岸淤积，故港口、防洪堤坝一般建于右岸，聚落、挖沙场地宜选在左岸。具体示意如下："
+                      }
+                    ],
+                    "source_block": 46,
+                    "source_row": 1,
+                    "source_text": "①河流沿岸人类活动的选址受地转偏向力的影响，北半球河流冲蚀右岸，在左岸淤积，故港口、防洪堤坝一般建于右岸，聚落、挖沙场地宜选在左岸。具体示意如下："
+                  },
+                  {
+                    "type": "figure",
+                    "source_block": 46,
+                    "image": "assets/recall/pocket-03/image-010.png",
+                    "width": 660,
+                    "height": 314,
+                    "masks": [],
+                    "caption": "知识点二 地球自转的地理意义 · 原图10",
+                    "disclosure": true,
+                    "source_image_sha256": "6bdb1ac962d02cb7fb47b7a8f736548c80fccf21a7178ef11bc861148ff82d9e"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "②炮弹的发射及物品的空投方位确定。"
+                      }
+                    ],
+                    "source_block": 46,
+                    "source_row": 1,
+                    "source_text": "②炮弹的发射及物品的空投方位确定。"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "③根据天气资料图，正确判断风向及其变化。"
+                      }
+                    ],
+                    "source_block": 46,
+                    "source_row": 1,
+                    "source_text": "③根据天气资料图，正确判断风向及其变化。"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "④根据风或水流的偏转方向判断南北半球。"
+                      }
+                    ],
+                    "source_block": 46,
+                    "source_row": 1,
+                    "source_text": "④根据风或水流的偏转方向判断南北半球。"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、昼夜交替"
+            }
+          ],
+          "source_block": 47,
+          "source_row": null,
+          "source_text": "2、昼夜交替"
+        },
+        {
+          "type": "figure",
+          "source_block": 48,
+          "image": "assets/recall/pocket-03/image-011.png",
+          "width": 406,
+          "height": 364,
+          "masks": [],
+          "caption": "知识点二 地球自转的地理意义 · 原图11",
+          "disclosure": true,
+          "source_image_sha256": "b12cfc88a684eeacd0053bc16a9351dc7f09d50476c472493e85398eb9dbba69"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）昼夜交替现象的原因：地球是一个"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0025",
+              "answer": "既不发光也不透明",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的球体，任一时刻太阳只能照亮地球表面的一半，这样就形成了昼夜现象，而"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0026",
+              "answer": "地球自转",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "运动导致了"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0027",
+              "answer": "昼夜交替现象",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的产生。"
+            }
+          ],
+          "source_block": 49,
+          "source_row": null,
+          "source_text": "1）昼夜交替现象的原因：地球是一个既不发光也不透明的球体，任一时刻太阳只能照亮地球表面的一半，这样就形成了昼夜现象，而地球自转运动导致了昼夜交替现象的产生。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）昼夜交替的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0028",
+              "answer": "周期是1个太阳日",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0029",
+              "answer": "就是24小时",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 50,
+          "source_row": null,
+          "source_text": "2）昼夜交替的周期是1个太阳日，就是24小时。"
+        },
+        {
+          "type": "figure",
+          "source_block": 51,
+          "image": "assets/recall/pocket-03/image-012.png",
+          "width": 448,
+          "height": 336,
+          "masks": [],
+          "caption": "知识点二 地球自转的地理意义 · 原图12",
+          "disclosure": true,
+          "source_image_sha256": "f202ea9d43953da988a8d7ff7cd2bedf57cb265c91bbdcd86cdf24b4484ba4f7"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、晨昏线"
+            }
+          ],
+          "source_block": 52,
+          "source_row": null,
+          "source_text": "3、晨昏线"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）晨昏线是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0030",
+              "answer": "昼半球和夜半球的分界线",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，晨昏线实际是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0031",
+              "answer": "由晨线和昏线组成的大圆",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "（可以把地球平分成两个半球的圆），所以又称为晨昏圈。"
+            }
+          ],
+          "source_block": 53,
+          "source_row": null,
+          "source_text": "1）晨昏线是昼半球和夜半球的分界线，晨昏线实际是由晨线和昏线组成的大圆（可以把地球平分成两个半球的圆），所以又称为晨昏圈。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）晨昏线："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0032",
+              "answer": "晨线",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是沿着地球自转方向，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0033",
+              "answer": "自西向东",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0034",
+              "answer": "由夜半球进入到昼半球的界线",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；"
+            }
+          ],
+          "source_block": 54,
+          "source_row": null,
+          "source_text": "2）晨昏线：晨线是沿着地球自转方向，自西向东，由夜半球进入到昼半球的界线；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0035",
+              "answer": "昏线",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是沿着地球自转方向，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0036",
+              "answer": "自西向东",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0037",
+              "answer": "由昼半球进入到夜半球的界线",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 55,
+          "source_row": null,
+          "source_text": "昏线是沿着地球自转方向，自西向东，由昼半球进入到夜半球的界线。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）晨昏线的特点"
+            }
+          ],
+          "source_block": 56,
+          "source_row": null,
+          "source_text": "3）晨昏线的特点"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①平分地球，是过球心的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0038",
+              "answer": "大圆",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 57,
+          "source_row": null,
+          "source_text": "①平分地球，是过球心的大圆。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②晨昏线所在平面与太阳光线"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0039",
+              "answer": "垂直",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0040",
+              "answer": "晨昏线上",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "各地太阳高度角为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0041",
+              "answer": "0°",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 58,
+          "source_row": null,
+          "source_text": "②晨昏线所在平面与太阳光线垂直，晨昏线上各地太阳高度角为0°。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③晨昏线"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0042",
+              "answer": "永远平分赤道",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 59,
+          "source_row": null,
+          "source_text": "③晨昏线永远平分赤道。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "④晨昏线在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0043",
+              "answer": "二分日时与经线圈重合",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0044",
+              "answer": "二至日时与极圈相切",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 60,
+          "source_row": null,
+          "source_text": "④晨昏线在二分日时与经线圈重合，在二至日时与极圈相切。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "⑤晨昏线以"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0045",
+              "answer": "15°/h",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的速度"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0046",
+              "answer": "自东向西移动",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 61,
+          "source_row": null,
+          "source_text": "⑤晨昏线以15°/h的速度自东向西移动。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）产生地方时"
+            }
+          ],
+          "source_block": 62,
+          "source_row": null,
+          "source_text": "4）产生地方时"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①由于地球自西向东自转，同一纬度地区相比，东面的地点总是比西面的地点先看到日出。因此，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0047",
+              "answer": "东面地点总是比西面地点时刻早",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。这种因"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0048",
+              "answer": "经度不同",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "而不同的时刻，叫做地方时。"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0049",
+              "answer": "经度相同的地方",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0050",
+              "answer": "地方时则相同",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 63,
+          "source_row": null,
+          "source_text": "①由于地球自西向东自转，同一纬度地区相比，东面的地点总是比西面的地点先看到日出。因此，东面地点总是比西面地点时刻早。这种因经度不同而不同的时刻，叫做地方时。经度相同的地方，地方时则相同。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②通常以一个地方"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0051",
+              "answer": "太阳升到最高时",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的时间为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0052",
+              "answer": "正午12时",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 64,
+          "source_row": null,
+          "source_text": "②通常以一个地方太阳升到最高时的时间为正午12时。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③经度每相差"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0053",
+              "answer": "15°",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，地方时相隔"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0054",
+              "answer": "1小时",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；每相差"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0055",
+              "answer": "1°",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，地方时相差"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0056",
+              "answer": "4分钟",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0057",
+              "answer": "越往东地方时越大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 65,
+          "source_row": null,
+          "source_text": "③经度每相差15°，地方时相隔1小时；每相差1°，地方时相差4分钟；越往东地方时越大。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-03",
+      "group": "知识清单",
+      "title": "知识点三 地球的公转",
+      "note": "",
+      "source_blocks": [
+        67,
+        84
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、方向："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0058",
+              "answer": "自西向东",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 68,
+          "source_row": null,
+          "source_text": "1、方向：自西向东"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0059",
+              "answer": "从北极上空俯视——逆时针",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 69,
+          "source_row": null,
+          "source_text": "从北极上空俯视——逆时针"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0060",
+              "answer": "从南极上空俯视——顺时针",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 70,
+          "source_row": null,
+          "source_text": "从南极上空俯视——顺时针"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、周期："
+            }
+          ],
+          "source_block": 71,
+          "source_row": null,
+          "source_text": "2、周期："
+        },
+        {
+          "type": "table",
+          "source_block": 72,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "项目"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "项目"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "周期"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "周期"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "旋转角度"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "旋转角度"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "意义"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "意义"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "恒星年"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "恒星年"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "365天6时9分10秒"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "365天6时9分10秒"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0061",
+                        "answer": "360°",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "360°"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0062",
+                        "answer": "真正周期",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "真正周期"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "回归年"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 2,
+                    "source_text": "回归年"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "365天5时48分46秒"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 2,
+                    "source_text": "365天5时48分46秒"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0063",
+                        "answer": "太阳直射点移动一个周期",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 2,
+                    "source_text": "太阳直射点移动一个周期"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "日常所用周期"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 2,
+                    "source_text": "日常所用周期"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "figure",
+          "source_block": 74,
+          "image": "assets/recall/pocket-03/image-013.png",
+          "width": 225,
+          "height": 107,
+          "masks": [],
+          "caption": "知识点三 地球的公转 · 原图13",
+          "disclosure": true,
+          "source_image_sha256": "a8101c7c6239ccf3d84adc67bf5cf62c7d5685ed55b754555127d581213bfd1f"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "速度："
+            }
+          ],
+          "source_block": 81,
+          "source_row": null,
+          "source_text": "速度："
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0064",
+              "answer": "角速度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：平均角速度为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0065",
+              "answer": "每日约1°",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；"
+            }
+          ],
+          "source_block": 82,
+          "source_row": null,
+          "source_text": "1）角速度：平均角速度为每日约1°；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0066",
+              "answer": "线速度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：平均线速度为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0067",
+              "answer": "30千米/秒",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；"
+            }
+          ],
+          "source_block": 83,
+          "source_row": null,
+          "source_text": "2）线速度：平均线速度为30千米/秒；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3)位于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0068",
+              "answer": "近日点（1月初）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "时公转速度"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0069",
+              "answer": "快",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，位于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0070",
+              "answer": "远日点（7月初）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "时公转速度"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0071",
+              "answer": "慢",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 84,
+          "source_row": null,
+          "source_text": "3)位于近日点（1月初）时公转速度快，位于远日点（7月初）时公转速度慢。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-04",
+      "group": "知识清单",
+      "title": "知识点四 地球公转的地理意义",
+      "note": "昼夜长短比较须区分昼长夜短的状态与昼长增减的变化；在极昼极夜范围内不能机械套用严格递增递减。",
+      "source_blocks": [
+        85,
+        121
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "黄赤交角的形成及其影响"
+            }
+          ],
+          "source_block": 86,
+          "source_row": null,
+          "source_text": "黄赤交角的形成及其影响"
+        },
+        {
+          "type": "figure",
+          "source_block": 87,
+          "image": "assets/recall/pocket-03/image-014.png",
+          "width": 1508,
+          "height": 941,
+          "masks": [],
+          "caption": "知识点四 地球公转的地理意义 · 原图14",
+          "disclosure": true,
+          "source_image_sha256": "fbf5b17094aaeb080dc48b86f6971eececf9000422b5e60f7fe6805b6becb20a"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "黄赤交角是地球"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0072",
+              "answer": "自转的平面(赤道面)",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "与"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0073",
+              "answer": "公转轨道平面(黄道面)",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的夹角，目前黄赤交角为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0074",
+              "answer": "23°26′",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 88,
+          "source_row": null,
+          "source_text": "黄赤交角是地球自转的平面(赤道面)与公转轨道平面(黄道面)的夹角，目前黄赤交角为23°26′。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "黄赤交角的影响："
+            }
+          ],
+          "source_block": 89,
+          "source_row": null,
+          "source_text": "黄赤交角的影响："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①由于黄赤交角的存在，导致地球在公转的过程中"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0075",
+              "answer": "太阳直射点在地球表面不断移动",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 90,
+          "source_row": null,
+          "source_text": "①由于黄赤交角的存在，导致地球在公转的过程中太阳直射点在地球表面不断移动。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0076",
+              "answer": "黄赤交角",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的大小"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0077",
+              "answer": "决定太阳直射点",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "在地球表面移动的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0078",
+              "answer": "范围",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。也决定了五个"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0079",
+              "answer": "温度带的范围",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。如果黄赤交角"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0080",
+              "answer": "变大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，热带、寒带"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0081",
+              "answer": "变大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，温带"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0082",
+              "answer": "变小",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；如果黄赤交角"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0083",
+              "answer": "变小",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，热带、寒带变"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0084",
+              "answer": "小",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，温带变"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0085",
+              "answer": "大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 91,
+          "source_row": null,
+          "source_text": "②黄赤交角的大小决定太阳直射点在地球表面移动的范围。也决定了五个温度带的范围。如果黄赤交角变大，热带、寒带变大，温带变小；如果黄赤交角变小，热带、寒带变小，温带变大。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③黄赤交角的度数"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0086",
+              "answer": "等于回归线的度数",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，并"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0087",
+              "answer": "与极圈的度数互余",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，即二者之和为90°。"
+            }
+          ],
+          "source_block": 92,
+          "source_row": null,
+          "source_text": "③黄赤交角的度数等于回归线的度数，并与极圈的度数互余，即二者之和为90°。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "公转的地理意义"
+            }
+          ],
+          "source_block": 93,
+          "source_row": null,
+          "source_text": "公转的地理意义"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "昼夜长短变化"
+            }
+          ],
+          "source_block": 94,
+          "source_row": null,
+          "source_text": "昼夜长短变化"
+        },
+        {
+          "type": "figure",
+          "source_block": 96,
+          "image": "assets/recall/pocket-03/image-015.png",
+          "width": 378,
+          "height": 177,
+          "masks": [],
+          "caption": "知识点四 地球公转的地理意义 · 原图15",
+          "disclosure": true,
+          "source_image_sha256": "7e9b600b360a9478b4a33bde961f758856ae2da80f8a96b7077a92c51de52575"
+        },
+        {
+          "type": "figure",
+          "source_block": 97,
+          "image": "assets/recall/pocket-03/image-016.jpeg",
+          "width": 653,
+          "height": 420,
+          "masks": [],
+          "caption": "知识点四 地球公转的地理意义 · 原图16",
+          "disclosure": true,
+          "source_image_sha256": "7204c5770105710983b09384e448cc991beabe31b7ff8883bce40139d5ce0909"
+        },
+        {
+          "type": "figure",
+          "source_block": 97,
+          "image": "assets/recall/pocket-03/image-017.jpeg",
+          "width": 646,
+          "height": 420,
+          "masks": [],
+          "caption": "知识点四 地球公转的地理意义 · 原图17",
+          "disclosure": true,
+          "source_image_sha256": "aedf38d25795f8c81e5104951603bd41c6dceb7d14dd5f81ad9bf3a934421b61"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①春分日：太阳直射点在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0088",
+              "answer": "赤道",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "上，晨昏线和经线圈"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0089",
+              "answer": "重合",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0090",
+              "answer": "全球昼夜等长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 98,
+          "source_row": null,
+          "source_text": "①春分日：太阳直射点在赤道上，晨昏线和经线圈重合，全球昼夜等长。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②春分→夏至：太阳直射点从赤道向北回归线移动；北半球："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0091",
+              "answer": "昼长夜短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0092",
+              "answer": "纬度越高昼越长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0093",
+              "answer": "昼渐长夜渐短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；南半球：昼短夜长，纬度越高昼越短，昼渐短夜渐长。"
+            }
+          ],
+          "source_block": 99,
+          "source_row": null,
+          "source_text": "②春分→夏至：太阳直射点从赤道向北回归线移动；北半球：昼长夜短，纬度越高昼越长，昼渐长夜渐短；南半球：昼短夜长，纬度越高昼越短，昼渐短夜渐长。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③夏至日：太阳直射点在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0094",
+              "answer": "北回归线",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "上，与极圈相切；北半球"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0095",
+              "answer": "昼最长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0096",
+              "answer": "夜最短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，且纬度越"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0097",
+              "answer": "高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，白昼越"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0098",
+              "answer": "长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，北极圈及其以北地区出现"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0099",
+              "answer": "极昼",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "现象；南半球昼最短，夜最长，且纬度越高，夜越长，南极圈及其以南地区出现极夜现象。"
+            }
+          ],
+          "source_block": 100,
+          "source_row": null,
+          "source_text": "③夏至日：太阳直射点在北回归线上，与极圈相切；北半球昼最长，夜最短，且纬度越高，白昼越长，北极圈及其以北地区出现极昼现象；南半球昼最短，夜最长，且纬度越高，夜越长，南极圈及其以南地区出现极夜现象。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "④夏至→秋分：太阳直射点从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0100",
+              "answer": "北回归线向赤道移动",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；北半球："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0101",
+              "answer": "昼长夜短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，纬度越"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0102",
+              "answer": "高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "昼越"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0103",
+              "answer": "长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，昼"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0104",
+              "answer": "渐短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "夜渐长；南半球：昼短夜长，纬度越高昼越短，昼渐长夜渐短。"
+            }
+          ],
+          "source_block": 101,
+          "source_row": null,
+          "source_text": "④夏至→秋分：太阳直射点从北回归线向赤道移动；北半球：昼长夜短，纬度越高昼越长，昼渐短夜渐长；南半球：昼短夜长，纬度越高昼越短，昼渐长夜渐短。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "⑤秋分日：太阳直射点在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0105",
+              "answer": "赤道上",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，晨昏线和经线圈"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0106",
+              "answer": "重合",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0107",
+              "answer": "全球昼夜等长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 102,
+          "source_row": null,
+          "source_text": "⑤秋分日：太阳直射点在赤道上，晨昏线和经线圈重合，全球昼夜等长。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "⑥秋分→冬至：太阳直射点从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0108",
+              "answer": "赤道向南回归线移动",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；北半球："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0109",
+              "answer": "昼短夜长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，纬度越"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0110",
+              "answer": "高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "昼越"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0111",
+              "answer": "短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0112",
+              "answer": "昼渐短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "夜渐长；南半球：昼长夜短，纬度越高昼越长，昼渐长夜渐短。"
+            }
+          ],
+          "source_block": 103,
+          "source_row": null,
+          "source_text": "⑥秋分→冬至：太阳直射点从赤道向南回归线移动；北半球：昼短夜长，纬度越高昼越短，昼渐短夜渐长；南半球：昼长夜短，纬度越高昼越长，昼渐长夜渐短。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "⑦冬至日：太阳直射点在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0113",
+              "answer": "南回归线上",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，与极圈"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0114",
+              "answer": "相切",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；北半球"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0115",
+              "answer": "昼最短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0116",
+              "answer": "夜最长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，且纬度越高，夜越长，北极圈及其以北地区出现"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0117",
+              "answer": "极夜",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "现象；南半球昼最长，夜最短，且纬度越高，昼越长，南极圈及其以南地区出现极昼现象。"
+            }
+          ],
+          "source_block": 104,
+          "source_row": null,
+          "source_text": "⑦冬至日：太阳直射点在南回归线上，与极圈相切；北半球昼最短，夜最长，且纬度越高，夜越长，北极圈及其以北地区出现极夜现象；南半球昼最长，夜最短，且纬度越高，昼越长，南极圈及其以南地区出现极昼现象。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "⑧冬至→春分：太阳直射点从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0118",
+              "answer": "南回归线向赤道移动",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；北半球："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0119",
+              "answer": "昼短夜长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，纬度越"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0120",
+              "answer": "高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "昼越"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0121",
+              "answer": "短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0122",
+              "answer": "昼渐长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "夜渐短；南半球：昼长夜短，纬度越高昼越长，昼渐短夜渐长。"
+            }
+          ],
+          "source_block": 105,
+          "source_row": null,
+          "source_text": "⑧冬至→春分：太阳直射点从南回归线向赤道移动；北半球：昼短夜长，纬度越高昼越短，昼渐长夜渐短；南半球：昼长夜短，纬度越高昼越长，昼渐短夜渐长。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "正午太阳高度变化"
+            }
+          ],
+          "source_block": 106,
+          "source_row": null,
+          "source_text": "正午太阳高度变化"
+        },
+        {
+          "type": "figure",
+          "source_block": 107,
+          "image": "assets/recall/pocket-03/image-018.png",
+          "width": 472,
+          "height": 228,
+          "masks": [],
+          "caption": "知识点四 地球公转的地理意义 · 原图18",
+          "disclosure": true,
+          "source_image_sha256": "358475c6d87e605bbcf120e3280519dd0ae2c21dc01672c6f6633499477421f6"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①太阳高度（角）是太阳光的入射方向和地平面之间的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0123",
+              "answer": "夹角",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 108,
+          "source_row": null,
+          "source_text": "①太阳高度（角）是太阳光的入射方向和地平面之间的夹角。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②太阳高度角随着"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0124",
+              "answer": "地方时",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0125",
+              "answer": "太阳直射点的纬度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的变化而变化。\na.日升日落，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0126",
+              "answer": "同一地点一天内",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "太阳高度角是不断变化的。"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0127",
+              "answer": "日出日落",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "时角度都"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0128",
+              "answer": "为零度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，一天当中地方时为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0129",
+              "answer": "正午时太阳高度最大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 109,
+          "source_row": null,
+          "source_text": "②太阳高度角随着地方时和太阳直射点的纬度的变化而变化。\na.日升日落，同一地点一天内太阳高度角是不断变化的。日出日落时角度都为零度，一天当中地方时为正午时太阳高度最大。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "b.正午太阳高度由"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0130",
+              "answer": "观测地纬度φ",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0131",
+              "answer": "太阳直射点纬度δ",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "共同决定：H＝"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0132",
+              "answer": "90°－|φ－δ|",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，纬度采用北正南负的带符号数值；观测地与直射纬线的纬度差越小，H越大。"
+            }
+          ],
+          "source_block": 110,
+          "source_row": null,
+          "source_text": "b.正午太阳高度由太阳直射点所在纬度决定，离太阳直射点越近，正午太阳高度角越大。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）四季更替和五带"
+            }
+          ],
+          "source_block": 111,
+          "source_row": null,
+          "source_text": "3）四季更替和五带"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0133",
+              "answer": "昼夜长短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0134",
+              "answer": "正午太阳高度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0135",
+              "answer": "季节",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "变化，导致太阳辐射随季节有规律的变化，因而产生了四季更替。"
+            }
+          ],
+          "source_block": 112,
+          "source_row": null,
+          "source_text": "①昼夜长短和正午太阳高度的季节变化，导致太阳辐射随季节有规律的变化，因而产生了四季更替。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②天文四季"
+            }
+          ],
+          "source_block": 113,
+          "source_row": null,
+          "source_text": "②天文四季"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "夏季：白昼"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0136",
+              "answer": "最长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、太阳高度"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0137",
+              "answer": "最高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的季节；"
+            }
+          ],
+          "source_block": 114,
+          "source_row": null,
+          "source_text": "夏季：白昼最长、太阳高度最高的季节；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "冬季：白昼"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0138",
+              "answer": "最短",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、太阳高度"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0139",
+              "answer": "最低",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的季节；"
+            }
+          ],
+          "source_block": 115,
+          "source_row": null,
+          "source_text": "冬季：白昼最短、太阳高度最低的季节；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "春、秋：冬夏两季的过渡季节"
+            }
+          ],
+          "source_block": 116,
+          "source_row": null,
+          "source_text": "春、秋：冬夏两季的过渡季节"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③气象四季（北温带国家为例）："
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0140",
+              "answer": "3、4、5月为春季",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，依次每3个月为一个季节，南半球则相反。"
+            }
+          ],
+          "source_block": 117,
+          "source_row": null,
+          "source_text": "③气象四季（北温带国家为例）：3、4、5月为春季，依次每3个月为一个季节，南半球则相反。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "④五带划分"
+            }
+          ],
+          "source_block": 118,
+          "source_row": null,
+          "source_text": "④五带划分"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "因年太阳辐射总量从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0141",
+              "answer": "低纬",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地区向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0142",
+              "answer": "高纬",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地区有规律地"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0143",
+              "answer": "减少",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，因而产生了五带的划分。"
+            }
+          ],
+          "source_block": 119,
+          "source_row": null,
+          "source_text": "因年太阳辐射总量从低纬地区向高纬地区有规律地减少，因而产生了五带的划分。"
+        },
+        {
+          "type": "figure",
+          "source_block": 120,
+          "image": "assets/recall/pocket-03/image-019.png",
+          "width": 525,
+          "height": 262,
+          "masks": [],
+          "caption": "知识点四 地球公转的地理意义 · 原图19",
+          "disclosure": true,
+          "source_image_sha256": "9cfd73637aff9cb7535569f70b02277637e94009b0b7e0fe7c04d8cc950f5e4b"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-05",
+      "group": "易错易混",
+      "title": "易错易混01 时区、区时和地方时",
+      "note": "",
+      "source_blocks": [
+        122,
+        143
+      ],
+      "blocks": [
+        {
+          "type": "figure",
+          "source_block": 124,
+          "image": "assets/recall/pocket-03/image-021.png",
+          "width": 228,
+          "height": 195,
+          "masks": [],
+          "caption": "易错易混01 时区、区时和地方时 · 原图21",
+          "disclosure": true,
+          "source_image_sha256": "fda57c714b32d820f1a1f46fbbbc86116ccd928dd8176110007445d45f6934f7"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、时区：从7.5ºW到东经7.5ºE划为中时区，依次每隔经度15º划为一个时区，东西各划出12个时区。东十二区和西十二区各有7.5°，合为一个时区，全球共划分成24个时区。"
+            }
+          ],
+          "source_block": 125,
+          "source_row": null,
+          "source_text": "1、时区：从7.5ºW到东经7.5ºE划为中时区，依次每隔经度15º划为一个时区，东西各划出12个时区。东十二区和西十二区各有7.5°，合为一个时区，全球共划分成24个时区。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "时区数=已知地经度÷15°，取商后判断余数，若余数小于7.5°，则商即为时区数；如果余数大于7.5°，则商+1为理论时区数。恰好位于7.5°边界时需按题目约定；实际民用时区还可能采用行政边界。"
+            }
+          ],
+          "source_block": 126,
+          "source_row": null,
+          "source_text": "时区数=已知地经度÷15°，取商后判断余数，若余数小于7.5°，则商即为时区数；如果余数大于7.5°，则商+1为时区数。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、区时：每一时区以中央经线的地方时为本时区共同使用的时间，称为区时。相邻两个时区的区时差1个小时。"
+            }
+          ],
+          "source_block": 127,
+          "source_row": null,
+          "source_text": "2、区时：每一时区以中央经线的地方时为本时区共同使用的时间，称为区时。相邻两个时区的区时差1个小时。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）中央经线的度数=时区数×15°，如中时区中央经线为本初子午线，东八区中央经线为120°E。"
+            }
+          ],
+          "source_block": 128,
+          "source_row": null,
+          "source_text": "1）中央经线的度数=时区数×15°，如中时区中央经线为本初子午线，东八区中央经线为120°E。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）区时差按"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0144",
+              "answer": "带符号时区偏移相减",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "：东时区为正、西时区为负。不能仅取两地劣弧就忽略日期；计算超过24时或小于0时，需要"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0145",
+              "answer": "同时调整日期",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 129,
+          "source_row": null,
+          "source_text": "2）区时差=时区数差×1小时（东加西减，注意东西位置为相对位置，需要在劣弧范围内进行判断，可借用经度的变化或自求的自转方向来进行判断）。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、地方时：不同的经线有不同的时刻，同一条经线上的地方时相同。"
+            }
+          ],
+          "source_block": 130,
+          "source_row": null,
+          "source_text": "3、地方时：不同的经线有不同的时刻，同一条经线上的地方时相同。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地方时差=两地经度差×4分钟"
+            }
+          ],
+          "source_block": 131,
+          "source_row": null,
+          "source_text": "地方时差=两地经度差×4分钟"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、计算"
+            }
+          ],
+          "source_block": 132,
+          "source_row": null,
+          "source_text": "4、计算"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地球自转，东早西晚。同一经线上，地方时相同。经度每隔15°，地方时相差1小时，经度每隔1°，地方时相差4分钟。东加西减。"
+            }
+          ],
+          "source_block": 133,
+          "source_row": null,
+          "source_text": "地球自转，东早西晚。同一经线上，地方时相同。经度每隔15°，地方时相差1小时，经度每隔1°，地方时相差4分钟。东加西减。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）求差——“同减异加”"
+            }
+          ],
+          "source_block": 134,
+          "source_row": null,
+          "source_text": "1）求差——“同减异加”"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "经度差：两地同在东（西）经度，取两数之差；一地在东经度，另一地在西经度，取两数之和。"
+            }
+          ],
+          "source_block": 135,
+          "source_row": null,
+          "source_text": "经度差：两地同在东（西）经度，取两数之差；一地在东经度，另一地在西经度，取两数之和。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "时区差：两地同在东（西）时区，取两数之差；一地在东时区，另一地在西时区，取两数之和。"
+            }
+          ],
+          "source_block": 136,
+          "source_row": null,
+          "source_text": "时区差：两地同在东（西）时区，取两数之差；一地在东时区，另一地在西时区，取两数之和。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）求时间——“东加西减”"
+            }
+          ],
+          "source_block": 137,
+          "source_row": null,
+          "source_text": "2）求时间——“东加西减”"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "先画出表示全球所有经线（或时区）的数轴，标出已知经线（或时区）及其地方时（或区时），再标出所求经线（或时区），计算出两地经度差（或时区差）后，再将其转化为地方时差（或区时差）。如下图所示："
+            }
+          ],
+          "source_block": 138,
+          "source_row": null,
+          "source_text": "先画出表示全球所有经线（或时区）的数轴，标出已知经线（或时区）及其地方时（或区时），再标出所求经线（或时区），计算出两地经度差（或时区差）后，再将其转化为地方时差（或区时差）。如下图所示："
+        },
+        {
+          "type": "figure",
+          "source_block": 139,
+          "image": "assets/recall/pocket-03/image-022.png",
+          "width": 1917,
+          "height": 530,
+          "masks": [],
+          "caption": "易错易混01 时区、区时和地方时 · 原图22",
+          "disclosure": true,
+          "source_image_sha256": "11d2bb5320e53725e660eb5eac19a598da56e2856c09da9d224ea260fc08fa14"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）求经线地方时＝起算地方时±时差    "
+            }
+          ],
+          "source_block": 140,
+          "source_row": null,
+          "source_text": "3）求经线地方时＝起算地方时±时差    "
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（注意：东＋西－；计算结果 ≧24 日期加上1天，时间减去24小时；计算结果 < 0日期减去1天，时间加上24小时；同为东经或西经，经度差为两者差值；若一东经一西经，经度差为两者之和）"
+            }
+          ],
+          "source_block": 141,
+          "source_row": null,
+          "source_text": "（注意：东＋西－；计算结果 ≧24 日期加上1天，时间减去24小时；计算结果 < 0日期减去1天，时间加上24小时；同为东经或西经，经度差为两者差值；若一东经一西经，经度差为两者之和）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "② 时区：时区中央经线的地方时。全球共24个时区。"
+            }
+          ],
+          "source_block": 142,
+          "source_row": null,
+          "source_text": "② 时区：时区中央经线的地方时。全球共24个时区。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-06",
+      "group": "易错易混",
+      "title": "易错易混02 晨昏线的判断",
+      "note": "",
+      "source_blocks": [
+        144,
+        146
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "source_block": 145,
+          "columns": 2,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "自转法"
+                      }
+                    ],
+                    "source_block": 145,
+                    "source_row": 0,
+                    "source_text": "自转法"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "顺着地球的自转方向，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0146",
+                        "answer": "由夜进入昼",
+                        "origin": "reviewed-addition"
+                      },
+                      {
+                        "type": "text",
+                        "text": "的为晨线，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket03-blank-0147",
+                        "answer": "由昼进入夜",
+                        "origin": "reviewed-addition"
+                      },
+                      {
+                        "type": "text",
+                        "text": "的为昏线"
+                      }
+                    ],
+                    "source_block": 145,
+                    "source_row": 0,
+                    "source_text": "顺着地球的自转方向，由夜进入昼的为晨线，由昼进入夜的为昏线"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "时间法"
+                      }
+                    ],
+                    "source_block": 145,
+                    "source_row": 1,
+                    "source_text": "时间法"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "赤道上地方时为6时的是晨线，为18时的是昏线"
+                      }
+                    ],
+                    "source_block": 145,
+                    "source_row": 1,
+                    "source_text": "赤道上地方时为6时的是晨线，为18时的是昏线"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "方位法"
+                      }
+                    ],
+                    "source_block": 145,
+                    "source_row": 2,
+                    "source_text": "方位法"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "夜半球东侧为晨线，西侧为昏线；昼半球东侧为昏线，西侧为晨线"
+                      }
+                    ],
+                    "source_block": 145,
+                    "source_row": 2,
+                    "source_text": "夜半球东侧为晨线，西侧为昏线；昼半球东侧为昏线，西侧为晨线"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket03-07",
+      "group": "易错易混",
+      "title": "易错易混03 日界线",
+      "note": "",
+      "source_blocks": [
+        147,
+        153
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、国际日期变更线（人为日期变更线）：大致沿180º经线，在国际日期变更线的东西两侧分别是西十二区和东十二区。自西向东越过国际日期变更线，日期要减一天；自东向西越过国际日期变更线，日期要加一天。"
+            }
+          ],
+          "source_block": 148,
+          "source_row": null,
+          "source_text": "1、国际日期变更线（人为日期变更线）：大致沿180º经线，在国际日期变更线的东西两侧分别是西十二区和东十二区。自西向东越过国际日期变更线，日期要减一天；自东向西越过国际日期变更线，日期要加一天。"
+        },
+        {
+          "type": "figure",
+          "source_block": 149,
+          "image": "assets/recall/pocket-03/image-024.png",
+          "width": 292,
+          "height": 231,
+          "masks": [],
+          "caption": "易错易混03 日界线 · 原图24",
+          "disclosure": true,
+          "source_image_sha256": "9983c994edd49f8a68876d34e771376b838f8d933e00a61f274efa950c0eb02d"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、0时经线（自然日期变更线）：即0点所在的经线，它的位置是在不断变化的。"
+            }
+          ],
+          "source_block": 150,
+          "source_row": null,
+          "source_text": "2、0时经线（自然日期变更线）：即0点所在的经线，它的位置是在不断变化的。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在把"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0148",
+              "answer": "180°经线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "作为日期界线、按地方时分析的高中简化模型中，全球通常至多并存两个日期；从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0149",
+              "answer": "0时经线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0150",
+              "answer": "向东",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "到"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0151",
+              "answer": "180°经线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "为较新日期。真实世界的国际日期变更线与民用时区有折线和例外，不能把此模型无条件当作全球民用日历的精确描述。"
+            }
+          ],
+          "source_block": 151,
+          "source_row": null,
+          "source_text": "地球上日期最多存在两天，顺着地球自转方向，从0时经线到180度经线之间范围为新的一天，余者为旧的一天。若180经线为0时的话，则全球各地同属于一个日期。"
+        },
+        {
+          "type": "figure",
+          "source_block": 152,
+          "image": "assets/recall/pocket-03/image-025.png",
+          "width": 253,
+          "height": 159,
+          "masks": [],
+          "caption": "易错易混03 日界线 · 原图25",
+          "disclosure": true,
+          "source_image_sha256": "56a5d92f3fc94d387c8d5b51f1f2b1c64d7f4044cbf6d23d6da924254128860b"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-08",
+      "group": "易错易混",
+      "title": "易错易混04 正午太阳高度",
+      "note": "",
+      "source_blocks": [
+        154,
+        172
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、正午太阳高度的计算公式：H=90°-纬度差（纬度差：太阳直射点的纬度与所求地纬度的差值；若两点在同一半球，纬度差为两地纬度值相减；若两点分别在南、北半球，纬度差为两地纬度值相加）"
+            }
+          ],
+          "source_block": 155,
+          "source_row": null,
+          "source_text": "1、正午太阳高度的计算公式：H=90°-纬度差（纬度差：太阳直射点的纬度与所求地纬度的差值；若两点在同一半球，纬度差为两地纬度值相减；若两点分别在南、北半球，纬度差为两地纬度值相加）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、正午太阳高度的纬度变化规律：太阳直射点的正午太阳高度角最大，为90°，分别向南、向北逐渐递减。"
+            }
+          ],
+          "source_block": 156,
+          "source_row": null,
+          "source_text": "2、正午太阳高度的纬度变化规律：太阳直射点的正午太阳高度角最大，为900，分别向南、向北逐渐递减。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "春秋分：正午太阳高度由赤道向南北两侧递减"
+            }
+          ],
+          "source_block": 157,
+          "source_row": null,
+          "source_text": "春秋分：正午太阳高度由赤道向南北两侧递减"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "夏至：正午太阳高度由北回归线向南北两侧递减"
+            }
+          ],
+          "source_block": 158,
+          "source_row": null,
+          "source_text": "夏至：正午太阳高度由北回归线向南北两侧递减"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "冬至：正午太阳高度由南回归线向南北两侧递减"
+            }
+          ],
+          "source_block": 159,
+          "source_row": null,
+          "source_text": "冬至：正午太阳高度由南回归线向南北两侧递减"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、正午太阳高度的季节变化规律："
+            }
+          ],
+          "source_block": 160,
+          "source_row": null,
+          "source_text": "3、正午太阳高度的季节变化规律："
+        },
+        {
+          "type": "table",
+          "source_block": 161,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北半球节气"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 0,
+                    "source_text": "北半球节气"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "达到最大值的地区"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 0,
+                    "source_text": "达到最大值的地区"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "达到最小的地区"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 0,
+                    "source_text": "达到最小的地区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "夏至日"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 1,
+                    "source_text": "夏至日"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北回归线及其以北各纬度"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 1,
+                    "source_text": "北回归线及其以北各纬度"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "整个南半球"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 1,
+                    "source_text": "整个南半球"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冬至日"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 2,
+                    "source_text": "冬至日"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "南回归线及其以南各纬度"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 2,
+                    "source_text": "南回归线及其以南各纬度"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "整个北半球"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 2,
+                    "source_text": "整个北半球"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "二分日"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 3,
+                    "source_text": "二分日"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "赤道最大"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 3,
+                    "source_text": "赤道最大"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "极点"
+                      }
+                    ],
+                    "source_block": 161,
+                    "source_row": 3,
+                    "source_text": "极点"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、巧记正午太阳高度"
+            }
+          ],
+          "source_block": 162,
+          "source_row": null,
+          "source_text": "4、巧记正午太阳高度"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）看直射点的位置，比较正午太阳高度大小"
+            }
+          ],
+          "source_block": 163,
+          "source_row": null,
+          "source_text": "1）看直射点的位置，比较正午太阳高度大小"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "记忆口诀“远小近大”：即距离太阳直射点所在的纬线越远，正午太阳高度越小；距离越近，则越大。"
+            }
+          ],
+          "source_block": 164,
+          "source_row": null,
+          "source_text": "记忆口诀“远小近大”：即距离太阳直射点所在的纬线越远，正午太阳高度越小；距离越近，则越大。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2．看直射点的移动，确定正午太阳高度的变化"
+            }
+          ],
+          "source_block": 165,
+          "source_row": null,
+          "source_text": "2．看直射点的移动，确定正午太阳高度的变化"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "记忆口诀“来增去减”：即直射点向本地所在纬线移来，则正午太阳高度增大，移去则减小。如图所示："
+            }
+          ],
+          "source_block": 166,
+          "source_row": null,
+          "source_text": "记忆口诀“来增去减”：即直射点向本地所在纬线移来，则正午太阳高度增大，移去则减小。如图所示："
+        },
+        {
+          "type": "figure",
+          "source_block": 167,
+          "image": "assets/recall/pocket-03/image-026.png",
+          "width": 1790,
+          "height": 1060,
+          "masks": [],
+          "caption": "易错易混04 正午太阳高度 · 原图26",
+          "disclosure": true,
+          "source_image_sha256": "655fd125e4d474eb7dd420032edae7d80fefb9c76affe64926dee1ae6f01e5a1"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3．看纬度位置，总结正午太阳高度的年变化幅度"
+            }
+          ],
+          "source_block": 168,
+          "source_row": null,
+          "source_text": "3．看纬度位置，总结正午太阳高度的年变化幅度"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）位于南北回归线之间：纬度越高，正午太阳高度变化幅度越大，即赤道上最小，变化幅度为23°26′；南北回归线上最大，变化幅度为46°52′。"
+            }
+          ],
+          "source_block": 169,
+          "source_row": null,
+          "source_text": "1）位于南北回归线之间：纬度越高，正午太阳高度变化幅度越大，即赤道上最小，变化幅度为23°26′；南北回归线上最大，变化幅度为46°52′。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）位于回归线至极圈之间：各纬度正午太阳高度变化幅度均为46°52′。"
+            }
+          ],
+          "source_block": 170,
+          "source_row": null,
+          "source_text": "2）位于回归线至极圈之间：各纬度正午太阳高度变化幅度均为46°52′。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）极圈以内，若仅统计太阳在地平线上方时可见的正午高度，其年变化范围会受极夜截断；若采用可为负的几何太阳高度，则全年极大、极小差仍按H＝90°－|φ－δ|计算，不能混用两种统计口径。"
+            }
+          ],
+          "source_block": 171,
+          "source_row": null,
+          "source_text": "3）极圈以内地区：纬度越高，正午太阳高度变化幅度越小，即为极圈上最大，变化幅度为46°52′，极点上最小，变化幅度为23°26′。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-09",
+      "group": "知能拓展",
+      "title": "考点01 晨昏线的判读",
+      "note": "",
+      "source_blocks": [
+        173,
+        198
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、晨昏线"
+            }
+          ],
+          "source_block": 174,
+          "source_row": null,
+          "source_text": "1、晨昏线"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "从晨昏线上可以确定日出日落：晨线上各地同时日出，昏线上各地同时日落。"
+            }
+          ],
+          "source_block": 175,
+          "source_row": null,
+          "source_text": "从晨昏线上可以确定日出日落：晨线上各地同时日出，昏线上各地同时日落。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "求某地日出、日落地方时，应沿"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0152",
+              "answer": "该地纬线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "分别找与晨线、昏线的交点，并读取交点的地方时；不能误用该地经线与晨昏线的交点。"
+            }
+          ],
+          "source_block": 176,
+          "source_row": null,
+          "source_text": "某地经线与晨线相交点所在的地方时，为该地日出地方时；而与昏线相交经线的地方时则为该地日落地方时。"
+        },
+        {
+          "type": "figure",
+          "source_block": 177,
+          "image": "assets/recall/pocket-03/image-028.png",
+          "width": 315,
+          "height": 315,
+          "masks": [],
+          "caption": "考点01 晨昏线的判读 · 原图28",
+          "disclosure": true,
+          "source_image_sha256": "d1177380f01a41851ad5948b814563fd1b4a59d980b22133025e559c4062a105"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、晨线、昏线的判断"
+            }
+          ],
+          "source_block": 179,
+          "source_row": null,
+          "source_text": "2、晨线、昏线的判断"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "顺着地球自转方向，由夜入昼经历日出的，为晨线；由昼入夜经历日落的，则为昏线。"
+            }
+          ],
+          "source_block": 180,
+          "source_row": null,
+          "source_text": "顺着地球自转方向，由夜入昼经历日出的，为晨线；由昼入夜经历日落的，则为昏线。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、晨昏线的应用"
+            }
+          ],
+          "source_block": 181,
+          "source_row": null,
+          "source_text": "3、晨昏线的应用"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（1）确定地球的自转方向"
+            }
+          ],
+          "source_block": 182,
+          "source_row": null,
+          "source_text": "（1）确定地球的自转方向"
+        },
+        {
+          "type": "figure",
+          "source_block": 183,
+          "image": "assets/recall/pocket-03/image-029.png",
+          "width": 1851,
+          "height": 533,
+          "masks": [],
+          "caption": "考点01 晨昏线的判读 · 原图29",
+          "disclosure": true,
+          "source_image_sha256": "0783ac46d7f41fcbc8c67648fd567306d346aa679bc259228a5cdf0a8e1aa356"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（2）确定地方时"
+            }
+          ],
+          "source_block": 184,
+          "source_row": null,
+          "source_text": "（2）确定地方时"
+        },
+        {
+          "type": "figure",
+          "source_block": 185,
+          "image": "assets/recall/pocket-03/image-030.png",
+          "width": 1890,
+          "height": 756,
+          "masks": [],
+          "caption": "考点01 晨昏线的判读 · 原图30",
+          "disclosure": true,
+          "source_image_sha256": "fbe7f9eae6d973299cabeb22bac648fe159d159f4e27f62baed9fc52f0dcbcf6"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（3）确定日期和节气"
+            }
+          ],
+          "source_block": 186,
+          "source_row": null,
+          "source_text": "（3）确定日期和节气"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①晨昏线经过南、北极点（与经线圈重合）时为3月21日或9月23日前后，节气是春分或秋分。"
+            }
+          ],
+          "source_block": 187,
+          "source_row": null,
+          "source_text": "①晨昏线经过南、北极点（与经线圈重合）时为3月21日或9月23日前后，节气是春分或秋分。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②晨昏线与极圈相切时"
+            }
+          ],
+          "source_block": 188,
+          "source_row": null,
+          "source_text": "②晨昏线与极圈相切时"
+        },
+        {
+          "type": "table",
+          "source_block": 189,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "极昼极夜分布情况"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 0,
+                    "source_text": "极昼极夜分布情况"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "日期"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 0,
+                    "source_text": "日期"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "节气"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 0,
+                    "source_text": "节气"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北极圈及其以北出现极昼（南极圈及其以南出现极夜）"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 1,
+                    "source_text": "北极圈及其以北出现极昼（南极圈及其以南出现极夜）"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "6月22日前后"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 1,
+                    "source_text": "6月22日前后"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "夏至"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 1,
+                    "source_text": "夏至"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北极圈及其以北出现极夜（南极圈及其以南出现极昼）"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 2,
+                    "source_text": "北极圈及其以北出现极夜（南极圈及其以南出现极昼）"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "12月22日前后"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 2,
+                    "source_text": "12月22日前后"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冬至"
+                      }
+                    ],
+                    "source_block": 189,
+                    "source_row": 2,
+                    "source_text": "冬至"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（4）确定太阳直射点的位置"
+            }
+          ],
+          "source_block": 190,
+          "source_row": null,
+          "source_text": "（4）确定太阳直射点的位置"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①确定纬度：与晨昏线相切的纬线度数与太阳直射点的纬度数"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0153",
+              "answer": "互余",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "；晨昏线与地轴夹角的度数等于太阳直射点的纬度。"
+            }
+          ],
+          "source_block": 191,
+          "source_row": null,
+          "source_text": "①确定纬度：与晨昏线相切的纬线度数与太阳直射点的纬度数互余；晨昏线与地轴夹角的度数等于太阳直射点的纬度。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②确定经度：与晨线（昏线）和赤道交点相差90°且大部分在昼半球一侧的经线是太阳直射的经线；过晨昏线与纬线切点，且大部分在昼半球的经线是太阳直射的经线。"
+            }
+          ],
+          "source_block": 192,
+          "source_row": null,
+          "source_text": "②确定经度：与晨线（昏线）和赤道交点相差90°且大部分在昼半球一侧的经线是太阳直射的经线；过晨昏线与纬线切点，且大部分在昼半球的经线是太阳直射的经线。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（5）确定昼夜长短"
+            }
+          ],
+          "source_block": 193,
+          "source_row": null,
+          "source_text": "（5）确定昼夜长短"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "晨昏线将地球上的纬线分成昼弧和夜弧两部分。昼长＝昼弧所跨经度除以"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0154",
+              "answer": "15°",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的商，夜长＝夜弧所跨经度除以"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0155",
+              "answer": "15°",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的商。"
+            }
+          ],
+          "source_block": 194,
+          "source_row": null,
+          "source_text": "晨昏线将地球上的纬线分成昼弧和夜弧两部分。昼长＝昼弧所跨经度除以15°的商，夜长＝夜弧所跨经度除以15°的商。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "（6）确定日出、日落时间"
+            }
+          ],
+          "source_block": 195,
+          "source_row": null,
+          "source_text": "（6）确定日出、日落时间"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "某地的日出时间＝该地所在纬线与晨线交点的地方时。日落时间＝该地所在纬线与昏线交点的地方时。"
+            }
+          ],
+          "source_block": 196,
+          "source_row": null,
+          "source_text": "某地的日出时间＝该地所在纬线与晨线交点的地方时。日落时间＝该地所在纬线与昏线交点的地方时。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、几种常见的晨昏线图"
+            }
+          ],
+          "source_block": 197,
+          "source_row": null,
+          "source_text": "4、几种常见的晨昏线图"
+        },
+        {
+          "type": "figure",
+          "source_block": 198,
+          "image": "assets/recall/pocket-03/image-031.png",
+          "width": 518,
+          "height": 585,
+          "masks": [],
+          "caption": "考点01 晨昏线的判读 · 原图31",
+          "disclosure": true,
+          "source_image_sha256": "343ab1d7e5323c8c76705563d79688a934fff76354d04fb242e1496ada1e2a62"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-10",
+      "group": "知能拓展",
+      "title": "考点02 日期变更",
+      "note": "日期范围比例公式只用于180°经线作为日界线的模型；日期界线与0时经线重合时应单独说明全球同一日期。",
+      "source_blocks": [
+        199,
+        218
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "顺着地球自转的方向，往东越过0时经线时日期加1天，往东越过180°经线日期减1天；反之，顺着地球自转方向日期加1天时越过的是0时经线，日期减1天的是180°经线。"
+            }
+          ],
+          "source_block": 200,
+          "source_row": null,
+          "source_text": "顺着地球自转的方向，往东越过0时经线时日期加1天，往东越过180°经线日期减1天；反之，顺着地球自转方向日期加1天时越过的0时经线，日期减1天的是180°经线。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "新的一天的范围：0时经线往东到180°经线的经度范围；"
+            }
+          ],
+          "source_block": 201,
+          "source_row": null,
+          "source_text": "新的一天的范围：0时经线往东到180°经线的经度范围；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "新的一天占全球的比例=180°经线的地方时/24；"
+            }
+          ],
+          "source_block": 202,
+          "source_row": null,
+          "source_text": "新的一天占全球的比例=180°经线的地方时/24；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、经线展开图示"
+            }
+          ],
+          "source_block": 203,
+          "source_row": null,
+          "source_text": "1、经线展开图示"
+        },
+        {
+          "type": "figure",
+          "source_block": 204,
+          "image": "assets/recall/pocket-03/image-032.png",
+          "width": 1420,
+          "height": 732,
+          "masks": [],
+          "caption": "考点02 日期变更 · 原图32",
+          "disclosure": true,
+          "source_image_sha256": "a6dd54c4106b3f1d6cfaff952bddb1a0480b05335a0cb6425d1b063c12ce47f2"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、极地投影图示"
+            }
+          ],
+          "source_block": 205,
+          "source_row": null,
+          "source_text": "2、极地投影图示"
+        },
+        {
+          "type": "figure",
+          "source_block": 206,
+          "image": "assets/recall/pocket-03/image-033.png",
+          "width": 1769,
+          "height": 533,
+          "masks": [],
+          "caption": "考点02 日期变更 · 原图33",
+          "disclosure": true,
+          "source_image_sha256": "1f0b8d50c94fd5bbbe36e96c90cd9e47c595e8175d1d2a2c39f279b139b9cf1a"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、日期范围类问题的解法"
+            }
+          ],
+          "source_block": 207,
+          "source_row": null,
+          "source_text": "3、日期范围类问题的解法"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "解答日期变更类问题，关键是确定（区分）日期变更与日界线的关系，如下图所示："
+            }
+          ],
+          "source_block": 208,
+          "source_row": null,
+          "source_text": "解答日期变更类问．关键是确定（区分）日期变更与日界线的关系，如下图所示："
+        },
+        {
+          "type": "figure",
+          "source_block": 209,
+          "image": "assets/recall/pocket-03/image-034.png",
+          "width": 1299,
+          "height": 877,
+          "masks": [],
+          "caption": "考点02 日期变更 · 原图34",
+          "disclosure": true,
+          "source_image_sha256": "7e164d3da48b7b429826ff773fc921b7a906a9306f5955b047fb666719dd469c"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）日期分界线的判断"
+            }
+          ],
+          "source_block": 210,
+          "source_row": null,
+          "source_text": "1）日期分界线的判断"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①根据地球的自转方向判断：顺着地球自转的方向，由新日期进入旧日期的是180°经线，由旧日期进入新日期的是0时经线。"
+            }
+          ],
+          "source_block": 211,
+          "source_row": null,
+          "source_text": "①根据地球的自转方向判断：顺着地球自转的方向，由新日期进入旧日期的是180°经线，由旧日期进入新日期的是0时经线。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②光照图中0时经线的判断：在几何模型中，极昼边界与晨昏线的切点位于当地午夜，其所在经线可用于确定0时经线；一般图中应结合平分夜半球且对应午夜的经线判断，极点及退化情形需单独处理。"
+            }
+          ],
+          "source_block": 212,
+          "source_row": null,
+          "source_text": "②光照图中0时经线的判断：过晨昏线与纬线（极昼范围）切点的经线为0时经线；平分夜半球的经线为0时经线。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③根据时间判断：地方时为0时的经线为0时经线。"
+            }
+          ],
+          "source_block": 213,
+          "source_row": null,
+          "source_text": "③根据时间判断：地方时为0时的经线为0时经线。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）日期范围的计算"
+            }
+          ],
+          "source_block": 214,
+          "source_row": null,
+          "source_text": "2）日期范围的计算"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①数轴法：先画出表示全球范围的数轴，从180°经线处将地球展开，数轴的两端为180°经线。然后再按照地方时计算的方法找出地方时为0时的经线，从而确定两个不同日期的范围。如下图，90° E为0时，新的一天占全球1/4。"
+            }
+          ],
+          "source_block": 215,
+          "source_row": null,
+          "source_text": "①数轴法：先画出表示全球范围的数轴，从180°经线处将地球展开，数轴的两端为180°经线。然后再按照地方时计算的方法找出地方时为0时的经线，从而确定两个不同日期的范围。如下图，90° E为0时，新的一天占全球1/4。"
+        },
+        {
+          "type": "figure",
+          "source_block": 216,
+          "image": "assets/recall/pocket-03/image-035.png",
+          "width": 810,
+          "height": 97,
+          "masks": [],
+          "caption": "考点02 日期变更 · 原图35",
+          "disclosure": true,
+          "source_image_sha256": "6f75e9b8df0e9f0b4fd6ec23e55a4492117dabbdbf7a11726aa5ee00f66b56af"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②180°时间法：180°经线为0时时，全球是同一个日期。随后，0时经线随着地球的自转自东向西运动。0时经线向西移动1小时，180°经线为1：00，全球有1个小时的范围进入新的日期。因此，180°经线为几时，全球便有24分之几的范围进入新的一天。"
+            }
+          ],
+          "source_block": 217,
+          "source_row": null,
+          "source_text": "②180°时间法：180°经线为0时时，全球是同一个日期。随后，0时经线随着地球的自转自东向西运动。0时经线向西移动1小时，180°经线为1：00，全球有1个小时的范围进入新的日期。因此，180°经线为几时，全球便有24分之几的范围进入新的一天。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-11",
+      "group": "知能拓展",
+      "title": "考点03 昼夜长短的计算",
+      "note": "昼夜时数和日出日落公式使用地方太阳时，并假定当天太阳赤纬近似不变；极昼极夜取24小时或0小时。",
+      "source_blocks": [
+        219,
+        226
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、根据某纬线的昼弧或夜弧弧度计算：昼（夜）长时数＝昼（夜）弧度数/15°。"
+            }
+          ],
+          "source_block": 220,
+          "source_row": null,
+          "source_text": "1、根据某纬线的昼弧或夜弧弧度计算：昼（夜）长时数＝昼（夜）弧度数/15°。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、根据日出、日落的地方时计算，地方时正午12时把一天的白昼平分成相等的两份。"
+            }
+          ],
+          "source_block": 221,
+          "source_row": null,
+          "source_text": "2、根据日出、日落的地方时计算，地方时正午12时把一天的白昼平分成相等的两份。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）昼长时数＝"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0156",
+              "answer": "（12－日出时间）×2",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "＝（日落时间－12）×2。"
+            }
+          ],
+          "source_block": 222,
+          "source_row": null,
+          "source_text": "1）昼长时数＝（12－日出时间）×2＝（日落时间－12）×2。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）夜长时数＝（日出时间－0）×2＝（24－日落时间）×2。"
+            }
+          ],
+          "source_block": 223,
+          "source_row": null,
+          "source_text": "2）夜长时数＝（日出时间－0）×2＝（24－日落时间）×2。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、根据纬度的分布特点进行计算"
+            }
+          ],
+          "source_block": 224,
+          "source_row": null,
+          "source_text": "3、根据纬度的分布特点进行计算"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）同纬度各地的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0157",
+              "answer": "昼长相等",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0158",
+              "answer": "夜长相等",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 225,
+          "source_row": null,
+          "source_text": "1）同纬度各地的昼长相等，夜长相等。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）根据昼夜长短的纬度对称分布特点，北半球各地的昼长（夜长）与南半球同纬度地区的夜长（昼长）相等，可以求对称纬度的昼长（夜长）。"
+            }
+          ],
+          "source_block": 226,
+          "source_row": null,
+          "source_text": "2）根据昼夜长短的纬度对称分布特点，北半球各地的昼长（夜长）与南半球同纬度地区的夜长（昼长）相等，可以求对称纬度的昼长（夜长）。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-12",
+      "group": "知能拓展",
+      "title": "考点04 确定房屋朝向",
+      "note": "",
+      "source_blocks": [
+        227,
+        230
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "为了获得最充足的太阳光照，各地房屋的朝向与正午太阳所在的位置有关。"
+            }
+          ],
+          "source_block": 228,
+          "source_row": null,
+          "source_text": "为了获得最充足的太阳光照，各地房屋的朝向与正午太阳所在的位置有关。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "北回归线以北的地区，正午太阳位于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0159",
+              "answer": "南方",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，房屋朝南。"
+            }
+          ],
+          "source_block": 229,
+          "source_row": null,
+          "source_text": "北回归线以北的地区，正午太阳位于南方，房屋朝南。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "南回归线以南的地区，正午太阳位于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0160",
+              "answer": "北方",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，房屋朝北。"
+            }
+          ],
+          "source_block": 230,
+          "source_row": null,
+          "source_text": "南回归线以南的地区，正午太阳位于北方，房屋朝北。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-13",
+      "group": "知能拓展",
+      "title": "考点05 计算楼间距和楼高",
+      "note": "楼间距公式是地面水平、楼高h相对同一基准、采用冬至正午几何遮挡的简化模型，不代替实际建筑日照标准。",
+      "source_blocks": [
+        231,
+        233
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "为保证各楼层都有良好的采光，楼与楼之间应保持适当距离。北回归线以北地区建楼房时，两楼之间的最短距离应大于L＝h·cot H（H为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0161",
+              "answer": "冬至日正午太阳高度",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "）。"
+            }
+          ],
+          "source_block": 232,
+          "source_row": null,
+          "source_text": "为保证各楼层都有良好的采光，楼与楼之间应保持适当距离。北回归线以北地区建楼房时，两楼之间的最短距离应大于L＝h·cot H（H为冬至日正午太阳高度）。"
+        },
+        {
+          "type": "figure",
+          "source_block": 233,
+          "image": "assets/recall/pocket-03/image-036.png",
+          "width": 756,
+          "height": 295,
+          "masks": [],
+          "caption": "考点05 计算楼间距和楼高 · 原图36",
+          "disclosure": true,
+          "source_image_sha256": "a5440dbb33324deec57fd17354a284a3261a5cf7ef94534939dbe376c2a53d94"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-14",
+      "group": "知能拓展",
+      "title": "考点06 计算热水器的安装角度",
+      "note": "",
+      "source_blocks": [
+        234,
+        237
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "为更好地利用太阳能，应不断调整太阳能热水器与楼顶平面之间的倾角，使太阳光与受热板"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0162",
+              "answer": "成直角",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 235,
+          "source_row": null,
+          "source_text": "为更好地利用太阳能，应不断调整太阳能热水器与楼顶平面之间的倾角，使太阳光与受热板成直角。"
+        },
+        {
+          "type": "figure",
+          "source_block": 236,
+          "image": "assets/recall/pocket-03/image-037.png",
+          "width": 1642,
+          "height": 449,
+          "masks": [],
+          "caption": "考点06 计算热水器的安装角度 · 原图37",
+          "disclosure": true,
+          "source_image_sha256": "7318598ae5769f499586df5ff91f5ae0aedaf13d522573bd5f1a707a58666974"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在地面水平、集热板朝向正午太阳方位且只优化正午直射辐射的模型中，板面倾角α与正午太阳高度H互余，即"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0163",
+              "answer": "α＋H＝90°",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。实际全年固定安装需综合季节、朝向和气象条件。"
+            }
+          ],
+          "source_block": 237,
+          "source_row": null,
+          "source_text": "集热板与地面之间的夹角和当天正午太阳高度角互余，如图，α＋H＝90°时效果最佳。"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-15",
+      "group": "知能拓展",
+      "title": "考点07 太阳视运动",
+      "note": "",
+      "source_blocks": [
+        238,
+        256
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、日出和日落方位"
+            }
+          ],
+          "source_block": 239,
+          "source_row": null,
+          "source_text": "1、日出和日落方位"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "全球除出现极昼和极夜的区域外，其太阳出没点的地平方位是偏南还是偏北，取决于太阳直射南半球还是北半球，而与观测地点位于南北半球无关。具体来说："
+            }
+          ],
+          "source_block": 240,
+          "source_row": null,
+          "source_text": "全球除出现极昼和极夜的区域外，其太阳出没点的地平方位是偏南还是偏北，取决于太阳直射南半球还是北半球，而与观测地点位于南北半球无关。具体来说："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）在两分日时，太阳直射赤道，全球各地太阳正东升，正西落（极点除外）。\n2）北半球的夏半年（太阳直射点位于北半球，即从春分日经过夏至日到秋分日），全球各地太阳东北升，西北落，而且纬度越高，太阳升落的方位越偏北（极点和出现极昼夜的地方除外）；北半球的冬半年（太阳直射南半球，从秋分经过冬至到春分日），全球各地太阳东南升，西南落，纬度越高，太阳升落的方位越偏南（极点和出现极昼夜的地方除外）。\n3）就某一地点而言，在太阳直射点向北运动期间，太阳升落的方位将日渐偏北；反之则日渐偏南。\n4）南北极点上，太阳高度在一天中是不变的（即太阳周日视运动轨迹总是与极点的地平圈平行），太阳在一天中没有明显的升起和落下。"
+            }
+          ],
+          "source_block": 241,
+          "source_row": null,
+          "source_text": "1）在两分日时，太阳直射赤道，全球各地太阳正东升，正西落（极点除外）。\n2）北半球的夏半年（太阳直射点位于北半球，即从春分日经过夏至日到秋分日），全球各地太阳东北升，西北落，而且纬度越高，太阳升落的方位越偏北（极点和出现极昼夜的地方除外）；北半球的冬半年（太阳直射南半球，从秋分经过冬至到春分日），全球各地太阳东南升，西南落，纬度越高，太阳升落的方位越偏南（极点和出现极昼夜的地方除外）。\n3）就某一地点而言，在太阳直射点向北运动期间，太阳升落的方位将日渐偏北；反之则日渐偏南。\n4）南北极点上，太阳高度在一天中是不变的（即太阳周日视运动轨迹总是与极点的地平圈平行），太阳在一天中没有明显的升起和落下。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、太阳视运动图的判断"
+            }
+          ],
+          "source_block": 242,
+          "source_row": null,
+          "source_text": "2、太阳视运动图的判断"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "太阳视运动是地球自转造成的，一天中，地球自西向东自转，看太阳在天空中以观测者为中心，自东向西运动，一天转一圈。观测者所在的平面是地表切面，叫做地平圈，以观测者为中心的大球面为天球，天体在天球上运动。"
+            }
+          ],
+          "source_block": 243,
+          "source_row": null,
+          "source_text": "太阳视运动是地球自转造成的，一天中，地球自西向东自转，看太阳在天空中以观测者为中心，自东向西运动，一天转一圈。观测者所在的平面是地表切面，叫做地平圈，以观测者为中心的大球面为天球，天体在天球上运动。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）太阳视运动最高位置为正午，正午太阳高度为从地平圈中心向太阳最高位置的连线与地平圈的交角，地平圈以上部分长度反映昼长，以下表示夜长。"
+            }
+          ],
+          "source_block": 244,
+          "source_row": null,
+          "source_text": "1）太阳视运动最高位置为正午，正午太阳高度为从地平圈中心向太阳最高位置的连线与地平圈的交角，地平圈以上部分长度反映昼长，以下表示夜长。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）不同半球的正午太阳偏向：北回归线以北和南回归线以南地区，太阳轨迹是平行的。北回归线以北地区，一年中太阳总是偏向南方，每天太阳最高时太阳在正南，南回归线以南地区，一年中太阳总是偏向北方，太阳最高时在正北，根据一年中太阳视运动最高、最低、居中位置来判断季节。"
+            }
+          ],
+          "source_block": 245,
+          "source_row": null,
+          "source_text": "2）不同半球的正午太阳偏向：北回归线以北和南回归线以南地区，太阳轨迹是平行的。北回归线以北地区，一年中太阳总是偏向南方，每天太阳最高时太阳在正南，南回归线以南地区，一年中太阳总是偏向北方，太阳最高时在正北，根据一年中太阳视运动最高、最低、居中位置来判断季节。"
+        },
+        {
+          "type": "figure",
+          "source_block": 246,
+          "image": "assets/recall/pocket-03/image-038.png",
+          "width": 481,
+          "height": 199,
+          "masks": [],
+          "caption": "考点07 太阳视运动 · 原图38",
+          "disclosure": true,
+          "source_image_sha256": "ed825acabd6146c4f5d72475a61032293686dd8098aa21d5c0b3ec435931253a"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "南北回归线之间地区，太阳轨迹也是平行的，只不过正午时太阳有时位于观测者以北，有时位于观测者正头顶（正午太阳高度为90度，正午太阳高度为太阳与地平圈中心连线与地平圈夹角），有时位于观测者以南。赤道上每天都昼夜平分，太阳每天都垂直升落，但正午太阳高度并不同。其余位于回归线之间纬度太阳运动轨迹倾斜，但与地面夹角较大。"
+            }
+          ],
+          "source_block": 247,
+          "source_row": null,
+          "source_text": "南北回归线之间地区，太阳轨迹也是平行的，只不过正午时太阳有时位于观测者以北，有时位于观测者正头顶（正午太阳高度为90度，正午太阳高度为太阳与地平圈中心连线与地平圈夹角），有时位于观测者以南。赤道上每天都昼夜平分，太阳每天都垂直升落，但正午太阳高度并不同。其余位于回归线之间纬度太阳运动轨迹倾斜，但与地面夹角较大。"
+        },
+        {
+          "type": "figure",
+          "source_block": 248,
+          "image": "assets/recall/pocket-03/image-039.png",
+          "width": 194,
+          "height": 169,
+          "masks": [],
+          "caption": "考点07 太阳视运动 · 原图39",
+          "disclosure": true,
+          "source_image_sha256": "4c67349e741cd447264d59309f1e4e02219193a6d273d92a4a96679fa595504c"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）正好出现极昼的地区，北极圈以北地区表现为正北升，正北落，南极圈以南表现为正南升，正南落（升落在同一地点）。已经处于极昼的地方（不包括极点），太阳虽一直在地平圈以上，但仍有高度变化，正午时太阳最高，午夜时太阳最低，如图中a点。正午太阳高度可以计算，最小太阳高度可以通过直射点运动推算。由于太阳运动轨迹是平行的，正午太阳高度变化即为最小太阳高度变化，变化数值为直射点移动范围。例如：北纬80度地区，太阳直射点位于北纬10度时，该纬度正好出现极昼现象，最小太阳高度为0度，正午太阳高度为20度，夏至时，直射点位于北回归线，最大太阳高度为33°26′，最小太阳高度为13°26′。"
+            }
+          ],
+          "source_block": 249,
+          "source_row": null,
+          "source_text": "4）正好出现极昼的地区，北极圈以北地区表现为正北升，正北落，南极圈以南表现为正南升，正南落（升落在同一地点）。已经处于极昼的地方（不包括极点），太阳虽一直在地平圈以上，但仍有高度变化，正午时太阳最高，午夜时太阳最低，如图中a点。正午太阳高度可以计算，最小太阳高度可以通过直射点运动推算。由于太阳运动轨迹是平行的，正午太阳高度变化即为最小太阳高度变化，变化数值为直射点移动范围。例如：北纬80度地区，太阳直射点位于北纬10度时，该纬度正好出现极昼现象，最小太阳高度为0度，正午太阳高度为20度，夏至时，直射点位于北回归线，最大太阳高度为33°26′，最小太阳高度为13°26′。"
+        },
+        {
+          "type": "figure",
+          "source_block": 250,
+          "image": "assets/recall/pocket-03/image-040.png",
+          "width": 503,
+          "height": 181,
+          "masks": [],
+          "caption": "考点07 太阳视运动 · 原图40",
+          "disclosure": true,
+          "source_image_sha256": "0674733571b3c5ca311d2d223cbbdf96bace4d66e70972684505a8829e6277e5"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）北极点和南极点的太阳视运动"
+            }
+          ],
+          "source_block": 252,
+          "source_row": null,
+          "source_text": "5）北极点和南极点的太阳视运动"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①北极点：一天内太阳高度不变，太阳高度可以通过正午太阳高度计算出来，从地平面向上看，太阳逆时针在地平面以上旋转，地平圈中心为观测者位置，即北极点，四周方向都是正南方向。"
+            }
+          ],
+          "source_block": 253,
+          "source_row": null,
+          "source_text": "①北极点：一天内太阳高度不变，太阳高度可以通过正午太阳高度计算出来，从地平面向上看，太阳逆时针在地平面以上旋转，地平圈中心为观测者位置，即北极点，四周方向都是正南方向。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②南极点：站在地平圈中心向上看，太阳顺时针在地平面以上旋转，地平圈中心为观测者位置，即南极点，四周方向都是正北方向。"
+            }
+          ],
+          "source_block": 254,
+          "source_row": null,
+          "source_text": "②南极点：站在地平圈中心向上看，太阳顺时针在地平面以上旋转，地平圈中心为观测者位置，即南极点，四周方向都是正北方向。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "注意问题：读此类图要注意以下两点：①若正东日出、正西日落，说明太阳直射在赤道。北回归线以北（除北极外）正午时的太阳总是在南方的天空，南回归线以南（除南极外）正午时的太阳总是在北方的天空，北极点上空的太阳总在南方的天空，南极点上空的太阳总在北方的天空。②若太阳在地平圈以上运行的时间短于在地平圈以下的时间，说明该地处于冬半年，反之，说明位于夏半年。如下图为北半球某地太阳运行图，从图中可以看出太阳在地平圈以上的运行时间短于在地平圈以下的时间，说明太阳直射在南半球，日落方位与正西方向的偏角为20°，不能直接推出直射纬度为南纬20°；日出日落方位同时取决于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0164",
+              "answer": "观测地纬度",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "与"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0165",
+              "answer": "太阳赤纬",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，应联合题目给定的太阳高度等条件求解。"
+            }
+          ],
+          "source_block": 255,
+          "source_row": null,
+          "source_text": "注意问题：读此类图要注意以下两点：①若正东日出、正西日落，说明太阳直射在赤道。北回归线以北（除北极外）正午时的太阳总是在南方的天空，南回归线以南（除南极外）正午时的太阳总是在北方的天空，北极点上空的太阳总在南方的天空，南极点上空的太阳总在北方的天空。②若太阳在地平圈以上运行的时间短于在地平圈以下的时间，说明该地处于冬半年，反之，说明位于夏半年。如下图为北半球某地太阳运行图，从图中可以看出太阳在地平圈以上的运行时间短于在地平圈以下的时间，说明太阳直射在南半球，日落点和正东、正西连线的交角为20°，说明太阳直射点位于南纬20°，由该地正午太阳高度为40°和太阳直射南纬20°两个条件可算出当地的纬度。"
+        },
+        {
+          "type": "figure",
+          "source_block": 256,
+          "image": "assets/recall/pocket-03/image-041.png",
+          "width": 240,
+          "height": 179,
+          "masks": [],
+          "caption": "考点07 太阳视运动 · 原图41",
+          "disclosure": true,
+          "source_image_sha256": "861ea949ad028f4cad858ae4bd5c24c5cf52bc10e2e8ba35d74a3328db36f321"
+        }
+      ]
+    },
+    {
+      "id": "pocket03-16",
+      "group": "知能拓展",
+      "title": "考点08 物影变化",
+      "note": "",
+      "source_blocks": [
+        257,
+        260
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "太阳直射点上，物体的影子缩短为0；正午太阳高度越大，日影越短；反之，日影越长。正午是一天中日影最短的时刻。日影永远朝向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket03-blank-0166",
+              "answer": "背离太阳的方向",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，北回归线以北的地区，正午的日影全年朝向正北（北极点除外），冬至日日影最长，夏至日日影最短；南回归线以南的地区，正午的日影全年朝向正南（南极点除外），夏至日日影最长，冬至日日影最短；南、北回归线之间的地区，正午日影夏至日朝向正南、冬至日朝向正北，直射时日影最短（等于0）。"
+            }
+          ],
+          "source_block": 258,
+          "source_row": null,
+          "source_text": "太阳直射点上，物体的影子缩短为0；正午太阳高度越大，日影越短；反之，日影越长。正午是一天中日影最短的时刻。日影永远朝向背离太阳的方向，北回归线以北的地区，正午的日影全年朝向正北（北极点除外），冬至日日影最长，夏至日日影最短；南回归线以南的地区，正午的日影全年朝向正南（南极点除外），夏至日日影最长，冬至日日影最短；南、北回归线之间的地区，正午日影夏至日朝向正南、冬至日朝向正北，直射时日影最短（等于0）。"
+        },
+        {
+          "type": "figure",
+          "source_block": 259,
+          "image": "assets/recall/pocket-03/image-042.png",
+          "width": 506,
+          "height": 257,
+          "masks": [],
+          "caption": "考点08 物影变化 · 原图42",
+          "disclosure": true,
+          "source_image_sha256": "aabf365570efbb53bcd0208bc1fe6931b4eb2de9cabbae72dd84d22e88535077"
+        }
+      ]
+    }
+  ],
+  "audit": {
+    "reviewed_on": "2026-11-02",
+    "blank_count": 166,
+    "images_sha256": {
+      "assets/recall/pocket-03/image-004.png": "05dac77cacf55df4775db85f7ec0aeb5197c01ef0a0a3d869d768fd071f378a3",
+      "assets/recall/pocket-03/image-007.png": "fcf93bfe27e3fee6ef0394ea3d78ac450847a598ed1ceef970eefbafb0ccd5c4",
+      "assets/recall/pocket-03/image-008.png": "43c8e411cf967e775293768e73bc0269dc30d74f317188bb339218d91d512641",
+      "assets/recall/pocket-03/image-009.jpeg": "a61072fbba66c08cdc3e447dbc3a3b364d3b682021d298a1fb0bf39c3aafce91",
+      "assets/recall/pocket-03/image-010.png": "6bdb1ac962d02cb7fb47b7a8f736548c80fccf21a7178ef11bc861148ff82d9e",
+      "assets/recall/pocket-03/image-011.png": "b12cfc88a684eeacd0053bc16a9351dc7f09d50476c472493e85398eb9dbba69",
+      "assets/recall/pocket-03/image-012.png": "f202ea9d43953da988a8d7ff7cd2bedf57cb265c91bbdcd86cdf24b4484ba4f7",
+      "assets/recall/pocket-03/image-013.png": "a8101c7c6239ccf3d84adc67bf5cf62c7d5685ed55b754555127d581213bfd1f",
+      "assets/recall/pocket-03/image-014.png": "fbf5b17094aaeb080dc48b86f6971eececf9000422b5e60f7fe6805b6becb20a",
+      "assets/recall/pocket-03/image-015.png": "7e9b600b360a9478b4a33bde961f758856ae2da80f8a96b7077a92c51de52575",
+      "assets/recall/pocket-03/image-016.jpeg": "7204c5770105710983b09384e448cc991beabe31b7ff8883bce40139d5ce0909",
+      "assets/recall/pocket-03/image-017.jpeg": "aedf38d25795f8c81e5104951603bd41c6dceb7d14dd5f81ad9bf3a934421b61",
+      "assets/recall/pocket-03/image-018.png": "358475c6d87e605bbcf120e3280519dd0ae2c21dc01672c6f6633499477421f6",
+      "assets/recall/pocket-03/image-019.png": "9cfd73637aff9cb7535569f70b02277637e94009b0b7e0fe7c04d8cc950f5e4b",
+      "assets/recall/pocket-03/image-021.png": "fda57c714b32d820f1a1f46fbbbc86116ccd928dd8176110007445d45f6934f7",
+      "assets/recall/pocket-03/image-022.png": "11d2bb5320e53725e660eb5eac19a598da56e2856c09da9d224ea260fc08fa14",
+      "assets/recall/pocket-03/image-024.png": "9983c994edd49f8a68876d34e771376b838f8d933e00a61f274efa950c0eb02d",
+      "assets/recall/pocket-03/image-025.png": "56a5d92f3fc94d387c8d5b51f1f2b1c64d7f4044cbf6d23d6da924254128860b",
+      "assets/recall/pocket-03/image-026.png": "655fd125e4d474eb7dd420032edae7d80fefb9c76affe64926dee1ae6f01e5a1",
+      "assets/recall/pocket-03/image-028.png": "79f2a915d38cae48e4633435d5a533a88db9d403d87bf4cb25fe6778cfcfe18d",
+      "assets/recall/pocket-03/image-029.png": "0783ac46d7f41fcbc8c67648fd567306d346aa679bc259228a5cdf0a8e1aa356",
+      "assets/recall/pocket-03/image-030.png": "fbe7f9eae6d973299cabeb22bac648fe159d159f4e27f62baed9fc52f0dcbcf6",
+      "assets/recall/pocket-03/image-031.png": "343ab1d7e5323c8c76705563d79688a934fff76354d04fb242e1496ada1e2a62",
+      "assets/recall/pocket-03/image-032.png": "a6dd54c4106b3f1d6cfaff952bddb1a0480b05335a0cb6425d1b063c12ce47f2",
+      "assets/recall/pocket-03/image-033.png": "1f0b8d50c94fd5bbbe36e96c90cd9e47c595e8175d1d2a2c39f279b139b9cf1a",
+      "assets/recall/pocket-03/image-034.png": "7e164d3da48b7b429826ff773fc921b7a906a9306f5955b047fb666719dd469c",
+      "assets/recall/pocket-03/image-035.png": "6f75e9b8df0e9f0b4fd6ec23e55a4492117dabbdbf7a11726aa5ee00f66b56af",
+      "assets/recall/pocket-03/image-036.png": "a5440dbb33324deec57fd17354a284a3261a5cf7ef94534939dbe376c2a53d94",
+      "assets/recall/pocket-03/image-037.png": "7318598ae5769f499586df5ff91f5ae0aedaf13d522573bd5f1a707a58666974",
+      "assets/recall/pocket-03/image-038.png": "ed825acabd6146c4f5d72475a61032293686dd8098aa21d5c0b3ec435931253a",
+      "assets/recall/pocket-03/image-039.png": "4c67349e741cd447264d59309f1e4e02219193a6d273d92a4a96679fa595504c",
+      "assets/recall/pocket-03/image-040.png": "0674733571b3c5ca311d2d223cbbdf96bace4d66e70972684505a8829e6277e5",
+      "assets/recall/pocket-03/image-041.png": "861ea949ad028f4cad858ae4bd5c24c5cf52bc10e2e8ba35d74a3328db36f321",
+      "assets/recall/pocket-03/image-042.png": "aabf365570efbb53bcd0208bc1fe6931b4eb2de9cabbae72dd84d22e88535077"
+    },
+    "counters": {
+      "source-marking": 136,
+      "paragraphs": 218,
+      "tables": 6,
+      "reviewed-addition": 30
+    },
+    "corrections": [
+      {
+        "source_block": 42,
+        "source_row": null,
+        "original": "只影响运动方向，不影响运动速度；纬度越高，地转偏向力越大。",
+        "revised": "只改变运动方向，不直接改变速率；在质量和水平运动速率相同等条件下，纬度绝对值越大，其水平偏转效应越强。",
+        "reason": "区分速度矢量与速率，补充纬度比较条件。",
+        "references": []
+      },
+      {
+        "source_block": 110,
+        "source_row": null,
+        "original": "b.正午太阳高度由太阳直射点所在纬度决定，离太阳直射点越近，正午太阳高度角越大。",
+        "revised": "b.正午太阳高度由观测地纬度φ和太阳直射点纬度δ共同决定：H＝90°－|φ－δ|，纬度采用北正南负的带符号数值；观测地与直射纬线的纬度差越小，H越大。",
+        "reason": "补全正午太阳高度公式的两个纬度变量与符号约定。",
+        "references": [
+          "noaa-solar"
+        ]
+      },
+      {
+        "source_block": 126,
+        "source_row": null,
+        "original": "如果余数大于7.5°，则商+1为时区数。",
+        "revised": "如果余数大于7.5°，则商+1为理论时区数。恰好位于7.5°边界时需按题目约定；实际民用时区还可能采用行政边界。",
+        "reason": "补充时区边界与实际民用时区条件。",
+        "references": []
+      },
+      {
+        "source_block": 129,
+        "source_row": null,
+        "original": "2）区时差=时区数差×1小时（东加西减，注意东西位置为相对位置，需要在劣弧范围内进行判断，可借用经度的变化或自求的自转方向来进行判断）。",
+        "revised": "2）区时差按带符号时区偏移相减：东时区为正、西时区为负。不能仅取两地劣弧就忽略日期；计算超过24时或小于0时，需要同时调整日期。",
+        "reason": "区时计算须保留符号与日期，不能无条件取劣弧。",
+        "references": []
+      },
+      {
+        "source_block": 151,
+        "source_row": null,
+        "original": "地球上日期最多存在两天，顺着地球自转方向，从0时经线到180度经线之间范围为新的一天，余者为旧的一天。若180经线为0时的话，则全球各地同属于一个日期。",
+        "revised": "在把180°经线作为日期界线、按地方时分析的高中简化模型中，全球通常至多并存两个日期；从0时经线向东到180°经线为较新日期。真实世界的国际日期变更线与民用时区有折线和例外，不能把此模型无条件当作全球民用日历的精确描述。",
+        "reason": "明确两个日期结论所依赖的简化模型。",
+        "references": []
+      },
+      {
+        "source_block": 156,
+        "source_row": null,
+        "original": "为900",
+        "revised": "为90°",
+        "reason": "修正角度单位排版错误。",
+        "references": []
+      },
+      {
+        "source_block": 171,
+        "source_row": null,
+        "original": "3）极圈以内地区：纬度越高，正午太阳高度变化幅度越小，即为极圈上最大，变化幅度为46°52′，极点上最小，变化幅度为23°26′。",
+        "revised": "3）极圈以内，若仅统计太阳在地平线上方时可见的正午高度，其年变化范围会受极夜截断；若采用可为负的几何太阳高度，则全年极大、极小差仍按H＝90°－|φ－δ|计算，不能混用两种统计口径。",
+        "reason": "区分可见太阳高度与包含负值的几何太阳高度。",
+        "references": [
+          "noaa-solar"
+        ]
+      },
+      {
+        "source_block": 176,
+        "source_row": null,
+        "original": "某地经线与晨线相交点所在的地方时，为该地日出地方时；而与昏线相交经线的地方时则为该地日落地方时。",
+        "revised": "求某地日出、日落地方时，应沿该地纬线分别找与晨线、昏线的交点，并读取交点的地方时；不能误用该地经线与晨昏线的交点。",
+        "reason": "晨昏线求日出日落应沿当地纬线，原文误写为经线。",
+        "references": []
+      },
+      {
+        "source_block": 200,
+        "source_row": null,
+        "original": "日期加1天时越过的0时经线",
+        "revised": "日期加1天时越过的是0时经线",
+        "reason": "修正语句缺字。",
+        "references": []
+      },
+      {
+        "source_block": 208,
+        "source_row": null,
+        "original": "类问．",
+        "revised": "类问题，",
+        "reason": "修正文字错误。",
+        "references": []
+      },
+      {
+        "source_block": 212,
+        "source_row": null,
+        "original": "过晨昏线与纬线（极昼范围）切点的经线为0时经线；平分夜半球的经线为0时经线。",
+        "revised": "在几何模型中，极昼边界与晨昏线的切点位于当地午夜，其所在经线可用于确定0时经线；一般图中应结合平分夜半球且对应午夜的经线判断，极点及退化情形需单独处理。",
+        "reason": "补充极昼边界及午夜经线的判断前提。",
+        "references": []
+      },
+      {
+        "source_block": 237,
+        "source_row": null,
+        "original": "集热板与地面之间的夹角和当天正午太阳高度角互余，如图，α＋H＝90°时效果最佳。",
+        "revised": "在地面水平、集热板朝向正午太阳方位且只优化正午直射辐射的模型中，板面倾角α与正午太阳高度H互余，即α＋H＝90°。实际全年固定安装需综合季节、朝向和气象条件。",
+        "reason": "补充集热板倾角模型的优化目标与方位条件。",
+        "references": []
+      },
+      {
+        "source_block": 255,
+        "source_row": null,
+        "original": "日落点和正东、正西连线的交角为20°，说明太阳直射点位于南纬20°，由该地正午太阳高度为40°和太阳直射南纬20°两个条件可算出当地的纬度。",
+        "revised": "日落方位与正西方向的偏角为20°，不能直接推出直射纬度为南纬20°；日出日落方位同时取决于观测地纬度与太阳赤纬，应联合题目给定的太阳高度等条件求解。",
+        "reason": "修正把日落方位偏角直接当作太阳直射纬度的错误。",
+        "references": [
+          "noaa-solar"
+        ]
+      }
+    ],
+    "references": [
+      {
+        "id": "noaa-solar",
+        "title": "NOAA：太阳位置的一般计算公式",
+        "url": "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
+      },
+      {
+        "id": "usno-rise",
+        "title": "美国海军天文台：日出与折射条件",
+        "url": "https://aa.usno.navy.mil/faq/first_sunrise.html"
+      }
+    ],
+    "note": "按原顺序提取，保留标记答案与原图。含标注的原图默认折叠，先回忆再展开核对；重点修订有原文记录，具体条件以题目材料为准。"
+  }
+}
