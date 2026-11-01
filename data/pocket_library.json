@@ -6,6 +6,7 @@
     {"id": "pocket02", "title": "专题02 宇宙中的地球", "data": "data/pocket/02-earth-universe.json"},
     {"id": "pocket03", "title": "专题03 地球运动", "data": "data/pocket/03-earth-motion.json"},
     {"id": "pocket04", "title": "专题04 冷热不均引起大气运动", "data": "data/pocket/04-atmosphere-motion.json"},
+    {"id": "pocket05", "title": "专题05 大气环流与气候", "data": "data/pocket/05-circulation-climate.json"},
     {"id": "pocket11", "title": "专题11 人口", "data": "data/pocket_population.json"}
   ]
 }
