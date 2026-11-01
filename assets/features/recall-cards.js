@@ -75,7 +75,8 @@
     <p class="page-subtitle">先口头补完，再点击淡橙色空格查看本空答案；再次点击隐藏。字小可点“放大背诵”，放大后仍可逐空点击。</p>
     <div class="recall-layout">
       ${renderDirectory(module, lesson, progressByLesson)}
-      <div class="recall-lesson-main">
+      <div class="recall-lesson-main" tabindex="-1" aria-label="当前背诵课时">
+        <button class="btn secondary recall-return-directory" type="button" data-action="return-recall-directory">返回目录</button>
         <section class="card recall-lesson-summary">
           <div><span class="section-kicker">${escapeHtml(lesson.chapter)}</span><h2>${escapeHtml(lesson.title)}</h2></div>
           <div class="recall-lesson-meta"><span>原页 ${lesson.source_pages.start}-${lesson.source_pages.end}</span><span>${lesson.question_pages.length} 个题面页</span><span>${blankCount} 个可点击空位</span></div>

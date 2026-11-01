@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.31.0", ASSET_VERSION: "0.31.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.31.1", ASSET_VERSION: "0.31.1", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -2678,6 +2678,17 @@ document.addEventListener("click", async (event) => {
     state.recallLessonId = lesson.id;
     state.route = "recall";
     saveState(); render();
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      const content = document.querySelector(".recall-lesson-main");
+      content?.focus({ preventScroll: true });
+      content?.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+    return;
+  }
+  if (action === "return-recall-directory") {
+    const selected = document.querySelector('.recall-directory button.active');
+    selected?.focus({ preventScroll: true });
+    selected?.scrollIntoView({ block: "center", behavior: "instant" });
     return;
   }
   if (action === "toggle-recall-answer") {

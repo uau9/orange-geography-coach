@@ -197,7 +197,11 @@ main:has(.recall-layout) { width: min(100% - 28px, 1180px); }
 .recall-zoom-scroll { overflow: auto; padding: 0 12px 28px; text-align: center; }
 #recall-zoom-page { width: max(1000px, 100%); max-width: 1240px; margin: 0 auto; background: white; box-shadow: 0 8px 32px rgba(0,0,0,.35); }
 
+.recall-return-directory { display: none; }
+.recall-lesson-main { scroll-margin-top: 12px; }
+
 @media (max-width: 760px) {
+  .recall-return-directory { display: inline-flex; margin-bottom: 12px; }
   .recall-layout { grid-template-columns: 1fr; }
   .recall-directory { position: static; max-height: none; }
   .recall-directory details:not([open]) .recall-lesson-links { display: none; }
