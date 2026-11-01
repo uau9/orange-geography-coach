@@ -1,0 +1,4524 @@
+{
+  "schema_version": "1.1.0",
+  "id": "pocket-atmosphere-motion",
+  "topic_id": "pocket04",
+  "title": "专题04 冷热不均引起大气运动",
+  "status": "published",
+  "source": {
+    "file": "2025高中地理学习资料包 (知识点+教辅+试卷)/【口袋书】2024年高考地理一轮复习知识清单/专题04 冷热不均引起大气运动-【口袋书】2024年高考地理一轮复习知识清单.docx",
+    "sha256": "b086603d0a26f61400f409871e69a5c13fa3cf5661cfd48912b0760e9234d08f",
+    "included": [
+      "思维导图",
+      "知识清单",
+      "易错易混",
+      "知能拓展"
+    ],
+    "excluded": [
+      "考情速递",
+      "训练营",
+      "答案解析"
+    ]
+  },
+  "overview": {
+    "type": "figure",
+    "source_block": 23,
+    "image": "assets/recall/pocket-04/image-004.jpeg",
+    "width": 1510,
+    "height": 1080,
+    "masks": [],
+    "caption": "专题总览 · 原图4",
+    "disclosure": false,
+    "source_image_sha256": "4fce24d7a6f2b351f3c8240537120edfc4e689b7a3cc467ec96952c58633ae3b"
+  },
+  "additional_overviews": [],
+  "sections": [
+    {
+      "id": "pocket04-01",
+      "group": "知识清单",
+      "title": "知识点一 大气的组成和垂直分布",
+      "note": "",
+      "source_blocks": [
+        37,
+        45
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、大气的三种成分及其主要作用"
+            }
+          ],
+          "source_block": 38,
+          "source_row": null,
+          "source_text": "1、大气的三种成分及其主要作用"
+        },
+        {
+          "type": "table",
+          "source_block": 39,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "组成"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 0,
+                    "source_text": "组成"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "作用"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 0,
+                    "source_text": "作用"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 4,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①干洁空气"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 1,
+                    "source_text": "①干洁空气"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "氮"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 1,
+                    "source_text": "氮"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地球上生物体的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0001",
+                        "answer": "基本元素",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 1,
+                    "source_text": "地球上生物体的基本元素"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0002",
+                        "answer": "氧气",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 2,
+                    "source_text": "氧气"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人类和其他生物维持生命活动所必需的物质"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 2,
+                    "source_text": "人类和其他生物维持生命活动所必需的物质"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "二氧化碳"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 3,
+                    "source_text": "二氧化碳"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "绿色植物进行"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0003",
+                        "answer": "光合作用",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "的基本原料；"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0004",
+                        "answer": "温室效应",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "的重要气体"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 3,
+                    "source_text": "绿色植物进行光合作用的基本原料；温室效应的重要气体"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "臭氧"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 4,
+                    "source_text": "臭氧"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "吸收太阳光中的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0005",
+                        "answer": "紫外线",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，对生物具有保护作用"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 4,
+                    "source_text": "吸收太阳光中的紫外线，对生物具有保护作用"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "②水汽"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 5,
+                    "source_text": "②水汽"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "产生云、雨、雾、雪等天气现象，影响地面和大气温度"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 5,
+                    "source_text": "产生云、雨、雾、雪等天气现象，影响地面和大气温度"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "③杂质"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 6,
+                    "source_text": "③杂质"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "作为"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0006",
+                        "answer": "凝结核",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，是成云致雨的必要条件"
+                      }
+                    ],
+                    "source_block": 39,
+                    "source_row": 6,
+                    "source_text": "作为凝结核，是成云致雨的必要条件"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、大气的垂直分布"
+            }
+          ],
+          "source_block": 40,
+          "source_row": null,
+          "source_text": "2、大气的垂直分布"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）划分依据：大气"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0007",
+              "answer": "垂直",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "方向上的温度、密度及运动状况的差异。"
+            }
+          ],
+          "source_block": 41,
+          "source_row": null,
+          "source_text": "1）划分依据：大气垂直方向上的温度、密度及运动状况的差异。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）各层特点："
+            }
+          ],
+          "source_block": 42,
+          "source_row": null,
+          "source_text": "2）各层特点："
+        },
+        {
+          "type": "figure",
+          "source_block": 43,
+          "image": "assets/recall/pocket-04/image-007.png",
+          "width": 1576,
+          "height": 857,
+          "masks": [],
+          "caption": "知识点一 大气的组成和垂直分布 · 原图7",
+          "disclosure": true,
+          "source_image_sha256": "8ef40329241a85d62e7b16731a6efc80928138cd0886208e69feaac3d2166838"
+        },
+        {
+          "type": "table",
+          "source_block": 45,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "垂直分层"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 0,
+                    "source_text": "垂直分层"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气温变化"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 0,
+                    "source_text": "气温变化"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "运动形式"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 0,
+                    "source_text": "运动形式"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "与人类关系"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 0,
+                    "source_text": "与人类关系"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对流层"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 1,
+                    "source_text": "对流层"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "随"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0008",
+                        "answer": "高度增加",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "而"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0009",
+                        "answer": "递减",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "且海拔每"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0010",
+                        "answer": "升高100 m",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，气温约下降"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0011",
+                        "answer": "0.6",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ℃"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 1,
+                    "source_text": "随高度增加而递减且海拔每升高100 m，气温约下降0.6 ℃"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0012",
+                        "answer": "对流",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "运动显著"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 1,
+                    "source_text": "对流运动显著"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "厚度随纬度升高而降低，平均厚度约12千米，多天气现象"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 1,
+                    "source_text": "厚度随纬度升高而降低，平均厚度2千米，多天气现象"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "平流层"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 2,
+                    "source_text": "平流层"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "随"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0013",
+                        "answer": "高度增加",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "而"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0014",
+                        "answer": "升高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 2,
+                    "source_text": "随高度增加而升高"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0015",
+                        "answer": "平流",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "运动为主"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 2,
+                    "source_text": "平流运动为主"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "平流层中的臭氧吸收紫外线使温度升高，且天气现象少见，适合航空飞行。"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 2,
+                    "source_text": "下层的臭氧层吸收紫外线使温度升高，且天气现象少见，适合航空飞行。"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "高层大气"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 3,
+                    "source_text": "高层大气"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "随"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0016",
+                        "answer": "高度增加",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "先"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0017",
+                        "answer": "下降",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "后"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0018",
+                        "answer": "上升",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 3,
+                    "source_text": "随高度增加先下降后上升"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "/"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 3,
+                    "source_text": "/"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "其中含有电离层，完成远距离无线电通信，流星体大多在此燃尽，极光也出现在该层，无明显上界。"
+                      }
+                    ],
+                    "source_block": 45,
+                    "source_row": 3,
+                    "source_text": "又称电离层，完成远距离无线电通信，流星体大多在此燃尽，极光也出现在该层，无明显上界。"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket04-02",
+      "group": "知识清单",
+      "title": "知识点二 大气受热过程",
+      "note": "分子对短波的散射有波长选择性，大颗粒散射对可见光波长的选择性较弱；不能把所有散射都理解为同一种机制。",
+      "source_blocks": [
+        46,
+        61
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、能量来源"
+            }
+          ],
+          "source_block": 47,
+          "source_row": null,
+          "source_text": "1、能量来源"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0019",
+              "answer": "太阳辐射",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是大气热量的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0020",
+              "answer": "根本",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "来源。"
+            }
+          ],
+          "source_block": 48,
+          "source_row": null,
+          "source_text": "太阳辐射是大气热量的根本来源。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0021",
+              "answer": "地面长波辐射",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是近地面大气热量的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0022",
+              "answer": "直接",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "来源。"
+            }
+          ],
+          "source_block": 49,
+          "source_row": null,
+          "source_text": "地面长波辐射是近地面大气热量的直接来源。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、受热过程"
+            }
+          ],
+          "source_block": 50,
+          "source_row": null,
+          "source_text": "2、受热过程"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "太阳"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0023",
+              "answer": "短波辐射",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "(大部分)透过大气射到地面使"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0024",
+              "answer": "地面增温",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 51,
+          "source_row": null,
+          "source_text": "太阳短波辐射(大部分)透过大气射到地面使地面增温。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地面以"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0025",
+              "answer": "长波辐射",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的形式向大气传递热量使"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0026",
+              "answer": "大气增温",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 52,
+          "source_row": null,
+          "source_text": "地面以长波辐射的形式向大气传递热量使大气增温。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "大气增温后以"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0027",
+              "answer": "长波辐射",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的形式向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0028",
+              "answer": "地面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0029",
+              "answer": "宇宙空间",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "传递热量。"
+            }
+          ],
+          "source_block": 53,
+          "source_row": null,
+          "source_text": "大气增温后以长波辐射的形式向地面和宇宙空间传递热量。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、大气的两个作用"
+            }
+          ],
+          "source_block": 54,
+          "source_row": null,
+          "source_text": "3、大气的两个作用"
+        },
+        {
+          "type": "figure",
+          "source_block": 55,
+          "image": "assets/recall/pocket-04/image-008.png",
+          "width": 1835,
+          "height": 1878,
+          "masks": [],
+          "caption": "知识点二 大气受热过程 · 原图8",
+          "disclosure": true,
+          "source_image_sha256": "98628a4b3dc21639f2798ff5db4c240b17e1df90f0bc1dd5c9a7ed95d4c1c68c"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）大气对太阳辐射的削弱作用："
+            }
+          ],
+          "source_block": 56,
+          "source_row": null,
+          "source_text": "1）大气对太阳辐射的削弱作用："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "大气层中水汽、CO2、云层、尘埃等对太阳辐射具有"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0030",
+              "answer": "吸收（有选择性）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0031",
+              "answer": "反射（无选择性）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0032",
+              "answer": "散射（有选择性）",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "作用。"
+            }
+          ],
+          "source_block": 57,
+          "source_row": null,
+          "source_text": "大气层中水汽、CO2、云层、尘埃等对太阳辐射具有吸收（有选择性）、反射（无选择性）、散射（有选择性）作用。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）大气对地面的保温作用："
+            }
+          ],
+          "source_block": 58,
+          "source_row": null,
+          "source_text": "2）大气对地面的保温作用："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地面辐射经过大气时，大部分被大气中的水汽、二氧化碳等温室气体和云所吸收（另有部分可通过大气窗口直接向太空辐射），使得"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0033",
+              "answer": "大气增温",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，并产生了"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0034",
+              "answer": "大气辐射",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，其中射向地面的部分为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0035",
+              "answer": "大气逆辐射",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，一定程度上补偿了地面辐射损失的热量，对地面起到了"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0036",
+              "answer": "保温作用",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 59,
+          "source_row": null,
+          "source_text": "地面辐射经过大气时，几乎全部被对流层中的水汽和二氧化碳所吸收，使得大气增温，并产生了大气辐射，其中射向地面的部分为大气逆辐射，一定程度上补偿了地面辐射损失的热量，对地面起到了保温作用。"
+        }
+      ]
+    },
+    {
+      "id": "pocket04-03",
+      "group": "知识清单",
+      "title": "知识点三 热力环流与风",
+      "note": "高空风平行等压线是忽略摩擦、气流近似平直稳定的地转风模型；近地面风、弯曲气流和赤道附近不能无条件套用。",
+      "source_blocks": [
+        62,
+        80
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、热力环流成因"
+            }
+          ],
+          "source_block": 63,
+          "source_row": null,
+          "source_text": "1、热力环流成因"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0037",
+              "answer": "地面受热不均",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "引起空气温度差异，包括高低纬度以及局地海陆、山谷、城乡之间的冷热差异。"
+            }
+          ],
+          "source_block": 64,
+          "source_row": null,
+          "source_text": "高低纬度间因太阳辐射的不同而产生的热量差异（冷热不均）。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、热力环流形成过程"
+            }
+          ],
+          "source_block": 65,
+          "source_row": null,
+          "source_text": "2、热力环流形成过程"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）大气运动过程：地面受热不均→大气垂直运动→水平气压梯度力→大气水平运动。"
+            }
+          ],
+          "source_block": 66,
+          "source_row": null,
+          "source_text": "1）大气运动过程：地面受热不均→大气垂直运动→水平气压梯度力→大气水平运动。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）温度不同引起大气的垂直运动："
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0038",
+              "answer": "同一水平面上",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，近地面"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0039",
+              "answer": "温度高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "处，大气"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0040",
+              "answer": "膨胀上升",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；近地面"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0041",
+              "answer": "温度低",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "处，大气"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0042",
+              "answer": "收缩下沉",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 67,
+          "source_row": null,
+          "source_text": "2）温度不同引起大气的垂直运动：同一水平面上，近地面温度高处，大气膨胀上升；近地面温度低处，大气收缩下沉。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）气压值不同引起大气的水平运动："
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0043",
+              "answer": "判定高、低气压系统应比较同一高度的水平气压分布（",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "垂直方向上总是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0044",
+              "answer": "近地面气压高于高空气压",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，且海拔"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0045",
+              "answer": "越高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "气压值"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0046",
+              "answer": "越低",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "），大气由水平方向上的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0047",
+              "answer": "高压流向低压",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 68,
+          "source_row": null,
+          "source_text": "3）气压值不同引起大气的水平运动：同一水高度上才可进行高、低气压的比较（垂直方向上总是近地面气压高于高空气压，且海拔越高气压值越低），大气由水平方向上的高压流向低压。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "下图中A、B、C、D四地的气压高低为D>C>A>B"
+            }
+          ],
+          "source_block": 69,
+          "source_row": null,
+          "source_text": "下图中A、B、C、D四地的气压高低为D>C>A>B"
+        },
+        {
+          "type": "figure",
+          "source_block": 70,
+          "image": "assets/recall/pocket-04/image-009.png",
+          "width": 633,
+          "height": 189,
+          "masks": [],
+          "caption": "知识点三 热力环流与风 · 原图9",
+          "disclosure": true,
+          "source_image_sha256": "e99250ee474d9098dc7db054d3ed45c8d649c166ccf16f0de16467d6912980bb"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0048",
+              "answer": "等压面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是空间"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0049",
+              "answer": "气压值相等",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的各点所组成的面，等压面"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0050",
+              "answer": "突向高空",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的地方是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0051",
+              "answer": "高压区",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；等压面"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0052",
+              "answer": "下凹向地面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的地方是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0053",
+              "answer": "低压区",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "（"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0054",
+              "answer": "凸高为高，凸低为低",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "）。若地面受热均匀则等压面一般呈水平状态；若地面受热不均匀，则等压面表现为上凸或下凹。"
+            }
+          ],
+          "source_block": 71,
+          "source_row": null,
+          "source_text": "4）等压面是空间气压值相等的各点所组成的面，等压面突向高空的地方是高压区；等压面下凹向地面的地方是低压区（凸高为高，凸低为低）。若地面受热均匀则等压面一般呈水平状态；若地面受热不均匀，则等压面表现为上凸或下凹。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、空气的水平运动——风"
+            }
+          ],
+          "source_block": 72,
+          "source_row": null,
+          "source_text": "3、空气的水平运动——风"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）风形成的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0055",
+              "answer": "直接",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "原因"
+            }
+          ],
+          "source_block": 73,
+          "source_row": null,
+          "source_text": "1）风形成的直接原因"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "同一水平面上的气压差异产生的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0056",
+              "answer": "水平气压梯度力",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 74,
+          "source_row": null,
+          "source_text": "同一水平面上的气压差异产生的水平气压梯度力。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）影响大气水平运动的作用力"
+            }
+          ],
+          "source_block": 75,
+          "source_row": null,
+          "source_text": "2）影响大气水平运动的作用力"
+        },
+        {
+          "type": "table",
+          "source_block": 76,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水平气压梯度力"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 0,
+                    "source_text": "水平气压梯度力"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地转偏向力"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 0,
+                    "source_text": "地转偏向力"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "摩擦力"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 0,
+                    "source_text": "摩擦力"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "方向"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 1,
+                    "source_text": "方向"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "始终"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0057",
+                        "answer": "垂直",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "于"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0058",
+                        "answer": "等压线",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，由高压指向低压区"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 1,
+                    "source_text": "始终垂直于等压线，由高压指向低压区"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "始终"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0059",
+                        "answer": "与风向垂直",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0060",
+                        "answer": "北",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "半球使风向"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0061",
+                        "answer": "右偏",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0062",
+                        "answer": "南",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "半球使风向"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0063",
+                        "answer": "左偏",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 1,
+                    "source_text": "始终与风向垂直，北半球使风向右偏，南半球使风向左偏"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "始终"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0064",
+                        "answer": "与风向相反",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 1,
+                    "source_text": "始终与风向相反"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大小"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 2,
+                    "source_text": "大小"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "等压线越"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0065",
+                        "answer": "密",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，水平气压梯度力越"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0066",
+                        "answer": "大",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 2,
+                    "source_text": "等压线越密，水平气压梯度力越大"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "随纬度增大而增大，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0067",
+                        "answer": "赤道为零",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 2,
+                    "source_text": "随纬度增大而增大，赤道为零"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "与下垫面状况有关，下垫面"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0068",
+                        "answer": "越粗糙",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "、"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0069",
+                        "answer": "起伏越大",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，摩擦力"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0070",
+                        "answer": "越大",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 2,
+                    "source_text": "与下垫面状况有关，下垫面越粗糙、起伏越大，摩擦力越大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对风的影响"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 3,
+                    "source_text": "对风的影响"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水平气压梯度力越大，风速越大，是风的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0071",
+                        "answer": "原动力",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 3,
+                    "source_text": "水平气压梯度力越大，风速越大，是风的原动力"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "不影响风速的大小"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 3,
+                    "source_text": "不影响风速的大小"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "减小风速，与其他两个力共同作用，使风向斜穿等压线"
+                      }
+                    ],
+                    "source_block": 76,
+                    "source_row": 3,
+                    "source_text": "减小风速，与其他两个力共同作用，使风向斜穿等压线"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）风的受力状况与风向(以北半球为例)"
+            }
+          ],
+          "source_block": 77,
+          "source_row": null,
+          "source_text": "3）风的受力状况与风向(以北半球为例)"
+        },
+        {
+          "type": "table",
+          "source_block": 78,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "类型"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 0,
+                    "source_text": "类型"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "高空风"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 0,
+                    "source_text": "高空风"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "近地面风"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 0,
+                    "source_text": "近地面风"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "图示"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 1,
+                    "source_text": "图示"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 78,
+                    "image": "assets/recall/pocket-04/image-010.png",
+                    "width": 601,
+                    "height": 435,
+                    "masks": [],
+                    "caption": "知识点三 热力环流与风 · 原图10",
+                    "disclosure": true,
+                    "source_image_sha256": "88fef34ddd9f6af289ba6335ee077731667306356c9be72b86e49d0987f8a833"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 78,
+                    "image": "assets/recall/pocket-04/image-011.png",
+                    "width": 580,
+                    "height": 379,
+                    "masks": [],
+                    "caption": "知识点三 热力环流与风 · 原图11",
+                    "disclosure": true,
+                    "source_image_sha256": "3469bad01c626da3f7910bf1101ceb2227886c8d3cb1d4fb6f11bae674808194"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "受力"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 2,
+                    "source_text": "受力"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "F1(水平气压梯度力)和F2(地转偏向力)共同影响"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 2,
+                    "source_text": "F1(水平气压梯度力)和F2(地转偏向力)共同影响"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "F1(水平气压梯度力)、F2(地转偏向力)和F3(摩擦力)共同影响"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 2,
+                    "source_text": "F1(水平气压梯度力)、F2(地转偏向力)和F3(摩擦力)共同影响"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "风向"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 3,
+                    "source_text": "风向"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "与等压线"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0072",
+                        "answer": "平行",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 3,
+                    "source_text": "与等压线平行"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "与等压线"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket04-blank-0073",
+                        "answer": "斜交",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 78,
+                    "source_row": 3,
+                    "source_text": "与等压线斜交"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket04-04",
+      "group": "易错易混",
+      "title": "易错易混01 利用大气的组成解释地理现象",
+      "note": "",
+      "source_blocks": [
+        81,
+        91
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、二氧化碳"
+            }
+          ],
+          "source_block": 82,
+          "source_row": null,
+          "source_text": "1、二氧化碳"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "二氧化碳→吸收长波辐射(地面辐射)→升温同时释放热能→返还地面的热量→起到保温作用（浓度增加会增强温室效应）。"
+            }
+          ],
+          "source_block": 83,
+          "source_row": null,
+          "source_text": "二氧化碳→吸收长波辐射(地面辐射)→升温同时释放热能→返还地面的热量→起到保温作用（过多引起温室效应）。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、臭氧和氧原子"
+            }
+          ],
+          "source_block": 84,
+          "source_row": null,
+          "source_text": "2、臭氧和氧原子"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）高层大气中的原子、分子吸收太阳"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0074",
+              "answer": "极紫外线和X射线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "等高能辐射后发生电离，形成含自由电子和离子的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0075",
+              "answer": "电离层",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 85,
+          "source_row": null,
+          "source_text": "1）高层大气中的氧原子→吸收波长较短的紫外线→升温使大气电离→形成电离层。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）平流层中的臭氧→吸收"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0076",
+              "answer": "紫外线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "→升温的同时阻挡到达地面的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0077",
+              "answer": "紫外线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "→保护地球上的生物免受"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0078",
+              "answer": "紫外线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "侵害。"
+            }
+          ],
+          "source_block": 86,
+          "source_row": null,
+          "source_text": "2）平流层中的臭氧→吸收紫外线→升温的同时阻挡到达地面的紫外线→保护地球上的生物免受紫外线侵害。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、水汽"
+            }
+          ],
+          "source_block": 87,
+          "source_row": null,
+          "source_text": "3、水汽"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "水汽在适宜条件下"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0079",
+              "answer": "凝结或凝华",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "形成"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0080",
+              "answer": "云滴、冰晶",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "；达到一定条件后才可能形成降水。不能把形成小水珠直接等同于已经降水，也不能忽略冰相过程。"
+            }
+          ],
+          "source_block": 88,
+          "source_row": null,
+          "source_text": "水汽→遇冷→水蒸气凝结形成小水珠→形成雾或降水（是降水形成的必须环节）。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、杂质"
+            }
+          ],
+          "source_block": 89,
+          "source_row": null,
+          "source_text": "4、杂质"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）尘埃物质→吸附水汽→雾或降水。"
+            }
+          ],
+          "source_block": 90,
+          "source_row": null,
+          "source_text": "1）尘埃物质→吸附水汽→雾或降水。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）尘埃物质→削弱太阳光→"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0081",
+              "answer": "大气能见度降低",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 91,
+          "source_row": null,
+          "source_text": "2）尘埃物质→削弱太阳光→大气能见度降低。"
+        }
+      ]
+    },
+    {
+      "id": "pocket04-05",
+      "group": "易错易混",
+      "title": "易错易混02 大气的作用",
+      "note": "",
+      "source_blocks": [
+        92,
+        103
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、大气通过"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0082",
+              "answer": "吸收、反射和散射",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "削弱太阳辐射，各作用的相对大小随波段、云量和大气成分而变，不能把强弱次序当作所有情境下的固定规律。"
+            }
+          ],
+          "source_block": 93,
+          "source_row": null,
+          "source_text": "1、大气对太阳辐射的削弱作用：反射作用最强，吸收作用最弱"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）吸收：有选择性。臭氧吸收紫外线，水汽、二氧化碳吸收较长的红外线，大气直接吸收太阳辐射很少。"
+            }
+          ],
+          "source_block": 94,
+          "source_row": null,
+          "source_text": "1）吸收：有选择性。臭氧吸收紫外线，水汽、二氧化碳吸收较长的红外线，大气直接吸收太阳辐射很少。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）反射：无选择性，云的反射作用最为显著。在可见光云图中，较亮区域通常表示反射较强，并常与云的光学厚度有关；红外云图的亮度常反映云顶温度，不能将两类云图一概解释为云层厚度。"
+            }
+          ],
+          "source_block": 95,
+          "source_row": null,
+          "source_text": "2）反射：无选择性，云的反射作用最为显著。卫星云图上白色越浓，云层越厚，反射太阳光最多。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地面性质与反射：新雪最强。"
+            }
+          ],
+          "source_block": 96,
+          "source_row": null,
+          "source_text": "地面性质与反射：新雪最强。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）散射：有选择性。蓝、紫色光最容易被散射，所以晴朗天空呈现蔚蓝色。天空呈灰白色是因为太阳光被较多尘埃和雾粒散射的缘故。"
+            }
+          ],
+          "source_block": 97,
+          "source_row": null,
+          "source_text": "3）散射：有选择性。蓝、紫色光最容易被散射，所以晴朗天空呈现蔚蓝色。天空呈灰白色是因为太阳光被较多尘埃和雾粒散射的缘故。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）太阳高度大的地区太阳辐射经过大气路程短，削弱得少。"
+            }
+          ],
+          "source_block": 98,
+          "source_row": null,
+          "source_text": "4）太阳高度大的地区太阳辐射经过大气路程短，削弱得少。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、大气对地面的保温作用："
+            }
+          ],
+          "source_block": 99,
+          "source_row": null,
+          "source_text": "2、大气对地面的保温作用："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）温度高低与波长长短关系：温度高，辐射最强部分波长短。太阳辐射波长小于地面辐射和大气辐射。地面吸收太阳辐射而增温。大气把地面辐射的绝大部分吸收（地面辐射为长波辐射，主要被水汽和二氧化碳吸收）。又以大气逆辐射的形式把能量返还地面，补偿地面损失的热量。"
+            }
+          ],
+          "source_block": 100,
+          "source_row": null,
+          "source_text": "1）温度高低与波长长短关系：温度高，辐射最强部分波长短。太阳辐射波长小于地面辐射和大气辐射。地面吸收太阳辐射而增温。大气把地面辐射的绝大部分吸收（地面辐射为长波辐射，主要被水汽和二氧化碳吸收）。又以大气逆辐射的形式把能量返还地面，补偿地面损失的热量。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、全球的热量平衡"
+            }
+          ],
+          "source_block": 101,
+          "source_row": null,
+          "source_text": "3、全球的热量平衡"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）地球气候取决于吸收的太阳能与向太空放出的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0083",
+              "answer": "能量收支",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。能量"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0084",
+              "answer": "持续净增加",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "会使系统增暖；温室气体增加可改变这一平衡，不能由“多年平均”直接断言全球气温始终稳定。"
+            }
+          ],
+          "source_block": 102,
+          "source_row": null,
+          "source_text": "1）多年平均来看，地球（地面和大气）热量收支平衡，因此全球气温稳定。人类活动使热量收支失去平衡，可能导致全球气候变暖。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）全球气候变暖影响及人类减缓地球变暖的措施：①冰川融化（特别是南极大陆），海平面上升；②海拔较低的平原地区和一些岛国，将被淹没。图瓦卢等低海拔岛国面临海平面上升风险，但不能据此认定其为全球第一个受到气候变化影响的国家。"
+            }
+          ],
+          "source_block": 103,
+          "source_row": null,
+          "source_text": "2）全球气候变暖影响及人类减缓地球变暖的措施：①冰川融化（特别是南极大陆），海平面上升；②海拔较低的平原地区和一些岛国，将被淹没。南太平洋岛国图瓦卢是第一个因全球气候变暖而受到影响的国家。"
+        }
+      ]
+    },
+    {
+      "id": "pocket04-06",
+      "group": "易错易混",
+      "title": "易错易混03 风向的表示方法和判读",
+      "note": "",
+      "source_blocks": [
+        104,
+        110
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、风向表示方法"
+            }
+          ],
+          "source_block": 105,
+          "source_row": null,
+          "source_text": "1、风向表示方法"
+        },
+        {
+          "type": "figure",
+          "source_block": 106,
+          "image": "assets/recall/pocket-04/image-013.png",
+          "width": 265,
+          "height": 164,
+          "masks": [],
+          "caption": "易错易混03 风向的表示方法和判读 · 原图13",
+          "disclosure": true,
+          "source_image_sha256": "9bf41eeea5cb4ca9a9e095c26f3bcb31cc6a0b19a9b7ac9eeffae5c038ae5fda"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、根据等压线判断风向"
+            }
+          ],
+          "source_block": 107,
+          "source_row": null,
+          "source_text": "2、根据等压线判断风向"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "第一步，画水平气压梯度力的方向。读等压线图，判断气压高低，并按"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0085",
+              "answer": "垂直于等压线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "（即垂直于该点等压线的切线），"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0086",
+              "answer": "由高压指向低压",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的原理画出水平气压梯度力。"
+            }
+          ],
+          "source_block": 108,
+          "source_row": null,
+          "source_text": "第一步，画水平气压梯度力的方向。读等压线图，判断气压高低，并按垂直于等压线（即垂直于该点等压线的切线），由高压指向低压的原理画出水平气压梯度力。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "第二步，确定是南半球还是北半球，根据北半球向右偏，南半球向左偏，画出偏转方向。如果是近地面的风，偏转角度随摩擦、纬度和稳定度等条件而变化，示意图常取一定角度（因为近地面的风受三个力的作用，最终风向与等压线有一定的角度）；如果是高空的风，则偏转90°，风向与等压线平行。如图："
+            }
+          ],
+          "source_block": 109,
+          "source_row": null,
+          "source_text": "第二步，确定是南半球还是北半球，根据北半球向右偏，南半球向左偏，画出偏转方向。如果是近地面的风，偏转角度为30°～45°（因为近地面的风受三个力的作用，最终风向与等压线有一定的角度）；如果是高空的风，则偏转90°，风向与等压线平行。如图："
+        },
+        {
+          "type": "figure",
+          "source_block": 110,
+          "image": "assets/recall/pocket-04/image-014.png",
+          "width": 185,
+          "height": 170,
+          "masks": [],
+          "caption": "易错易混03 风向的表示方法和判读 · 原图14",
+          "disclosure": true,
+          "source_image_sha256": "a47871d8ff8b8e85635a54118b986b330f71277465ab4a8ba52d6348f1942040"
+        }
+      ]
+    },
+    {
+      "id": "pocket04-07",
+      "group": "易错易混",
+      "title": "易错易混04 风力大小的判读",
+      "note": "风力比较还需考虑密度、摩擦、地形与流场；温差大或距风源近不保证每次风速都更大。",
+      "source_blocks": [
+        111,
+        129
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、看水平气压梯度力大小"
+            }
+          ],
+          "source_block": 112,
+          "source_row": null,
+          "source_text": "1、看水平气压梯度力大小"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）同一幅等压线图上，根据等压线疏密判断：等压线密集，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0087",
+              "answer": "水平气压梯度力",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "大，风力大；等压线稀疏，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0088",
+              "answer": "水平气压梯度力",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "小，风力小。"
+            }
+          ],
+          "source_block": 113,
+          "source_row": null,
+          "source_text": "1）同一幅等压线图上，根据等压线疏密判断：等压线密集，水平气压梯度力大，风力大；等压线稀疏，水平气压梯度力小，风力小。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）不同等压线图上，在图上等压线间距和比例尺相同等条件下，相邻等压线数值差越大，水平气压梯度通常越大。如下图中B处风力大于A处。"
+            }
+          ],
+          "source_block": 114,
+          "source_row": null,
+          "source_text": "2）不同等压线图上，若比例尺相同，相邻两条等压线数值差越大，风力越大。如下图中B处风力大于A处。"
+        },
+        {
+          "type": "figure",
+          "source_block": 116,
+          "image": "assets/recall/pocket-04/image-015.jpeg",
+          "width": 225,
+          "height": 61,
+          "masks": [],
+          "caption": "易错易混04 风力大小的判读 · 原图15",
+          "disclosure": true,
+          "source_image_sha256": "c29e0d8ab5fd0e07b4b314328298fa177e617ab378756e467912c4d7d9e02489"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）不同等压线图上，在图上等压线间距和相邻线数值差相同等条件下，比例尺越大，表示的水平气压梯度越大。如下图中C处风力大于D处。"
+            }
+          ],
+          "source_block": 117,
+          "source_row": null,
+          "source_text": "3）不同等压线图上，若相邻两条等压线数值差相等，比例尺越大，风力越大。如下图中C处风力大于D处。"
+        },
+        {
+          "type": "figure",
+          "source_block": 119,
+          "image": "assets/recall/pocket-04/image-016.jpeg",
+          "width": 227,
+          "height": 78,
+          "masks": [],
+          "caption": "易错易混04 风力大小的判读 · 原图16",
+          "disclosure": true,
+          "source_image_sha256": "9518e649cc66c56114f1853da059b73e33d0808604fe5a6c0780668c8dd5240c"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）根据温差判断：一般温差越大，水平气压梯度力越大，风力越大。"
+            }
+          ],
+          "source_block": 120,
+          "source_row": null,
+          "source_text": "4）根据温差判断：一般温差越大，水平气压梯度力越大，风力越大。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、看距风源地远近：距风源地近，则风力大，如我国西北地区距冬季风源地近，冬季风力大。"
+            }
+          ],
+          "source_block": 121,
+          "source_row": null,
+          "source_text": "2、看距风源地远近：距风源地近，则风力大，如我国西北地区距冬季风源地近，冬季风力大。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、看摩擦力大小"
+            }
+          ],
+          "source_block": 122,
+          "source_row": null,
+          "source_text": "3、看摩擦力大小"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）平原、高原地面平坦开阔，阻挡作用弱，风力大，如内蒙古高原；风由陆地吹向海面或湖面，摩擦力变小，风力变大。"
+            }
+          ],
+          "source_block": 123,
+          "source_row": null,
+          "source_text": "1）平原、高原地面平坦开阔，阻挡作用弱，风力大，如内蒙古高原；风由陆地吹向海面或湖面，摩擦力变小，风力变大。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）摩擦力随海拔变化"
+            }
+          ],
+          "source_block": 124,
+          "source_row": null,
+          "source_text": "2）摩擦力随海拔变化"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "随着海拔升高，空气运动所受的摩擦力变小，故风速增大，风向受地转偏向力影响增大，北半球风向逐渐向右偏转（如图），南半球逐渐向左偏转。"
+            }
+          ],
+          "source_block": 125,
+          "source_row": null,
+          "source_text": "随着海拔升高，空气运动所受的摩擦力变小，故风速增大，风向受地转偏向力影响增大，北半球风向逐渐向右偏转（如图），南半球逐渐向左偏转。"
+        },
+        {
+          "type": "figure",
+          "source_block": 126,
+          "image": "assets/recall/pocket-04/image-017.png",
+          "width": 134,
+          "height": 113,
+          "masks": [],
+          "caption": "易错易混04 风力大小的判读 · 原图17",
+          "disclosure": true,
+          "source_image_sha256": "dfa6da20251a5a0d431897342d317fa6f08eaf1429f8757c0d4a2bcc149763f9"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、看植被多少：植被茂密，阻力大，风力小；植被稀疏，阻力小，风力大。"
+            }
+          ],
+          "source_block": 127,
+          "source_row": null,
+          "source_text": "4、看植被多少：植被茂密，阻力大，风力小；植被稀疏，阻力小，风力大。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5、看地形因素：地形（河谷、山谷）延伸方向与盛行风向基本一致，受“狭管”效应影响，风力大。"
+            }
+          ],
+          "source_block": 128,
+          "source_row": null,
+          "source_text": "5、看地形因素：地形（河谷、山谷）延伸方向与盛行风向基本一致，受“狭管”效应影响，风力大。"
+        }
+      ]
+    },
+    {
+      "id": "pocket04-08",
+      "group": "知能拓展",
+      "title": "考点01 逆温",
+      "note": "逆温阻碍垂直交换可能加重近地面污染；不能由此推出逆温必然有利于航空，实际还受能见度、风切变等因素影响。",
+      "source_blocks": [
+        130,
+        138
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、正常情况下，对流层的气温随高度增加而递减，且海拔每升高100 m，气温约下降0．6 ℃。但在一定条件下，对流层的某一高度有时也会出现气温"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0089",
+              "answer": "随高度增加而升高",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的现象，这才称为逆温；气温仍随高度递减、只是递减率较小，并不等于逆温。如图所示。"
+            }
+          ],
+          "source_block": 131,
+          "source_row": null,
+          "source_text": "1、正常情况下，对流层的气温随高度增加而递减，且海拔每升高100 m，气温约下降0．6 ℃。但在一定条件下，对流层的某一高度有时也会出现气温随高度增加而升高的现象，或者气温随高度增加而降低的幅度小于垂直递减率，这种现象我们称之为逆温。如图所示。"
+        },
+        {
+          "type": "figure",
+          "source_block": 132,
+          "image": "assets/recall/pocket-04/image-019.png",
+          "width": 149,
+          "height": 103,
+          "masks": [],
+          "caption": "考点01 逆温 · 原图19",
+          "disclosure": true,
+          "source_image_sha256": "5e7dbecaac053895d96e233b6572f4b4fdbe2da6363a862b95e982610b2b2cf9"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、逆温的类型"
+            }
+          ],
+          "source_block": 133,
+          "source_row": null,
+          "source_text": "2、逆温的类型"
+        },
+        {
+          "type": "table",
+          "source_block": 134,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "类型"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 0,
+                    "source_text": "类型"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "发生的条件和过程"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 0,
+                    "source_text": "发生的条件和过程"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "出现的地区"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 0,
+                    "source_text": "出现的地区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "辐射逆温"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 1,
+                    "source_text": "辐射逆温"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "在晴朗无云或少云的夜晚，地面很快冷却，贴近地面的大气层也随之降温。离地面越近降温越快，离地面越远降温越慢，因而形成了自地面开始的逆温"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 1,
+                    "source_text": "在晴朗无云或少云的夜晚，地面很快冷却，贴近地面的大气层也随之降温。离地面越近降温越快，离地面越远降温越慢，因而形成了自地面开始的逆温"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "中高纬度地区，黎明前最强"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 1,
+                    "source_text": "中高纬度地区，黎明前最强"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "平流逆温"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 2,
+                    "source_text": "平流逆温"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "当暖空气运动到冷的地面上空时，暖空气与冷地面之间不断进行热量交换，暖空气下层受冷地面影响大气温降低较快，上层降温较慢，从而形成逆温"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 2,
+                    "source_text": "当暖空气运动到冷的地面上空时，暖空气与冷地面之间不断进行热量交换，暖空气下层受冷地面影响大气温降低较快，上层降温较慢，从而形成逆温"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "中纬度沿海地区"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 2,
+                    "source_text": "中纬度沿海地区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "锋面逆温"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 3,
+                    "source_text": "锋面逆温"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "锋面是冷暖气团之间狭窄的过渡带，暖气团位于锋面上部，冷气团在下部，会形成逆温"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 3,
+                    "source_text": "锋面是冷暖气团之间狭窄的过渡带，暖气团位于锋面上部，冷气团在下部，会形成逆温"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冷暖气团之间的过渡带"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 3,
+                    "source_text": "冷暖气团之间的过渡带"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形逆温"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 4,
+                    "source_text": "地形逆温"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "由于山坡散热快，山坡上的冷空气沿山坡下沉到谷底，谷底原来较暖的空气被冷空气抬挤上升，从而出现温度的倒置现象，即地形逆温"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 4,
+                    "source_text": "由于山坡散热快，山坡上的冷空气沿山坡下沉到谷底，谷底原来较暖的空气被冷空气抬挤上升，从而出现温度的倒置现象，即地形逆温"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "山地、盆地和谷地"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 4,
+                    "source_text": "山地、盆地和谷地"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、辐射逆温的形成过程如下图所示："
+            }
+          ],
+          "source_block": 135,
+          "source_row": null,
+          "source_text": "3、辐射逆温的形成过程如下图所示："
+        },
+        {
+          "type": "figure",
+          "source_block": 136,
+          "image": "assets/recall/pocket-04/image-020.png",
+          "width": 955,
+          "height": 400,
+          "masks": [],
+          "caption": "考点01 逆温 · 原图20",
+          "disclosure": true,
+          "source_image_sha256": "7daeea1105d2443880e7fbc0b80d594eb44d19139ea2c3e8ac65486d9cf9545a"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、逆温的影响"
+            }
+          ],
+          "source_block": 137,
+          "source_row": null,
+          "source_text": "4、逆温的影响"
+        },
+        {
+          "type": "table",
+          "source_block": 138,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "有利影响"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 0,
+                    "source_text": "有利影响"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "逆温的出现阻碍空气对流，可以抑制沙尘暴的发生"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 0,
+                    "source_text": "逆温的出现阻碍空气对流，可以抑制沙尘暴的发生"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "逆温出现在高空，有利于飞机的飞行"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 1,
+                    "source_text": "逆温出现在高空，有利于飞机的飞行"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "逆温可当成一种气候资源加以利用。例如，伊犁河谷逆温出现在10月至次年3月，有效地提高了冬季谷地的温度，果树越冬可以免受冻害等"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 2,
+                    "source_text": "逆温可当成一种气候资源加以利用。例如，伊犁河谷逆温出现在10月至次年3月，有效地提高了冬季谷地的温度，果树越冬可以免受冻害等"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "不利影响"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 3,
+                    "source_text": "不利影响"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对环境"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 3,
+                    "source_text": "对环境"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "逆温时，大气比较稳定，加重大气污染"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 3,
+                    "source_text": "逆温时，大气比较稳定，加重大气污染"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对天气"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 4,
+                    "source_text": "对天气"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "容易产生大雾等不利天气"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 4,
+                    "source_text": "容易产生大雾等不利天气"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对交通"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 5,
+                    "source_text": "对交通"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "能见度降低，地面湿滑"
+                      }
+                    ],
+                    "source_block": 138,
+                    "source_row": 5,
+                    "source_text": "能见度降低，地面湿滑"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket04-09",
+      "group": "知能拓展",
+      "title": "考点02 大气受热过程原理的应用",
+      "note": "熏烟防霜等原资料例子仅用于受热过程辨析，效果受气象、热源等条件限制；铺沙石对昼夜温差的影响也须结合材料。",
+      "source_blocks": [
+        139,
+        156
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、解释温室气体大量排放对全球气候变暖的影响"
+            }
+          ],
+          "source_block": 140,
+          "source_row": null,
+          "source_text": "1、解释温室气体大量排放对全球气候变暖的影响"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "→→→"
+            }
+          ],
+          "source_block": 141,
+          "source_row": null,
+          "source_text": "→→→"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、分析农业实践中的一些现象"
+            }
+          ],
+          "source_block": 142,
+          "source_row": null,
+          "source_text": "2、分析农业实践中的一些现象"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）我国北方地区利用温室大棚生产反季节蔬菜。"
+            }
+          ],
+          "source_block": 143,
+          "source_row": null,
+          "source_text": "1）我国北方地区利用温室大棚生产反季节蔬菜。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）深秋农民利用燃烧秸秆制造烟雾预防霜冻。"
+            }
+          ],
+          "source_block": 144,
+          "source_row": null,
+          "source_text": "2）深秋农民利用燃烧秸秆制造烟雾预防霜冻。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）华北地区早春农民利用地膜覆盖进行农作物种植。"
+            }
+          ],
+          "source_block": 145,
+          "source_row": null,
+          "source_text": "3）华北地区早春农民利用地膜覆盖进行农作物种植。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）干旱半干旱地区果园中铺沙或鹅卵石，不但能防止土壤水分蒸发，还能增加昼夜温差，有利于水果的糖分积累等。"
+            }
+          ],
+          "source_block": 146,
+          "source_row": null,
+          "source_text": "4）干旱半干旱地区果园中铺沙或鹅卵石，不但能防止土壤水分蒸发，还能增加昼夜温差，有利于水果的糖分积累等。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、利用大气受热过程原理分析昼夜温差的大小"
+            }
+          ],
+          "source_block": 147,
+          "source_row": null,
+          "source_text": "3、利用大气受热过程原理分析昼夜温差的大小"
+        },
+        {
+          "type": "table",
+          "source_block": 148,
+          "columns": 2,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "天气状况"
+                      }
+                    ],
+                    "source_block": 148,
+                    "source_row": 0,
+                    "source_text": "天气状况"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "晴朗的天气条件下，白天大气的削弱作用和夜晚大气的保温作用都弱→昼夜温差大"
+                      }
+                    ],
+                    "source_block": 148,
+                    "source_row": 0,
+                    "source_text": "晴朗的天气条件下，白天大气的削弱作用和夜晚大气的保温作用都弱→昼夜温差大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地势高低"
+                      }
+                    ],
+                    "source_block": 148,
+                    "source_row": 1,
+                    "source_text": "地势高低"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地势高→大气稀薄→白天大气的削弱作用和夜晚大气的保温作用都弱→昼夜温差大"
+                      }
+                    ],
+                    "source_block": 148,
+                    "source_row": 1,
+                    "source_text": "地势高→大气稀薄→白天大气的削弱作用和夜晚大气的保温作用都弱→昼夜温差大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "下垫面性质"
+                      }
+                    ],
+                    "source_block": 148,
+                    "source_row": 2,
+                    "source_text": "下垫面性质"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "下垫面的比热容大→增温和降温速度都慢→昼夜温差小，如海洋的昼夜温差一般小于陆地"
+                      }
+                    ],
+                    "source_block": 148,
+                    "source_row": 2,
+                    "source_text": "下垫面的比热容大→增温和降温速度都慢→昼夜温差小，如海洋的昼夜温差一般小于陆地"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、利用大气削弱过程原理分析某地区太阳辐射多寡的方法"
+            }
+          ],
+          "source_block": 149,
+          "source_row": null,
+          "source_text": "4、利用大气削弱过程原理分析某地区太阳辐射多寡的方法"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①大气削弱作用原理应用→分析某地区太阳能的多寡"
+            }
+          ],
+          "source_block": 150,
+          "source_row": null,
+          "source_text": "①大气削弱作用原理应用→分析某地区太阳能的多寡"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "高海拔地区（如青藏高原地区）"
+            }
+          ],
+          "source_block": 151,
+          "source_row": null,
+          "source_text": "高海拔地区（如青藏高原地区）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "青藏高原的海拔高，空气稀薄，大气对太阳辐射的削弱作用弱，太阳辐射强，所以太阳能丰富。"
+            }
+          ],
+          "source_block": 152,
+          "source_row": null,
+          "source_text": "青藏高原的海拔高度，空气稀薄，大气对太阳辐射的削弱作用弱，太阳辐射强，所以太阳能丰富。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "内陆地区（如我国西北地区）"
+            }
+          ],
+          "source_block": 153,
+          "source_row": null,
+          "source_text": "内陆地区（如我国西北地区）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "沙漠地区晴天多，白天大气对太阳辐射的削弱作用小，气温高，太阳能丰富；夜晚大气对地面的保温作用弱，气温低，昼夜温差大。"
+            }
+          ],
+          "source_block": 154,
+          "source_row": null,
+          "source_text": "沙漠地区晴天多，白天大气对太阳辐射的削弱作用小，气温高，太阳能丰富；夜晚大气对地面的保温作用弱，气温低，昼夜温差大。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "湿润内陆盆地（如四川盆地）"
+            }
+          ],
+          "source_block": 155,
+          "source_row": null,
+          "source_text": "湿润内陆盆地（如四川盆地）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "地形封闭，阴雨天气多，气候湿润，污染物可能不易扩散，大气对太阳辐射的削弱作用强，太阳能资源较少。"
+            }
+          ],
+          "source_block": 156,
+          "source_row": null,
+          "source_text": "地形封闭，阴雨天气多，气候湿润，污染物不易扩散，空气密度大，大气对太阳辐射的削弱作用强，太阳能能缺乏。"
+        }
+      ]
+    },
+    {
+      "id": "pocket04-10",
+      "group": "知能拓展",
+      "title": "考点03 常见热力环流实例",
+      "note": "",
+      "source_blocks": [
+        157,
+        166
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、海陆风"
+            }
+          ],
+          "source_block": 158,
+          "source_row": null,
+          "source_text": "1、海陆风"
+        },
+        {
+          "type": "figure",
+          "source_block": 159,
+          "image": "assets/recall/pocket-04/image-021.png",
+          "width": 677,
+          "height": 390,
+          "masks": [],
+          "caption": "考点03 常见热力环流实例 · 原图21",
+          "disclosure": true,
+          "source_image_sha256": "a9abc5dfab1259ac616cb3f14fe7a8177ee58a51d2ac629e274541879162c962"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "影响：使滨海地区气温日较差减小，降水增多。"
+            }
+          ],
+          "source_block": 160,
+          "source_row": null,
+          "source_text": "影响：使滨海地区气温日较差减小，降水增多。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、山谷风"
+            }
+          ],
+          "source_block": 161,
+          "source_row": null,
+          "source_text": "2、山谷风"
+        },
+        {
+          "type": "figure",
+          "source_block": 162,
+          "image": "assets/recall/pocket-04/image-022.png",
+          "width": 1843,
+          "height": 794,
+          "masks": [],
+          "caption": "考点03 常见热力环流实例 · 原图22",
+          "disclosure": true,
+          "source_image_sha256": "8e39f47322f04a03a92625499ffc49330dd0dec5e3522fc326a4dfc8032c63f1"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "影响：在山谷和盆地常因夜间的山风吹向谷底，使谷底和盆地内形成"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0090",
+              "answer": "逆温层",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，阻碍了"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0091",
+              "answer": "空气的垂直运动",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，易造成大气污染。"
+            }
+          ],
+          "source_block": 163,
+          "source_row": null,
+          "source_text": "影响：在山谷和盆地常因夜间的山风吹向谷底，使谷底和盆地内形成逆温层，阻碍了空气的垂直运动，易造成大气污染。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "城市风"
+            }
+          ],
+          "source_block": 164,
+          "source_row": null,
+          "source_text": "城市风"
+        },
+        {
+          "type": "figure",
+          "source_block": 165,
+          "image": "assets/recall/pocket-04/image-023.png",
+          "width": 744,
+          "height": 324,
+          "masks": [],
+          "caption": "考点03 常见热力环流实例 · 原图23",
+          "disclosure": true,
+          "source_image_sha256": "af856edb868ff2ba6593ef86e28db51e3fdd62cb05317fb003872e6c7c1160ed"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "影响：一般将绿化带布局于气流下沉处或下沉距离以内，将卫星城或污染较重的工厂布局于气流下沉距离之外。"
+            }
+          ],
+          "source_block": 166,
+          "source_row": null,
+          "source_text": "影响：一般将绿化带布局于气流下沉处或下沉距离以内，将卫星城或污染较重的工厂布局于气流下沉距离之外。"
+        }
+      ]
+    },
+    {
+      "id": "pocket04-11",
+      "group": "知能拓展",
+      "title": "考点04 判断气压的高低",
+      "note": "等压面上凸或下凹应在同一高度基准上判断；地面天气还受水汽和环流影响，低压不必然降水。",
+      "source_blocks": [
+        167,
+        185
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、气压的垂直递减规律。由于大气密度随高度增加而降低，在垂直方向上随着高度增加气压降低，如下图，在空气柱L1中，PA′>PA，PD>PD′；在L2中，PB>PB′，PC′>PC。"
+            }
+          ],
+          "source_block": 168,
+          "source_row": null,
+          "source_text": "1、气压的垂直递减规律。由于大气密度随高度增加而降低，在垂直方向上随着高度增加气压降低，如下图，在空气柱L1中，PA′>PA，PD>PD′；在L2中，PB>PB′，PC′>PC。"
+        },
+        {
+          "type": "figure",
+          "source_block": 169,
+          "image": "assets/recall/pocket-04/image-024.png",
+          "width": 545,
+          "height": 325,
+          "masks": [],
+          "caption": "考点04 判断气压的高低 · 原图24",
+          "disclosure": true,
+          "source_image_sha256": "bca406077762bd229cd19a23358bcb1508dc7dfcb105de3941b07ba03bfae943"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "同一等压面上的各点气压相等。如上图中PD′＝PC′、PA′＝PB′。综上分析可知：PB>PA>PD>PC。"
+            }
+          ],
+          "source_block": 170,
+          "source_row": null,
+          "source_text": "同一等压面上的各点气压相等。如上图中PD′＝PC′、PA′＝PB′。综上分析可知：PB>PA>PD>PC。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、判读等压面的凸凹"
+            }
+          ],
+          "source_block": 171,
+          "source_row": null,
+          "source_text": "2、判读等压面的凸凹"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "等压面凸向高处的为高压，凹向低处的为低压，可形象记忆为“"
+            },
+            {
+              "type": "blank",
+              "id": "pocket04-blank-0092",
+              "answer": "高凸低凹",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "”。另外，近地面与高空等压面凸起方向相反。"
+            }
+          ],
+          "source_block": 172,
+          "source_row": null,
+          "source_text": "等压面凸向高处的为高压，凹向低处的为低压，可形象记忆为“高凸低凹”。另外，近地面与高空等压面凸起方向相反。"
+        },
+        {
+          "type": "figure",
+          "source_block": 173,
+          "image": "assets/recall/pocket-04/image-025.png",
+          "width": 422,
+          "height": 263,
+          "masks": [],
+          "caption": "考点04 判断气压的高低 · 原图25",
+          "disclosure": true,
+          "source_image_sha256": "fdb9aa9883bb05bb6c05c3f50f8cb690f4ffb1897c4fe1091e6f198f82bbece0"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、等压面高程图"
+            }
+          ],
+          "source_block": 174,
+          "source_row": null,
+          "source_text": "3、等压面高程图"
+        },
+        {
+          "type": "figure",
+          "source_block": 175,
+          "image": "assets/recall/pocket-04/image-026.png",
+          "width": 222,
+          "height": 93,
+          "masks": [],
+          "caption": "考点04 判断气压的高低 · 原图26",
+          "disclosure": true,
+          "source_image_sha256": "e8958d530c5608a7085ef480c2d9ec4077da9ffa57d7c590e1a338ca08a0c8fa"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "500百帕等压面高程（单位：米）"
+            }
+          ],
+          "source_block": 176,
+          "source_row": null,
+          "source_text": "500百帕等压面高程（单位：米）"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "等压面高程图没有剖面图直观，可根据数值转化为剖面结构。中心海拔数值高的说明等值线向高空凸（凸气压变小方向），说明其为高气压区；中心海拔数值低的说明等值线向近地面凸（凸气压变大方向），说明其为低气压区。因此图中N为（高空，因为海拔高）高压区，M为（高空）低压区。只有在特定热力环流模型中，近地面与高空的气压系统才可按相反关系判断；一般天气形势不能无条件套用。"
+            }
+          ],
+          "source_block": 177,
+          "source_row": null,
+          "source_text": "等压面高程图没有剖面图直观，可根据数值转化为剖面结构。中心海拔数值高的说明等值线向高空凸（凸气压变小方向），说明其为高气压区；中心海拔数值低的说明等值线向近地面凸（凸气压变大方向），说明其为低气压区。因此图中N为（高空，因为海拔高）高压区，M为（高空）低压区。近地面则相反。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、判断下垫面的性质"
+            }
+          ],
+          "source_block": 178,
+          "source_row": null,
+          "source_text": "4、判断下垫面的性质"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）判断陆地与海洋(湖泊)：夏季，等压面下凹者为陆地(低压)、上凸者为海洋(湖泊)(高压)。冬季，等压面下凹者为海洋(湖泊)(低压)、上凸者为陆地(高压)。"
+            }
+          ],
+          "source_block": 179,
+          "source_row": null,
+          "source_text": "1）判断陆地与海洋(湖泊)：夏季，等压面下凹者为陆地(低压)、上凸者为海洋(湖泊)(高压)。冬季，等压面下凹者为海洋(湖泊)(低压)、上凸者为陆地(高压)。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）判断裸地与绿地：裸地同陆地，绿地同海洋。"
+            }
+          ],
+          "source_block": 180,
+          "source_row": null,
+          "source_text": "2）判断裸地与绿地：裸地同陆地，绿地同海洋。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）判断城区与郊区：等压面下凹者为城区(低压)、上凸者为郊区(高压)。"
+            }
+          ],
+          "source_block": 181,
+          "source_row": null,
+          "source_text": "3）判断城区与郊区：等压面下凹者为城区(低压)、上凸者为郊区(高压)。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、判断近地面天气和气温日较差"
+            }
+          ],
+          "source_block": 182,
+          "source_row": null,
+          "source_text": "4、判断近地面天气和气温日较差"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "等压面下凹者(低压)，多阴雨天气，日较差较小；等压面上凸者(高压)，多晴朗天气，日较差较大。"
+            }
+          ],
+          "source_block": 183,
+          "source_row": null,
+          "source_text": "等压面下凹者(低压)，多阴雨天气，日较差较小；等压面上凸者(高压)，多晴朗天气，日较差较大。"
+        }
+      ]
+    }
+  ],
+  "audit": {
+    "reviewed_on": "2026-11-02",
+    "blank_count": 92,
+    "images_sha256": {
+      "assets/recall/pocket-04/image-004.jpeg": "4fce24d7a6f2b351f3c8240537120edfc4e689b7a3cc467ec96952c58633ae3b",
+      "assets/recall/pocket-04/image-007.png": "8ef40329241a85d62e7b16731a6efc80928138cd0886208e69feaac3d2166838",
+      "assets/recall/pocket-04/image-008.png": "98628a4b3dc21639f2798ff5db4c240b17e1df90f0bc1dd5c9a7ed95d4c1c68c",
+      "assets/recall/pocket-04/image-009.png": "e99250ee474d9098dc7db054d3ed45c8d649c166ccf16f0de16467d6912980bb",
+      "assets/recall/pocket-04/image-010.png": "88fef34ddd9f6af289ba6335ee077731667306356c9be72b86e49d0987f8a833",
+      "assets/recall/pocket-04/image-011.png": "3469bad01c626da3f7910bf1101ceb2227886c8d3cb1d4fb6f11bae674808194",
+      "assets/recall/pocket-04/image-013.png": "9bf41eeea5cb4ca9a9e095c26f3bcb31cc6a0b19a9b7ac9eeffae5c038ae5fda",
+      "assets/recall/pocket-04/image-014.png": "a47871d8ff8b8e85635a54118b986b330f71277465ab4a8ba52d6348f1942040",
+      "assets/recall/pocket-04/image-015.jpeg": "c29e0d8ab5fd0e07b4b314328298fa177e617ab378756e467912c4d7d9e02489",
+      "assets/recall/pocket-04/image-016.jpeg": "9518e649cc66c56114f1853da059b73e33d0808604fe5a6c0780668c8dd5240c",
+      "assets/recall/pocket-04/image-017.png": "dfa6da20251a5a0d431897342d317fa6f08eaf1429f8757c0d4a2bcc149763f9",
+      "assets/recall/pocket-04/image-019.png": "5e7dbecaac053895d96e233b6572f4b4fdbe2da6363a862b95e982610b2b2cf9",
+      "assets/recall/pocket-04/image-020.png": "7daeea1105d2443880e7fbc0b80d594eb44d19139ea2c3e8ac65486d9cf9545a",
+      "assets/recall/pocket-04/image-021.png": "a9abc5dfab1259ac616cb3f14fe7a8177ee58a51d2ac629e274541879162c962",
+      "assets/recall/pocket-04/image-022.png": "8e39f47322f04a03a92625499ffc49330dd0dec5e3522fc326a4dfc8032c63f1",
+      "assets/recall/pocket-04/image-023.png": "af856edb868ff2ba6593ef86e28db51e3fdd62cb05317fb003872e6c7c1160ed",
+      "assets/recall/pocket-04/image-024.png": "bca406077762bd229cd19a23358bcb1508dc7dfcb105de3941b07ba03bfae943",
+      "assets/recall/pocket-04/image-025.png": "fdb9aa9883bb05bb6c05c3f50f8cb690f4ffb1897c4fe1091e6f198f82bbece0",
+      "assets/recall/pocket-04/image-026.png": "e8958d530c5608a7085ef480c2d9ec4077da9ffa57d7c590e1a338ca08a0c8fa"
+    },
+    "counters": {
+      "paragraphs": 193,
+      "tables": 7,
+      "source-marking": 72,
+      "reviewed-addition": 20
+    },
+    "corrections": [
+      {
+        "source_block": 45,
+        "source_row": 1,
+        "original": "平均厚度2千米",
+        "revised": "平均厚度约12千米",
+        "reason": "修正对流层平均厚度漏字。",
+        "references": []
+      },
+      {
+        "source_block": 45,
+        "source_row": 2,
+        "original": "下层的臭氧层",
+        "revised": "平流层中的臭氧",
+        "reason": "臭氧吸收紫外线不应笼统限定为平流层下层。",
+        "references": []
+      },
+      {
+        "source_block": 45,
+        "source_row": 3,
+        "original": "又称电离层",
+        "revised": "其中含有电离层",
+        "reason": "高层大气不等同于整个电离层。",
+        "references": [
+          "noaa-ionosphere"
+        ]
+      },
+      {
+        "source_block": 59,
+        "source_row": null,
+        "original": "几乎全部被对流层中的水汽和二氧化碳所吸收",
+        "revised": "大部分被大气中的水汽、二氧化碳等温室气体和云所吸收（另有部分可通过大气窗口直接向太空辐射）",
+        "reason": "补充大气窗口，避免将地面长波辐射当作全部被吸收。",
+        "references": [
+          "nasa-budget"
+        ]
+      },
+      {
+        "source_block": 64,
+        "source_row": null,
+        "original": "高低纬度间因太阳辐射的不同而产生的热量差异（冷热不均）。",
+        "revised": "地面受热不均引起空气温度差异，包括高低纬度以及局地海陆、山谷、城乡之间的冷热差异。",
+        "reason": "热力环流不只发生在高低纬度之间。",
+        "references": []
+      },
+      {
+        "source_block": 68,
+        "source_row": null,
+        "original": "同一水高度上才可进行高、低气压的比较",
+        "revised": "判定高、低气压系统应比较同一高度的水平气压分布",
+        "reason": "修正文字并明确高低压系统比较基准。",
+        "references": []
+      },
+      {
+        "source_block": 83,
+        "source_row": null,
+        "original": "过多引起温室效应",
+        "revised": "浓度增加会增强温室效应",
+        "reason": "区分自然温室效应与增强的温室效应。",
+        "references": []
+      },
+      {
+        "source_block": 85,
+        "source_row": null,
+        "original": "1）高层大气中的氧原子→吸收波长较短的紫外线→升温使大气电离→形成电离层。",
+        "revised": "1）高层大气中的原子、分子吸收太阳极紫外线和X射线等高能辐射后发生电离，形成含自由电子和离子的电离层。",
+        "reason": "电离主要由高能辐射驱动，不能仅归因于升温。",
+        "references": [
+          "noaa-ionosphere"
+        ]
+      },
+      {
+        "source_block": 88,
+        "source_row": null,
+        "original": "水汽→遇冷→水蒸气凝结形成小水珠→形成雾或降水（是降水形成的必须环节）。",
+        "revised": "水汽在适宜条件下凝结或凝华形成云滴、冰晶；达到一定条件后才可能形成降水。不能把形成小水珠直接等同于已经降水，也不能忽略冰相过程。",
+        "reason": "区分凝结、凝华与降水形成。",
+        "references": []
+      },
+      {
+        "source_block": 93,
+        "source_row": null,
+        "original": "1、大气对太阳辐射的削弱作用：反射作用最强，吸收作用最弱",
+        "revised": "1、大气通过吸收、反射和散射削弱太阳辐射，各作用的相对大小随波段、云量和大气成分而变，不能把强弱次序当作所有情境下的固定规律。",
+        "reason": "补充削弱作用的条件差异。",
+        "references": []
+      },
+      {
+        "source_block": 95,
+        "source_row": null,
+        "original": "卫星云图上白色越浓，云层越厚，反射太阳光最多。",
+        "revised": "在可见光云图中，较亮区域通常表示反射较强，并常与云的光学厚度有关；红外云图的亮度常反映云顶温度，不能将两类云图一概解释为云层厚度。",
+        "reason": "区分可见光与红外云图亮度含义。",
+        "references": []
+      },
+      {
+        "source_block": 102,
+        "source_row": null,
+        "original": "1）多年平均来看，地球（地面和大气）热量收支平衡，因此全球气温稳定。人类活动使热量收支失去平衡，可能导致全球气候变暖。",
+        "revised": "1）地球气候取决于吸收的太阳能与向太空放出的能量收支。能量持续净增加会使系统增暖；温室气体增加可改变这一平衡，不能由“多年平均”直接断言全球气温始终稳定。",
+        "reason": "区分能量平衡模型与正在变化的实际气候。",
+        "references": [
+          "nasa-budget"
+        ]
+      },
+      {
+        "source_block": 103,
+        "source_row": null,
+        "original": "南太平洋岛国图瓦卢是第一个因全球气候变暖而受到影响的国家。",
+        "revised": "图瓦卢等低海拔岛国面临海平面上升风险，但不能据此认定其为全球第一个受到气候变化影响的国家。",
+        "reason": "删除无法成立的唯一先后排序。",
+        "references": []
+      },
+      {
+        "source_block": 109,
+        "source_row": null,
+        "original": "偏转角度为30°～45°",
+        "revised": "偏转角度随摩擦、纬度和稳定度等条件而变化，示意图常取一定角度",
+        "reason": "近地面风向偏角不是固定的30°至45°。",
+        "references": []
+      },
+      {
+        "source_block": 114,
+        "source_row": null,
+        "original": "若比例尺相同，相邻两条等压线数值差越大，风力越大",
+        "revised": "在图上等压线间距和比例尺相同等条件下，相邻等压线数值差越大，水平气压梯度通常越大",
+        "reason": "补充风力比较中的等压线间距条件。",
+        "references": []
+      },
+      {
+        "source_block": 117,
+        "source_row": null,
+        "original": "若相邻两条等压线数值差相等，比例尺越大，风力越大",
+        "revised": "在图上等压线间距和相邻线数值差相同等条件下，比例尺越大，表示的水平气压梯度越大",
+        "reason": "比例尺比较也须控制图上线距。",
+        "references": []
+      },
+      {
+        "source_block": 131,
+        "source_row": null,
+        "original": "或者气温随高度增加而降低的幅度小于垂直递减率，这种现象我们称之为逆温。",
+        "revised": "这才称为逆温；气温仍随高度递减、只是递减率较小，并不等于逆温。",
+        "reason": "逆温定义为气温随高度增加而升高，不能与弱递减混同。",
+        "references": [
+          "nws-inversion"
+        ]
+      },
+      {
+        "source_block": 152,
+        "source_row": null,
+        "original": "海拔高度，",
+        "revised": "海拔高，",
+        "reason": "修正文字错误。",
+        "references": []
+      },
+      {
+        "source_block": 156,
+        "source_row": null,
+        "original": "污染物不易扩散，空气密度大，",
+        "revised": "污染物可能不易扩散，",
+        "reason": "不能仅由湿润盆地推出空气密度更大。",
+        "references": []
+      },
+      {
+        "source_block": 156,
+        "source_row": null,
+        "original": "太阳能能缺乏",
+        "revised": "太阳能资源较少",
+        "reason": "修正重复文字。",
+        "references": []
+      },
+      {
+        "source_block": 177,
+        "source_row": null,
+        "original": "近地面则相反。",
+        "revised": "只有在特定热力环流模型中，近地面与高空的气压系统才可按相反关系判断；一般天气形势不能无条件套用。",
+        "reason": "高低空气压相反须限定热力环流模型。",
+        "references": []
+      }
+    ],
+    "references": [
+      {
+        "id": "nasa-budget",
+        "title": "NASA：地球能量收支与大气窗口",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/"
+      },
+      {
+        "id": "noaa-ionosphere",
+        "title": "NOAA：电离层",
+        "url": "https://www.spaceweather.gov/phenomena/ionosphere"
+      },
+      {
+        "id": "nws-inversion",
+        "title": "美国国家气象局：逆温定义",
+        "url": "https://www.weather.gov/lmk/inversion"
+      }
+    ],
+    "note": "按原顺序提取，保留标记答案与原图。含标注的原图默认折叠，先回忆再展开核对；重点修订有原文记录，具体条件以题目材料为准。"
+  }
+}
