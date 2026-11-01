@@ -226,6 +226,11 @@ main:has(.recall-layout) { width: min(100% - 28px, 1180px); }
 .pocket-source a { overflow-wrap: anywhere; }
 .pocket-overview { margin-bottom: 18px; line-height: 1.8; }
 .pocket-overview > summary { cursor: pointer; font-weight: 600; }
+.pocket-topic-picker { display: block; max-width: 560px; margin: 0 0 20px; color: var(--muted); font-size: 14px; }
+.pocket-topic-picker select { display: block; margin-top: 6px; color: var(--ink); font-size: 16px; }
+.pocket-figure-disclosure { margin: 18px 0; border-top: 1px solid var(--line); padding-top: 12px; font-size: 14px; }
+.pocket-figure-disclosure > summary { cursor: pointer; color: var(--teal); }
+.pocket-math { display: inline math; max-width: 100%; font-size: 1em; vertical-align: middle; }
 #pocket-zoom-content { width: max(1000px, 100%); max-width: 1600px; margin: 0 auto; }
 .recall-return-directory { display: none; }
 .recall-lesson-main { scroll-margin-top: 12px; }

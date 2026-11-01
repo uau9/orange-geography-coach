@@ -1,5 +1,5 @@
 const STORAGE_KEY = "orange-geography-coach:v0.1";
-const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.32.0", ASSET_VERSION: "0.32.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
+const COACH_CONFIG = window.OrangeCoach?.config || { APP_VERSION: "0.33.0", ASSET_VERSION: "0.33.0", EXPORT_SCHEMA_VERSION: "0.25.0", STUDENT_ALIAS: "橙子" };
 const ASSET_VERSION = COACH_CONFIG.ASSET_VERSION;
 
 function formatClock(totalMinutes) {
@@ -57,6 +57,8 @@ function calculateTimeLabAnswers(scenario, longitude) {
 
 const app = document.querySelector("#app");
 const state = loadState();
+let pocketTopicCatalog = [];
+const pocketBooks = new Map();
 let catalog = { topics: [], questions: [], paperReviews: [], retests: [], projects: [], curriculum: null, regionReview: null, textbookCloseReading: null, recallCards: null, pocketPopulation: null, timeLab: null, earthMotionLab: null, solarSeasonLab: null, solarPathLab: null, annualSunLab: null, orbitSpeedLab: null, terminatorLinkLab: null, rotationSpeedLab: null, dateRangeLab: null, axialTiltLab: null, celestialScaleLab: null, habitabilityLab: null, solarActivityLab: null, moonPhaseLab: null, eclipseLab: null, tideLab: null, coriolisLab: null, frontWeatherLab: null, cycloneSystemLab: null, atmosphereLabs: null };
 
 function defaultState() {
@@ -68,6 +70,7 @@ function defaultState() {
     recallLessonId: "recall-01",
     recallCollection: "basics",
     pocketSectionId: "pocket11-01",
+    pocketTopicId: "pocket11",
     recallProgress: {},
     regionReviewDay: 1,
     textbookReadingPage: 18,
@@ -155,6 +158,7 @@ function normalizeState(parsed) {
   normalized.recallLessonId = typeof parsed?.recallLessonId === "string" ? parsed.recallLessonId : "recall-01";
   normalized.recallCollection = parsed?.recallCollection === "population" ? "population" : "basics";
   normalized.pocketSectionId = typeof parsed?.pocketSectionId === "string" ? parsed.pocketSectionId : "pocket11-01";
+  normalized.pocketTopicId = typeof parsed?.pocketTopicId === "string" ? parsed.pocketTopicId : "pocket11";
   normalized.recallProgress = parsed?.recallProgress && typeof parsed.recallProgress === "object" && !Array.isArray(parsed.recallProgress) ? parsed.recallProgress : {};
   normalized.regionReviewDay = Number.isInteger(Number(parsed?.regionReviewDay)) && Number(parsed.regionReviewDay) >= 1 && Number(parsed.regionReviewDay) <= 14 ? Number(parsed.regionReviewDay) : 1;
   normalized.textbookReadingPage = Number.isInteger(Number(parsed?.textbookReadingPage)) && Number(parsed.textbookReadingPage) >= 18 && Number(parsed.textbookReadingPage) <= 25 ? Number(parsed.textbookReadingPage) : 18;
@@ -1919,17 +1923,34 @@ window.addEventListener("resize", () => {
   document.querySelectorAll('.recall-blank[aria-expanded="true"] .recall-blank-answer').forEach(fitRecallAnswer);
 });
 
+function currentPocketBook() {
+  return pocketBooks.get(state.pocketTopicId) || catalog.pocketPopulation;
+}
+
+async function loadPocketBook(id) {
+  if (pocketBooks.has(id)) return pocketBooks.get(id);
+  const entry = pocketTopicCatalog.find((item) => item.id === id);
+  if (!entry) throw new Error("该专题尚未发布");
+  const response = await fetch(`./${entry.data}?v=${ASSET_VERSION}`);
+  if (!response.ok) throw new Error("专题加载失败，请检查网络后重试");
+  const module = await response.json();
+  if (module.topic_id !== id || module.schema_version !== "1.1.0" || !module.sections?.length) throw new Error("专题数据版本不匹配");
+  pocketBooks.set(id, module);
+  return module;
+}
+
 function renderRecallCards() {
-  const collectionPicker = `<div class="recall-collections" role="group" aria-label="选择背诵资料"><button type="button" class="btn ${state.recallCollection === "basics" ? "orange" : "secondary"}" data-action="select-recall-collection" data-collection="basics" aria-pressed="${state.recallCollection === "basics"}">基础挖空 · 26版</button><button type="button" class="btn ${state.recallCollection === "population" ? "orange" : "secondary"}" data-action="select-recall-collection" data-collection="population" aria-pressed="${state.recallCollection === "population"}">口袋书 · 人口样板</button></div>`;
+  const collectionPicker = `<div class="recall-collections" role="group" aria-label="选择背诵资料"><button type="button" class="btn ${state.recallCollection === "basics" ? "orange" : "secondary"}" data-action="select-recall-collection" data-collection="basics" aria-pressed="${state.recallCollection === "basics"}">基础挖空 · 26版</button><button type="button" class="btn ${state.recallCollection === "population" ? "orange" : "secondary"}" data-action="select-recall-collection" data-collection="population" aria-pressed="${state.recallCollection === "population"}">口袋书 · 知识清单</button></div>`;
   if (state.recallCollection === "population") {
-    const module = catalog.pocketPopulation;
+    const module = currentPocketBook();
     const section = module?.sections.find((s) => s.id === state.pocketSectionId) || module?.sections[0];
     if (!section || !window.OrangeCoach?.features?.pocketRecall) {
-      app.innerHTML = collectionPicker + `<section class="card empty">人口样板内容尚未加载。</section>`;
+      app.innerHTML = collectionPicker + `<section class="card empty">口袋书内容尚未加载。</section>`;
       return;
     }
     state.pocketSectionId = section.id;
-    app.innerHTML = collectionPicker + window.OrangeCoach.features.pocketRecall.render({ module, section, progressByLesson: state.recallProgress });
+    const selector = `<label class="pocket-topic-picker">选择专题<select data-action="select-pocket-topic" aria-label="选择口袋书专题">${pocketTopicCatalog.map((item) => `<option value="${escapeHtml(item.id)}" ${item.id === state.pocketTopicId ? "selected" : ""}>${escapeHtml(item.title)}</option>`).join("")}</select></label>`;
+    app.innerHTML = collectionPicker + selector + window.OrangeCoach.features.pocketRecall.render({ module, section, progressByLesson: state.recallProgress });
     return;
   }
   const feature = window.OrangeCoach?.features?.recallCards;
@@ -2694,7 +2715,7 @@ document.addEventListener("click", async (event) => {
     return;
   }
   if (action === "open-pocket-section") {
-    const section = catalog.pocketPopulation?.sections.find((s) => s.id === actionTarget.dataset.sectionId);
+    const section = currentPocketBook()?.sections.find((s) => s.id === actionTarget.dataset.sectionId);
     if (!section) return;
     state.pocketSectionId = section.id;
     saveState(); render();
@@ -2779,7 +2800,7 @@ document.addEventListener("click", async (event) => {
   }
   if (action === "set-recall-status") {
     const lessonId = actionTarget.dataset.lessonId;
-    if (!catalog.recallCards?.lessons?.some((item) => item.id === lessonId) && !catalog.pocketPopulation?.sections?.some((item) => item.id === lessonId)) return;
+    if (!catalog.recallCards?.lessons?.some((item) => item.id === lessonId) && !currentPocketBook()?.sections?.some((item) => item.id === lessonId)) return;
     const status = actionTarget.dataset.status === "recited" ? "recited" : "review";
     const previous = state.recallProgress[lessonId] || {};
     state.recallProgress[lessonId] = {
@@ -4253,6 +4274,22 @@ document.addEventListener("input", (event) => {
 });
 
 document.addEventListener("change", async (event) => {
+  if (event.target.dataset.action === "select-pocket-topic") {
+    const selector = event.target;
+    const topicId = selector.value;
+    selector.disabled = true;
+    try {
+      const module = await loadPocketBook(topicId);
+      state.pocketTopicId = topicId;
+      state.pocketSectionId = module.sections[0].id;
+      saveState();
+      if (state.route === "recall" && state.recallCollection === "population") render();
+    } catch (error) {
+      selector.value = state.pocketTopicId;
+      alert(error.message);
+    } finally { selector.disabled = false; }
+    return;
+  }
   if (event.target.dataset.action !== "import-data") return;
   const file = event.target.files?.[0];
   if (!file) return;
@@ -4574,6 +4611,14 @@ async function init() {
       fetch(`./data/atmosphere_reasoning_labs.json?v=${ASSET_VERSION}`).then((response) => response.json())
     ]);
     catalog = { topics, questions, paperReviews, retests, projects: projectCatalog.projects || [], curriculum, regionReview, textbookCloseReading, recallCards, pocketPopulation, timeLab, earthMotionLab, solarSeasonLab, solarPathLab, annualSunLab, orbitSpeedLab, terminatorLinkLab, rotationSpeedLab, dateRangeLab, axialTiltLab, celestialScaleLab, habitabilityLab, solarActivityLab, moonPhaseLab, eclipseLab, tideLab, coriolisLab, frontWeatherLab, cycloneSystemLab, atmosphereLabs };
+    const pocketLibraryResponse = await fetch(`./data/pocket_library.json?v=${ASSET_VERSION}`);
+    if (!pocketLibraryResponse.ok) throw new Error("口袋书目录加载失败");
+    const pocketLibrary = await pocketLibraryResponse.json();
+    if (pocketLibrary.schema_version !== "1.0.0" || !Array.isArray(pocketLibrary.topics)) throw new Error("口袋书目录版本不匹配");
+    pocketTopicCatalog = pocketLibrary.topics;
+    pocketBooks.set("pocket11", pocketPopulation);
+    if (!pocketTopicCatalog.some((item) => item.id === state.pocketTopicId)) state.pocketTopicId = "pocket11";
+    if (state.recallCollection === "population") await loadPocketBook(state.pocketTopicId);
     render();
   } catch (error) {
     app.innerHTML = `<section class="card"><h2>项目启动失败</h2><p>请通过本地服务器打开，而不是直接双击 index.html。</p><div class="quote">${escapeHtml(error.message)}</div></section>`;

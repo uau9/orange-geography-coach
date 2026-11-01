@@ -11,7 +11,7 @@ try {
     await page.locator('[data-route="recall"]').tap();
     await page.locator('.recall-blank').first().evaluate((element) => element.click());
     const oldProgress = await page.evaluate(() => JSON.parse(localStorage.getItem("orange-geography-coach:v0.1")).recallProgress["recall-01"]);
-    await page.getByRole("button", { name: "口袋书 · 人口样板", exact: true }).tap();
+    await page.getByRole("button", { name: "口袋书 · 知识清单", exact: true }).tap();
     assert.equal(await page.locator('.pocket-overview').getAttribute('open'), null);
     await page.locator('.pocket-overview > summary').tap();
     const overviewImage = page.locator('.pocket-overview img');

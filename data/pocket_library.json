@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "title": "口袋书 · 知识清单",
+  "topics": [
+    {"id": "pocket01", "title": "专题01 地球与地图", "data": "data/pocket/01-earth-map.json"},
+    {"id": "pocket11", "title": "专题11 人口", "data": "data/pocket_population.json"}
+  ]
+}

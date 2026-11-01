@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orange-geography-coach.local/schemas/pocket-book.v1.1.schema.json",
+  "title": "口袋书分专题结构化背诵",
+  "type": "object",
+  "required": ["schema_version", "id", "topic_id", "title", "status", "source", "overview", "sections", "audit"],
+  "properties": {
+    "schema_version": {"const": "1.1.0"}, "id": {"type": "string"}, "topic_id": {"type": "string", "pattern": "^pocket[0-9]{2}$"}, "title": {"type": "string"}, "status": {"const": "published"},
+    "source": {"type": "object", "required": ["file", "sha256", "included", "excluded"]},
+    "overview": {"$ref": "#/$defs/block"}, "additional_overviews": {"type": "array", "items": {"$ref": "#/$defs/block"}},
+    "sections": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "group", "title", "source_blocks", "blocks"], "properties": {"id": {"type": "string"}, "group": {"enum": ["知识清单", "易错易混", "知能拓展"]}, "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}}}}},
+    "audit": {"type": "object", "required": ["blank_count", "images_sha256", "corrections", "references", "counters"]}
+  },
+  "$defs": {
+    "math": {"type": "object", "required": ["tag"], "properties": {"tag": {"enum": ["mrow", "mtext", "mo", "mfrac", "msup", "msub"]}, "text": {"type": "string"}, "children": {"type": "array", "items": {"$ref": "#/$defs/math"}}}},
+    "token": {"oneOf": [
+      {"type": "object", "required": ["type", "text"], "properties": {"type": {"const": "text"}, "text": {"type": "string"}}},
+      {"type": "object", "required": ["type", "text", "expression"], "properties": {"type": {"const": "math"}, "expression": {"$ref": "#/$defs/math"}}},
+      {"type": "object", "required": ["type", "id", "answer", "origin"], "properties": {"type": {"const": "blank"}, "id": {"type": "string"}, "answer": {"type": "string", "minLength": 1}, "answer_math": {"$ref": "#/$defs/math"}}}
+    ]},
+    "block": {"oneOf": [
+      {"type": "object", "required": ["type", "tokens", "source_block", "source_text"], "properties": {"type": {"enum": ["paragraph", "heading"]}, "tokens": {"type": "array", "items": {"$ref": "#/$defs/token"}}}},
+      {"type": "object", "required": ["type", "columns", "rows", "source_block"], "properties": {"type": {"const": "table"}, "columns": {"type": "integer", "minimum": 1}, "rows": {"type": "array", "items": {"type": "array", "items": {"type": "object", "required": ["column", "colspan", "rowspan", "blocks"], "properties": {"blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}}}}}}}},
+      {"type": "object", "required": ["type", "image", "width", "height", "caption", "masks", "source_block"], "properties": {"type": {"const": "figure"}, "image": {"type": "string", "pattern": "^assets/recall/pocket-[0-9]{2}/"}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}, "masks": {"type": "array"}, "disclosure": {"type": "boolean"}}}
+    ]}
+  }
+}
