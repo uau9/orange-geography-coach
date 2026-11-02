@@ -12,6 +12,7 @@
     {"id": "pocket08", "title": "专题08 大规模的海水运动", "data": "data/pocket/08-ocean-movement.json"},
     {"id": "pocket09", "title": "专题09 地表形态的塑造", "data": "data/pocket/09-landforms.json"},
     {"id": "pocket10", "title": "专题10 自然地理环境的整体性与差异性", "data": "data/pocket/10-environment-patterns.json"},
-    {"id": "pocket11", "title": "专题11 人口", "data": "data/pocket_population.json"}
+    {"id": "pocket11", "title": "专题11 人口", "data": "data/pocket_population.json"},
+    {"id": "pocket12", "title": "专题12 城镇与乡村", "data": "data/pocket/12-urban-rural.json"}
   ]
 }

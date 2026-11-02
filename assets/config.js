@@ -1,8 +1,8 @@
 (function configureOrangeCoach(root) {
   const coach = root.OrangeCoach = root.OrangeCoach || {};
   coach.config = Object.freeze({
-    APP_VERSION: "0.33.9",
-    ASSET_VERSION: "0.33.9",
+    APP_VERSION: "0.33.10",
+    ASSET_VERSION: "0.33.10",
     EXPORT_SCHEMA_VERSION: "0.25.0",
     STUDENT_ALIAS: "橙子"
   });

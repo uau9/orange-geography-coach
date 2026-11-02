@@ -1,0 +1,5240 @@
+{
+  "schema_version": "1.1.0",
+  "id": "pocket-urban-rural",
+  "topic_id": "pocket12",
+  "title": "专题12 城镇与乡村",
+  "status": "published",
+  "source": {
+    "file": "2025高中地理学习资料包 (知识点+教辅+试卷)/【口袋书】2024年高考地理一轮复习知识清单/专题12城镇与乡村-【口袋书】2024年高考地理一轮复习知识清单.docx",
+    "sha256": "8bc7da2fe8921470fc055f0c783956c4c833966eefdab7a93a7807d79ac0988f",
+    "included": [
+      "思维导图",
+      "知识清单",
+      "易错易混",
+      "知能拓展"
+    ],
+    "excluded": [
+      "考情速递",
+      "训练营",
+      "答案解析"
+    ]
+  },
+  "overview": {
+    "type": "figure",
+    "source_block": 16,
+    "image": "assets/recall/pocket-12/image-004.png",
+    "width": 1489,
+    "height": 1477,
+    "masks": [],
+    "caption": "专题总览 · 原图4",
+    "disclosure": false,
+    "source_image_sha256": "e5b0ee000ae4b27b152dc299ba4724a9adb6892afa12a4af55f438a17b6ddfd7"
+  },
+  "additional_overviews": [],
+  "sections": [
+    {
+      "id": "pocket12-01",
+      "group": "知识清单",
+      "title": "乡村空间结构",
+      "note": "乡村功能日益多样，可有旅游、工业与公共服务等；不能理解为全部乡村都只从事农业。",
+      "source_blocks": [
+        24,
+        30
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0001",
+              "answer": "乡村",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "常是指从事广义农业的人口为主的聚落，以"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0002",
+              "answer": "农业经济活动",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "为主的地区。（即：乡村以农业用地和居住为主）"
+            }
+          ],
+          "source_block": 25,
+          "source_row": null,
+          "source_text": "1、乡村常是指从事广义农业的人口为主的聚落，以农业经济活动为主的地区。（即：乡村以农业用地和居住为主）"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、乡村的功能分区"
+            }
+          ],
+          "source_block": 26,
+          "source_row": null,
+          "source_text": "2、乡村的功能分区"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0003",
+              "answer": "居住区",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "：规模较"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0004",
+              "answer": "小",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，点缀于农业生产区间"
+            }
+          ],
+          "source_block": 27,
+          "source_row": null,
+          "source_text": "1）居住区：规模较小，点缀于农业生产区间"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0005",
+              "answer": "农业生产区",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "：规模较"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0006",
+              "answer": "大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，几乎遍布整个乡村"
+            }
+          ],
+          "source_block": 28,
+          "source_row": null,
+          "source_text": "2）农业生产区：规模较大，几乎遍布整个乡村"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0007",
+              "answer": "公共用地区",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": ":规模相对较"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0008",
+              "answer": "小",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ],
+          "source_block": 29,
+          "source_row": null,
+          "source_text": "3）公共用地区:规模相对较小 "
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0009",
+              "answer": "商业用地",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": ":规模较"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0010",
+              "answer": "小",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、等级较"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0011",
+              "answer": "低",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 30,
+          "source_row": null,
+          "source_text": "4）商业用地:规模较小、等级较低"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-02",
+      "group": "知识清单",
+      "title": "城市空间结构",
+      "note": "地租曲线采用单中心、其他条件简化的模型；实际地价、租金和可负担性还受规划、历史与基础设施影响。",
+      "source_blocks": [
+        31,
+        46
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、城市功能区"
+            }
+          ],
+          "source_block": 32,
+          "source_row": null,
+          "source_text": "1、城市功能区"
+        },
+        {
+          "type": "table",
+          "source_block": 33,
+          "columns": 5,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "功能区"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 0,
+                    "source_text": "功能区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "形态"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 0,
+                    "source_text": "形态"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特征"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 0,
+                    "source_text": "特征"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "位置"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 0,
+                    "source_text": "位置"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "住宅区"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "住宅区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "集聚成"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0012",
+                        "answer": "团块状",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "集聚成团块状，"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "占地面积"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0013",
+                        "answer": "大",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "占地面积大"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "中高级与低级住宅区分化，中高级与低级住宅区背向发展"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "中高级与低级住宅区分化，中高级与低级住宅区背向发展"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0014",
+                        "answer": "中高级",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "中高级"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "住宅区"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "住宅区"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "城市外缘，与高坡、文化区、行政区相联系"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 1,
+                    "source_text": "城市外缘，与高坡、文化区、行政区相联系"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0015",
+                        "answer": "低级",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 2,
+                    "source_text": "低级"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "住宅区"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 2,
+                    "source_text": "住宅区"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "内城、工业区附近，与低地、工业区相联系"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 2,
+                    "source_text": "内城、工业区附近，与低地、工业区相联系"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "商业区"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 3,
+                    "source_text": "商业区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "占地面积"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0016",
+                        "answer": "小",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 3,
+                    "source_text": "占地面积小，"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "呈"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0017",
+                        "answer": "点状",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "或"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0018",
+                        "answer": "条状",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "分布"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 3,
+                    "source_text": "呈点状或条状分布"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0019",
+                        "answer": "商业活动",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "繁忙；"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 3,
+                    "source_text": "商业活动繁忙；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "昼夜人口数量变化"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0020",
+                        "answer": "大",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 3,
+                    "source_text": "昼夜人口数量变化大；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "建筑物"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0021",
+                        "answer": "高大稠密",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 3,
+                    "source_text": "建筑物高大稠密"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0022",
+                        "answer": "市中心",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "、交通干线"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 3,
+                    "source_text": "市中心、交通干线"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "两侧、街角路口"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 3,
+                    "source_text": "两侧、街角路口"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "工业区"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 4,
+                    "source_text": "工业区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "集聚成"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0023",
+                        "answer": "片",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 4,
+                    "source_text": "集聚成片"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "向城市外缘移动，并趋向"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 4,
+                    "source_text": "向城市外缘移动，并趋向"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "于沿主要交通干线分布"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 4,
+                    "source_text": "于沿主要交通干线分布"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "市区外缘、"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0024",
+                        "answer": "交通干线",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "两侧"
+                      }
+                    ],
+                    "source_block": 33,
+                    "source_row": 4,
+                    "source_text": "市区外缘、交通干线两侧"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "原表为典型城市模型。中高级、低级是原资料的住房分类用语；高坡、低地、距中心远近不能直接推定居民收入或住宅价值。混合功能和多中心城市应结合材料判断。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0025",
+              "answer": "CBD",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的特点："
+            }
+          ],
+          "source_block": 34,
+          "source_row": null,
+          "source_text": "CBD的特点："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①是城市经济活动最为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0026",
+              "answer": "繁忙",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的地方； "
+            }
+          ],
+          "source_block": 35,
+          "source_row": null,
+          "source_text": "①是城市经济活动最为繁忙的地方； "
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②建筑物高大"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0027",
+              "answer": "稠密",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；"
+            }
+          ],
+          "source_block": 36,
+          "source_row": null,
+          "source_text": "②建筑物高大稠密；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③人口数量的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0028",
+              "answer": "昼夜差别",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "很"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0029",
+              "answer": "大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；      "
+            }
+          ],
+          "source_block": 37,
+          "source_row": null,
+          "source_text": "③人口数量的昼夜差别很大；      "
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "④"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0030",
+              "answer": "内部存在明显的分区",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 38,
+          "source_row": null,
+          "source_text": "④内部存在明显的分区。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、影响城市功能分区的因素"
+            }
+          ],
+          "source_block": 39,
+          "source_row": null,
+          "source_text": "2、影响城市功能分区的因素"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0031",
+              "answer": "经济因素",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "：是影响城镇内部空间结构的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0032",
+              "answer": "主要",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "因素；主要表现为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0033",
+              "answer": "地租水平",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，而影响地租高低的因素主要有"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0034",
+              "answer": "距离城镇中心远近",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0035",
+              "answer": "交通便捷程度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "两个方面。①距离市中心的远近对城市功能区的影响"
+            }
+          ],
+          "source_block": 40,
+          "source_row": null,
+          "source_text": "1）经济因素：是影响城镇内部空间结构的主要因素；主要表现为地租水平，而影响地租高低的因素主要有距离城镇中心远近和交通便捷程度两个方面。①距离市中心的远近对城市功能区的影响"
+        },
+        {
+          "type": "figure",
+          "source_block": 41,
+          "image": "assets/recall/pocket-12/image-007.png",
+          "width": 1005,
+          "height": 642,
+          "masks": [],
+          "caption": "城市空间结构 · 原图7",
+          "disclosure": true,
+          "source_image_sha256": "593d92d9d5c45e3396f3bf77aa4ccb8ced384a2d3ba97075fe78d60eb6e7927e"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②交通通达度对城市功能区的影响"
+            }
+          ],
+          "source_block": 42,
+          "source_row": null,
+          "source_text": "②交通通达度对城市功能区的影响"
+        },
+        {
+          "type": "figure",
+          "source_block": 43,
+          "image": "assets/recall/pocket-12/image-008.png",
+          "width": 913,
+          "height": 455,
+          "masks": [],
+          "caption": "城市空间结构 · 原图8",
+          "disclosure": true,
+          "source_image_sha256": "3e35c65484e5bd40f31e81f2c9f89ba65ae52530b44934b7d984230477085462"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）政策因素：北京城市副中心承接中心城区符合定位的功能和人口疏解，服务"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0036",
+              "answer": "非首都功能疏解",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "与城市功能优化；以"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0037",
+              "answer": "行政办公、商务服务、文化旅游、科技创新",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "为主导功能，不能简单概括为强化政治职能。"
+            }
+          ],
+          "source_block": 44,
+          "source_row": null,
+          "source_text": "2）政策因素：北京将通州建设为北京市的副中心将中心城区相关功能及部分人口向通州疏解，强化政治职能。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）文化因素：唐人街的形成。故宫位于北京市中心。"
+            }
+          ],
+          "source_block": 45,
+          "source_row": null,
+          "source_text": "3）文化因素：唐人街的形成。故宫位于北京市中心。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）环境因素："
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0038",
+              "answer": "工业污染",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的角度分析污染物对城市功能区布局的影响。"
+            }
+          ],
+          "source_block": 46,
+          "source_row": null,
+          "source_text": "4）环境因素：工业污染的角度分析污染物对城市功能区布局的影响。"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-03",
+      "group": "知识清单",
+      "title": "城市区位因素",
+      "note": "",
+      "source_blocks": [
+        47,
+        49
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "source_block": 49,
+          "columns": 5,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "区位因素"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 0,
+                    "source_text": "区位因素"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "分析"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 0,
+                    "source_text": "分析"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "举例"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 0,
+                    "source_text": "举例"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 9,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "自然因素"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 1,
+                    "source_text": "自然因素"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0039",
+                        "answer": "气候",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 1,
+                    "source_text": "气候"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水热条件良好的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0040",
+                        "answer": "中低纬度",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "沿海地区"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 1,
+                    "source_text": "水热条件良好的中低纬度沿海地区"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国东部城市"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 1,
+                    "source_text": "我国东部城市"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "热带地区城市建在气候相对凉爽的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0041",
+                        "answer": "高山高原上",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 2,
+                    "source_text": "热带地区城市建在气候相对凉爽的高山高原上"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "巴西利亚"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 2,
+                    "source_text": "巴西利亚"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0042",
+                        "answer": "地形",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 3,
+                    "source_text": "地形"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形平坦，地势较高的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0043",
+                        "answer": "沿海（河、湖）平原地带",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 3,
+                    "source_text": "地形平坦，地势较高的沿海（河、湖）平原地带"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "长江沿岸城市"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 3,
+                    "source_text": "长江沿岸城市"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形有可能会"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0044",
+                        "answer": "限制",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "城市发展"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 4,
+                    "source_text": "地形有可能会限制城市发展"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "兰州"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 4,
+                    "source_text": "兰州"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "自然"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 5,
+                    "source_text": "自然"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "灾害"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 5,
+                    "source_text": "灾害"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "自然灾害可能会摧毁某些城市，但不一定能改变区位选择"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 5,
+                    "source_text": "自然灾害可能会摧毁某些城市，但不一定能改变区位选择"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "灾后城市可能重建或迁址，应结合风险与社会经济条件；古文明衰落不能只归因于单一灾害"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 5,
+                    "source_text": "希腊克里特文明的毁灭，东京大地震之后的重建"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 4,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "矿产"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 6,
+                    "source_text": "矿产"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "资源"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 6,
+                    "source_text": "资源"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 4,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "工业革命后，矿产资源丰富的地区会吸引工业集聚从而形成矿业城市，但这些城市容易因资源枯竭而衰落"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 6,
+                    "source_text": "工业革命后，矿产资源丰富的地区会吸引工业集聚从而形成矿业城市，但这些城市容易因资源枯竭而衰落"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0045",
+                        "answer": "煤矿",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 6,
+                    "source_text": "煤矿"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "匹兹堡、大同"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 6,
+                    "source_text": "匹兹堡、大同"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0046",
+                        "answer": "铁矿",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 7,
+                    "source_text": "铁矿"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "鞍山、攀枝花"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 7,
+                    "source_text": "鞍山、攀枝花"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0047",
+                        "answer": "石油",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 8,
+                    "source_text": "石油"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大庆、克拉玛依"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 8,
+                    "source_text": "大庆、克拉玛依"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0048",
+                        "answer": "金矿",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 9,
+                    "source_text": "金矿"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "南非约翰内斯堡"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 9,
+                    "source_text": "南非约翰内斯堡"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 8,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "社会经济"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 10,
+                    "source_text": "社会经济"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "因素"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 10,
+                    "source_text": "因素"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "（不同城市具有不同的功能）"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 10,
+                    "source_text": "（不同城市具有不同的功能）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "政治"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 10,
+                    "source_text": "政治"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "政治中心"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 10,
+                    "source_text": "政治中心"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北京"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 10,
+                    "source_text": "北京"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0049",
+                        "answer": "宗教",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 11,
+                    "source_text": "宗教"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "伊斯兰教"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 11,
+                    "source_text": "伊斯兰教"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "耶路撒冷"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 11,
+                    "source_text": "耶路撒冷"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "基督教"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 12,
+                    "source_text": "基督教"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "耶路撒冷"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 12,
+                    "source_text": "耶路撒冷"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "佛教"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 13,
+                    "source_text": "佛教"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "五台山（佛教名山，非城市名称）"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 13,
+                    "source_text": "五台山"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "军事"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 14,
+                    "source_text": "军事"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "军事重镇、驻军基地、边防城市等"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 14,
+                    "source_text": "军事重镇、驻军基地、边防城市等"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "圣迭戈"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 14,
+                    "source_text": "圣迭戈"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "历史文化"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 15,
+                    "source_text": "历史文化"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "保存历史文化的古城，属于文化遗产"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 15,
+                    "source_text": "保存历史文化的古城，属于文化遗产"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大理古城"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 15,
+                    "source_text": "大理古城"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0050",
+                        "answer": "旅游",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 16,
+                    "source_text": "旅游"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "旅游资源具有特色，旅游业发达"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 16,
+                    "source_text": "旅游资源具有特色，旅游业发达"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "三亚"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 16,
+                    "source_text": "三亚"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "科技"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 17,
+                    "source_text": "科技"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "高等院校或科研院所密集，科技力量发达"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 17,
+                    "source_text": "高等院校或科研院所密集，科技力量发达"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "旧金山"
+                      }
+                    ],
+                    "source_block": 49,
+                    "source_row": 17,
+                    "source_text": "旧金山"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "一个城市可有多种功能。巴西利亚也有首都建设等政治背景；耶路撒冷同时与犹太教、基督教、伊斯兰教有密切联系，不能只按单一宗教理解。资源城市也可能通过转型发展。"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-04",
+      "group": "知识清单",
+      "title": "城镇化",
+      "note": "城镇化水平是比例指标，增长速度、人口规模及土地扩张应分开判断。各国城乡划分不同，比较时先读定义。",
+      "source_blocks": [
+        50,
+        76
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、城镇化是人口和经济活动"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0051",
+              "answer": "向城镇集聚",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、城镇人口比重和地域空间等发生变化的过程，不等同于户籍类别转换。"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0052",
+              "answer": "工业化",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "是重要动力，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0053",
+              "answer": "服务业发展",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、技术、交通和制度等也可推动城镇化。"
+            }
+          ],
+          "source_block": 51,
+          "source_row": null,
+          "source_text": "1、城镇化是一个地区农业人口转化为非农业人口、农村地域转化为城市地域、农业活动转化为非农业活动的过程。城市化的驱动力（原动力）是工业化。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、城镇化的标志："
+            }
+          ],
+          "source_block": 52,
+          "source_row": null,
+          "source_text": "2、城镇化的标志："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0054",
+              "answer": "城镇人口占总人口的比重",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "增大（衡量城镇化水平的主要指标，需统一城乡划分和统计口径）。"
+            }
+          ],
+          "source_block": 53,
+          "source_row": null,
+          "source_text": "1）城市人口占总人口的比重增大（城市化的主要标志）。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）城市用地规模"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0055",
+              "answer": "扩大",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。     "
+            }
+          ],
+          "source_block": 54,
+          "source_row": null,
+          "source_text": "2）城市用地规模扩大。     "
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）城市人口数量"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0056",
+              "answer": "增加",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 55,
+          "source_row": null,
+          "source_text": "3）城市人口数量增加。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、城市化进程的地区差异"
+            }
+          ],
+          "source_block": 56,
+          "source_row": null,
+          "source_text": "3、城市化进程的地区差异"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）时间上的差异"
+            }
+          ],
+          "source_block": 57,
+          "source_row": null,
+          "source_text": "1）时间上的差异"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0057",
+              "answer": "初期",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "阶段：城市化水平"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0058",
+              "answer": "低",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，发展速度"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0059",
+              "answer": "慢",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 58,
+          "source_row": null,
+          "source_text": "①初期阶段：城市化水平低，发展速度慢。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0060",
+              "answer": "中期",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "加速阶段：速度加"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0061",
+              "answer": "快",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，出现郊区城市化。"
+            }
+          ],
+          "source_block": 59,
+          "source_row": null,
+          "source_text": "②中期加速阶段：速度加快，出现郊区城市化。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0062",
+              "answer": "后期",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "阶段：城市化水平"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0063",
+              "answer": "高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，发展速度趋缓甚至停滞。"
+            }
+          ],
+          "source_block": 60,
+          "source_row": null,
+          "source_text": "③后期阶段：城市化水平高，发展速度趋缓甚至停滞。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）空间上的差异"
+            }
+          ],
+          "source_block": 61,
+          "source_row": null,
+          "source_text": "2）空间上的差异"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①发达国家：起步早，水平高，发展速度变慢；部分地区出现逆城市化或再城市化，不宜将其视为所有城市必然依次经历的阶段。"
+            }
+          ],
+          "source_block": 62,
+          "source_row": null,
+          "source_text": "①发达国家：起步早，水平高，发展速度变慢；发达国家部分城市进入逆城市化阶段，个别出现了再城市化。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②发展中国家：起步晚，水平较低，发展速度加快；不同国家和城市阶段差异显著，部分地区也有郊区化、再城市化等现象，判断须结合具体时期和统计材料。"
+            }
+          ],
+          "source_block": 63,
+          "source_row": null,
+          "source_text": "②发展中国家：起步晚，水平较低，发展速度加快；发展中国家大部分城市处于城市化阶段，部分城市出现郊区城市化。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、城镇化进程（发展）的阶段"
+            }
+          ],
+          "source_block": 64,
+          "source_row": null,
+          "source_text": "4、城镇化进程（发展）的阶段"
+        },
+        {
+          "type": "table",
+          "source_block": 65,
+          "columns": 5,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "城镇化"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 0,
+                    "source_text": "城镇化"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "郊区城市化"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 0,
+                    "source_text": "郊区城市化"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "逆城市化"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 0,
+                    "source_text": "逆城市化"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "再城市化"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 0,
+                    "source_text": "再城市化"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "表现"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 1,
+                    "source_text": "表现"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口由"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0064",
+                        "answer": "乡村迁往城市",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，农村地域转变为城市地域"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 1,
+                    "source_text": "人口由乡村迁往城市，农村地域转变为城市地域"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口、产业"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0065",
+                        "answer": "向郊区迁移",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 1,
+                    "source_text": "人口、产业向郊区迁移"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口、产业由市中心区"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0066",
+                        "answer": "迁往周边的乡村和小城镇",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 1,
+                    "source_text": "人口、产业由市中心区迁往周边的乡村和小城镇"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0067",
+                        "answer": "迁回市区",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 1,
+                    "source_text": "人口迁回市区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "成因"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 2,
+                    "source_text": "成因"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "城市的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0068",
+                        "answer": "拉力",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "和乡村的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0069",
+                        "answer": "推力",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 2,
+                    "source_text": "城市的拉力和乡村的推力"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "市区"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0070",
+                        "answer": "人口激增",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0071",
+                        "answer": "地价上涨",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0072",
+                        "answer": "交通拥挤",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 2,
+                    "source_text": "市区人口激增，地价上涨，交通拥挤"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "为追求更好的生存环境"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 2,
+                    "source_text": "为追求更好的生存环境"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "市中心区的开发，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0073",
+                        "answer": "高科技产业、第三产业",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "的发展"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 2,
+                    "source_text": "市中心区的开发，高科技产业、第三产业的发展"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "图示"
+                      }
+                    ],
+                    "source_block": 65,
+                    "source_row": 3,
+                    "source_text": "图示"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 65,
+                    "image": "assets/recall/pocket-12/image-009.png",
+                    "width": 412,
+                    "height": 412,
+                    "masks": [],
+                    "caption": "城镇化 · 原图9",
+                    "disclosure": true,
+                    "source_image_sha256": "193d6cffa70801693f603eec9824122834753ec283d67e958a434959cf445143"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 65,
+                    "image": "assets/recall/pocket-12/image-010.png",
+                    "width": 245,
+                    "height": 245,
+                    "masks": [],
+                    "caption": "城镇化 · 原图10",
+                    "disclosure": true,
+                    "source_image_sha256": "bc1cdcd190f395f798dd8216b57ae1e5606e7148a88f97d2bedaa6dd3364b35d"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 65,
+                    "image": "assets/recall/pocket-12/image-011.png",
+                    "width": 257,
+                    "height": 255,
+                    "masks": [],
+                    "caption": "城镇化 · 原图11",
+                    "disclosure": true,
+                    "source_image_sha256": "05fcda51ccc33ae2a0bfd34b2ea68f6661f88a60817c46ffe6d4c9ba7aec585d"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 65,
+                    "image": "assets/recall/pocket-12/image-009.png",
+                    "width": 412,
+                    "height": 412,
+                    "masks": [],
+                    "caption": "城镇化 · 原图9",
+                    "disclosure": true,
+                    "source_image_sha256": "193d6cffa70801693f603eec9824122834753ec283d67e958a434959cf445143"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "郊区化与逆城市化要分清空间尺度和去向。几种过程可并存，示意箭头不是各城市必须依次经历的路径。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5、辩证分析城市化对地理环境的影响"
+            }
+          ],
+          "source_block": 66,
+          "source_row": null,
+          "source_text": "5、辩证分析城市化对地理环境的影响"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）合理城市化的影响："
+            }
+          ],
+          "source_block": 67,
+          "source_row": null,
+          "source_text": "1）合理城市化的影响："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①有利于改善地区产业结构，带动区域经济发展。"
+            }
+          ],
+          "source_block": 68,
+          "source_row": null,
+          "source_text": "①有利于改善地区产业结构，带动区域经济发展。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②有利于乡村剩余劳动力向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0074",
+              "answer": "第二、三产业",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "转移。"
+            }
+          ],
+          "source_block": 69,
+          "source_row": null,
+          "source_text": "②有利于乡村剩余劳动力向第二、三产业转移。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③有利于推动科技进步，提高区域整体发展水平。"
+            }
+          ],
+          "source_block": 70,
+          "source_row": null,
+          "source_text": "③有利于推动科技进步，提高区域整体发展水平。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "④有利于居民文化和思想观念的提高，促进城乡交流，缩小城乡发展差距。 "
+            }
+          ],
+          "source_block": 71,
+          "source_row": null,
+          "source_text": "④有利于居民文化和思想观念的提高，促进城乡交流，缩小城乡发展差距。 "
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）过快城市化的影响：①资源问题。②污染问题。③交通拥堵问题。④社会问题。"
+            }
+          ],
+          "source_block": 72,
+          "source_row": null,
+          "source_text": "2）过快城市化的影响：①资源问题。②污染问题。③交通拥堵问题。④社会问题。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "6、保护和改善城市环境的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0075",
+              "answer": "主要措施",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 73,
+          "source_row": null,
+          "source_text": "6、保护和改善城市环境的主要措施"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0076",
+              "answer": "建立卫星城",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，开发新区；控制城市中心区的规模；建立与城市经济相适应的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0077",
+              "answer": "城市发展机制",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；向郊区分散人口和产业。"
+            }
+          ],
+          "source_block": 74,
+          "source_row": null,
+          "source_text": "1）建立卫星城，开发新区；控制城市中心区的规模；建立与城市经济相适应的城市发展机制；向郊区分散人口和产业。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）进行"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0078",
+              "answer": "合理规划",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0079",
+              "answer": "改善城市交通和居住条件",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：对城市进行功能分区，妥善安排各种用地的相对位置；对工业企业合理布局，适当分散污染源；改善交通和住房条件。"
+            }
+          ],
+          "source_block": 75,
+          "source_row": null,
+          "source_text": "2）进行合理规划，改善城市交通和居住条件：对城市进行功能分区，妥善安排各种用地的相对位置；对工业企业合理布局，适当分散污染源；改善交通和住房条件。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）推动城市"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0080",
+              "answer": "信息化建设",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0081",
+              "answer": "提高城市管理能力",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 76,
+          "source_row": null,
+          "source_text": "3）推动城市信息化建设，提高城市管理能力。"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-05",
+      "group": "知识清单",
+      "title": "地域文化与城乡景观",
+      "note": "",
+      "source_blocks": [
+        77,
+        92
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "source_block": 79,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "城市建筑"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 0,
+                    "source_text": "城市建筑"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "表现"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 0,
+                    "source_text": "表现"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原因"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 0,
+                    "source_text": "原因"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "建筑格局"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 1,
+                    "source_text": "建筑格局"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "美国城市"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 1,
+                    "source_text": "美国城市"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "市中心区摩天大楼高耸入云，四周建筑物错落其间"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 1,
+                    "source_text": "市中心区摩天大楼高耸入云，四周建筑物错落其间"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "城市发展历史短，移民影响大，经济发展快"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 1,
+                    "source_text": "城市发展历史短，移民影响大，经济发展快"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0082",
+                        "answer": "欧洲城市",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 2,
+                    "source_text": "欧洲城市"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "市中心区一般很少建现代化高楼大厦，高大楼群聚集的情况更为少见"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 2,
+                    "source_text": "市中心区一般很少建现代化高楼大厦，高大楼群聚集的情况更为少见"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "城市发展历史悠久，城市格局与主体建筑风格已经形成"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 2,
+                    "source_text": "城市发展历史悠久，城市格局与主体建筑风格已经形成"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "建筑风格"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 3,
+                    "source_text": "建筑风格"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "杭州"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 3,
+                    "source_text": "杭州"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "将城市有组织地融入自然环境之中的“山水城市”"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 3,
+                    "source_text": "将城市有组织地融入自然环境之中的“山水城市”"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "“天人合一”哲学思想的影响"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 3,
+                    "source_text": "“天人合一”哲学思想的影响"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket12-blank-0083",
+                        "answer": "北京",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 4,
+                    "source_text": "北京"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "皇宫建筑群雄踞城市中心，其他重要建筑物则沿城市中轴线排列"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 4,
+                    "source_text": "皇宫建筑群雄踞城市中心，其他重要建筑物则沿城市中轴线排列"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "显示皇权的至高无上"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 4,
+                    "source_text": "显示皇权的至高无上"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "华盛顿"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 5,
+                    "source_text": "华盛顿"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "国会大厦居于高处"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 5,
+                    "source_text": "国会大厦居于高处"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "可结合公共政治空间、轴线及规划史分析其象征意义，不能仅凭建筑居高推定制度性质"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 5,
+                    "source_text": "体现了资产阶级所标榜的民主与法制精神"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "建筑结构"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 6,
+                    "source_text": "建筑结构"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "中国"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 6,
+                    "source_text": "中国"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "围墙是中国建筑的主要景观，中国园林讲究含蓄、显而不露、引而不发、忌直求曲、忌宽求窄"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 6,
+                    "source_text": "围墙是中国建筑的主要景观，中国园林讲究含蓄、显而不露、引而不发、忌直求曲、忌宽求窄"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "部分传统庭院和园林重视空间层次、私密性及礼序，不能据此概括整个中国文化为封闭"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 6,
+                    "source_text": "中国文化具有很强的内向性、封闭性"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "西方"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 7,
+                    "source_text": "西方"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "部分美国建筑及公共空间较开敞，但围墙和封闭社区同样存在，西方园林强调整齐划一、直率敞朗、和盘托出"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 7,
+                    "source_text": "美国建筑绝少有围墙，西方园林强调整齐划一、直率敞朗、和盘托出"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "部分园林偏重几何布局与开敞视线，风格因时期和地区而异，不能代表全部西方文化"
+                      }
+                    ],
+                    "source_block": 79,
+                    "source_row": 7,
+                    "source_text": "西方文化以外向、开放著称"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "原表是部分城市与历史建筑案例，不代表各国或整个文化区统一风格。美国也有历史街区，欧洲也有高层建筑。象征意义应由具体时代、设计与使用者材料支持。"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-06",
+      "group": "易错易混",
+      "title": "判断城市三大功能区",
+      "note": "面积、中心距离、形态与昼夜人口等应综合判读，不宜用一个特征唯一确定功能区。",
+      "source_blocks": [
+        94,
+        100
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "一看面积：在典型教材模型中"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0084",
+              "answer": "住宅用地通常较大",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、商业用地相对较小；实际排序受城市性质、产业和统计边界影响。"
+            }
+          ],
+          "source_block": 95,
+          "source_row": null,
+          "source_text": "一看面积：住宅区面积最大，其次是工业区，商业区面积最小。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "二看距市中心远近：一般情况下，距离市中心由近及远依次为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0085",
+              "answer": "商业区、住宅区、工业区",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 96,
+          "source_row": null,
+          "source_text": "二看距市中心远近：一般情况下，距离市中心由近及远依次为商业区、住宅区、工业区。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "三看形态：商业区一般呈点状、条状，住宅区和工业区一般呈片状。"
+            }
+          ],
+          "source_block": 97,
+          "source_row": null,
+          "source_text": "三看形态：商业区一般呈点状、条状，住宅区和工业区一般呈片状。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "四看人口变化：典型商务办公区常"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0086",
+              "answer": "白天人口较多",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，住宅区常"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0087",
+              "answer": "夜间人口较多",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "；商业夜间经济、混合用地及工厂轮班会改变曲线，不能认定工业区差别必最小。"
+            }
+          ],
+          "source_block": 98,
+          "source_row": null,
+          "source_text": "四看人口变化：商业区昼夜人口差别最大，白天人口多，晚上人口少；住宅区与商业区变化相反；工业区人口昼夜差别最小。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "五看建筑与用地：中心商务区常较高密，工业用地常较连片；密度、高度和容积率并非同一指标，需结合图例与城市实际，不能直接作固定排序。"
+            }
+          ],
+          "source_block": 99,
+          "source_row": null,
+          "source_text": "五看建筑物密度：商业区建筑物高大稠密，住宅区次之，工业区建筑物密度最小。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "六看分布趋势：外迁、更新、中心再集聚和多中心发展可以并存，功能区变化需依据同一城市不同时期资料判断，不能将市中心比例增减概括为普遍逐年趋势。"
+            }
+          ],
+          "source_block": 100,
+          "source_row": null,
+          "source_text": "六看分布趋势：住宅区、工业区不断向郊外移动，市中心比例逐年下降；商业区虽也有向郊区交通便捷处移动的趋势，但幅度较小，在市中心上升幅度较大。"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-07",
+      "group": "易错易混",
+      "title": "合理规划城市功能区",
+      "note": "居住区与工业区的位置需结合全年风向频率、污染类型及地形；上风、上游只是典型分析条件，不能替代综合安全与公共服务评价。",
+      "source_blocks": [
+        101,
+        121
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "城市功能区布局的原则：①需兼顾用地效率、合理混合与必要的安全隔离，不宜把所有功能区一律完全分离，提高用地的经济效益，并充分满足环保、卫生防疫、防火安全等多方面的要求；②不同功能区之间应有便捷的交通联系，同时又要避免相互干扰；③功能区的空间组合还应考虑城市景观和形象的需要。"
+            }
+          ],
+          "source_block": 102,
+          "source_row": null,
+          "source_text": "城市功能区布局的原则：①各功能区应力求完整连片，提高用地的经济效益，并充分满足环保、卫生防疫、防火安全等多方面的要求；②不同功能区之间应有便捷的交通联系，同时又要避免相互干扰；③功能区的空间组合还应考虑城市景观和形象的需要。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）工业区"
+            }
+          ],
+          "source_block": 103,
+          "source_row": null,
+          "source_text": "1）工业区"
+        },
+        {
+          "type": "figure",
+          "source_block": 104,
+          "image": "assets/recall/pocket-12/image-013.png",
+          "width": 431,
+          "height": 296,
+          "masks": [],
+          "caption": "合理规划城市功能区 · 原图13",
+          "disclosure": true,
+          "source_image_sha256": "b935e188a565e6a8a77e8d1d9081693a3ee70fcf314f084288464d95ea55dfdc"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）居住区"
+            }
+          ],
+          "source_block": 105,
+          "source_row": null,
+          "source_text": "2）居住区"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "一般居住区要建在城市盛行风的上风向、河流的上游；工业区与居住区之间要有"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0088",
+              "answer": "卫生防护带",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，既可对居住区起到防护作用，又可增加绿地面积，美化城市环境。"
+            }
+          ],
+          "source_block": 106,
+          "source_row": null,
+          "source_text": "一般居住区要建在城市盛行风的上风向、河流的上游；工业区与居住区之间要有卫生防护带，既可对居住区起到防护作用，又可增加绿地面积，美化城市环境。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）商业区"
+            }
+          ],
+          "source_block": 107,
+          "source_row": null,
+          "source_text": "3）商业区"
+        },
+        {
+          "type": "table",
+          "source_block": 108,
+          "columns": 2,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原则"
+                      }
+                    ],
+                    "source_block": 108,
+                    "source_row": 0,
+                    "source_text": "原则"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局要求"
+                      }
+                    ],
+                    "source_block": 108,
+                    "source_row": 0,
+                    "source_text": "布局要求"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人口指向"
+                      }
+                    ],
+                    "source_block": 108,
+                    "source_row": 1,
+                    "source_text": "人口指向"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "集中于人口密集区，市中心会形成中心商务区"
+                      }
+                    ],
+                    "source_block": 108,
+                    "source_row": 1,
+                    "source_text": "集中于人口密集区，市中心会形成中心商务区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "交通指向"
+                      }
+                    ],
+                    "source_block": 108,
+                    "source_row": 2,
+                    "source_text": "交通指向"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局于人流集中区，如火车站、汽车站、码头等"
+                      }
+                    ],
+                    "source_block": 108,
+                    "source_row": 2,
+                    "source_text": "布局于人流集中区，如火车站、汽车站、码头等"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "配套服务功能指向"
+                      }
+                    ],
+                    "source_block": 108,
+                    "source_row": 3,
+                    "source_text": "配套服务功能指向"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "商业服务功能在旅游地、学校、政府机关、大型企业附近相对齐全"
+                      }
+                    ],
+                    "source_block": 108,
+                    "source_row": 3,
+                    "source_text": "商业服务功能在旅游地、学校、政府机关、大型企业附近相对齐全"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）功能区分布是否合理的评价思路"
+            }
+          ],
+          "source_block": 109,
+          "source_row": null,
+          "source_text": "4）功能区分布是否合理的评价思路"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "判断功能区的布局是否合理，主要从工业区和居住区的布局，如通过距城市中心的远近、常年的风向、河流流向等来判断。"
+            }
+          ],
+          "source_block": 110,
+          "source_row": null,
+          "source_text": "判断功能区的布局是否合理，主要从工业区和居住区的布局，如通过距城市中心的远近、常年的风向、河流流向等来判断。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①根据材料信息、图中的经纬度位置及相关的地理事物、图中的指向标等判断风向。"
+            }
+          ],
+          "source_block": 111,
+          "source_row": null,
+          "source_text": "①根据材料信息、图中的经纬度位置及相关的地理事物、图中的指向标等判断风向。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②根据图中等高线、经图例确认的河道形态、水位或水系信息等判断河流的流向。"
+            }
+          ],
+          "source_block": 112,
+          "source_row": null,
+          "source_text": "②根据图中等高线、河流的粗细变化等判断河流的流向。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③注意高级居住区一般和风景区、文教区相连；高新技术产业区应接近高等院校，建在环境优美、交通便利的地方。"
+            }
+          ],
+          "source_block": 113,
+          "source_row": null,
+          "source_text": "③注意高级居住区一般和风景区、文教区相连；高新技术产业区应接近高等院校，建在环境优美、交通便利的地方。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）常见功能区的布局原则"
+            }
+          ],
+          "source_block": 114,
+          "source_row": null,
+          "source_text": "5）常见功能区的布局原则"
+        },
+        {
+          "type": "table",
+          "source_block": 115,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "一般布局原则"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 0,
+                    "source_text": "一般布局原则"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "具体要求与污染"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 0,
+                    "source_text": "具体要求与污染"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "举例"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 0,
+                    "source_text": "举例"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局在远离居民区的下风地带或与盛行风向垂直的郊外，尽可能接近原料、燃料产地"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 1,
+                    "source_text": "布局在远离居民区的下风地带或与盛行风向垂直的郊外，尽可能接近原料、燃料产地"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "垃圾污染、大气污染"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 1,
+                    "source_text": "垃圾污染、大气污染"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "钢铁厂、发电厂、水泥厂"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 1,
+                    "source_text": "钢铁厂、发电厂、水泥厂"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局在远离居民区的河流下游"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 2,
+                    "source_text": "布局在远离居民区的河流下游"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水污染"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 2,
+                    "source_text": "水污染"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "印染厂、造纸厂、电镀厂"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 2,
+                    "source_text": "印染厂、造纸厂、电镀厂"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局在城区和近郊交通便利区"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 3,
+                    "source_text": "布局在城区和近郊交通便利区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "噪声污染"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 3,
+                    "source_text": "噪声污染"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "纺织厂、仪表厂、机床厂"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 3,
+                    "source_text": "纺织厂、仪表厂、机床厂"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局在河流上游"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 4,
+                    "source_text": "布局在河流上游"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "要求水源清洁"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 4,
+                    "source_text": "要求水源清洁"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "自来水厂"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 4,
+                    "source_text": "自来水厂"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局在高等院校和科研机构附近"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 5,
+                    "source_text": "布局在高等院校和科研机构附近"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "需要高科技人才"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 5,
+                    "source_text": "需要高科技人才"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "高新技术开发区"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 5,
+                    "source_text": "高新技术开发区"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局在城市交通中心"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 6,
+                    "source_text": "布局在城市交通中心"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "要求客流量大"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 6,
+                    "source_text": "要求客流量大"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "商贸中心"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 6,
+                    "source_text": "商贸中心"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局在港口、码头、车站附近"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 7,
+                    "source_text": "布局在港口、码头、车站附近"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "用地多，交通方便"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 7,
+                    "source_text": "用地多，交通方便"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "仓库"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 7,
+                    "source_text": "仓库"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "布局在近郊、交通便利地区"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 8,
+                    "source_text": "布局在近郊、交通便利地区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "靠近市场"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 8,
+                    "source_text": "靠近市场"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "奶牛场、蛋鸡场"
+                      }
+                    ],
+                    "source_block": 115,
+                    "source_row": 8,
+                    "source_text": "奶牛场、蛋鸡场"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "布局原则是题图分析线索，需结合具体污染物、风频风向、水文、公共服务和规划约束；污染达标处理不能由下风、下游或防护带替代。"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-08",
+      "group": "知能拓展",
+      "title": "城市区位分析原则",
+      "note": "",
+      "source_blocks": [
+        123,
+        125
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "分析一个城市的区位因素，首先应该考虑的是这个城市刚刚诞生时，是什么因素把它吸引在这一地点的；其次要分析是什么原因"
+            },
+            {
+              "type": "blank",
+              "id": "pocket12-blank-0089",
+              "answer": "促进和限制",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "了它的发展，只有这样才能找出某个城市的主要区位因素。"
+            }
+          ],
+          "source_block": 124,
+          "source_row": null,
+          "source_text": "分析一个城市的区位因素，首先应该考虑的是这个城市刚刚诞生时，是什么因素把它吸引在这一地点的；其次要分析是什么原因促进和限制了它的发展，只有这样才能找出某个城市的主要区位因素。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "因此，分析评价城市的区位特点要运用综合思维，从影响城市区位的自然因素和社会经济因素及其发展变化来进行。"
+            }
+          ],
+          "source_block": 125,
+          "source_row": null,
+          "source_text": "因此，分析评价城市的区位特点要运用综合思维，从影响城市区位的自然因素和社会经济因素及其发展变化来进行。"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-09",
+      "group": "知能拓展",
+      "title": "评价城乡功能区分布",
+      "note": "功能区合理性需综合通勤、交通、住房、生态和风险；图向不等于风向，河流线宽也不等于上下游。",
+      "source_blocks": [
+        126,
+        130
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "判断功能区的布局是否合理，主要从工业区、商业区和居住区的布局，如距城市中心的远近、常年的风向、河流流向等来判断。"
+            }
+          ],
+          "source_block": 127,
+          "source_row": null,
+          "source_text": "判断功能区的布局是否合理，主要从工业区、商业区和居住区的布局，如距城市中心的远近、常年的风向、河流流向等来判断。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1)根据材料信息、图中的经纬度位置及相关的地理事物、图中的指向标等判断风向。"
+            }
+          ],
+          "source_block": 128,
+          "source_row": null,
+          "source_text": "1)根据材料信息、图中的经纬度位置及相关的地理事物、图中的指向标等判断风向。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2)根据图中等高线、经图例确认的河道形态、水位或水系信息等判断河流的流向。"
+            }
+          ],
+          "source_block": 129,
+          "source_row": null,
+          "source_text": "2)根据图中等高线、河流的粗细变化等判断河流的流向。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3)注意高级住宅区一般和风景区、文教区相连；高新技术产业区应接近高等院校，建在环境优美、交通便利的地方。"
+            }
+          ],
+          "source_block": 130,
+          "source_row": null,
+          "source_text": "3)注意高级住宅区一般和风景区、文教区相连；高新技术产业区应接近高等院校，建在环境优美、交通便利的地方。"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-10",
+      "group": "知能拓展",
+      "title": "地域文化与城乡景观的五步分析法",
+      "note": "景观象征可能因时期、群体和使用方式不同而有多种解释，须区分可观察事实与文化解释。",
+      "source_blocks": [
+        131,
+        136
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）确定景观的基本功能"
+            }
+          ],
+          "source_block": 132,
+          "source_row": null,
+          "source_text": "1）确定景观的基本功能"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）找到景观的位置和占地范围"
+            }
+          ],
+          "source_block": 133,
+          "source_row": null,
+          "source_text": "2）找到景观的位置和占地范围"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）确定景观所在的地域范围"
+            }
+          ],
+          "source_block": 134,
+          "source_row": null,
+          "source_text": "3）确定景观所在的地域范围"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）确定景观所在的文化区或文化功能区"
+            }
+          ],
+          "source_block": 135,
+          "source_row": null,
+          "source_text": "4）确定景观所在的文化区或文化功能区"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）判断景观的象征意义和象征意义属于哪些人"
+            }
+          ],
+          "source_block": 136,
+          "source_row": null,
+          "source_text": "5）判断景观的象征意义和象征意义属于那些人"
+        }
+      ]
+    },
+    {
+      "id": "pocket12-11",
+      "group": "知能拓展",
+      "title": "模式图判读",
+      "note": "地租模式图中的距离效应、交通节点和峰谷是题图模型；等值线疏密比较须统一图幅比例和等值距，先读图例。",
+      "source_blocks": [
+        137,
+        147
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）坐标图的判读"
+            }
+          ],
+          "source_block": 138,
+          "source_row": null,
+          "source_text": "1）坐标图的判读"
+        },
+        {
+          "type": "figure",
+          "source_block": 139,
+          "image": "assets/recall/pocket-12/image-015.png",
+          "width": 855,
+          "height": 358,
+          "masks": [],
+          "caption": "模式图判读 · 原图15",
+          "disclosure": true,
+          "source_image_sha256": "ef74ab21d6edd5a3b9ba6e1dd92ea45704e26f2fa06f31f127dbc2dde5ee24e6"
+        },
+        {
+          "type": "figure",
+          "source_block": 139,
+          "image": "assets/recall/pocket-12/image-016.png",
+          "width": 1961,
+          "height": 987,
+          "masks": [],
+          "caption": "模式图判读 · 原图16",
+          "disclosure": true,
+          "source_image_sha256": "476d49d0b4debc8a6b76b67f3c3df4a927e08f4ac9dfe39979a29edb284955e2"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）立体图的判读"
+            }
+          ],
+          "source_block": 141,
+          "source_row": null,
+          "source_text": "2）立体图的判读"
+        },
+        {
+          "type": "figure",
+          "source_block": 142,
+          "image": "assets/recall/pocket-12/image-017.png",
+          "width": 1949,
+          "height": 1050,
+          "masks": [],
+          "caption": "模式图判读 · 原图17",
+          "disclosure": true,
+          "source_image_sha256": "027278aeef0d05e94b99551b5c65d5c477b44f63ba7e9c0a9eb2d0e3f54785de"
+        },
+        {
+          "type": "figure",
+          "source_block": 142,
+          "image": "assets/recall/pocket-12/image-018.png",
+          "width": 1937,
+          "height": 1092,
+          "masks": [],
+          "caption": "模式图判读 · 原图18",
+          "disclosure": true,
+          "source_image_sha256": "a4e4c3a0c8c7297367722d7445c1b222109848e08a4c6bb3cdcc0942f91fb1dc"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）等值线图的判读"
+            }
+          ],
+          "source_block": 144,
+          "source_row": null,
+          "source_text": "3）等值线图的判读"
+        },
+        {
+          "type": "figure",
+          "source_block": 145,
+          "image": "assets/recall/pocket-12/image-019.png",
+          "width": 1926,
+          "height": 860,
+          "masks": [],
+          "caption": "模式图判读 · 原图19",
+          "disclosure": true,
+          "source_image_sha256": "fcfea58bf24e80fdd256da99631cae862e480a0242abc1a0f97d7c175e77604f"
+        },
+        {
+          "type": "figure",
+          "source_block": 146,
+          "image": "assets/recall/pocket-12/image-020.png",
+          "width": 1937,
+          "height": 1179,
+          "masks": [],
+          "caption": "模式图判读 · 原图20",
+          "disclosure": true,
+          "source_image_sha256": "4d6d83ee1d03990c9198b0b21156e292a0c54452368d4cc39b25f834254f0546"
+        }
+      ]
+    }
+  ],
+  "audit": {
+    "reviewed_on": "2026-11-02",
+    "blank_count": 89,
+    "images_sha256": {
+      "assets/recall/pocket-12/image-004.png": "e5b0ee000ae4b27b152dc299ba4724a9adb6892afa12a4af55f438a17b6ddfd7",
+      "assets/recall/pocket-12/image-007.png": "593d92d9d5c45e3396f3bf77aa4ccb8ced384a2d3ba97075fe78d60eb6e7927e",
+      "assets/recall/pocket-12/image-008.png": "3e35c65484e5bd40f31e81f2c9f89ba65ae52530b44934b7d984230477085462",
+      "assets/recall/pocket-12/image-009.png": "193d6cffa70801693f603eec9824122834753ec283d67e958a434959cf445143",
+      "assets/recall/pocket-12/image-010.png": "bc1cdcd190f395f798dd8216b57ae1e5606e7148a88f97d2bedaa6dd3364b35d",
+      "assets/recall/pocket-12/image-011.png": "05fcda51ccc33ae2a0bfd34b2ea68f6661f88a60817c46ffe6d4c9ba7aec585d",
+      "assets/recall/pocket-12/image-013.png": "b935e188a565e6a8a77e8d1d9081693a3ee70fcf314f084288464d95ea55dfdc",
+      "assets/recall/pocket-12/image-015.png": "ef74ab21d6edd5a3b9ba6e1dd92ea45704e26f2fa06f31f127dbc2dde5ee24e6",
+      "assets/recall/pocket-12/image-016.png": "476d49d0b4debc8a6b76b67f3c3df4a927e08f4ac9dfe39979a29edb284955e2",
+      "assets/recall/pocket-12/image-017.png": "027278aeef0d05e94b99551b5c65d5c477b44f63ba7e9c0a9eb2d0e3f54785de",
+      "assets/recall/pocket-12/image-018.png": "a4e4c3a0c8c7297367722d7445c1b222109848e08a4c6bb3cdcc0942f91fb1dc",
+      "assets/recall/pocket-12/image-019.png": "fcfea58bf24e80fdd256da99631cae862e480a0242abc1a0f97d7c175e77604f",
+      "assets/recall/pocket-12/image-020.png": "4d6d83ee1d03990c9198b0b21156e292a0c54452368d4cc39b25f834254f0546"
+    },
+    "counters": {
+      "source-marking": 67,
+      "paragraphs": 232,
+      "reviewed-addition": 22,
+      "tables": 6
+    },
+    "corrections": [
+      {
+        "source_block": 44,
+        "source_row": null,
+        "original": "2）政策因素：北京将通州建设为北京市的副中心将中心城区相关功能及部分人口向通州疏解，强化政治职能。",
+        "revised": "2）政策因素：北京城市副中心承接中心城区符合定位的功能和人口疏解，服务非首都功能疏解与城市功能优化；以行政办公、商务服务、文化旅游、科技创新为主导功能，不能简单概括为强化政治职能。",
+        "reason": "核对城市副中心定位及具体功能。",
+        "references": [
+          "beijing-subcenter"
+        ]
+      },
+      {
+        "source_block": 49,
+        "source_row": 5,
+        "original": "希腊克里特文明的毁灭，东京大地震之后的重建",
+        "revised": "灾后城市可能重建或迁址，应结合风险与社会经济条件；古文明衰落不能只归因于单一灾害",
+        "reason": "去除未经证实的单一灾害毁灭古文明案例。",
+        "references": []
+      },
+      {
+        "source_block": 49,
+        "source_row": 13,
+        "original": "五台山",
+        "revised": "五台山（佛教名山，非城市名称）",
+        "reason": "区分宗教景观案例与城市区位案例。",
+        "references": [
+          "unesco-wutai"
+        ]
+      },
+      {
+        "source_block": 51,
+        "source_row": null,
+        "original": "1、城镇化是一个地区农业人口转化为非农业人口、农村地域转化为城市地域、农业活动转化为非农业活动的过程。城市化的驱动力（原动力）是工业化。",
+        "revised": "1、城镇化是人口和经济活动向城镇集聚、城镇人口比重和地域空间等发生变化的过程，不等同于户籍类别转换。工业化是重要动力，服务业发展、技术、交通和制度等也可推动城镇化。",
+        "reason": "区分统计人口、户籍与多种城镇化动力。",
+        "references": [
+          "un-urban"
+        ]
+      },
+      {
+        "source_block": 53,
+        "source_row": null,
+        "original": "城市人口占总人口的比重增大（城市化的主要标志）",
+        "revised": "城镇人口占总人口的比重增大（衡量城镇化水平的主要指标，需统一城乡划分和统计口径）",
+        "reason": "统一城镇化指标口径。",
+        "references": [
+          "un-urban"
+        ]
+      },
+      {
+        "source_block": 62,
+        "source_row": null,
+        "original": "发达国家部分城市进入逆城市化阶段，个别出现了再城市化",
+        "revised": "部分地区出现逆城市化或再城市化，不宜将其视为所有城市必然依次经历的阶段",
+        "reason": "区分总体模型和城市发展多样性。",
+        "references": []
+      },
+      {
+        "source_block": 63,
+        "source_row": null,
+        "original": "发展中国家大部分城市处于城市化阶段，部分城市出现郊区城市化",
+        "revised": "不同国家和城市阶段差异显著，部分地区也有郊区化、再城市化等现象，判断须结合具体时期和统计材料",
+        "reason": "避免把国家发展类别直接套为城市阶段。",
+        "references": []
+      },
+      {
+        "source_block": 79,
+        "source_row": 5,
+        "original": "体现了资产阶级所标榜的民主与法制精神",
+        "revised": "可结合公共政治空间、轴线及规划史分析其象征意义，不能仅凭建筑居高推定制度性质",
+        "reason": "以可观察景观和历史材料支持解释。",
+        "references": []
+      },
+      {
+        "source_block": 79,
+        "source_row": 6,
+        "original": "中国文化具有很强的内向性、封闭性",
+        "revised": "部分传统庭院和园林重视空间层次、私密性及礼序，不能据此概括整个中国文化为封闭",
+        "reason": "避免将特定建筑形式泛化为民族文化本质。",
+        "references": []
+      },
+      {
+        "source_block": 79,
+        "source_row": 7,
+        "original": "美国建筑绝少有围墙",
+        "revised": "部分美国建筑及公共空间较开敞，但围墙和封闭社区同样存在",
+        "reason": "修正美国建筑绝少围墙的泛化。",
+        "references": []
+      },
+      {
+        "source_block": 79,
+        "source_row": 7,
+        "original": "西方文化以外向、开放著称",
+        "revised": "部分园林偏重几何布局与开敞视线，风格因时期和地区而异，不能代表全部西方文化",
+        "reason": "避免将部分园林样式等同整体文化。",
+        "references": []
+      },
+      {
+        "source_block": 95,
+        "source_row": null,
+        "original": "一看面积：住宅区面积最大，其次是工业区，商业区面积最小。",
+        "revised": "一看面积：在典型教材模型中住宅用地通常较大、商业用地相对较小；实际排序受城市性质、产业和统计边界影响。",
+        "reason": "功能区面积排序不是所有城市的定律。",
+        "references": []
+      },
+      {
+        "source_block": 98,
+        "source_row": null,
+        "original": "四看人口变化：商业区昼夜人口差别最大，白天人口多，晚上人口少；住宅区与商业区变化相反；工业区人口昼夜差别最小。",
+        "revised": "四看人口变化：典型商务办公区常白天人口较多，住宅区常夜间人口较多；商业夜间经济、混合用地及工厂轮班会改变曲线，不能认定工业区差别必最小。",
+        "reason": "补充业态与轮班条件，避免昼夜差异固定排序。",
+        "references": []
+      },
+      {
+        "source_block": 99,
+        "source_row": null,
+        "original": "五看建筑物密度：商业区建筑物高大稠密，住宅区次之，工业区建筑物密度最小。",
+        "revised": "五看建筑与用地：中心商务区常较高密，工业用地常较连片；密度、高度和容积率并非同一指标，需结合图例与城市实际，不能直接作固定排序。",
+        "reason": "区分建筑指标，避免密度万能排序。",
+        "references": []
+      },
+      {
+        "source_block": 100,
+        "source_row": null,
+        "original": "六看分布趋势：住宅区、工业区不断向郊外移动，市中心比例逐年下降；商业区虽也有向郊区交通便捷处移动的趋势，但幅度较小，在市中心上升幅度较大。",
+        "revised": "六看分布趋势：外迁、更新、中心再集聚和多中心发展可以并存，功能区变化需依据同一城市不同时期资料判断，不能将市中心比例增减概括为普遍逐年趋势。",
+        "reason": "避免无时空条件的固定功能区演化。",
+        "references": []
+      },
+      {
+        "source_block": 102,
+        "source_row": null,
+        "original": "各功能区应力求完整连片",
+        "revised": "需兼顾用地效率、合理混合与必要的安全隔离，不宜把所有功能区一律完全分离",
+        "reason": "考虑混合用地和安全边界的不同要求。",
+        "references": []
+      },
+      {
+        "source_block": 112,
+        "source_row": null,
+        "original": "河流的粗细变化",
+        "revised": "经图例确认的河道形态、水位或水系信息",
+        "reason": "线宽可能只是制图符号，不能直接据其判流向。",
+        "references": []
+      },
+      {
+        "source_block": 129,
+        "source_row": null,
+        "original": "河流的粗细变化",
+        "revised": "经图例确认的河道形态、水位或水系信息",
+        "reason": "同步修正重复的流向判读方法。",
+        "references": []
+      },
+      {
+        "source_block": 136,
+        "source_row": null,
+        "original": "属于那些人",
+        "revised": "属于哪些人",
+        "reason": "修正疑问代词。",
+        "references": []
+      }
+    ],
+    "references": [
+      {
+        "id": "un-urban",
+        "title": "联合国：城乡统计口径与城镇人口比重",
+        "url": "https://population.un.org/wup/glossary-demographic-terms"
+      },
+      {
+        "id": "beijing-subcenter",
+        "title": "北京市政府：北京城市副中心条例（2026）",
+        "url": "https://www.beijing.gov.cn/zhengce/dfxfg/202602/t20260203_4487890.html"
+      },
+      {
+        "id": "unesco-wutai",
+        "title": "联合国教科文组织：五台山",
+        "url": "https://whc.unesco.org/en/list/1279/"
+      }
+    ],
+    "note": "按原顺序提取，保留标记答案与原图。含标注的原图默认折叠，先回忆再展开核对；重点修订有原文记录，具体条件以题目材料为准。"
+  }
+}
