@@ -1,0 +1,5876 @@
+{
+  "schema_version": "1.1.0",
+  "id": "pocket-water-cycle",
+  "topic_id": "pocket07",
+  "title": "专题07 自然界的水循环和水资源的合理利用",
+  "status": "published",
+  "source": {
+    "file": "2025高中地理学习资料包 (知识点+教辅+试卷)/【口袋书】2024年高考地理一轮复习知识清单/专题07 自然界的水循环和水资源的合理利用-【口袋书】2024年高考地理一轮复习知识清单.docx",
+    "sha256": "ae1d5421aa390f1bfdd33bc5ebb807d91ae6319ee7cb3297320b673a3f406a52",
+    "included": [
+      "思维导图",
+      "知识清单",
+      "易错易混",
+      "知能拓展"
+    ],
+    "excluded": [
+      "考情速递",
+      "训练营",
+      "答案解析"
+    ]
+  },
+  "overview": {
+    "type": "figure",
+    "source_block": 17,
+    "image": "assets/recall/pocket-07/image-004.png",
+    "width": 1208,
+    "height": 1618,
+    "masks": [],
+    "caption": "专题总览 · 原图4",
+    "disclosure": false,
+    "source_image_sha256": "e18973a761860e17f4ff5c46ef6b123577fc0a68cdb9362eda813211b8d67657"
+  },
+  "additional_overviews": [
+    {
+      "type": "figure",
+      "source_block": 22,
+      "image": "assets/recall/pocket-07/image-005.png",
+      "width": 1292,
+      "height": 1006,
+      "masks": [],
+      "caption": "专题总览 · 原图5",
+      "disclosure": false,
+      "source_image_sha256": "37cdd46e90bc1fcd7c5bf606a8ab9e9a42b91f19172f6cdbcb6a16b6c8ad028d"
+    },
+    {
+      "type": "figure",
+      "source_block": 26,
+      "image": "assets/recall/pocket-07/image-006.png",
+      "width": 1326,
+      "height": 1066,
+      "masks": [],
+      "caption": "专题总览 · 原图6",
+      "disclosure": false,
+      "source_image_sha256": "2ae236a63b48f590ff18a921b2cad9236fc11ee944be5533bcc8d93fe2867e4d"
+    },
+    {
+      "type": "figure",
+      "source_block": 26,
+      "image": "assets/recall/pocket-07/image-007.png",
+      "width": 1185,
+      "height": 898,
+      "masks": [],
+      "caption": "专题总览 · 原图7",
+      "disclosure": false,
+      "source_image_sha256": "6394db5d05c7e8c61fb7aa2da7b5897fa48cccc455ae048216a353a785cf86fa"
+    }
+  ],
+  "sections": [
+    {
+      "id": "pocket07-01",
+      "group": "知识清单",
+      "title": "水圈和水循环",
+      "note": "水循环并非每次都经过全部环节。近海、植被或水库与降水的关系须结合风向和大气条件；人工增雨也需要合适云系。",
+      "source_blocks": [
+        27,
+        66
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "一、水圈"
+            }
+          ],
+          "source_block": 28,
+          "source_row": null,
+          "source_text": "一、水圈"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、水圈的概念：由各种各样的水体组成的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0001",
+              "answer": "连续，但不规则",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的圈层，叫做水圈。"
+            }
+          ],
+          "source_block": 29,
+          "source_row": null,
+          "source_text": "1、水圈的概念：由各种各样的水体组成的连续，但不规则的圈层，叫做水圈。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、水体的分类"
+            }
+          ],
+          "source_block": 30,
+          "source_row": null,
+          "source_text": "2、水体的分类"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）按存在形式分："
+            }
+          ],
+          "source_block": 31,
+          "source_row": null,
+          "source_text": "1）按存在形式分："
+        },
+        {
+          "type": "table",
+          "source_block": 32,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水的三态"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 0,
+                    "source_text": "水的三态"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "分布特点"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 0,
+                    "source_text": "分布特点"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "数量特征"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 0,
+                    "source_text": "数量特征"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气态水"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 1,
+                    "source_text": "气态水"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "最广"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 1,
+                    "source_text": "最广"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "最少"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 1,
+                    "source_text": "最少"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "液态水"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 2,
+                    "source_text": "液态水"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "居中"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 2,
+                    "source_text": "居中"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "最多"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 2,
+                    "source_text": "最多"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "固态水"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 3,
+                    "source_text": "固态水"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "仅在高纬、高山或特殊条件下才能存在"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 3,
+                    "source_text": "仅在高纬、高山或特殊条件下才能存在"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地球淡水的主体，水量约占淡水总量的2/3"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 3,
+                    "source_text": "地球淡水的主体，水量约占淡水总量的2/3"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）按空间分布分：海洋水、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0002",
+              "answer": "陆地水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、大气水"
+            }
+          ],
+          "source_block": 33,
+          "source_row": null,
+          "source_text": "2）按空间分布分：海洋水、陆地水、大气水"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）按性质分："
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0003",
+              "answer": "咸水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "（盐度高、难利用）、淡水"
+            }
+          ],
+          "source_block": 34,
+          "source_row": null,
+          "source_text": "3）按性质分：咸水（盐度高、难利用）、淡水"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "目前，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0004",
+              "answer": "冰川",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是地球上淡水主体，分布于两极与高山地区，直接"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0005",
+              "answer": "利用少",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；地下水是淡水第二主体，但主要为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0006",
+              "answer": "深层地下水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，开发难度较大；动态水是人们开发利用的重点，其中以河流水最为重要。"
+            }
+          ],
+          "source_block": 35,
+          "source_row": null,
+          "source_text": "目前，冰川是地球上淡水主体，分布于两极与高山地区，直接利用少；地下水是淡水第二主体，但主要为深层地下水，开发难度较大；动态水是人们开发利用的重点，其中以河流水最为重要。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "二、水循环"
+            }
+          ],
+          "source_block": 36,
+          "source_row": null,
+          "source_text": "二、水循环"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、概念：自然界的水在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0007",
+              "answer": "水圈",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、大气圈、岩石圈、生物圈中，通过"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0008",
+              "answer": "蒸发",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "(蒸腾)、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0009",
+              "answer": "水汽输送",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、降水、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0010",
+              "answer": "下渗",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、径流等环节连续运动的过程。"
+            }
+          ],
+          "source_block": 37,
+          "source_row": null,
+          "source_text": "1、概念：自然界的水在水圈、大气圈、岩石圈、生物圈中，通过蒸发(蒸腾)、水汽输送、降水、下渗、径流等环节连续运动的过程。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、类型：根据发生的空间范围，水循环可分为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0011",
+              "answer": "海陆间",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "循环、陆地内循环和海上内循环。"
+            }
+          ],
+          "source_block": 38,
+          "source_row": null,
+          "source_text": "2、类型：根据发生的空间范围，水循环可分为海陆间循环、陆地内循环和海上内循环。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）海陆间大循环：海洋水→蒸发→水汽输送→降水→下渗→径流（地表径流、地下径流）→大海；"
+            }
+          ],
+          "source_block": 39,
+          "source_row": null,
+          "source_text": "1）海陆间大循环：海洋水→蒸发→水汽输送→降水→下渗→径流（地表径流、地下径流）→大海；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）陆地内循环：陆地→蒸发（蒸腾）→水汽输送→降水→下渗→径流（地表径流、地下径流）→陆地；"
+            }
+          ],
+          "source_block": 40,
+          "source_row": null,
+          "source_text": "2）陆地内循环：陆地→蒸发（蒸腾）→水汽输送→降水→下渗→径流（地表径流、地下径流）→陆地；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）海上内循环：海洋→蒸发→降水"
+            }
+          ],
+          "source_block": 41,
+          "source_row": null,
+          "source_text": "3）海上内循环：海洋→蒸发→降水"
+        },
+        {
+          "type": "figure",
+          "source_block": 42,
+          "image": "assets/recall/pocket-07/image-010.png",
+          "width": 1890,
+          "height": 1010,
+          "masks": [],
+          "caption": "水圈和水循环 · 原图10",
+          "disclosure": true,
+          "source_image_sha256": "8180cbb022a542778e91d201de78038f7e65c766949024e32264e3b476181bf6"
+        },
+        {
+          "type": "table",
+          "source_block": 43,
+          "columns": 4,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "类型"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 0,
+                    "source_text": "类型"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "主要环节"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 0,
+                    "source_text": "主要环节"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特点"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 0,
+                    "source_text": "特点"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "例证"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 0,
+                    "source_text": "例证"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "海上内循环"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 1,
+                    "source_text": "海上内循环"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 43,
+                    "image": "assets/recall/pocket-07/image-011.png",
+                    "width": 520,
+                    "height": 305,
+                    "masks": [],
+                    "caption": "水圈和水循环 · 原图11",
+                    "disclosure": true,
+                    "source_image_sha256": "34cf3db087745de02acf638e5c42ca5e2f32740f6d4a86c234e114a37e711110"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "循环水量"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0012",
+                        "answer": "最大",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，对全球热量输送有重要意义"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 1,
+                    "source_text": "循环水量最大，对全球热量输送有重要意义"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "海洋上的狂风暴雨；未登陆的台风"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 1,
+                    "source_text": "海洋上的狂风暴雨；未登陆的台风"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "海陆间循环"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 2,
+                    "source_text": "海陆间循环"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 43,
+                    "image": "assets/recall/pocket-07/image-012.png",
+                    "width": 543,
+                    "height": 408,
+                    "masks": [],
+                    "caption": "水圈和水循环 · 原图12",
+                    "disclosure": true,
+                    "source_image_sha256": "854b92aa64f27dac8914ebfd9818e48f4234f81df5cf8d9cd8c0e480e7582372"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "最重要的循环。使陆地水得到补充，水资源得以再生"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 2,
+                    "source_text": "最重要的循环。使陆地水得到补充，水资源得以再生"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "长江参与了海陆间循环的地表径流输送，夏季风参与了水汽输送"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 2,
+                    "source_text": "长江参与了海陆间循环的地表径流输送，夏季风参与了水汽输送"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "陆地内循环"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 3,
+                    "source_text": "陆地内循环"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 43,
+                    "image": "assets/recall/pocket-07/image-013.png",
+                    "width": 476,
+                    "height": 229,
+                    "masks": [],
+                    "caption": "水圈和水循环 · 原图13",
+                    "disclosure": true,
+                    "source_image_sha256": "13871a37fea02c63ed0562ce47cca6785237f4ce286a60da2184138d539b208e"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "循环水量少，但对干旱地区非常重要"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 3,
+                    "source_text": "循环水量少，但对干旱地区非常重要"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "塔里木河流域的降水"
+                      }
+                    ],
+                    "source_block": 43,
+                    "source_row": 3,
+                    "source_text": "塔里木河流域的降水"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、水循环的地理意义"
+            }
+          ],
+          "source_block": 45,
+          "source_row": null,
+          "source_text": "3、水循环的地理意义"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）使地球上各种水体处于不断更新状态，从而维持全球水量的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0013",
+              "answer": "动态平衡；",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 46,
+          "source_row": null,
+          "source_text": "1）使地球上各种水体处于不断更新状态，从而维持全球水量的动态平衡；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）水循环是地球上"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0014",
+              "answer": "物质迁移",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0015",
+              "answer": "能量转换",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的重要过程；"
+            }
+          ],
+          "source_block": 47,
+          "source_row": null,
+          "source_text": "2）水循环是地球上物质迁移和能量转换的重要过程；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）水循环还影响着全球的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0016",
+              "answer": "气候",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0017",
+              "answer": "生态",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，对全球自然环境产生深刻而广泛的影响。"
+            }
+          ],
+          "source_block": 48,
+          "source_row": null,
+          "source_text": "3）水循环还影响着全球的气候和生态，对全球自然环境产生深刻而广泛的影响。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）降水和地表径流不断塑造着"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0018",
+              "answer": "地表形态",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 49,
+          "source_row": null,
+          "source_text": "4）降水和地表径流不断塑造着地表形态。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、水循环环节的影响因素"
+            }
+          ],
+          "source_block": 50,
+          "source_row": null,
+          "source_text": "4、水循环环节的影响因素"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）影响蒸发的因素"
+            }
+          ],
+          "source_block": 51,
+          "source_row": null,
+          "source_text": "1）影响蒸发的因素"
+        },
+        {
+          "type": "figure",
+          "source_block": 52,
+          "image": "assets/recall/pocket-07/image-014.png",
+          "width": 533,
+          "height": 304,
+          "masks": [],
+          "caption": "水圈和水循环 · 原图14",
+          "disclosure": true,
+          "source_image_sha256": "1de6b9ae4f53b6d5fd1aeba30574defa3585efa2530a121043cdb8b08730ef30"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）影响下渗的因素"
+            }
+          ],
+          "source_block": 53,
+          "source_row": null,
+          "source_text": "2）影响下渗的因素"
+        },
+        {
+          "type": "figure",
+          "source_block": 54,
+          "image": "assets/recall/pocket-07/image-015.png",
+          "width": 632,
+          "height": 336,
+          "masks": [],
+          "caption": "水圈和水循环 · 原图15",
+          "disclosure": true,
+          "source_image_sha256": "9c77c0d3c6f511c4f1897d2c0363dcaf5b85d9270662174b10e0e1d5edd7df6e"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）影响地表径流的因素"
+            }
+          ],
+          "source_block": 57,
+          "source_row": null,
+          "source_text": "3）影响地表径流的因素"
+        },
+        {
+          "type": "table",
+          "source_block": 58,
+          "columns": 2,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响因素"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 0,
+                    "source_text": "影响因素"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对地表径流的影响"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 0,
+                    "source_text": "对地表径流的影响"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "年降水量"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 1,
+                    "source_text": "年降水量"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "决定地表径流的最主要因素，与地表径流呈"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0019",
+                        "answer": "正相关",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 1,
+                    "source_text": "决定地表径流的最主要因素，与地表径流呈正相关"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "流域面积(支流数量)"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 2,
+                    "source_text": "流域面积(支流数量)"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "与地表径流呈"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0020",
+                        "answer": "正",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "相关"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 2,
+                    "source_text": "与地表径流呈正相关"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "植被状况"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 3,
+                    "source_text": "植被状况"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "植被能涵养水源，对地表径流起到“削峰补枯”的作用"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 3,
+                    "source_text": "植被能涵养水源，对地表径流起到“削峰补枯”的作用"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地质条件(土壤质地)"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 4,
+                    "source_text": "地质条件(土壤质地)"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "喀斯特地貌区、沙质土壤区，河水易"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0021",
+                        "answer": "下渗",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，地表径流减少"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 4,
+                    "source_text": "喀斯特地貌区、沙质土壤区，河水易下渗，地表径流减少"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "蒸发量"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 5,
+                    "source_text": "蒸发量"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "主要在干旱、半干旱地区对"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0022",
+                        "answer": "地表径流",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "影响较大"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 5,
+                    "source_text": "主要在干旱、半干旱地区对地表径流影响较大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "人类活动"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 6,
+                    "source_text": "人类活动"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "沿岸取水会导致地表径流量"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0023",
+                        "answer": "减小",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 58,
+                    "source_row": 6,
+                    "source_text": "沿岸取水会导致地表径流量减小"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "比较径流影响时需统一尺度和其他条件；支流数量不能代替流域面积或降水量。植被对年径流总量与洪峰的影响应分别判断。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）影响水汽输送的因素：水汽输送主要表现为海洋上空的水汽被输送到陆地上空，主要受"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0024",
+              "answer": "风",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、距海"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0025",
+              "answer": "远近",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0026",
+              "answer": "地形",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "等因素影响。"
+            }
+          ],
+          "source_block": 60,
+          "source_row": null,
+          "source_text": "4）影响水汽输送的因素：水汽输送主要表现为海洋上空的水汽被输送到陆地上空，主要受风、距海远近、地形等因素影响。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）影响降水的因素：影响降水的因素有"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0027",
+              "answer": "海陆位置",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "(近海地区大气水汽含量丰富，降水较多)、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0028",
+              "answer": "地形",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "(迎风坡降水多、背风坡降水少)、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0029",
+              "answer": "大气环流、下垫面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "(植被覆盖率高，水域面积大，降水多)、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0030",
+              "answer": "人类活动",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "(人工降水、植树造林、修建水库、退耕还湖)等。"
+            }
+          ],
+          "source_block": 61,
+          "source_row": null,
+          "source_text": "5）影响降水的因素：影响降水的因素有海陆位置(近海地区大气水汽含量丰富，降水较多)、地形(迎风坡降水多、背风坡降水少)、大气下环流、垫面(植被覆盖率高，水域面积大，降水多)、人类活动(人工降水、植树造林、修建水库、退耕还湖)等。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "6)人类活动对水循环的影响:"
+            }
+          ],
+          "source_block": 62,
+          "source_row": null,
+          "source_text": "6)人类活动对水循环的影响:"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①改变地表径流——最主要的影响方式。引河湖水灌溉、修建水库、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0031",
+              "answer": "跨流域调水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、填海造陆、围湖造田等。"
+            }
+          ],
+          "source_block": 63,
+          "source_row": null,
+          "source_text": "①改变地表径流——最主要的影响方式。引河湖水灌溉、修建水库、跨流域调水、填海造陆、围湖造田等。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②影响地下径流：如雨季对地下水的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0032",
+              "answer": "人工回灌",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，抽取地下水灌溉，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0033",
+              "answer": "坎儿井",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "就是把地下水引出地表灌溉的实例，城市地铁的修建破坏地质结构、改变地下水的渗流方向等。"
+            }
+          ],
+          "source_block": 64,
+          "source_row": null,
+          "source_text": "②影响地下径流：如雨季对地下水的人工回灌，抽取地下水灌溉，坎儿井就是把地下水引出地表灌溉的实例，城市地铁的修建破坏地质结构、改变地下水的渗流方向等。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③影响局地大气降水：如人工降雨。"
+            }
+          ],
+          "source_block": 65,
+          "source_row": null,
+          "source_text": "③影响局地大气降水：如人工降雨。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "④影响蒸发和下渗，如植树造林、修建水库可以增加局部地区的水汽供应量；下渗的变化还需结合土壤、地质及库底渗透条件判断。地膜覆盖、秸秆覆盖减少蒸发，保护土壤墒情（土壤水份）。"
+            }
+          ],
+          "source_block": 66,
+          "source_row": null,
+          "source_text": "④影响蒸发和下渗，如植树造林、修建水库可以增加局部地区的水汽供应量；也增加下渗。地膜覆盖、秸秆覆盖减少蒸发，保护土壤墒情（土壤水份）。"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-02",
+      "group": "知识清单",
+      "title": "河流水的主要补给类型",
+      "note": "",
+      "source_blocks": [
+        67,
+        83
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "河流因其流经地区的气候、地形等条件存在差异，其补给类型和特点亦存在差异，具体比较如下："
+            }
+          ],
+          "source_block": 68,
+          "source_row": null,
+          "source_text": "河流因其流经地区的气候、地形等条件存在差异，其补给类型和特点亦存在差异，具体比较如下："
+        },
+        {
+          "type": "figure",
+          "source_block": 70,
+          "image": "assets/recall/pocket-07/image-016.png",
+          "width": 468,
+          "height": 242,
+          "masks": [],
+          "caption": "河流水的主要补给类型 · 原图16",
+          "disclosure": true,
+          "source_image_sha256": "2fea47f173afc372d8a7a24d793cc7e564465372c343af6b15d52596034876cf"
+        },
+        {
+          "type": "table",
+          "source_block": 72,
+          "columns": 5,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "补给类型"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "补给类型"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "补给季节"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "补给季节"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "主要影响因素"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "主要影响因素"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国主要分布地区"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "我国主要分布地区"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "径流量的季节变化示意图"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 0,
+                    "source_text": "径流量的季节变化示意图"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "雨水补给"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "雨水补给"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "(最主要的类型)"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "(最主要的类型)"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0034",
+                        "answer": "多雨",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "季节"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "多雨季节"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "降水量的多少、季节变化和年际变化"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "降水量的多少、季节变化和年际变化"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "普遍，尤以"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0035",
+                        "answer": "东部季风区",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "最为典型"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 1,
+                    "source_text": "普遍，尤以东部季风区最为典型"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 72,
+                    "image": "assets/recall/pocket-07/image-017.png",
+                    "width": 422,
+                    "height": 172,
+                    "masks": [],
+                    "caption": "河流水的主要补给类型 · 原图17",
+                    "disclosure": true,
+                    "source_image_sha256": "97e7941a4867aa70889a52cf581031b125b07d4e7bd781613d94451c963763ef"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "季节性积雪融水补给"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 2,
+                    "source_text": "季节性积雪融水补给"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0036",
+                        "answer": "春",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "季"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 2,
+                    "source_text": "春季"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气温高低、积雪多少、地形状况"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 2,
+                    "source_text": "气温高低、积雪多少、地形状况"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0037",
+                        "answer": "东北",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "地区"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 2,
+                    "source_text": "东北地区"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 72,
+                    "image": "assets/recall/pocket-07/image-018.png",
+                    "width": 351,
+                    "height": 164,
+                    "masks": [],
+                    "caption": "河流水的主要补给类型 · 原图18",
+                    "disclosure": true,
+                    "source_image_sha256": "dc0c0b8618631df86edbd76df6e6c4de292dd91eee5cb7bf451aeb396ab9284e"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冰川融水补给"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 3,
+                    "source_text": "冰川融水补给"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "(单向补给)"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 3,
+                    "source_text": "(单向补给)"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "主要在"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0038",
+                        "answer": "夏",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "季"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 3,
+                    "source_text": "主要在夏季"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "太阳辐射；气温变化；积雪和冰川储量"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 3,
+                    "source_text": "太阳辐射；气温变化；积雪和冰川储量"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0039",
+                        "answer": "西北",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "和"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0040",
+                        "answer": "青藏高原",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "地区"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 3,
+                    "source_text": "西北和青藏高原地区"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 72,
+                    "image": "assets/recall/pocket-07/image-019.png",
+                    "width": 377,
+                    "height": 152,
+                    "masks": [],
+                    "caption": "河流水的主要补给类型 · 原图19",
+                    "disclosure": true,
+                    "source_image_sha256": "b5d8e24fe24529794956fac1022234809c3027e7023992e2ad5636af6916c6c6"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "湖泊水补给"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 4,
+                    "source_text": "湖泊水补给"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "全年"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 4,
+                    "source_text": "全年"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "湖泊水位与河流水位的高低关系"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 4,
+                    "source_text": "湖泊水位与河流水位的高低关系"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "普遍"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 4,
+                    "source_text": "普遍"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 72,
+                    "image": "assets/recall/pocket-07/image-020.png",
+                    "width": 406,
+                    "height": 175,
+                    "masks": [],
+                    "caption": "河流水的主要补给类型 · 原图20",
+                    "disclosure": true,
+                    "source_image_sha256": "e04999c4ec99463a134103755d9c42bddb127c4e6ead8c65803f15c2840a2ed2"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地下水补给"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 5,
+                    "source_text": "地下水补给"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "全年"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 5,
+                    "source_text": "全年"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地下水位与河流水位的高低关系"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 5,
+                    "source_text": "地下水位与河流水位的高低关系"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "普遍"
+                      }
+                    ],
+                    "source_block": 72,
+                    "source_row": 5,
+                    "source_text": "普遍"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "地下水和湖泊补给取决于水位及水力连通；季节性积雪也见于东北以外地区，月份需结合半球和海拔。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、典型地区河流流量过程曲线的分析"
+            }
+          ],
+          "source_block": 74,
+          "source_row": null,
+          "source_text": "2、典型地区河流流量过程曲线的分析"
+        },
+        {
+          "type": "figure",
+          "source_block": 75,
+          "image": "assets/recall/pocket-07/image-021.png",
+          "width": 588,
+          "height": 193,
+          "masks": [],
+          "caption": "河流水的主要补给类型 · 原图21",
+          "disclosure": true,
+          "source_image_sha256": "d00c051690a8943768beb6f585316a73d3234729d6c942bf83a971cbfd33298f"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0041",
+              "answer": "东部季风",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "区：南方河流流量大，汛期长；北方河流流量小，汛期短；"
+            }
+          ],
+          "source_block": 76,
+          "source_row": null,
+          "source_text": "1）东部季风区：南方河流流量大，汛期长；北方河流流量小，汛期短；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0042",
+              "answer": "西北内陆",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地区：降水稀少，蒸发和下渗强，流量小；汛期在气温最高的7、8月份，冬季流量小或出现断流；流量还有日变化；"
+            }
+          ],
+          "source_block": 77,
+          "source_row": null,
+          "source_text": "2）西北内陆地区：降水稀少，蒸发和下渗强，流量小；汛期在气温最高的7、8月份，冬季流量小或出现断流；流量还有日变化；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0043",
+              "answer": "东北",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地区：4、5月份形成第一次汛期("
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0044",
+              "answer": "春汛",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": ")；7、8月份东南季风带来降雨，河流又出现第二次汛期("
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0045",
+              "answer": "夏汛)",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；冬季气温低，河流封冻，小河流会断流。"
+            }
+          ],
+          "source_block": 78,
+          "source_row": null,
+          "source_text": "3）东北地区：4、5月份形成第一次汛期(春汛)；7、8月份东南季风带来降雨，河流又出现第二次汛期(夏汛)；冬季气温低，河流封冻，小河流会断流。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0046",
+              "answer": "西南喀斯特",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地区："
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0047",
+              "answer": "溶洞、暗河等发育",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，河流与地下水关系密切，但岩溶通道可使水流快速汇集，径流变化需结合降水、含水层和地下通道判断，不能一概认定稳定。"
+            }
+          ],
+          "source_block": 79,
+          "source_row": null,
+          "source_text": "4）西南喀斯特地区：溶洞、暗河等发育，河流与地下水关系密切，补给量稳定可靠，径流量一般变化比较小。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）长江中下游地区：6月受江淮准静止锋带来的梅雨影响形成汛期，部分地区7、8月可能受副热带高压影响出现伏旱，但不能据此认定长江干流进入枯水期，9、10月锋面雨带南移又会有一次小汛期；"
+            }
+          ],
+          "source_block": 80,
+          "source_row": null,
+          "source_text": "5）长江中下游地区：6月受江淮准静止锋带来的梅雨影响形成汛期，7、8月受副高带来的伏旱影响形成枯水期，9、10月锋面雨带南移又会有一次小汛期；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "6）华北地区：降水集中在7、8月，故汛期为7、8月或稍晚一些时间；由于冬、春降水少，冬春多为枯水时段；春旱主要指春季水分供需失衡，不能把12月至2月称作春旱。"
+            }
+          ],
+          "source_block": 81,
+          "source_row": null,
+          "source_text": "6）华北地区：降水集中在7、8月，故汛期为7、8月或稍晚一些时间；由于冬、春降水少，枯水期出现在12、1、2月份（春旱）。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "7）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0048",
+              "answer": "季风气候",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0049",
+              "answer": "草原气候",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的降水属夏雨型，汛期在夏季（与南方季风区相似）；地中海气候的降水属"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0050",
+              "answer": "冬雨型",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，汛期在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0051",
+              "answer": "冬季",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 82,
+          "source_row": null,
+          "source_text": "7）季风气候和草原气候的降水属夏雨型，汛期在夏季（与南方季风区相似）；地中海气候的降水属冬雨型，汛期在冬季。"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-03",
+      "group": "知识清单",
+      "title": "河流特征",
+      "note": "",
+      "source_blocks": [
+        84,
+        99
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、河流水文特征及影响因素"
+            }
+          ],
+          "source_block": 85,
+          "source_row": null,
+          "source_text": "1、河流水文特征及影响因素"
+        },
+        {
+          "type": "table",
+          "source_block": 86,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "要素"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 0,
+                    "source_text": "要素"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特征描述"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 0,
+                    "source_text": "特征描述"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响因素"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 0,
+                    "source_text": "影响因素"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "流量"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 1,
+                    "source_text": "流量"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "流量大（小）；流量的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0052",
+                        "answer": "季节变化",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "和"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0053",
+                        "answer": "年际变化",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "大（小）"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 1,
+                    "source_text": "流量大（小）；流量的季节变化和年际变化大（小）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "补给水源（降水、冰雪融水）多少；"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0054",
+                        "answer": "流域面积",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "大小；"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0055",
+                        "answer": "支流",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "多少；外流河一般越往下游流量越大，内流河则相反；流量的季节变化大小取决于补给形式的变化"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 1,
+                    "source_text": "补给水源（降水、冰雪融水）多少；流域面积大小；支流多少；外流河一般越往下游流量越大，内流河则相反；流量的季节变化大小取决于补给形式的变化"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "汛期"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 2,
+                    "source_text": "汛期"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "出现季节，早晚、长短等"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 2,
+                    "source_text": "出现季节，早晚、长短等"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "以雨水补给为主的河流，汛期在"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0056",
+                        "answer": "雨季",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；以冰川融水补给为主的河流，汛期在"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0057",
+                        "answer": "夏季",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；以季节性积雪融水补给为主的河流，汛期在"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0058",
+                        "answer": "春季",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 2,
+                    "source_text": "以雨水补给为主的河流，汛期在雨季；以冰川融水补给为主的河流，汛期在夏季；以季节性积雪融水补给为主的河流，汛期在春季"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "含沙量"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 3,
+                    "source_text": "含沙量"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "含沙量大（小）"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 3,
+                    "source_text": "含沙量大（小）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "与流域内"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0059",
+                        "answer": "植被",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "状况、地形"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0060",
+                        "answer": "坡度",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "、"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0061",
+                        "answer": "地面物质结构",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "及"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0062",
+                        "answer": "降水强度",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "等有关"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 3,
+                    "source_text": "与流域内植被状况、地形坡度、地面物质结构及降水强度等有关"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "结冰期"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 4,
+                    "source_text": "结冰期"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "有（无）、长（短）"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 4,
+                    "source_text": "有（无）、长（短）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水温及低温持续时间等（最冷月均温可作区域判读线索，不能当作短时结冰的唯一门槛）"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 4,
+                    "source_text": "最冷月均温（纬度）（0度以下才可能有结冰期）"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "凌汛"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 5,
+                    "source_text": "凌汛"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "有（无）"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 5,
+                    "source_text": "有（无）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "通常关注有结冰期、下游封冻早或解冻晚而形成冰塞等条件；由低纬流向高纬的河段较易发生，并非唯一情形"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 5,
+                    "source_text": "两个必要条件：①有结冰期；②由较低纬流向较高纬的河段"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "流速"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 6,
+                    "source_text": "流速"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "大（小）"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 6,
+                    "source_text": "大（小）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "河流"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0063",
+                        "answer": "水量",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "大小；河流"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0064",
+                        "answer": "落差",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "大小（最主要的）"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 6,
+                    "source_text": "河流水量大小；河流落差大小（最主要的）"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水位"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 7,
+                    "source_text": "水位"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "高（低）"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 7,
+                    "source_text": "高（低）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "一般河流流量大则水位"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0065",
+                        "answer": "高",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，流量小则水位"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket07-blank-0066",
+                        "answer": "低",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 86,
+                    "source_row": 7,
+                    "source_text": "一般河流流量大则水位高，流量小则水位低"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "流速应结合比降、河道形态及阻力；落差与比降并非同一量。结冰和凌汛须结合实际水温与冰情。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、河流水系特征及影响因素"
+            }
+          ],
+          "source_block": 93,
+          "source_row": null,
+          "source_text": "2、河流水系特征及影响因素"
+        },
+        {
+          "type": "figure",
+          "source_block": 94,
+          "image": "assets/recall/pocket-07/image-022.jpeg",
+          "width": 461,
+          "height": 600,
+          "masks": [],
+          "caption": "河流特征 · 原图22",
+          "disclosure": true,
+          "source_image_sha256": "ce73f753e0703652f7793e63e3dd8d504f5ba0d5a21ff67a0868c6b64715be1e"
+        },
+        {
+          "type": "table",
+          "source_block": 96,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "关键词"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 0,
+                    "source_text": "关键词"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特征描述"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 0,
+                    "source_text": "特征描述"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响因素"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 0,
+                    "source_text": "影响因素"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "发源地"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 1,
+                    "source_text": "发源地"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "发源于***"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 1,
+                    "source_text": "发源于***"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 1,
+                    "source_text": "地形"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "归属地"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 2,
+                    "source_text": "归属地"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "注入***"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 2,
+                    "source_text": "注入***"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 2,
+                    "source_text": "地形"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "长度"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 3,
+                    "source_text": "长度"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "河流较长（短小）（或用具体长度描述）"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 3,
+                    "source_text": "河流较长（短小）（或用具体长度描述）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形、气候"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 3,
+                    "source_text": "地形、气候"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "流域面积"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 4,
+                    "source_text": "流域面积"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "流域面积大（小）（流域面积是河流分水岭所围成的范围）"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 4,
+                    "source_text": "流域面积大（小）（流域面积是河流分水岭所围成的范围）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形、气候"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 4,
+                    "source_text": "地形、气候"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水系形状"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 5,
+                    "source_text": "水系形状"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "扇形水系，向心状水系，放射状水系，树枝状水系"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 5,
+                    "source_text": "扇形水系，向心状水系，放射状水系，树枝状水系"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形、气候"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 5,
+                    "source_text": "地形、气候"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "支流"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 6,
+                    "source_text": "支流"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "支流数量多（少），长（短）"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 6,
+                    "source_text": "支流数量多（少），长（短）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形、气候"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 6,
+                    "source_text": "地形、气候"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "曲直"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 7,
+                    "source_text": "曲直"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "河道弯曲（平直） （平坦地形，河流以侧侵为主，河道较弯曲）"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 7,
+                    "source_text": "河道弯曲（平直） （平坦地形，河流以侧侵为主，河道较弯曲）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 7,
+                    "source_text": "地形"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "落差"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 8,
+                    "source_text": "落差"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "落差（比降）大（小） （地形起伏大，落差大）"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 8,
+                    "source_text": "落差（比降）大（小） （地形起伏大，落差大）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地形"
+                      }
+                    ],
+                    "source_block": 96,
+                    "source_row": 8,
+                    "source_text": "地形"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "pocket07-04",
+      "group": "知识清单",
+      "title": "世界和我国的水资源",
+      "note": "",
+      "source_blocks": [
+        100,
+        109
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、水资源：广义的水资源，包括"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0067",
+              "answer": "水圈内的水量总体",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；狭义的水资源（通常所说）是指"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0068",
+              "answer": "陆地上的淡水资源",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。目前人类比较容易利用的淡水资源主要有"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0069",
+              "answer": "河流水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0070",
+              "answer": "淡水湖泊水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0071",
+              "answer": "浅层地下水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 101,
+          "source_row": null,
+          "source_text": "1、水资源：广义的水资源，包括水圈内的水量总体；狭义的水资源（通常所说）是指陆地上的淡水资源。目前人类比较容易利用的淡水资源主要有河流水、淡水湖泊水和浅层地下水。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、水资源丰歉程度的衡量指标为多年平均径流总量（在多年平均储水变化可忽略、边界和单位一致且无未计入的跨界输入等条件下，径流量＝降水量－蒸散发量）。受气候影响，水资源分布的一般规律为：降水量大、水循环活跃的地区水资源丰富。造成全球水资源分布地区差异的原因是降水量空间分布不均，原资料给出南美洲径流量较多、大洋洲较少及部分国家的排序；跨区域排序依统计时期和水资源口径而变，复习不将未注明口径的名次作为固定结论。"
+            }
+          ],
+          "source_block": 102,
+          "source_row": null,
+          "source_text": "2、水资源丰歉程度的衡量指标为多年平均径流总量（径流量＝降水量-蒸发量）。受气候影响，水资源分布的一般规律为：降水量大、水循环活跃的地区水资源丰富。造成全球水资源分布地区差异的原因是降水量空间分布不均，因而全球除南极洲外的六大洲中，多年平均径流量最多的是南美洲，最少是大洋洲；按国家分，最多的是巴西，其次是俄罗斯，我国居世界第六。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、我国水资源的分布的特点是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0072",
+              "answer": "不均衡",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。具体特点为：从空间分布来看，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0073",
+              "answer": "南",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "多"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0074",
+              "answer": "北",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "少，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0075",
+              "answer": "东",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "多"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0076",
+              "answer": "西",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "少；从时间分配来看，我国"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0077",
+              "answer": "夏秋",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "多，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0078",
+              "answer": "冬春",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "少。可通过修建"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0079",
+              "answer": "跨流域调水工程",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，缓解了水资源"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0080",
+              "answer": "空间",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "分布不均的问题；通过修建"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0081",
+              "answer": "水库",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，缓解了水资源"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0082",
+              "answer": "时间",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "分布不均的问题。"
+            }
+          ],
+          "source_block": 103,
+          "source_row": null,
+          "source_text": "3、我国水资源的分布的特点是不均衡。具体特点为：从空间分布来看，南多北少，东多西少；从时间分配来看，我国夏秋多，冬春少。可通过修建跨流域调水工程，缓解了水资源空间分布不均的问题；通过修建水库，缓解了水资源时间分布不均的问题。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、水资源的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0083",
+              "answer": "数量",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "会影响经济活动规模的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0084",
+              "answer": "大小",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；水资源的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0085",
+              "answer": "质量",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "会影响一个地区经济活动的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0086",
+              "answer": "效益",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 104,
+          "source_row": null,
+          "source_text": "4、水资源的数量会影响经济活动规模的大小；水资源的质量会影响一个地区经济活动的效益。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5、水资源问题产生的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0087",
+              "answer": "原因",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "："
+            }
+          ],
+          "source_block": 105,
+          "source_row": null,
+          "source_text": "5、水资源问题产生的原因："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1)由于工农业的发展和生活水平的提高，使"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0088",
+              "answer": "需水量增长速度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "超过"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0089",
+              "answer": "供水量增长",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "速度，加剧供需矛盾，并可能造成局地储水量下降；2)人类生活和生产活动排放的废弃物质不断"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0090",
+              "answer": "增多",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，化肥和农药的使用量逐年增加，很多污染物质得不到处理进入水体，导致水体"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0091",
+              "answer": "污染",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，可用的水资源质量下降。"
+            }
+          ],
+          "source_block": 106,
+          "source_row": null,
+          "source_text": "1)由于工农业的发展和生活水平的提高，使需水量增长速度超过供水量增长速度，导致水资源数量的减少；2)人类生活和生产活动排放的废弃物质不断增多，化肥和农药的使用量逐年增加，很多污染物质得不到处理进入水体，导致水体污染，可用的水资源质量下降。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "6、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0092",
+              "answer": "水资源",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是人类社会发展的重要物质条件。水资源危机使人们意识到制定科学的用水战略的重要性，为此，人们力图从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0093",
+              "answer": "开源",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0094",
+              "answer": "节流",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "两方面促进水资源的持续利用。措施有："
+            }
+          ],
+          "source_block": 107,
+          "source_row": null,
+          "source_text": "6、水资源是人类社会发展的重要物质条件。水资源危机使人们意识到制定科学的用水战略的重要性，为此，人们力图从开源和节流两方面促进水资源的持续利用。措施有："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0095",
+              "answer": "开源",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "方面：①合理开发和提取地下水②修筑"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0096",
+              "answer": "水库",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，蓄积河水③跨流域调水④"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0097",
+              "answer": "海水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "淡化⑤人工增雨等 "
+            }
+          ],
+          "source_block": 108,
+          "source_row": null,
+          "source_text": "1）开源方面：①合理开发和提取地下水②修筑水库，蓄积河水③跨流域调水④海水淡化⑤人工增雨等 "
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0098",
+              "answer": "节流",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "方面：①加强宣传教育，提高公民"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0099",
+              "answer": "节水",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "意识②重视改进农业"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0100",
+              "answer": "灌溉",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "技术（滴灌、喷灌）③提高工业用水的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0101",
+              "answer": "重复利用",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "率等。"
+            }
+          ],
+          "source_block": 109,
+          "source_row": null,
+          "source_text": "2）节流方面：①加强宣传教育，提高公民节水意识②重视改进农业灌溉技术（滴灌、喷灌）③提高工业用水的重复利用率等。"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-05",
+      "group": "知识清单",
+      "title": "水量平衡原理",
+      "note": "",
+      "source_blocks": [
+        110,
+        119
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0102",
+              "answer": "水量平衡",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：指任意选择的区域（水体）,在任意时段内，其"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0103",
+              "answer": "收入",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的水量与"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0104",
+              "answer": "支出",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的水量之间"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0105",
+              "answer": "差额必等于该时段区域（水体）内蓄水的变化量",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，即水在循环过程中，总体上"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0106",
+              "answer": "收支平衡",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 112,
+          "source_row": null,
+          "source_text": "1、水量平衡：指任意选择的区域（水体）,在任意时段内，其收入的水量与支出的水量之间差额必等于该时段区域（水体）内蓄水的变化量，即水在循环过程中，总体上收支平衡。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "水量平衡方程式 ："
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0107",
+              "answer": "收入水量－支出水量＝蓄水变化量ΔS；ΔS为期末蓄水量减期初蓄水量，增加为正、减少为负。 ",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 113,
+          "source_row": null,
+          "source_text": "水量平衡方程式 ：收入水量= 支出水量±蓄水变量 "
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "其中①水分"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0108",
+              "answer": "收入",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "可为大气降水；河、湖、冰川融水；地下水的输入；人工调水等。"
+            }
+          ],
+          "source_block": 114,
+          "source_row": null,
+          "source_text": "其中①水分收入可为大气降水；河、湖、冰川融水；地下水的输入；人工调水等。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②水分支出可为蒸散发、跨边界径流输出、人工取水等。下渗是否算支出取决于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0109",
+              "answer": "核算边界",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "：对地表水体可为支出，对包含含水层的整个流域则可能只是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0110",
+              "answer": "内部转移",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 115,
+          "source_row": null,
+          "source_text": "②水分支出可为蒸发、植物蒸腾；径流输出；下渗；人工取水等。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "若多年平均"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0111",
+              "answer": "蓄水变化可忽略",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，则总收入约等于总支出。对边界闭合、无额外跨界调水等的流域，外流区可写为降水量＝"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0112",
+              "answer": "蒸散发量",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "＋净外流径流量；内流区在无跨界地下径流等条件下可近似为降水量＝"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0113",
+              "answer": "蒸散发量",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。湖泊面积不变本身不能证明储水量不变。"
+            }
+          ],
+          "source_block": 116,
+          "source_row": null,
+          "source_text": "若多年平均蓄水量保持不变（或湖泊面积不变），即水分收入等于水分支出，若为外流区：降水量=蒸发量+外流径流量；若为内流区：降水量=蒸发量。"
+        },
+        {
+          "type": "figure",
+          "source_block": 117,
+          "image": "assets/recall/pocket-07/image-023.png",
+          "width": 748,
+          "height": 252,
+          "masks": [],
+          "caption": "水量平衡原理 · 原图23",
+          "disclosure": true,
+          "source_image_sha256": "1e44b92a140bf8b77a71982a3b516f31b852d347fedf60d0681ff20552c754a6"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-06",
+      "group": "易错易混",
+      "title": "利用水循环原理解释地理问题",
+      "note": "原图按典型情形归纳。植被、水库对蒸散发、下渗和径流的影响随环境和时间尺度而变，不把箭头图当作所有地区的固定结论。",
+      "source_blocks": [
+        121,
+        131
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、内流河断流的成因"
+            }
+          ],
+          "source_block": 122,
+          "source_row": null,
+          "source_text": "1、内流河断流的成因"
+        },
+        {
+          "type": "figure",
+          "source_block": 123,
+          "image": "assets/recall/pocket-07/image-025.png",
+          "width": 1108,
+          "height": 709,
+          "masks": [],
+          "caption": "利用水循环原理解释地理问题 · 原图25",
+          "disclosure": true,
+          "source_image_sha256": "b1cf71771b00173b8705d63ec0f83b5195ac1062639b95d76084f16b63532b48"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、沼泽地的形成"
+            }
+          ],
+          "source_block": 124,
+          "source_row": null,
+          "source_text": "2、沼泽地的形成"
+        },
+        {
+          "type": "figure",
+          "source_block": 125,
+          "image": "assets/recall/pocket-07/image-026.png",
+          "width": 1108,
+          "height": 721,
+          "masks": [],
+          "caption": "利用水循环原理解释地理问题 · 原图26",
+          "disclosure": true,
+          "source_image_sha256": "00278ae89d2caf20b7a24cbc167c685cf5a7f07ca3bd39fcde6e05b238e18fab"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、城市内涝的原因"
+            }
+          ],
+          "source_block": 126,
+          "source_row": null,
+          "source_text": "3、城市内涝的原因"
+        },
+        {
+          "type": "figure",
+          "source_block": 127,
+          "image": "assets/recall/pocket-07/image-027.png",
+          "width": 355,
+          "height": 238,
+          "masks": [],
+          "caption": "利用水循环原理解释地理问题 · 原图27",
+          "disclosure": true,
+          "source_image_sha256": "fcb1b1b84f31e5af597426d5fb690be11433431ae8612309bf03b26eff8df3c5"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、植被破坏对水循环的影响"
+            }
+          ],
+          "source_block": 128,
+          "source_row": null,
+          "source_text": "4、植被破坏对水循环的影响"
+        },
+        {
+          "type": "figure",
+          "source_block": 129,
+          "image": "assets/recall/pocket-07/image-028.png",
+          "width": 847,
+          "height": 827,
+          "masks": [],
+          "caption": "利用水循环原理解释地理问题 · 原图28",
+          "disclosure": true,
+          "source_image_sha256": "f7993ace5b677bd5232689575be3ea7b4f24b420cfb7b4c7df12379ef497512e"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5、修建水库对河流径流及库区的影响"
+            }
+          ],
+          "source_block": 130,
+          "source_row": null,
+          "source_text": "5、修建水库对河流径流及库区的影响"
+        },
+        {
+          "type": "figure",
+          "source_block": 131,
+          "image": "assets/recall/pocket-07/image-029.png",
+          "width": 857,
+          "height": 905,
+          "masks": [],
+          "caption": "利用水循环原理解释地理问题 · 原图29",
+          "disclosure": true,
+          "source_image_sha256": "3c959f1d90198b0221ea9b94433dde2e145d5ca5471394866971ddce29b7c39c"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-07",
+      "group": "易错易混",
+      "title": "影响河流径流量变化的因素",
+      "note": "",
+      "source_blocks": [
+        132,
+        141
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、雨水补给：河流径流量随降水量的变化而变化，降水量季节变化大，有汛期和枯水期。"
+            }
+          ],
+          "source_block": 133,
+          "source_row": null,
+          "source_text": "1、雨水补给：河流径流量随降水量的变化而变化，降水量季节变化大，有汛期和枯水期。"
+        },
+        {
+          "type": "table",
+          "source_block": 134,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气候区"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 0,
+                    "source_text": "气候区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "补给时间"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 0,
+                    "source_text": "补给时间"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "径流特点"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 0,
+                    "source_text": "径流特点"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "热带雨林、温带海洋气候区"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 1,
+                    "source_text": "热带雨林、温带海洋气候区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "全年（年雨）"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 1,
+                    "source_text": "全年（年雨）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "径流相对稳定"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 1,
+                    "source_text": "径流相对稳定"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "季风气候区"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 2,
+                    "source_text": "季风气候区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "当地夏季（夏雨）"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 2,
+                    "source_text": "当地夏季（夏雨）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "夏汛，径流季节变化大"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 2,
+                    "source_text": "夏汛，径流季节变化大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "热带草原气候区"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 3,
+                    "source_text": "热带草原气候区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "当地夏季（湿季）"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 3,
+                    "source_text": "当地夏季（湿季）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "夏汛，径流季节变化大"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 3,
+                    "source_text": "夏汛，径流季节变化大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "地中海气候区"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 4,
+                    "source_text": "地中海气候区"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "当地冬季（冬雨）"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 4,
+                    "source_text": "当地冬季（冬雨）"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冬汛，径流季节变化大"
+                      }
+                    ],
+                    "source_block": 134,
+                    "source_row": 4,
+                    "source_text": "冬汛，径流季节变化大"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、冰雪融水补给：河流径流量随气温的变化而变化，有汛期和枯水期。"
+            }
+          ],
+          "source_block": 135,
+          "source_row": null,
+          "source_text": "2、冰雪融水补给：河流径流量随气温的变化而变化，有汛期和枯水期。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）季节性积雪融水补给：春季气温回升，积雪融化形成春汛，河流径流年际变化较小，季节变化较大。"
+            }
+          ],
+          "source_block": 136,
+          "source_row": null,
+          "source_text": "1）季节性积雪融水补给：春季气温回升，积雪融化形成春汛，河流径流年际变化较小，季节变化较大。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）冰川融水补给：夏季气温最高，冰川部分消融形成夏汛，冬季融水补给减少，以此为主要补给且缺乏其他水源的河流可能断流；流量大小及年际变化还受冰川储量、降水和其他补给影响。"
+            }
+          ],
+          "source_block": 137,
+          "source_row": null,
+          "source_text": "2）冰川融水补给：夏季气温最高，冰川部分消融形成夏汛，因冬季气温在0℃以下，河流会出现断流，河流流量小，流量季节变化大，年际变化小。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、地下水和湖泊水补给：通常有利于平缓径流变化，但仍可能存在汛期，须结合其他补给及湖泊调节能力判断。"
+            }
+          ],
+          "source_block": 138,
+          "source_row": null,
+          "source_text": "3、地下水和湖泊水补给：河流流量稳定，无汛期。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）河流水、湖泊水、地下水的互补关系：补给方向取决于三者"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0114",
+              "answer": "相对水位高低",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 139,
+          "source_row": null,
+          "source_text": "1）河流水、湖泊水、地下水的互补关系：补给方向取决于三者相对水位高低。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）湖泊水补给：对湖泊以下河段起调节作用，延缓最高水位出现时间并削减洪峰，起到削峰补枯的作用。"
+            }
+          ],
+          "source_block": 140,
+          "source_row": null,
+          "source_text": "2）湖泊水补给：对湖泊以下河段起调节作用，延缓最高水位出现时间并削减洪峰，起到晓削峰补枯的作用。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）地下水补给：河流稳定而可靠的补给来源，与河流有互补作用。"
+            }
+          ],
+          "source_block": 141,
+          "source_row": null,
+          "source_text": "3）地下水补给：河流稳定而可靠的补给来源，与河流有互补作用。"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-08",
+      "group": "易错易混",
+      "title": "河流水与潜水的补给关系",
+      "note": "补给关系要求水力连通，流向按水头判断。图中左右按纸面位置理解；河流左右岸正式定义应面向下游。取井还需考虑水质、污染源和允许开采量。",
+      "source_blocks": [
+        142,
+        166
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）潜水面等高线图"
+            }
+          ],
+          "source_block": 143,
+          "source_row": null,
+          "source_text": "1）潜水面等高线图"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "根据潜水面上各点的水位标高绘制成的，一般绘制在地形图上。绘制的方法与绘制地形等高线的方法类似。这类等值线图中，通常有两组等值线，一组是地形等高线，另一组是潜水等水位线。"
+            }
+          ],
+          "source_block": 144,
+          "source_row": null,
+          "source_text": "根据潜水面上各点的水位标高绘制成的，一般绘制在地形图上。绘制的方法与绘制地形等高线的方法类似。这类等值线图中，通常有两组等值线，一组是地形等高线，另一组是潜水等水位线。"
+        },
+        {
+          "type": "figure",
+          "source_block": 145,
+          "image": "assets/recall/pocket-07/image-030.png",
+          "width": 288,
+          "height": 242,
+          "masks": [],
+          "caption": "河流水与潜水的补给关系 · 原图30",
+          "disclosure": true,
+          "source_image_sha256": "79b2577e19624e69fdb529ee953d7ab51518e1d58afd16803245c1f662d19bd6"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）潜水的埋藏深度"
+            }
+          ],
+          "source_block": 146,
+          "source_row": null,
+          "source_text": "2）潜水的埋藏深度"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "潜水的埋藏深度是指地面到潜水面的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0115",
+              "answer": "垂直距离",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。因为等高线的数值代表该线上各点对应的地面海拔高度，等潜水位线的数值代表该线上各点对应的地下潜水面的海拔高度，因此，任一地点潜水的埋藏深度即是当地等高线数值和等潜水位线数值的差值。"
+            }
+          ],
+          "source_block": 147,
+          "source_row": null,
+          "source_text": "潜水的埋藏深度是指地面到潜水面的垂直距离。因为等高线的数值代表该线上各点对应的地面海拔高度，等潜水位线的数值代表该线上各点对应的地下潜水面的海拔高度，因此，任一地点潜水的埋藏深度即是当地等高线数值和等潜水位线数值的差值。"
+        },
+        {
+          "type": "figure",
+          "source_block": 148,
+          "image": "assets/recall/pocket-07/image-031.png",
+          "width": 1046,
+          "height": 529,
+          "masks": [],
+          "caption": "河流水与潜水的补给关系 · 原图31",
+          "disclosure": true,
+          "source_image_sha256": "702086ad6929e8585f35ee6ad6fc187eb04d511edac1652f24db687fa3cccf6a"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）潜水的流向"
+            }
+          ],
+          "source_block": 149,
+          "source_row": null,
+          "source_text": "3）潜水的流向"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "潜水是一种重力水，它的流动性主要是因受重力作用而形成的，其在流动时总是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0116",
+              "answer": "由高水位流向低水位",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "且沿最大坡度方向流动。在均质、各向同性含水层的平面判读模型中，潜水沿水头降低方向流动，流向垂直于等潜水位线；各向异性等条件下不能机械套用垂直关系。"
+            }
+          ],
+          "source_block": 150,
+          "source_row": null,
+          "source_text": "潜水是一种重力水，它的流动性主要是因受重力作用而形成的，其在流动时总是由高水位流向低水位且沿最大坡度方向流动。因此潜水的流向总是垂直于等潜水位线由高水位流向低水位。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）潜水的流速"
+            }
+          ],
+          "source_block": 151,
+          "source_row": null,
+          "source_text": "4）潜水的流速"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "因为潜水是一种具有自由水面的重力水，其自由水面称潜水面，所以在其他条件相同时，潜水面坡度越陡通常流速越大；流速还受渗透系数和有效孔隙度等影响，不能只看坡度。在同一幅等潜水位线图中，等潜水位线越密集的地方，潜水面坡度越陡，潜水流速越快；等潜水位线越稀疏的地方，潜水面坡度越缓，潜水流速越慢。"
+            }
+          ],
+          "source_block": 152,
+          "source_row": null,
+          "source_text": "因为潜水是一种具有自由水面的重力水，其自由水面称潜水面，所以潜水的流速取决于潜水面坡度的陡缓。在同一幅等潜水位线图中，等潜水位线越密集的地方，潜水面坡度越陡，潜水流速越快；等潜水位线越稀疏的地方，潜水面坡度越缓，潜水流速越慢。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）河流水与潜水的相互补给关系"
+            }
+          ],
+          "source_block": 153,
+          "source_row": null,
+          "source_text": "5）河流水与潜水的相互补给关系"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "对于河流与等潜水位线的分布有如图三种基本关系。根据河流与等潜水位线的分布特点可以判断河水与潜水的补给关系。"
+            }
+          ],
+          "source_block": 154,
+          "source_row": null,
+          "source_text": "对于河流与等潜水位线的分布有如图三种基本关系。根据河流与等潜水位线的分布特点可以判断河水与潜水的补给关系。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在A图中河床两侧潜水位高于河流水位，潜水流向河流，因此河流两侧的潜水补给河水；"
+            }
+          ],
+          "source_block": 155,
+          "source_row": null,
+          "source_text": "在A图中河床两侧潜水位高于河流水位，潜水流向河流，因此河流两侧的潜水补给河水；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在B图中河床两侧潜水位低于河流水位，河水流向潜水，因此河水补给两侧的潜水；"
+            }
+          ],
+          "source_block": 156,
+          "source_row": null,
+          "source_text": "在B图中河床两侧潜水位低于河流水位，河水流向潜水，因此河水补给两侧的潜水；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在C图中，河流右岸潜水面高于河面，左岸潜水面低于河面，因此河流右岸潜水补给河水，左岸河水补给潜水。 "
+            }
+          ],
+          "source_block": 157,
+          "source_row": null,
+          "source_text": "在C图中，河流右岸潜水面高于河面，左岸潜水面低于河面，因此河流右岸潜水补给河水，左岸河水补给潜水。 "
+        },
+        {
+          "type": "figure",
+          "source_block": 158,
+          "image": "assets/recall/pocket-07/image-033.png",
+          "width": 468,
+          "height": 254,
+          "masks": [],
+          "caption": "河流水与潜水的补给关系 · 原图33",
+          "disclosure": true,
+          "source_image_sha256": "091f40049037b298dfa626d0ee9bde18522db34da9ad9c91430186a49c863d35"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "6）取水点（即水井）位置的选择"
+            }
+          ],
+          "source_block": 159,
+          "source_row": null,
+          "source_text": "6）取水点（即水井）位置的选择"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "选择水井位置时，要依据以下三条： ①水井位置应选在地下水埋藏较浅的地点。 ②水井位置应选在潜水汇集区。 ③水井位置应选在潜水汇水面积较大的地点。在解决此问题时，首先要判断潜水的埋藏深度，其次标出潜水的流向，以确定潜水的汇集区和各地点汇水面积的大小，最终确定取水点（即水井）的最佳位置。"
+            }
+          ],
+          "source_block": 160,
+          "source_row": null,
+          "source_text": "选择水井位置时，要依据以下三条： ①水井位置应选在地下水埋藏较浅的地点。 ②水井位置应选在潜水汇集区。 ③水井位置应选在潜水汇水面积较大的地点。在解决此问题时，首先要判断潜水的埋藏深度，其次标出潜水的流向，以确定潜水的汇集区和各地点汇水面积的大小，最终确定取水点（即水井）的最佳位置。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "7）人类活动对潜水的影响"
+            }
+          ],
+          "source_block": 161,
+          "source_row": null,
+          "source_text": "7）人类活动对潜水的影响"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "潜水能够通过补给更新，但更新速度因地区和含水层而异，不能保证开采后短期恢复。可持续开采应综合考虑"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0117",
+              "answer": "补给、储量、水质",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、河湖生态和地面沉降等约束。但如果人类不合理地开采，则会引发一些环境问题，如过度开采地下潜水、开采速度超过潜水的自然补给和恢复速度，就会引起潜水位下降，形成地下水漏斗区。地下水漏斗区即是指地下水位明显低于周围地区，潜水面呈现漏斗状曲面的地区，如图。更为严重的是，超采地下水还会造成地面沉降、建筑物倾斜或倒塌，如果在沿海地区，还会引发海水倒灌、地下水变咸等。"
+            }
+          ],
+          "source_block": 162,
+          "source_row": null,
+          "source_text": "潜水更新快，交替周期短，利用后短期内即可恢复更新，属于可再生资源。人们只要合理开采就可保证永续利用。但如果人类不合理地开采，则会引发一些环境问题，如过度开采地下潜水、开采速度超过潜水的自然补给和恢复速度，就会引起潜水位下降，形成地下水漏斗区。地下水漏斗区即是指地下水位明显低于周围地区，潜水面呈现漏斗状曲面的地区，如图。更为严重的是，超采地下水还会造成地面沉降、建筑物倾斜或倒塌，如果在沿海地区，还会引发海水倒灌、地下水变咸等。"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-09",
+      "group": "知能拓展",
+      "title": "河流流量曲线图的判读",
+      "note": "示意曲线可辅助判断补给，但单凭汛期不能唯一锁定气候区或补给类型；封冻也不一定表示河流断流。",
+      "source_blocks": [
+        168,
+        184
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、识别图中纵、横坐标代表的地理事物名称、单位及数值，特别是纵坐标。"
+            }
+          ],
+          "source_block": 169,
+          "source_row": null,
+          "source_text": "1、识别图中纵、横坐标代表的地理事物名称、单位及数值，特别是纵坐标。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "一般横坐标表示时间变化，纵坐标反映数值特征（高低、变化幅度以及极值出现的时间）。下面甲、乙两图中横坐标均表示时间，甲图中纵坐标为河流流量与降水量，乙图中纵坐标为河流流量与气温。"
+            }
+          ],
+          "source_block": 170,
+          "source_row": null,
+          "source_text": "一般横坐标表示时间变化，纵坐标反映数值特征（高低、变化幅度以及极值出现的时间）。下面甲、乙两图中横坐标均表示时间，甲图中纵坐标为河流流量与降水量，乙图中纵坐标为河流流量与气温。"
+        },
+        {
+          "type": "figure",
+          "source_block": 172,
+          "image": "assets/recall/pocket-07/image-035.png",
+          "width": 1961,
+          "height": 681,
+          "masks": [],
+          "caption": "河流流量曲线图的判读 · 原图35",
+          "disclosure": true,
+          "source_image_sha256": "ad9860bc6fc1af5c8b6de5856170684e6fdfb316d741f2288a1d99baed132298"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、以横坐标的时间变化为主线，结合流量过程曲线的数值变化，分析其水文特征。"
+            }
+          ],
+          "source_block": 174,
+          "source_row": null,
+          "source_text": "2、以横坐标的时间变化为主线，结合流量过程曲线的数值变化，分析其水文特征。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）阅读图中流量过程曲线，依据纵坐标中的流量数值（绝对值或相对值）推断河流全年流量（或多年平均流量）的大小。"
+            }
+          ],
+          "source_block": 175,
+          "source_row": null,
+          "source_text": "1）阅读图中流量过程曲线，依据纵坐标中的流量数值（绝对值或相对值）推断河流全年流量（或多年平均流量）的大小。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）分析图中流量过程曲线的变化幅度，确定河流流量的枯水期、丰水期（或枯水年、丰水年）的时间段，丰水期和枯水期流量的差值大小，是否有断流，断流出现在哪几个月份等，说明河流流量年内季节变化规律（或流量年际变化规律）。如上图，甲河流量较大，汛期出现在4～7月份，冬季是枯水期；乙河流量较小，气温越高，流量越大，冬季出现断流。"
+            }
+          ],
+          "source_block": 176,
+          "source_row": null,
+          "source_text": "2）分析图中流量过程曲线的变化幅度，确定河流流量的枯水期、丰水期（或枯水年、丰水年）的时间段，丰水期和枯水期流量的差值大小，是否有断流，断流出现在哪几个月份等，说明河流流量年内季节变化规律（或流量年际变化规律）。如上图，甲河流量较大，汛期出现在4～7月份，冬季是枯水期；乙河流量较小，气温越高，流量越大，冬季出现断流。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、结合河流的径流量，并对照河流汛期确定河流的补给形式。"
+            }
+          ],
+          "source_block": 177,
+          "source_row": null,
+          "source_text": "3、结合河流的径流量，并对照河流汛期确定河流的补给形式。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）汛期出现在夏秋、枯水期在冬春的河流，一般多为雨水补给，但地中海气候区河流刚好相反。"
+            }
+          ],
+          "source_block": 178,
+          "source_row": null,
+          "source_text": "1）汛期出现在夏秋、枯水期在冬春的河流，一般多为雨水补给，但地中海气候区河流刚好相反。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）汛期出现在夏季的河流，除雨水补给外，也可能是冰雪融水补给。"
+            }
+          ],
+          "source_block": 179,
+          "source_row": null,
+          "source_text": "2）汛期出现在夏季的河流，除雨水补给外，也可能是冰雪融水补给。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）春季和夏季出现两个汛期的河流，除雨水补给外，还可能有季节性积雪融水补给。"
+            }
+          ],
+          "source_block": 180,
+          "source_row": null,
+          "source_text": "3）春季和夏季出现两个汛期的河流，除雨水补给外，还可能有季节性积雪融水补给。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）河流在冬季断流可能是河水封冻的缘故，内流河往往是由于气温低，冰川不融化，没有冰川融水补给所致。"
+            }
+          ],
+          "source_block": 181,
+          "source_row": null,
+          "source_text": "4）河流在冬季断流可能是河水封冻的缘故，内流河往往是由于气温低，冰川不融化，没有冰川融水补给所致。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）曲线变化和缓，多是地下水补给，也可能是热带雨林气候区或温带海洋性气候区的河流。如上图，甲河流量与降水量的对应关系明显，说明以雨水补给为主；乙河流量与气温的对应关系明显，说明以冰雪融水补给为主。"
+            }
+          ],
+          "source_block": 182,
+          "source_row": null,
+          "source_text": "5）曲线变化和缓，多是地下水补给，也可能是热带雨林气候区或温带海洋性气候区的河流。如上图，甲河流量与降水量的对应关系明显，说明以雨水补给为主；乙河流量与气温的对应关系明显，说明以冰雪融水补给为主。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、确定河流所在区域的气候特征。"
+            }
+          ],
+          "source_block": 183,
+          "source_row": null,
+          "source_text": "4、确定河流所在区域的气候特征。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "图中甲河水量丰富，主要分布于我国东南沿海的季风气候区；乙河水量较小，主要分布于我国西北内流区，以温带大陆性气候为主。"
+            }
+          ],
+          "source_block": 184,
+          "source_row": null,
+          "source_text": "图中甲河水量丰富，主要分布于我国东南沿海的季风气候区；乙河水量较小，主要分布于我国西北内流区，以温带大陆性气候为主。"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-10",
+      "group": "知能拓展",
+      "title": "河流方向的判断方法",
+      "note": "下游径流较平缓只是湖库调节的线索，支流、取水及水库调度都可能改变曲线，应综合判定。",
+      "source_blocks": [
+        185,
+        196
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、根据一条等高线判定河流流向"
+            }
+          ],
+          "source_block": 186,
+          "source_row": null,
+          "source_text": "1、根据一条等高线判定河流流向"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "河流在山谷中流动，河流总是从地势高处流向地势低处，而山谷处等高线凸向地势高处，故河流流向"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0118",
+              "answer": "与等高线凸出方向相反",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 187,
+          "source_row": null,
+          "source_text": "河流在山谷中流动，河流总是从地势高处流向地势低处，而山谷处等高线凸向地势高处，故河流流向与等高线凸出方向相反。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、根据海陆分布状况判断河流流向"
+            }
+          ],
+          "source_block": 188,
+          "source_row": null,
+          "source_text": "2、根据海陆分布状况判断河流流向"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "因为大多数河流是由陆地流向海洋，所以图中如果出现陆地与海洋，就可以判断河流流向。"
+            }
+          ],
+          "source_block": 189,
+          "source_row": null,
+          "source_text": "因为大多数河流是由陆地流向海洋，所以图中如果出现陆地与海洋，就可以判断河流流向。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、根据一组等潜水位线判定河流流向"
+            }
+          ],
+          "source_block": 190,
+          "source_row": null,
+          "source_text": "3、根据一组等潜水位线判定河流流流向"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "等潜水位线数值表示"
+            },
+            {
+              "type": "blank",
+              "id": "pocket07-blank-0119",
+              "answer": "潜水面的水位标高",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，不能直接代表地面海拔；河流流向还须结合水位沿程变化、地形和图示关系综合判断。等潜水位线的弯曲可以反映河流与潜水的补给关系，即作任意一条等潜水位线的垂线，且由数值高处指向低处，若垂线箭头指向河流，表明潜水补给河流，反之则是河流补给潜水。"
+            }
+          ],
+          "source_block": 191,
+          "source_row": null,
+          "source_text": "等潜水位线的数值大小可以反映地势的高低，即等潜水位线数值大表明地势较高。等潜水位线的弯曲可以反映河流与潜水的补给关系，即作任意一条等潜水位线的垂线，且由数值高处指向低处，若垂线箭头指向河流，表明潜水补给河流，反之则是河流补给潜水。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、根据湖泊或水库上下游的水位变化曲线判定河流流向"
+            }
+          ],
+          "source_block": 192,
+          "source_row": null,
+          "source_text": "4、根据湖泊或水库上下游的水位变化曲线判定河流流向"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "湖泊或水库对河流径流有调节作用，使得湖泊或水库下游的河流流量过程通常较平缓，所以水位变化曲线的起伏较小。"
+            }
+          ],
+          "source_block": 193,
+          "source_row": null,
+          "source_text": "湖泊或水库对河流径流有调节作用，使得湖泊或水库下游的河流年径流量比较平稳，所以水位变化曲线的起伏较小。"
+        },
+        {
+          "type": "figure",
+          "source_block": 195,
+          "image": "assets/recall/pocket-07/image-036.jpeg",
+          "width": 859,
+          "height": 218,
+          "masks": [],
+          "caption": "河流方向的判断方法 · 原图36",
+          "disclosure": true,
+          "source_image_sha256": "3698f940c9cc639c0fc09302ef1de689e346485a76a24b8658bb427bdcaae30a"
+        }
+      ]
+    },
+    {
+      "id": "pocket07-11",
+      "group": "知能拓展",
+      "title": "河流特征类题目答题思路",
+      "note": "",
+      "source_blocks": [
+        197,
+        224
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "角度一：河流水文或水系特征的描述"
+            }
+          ],
+          "source_block": 198,
+          "source_row": null,
+          "source_text": "角度一：河流水文或水系特征的描述"
+        },
+        {
+          "type": "figure",
+          "source_block": 199,
+          "image": "assets/recall/pocket-07/image-037.png",
+          "width": 1818,
+          "height": 580,
+          "masks": [],
+          "caption": "河流特征类题目答题思路 · 原图37",
+          "disclosure": true,
+          "source_image_sha256": "c93fa072eb37dee1bff7991bf2804233f6526d6c16f1635484fc838b96cf02fc"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "角度二：河流水文或水系特征的成因分析"
+            }
+          ],
+          "source_block": 200,
+          "source_row": null,
+          "source_text": "角度二：河流水文或水系特征的成因分析"
+        },
+        {
+          "type": "figure",
+          "source_block": 201,
+          "image": "assets/recall/pocket-07/image-038.png",
+          "width": 1874,
+          "height": 373,
+          "masks": [],
+          "caption": "河流特征类题目答题思路 · 原图38",
+          "disclosure": true,
+          "source_image_sha256": "aa49110266e5d1a1d89bab3aa9fe58ba7205fc621f5ed73fdb1a7213ef558411"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "角度三：两河流水文或水系特征的差异比较"
+            }
+          ],
+          "source_block": 202,
+          "source_row": null,
+          "source_text": "角度三：两河流水文或水系特征的差异比较"
+        },
+        {
+          "type": "figure",
+          "source_block": 203,
+          "image": "assets/recall/pocket-07/image-039.png",
+          "width": 905,
+          "height": 248,
+          "masks": [],
+          "caption": "河流特征类题目答题思路 · 原图39",
+          "disclosure": true,
+          "source_image_sha256": "9d90f1c446681865b313573ec5fd76138344fa08cf0612adb0877bafc722554c"
+        }
+      ]
+    }
+  ],
+  "audit": {
+    "reviewed_on": "2026-11-02",
+    "blank_count": 119,
+    "images_sha256": {
+      "assets/recall/pocket-07/image-004.png": "e18973a761860e17f4ff5c46ef6b123577fc0a68cdb9362eda813211b8d67657",
+      "assets/recall/pocket-07/image-005.png": "37cdd46e90bc1fcd7c5bf606a8ab9e9a42b91f19172f6cdbcb6a16b6c8ad028d",
+      "assets/recall/pocket-07/image-006.png": "2ae236a63b48f590ff18a921b2cad9236fc11ee944be5533bcc8d93fe2867e4d",
+      "assets/recall/pocket-07/image-007.png": "6394db5d05c7e8c61fb7aa2da7b5897fa48cccc455ae048216a353a785cf86fa",
+      "assets/recall/pocket-07/image-010.png": "8180cbb022a542778e91d201de78038f7e65c766949024e32264e3b476181bf6",
+      "assets/recall/pocket-07/image-011.png": "34cf3db087745de02acf638e5c42ca5e2f32740f6d4a86c234e114a37e711110",
+      "assets/recall/pocket-07/image-012.png": "854b92aa64f27dac8914ebfd9818e48f4234f81df5cf8d9cd8c0e480e7582372",
+      "assets/recall/pocket-07/image-013.png": "13871a37fea02c63ed0562ce47cca6785237f4ce286a60da2184138d539b208e",
+      "assets/recall/pocket-07/image-014.png": "1de6b9ae4f53b6d5fd1aeba30574defa3585efa2530a121043cdb8b08730ef30",
+      "assets/recall/pocket-07/image-015.png": "9c77c0d3c6f511c4f1897d2c0363dcaf5b85d9270662174b10e0e1d5edd7df6e",
+      "assets/recall/pocket-07/image-016.png": "2fea47f173afc372d8a7a24d793cc7e564465372c343af6b15d52596034876cf",
+      "assets/recall/pocket-07/image-017.png": "97e7941a4867aa70889a52cf581031b125b07d4e7bd781613d94451c963763ef",
+      "assets/recall/pocket-07/image-018.png": "dc0c0b8618631df86edbd76df6e6c4de292dd91eee5cb7bf451aeb396ab9284e",
+      "assets/recall/pocket-07/image-019.png": "b5d8e24fe24529794956fac1022234809c3027e7023992e2ad5636af6916c6c6",
+      "assets/recall/pocket-07/image-020.png": "e04999c4ec99463a134103755d9c42bddb127c4e6ead8c65803f15c2840a2ed2",
+      "assets/recall/pocket-07/image-021.png": "d00c051690a8943768beb6f585316a73d3234729d6c942bf83a971cbfd33298f",
+      "assets/recall/pocket-07/image-022.jpeg": "ce73f753e0703652f7793e63e3dd8d504f5ba0d5a21ff67a0868c6b64715be1e",
+      "assets/recall/pocket-07/image-023.png": "1e44b92a140bf8b77a71982a3b516f31b852d347fedf60d0681ff20552c754a6",
+      "assets/recall/pocket-07/image-025.png": "b1cf71771b00173b8705d63ec0f83b5195ac1062639b95d76084f16b63532b48",
+      "assets/recall/pocket-07/image-026.png": "00278ae89d2caf20b7a24cbc167c685cf5a7f07ca3bd39fcde6e05b238e18fab",
+      "assets/recall/pocket-07/image-027.png": "fcb1b1b84f31e5af597426d5fb690be11433431ae8612309bf03b26eff8df3c5",
+      "assets/recall/pocket-07/image-028.png": "f7993ace5b677bd5232689575be3ea7b4f24b420cfb7b4c7df12379ef497512e",
+      "assets/recall/pocket-07/image-029.png": "3c959f1d90198b0221ea9b94433dde2e145d5ca5471394866971ddce29b7c39c",
+      "assets/recall/pocket-07/image-030.png": "79b2577e19624e69fdb529ee953d7ab51518e1d58afd16803245c1f662d19bd6",
+      "assets/recall/pocket-07/image-031.png": "702086ad6929e8585f35ee6ad6fc187eb04d511edac1652f24db687fa3cccf6a",
+      "assets/recall/pocket-07/image-033.png": "091f40049037b298dfa626d0ee9bde18522db34da9ad9c91430186a49c863d35",
+      "assets/recall/pocket-07/image-035.png": "ad9860bc6fc1af5c8b6de5856170684e6fdfb316d741f2288a1d99baed132298",
+      "assets/recall/pocket-07/image-036.jpeg": "3698f940c9cc639c0fc09302ef1de689e346485a76a24b8658bb427bdcaae30a",
+      "assets/recall/pocket-07/image-037.png": "c93fa072eb37dee1bff7991bf2804233f6526d6c16f1635484fc838b96cf02fc",
+      "assets/recall/pocket-07/image-038.png": "aa49110266e5d1a1d89bab3aa9fe58ba7205fc621f5ed73fdb1a7213ef558411",
+      "assets/recall/pocket-07/image-039.png": "9d90f1c446681865b313573ec5fd76138344fa08cf0612adb0877bafc722554c"
+    },
+    "counters": {
+      "paragraphs": 240,
+      "reviewed-addition": 12,
+      "tables": 7,
+      "source-marking": 107
+    },
+    "corrections": [
+      {
+        "source_block": 61,
+        "source_row": null,
+        "original": "大气下环流、垫面",
+        "revised": "大气环流、下垫面",
+        "reason": "修正词序排版错误。",
+        "references": []
+      },
+      {
+        "source_block": 66,
+        "source_row": null,
+        "original": "也增加下渗",
+        "revised": "下渗的变化还需结合土壤、地质及库底渗透条件判断",
+        "reason": "修建水库并非一定增加下渗。",
+        "references": []
+      },
+      {
+        "source_block": 79,
+        "source_row": null,
+        "original": "补给量稳定可靠，径流量一般变化比较小",
+        "revised": "但岩溶通道可使水流快速汇集，径流变化需结合降水、含水层和地下通道判断，不能一概认定稳定",
+        "reason": "喀斯特水文响应不能一概而论。",
+        "references": []
+      },
+      {
+        "source_block": 80,
+        "source_row": null,
+        "original": "7、8月受副高带来的伏旱影响形成枯水期",
+        "revised": "部分地区7、8月可能受副热带高压影响出现伏旱，但不能据此认定长江干流进入枯水期",
+        "reason": "区分局地降水与全流域干流径流。",
+        "references": []
+      },
+      {
+        "source_block": 81,
+        "source_row": null,
+        "original": "枯水期出现在12、1、2月份（春旱）",
+        "revised": "冬春多为枯水时段；春旱主要指春季水分供需失衡，不能把12月至2月称作春旱",
+        "reason": "修正春旱与月份的对应。",
+        "references": []
+      },
+      {
+        "source_block": 86,
+        "source_row": 4,
+        "original": "最冷月均温（纬度）（0度以下才可能有结冰期）",
+        "revised": "水温及低温持续时间等（最冷月均温可作区域判读线索，不能当作短时结冰的唯一门槛）",
+        "reason": "月平均气温不是河流结冰的充分必要条件。",
+        "references": []
+      },
+      {
+        "source_block": 86,
+        "source_row": 5,
+        "original": "两个必要条件：①有结冰期；②由较低纬流向较高纬的河段",
+        "revised": "通常关注有结冰期、下游封冻早或解冻晚而形成冰塞等条件；由低纬流向高纬的河段较易发生，并非唯一情形",
+        "reason": "区分教材典型凌汛条件与全部冰塞洪水。",
+        "references": []
+      },
+      {
+        "source_block": 102,
+        "source_row": null,
+        "original": "（径流量＝降水量-蒸发量）",
+        "revised": "（在多年平均储水变化可忽略、边界和单位一致且无未计入的跨界输入等条件下，径流量＝降水量－蒸散发量）",
+        "reason": "为水量平衡简式补充边界条件。",
+        "references": [
+          "usgs-budget"
+        ]
+      },
+      {
+        "source_block": 102,
+        "source_row": null,
+        "original": "因而全球除南极洲外的六大洲中，多年平均径流量最多的是南美洲，最少是大洋洲；按国家分，最多的是巴西，其次是俄罗斯，我国居世界第六。",
+        "revised": "原资料给出南美洲径流量较多、大洋洲较少及部分国家的排序；跨区域排序依统计时期和水资源口径而变，复习不将未注明口径的名次作为固定结论。",
+        "reason": "移除无统计时期和口径的固定排名。",
+        "references": []
+      },
+      {
+        "source_block": 106,
+        "source_row": null,
+        "original": "导致水资源数量的减少",
+        "revised": "加剧供需矛盾，并可能造成局地储水量下降",
+        "reason": "需求增长不能直接推出全球水资源总量减少。",
+        "references": []
+      },
+      {
+        "source_block": 113,
+        "source_row": null,
+        "original": "收入水量= 支出水量±蓄水变量",
+        "revised": "收入水量－支出水量＝蓄水变化量ΔS；ΔS为期末蓄水量减期初蓄水量，增加为正、减少为负。",
+        "reason": "统一储水变化的符号，避免重复使用正负号。",
+        "references": [
+          "usgs-budget"
+        ]
+      },
+      {
+        "source_block": 115,
+        "source_row": null,
+        "original": "②水分支出可为蒸发、植物蒸腾；径流输出；下渗；人工取水等。",
+        "revised": "②水分支出可为蒸散发、跨边界径流输出、人工取水等。下渗是否算支出取决于核算边界：对地表水体可为支出，对包含含水层的整个流域则可能只是内部转移。",
+        "reason": "避免把内部水分转移重复计入流域输出。",
+        "references": [
+          "usgs-budget"
+        ]
+      },
+      {
+        "source_block": 116,
+        "source_row": null,
+        "original": "若多年平均蓄水量保持不变（或湖泊面积不变），即水分收入等于水分支出，若为外流区：降水量=蒸发量+外流径流量；若为内流区：降水量=蒸发量。",
+        "revised": "若多年平均蓄水变化可忽略，则总收入约等于总支出。对边界闭合、无额外跨界调水等的流域，外流区可写为降水量＝蒸散发量＋净外流径流量；内流区在无跨界地下径流等条件下可近似为降水量＝蒸散发量。湖泊面积不变本身不能证明储水量不变。",
+        "reason": "明确简式假设及面积与体积的区别。",
+        "references": [
+          "usgs-budget"
+        ]
+      },
+      {
+        "source_block": 137,
+        "source_row": null,
+        "original": "因冬季气温在0℃以下，河流会出现断流，河流流量小，流量季节变化大，年际变化小。",
+        "revised": "冬季融水补给减少，以此为主要补给且缺乏其他水源的河流可能断流；流量大小及年际变化还受冰川储量、降水和其他补给影响。",
+        "reason": "不把某类示意图的特点泛化到全部冰川补给河流。",
+        "references": []
+      },
+      {
+        "source_block": 138,
+        "source_row": null,
+        "original": "河流流量稳定，无汛期",
+        "revised": "通常有利于平缓径流变化，但仍可能存在汛期，须结合其他补给及湖泊调节能力判断",
+        "reason": "地下水或湖泊补给不保证无汛期。",
+        "references": []
+      },
+      {
+        "source_block": 140,
+        "source_row": null,
+        "original": "起到晓削峰补枯",
+        "revised": "起到削峰补枯",
+        "reason": "删除多余文字。",
+        "references": []
+      },
+      {
+        "source_block": 150,
+        "source_row": null,
+        "original": "因此潜水的流向总是垂直于等潜水位线由高水位流向低水位。",
+        "revised": "在均质、各向同性含水层的平面判读模型中，潜水沿水头降低方向流动，流向垂直于等潜水位线；各向异性等条件下不能机械套用垂直关系。",
+        "reason": "明确地下水流向判读的介质条件。",
+        "references": []
+      },
+      {
+        "source_block": 152,
+        "source_row": null,
+        "original": "所以潜水的流速取决于潜水面坡度的陡缓。",
+        "revised": "所以在其他条件相同时，潜水面坡度越陡通常流速越大；流速还受渗透系数和有效孔隙度等影响，不能只看坡度。",
+        "reason": "补充达西定律比较条件。",
+        "references": []
+      },
+      {
+        "source_block": 162,
+        "source_row": null,
+        "original": "潜水更新快，交替周期短，利用后短期内即可恢复更新，属于可再生资源。人们只要合理开采就可保证永续利用。",
+        "revised": "潜水能够通过补给更新，但更新速度因地区和含水层而异，不能保证开采后短期恢复。可持续开采应综合考虑补给、储量、水质、河湖生态和地面沉降等约束。",
+        "reason": "避免把所有潜水视为快速、无限可再生。",
+        "references": [
+          "usgs-budget"
+        ]
+      },
+      {
+        "source_block": 190,
+        "source_row": null,
+        "original": "河流流流向",
+        "revised": "河流流向",
+        "reason": "修正重复字。",
+        "references": []
+      },
+      {
+        "source_block": 191,
+        "source_row": null,
+        "original": "等潜水位线的数值大小可以反映地势的高低，即等潜水位线数值大表明地势较高。",
+        "revised": "等潜水位线数值表示潜水面的水位标高，不能直接代表地面海拔；河流流向还须结合水位沿程变化、地形和图示关系综合判断。",
+        "reason": "纠正潜水位与地面地势混同。",
+        "references": []
+      },
+      {
+        "source_block": 193,
+        "source_row": null,
+        "original": "年径流量比较平稳",
+        "revised": "流量过程通常较平缓",
+        "reason": "区分年径流总量与年内流量变化。",
+        "references": []
+      }
+    ],
+    "references": [
+      {
+        "id": "usgs-budget",
+        "title": "USGS：地下水开发、可持续性与水量平衡",
+        "url": "https://pubs.usgs.gov/circ/circ1186/html/gw_dev.html"
+      }
+    ],
+    "note": "按原顺序提取，保留标记答案与原图。含标注的原图默认折叠，先回忆再展开核对；重点修订有原文记录，具体条件以题目材料为准。"
+  }
+}
