@@ -1,0 +1,5113 @@
+{
+  "schema_version": "1.1.0",
+  "id": "pocket-weather-systems",
+  "topic_id": "pocket06",
+  "title": "专题06 常见天气系统和气象灾害",
+  "status": "published",
+  "source": {
+    "file": "2025高中地理学习资料包 (知识点+教辅+试卷)/【口袋书】2024年高考地理一轮复习知识清单/专题06 常见天气系统和气象灾害-【口袋书】2024年高考地理一轮复习知识清单.docx",
+    "sha256": "ddee98cda0ffcf741115a5fc36ce17db877312d306e9049975f4cf3c41c4f8e7",
+    "included": [
+      "思维导图",
+      "知识清单",
+      "易错易混",
+      "知能拓展"
+    ],
+    "excluded": [
+      "考情速递",
+      "训练营",
+      "答案解析"
+    ]
+  },
+  "overview": {
+    "type": "figure",
+    "source_block": 19,
+    "image": "assets/recall/pocket-06/image-004.jpeg",
+    "width": 1527,
+    "height": 839,
+    "masks": [],
+    "caption": "专题总览 · 原图4",
+    "disclosure": false,
+    "source_image_sha256": "bcef7067f01d17ef7d99aad0e9ad25538573cfe98c40b08f5bbe87dc82e4c9f6"
+  },
+  "additional_overviews": [],
+  "sections": [
+    {
+      "id": "pocket06-01",
+      "group": "知识清单",
+      "title": "知识点一 锋面系统和天气",
+      "note": "",
+      "source_blocks": [
+        21,
+        33
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "气团"
+            }
+          ],
+          "source_block": 22,
+          "source_row": null,
+          "source_text": "气团"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）气团：指位于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0001",
+              "answer": "对流层下部",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，在水平方向的一定范围内，物理"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0002",
+              "answer": "属性相对均匀",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的大团空气。 "
+            }
+          ],
+          "source_block": 23,
+          "source_row": null,
+          "source_text": "1）气团：指位于对流层下部，在水平方向的一定范围内，物理属性相对均匀的大团空气。 "
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）分类："
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0003",
+              "answer": "冷气团",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：温度低、湿度小、密度大、气压高；"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0004",
+              "answer": "暖气团",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：温度高、湿度大、密度小、气压低。"
+            }
+          ],
+          "source_block": 24,
+          "source_row": null,
+          "source_text": "2）分类：冷气团：温度低、湿度小、密度大、气压高；暖气团：温度高、湿度大、密度小、气压低。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0005",
+              "answer": "大陆性气团",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：产生于内陆环境，空气干燥，温度冬夏差异很大；"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0006",
+              "answer": "海洋性气团",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "：产生于海洋上空，湿度较大，温度冬夏差异较小。    "
+            }
+          ],
+          "source_block": 25,
+          "source_row": null,
+          "source_text": "大陆性气团：产生于内陆环境，空气干燥，温度冬夏差异很大；海洋性气团：产生于海洋上空，湿度较大，温度冬夏差异较小。    "
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "锋面"
+            }
+          ],
+          "source_block": 26,
+          "source_row": null,
+          "source_text": "锋面"
+        },
+        {
+          "type": "figure",
+          "source_block": 27,
+          "image": "assets/recall/pocket-06/image-007.png",
+          "width": 353,
+          "height": 218,
+          "masks": [],
+          "caption": "知识点一 锋面系统和天气 · 原图7",
+          "disclosure": true,
+          "source_image_sha256": "d626ae277d4c31d7c8dfdf1636740a5f04222652f7c097925560e97a2f1e2018"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）锋：一般把"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0007",
+              "answer": "锋面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0008",
+              "answer": "锋线",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "统称为"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0009",
+              "answer": "锋",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。  "
+            }
+          ],
+          "source_block": 28,
+          "source_row": null,
+          "source_text": "1）锋：一般把锋面和锋线统称为锋。  "
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "锋面：冷、暖气团的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0010",
+              "answer": "交界面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "叫"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0011",
+              "answer": "锋面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；"
+            }
+          ],
+          "source_block": 29,
+          "source_row": null,
+          "source_text": "锋面：冷、暖气团的交界面叫锋面；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "天气状况：云、雨、大风等天气。"
+            }
+          ],
+          "source_block": 30,
+          "source_row": null,
+          "source_text": "天气状况：云、雨、大风等天气。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、锋与天气"
+            }
+          ],
+          "source_block": 31,
+          "source_row": null,
+          "source_text": "3、锋与天气"
+        },
+        {
+          "type": "table",
+          "source_block": 32,
+          "columns": 5,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "类型"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 0,
+                    "source_text": "类型"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冷锋"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 0,
+                    "source_text": "冷锋"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "暖锋"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 0,
+                    "source_text": "暖锋"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "准静止锋"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 0,
+                    "source_text": "准静止锋"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "概念"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 1,
+                    "source_text": "概念"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冷气团主动移近"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 1,
+                    "source_text": "冷气团主动移近"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "暖气团主动移近"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 1,
+                    "source_text": "暖气团主动移近"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冷暖气团势均力敌"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 1,
+                    "source_text": "冷暖气团势均力敌"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "相同点"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 2,
+                    "source_text": "相同点"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气团位置"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 2,
+                    "source_text": "气团位置"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 3,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "①冷气团"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0012",
+                        "answer": "密度大",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "在"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0013",
+                        "answer": "下",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 2,
+                    "source_text": "①冷气团密度大在下；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "②暖气团"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0014",
+                        "answer": "密度小",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "在"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0015",
+                        "answer": "上",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "；"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 2,
+                    "source_text": "②暖气团密度小在上；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "③锋面"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0016",
+                        "answer": "两侧",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "气温"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0017",
+                        "answer": "气压差异大",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0018",
+                        "answer": "风力大",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 2,
+                    "source_text": "③锋面两侧气温气压差异大，风力大"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 6,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "不同点"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 3,
+                    "source_text": "不同点"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气团势力"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 3,
+                    "source_text": "气团势力"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冷气团强，暖气团弱"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 3,
+                    "source_text": "冷气团强，暖气团弱"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "暖气团强，冷气团弱"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 3,
+                    "source_text": "暖气团强，冷气团弱"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0019",
+                        "answer": "势均力敌",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 3,
+                    "source_text": "势均力敌"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "雨区位置"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 4,
+                    "source_text": "雨区位置"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "锋前锋后都有，以"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0020",
+                        "answer": "锋后",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "为主"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 4,
+                    "source_text": "锋前锋后都有，以锋后为主"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0021",
+                        "answer": "锋前",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 4,
+                    "source_text": "锋前"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "延伸到"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0022",
+                        "answer": "锋后很大范围",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 4,
+                    "source_text": "延伸到锋后很大范围"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "雨带宽窄"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 5,
+                    "source_text": "雨带宽窄"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "雨带较窄"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 5,
+                    "source_text": "雨带较窄"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "雨带较宽"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 5,
+                    "source_text": "雨带较宽"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "雨带最宽"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 5,
+                    "source_text": "雨带最宽"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "降水"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 6,
+                    "source_text": "降水"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "持续时间短，强度大，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0023",
+                        "answer": "阵性",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 6,
+                    "source_text": "持续时间短，强度大，阵性"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "时间长强度小，"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0024",
+                        "answer": "持续性",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 6,
+                    "source_text": "时间长强度小，持续性"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0025",
+                        "answer": "时间最长",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 6,
+                    "source_text": "时间最长"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "移动速度"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 7,
+                    "source_text": "移动速度"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "速度"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0026",
+                        "answer": "快",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 7,
+                    "source_text": "速度快"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "速度"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0027",
+                        "answer": "慢",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 7,
+                    "source_text": "速度慢"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "原地"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0028",
+                        "answer": "徘徊",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 7,
+                    "source_text": "原地徘徊"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "锋面坡度"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 8,
+                    "source_text": "锋面坡度"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0029",
+                        "answer": "坡度最大",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 8,
+                    "source_text": "坡度最大"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "坡度较小"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 8,
+                    "source_text": "坡度较小"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0030",
+                        "answer": "坡度最小",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 8,
+                    "source_text": "坡度最小"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "暖气团上升状况"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 9,
+                    "source_text": "暖气团上升状况"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0031",
+                        "answer": "被迫",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "抬升"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 9,
+                    "source_text": "被迫抬升"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0032",
+                        "answer": "主动",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "爬升"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 9,
+                    "source_text": "主动爬升"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "缓缓上滑"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 9,
+                    "source_text": "缓缓上滑"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "图"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 10,
+                    "source_text": "图"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "例"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 10,
+                    "source_text": "例"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "侧"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 10,
+                    "source_text": "侧"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "视"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 10,
+                    "source_text": "视"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "图"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 10,
+                    "source_text": "图"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 32,
+                    "image": "assets/recall/pocket-06/image-008.png",
+                    "width": 463,
+                    "height": 123,
+                    "masks": [],
+                    "caption": "知识点一 锋面系统和天气 · 原图8",
+                    "disclosure": true,
+                    "source_image_sha256": "8a87c290b7ea5276eb1ecb40ffdff35139f957e6961eb60386798a0f847cfd69"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 32,
+                    "image": "assets/recall/pocket-06/image-009.png",
+                    "width": 268,
+                    "height": 108,
+                    "masks": [],
+                    "caption": "知识点一 锋面系统和天气 · 原图9",
+                    "disclosure": true,
+                    "source_image_sha256": "adf62b51caf21172eee6c16f6222c36ea923829a010f1409b4dcb746426a6be1"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "锋面"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 11,
+                    "source_text": "锋面"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "符号"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 11,
+                    "source_text": "符号"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 32,
+                    "image": "assets/recall/pocket-06/image-010.png",
+                    "width": 367,
+                    "height": 76,
+                    "masks": [],
+                    "caption": "知识点一 锋面系统和天气 · 原图10",
+                    "disclosure": true,
+                    "source_image_sha256": "88f5227063c5de4013897616f488ccfecd363669088e1ab465e8eb09b76fe06d"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 32,
+                    "image": "assets/recall/pocket-06/image-011.png",
+                    "width": 86,
+                    "height": 50,
+                    "masks": [],
+                    "caption": "知识点一 锋面系统和天气 · 原图11",
+                    "disclosure": true,
+                    "source_image_sha256": "915c5aedb3f2f99604c15c82891c2917bb9fe687263a968e11ffcfc10bc04203"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 3,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "天气"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 12,
+                    "source_text": "天气"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "特征"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 12,
+                    "source_text": "特征"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "过境前"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 12,
+                    "source_text": "过境前"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "单一"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0033",
+                        "answer": "暖",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "气团控制，温暖晴朗"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 12,
+                    "source_text": "单一暖气团控制，温暖晴朗"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "单一"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0034",
+                        "answer": "冷",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "气团控制，低温晴朗"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 12,
+                    "source_text": "单一冷气团控制，低温晴朗"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "单一气团控制，天气晴朗"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 12,
+                    "source_text": "单一气团控制，天气晴朗"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "过境时"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 13,
+                    "source_text": "过境时"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "阴天、"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0035",
+                        "answer": "刮风",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "、降雨（雪）、"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0036",
+                        "answer": "降温",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 13,
+                    "source_text": "阴天、刮风、降雨（雪）、降温"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "阴天、降雨、"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0037",
+                        "answer": "持续性降水",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 13,
+                    "source_text": "阴天、降雨、持续性降水"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0038",
+                        "answer": "持续性降水",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 13,
+                    "source_text": "持续性降水"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "过境后"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 14,
+                    "source_text": "过境后"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冷气团取代原有暖气团位置，气温"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0039",
+                        "answer": "降低",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，气压"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0040",
+                        "answer": "升高",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，天气转晴（冷晴）"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 14,
+                    "source_text": "冷气团取代原有暖气团位置，气温降低，气压升高，天气转晴（冷晴）"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "暖气团取代原有冷气团位置，气温升高，气压降低，天气转晴（暖晴）"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 14,
+                    "source_text": "暖气团取代原有冷气团位置，气温升高，气压升降低，天气转晴（暖晴）"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "单一气团控制，天气晴朗"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 14,
+                    "source_text": "单一气团控制，天气晴朗"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "对我国天气的影响"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 15,
+                    "source_text": "对我国天气的影响"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国大多数降水天气；"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 15,
+                    "source_text": "我国大多数降水天气；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冬季的寒潮、夏季的暴雨、秋季的一场秋雨一场寒"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 15,
+                    "source_text": "冬季的寒潮、夏季的暴雨、秋季的一场秋雨一场寒"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "一场春雨一场暖；华南地区“春暖多晴，春寒雨起”"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 15,
+                    "source_text": "一场春雨一场暖；华南地区“春暖多晴，春寒雨起”"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0041",
+                        "answer": "华南准静止锋",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "：清明时节雨；"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 15,
+                    "source_text": "华南准静止锋：清明时节雨；"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0042",
+                        "answer": "江淮准静止锋",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "："
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0043",
+                        "answer": "梅雨",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "（6-7月长江中下游）；"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0044",
+                        "answer": "昆明准静止锋（冬）",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "：贵阳天无三日晴；"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0045",
+                        "answer": "天山准静止锋",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 32,
+                    "source_row": 15,
+                    "source_text": "江淮准静止锋：梅雨（6-7月长江中下游）；昆明准静止锋（冬）：贵阳天无三日晴；天山准静止锋"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "冷暖气团由相对温度及性质定义，湿度和气压不是所有气团的固定标签。雨区、雨强、持续时间等为典型概括，需结合水汽、稳定度和锋面结构。"
+        }
+      ]
+    },
+    {
+      "id": "pocket06-02",
+      "group": "知识清单",
+      "title": "知识点二 常见气压系统",
+      "note": "",
+      "source_blocks": [
+        34,
+        38
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、低压（"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0046",
+              "answer": "气旋",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "）系统和高压（"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0047",
+              "answer": "反气旋",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "）系统"
+            }
+          ],
+          "source_block": 35,
+          "source_row": null,
+          "source_text": "1、低压（气旋）系统和高压（反气旋）系统"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "低压、高压是对天气系统"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0048",
+              "answer": "气压状况",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的描述；气旋、反气旋是对天气系统"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0049",
+              "answer": "气流状况",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的描述。"
+            }
+          ],
+          "source_block": 36,
+          "source_row": null,
+          "source_text": "低压、高压是对天气系统气压状况的描述；气旋、反气旋是对天气系统气流状况的描述。"
+        },
+        {
+          "type": "table",
+          "source_block": 37,
+          "columns": 7,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 3,
+                "rowspan": 1,
+                "blocks": []
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气旋(低压系统)"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 0,
+                    "source_text": "气旋(低压系统)"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "反气旋(高压系统)"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 0,
+                    "source_text": "反气旋(高压系统)"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 3,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气压分布"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 1,
+                    "source_text": "气压分布"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气压中心"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0050",
+                        "answer": "低",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，四周"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0051",
+                        "answer": "高",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 1,
+                    "source_text": "气压中心低，四周高"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气压中心"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0052",
+                        "answer": "高",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，四周"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0053",
+                        "answer": "低",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 1,
+                    "source_text": "气压中心高，四周低"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 5,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "水平气流与风向"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 2,
+                    "source_text": "水平气流与风向"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气流形成"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 2,
+                    "source_text": "气流形成"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "(北半球)"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 2,
+                    "source_text": "(北半球)"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-012.png",
+                    "width": 336,
+                    "height": 283,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图12",
+                    "disclosure": true,
+                    "source_image_sha256": "58d1f91d243207158da51e424477916c3cc9fc660edd9e29338a62d7ef593efb"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-013.png",
+                    "width": 336,
+                    "height": 283,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图13",
+                    "disclosure": true,
+                    "source_image_sha256": "daa7796927a9ff61f87955594d78f03435f9dfd7a69d11e5274f7a0f8e6435d1"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 4,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 3,
+                    "source_text": "风"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "向"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 3,
+                    "source_text": "向"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "北"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 3,
+                    "source_text": "北"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "半"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 3,
+                    "source_text": "半"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "球"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 3,
+                    "source_text": "球"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-014.png",
+                    "width": 243,
+                    "height": 200,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图14",
+                    "disclosure": true,
+                    "source_image_sha256": "eb1a5f6abf71ffe9654ca00f091995366e887b36645721da45a320162d5dafaf"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0054",
+                        "answer": "逆时针",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "流向"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0055",
+                        "answer": "中心",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 3,
+                    "source_text": "逆时针流向中心"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-015.png",
+                    "width": 227,
+                    "height": 200,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图15",
+                    "disclosure": true,
+                    "source_image_sha256": "0b1edf0cc906a4611ca81163091358804e27a2ef5703c06073c821a7f48af94b"
+                  }
+                ]
+              },
+              {
+                "column": 6,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0056",
+                        "answer": "顺时针",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "流向"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0057",
+                        "answer": "四周",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 3,
+                    "source_text": "顺时针流向四周"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "东部：偏南风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 4,
+                    "source_text": "东部：偏南风"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "西部：偏北风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 4,
+                    "source_text": "西部：偏北风"
+                  }
+                ]
+              },
+              {
+                "column": 6,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "东部：偏北风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 4,
+                    "source_text": "东部：偏北风"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "西部：偏南风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 4,
+                    "source_text": "西部：偏南风"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "南"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 5,
+                    "source_text": "南"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "半"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 5,
+                    "source_text": "半"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "球"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 5,
+                    "source_text": "球"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-016.png",
+                    "width": 210,
+                    "height": 200,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图16",
+                    "disclosure": true,
+                    "source_image_sha256": "2afa025d4025818a090aba397e128808e07e7af339b851bae52c1743930387ba"
+                  }
+                ]
+              },
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0058",
+                        "answer": "顺时针",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "流向"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0059",
+                        "answer": "中心",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 5,
+                    "source_text": "顺时针流向中心"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-017.png",
+                    "width": 218,
+                    "height": 200,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图17",
+                    "disclosure": true,
+                    "source_image_sha256": "526866b9e274b4430b0a2347fec88daeae7fe2f2f404d3a960b5df38006fcea3"
+                  }
+                ]
+              },
+              {
+                "column": 6,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0060",
+                        "answer": "逆时针",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "流向"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0061",
+                        "answer": "四周",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 5,
+                    "source_text": "逆时针流向四周"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 4,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "东部：偏北风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 6,
+                    "source_text": "东部：偏北风"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "西部：偏南风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 6,
+                    "source_text": "西部：偏南风"
+                  }
+                ]
+              },
+              {
+                "column": 6,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "东部：偏南风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 6,
+                    "source_text": "东部：偏南风"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "西部：偏北风"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 6,
+                    "source_text": "西部：偏北风"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "垂直气流与天气"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 7,
+                    "source_text": "垂直气流与天气"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气流"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 7,
+                    "source_text": "气流"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "形成"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 7,
+                    "source_text": "形成"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-018.png",
+                    "width": 353,
+                    "height": 273,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图18",
+                    "disclosure": true,
+                    "source_image_sha256": "7810556ef6a0a97357a748fb628c5fe081de31cd3c6cbf5b5fa693733862fd26"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-019.png",
+                    "width": 353,
+                    "height": 264,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图19",
+                    "disclosure": true,
+                    "source_image_sha256": "dfbe54979ec3826794626764ed4d23dca22faca1b3c824b29b433392fd3ac641"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "天气状况"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 8,
+                    "source_text": "天气状况"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "多"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0062",
+                        "answer": "阴雨",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "天气"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 8,
+                    "source_text": "多阴雨天气"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "多"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0063",
+                        "answer": "晴朗",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "天气"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 8,
+                    "source_text": "多晴朗天气"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 3,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "过境前后气压变化曲线"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 9,
+                    "source_text": "过境前后气压变化曲线"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-020.png",
+                    "width": 515,
+                    "height": 409,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图20",
+                    "disclosure": true,
+                    "source_image_sha256": "5d31c7f508de97ddfa10eb29fceea9ee5f596046f15583409a6896c28787ead1"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 37,
+                    "image": "assets/recall/pocket-06/image-021.png",
+                    "width": 508,
+                    "height": 420,
+                    "masks": [],
+                    "caption": "知识点二 常见气压系统 · 原图21",
+                    "disclosure": true,
+                    "source_image_sha256": "f947bb88f102ce4d691a648af2ff1b20cd539171c43d48cd15ae2a05145b6d39"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 3,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "我国天气典型实例"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 10,
+                    "source_text": "我国天气典型实例"
+                  }
+                ]
+              },
+              {
+                "column": 3,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "夏秋之交我国东南沿海的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0064",
+                        "answer": "台风",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 10,
+                    "source_text": "夏秋之交我国东南沿海的台风"
+                  }
+                ]
+              },
+              {
+                "column": 5,
+                "colspan": 2,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "夏季：长江流域的"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0065",
+                        "answer": "伏旱",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "天气"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 10,
+                    "source_text": "夏季：长江流域的伏旱天气"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "秋季：我国北方秋高气爽的天气"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 10,
+                    "source_text": "秋季：我国北方秋高气爽的天气"
+                  },
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "冬季：我国北方干冷的天气"
+                      }
+                    ],
+                    "source_block": 37,
+                    "source_row": 10,
+                    "source_text": "冬季：我国北方干冷的天气"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": "近地面风向及上升下沉对应是典型系统模型；低压不必然降水，高压也不必然完全无云。"
+        }
+      ]
+    },
+    {
+      "id": "pocket06-03",
+      "group": "知识清单",
+      "title": "知识点三 锋面气旋",
+      "note": "",
+      "source_blocks": [
+        39,
+        51
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、高压脊与低压槽："
+            }
+          ],
+          "source_block": 40,
+          "source_row": null,
+          "source_text": "1、高压脊与低压槽："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）高压脊：从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0066",
+              "answer": "高气压",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "延伸出来的狭长区域，像地形上的山脊，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0067",
+              "answer": "凸低为高",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。高压或高压脊控制之下，多"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0068",
+              "answer": "晴朗",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "天气。"
+            }
+          ],
+          "source_block": 41,
+          "source_row": null,
+          "source_text": "1）高压脊：从高气压延伸出来的狭长区域，像地形上的山脊，凸低为高。高压或高压脊控制之下，多晴朗天气。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）低压槽：从"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0069",
+              "answer": "低气压",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "延伸出来的狭长区域，像地形上的山谷，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0070",
+              "answer": "凸高为低",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。低压或低压槽控制之下，多"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0071",
+              "answer": "阴雨",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "天气。"
+            }
+          ],
+          "source_block": 42,
+          "source_row": null,
+          "source_text": "2）低压槽：从低气压延伸出来的狭长区域，像地形上的山谷，凸高为低。低压或低压槽控制之下，多阴雨天气。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、锋面气旋：中纬度的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0072",
+              "answer": "低压气旋中",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0073",
+              "answer": "低压槽",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，常"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0074",
+              "answer": "形成锋面",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 43,
+          "source_row": null,
+          "source_text": "2、锋面气旋：中纬度的低压气旋中的低压槽，常形成锋面。"
+        },
+        {
+          "type": "figure",
+          "source_block": 44,
+          "image": "assets/recall/pocket-06/image-022.png",
+          "width": 578,
+          "height": 252,
+          "masks": [],
+          "caption": "知识点三 锋面气旋 · 原图22",
+          "disclosure": true,
+          "source_image_sha256": "3bf9753bb283d1086ee495eae3fba55b246a9a16ee805315efdf7756cb3be44a"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、锋面气旋的一些实用规律："
+            }
+          ],
+          "source_block": 45,
+          "source_row": null,
+          "source_text": "3、锋面气旋的一些实用规律："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）在常见温带锋面气旋的简化示意图中，锋面通常与"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0075",
+              "answer": "低压槽",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "配合，锋线与槽线位置接近；判读实际图时仍应依据温度梯度、风场和"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0076",
+              "answer": "锋面符号",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 46,
+          "source_row": null,
+          "source_text": "1）锋面只能出现在低压槽位置，而不能出现在高压脊位置，锋线和低压槽槽线重合；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）气旋的水平环流方向为北半球"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0077",
+              "answer": "逆时针",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、南半球"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0078",
+              "answer": "顺时针",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "；这描述气流绕中心旋转，不等于气旋系统整体移动的方向。"
+            }
+          ],
+          "source_block": 47,
+          "source_row": null,
+          "source_text": "2）锋面气旋的运动方向和气旋运动规律一致：北逆南顺；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）在北上南下的典型波状气旋示意图中，"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0079",
+              "answer": "冷锋",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "常位于西侧、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0080",
+              "answer": "暖锋",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "常位于东侧；图形旋转或投影改变时不能只背“左冷右暖”，应结合气团相对运动与符号判断。"
+            }
+          ],
+          "source_block": 48,
+          "source_row": null,
+          "source_text": "3）不论南半球还是北半球，左侧的锋面都是冷锋，右侧都是暖锋（左冷右暖/东暖西冷）；"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）锋面气旋有三个降水区:冷锋"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0081",
+              "answer": "锋后",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；暖锋"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0082",
+              "answer": "锋前",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "；"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0083",
+              "answer": "低压中心",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "(上升气流形成降水)；"
+            }
+          ],
+          "source_block": 49,
+          "source_row": null,
+          "source_text": "4）锋面气旋有三个降水区:冷锋锋后；暖锋锋前；低压中心(上升气流形成降水)；"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5）判断风力应结合"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0084",
+              "answer": "水平气压梯度",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "、摩擦等条件；在比例尺、等压差等相同的图中，等压线越密通常风越大。不能只凭是否接近锋线判定风力，也不应说锋面与局地风力完全无关。"
+            }
+          ],
+          "source_block": 50,
+          "source_row": null,
+          "source_text": "5）锋面气旋中的风力大小与是否在锋线附近无关,主要取决于水平气压梯度力的大小,即：等压线越密集,水平气压梯度力越大,风力越大。"
+        }
+      ]
+    },
+    {
+      "id": "pocket06-04",
+      "group": "知识清单",
+      "title": "知识点四 气象灾害",
+      "note": "",
+      "source_blocks": [
+        52,
+        83
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "台风"
+            }
+          ],
+          "source_block": 53,
+          "source_row": null,
+          "source_text": "台风"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）分布："
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0085",
+              "answer": "西北太平洋",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "是世界上台风发生"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0086",
+              "answer": "频率最",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "高的海域。我国的台风灾害主要分布在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0087",
+              "answer": "东南沿海",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地区，多发于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0088",
+              "answer": "夏秋季节",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 54,
+          "source_row": null,
+          "source_text": "1）分布：西北太平洋是世界上台风发生频率最高的海域。我国的台风灾害主要分布在东南沿海地区，多发于夏秋季节。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）危害：台风天气常伴随着狂风、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0089",
+              "answer": "暴雨",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0090",
+              "answer": "风暴潮",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "等，并带来严重的自然灾害。"
+            }
+          ],
+          "source_block": 55,
+          "source_row": null,
+          "source_text": "2）危害：台风天气常伴随着狂风、暴雨、风暴潮等，并带来严重的自然灾害。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "暴雨、洪涝"
+            }
+          ],
+          "source_block": 56,
+          "source_row": null,
+          "source_text": "暴雨、洪涝"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "形成"
+            }
+          ],
+          "source_block": 57,
+          "source_row": null,
+          "source_text": "形成"
+        },
+        {
+          "type": "figure",
+          "source_block": 58,
+          "image": "assets/recall/pocket-06/image-023.png",
+          "width": 1221,
+          "height": 229,
+          "masks": [],
+          "caption": "知识点四 气象灾害 · 原图23",
+          "disclosure": true,
+          "source_image_sha256": "3ed9d643aecb862f9f42c6c8d94fae1ffbda031abad6539e8a584f24dfa13a56"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）多发区分布的影响因素"
+            }
+          ],
+          "source_block": 59,
+          "source_row": null,
+          "source_text": "2）多发区分布的影响因素"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①气候因素：多发于季风气候区、亚热带湿润气候区、温带海洋性气候区等。"
+            }
+          ],
+          "source_block": 60,
+          "source_row": null,
+          "source_text": "①气候因素：多发于季风气候区、亚热带湿润气候区、温带海洋性气候区等。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②地形因素："
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0091",
+              "answer": "沿河、沿海",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地势"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0092",
+              "answer": "低洼",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地区。"
+            }
+          ],
+          "source_block": 61,
+          "source_row": null,
+          "source_text": "②地形因素：沿河、沿海地势低洼地区。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③危害"
+            }
+          ],
+          "source_block": 62,
+          "source_row": null,
+          "source_text": "③危害"
+        },
+        {
+          "type": "figure",
+          "source_block": 63,
+          "image": "assets/recall/pocket-06/image-024.png",
+          "width": 1867,
+          "height": 1074,
+          "masks": [],
+          "caption": "知识点四 气象灾害 · 原图24",
+          "disclosure": true,
+          "source_image_sha256": "a49ff2b040ab15fe7fc7b1912187d841a341dc4911f4289c3f984ce8743d5e37"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "干旱"
+            }
+          ],
+          "source_block": 66,
+          "source_row": null,
+          "source_text": "干旱"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）形成"
+            }
+          ],
+          "source_block": 67,
+          "source_row": null,
+          "source_text": "1）形成"
+        },
+        {
+          "type": "figure",
+          "source_block": 68,
+          "image": "assets/recall/pocket-06/image-025.png",
+          "width": 1318,
+          "height": 244,
+          "masks": [],
+          "caption": "知识点四 气象灾害 · 原图25",
+          "disclosure": true,
+          "source_image_sha256": "3d4945006e970ef76f3afebbd1a8b9433aadf6fe599ab38c806a6818ef07b39d"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）分布"
+            }
+          ],
+          "source_block": 69,
+          "source_row": null,
+          "source_text": "2）分布"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在世界的分布：非洲、亚洲和大洋洲等地都有频繁或严重旱灾的区域；灾害严重程度随时期、暴露人口和评价指标而变，不能固定把某一大洲排为最严重。"
+            }
+          ],
+          "source_block": 70,
+          "source_row": null,
+          "source_text": "在世界的分布：非洲、亚洲和大洋洲的内陆地区是世界上旱灾频繁发生的地区，其中非洲的旱灾最严重。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在我国的分布：我国"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0093",
+              "answer": "东部季风区",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "的华北、华南、西南和江淮是"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0094",
+              "answer": "旱灾多发区",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，具体发生频率和影响程度须结合统计时段、地区与农业条件判断。"
+            }
+          ],
+          "source_block": 71,
+          "source_row": null,
+          "source_text": "在我国的分布：我国东部季风区的华北、华南、西南和江淮是旱灾多发区，其中华北地区的旱灾发生最频繁、影响最严重。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）危害"
+            }
+          ],
+          "source_block": 72,
+          "source_row": null,
+          "source_text": "3）危害"
+        },
+        {
+          "type": "table",
+          "source_block": 73,
+          "columns": 2,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响种植业"
+                      }
+                    ],
+                    "source_block": 73,
+                    "source_row": 0,
+                    "source_text": "影响种植业"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "造成农作物大量"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0095",
+                        "answer": "减产",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，乃至颗粒无收"
+                      }
+                    ],
+                    "source_block": 73,
+                    "source_row": 0,
+                    "source_text": "造成农作物大量减产，乃至颗粒无收"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响畜牧业"
+                      }
+                    ],
+                    "source_block": 73,
+                    "source_row": 1,
+                    "source_text": "影响畜牧业"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "影响牧草生长、加剧"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0096",
+                        "answer": "草场退化",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "和"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0097",
+                        "answer": "沙漠化",
+                        "origin": "source-marking"
+                      }
+                    ],
+                    "source_block": 73,
+                    "source_row": 1,
+                    "source_text": "影响牧草生长、加剧草场退化和沙漠化"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "引发水资源短缺"
+                      }
+                    ],
+                    "source_block": 73,
+                    "source_row": 2,
+                    "source_text": "引发水资源短缺"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "造成人畜"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0098",
+                        "answer": "饮水困难",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "，影响经济发展和社会稳定"
+                      }
+                    ],
+                    "source_block": 73,
+                    "source_row": 2,
+                    "source_text": "造成人畜饮水困难，影响经济发展和社会稳定"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "诱发其他灾害"
+                      }
+                    ],
+                    "source_block": 73,
+                    "source_row": 3,
+                    "source_text": "诱发其他灾害"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "极易引发"
+                      },
+                      {
+                        "type": "blank",
+                        "id": "pocket06-blank-0099",
+                        "answer": "沙尘暴",
+                        "origin": "source-marking"
+                      },
+                      {
+                        "type": "text",
+                        "text": "、火灾、虫灾等灾害"
+                      }
+                    ],
+                    "source_block": 73,
+                    "source_row": 3,
+                    "source_text": "极易引发沙尘暴、火灾、虫灾等灾害"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "寒潮"
+            }
+          ],
+          "source_block": 74,
+          "source_row": null,
+          "source_text": "寒潮"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）分布"
+            }
+          ],
+          "source_block": 75,
+          "source_row": null,
+          "source_text": "1）分布"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①时间分布：寒潮主要发生于深秋到初春；初春、秋末作物等对降温敏感时，灾害影响可能较突出，不能把它与寒潮强度的季节极值直接等同。"
+            }
+          ],
+          "source_block": 76,
+          "source_row": null,
+          "source_text": "①时间分布：深秋到初春时节，初春、秋末最严重。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②空间分布："
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0100",
+              "answer": "北半球中高纬度",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "地区，势力强大的寒潮可影响到低纬度地区。"
+            }
+          ],
+          "source_block": 77,
+          "source_row": null,
+          "source_text": "②空间分布：北半球中高纬度地区，势力强大的寒潮可影响到低纬度地区。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "③影响我国的寒潮主要发源于"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0101",
+              "answer": "蒙古",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0102",
+              "answer": "西伯利亚地区。",
+              "origin": "source-marking"
+            }
+          ],
+          "source_block": 78,
+          "source_row": null,
+          "source_text": "③影响我国的寒潮主要发源于蒙古、西伯利亚地区。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）危害"
+            }
+          ],
+          "source_block": 79,
+          "source_row": null,
+          "source_text": "2）危害"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①寒潮带来的剧烈降温往往使农作物遭受"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0103",
+              "answer": "冻害",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "，造成农业损失。"
+            }
+          ],
+          "source_block": 80,
+          "source_row": null,
+          "source_text": "①寒潮带来的剧烈降温往往使农作物遭受冻害，造成农业损失。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②寒潮伴随的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0104",
+              "answer": "大风",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0105",
+              "answer": "大雪",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0106",
+              "answer": "冻雨",
+              "origin": "source-marking"
+            },
+            {
+              "type": "text",
+              "text": "会造成畜牧业损失，阻断交通，破坏通信设施和输电线路等。"
+            }
+          ],
+          "source_block": 81,
+          "source_row": null,
+          "source_text": "②寒潮伴随的大风、大雪、冻雨会造成畜牧业损失，阻断交通，破坏通信设施和输电线路等。"
+        }
+      ]
+    },
+    {
+      "id": "pocket06-05",
+      "group": "易错易混",
+      "title": "易错易混01 冷锋与暖锋的判断",
+      "note": "",
+      "source_blocks": [
+        84,
+        99
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、看符号"
+            }
+          ],
+          "source_block": 85,
+          "source_row": null,
+          "source_text": "1、看符号"
+        },
+        {
+          "type": "figure",
+          "source_block": 86,
+          "image": "assets/recall/pocket-06/image-027.png",
+          "width": 1833,
+          "height": 638,
+          "masks": [],
+          "caption": "易错易混01 冷锋与暖锋的判断 · 原图27",
+          "disclosure": true,
+          "source_image_sha256": "82052cb596d3b639bcdfcb151c0c8a60255b84d8aee610f3baaa47597531c275"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、看冷气团运动方向"
+            }
+          ],
+          "source_block": 87,
+          "source_row": null,
+          "source_text": "2、看冷气团运动方向"
+        },
+        {
+          "type": "figure",
+          "source_block": 88,
+          "image": "assets/recall/pocket-06/image-028.png",
+          "width": 739,
+          "height": 223,
+          "masks": [],
+          "caption": "易错易混01 冷锋与暖锋的判断 · 原图28",
+          "disclosure": true,
+          "source_image_sha256": "8cd67514be592b77a5f0e4ab12def176e80a05e50d60e83093d4b546233f6f52"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "若冷气团的运动只有向暖气团一个方向，说明冷气团势力强，应为冷锋；若冷气团遇到暖气团时有回转运动，则说明暖气团势力强，为暖锋。"
+            }
+          ],
+          "source_block": 89,
+          "source_row": null,
+          "source_text": "若冷气团的运动只有向暖气团一个方向，说明冷气团势力强，应为冷锋；若冷气团遇到暖气团时有回转运动，则说明暖气团势力强，为暖锋。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、看锋面坡度"
+            }
+          ],
+          "source_block": 90,
+          "source_row": null,
+          "source_text": "3、看锋面坡度"
+        },
+        {
+          "type": "figure",
+          "source_block": 91,
+          "image": "assets/recall/pocket-06/image-029.png",
+          "width": 1491,
+          "height": 439,
+          "masks": [],
+          "caption": "易错易混01 冷锋与暖锋的判断 · 原图29",
+          "disclosure": true,
+          "source_image_sha256": "71837f3755ebb5da2e8ecb87d5e5fb00ecc0719525484be7dd80dc1475ec206c"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "冷气团运动速度快，冷气团势力强大时，形成的冷锋锋面坡度较大；而暖气团运动速度慢，暖气团势力强大时，形成的暖锋锋面坡度较小。"
+            }
+          ],
+          "source_block": 92,
+          "source_row": null,
+          "source_text": "冷气团运动速度快，冷气团势力强大时，形成的冷锋锋面坡度较大；而暖气团运动速度慢，暖气团势力强大时，形成的暖锋锋面坡度较小。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、看雨区范围及位置"
+            }
+          ],
+          "source_block": 93,
+          "source_row": null,
+          "source_text": "4、看雨区范围及位置"
+        },
+        {
+          "type": "figure",
+          "source_block": 94,
+          "image": "assets/recall/pocket-06/image-030.png",
+          "width": 1834,
+          "height": 892,
+          "masks": [],
+          "caption": "易错易混01 冷锋与暖锋的判断 · 原图30",
+          "disclosure": true,
+          "source_image_sha256": "365548a05e131e82b695770c75709e61f4123111dd6009fd6c62c790255def66"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "不论是冷锋还是暖锋，降水都主要在冷气团控制范围内。“锋前”“锋后”是根据"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0107",
+              "answer": "锋面移动方向",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，即主动前进气团的移动方向确定的：以锋线为界，在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0108",
+              "answer": "锋面移动方向",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "上，锋线前方为锋前，锋线后方为锋后。"
+            }
+          ],
+          "source_block": 95,
+          "source_row": null,
+          "source_text": "不论是冷锋还是暖锋，降水都主要在冷气团控制范围内。“锋前”“锋后”是根据锋面移动方向，即主动前进气团的移动方向确定的：以锋线为界，在锋面移动方向上，锋线前方为锋前，锋线后方为锋后。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5、看过境前及过境后的天气变化（看过境前后的气温、气压变化）"
+            }
+          ],
+          "source_block": 96,
+          "source_row": null,
+          "source_text": "5、看过境前及过境后的天气变化（看过境前后的气温、气压变化）"
+        },
+        {
+          "type": "table",
+          "source_block": 97,
+          "columns": 3,
+          "rows": [
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 97,
+                    "image": "assets/recall/pocket-06/image-031.png",
+                    "width": 254,
+                    "height": 231,
+                    "masks": [],
+                    "caption": "易错易混01 冷锋与暖锋的判断 · 原图31",
+                    "disclosure": true,
+                    "source_image_sha256": "4f72845a383a201b7c4ca8fbf93b20b6736d9dfba91109d007f583e2d4bba782"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "过境前"
+                      }
+                    ],
+                    "source_block": 97,
+                    "source_row": 0,
+                    "source_text": "过境前"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气温高，气压低"
+                      }
+                    ],
+                    "source_block": 97,
+                    "source_row": 0,
+                    "source_text": "气温高，气压低"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "过境后"
+                      }
+                    ],
+                    "source_block": 97,
+                    "source_row": 1,
+                    "source_text": "过境后"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气温降低，气压升高"
+                      }
+                    ],
+                    "source_block": 97,
+                    "source_row": 1,
+                    "source_text": "气温降低，气压升高"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 0,
+                "colspan": 1,
+                "rowspan": 2,
+                "blocks": [
+                  {
+                    "type": "figure",
+                    "source_block": 97,
+                    "image": "assets/recall/pocket-06/image-032.png",
+                    "width": 236,
+                    "height": 207,
+                    "masks": [],
+                    "caption": "易错易混01 冷锋与暖锋的判断 · 原图32",
+                    "disclosure": true,
+                    "source_image_sha256": "a68bb4af01cc61e63a5615fb0481c85f76d8e2bc3e32e067cea0546a9f8e17ef"
+                  }
+                ]
+              },
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "过境前"
+                      }
+                    ],
+                    "source_block": 97,
+                    "source_row": 2,
+                    "source_text": "过境前"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气温低，气压高"
+                      }
+                    ],
+                    "source_block": 97,
+                    "source_row": 2,
+                    "source_text": "气温低，气压高"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "column": 1,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "过境后"
+                      }
+                    ],
+                    "source_block": 97,
+                    "source_row": 3,
+                    "source_text": "过境后"
+                  }
+                ]
+              },
+              {
+                "column": 2,
+                "colspan": 1,
+                "rowspan": 1,
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "tokens": [
+                      {
+                        "type": "text",
+                        "text": "气温升高，气压降低"
+                      }
+                    ],
+                    "source_block": 97,
+                    "source_row": 3,
+                    "source_text": "气温升高，气压降低"
+                  }
+                ]
+              }
+            ]
+          ],
+          "header_rows": 1,
+          "note": ""
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "6、根据对我国天气的影响差异判断"
+            }
+          ],
+          "source_block": 98,
+          "source_row": null,
+          "source_text": "6、根据对我国天气的影响差异判断"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "冷锋是影响我国的重要天气系统，可引发降温、大风及部分暴雨、沙尘天气；实际暴雨还需"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0109",
+              "answer": "水汽和抬升条件",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，沙尘还需"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0110",
+              "answer": "沙源和起沙条件",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，不能把全部事件都归结为冷锋。"
+            }
+          ],
+          "source_block": 99,
+          "source_row": null,
+          "source_text": "冷锋对我国天气的影响较大，我国北方夏季的暴雨、冬季的寒潮、冬春季节的沙尘暴，都主要是冷锋过境造成的；而暖锋对我国的影响比较小。"
+        }
+      ]
+    },
+    {
+      "id": "pocket06-06",
+      "group": "易错易混",
+      "title": "易错易混02 气旋与反气旋的风向",
+      "note": "用左右手定则前先确认半球、气旋或反气旋，以及手指表示的是风的来向还是去向。",
+      "source_blocks": [
+        100,
+        110
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "气旋、反气旋东、西、南、北四侧的"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0111",
+              "answer": "风向",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "判断方法，分析如下。"
+            }
+          ],
+          "source_block": 101,
+          "source_row": null,
+          "source_text": "气旋、反气旋东、西、南、北四侧的风向判断方法，分析如下。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、用水平气压梯度力和地转偏向力判断："
+            }
+          ],
+          "source_block": 102,
+          "source_row": null,
+          "source_text": "1、用水平气压梯度力和地转偏向力判断："
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "如图所示为北半球一气旋，先画出水平气压梯度力，再向右偏转一定角度（近地面偏角依摩擦等条件而变），即为风向。东侧为东南风，西侧为西北风，南侧为西南风，北侧为东北风。"
+            }
+          ],
+          "source_block": 103,
+          "source_row": null,
+          "source_text": "如图所示为北半球一气旋，先画出水平气压梯度力，再向右偏转30°～45°，即为风向。东侧为东南风，西侧为西北风，南侧为西南风，北侧为东北风。"
+        },
+        {
+          "type": "figure",
+          "source_block": 104,
+          "image": "assets/recall/pocket-06/image-033.png",
+          "width": 217,
+          "height": 248,
+          "masks": [],
+          "caption": "易错易混02 气旋与反气旋的风向 · 原图33",
+          "disclosure": true,
+          "source_image_sha256": "8902f284afdf9471b4398f1ef80521529c657b8d1dbe27401fd9c4393ea2aae7"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、气流规律记忆方法（南北半球分别用左右手定则）"
+            }
+          ],
+          "source_block": 105,
+          "source_row": null,
+          "source_text": "2、气流规律记忆方法（南北半球分别用左右手定则）"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）北半球的气旋、反气旋用右手"
+            }
+          ],
+          "source_block": 106,
+          "source_row": null,
+          "source_text": "1）北半球的气旋、反气旋用右手"
+        },
+        {
+          "type": "figure",
+          "source_block": 107,
+          "image": "assets/recall/pocket-06/image-034.png",
+          "width": 1961,
+          "height": 678,
+          "masks": [],
+          "caption": "易错易混02 气旋与反气旋的风向 · 原图34",
+          "disclosure": true,
+          "source_image_sha256": "14c89c2a1305a36e4a9ce008ed5307e17cc08acb449c6cd41ddbac45c6ad4eba"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）南半球的气旋、反气旋用左手"
+            }
+          ],
+          "source_block": 108,
+          "source_row": null,
+          "source_text": "2）南半球的气旋、反气旋用左手"
+        },
+        {
+          "type": "figure",
+          "source_block": 109,
+          "image": "assets/recall/pocket-06/image-035.png",
+          "width": 1961,
+          "height": 682,
+          "masks": [],
+          "caption": "易错易混02 气旋与反气旋的风向 · 原图35",
+          "disclosure": true,
+          "source_image_sha256": "76ad37dd47c55e0c78b30ba1408a3851107fa5a738a5908de2f0e3f9f43d5298"
+        }
+      ]
+    },
+    {
+      "id": "pocket06-07",
+      "group": "知能拓展",
+      "title": "考点01 等压线图的判读及应用",
+      "note": "近地面风向夹角受摩擦、纬度、稳定度等影响；高空平行等压线采用近似平直稳定、忽略摩擦的模型。风的冷暖干湿还取决于源地、经过海陆与地形。",
+      "source_blocks": [
+        111,
+        129
+      ],
+      "blocks": [
+        {
+          "type": "figure",
+          "source_block": 112,
+          "image": "assets/recall/pocket-06/image-037.png",
+          "width": 884,
+          "height": 492,
+          "masks": [],
+          "caption": "考点01 等压线图的判读及应用 · 原图37",
+          "disclosure": true,
+          "source_image_sha256": "a1f76d1461dc41438139137c1b541ff9e27a21a048ba9b9179bed3d26081b0b4"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、判断风向"
+            }
+          ],
+          "source_block": 113,
+          "source_row": null,
+          "source_text": "1、判断风向"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "第一步：在等压线图中，按要求画出过该点的切线并作"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0112",
+              "answer": "垂直于切线",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "的虚线箭头("
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0113",
+              "answer": "由高压指向低压",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "，但并非一定指向低压中心)，表示水平气压梯度力的方向。"
+            }
+          ],
+          "source_block": 114,
+          "source_row": null,
+          "source_text": "第一步：在等压线图中，按要求画出过该点的切线并作垂直于切线的虚线箭头(由高压指向低压，但并非一定指向低压中心)，表示水平气压梯度力的方向。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "第二步：确定南、北半球后，面向水平气压梯度力的方向向右(北半球)或向左(南半球)偏转适当角度(近地面风向可依此角度偏转，若为高空，则偏转90°)，画出实线箭头，即为经过该点的风向。如下图所示(以北半球近地面气压场为例)："
+            }
+          ],
+          "source_block": 115,
+          "source_row": null,
+          "source_text": "第二步：确定南、北半球后，面向水平气压梯度力的方向向右(北半球)或向左(南半球)偏转30°～45°角(近地面风向可依此角度偏转，若为高空，则偏转90°)，画出实线箭头，即为经过该点的风向。如下图所示(以北半球近地面气压场为例)："
+        },
+        {
+          "type": "figure",
+          "source_block": 116,
+          "image": "assets/recall/pocket-06/image-038.png",
+          "width": 797,
+          "height": 206,
+          "masks": [],
+          "caption": "考点01 等压线图的判读及应用 · 原图38",
+          "disclosure": true,
+          "source_image_sha256": "0fc359bab10977c0b9637d6c0b54a0809d56057d0cb5fba260b9c8d6c2d623b3"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、判断南、北半球"
+            }
+          ],
+          "source_block": 117,
+          "source_row": null,
+          "source_text": "2、判断南、北半球"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）风向在水平气压梯度力的右侧——北半球。 "
+            }
+          ],
+          "source_block": 118,
+          "source_row": null,
+          "source_text": "1）风向在水平气压梯度力的右侧——北半球。 "
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）风向在水平气压梯度力的左侧——南半球。"
+            }
+          ],
+          "source_block": 119,
+          "source_row": null,
+          "source_text": "2）风向在水平气压梯度力的左侧——南半球。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、判断风力(风速)大小"
+            }
+          ],
+          "source_block": 120,
+          "source_row": null,
+          "source_text": "3、判断风力(风速)大小"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）等压线密集——气压梯度力大——风力大。  2）等压线稀疏——气压梯度力小——风力小。"
+            }
+          ],
+          "source_block": 121,
+          "source_row": null,
+          "source_text": "1）等压线密集——气压梯度力大——风力大。  2）等压线稀疏——气压梯度力小——风力小。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4、判断季节"
+            }
+          ],
+          "source_block": 122,
+          "source_row": null,
+          "source_text": "4、判断季节"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）夏季(北半球7月、南半球1月)：大陆内部一般为低压。"
+            }
+          ],
+          "source_block": 123,
+          "source_row": null,
+          "source_text": "1）夏季(北半球7月、南半球1月)：大陆内部一般为低压。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）冬季(北半球1月、南半球7月)：大陆内部一般为高压。"
+            }
+          ],
+          "source_block": 124,
+          "source_row": null,
+          "source_text": "2）冬季(北半球1月、南半球7月)：大陆内部一般为高压。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "5、判断天气状况"
+            }
+          ],
+          "source_block": 125,
+          "source_row": null,
+          "source_text": "5、判断天气状况"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）由高纬吹向低纬的风——寒冷干燥。"
+            }
+          ],
+          "source_block": 126,
+          "source_row": null,
+          "source_text": "1）由高纬吹向低纬的风——寒冷干燥。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）由低纬吹向高纬的风——温暖湿润。"
+            }
+          ],
+          "source_block": 127,
+          "source_row": null,
+          "source_text": "2）由低纬吹向高纬的风——温暖湿润。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）低气压过境时，多阴雨天气；高气压过境时，多晴朗天气。"
+            }
+          ],
+          "source_block": 128,
+          "source_row": null,
+          "source_text": "3）低气压过境时，多阴雨天气；高气压过境时，多晴朗天气。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "4）低压中心和低压槽控制区多阴雨天气；高压中心和高压脊控制区多晴朗天气。"
+            }
+          ],
+          "source_block": 129,
+          "source_row": null,
+          "source_text": "4）低压中心和低压槽控制区多阴雨天气；高压中心和高压脊控制区多晴朗天气。"
+        }
+      ]
+    },
+    {
+      "id": "pocket06-08",
+      "group": "知能拓展",
+      "title": "考点02 锋面气旋的判读",
+      "note": "本单元为典型锋面气旋示意图判读；锋面类型以气团相对推进和符号为准，不能只按纸面左右位置判断。",
+      "source_blocks": [
+        130,
+        141
+      ],
+      "blocks": [
+        {
+          "type": "figure",
+          "source_block": 131,
+          "image": "assets/recall/pocket-06/image-039.png",
+          "width": 1614,
+          "height": 622,
+          "masks": [],
+          "caption": "考点02 锋面气旋的判读 · 原图39",
+          "disclosure": true,
+          "source_image_sha256": "29feef5f524e725c87f10b188977a8af9ff7ceb4d3de82b69053bd7e93ff4167"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1、位置：在典型温带锋面气旋图中，锋面通常与低压槽配合；判图先确认整体结构和图例，不把此经验无限外推。"
+            }
+          ],
+          "source_block": 132,
+          "source_row": null,
+          "source_text": "1、位置：锋面一定存在于低压槽上，不可能存在于高压脊上。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2、分布和雨带：锋面气旋的西侧为冷锋，东侧为暖锋，锋面降水区域主要分布在"
+            },
+            {
+              "type": "blank",
+              "id": "pocket06-blank-0114",
+              "answer": "冷气团一侧",
+              "origin": "reviewed-addition"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ],
+          "source_block": 133,
+          "source_row": null,
+          "source_text": "2、分布和雨带：锋面气旋的西侧为冷锋，东侧为暖锋，锋面降水区域主要分布在冷气团一侧。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3、示意图判读要领"
+            }
+          ],
+          "source_block": 134,
+          "source_row": null,
+          "source_text": "3、示意图判读要领"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "1）判断锋面的位置"
+            }
+          ],
+          "source_block": 135,
+          "source_row": null,
+          "source_text": "1）判断锋面的位置"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "在本类典型示意图中，锋面与低压槽配合，锋线往往与槽线位置接近，如图中的M、N线。"
+            }
+          ],
+          "source_block": 136,
+          "source_row": null,
+          "source_text": "锋面总是出现在低压槽中，锋线往往与槽线重合，如图中的M、N线。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "2）判断锋面的类型与移动"
+            }
+          ],
+          "source_block": 137,
+          "source_row": null,
+          "source_text": "2）判断锋面的类型与移动"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "①锋面类型：在锋面气旋中，应先确认北上南下的图向，再结合气团运动判别冷暖锋；本图M为冷锋、N为暖锋，但左右位置不能作为任意图形的唯一判断条件。"
+            }
+          ],
+          "source_block": 138,
+          "source_row": null,
+          "source_text": "①锋面类型：在锋面气旋中，位置偏左的一定是冷锋(如图中的M锋)，位置偏右的一定是暖锋(如图中的N锋)。"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "②锋面移动：锋面气旋中，可结合气旋环流和冷暖气团的相对运动辅助判断锋面移动，不能把整个气旋平移与环流旋转混同。北半球呈逆时针方向旋转，南半球呈顺时针方向旋转。"
+            }
+          ],
+          "source_block": 139,
+          "source_row": null,
+          "source_text": "②锋面移动：锋面气旋中，锋面移动方向与气旋的旋转方向一致。北半球呈逆时针方向旋转，南半球呈顺时针方向旋转。"
+        },
+        {
+          "type": "heading",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "3）判断锋面附近的风向与气流性质"
+            }
+          ],
+          "source_block": 140,
+          "source_row": null,
+          "source_text": "3）判断锋面附近的风向与气流性质"
+        },
+        {
+          "type": "paragraph",
+          "tokens": [
+            {
+              "type": "text",
+              "text": "根据北半球风向的画法，可确定锋面附近的风向，如图中①处为偏北风，②处为偏南风，③处为偏南风。偏北风一般形成冷气团，偏南风一般形成暖气团。"
+            }
+          ],
+          "source_block": 141,
+          "source_row": null,
+          "source_text": "根据北半球风向的画法，可确定锋面附近的风向，如图中①处为偏北风，②处为偏南风，③处为偏南风。偏北风一般形成冷气团，偏南风一般形成暖气团。"
+        }
+      ]
+    }
+  ],
+  "audit": {
+    "reviewed_on": "2026-11-02",
+    "blank_count": 114,
+    "images_sha256": {
+      "assets/recall/pocket-06/image-004.jpeg": "bcef7067f01d17ef7d99aad0e9ad25538573cfe98c40b08f5bbe87dc82e4c9f6",
+      "assets/recall/pocket-06/image-007.png": "d626ae277d4c31d7c8dfdf1636740a5f04222652f7c097925560e97a2f1e2018",
+      "assets/recall/pocket-06/image-008.png": "8a87c290b7ea5276eb1ecb40ffdff35139f957e6961eb60386798a0f847cfd69",
+      "assets/recall/pocket-06/image-009.png": "adf62b51caf21172eee6c16f6222c36ea923829a010f1409b4dcb746426a6be1",
+      "assets/recall/pocket-06/image-010.png": "88f5227063c5de4013897616f488ccfecd363669088e1ab465e8eb09b76fe06d",
+      "assets/recall/pocket-06/image-011.png": "915c5aedb3f2f99604c15c82891c2917bb9fe687263a968e11ffcfc10bc04203",
+      "assets/recall/pocket-06/image-012.png": "58d1f91d243207158da51e424477916c3cc9fc660edd9e29338a62d7ef593efb",
+      "assets/recall/pocket-06/image-013.png": "daa7796927a9ff61f87955594d78f03435f9dfd7a69d11e5274f7a0f8e6435d1",
+      "assets/recall/pocket-06/image-014.png": "eb1a5f6abf71ffe9654ca00f091995366e887b36645721da45a320162d5dafaf",
+      "assets/recall/pocket-06/image-015.png": "0b1edf0cc906a4611ca81163091358804e27a2ef5703c06073c821a7f48af94b",
+      "assets/recall/pocket-06/image-016.png": "2afa025d4025818a090aba397e128808e07e7af339b851bae52c1743930387ba",
+      "assets/recall/pocket-06/image-017.png": "526866b9e274b4430b0a2347fec88daeae7fe2f2f404d3a960b5df38006fcea3",
+      "assets/recall/pocket-06/image-018.png": "7810556ef6a0a97357a748fb628c5fe081de31cd3c6cbf5b5fa693733862fd26",
+      "assets/recall/pocket-06/image-019.png": "dfbe54979ec3826794626764ed4d23dca22faca1b3c824b29b433392fd3ac641",
+      "assets/recall/pocket-06/image-020.png": "5d31c7f508de97ddfa10eb29fceea9ee5f596046f15583409a6896c28787ead1",
+      "assets/recall/pocket-06/image-021.png": "f947bb88f102ce4d691a648af2ff1b20cd539171c43d48cd15ae2a05145b6d39",
+      "assets/recall/pocket-06/image-022.png": "3bf9753bb283d1086ee495eae3fba55b246a9a16ee805315efdf7756cb3be44a",
+      "assets/recall/pocket-06/image-023.png": "3ed9d643aecb862f9f42c6c8d94fae1ffbda031abad6539e8a584f24dfa13a56",
+      "assets/recall/pocket-06/image-024.png": "a49ff2b040ab15fe7fc7b1912187d841a341dc4911f4289c3f984ce8743d5e37",
+      "assets/recall/pocket-06/image-025.png": "3d4945006e970ef76f3afebbd1a8b9433aadf6fe599ab38c806a6818ef07b39d",
+      "assets/recall/pocket-06/image-027.png": "82052cb596d3b639bcdfcb151c0c8a60255b84d8aee610f3baaa47597531c275",
+      "assets/recall/pocket-06/image-028.png": "8cd67514be592b77a5f0e4ab12def176e80a05e50d60e83093d4b546233f6f52",
+      "assets/recall/pocket-06/image-029.png": "71837f3755ebb5da2e8ecb87d5e5fb00ecc0719525484be7dd80dc1475ec206c",
+      "assets/recall/pocket-06/image-030.png": "365548a05e131e82b695770c75709e61f4123111dd6009fd6c62c790255def66",
+      "assets/recall/pocket-06/image-031.png": "4f72845a383a201b7c4ca8fbf93b20b6736d9dfba91109d007f583e2d4bba782",
+      "assets/recall/pocket-06/image-032.png": "a68bb4af01cc61e63a5615fb0481c85f76d8e2bc3e32e067cea0546a9f8e17ef",
+      "assets/recall/pocket-06/image-033.png": "8902f284afdf9471b4398f1ef80521529c657b8d1dbe27401fd9c4393ea2aae7",
+      "assets/recall/pocket-06/image-034.png": "14c89c2a1305a36e4a9ce008ed5307e17cc08acb449c6cd41ddbac45c6ad4eba",
+      "assets/recall/pocket-06/image-035.png": "76ad37dd47c55e0c78b30ba1408a3851107fa5a738a5908de2f0e3f9f43d5298",
+      "assets/recall/pocket-06/image-037.png": "a1f76d1461dc41438139137c1b541ff9e27a21a048ba9b9179bed3d26081b0b4",
+      "assets/recall/pocket-06/image-038.png": "0fc359bab10977c0b9637d6c0b54a0809d56057d0cb5fba260b9c8d6c2d623b3",
+      "assets/recall/pocket-06/image-039.png": "29feef5f524e725c87f10b188977a8af9ff7ceb4d3de82b69053bd7e93ff4167"
+    },
+    "counters": {
+      "paragraphs": 211,
+      "source-marking": 99,
+      "tables": 4,
+      "reviewed-addition": 15
+    },
+    "corrections": [
+      {
+        "source_block": 32,
+        "source_row": 14,
+        "original": "气压升降低",
+        "revised": "气压降低",
+        "reason": "修正暖锋过境后气压变化文字错误。",
+        "references": []
+      },
+      {
+        "source_block": 46,
+        "source_row": null,
+        "original": "1）锋面只能出现在低压槽位置，而不能出现在高压脊位置，锋线和低压槽槽线重合；",
+        "revised": "1）在常见温带锋面气旋的简化示意图中，锋面通常与低压槽配合，锋线与槽线位置接近；判读实际图时仍应依据温度梯度、风场和锋面符号。",
+        "reason": "将绝对位置规则限定为常见模型。",
+        "references": [
+          "noaa-fronts"
+        ]
+      },
+      {
+        "source_block": 47,
+        "source_row": null,
+        "original": "2）锋面气旋的运动方向和气旋运动规律一致：北逆南顺；",
+        "revised": "2）气旋的水平环流方向为北半球逆时针、南半球顺时针；这描述气流绕中心旋转，不等于气旋系统整体移动的方向。",
+        "reason": "区分气旋环流旋转方向与系统平移方向。",
+        "references": []
+      },
+      {
+        "source_block": 48,
+        "source_row": null,
+        "original": "3）不论南半球还是北半球，左侧的锋面都是冷锋，右侧都是暖锋（左冷右暖/东暖西冷）；",
+        "revised": "3）在北上南下的典型波状气旋示意图中，冷锋常位于西侧、暖锋常位于东侧；图形旋转或投影改变时不能只背“左冷右暖”，应结合气团相对运动与符号判断。",
+        "reason": "补充地图方向与典型结构前提。",
+        "references": [
+          "noaa-fronts"
+        ]
+      },
+      {
+        "source_block": 50,
+        "source_row": null,
+        "original": "5）锋面气旋中的风力大小与是否在锋线附近无关,主要取决于水平气压梯度力的大小,即：等压线越密集,水平气压梯度力越大,风力越大。",
+        "revised": "5）判断风力应结合水平气压梯度、摩擦等条件；在比例尺、等压差等相同的图中，等压线越密通常风越大。不能只凭是否接近锋线判定风力，也不应说锋面与局地风力完全无关。",
+        "reason": "补充风力比较条件并去除完全无关的断言。",
+        "references": []
+      },
+      {
+        "source_block": 70,
+        "source_row": null,
+        "original": "在世界的分布：非洲、亚洲和大洋洲的内陆地区是世界上旱灾频繁发生的地区，其中非洲的旱灾最严重。",
+        "revised": "在世界的分布：非洲、亚洲和大洋洲等地都有频繁或严重旱灾的区域；灾害严重程度随时期、暴露人口和评价指标而变，不能固定把某一大洲排为最严重。",
+        "reason": "去除没有时段和指标支撑的灾害排序。",
+        "references": []
+      },
+      {
+        "source_block": 71,
+        "source_row": null,
+        "original": "其中华北地区的旱灾发生最频繁、影响最严重。",
+        "revised": "具体发生频率和影响程度须结合统计时段、地区与农业条件判断。",
+        "reason": "不将原资料的区域排序当作永久结论。",
+        "references": []
+      },
+      {
+        "source_block": 76,
+        "source_row": null,
+        "original": "①时间分布：深秋到初春时节，初春、秋末最严重。",
+        "revised": "①时间分布：寒潮主要发生于深秋到初春；初春、秋末作物等对降温敏感时，灾害影响可能较突出，不能把它与寒潮强度的季节极值直接等同。",
+        "reason": "区分寒潮天气强度与灾害影响。",
+        "references": []
+      },
+      {
+        "source_block": 99,
+        "source_row": null,
+        "original": "冷锋对我国天气的影响较大，我国北方夏季的暴雨、冬季的寒潮、冬春季节的沙尘暴，都主要是冷锋过境造成的；而暖锋对我国的影响比较小。",
+        "revised": "冷锋是影响我国的重要天气系统，可引发降温、大风及部分暴雨、沙尘天气；实际暴雨还需水汽和抬升条件，沙尘还需沙源和起沙条件，不能把全部事件都归结为冷锋。",
+        "reason": "补充灾害形成条件，避免单因素归因。",
+        "references": []
+      },
+      {
+        "source_block": 103,
+        "source_row": null,
+        "original": "再向右偏转30°～45°",
+        "revised": "再向右偏转一定角度（近地面偏角依摩擦等条件而变）",
+        "reason": "近地面风向偏角并非固定常数。",
+        "references": []
+      },
+      {
+        "source_block": 115,
+        "source_row": null,
+        "original": "偏转30°～45°角",
+        "revised": "偏转适当角度",
+        "reason": "近地面风向偏角应按条件判断。",
+        "references": []
+      },
+      {
+        "source_block": 132,
+        "source_row": null,
+        "original": "1、位置：锋面一定存在于低压槽上，不可能存在于高压脊上。",
+        "revised": "1、位置：在典型温带锋面气旋图中，锋面通常与低压槽配合；判图先确认整体结构和图例，不把此经验无限外推。",
+        "reason": "与锋面气旋模型条件保持一致。",
+        "references": []
+      },
+      {
+        "source_block": 136,
+        "source_row": null,
+        "original": "锋面总是出现在低压槽中，锋线往往与槽线重合",
+        "revised": "在本类典型示意图中，锋面与低压槽配合，锋线往往与槽线位置接近",
+        "reason": "限定示意图适用范围。",
+        "references": []
+      },
+      {
+        "source_block": 138,
+        "source_row": null,
+        "original": "位置偏左的一定是冷锋(如图中的M锋)，位置偏右的一定是暖锋(如图中的N锋)",
+        "revised": "应先确认北上南下的图向，再结合气团运动判别冷暖锋；本图M为冷锋、N为暖锋，但左右位置不能作为任意图形的唯一判断条件",
+        "reason": "不将左右方位口诀作为唯一判据。",
+        "references": []
+      },
+      {
+        "source_block": 139,
+        "source_row": null,
+        "original": "锋面移动方向与气旋的旋转方向一致",
+        "revised": "可结合气旋环流和冷暖气团的相对运动辅助判断锋面移动，不能把整个气旋平移与环流旋转混同",
+        "reason": "区分系统移动与气流旋转。",
+        "references": []
+      }
+    ],
+    "references": [
+      {
+        "id": "noaa-fronts",
+        "title": "NOAA：地面天气图与锋面",
+        "url": "https://www.noaa.gov/jetstream/wxmaps"
+      },
+      {
+        "id": "nws-fronts",
+        "title": "美国国家气象局：气团与锋面天气",
+        "url": "https://www.weather.gov/lmk/basic-fronts"
+      }
+    ],
+    "note": "按原顺序提取，保留标记答案与原图。含标注的原图默认折叠，先回忆再展开核对；重点修订有原文记录，具体条件以题目材料为准。"
+  }
+}
